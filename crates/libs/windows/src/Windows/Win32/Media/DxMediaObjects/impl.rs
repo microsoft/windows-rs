@@ -34,8 +34,8 @@ impl IDMOQualityControl_Vtbl {
             GetStatus: GetStatus::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDMOQualityControl as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDMOQualityControl as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDMOVideoOutputOptimizations_Impl: Sized {
@@ -93,8 +93,8 @@ impl IDMOVideoOutputOptimizations_Vtbl {
             GetCurrentSampleRequirements: GetCurrentSampleRequirements::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDMOVideoOutputOptimizations as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDMOVideoOutputOptimizations as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IEnumDMO_Impl: Sized {
@@ -140,8 +140,8 @@ impl IEnumDMO_Vtbl {
             Clone: Clone::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IEnumDMO as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IEnumDMO as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMediaBuffer_Impl: Sized {
@@ -180,8 +180,8 @@ impl IMediaBuffer_Vtbl {
             GetBufferAndLength: GetBufferAndLength::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMediaBuffer as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMediaBuffer as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMediaObject_Impl: Sized {
@@ -364,8 +364,8 @@ impl IMediaObject_Vtbl {
             Lock: Lock::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMediaObject as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMediaObject as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMediaObjectInPlace_Impl: Sized {
@@ -410,7 +410,7 @@ impl IMediaObjectInPlace_Vtbl {
             GetLatency: GetLatency::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMediaObjectInPlace as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMediaObjectInPlace as ::windows_core::ComInterface>::IID
     }
 }

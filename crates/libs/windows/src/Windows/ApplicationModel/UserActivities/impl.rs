@@ -20,7 +20,7 @@ impl IUserActivityContentInfo_Vtbl {
         }
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, IUserActivityContentInfo, OFFSET>(), ToJson: ToJson::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUserActivityContentInfo as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUserActivityContentInfo as ::windows_core::ComInterface>::IID
     }
 }

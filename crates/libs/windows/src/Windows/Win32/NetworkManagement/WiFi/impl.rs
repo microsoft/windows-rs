@@ -94,8 +94,8 @@ impl IDot11AdHocInterface_Vtbl {
             GetStatus: GetStatus::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDot11AdHocInterface as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDot11AdHocInterface as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDot11AdHocInterfaceNotificationSink_Impl: Sized {
@@ -111,8 +111,8 @@ impl IDot11AdHocInterfaceNotificationSink_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnConnectionStatusChange: OnConnectionStatusChange::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDot11AdHocInterfaceNotificationSink as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDot11AdHocInterfaceNotificationSink as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDot11AdHocManager_Impl: Sized {
@@ -183,8 +183,8 @@ impl IDot11AdHocManager_Vtbl {
             GetNetwork: GetNetwork::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDot11AdHocManager as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDot11AdHocManager as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDot11AdHocManagerNotificationSink_Impl: Sized {
@@ -224,8 +224,8 @@ impl IDot11AdHocManagerNotificationSink_Vtbl {
             OnInterfaceRemove: OnInterfaceRemove::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDot11AdHocManagerNotificationSink as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDot11AdHocManagerNotificationSink as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDot11AdHocNetwork_Impl: Sized {
@@ -345,8 +345,8 @@ impl IDot11AdHocNetwork_Vtbl {
             Disconnect: Disconnect::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDot11AdHocNetwork as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDot11AdHocNetwork as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDot11AdHocNetworkNotificationSink_Impl: Sized {
@@ -372,8 +372,8 @@ impl IDot11AdHocNetworkNotificationSink_Vtbl {
             OnConnectFail: OnConnectFail::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDot11AdHocNetworkNotificationSink as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDot11AdHocNetworkNotificationSink as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDot11AdHocSecuritySettings_Impl: Sized {
@@ -399,8 +399,8 @@ impl IDot11AdHocSecuritySettings_Vtbl {
             GetDot11CipherAlgorithm: GetDot11CipherAlgorithm::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDot11AdHocSecuritySettings as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDot11AdHocSecuritySettings as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IEnumDot11AdHocInterfaces_Impl: Sized {
@@ -446,8 +446,8 @@ impl IEnumDot11AdHocInterfaces_Vtbl {
             Clone: Clone::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IEnumDot11AdHocInterfaces as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IEnumDot11AdHocInterfaces as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IEnumDot11AdHocNetworks_Impl: Sized {
@@ -493,8 +493,8 @@ impl IEnumDot11AdHocNetworks_Vtbl {
             Clone: Clone::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IEnumDot11AdHocNetworks as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IEnumDot11AdHocNetworks as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IEnumDot11AdHocSecuritySettings_Impl: Sized {
@@ -540,7 +540,7 @@ impl IEnumDot11AdHocSecuritySettings_Vtbl {
             Clone: Clone::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IEnumDot11AdHocSecuritySettings as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IEnumDot11AdHocSecuritySettings as ::windows_core::ComInterface>::IID
     }
 }

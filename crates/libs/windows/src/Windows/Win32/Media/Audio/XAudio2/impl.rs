@@ -83,8 +83,8 @@ impl IXAPO_Vtbl {
             CalcOutputFrames: CalcOutputFrames::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IXAPO as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IXAPO as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IXAPOHrtfParameters_Impl: Sized {
@@ -124,8 +124,8 @@ impl IXAPOHrtfParameters_Vtbl {
             SetEnvironment: SetEnvironment::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IXAPOHrtfParameters as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IXAPOHrtfParameters as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IXAPOParameters_Impl: Sized {
@@ -151,8 +151,8 @@ impl IXAPOParameters_Vtbl {
             GetParameters: GetParameters::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IXAPOParameters as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IXAPOParameters as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IXAudio2_Impl: Sized {
@@ -234,8 +234,8 @@ impl IXAudio2_Vtbl {
             SetDebugConfiguration: SetDebugConfiguration::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IXAudio2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IXAudio2 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IXAudio2EngineCallback_Impl: Sized {
@@ -298,8 +298,8 @@ impl IXAudio2Extension_Vtbl {
             GetProcessor: GetProcessor::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IXAudio2Extension as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IXAudio2Extension as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IXAudio2MasteringVoice_Impl: Sized + IXAudio2Voice_Impl {

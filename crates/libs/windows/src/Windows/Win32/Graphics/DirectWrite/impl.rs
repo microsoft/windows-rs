@@ -21,8 +21,8 @@ impl IDWriteAsyncResult_Vtbl {
             GetResult: GetResult::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteAsyncResult as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteAsyncResult as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
@@ -100,8 +100,8 @@ impl IDWriteBitmapRenderTarget_Vtbl {
             Resize: Resize::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteBitmapRenderTarget as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteBitmapRenderTarget as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
@@ -131,8 +131,8 @@ impl IDWriteBitmapRenderTarget1_Vtbl {
             SetTextAntialiasMode: SetTextAntialiasMode::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteBitmapRenderTarget1 as ::windows_core::ComInterface>::IID || *iid == <IDWriteBitmapRenderTarget as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteBitmapRenderTarget1 as ::windows_core::ComInterface>::IID || iid == &<IDWriteBitmapRenderTarget as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteColorGlyphRunEnumerator_Impl: Sized {
@@ -170,8 +170,8 @@ impl IDWriteColorGlyphRunEnumerator_Vtbl {
             GetCurrentRun: GetCurrentRun::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteColorGlyphRunEnumerator as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteColorGlyphRunEnumerator as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteColorGlyphRunEnumerator1_Impl: Sized + IDWriteColorGlyphRunEnumerator_Impl {
@@ -193,8 +193,8 @@ impl IDWriteColorGlyphRunEnumerator1_Vtbl {
         }
         Self { base__: IDWriteColorGlyphRunEnumerator_Vtbl::new::<Identity, Impl, OFFSET>(), GetCurrentRun2: GetCurrentRun2::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteColorGlyphRunEnumerator1 as ::windows_core::ComInterface>::IID || *iid == <IDWriteColorGlyphRunEnumerator as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteColorGlyphRunEnumerator1 as ::windows_core::ComInterface>::IID || iid == &<IDWriteColorGlyphRunEnumerator as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
@@ -453,8 +453,8 @@ impl IDWriteFactory_Vtbl {
             CreateGlyphRunAnalysis: CreateGlyphRunAnalysis::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteFactory as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteFactory as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
@@ -490,8 +490,8 @@ impl IDWriteFactory1_Vtbl {
             CreateCustomRenderingParams2: CreateCustomRenderingParams2::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteFactory1 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFactory as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteFactory1 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFactory as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
@@ -572,8 +572,8 @@ impl IDWriteFactory2_Vtbl {
             CreateGlyphRunAnalysis2: CreateGlyphRunAnalysis2::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteFactory2 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFactory as ::windows_core::ComInterface>::IID || *iid == <IDWriteFactory1 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteFactory2 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFactory as ::windows_core::ComInterface>::IID || iid == &<IDWriteFactory1 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
@@ -700,8 +700,8 @@ impl IDWriteFactory3_Vtbl {
             GetFontDownloadQueue: GetFontDownloadQueue::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteFactory3 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFactory as ::windows_core::ComInterface>::IID || *iid == <IDWriteFactory1 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFactory2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteFactory3 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFactory as ::windows_core::ComInterface>::IID || iid == &<IDWriteFactory1 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFactory2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_Gdi\"`"]
@@ -756,8 +756,8 @@ impl IDWriteFactory4_Vtbl {
             ComputeGlyphOrigins2: ComputeGlyphOrigins2::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteFactory4 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFactory as ::windows_core::ComInterface>::IID || *iid == <IDWriteFactory1 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFactory2 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFactory3 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteFactory4 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFactory as ::windows_core::ComInterface>::IID || iid == &<IDWriteFactory1 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFactory2 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFactory3 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_Gdi\"`"]
@@ -832,8 +832,8 @@ impl IDWriteFactory5_Vtbl {
             UnpackFontFile: UnpackFontFile::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteFactory5 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFactory as ::windows_core::ComInterface>::IID || *iid == <IDWriteFactory1 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFactory2 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFactory3 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFactory4 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteFactory5 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFactory as ::windows_core::ComInterface>::IID || iid == &<IDWriteFactory1 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFactory2 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFactory3 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFactory4 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_Gdi\"`"]
@@ -940,8 +940,8 @@ impl IDWriteFactory6_Vtbl {
             CreateTextFormat2: CreateTextFormat2::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteFactory6 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFactory as ::windows_core::ComInterface>::IID || *iid == <IDWriteFactory1 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFactory2 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFactory3 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFactory4 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFactory5 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteFactory6 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFactory as ::windows_core::ComInterface>::IID || iid == &<IDWriteFactory1 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFactory2 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFactory3 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFactory4 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFactory5 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_Gdi\"`"]
@@ -983,8 +983,8 @@ impl IDWriteFactory7_Vtbl {
             GetSystemFontCollection4: GetSystemFontCollection4::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteFactory7 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFactory as ::windows_core::ComInterface>::IID || *iid == <IDWriteFactory1 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFactory2 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFactory3 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFactory4 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFactory5 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFactory6 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteFactory7 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFactory as ::windows_core::ComInterface>::IID || iid == &<IDWriteFactory1 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFactory2 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFactory3 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFactory4 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFactory5 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFactory6 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteFont_Impl: Sized {
@@ -1097,8 +1097,8 @@ impl IDWriteFont_Vtbl {
             CreateFontFace: CreateFontFace::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteFont as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteFont as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteFont1_Impl: Sized + IDWriteFont_Impl {
@@ -1138,8 +1138,8 @@ impl IDWriteFont1_Vtbl {
             IsMonospacedFont: IsMonospacedFont::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteFont1 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFont as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteFont1 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFont as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteFont2_Impl: Sized + IDWriteFont1_Impl {
@@ -1155,8 +1155,8 @@ impl IDWriteFont2_Vtbl {
         }
         Self { base__: IDWriteFont1_Vtbl::new::<Identity, Impl, OFFSET>(), IsColorFont: IsColorFont::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteFont2 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFont as ::windows_core::ComInterface>::IID || *iid == <IDWriteFont1 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteFont2 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFont as ::windows_core::ComInterface>::IID || iid == &<IDWriteFont1 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteFont3_Impl: Sized + IDWriteFont2_Impl {
@@ -1215,8 +1215,8 @@ impl IDWriteFont3_Vtbl {
             GetLocality: GetLocality::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteFont3 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFont as ::windows_core::ComInterface>::IID || *iid == <IDWriteFont1 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFont2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteFont3 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFont as ::windows_core::ComInterface>::IID || iid == &<IDWriteFont1 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFont2 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteFontCollection_Impl: Sized {
@@ -1268,8 +1268,8 @@ impl IDWriteFontCollection_Vtbl {
             GetFontFromFontFace: GetFontFromFontFace::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteFontCollection as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteFontCollection as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteFontCollection1_Impl: Sized + IDWriteFontCollection_Impl {
@@ -1307,8 +1307,8 @@ impl IDWriteFontCollection1_Vtbl {
             GetFontFamily2: GetFontFamily2::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteFontCollection1 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFontCollection as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteFontCollection1 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFontCollection as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteFontCollection2_Impl: Sized + IDWriteFontCollection1_Impl {
@@ -1366,8 +1366,8 @@ impl IDWriteFontCollection2_Vtbl {
             GetFontSet2: GetFontSet2::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteFontCollection2 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFontCollection as ::windows_core::ComInterface>::IID || *iid == <IDWriteFontCollection1 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteFontCollection2 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFontCollection as ::windows_core::ComInterface>::IID || iid == &<IDWriteFontCollection1 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteFontCollection3_Impl: Sized + IDWriteFontCollection2_Impl {
@@ -1383,8 +1383,8 @@ impl IDWriteFontCollection3_Vtbl {
         }
         Self { base__: IDWriteFontCollection2_Vtbl::new::<Identity, Impl, OFFSET>(), GetExpirationEvent: GetExpirationEvent::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteFontCollection3 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFontCollection as ::windows_core::ComInterface>::IID || *iid == <IDWriteFontCollection1 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFontCollection2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteFontCollection3 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFontCollection as ::windows_core::ComInterface>::IID || iid == &<IDWriteFontCollection1 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFontCollection2 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteFontCollectionLoader_Impl: Sized {
@@ -1406,8 +1406,8 @@ impl IDWriteFontCollectionLoader_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateEnumeratorFromKey: CreateEnumeratorFromKey::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteFontCollectionLoader as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteFontCollectionLoader as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteFontDownloadListener_Impl: Sized {
@@ -1423,8 +1423,8 @@ impl IDWriteFontDownloadListener_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), DownloadCompleted: DownloadCompleted::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteFontDownloadListener as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteFontDownloadListener as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteFontDownloadQueue_Impl: Sized {
@@ -1484,8 +1484,8 @@ impl IDWriteFontDownloadQueue_Vtbl {
             GetGenerationCount: GetGenerationCount::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteFontDownloadQueue as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteFontDownloadQueue as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct2D_Common\"`"]
@@ -1612,8 +1612,8 @@ impl IDWriteFontFace_Vtbl {
             GetGdiCompatibleGlyphMetrics: GetGdiCompatibleGlyphMetrics::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteFontFace as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteFontFace as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct2D_Common\"`"]
@@ -1719,8 +1719,8 @@ impl IDWriteFontFace1_Vtbl {
             HasVerticalGlyphVariants: HasVerticalGlyphVariants::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteFontFace1 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFontFace as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteFontFace1 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFontFace as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct2D_Common\"`"]
@@ -1771,8 +1771,8 @@ impl IDWriteFontFace2_Vtbl {
             GetRecommendedRenderingMode3: GetRecommendedRenderingMode3::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteFontFace2 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFontFace as ::windows_core::ComInterface>::IID || *iid == <IDWriteFontFace1 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteFontFace2 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFontFace as ::windows_core::ComInterface>::IID || iid == &<IDWriteFontFace1 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct2D_Common\"`"]
@@ -1916,8 +1916,8 @@ impl IDWriteFontFace3_Vtbl {
             AreGlyphsLocal: AreGlyphsLocal::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteFontFace3 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFontFace as ::windows_core::ComInterface>::IID || *iid == <IDWriteFontFace1 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFontFace2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteFontFace3 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFontFace as ::windows_core::ComInterface>::IID || iid == &<IDWriteFontFace1 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFontFace2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct2D_Common\"`"]
@@ -1967,8 +1967,8 @@ impl IDWriteFontFace4_Vtbl {
             ReleaseGlyphImageData: ReleaseGlyphImageData::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteFontFace4 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFontFace as ::windows_core::ComInterface>::IID || *iid == <IDWriteFontFace1 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFontFace2 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFontFace3 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteFontFace4 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFontFace as ::windows_core::ComInterface>::IID || iid == &<IDWriteFontFace1 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFontFace2 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFontFace3 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct2D_Common\"`"]
@@ -2025,8 +2025,8 @@ impl IDWriteFontFace5_Vtbl {
             Equals: Equals::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteFontFace5 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFontFace as ::windows_core::ComInterface>::IID || *iid == <IDWriteFontFace1 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFontFace2 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFontFace3 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFontFace4 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteFontFace5 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFontFace as ::windows_core::ComInterface>::IID || iid == &<IDWriteFontFace1 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFontFace2 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFontFace3 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFontFace4 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct2D_Common\"`"]
@@ -2068,8 +2068,8 @@ impl IDWriteFontFace6_Vtbl {
             GetFaceNames2: GetFaceNames2::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteFontFace6 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFontFace as ::windows_core::ComInterface>::IID || *iid == <IDWriteFontFace1 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFontFace2 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFontFace3 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFontFace4 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFontFace5 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteFontFace6 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFontFace as ::windows_core::ComInterface>::IID || iid == &<IDWriteFontFace1 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFontFace2 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFontFace3 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFontFace4 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFontFace5 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteFontFaceReference_Impl: Sized {
@@ -2203,8 +2203,8 @@ impl IDWriteFontFaceReference_Vtbl {
             EnqueueFileFragmentDownloadRequest: EnqueueFileFragmentDownloadRequest::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteFontFaceReference as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteFontFaceReference as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteFontFaceReference1_Impl: Sized + IDWriteFontFaceReference_Impl {
@@ -2243,8 +2243,8 @@ impl IDWriteFontFaceReference1_Vtbl {
             GetFontAxisValues: GetFontAxisValues::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteFontFaceReference1 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFontFaceReference as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteFontFaceReference1 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFontFaceReference as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteFontFallback_Impl: Sized {
@@ -2273,8 +2273,8 @@ impl IDWriteFontFallback_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), MapCharacters: MapCharacters::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteFontFallback as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteFontFallback as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteFontFallback1_Impl: Sized + IDWriteFontFallback_Impl {
@@ -2291,8 +2291,8 @@ impl IDWriteFontFallback1_Vtbl {
         }
         Self { base__: IDWriteFontFallback_Vtbl::new::<Identity, Impl, OFFSET>(), MapCharacters2: MapCharacters2::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteFontFallback1 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFontFallback as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteFontFallback1 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFontFallback as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteFontFallbackBuilder_Impl: Sized {
@@ -2331,8 +2331,8 @@ impl IDWriteFontFallbackBuilder_Vtbl {
             CreateFontFallback: CreateFontFallback::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteFontFallbackBuilder as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteFontFallbackBuilder as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteFontFamily_Impl: Sized + IDWriteFontList_Impl {
@@ -2383,8 +2383,8 @@ impl IDWriteFontFamily_Vtbl {
             GetMatchingFonts: GetMatchingFonts::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteFontFamily as ::windows_core::ComInterface>::IID || *iid == <IDWriteFontList as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteFontFamily as ::windows_core::ComInterface>::IID || iid == &<IDWriteFontList as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteFontFamily1_Impl: Sized + IDWriteFontFamily_Impl {
@@ -2429,8 +2429,8 @@ impl IDWriteFontFamily1_Vtbl {
             GetFontFaceReference: GetFontFaceReference::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteFontFamily1 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFontList as ::windows_core::ComInterface>::IID || *iid == <IDWriteFontFamily as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteFontFamily1 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFontList as ::windows_core::ComInterface>::IID || iid == &<IDWriteFontFamily as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteFontFamily2_Impl: Sized + IDWriteFontFamily1_Impl {
@@ -2468,8 +2468,8 @@ impl IDWriteFontFamily2_Vtbl {
             GetFontSet: GetFontSet::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteFontFamily2 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFontList as ::windows_core::ComInterface>::IID || *iid == <IDWriteFontFamily as ::windows_core::ComInterface>::IID || *iid == <IDWriteFontFamily1 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteFontFamily2 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFontList as ::windows_core::ComInterface>::IID || iid == &<IDWriteFontFamily as ::windows_core::ComInterface>::IID || iid == &<IDWriteFontFamily1 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteFontFile_Impl: Sized {
@@ -2508,8 +2508,8 @@ impl IDWriteFontFile_Vtbl {
             Analyze: Analyze::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteFontFile as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteFontFile as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteFontFileEnumerator_Impl: Sized {
@@ -2547,8 +2547,8 @@ impl IDWriteFontFileEnumerator_Vtbl {
             GetCurrentFontFile: GetCurrentFontFile::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteFontFileEnumerator as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteFontFileEnumerator as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteFontFileLoader_Impl: Sized {
@@ -2570,8 +2570,8 @@ impl IDWriteFontFileLoader_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateStreamFromKey: CreateStreamFromKey::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteFontFileLoader as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteFontFileLoader as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteFontFileStream_Impl: Sized {
@@ -2623,8 +2623,8 @@ impl IDWriteFontFileStream_Vtbl {
             GetLastWriteTime: GetLastWriteTime::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteFontFileStream as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteFontFileStream as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteFontList_Impl: Sized {
@@ -2669,8 +2669,8 @@ impl IDWriteFontList_Vtbl {
             GetFont: GetFont::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteFontList as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteFontList as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteFontList1_Impl: Sized + IDWriteFontList_Impl {
@@ -2715,8 +2715,8 @@ impl IDWriteFontList1_Vtbl {
             GetFontFaceReference: GetFontFaceReference::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteFontList1 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFontList as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteFontList1 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFontList as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteFontList2_Impl: Sized + IDWriteFontList1_Impl {
@@ -2738,8 +2738,8 @@ impl IDWriteFontList2_Vtbl {
         }
         Self { base__: IDWriteFontList1_Vtbl::new::<Identity, Impl, OFFSET>(), GetFontSet: GetFontSet::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteFontList2 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFontList as ::windows_core::ComInterface>::IID || *iid == <IDWriteFontList1 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteFontList2 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFontList as ::windows_core::ComInterface>::IID || iid == &<IDWriteFontList1 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteFontResource_Impl: Sized {
@@ -2859,8 +2859,8 @@ impl IDWriteFontResource_Vtbl {
             CreateFontFaceReference: CreateFontFaceReference::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteFontResource as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteFontResource as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteFontSet_Impl: Sized {
@@ -2978,8 +2978,8 @@ impl IDWriteFontSet_Vtbl {
             GetMatchingFonts2: GetMatchingFonts2::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteFontSet as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteFontSet as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteFontSet1_Impl: Sized + IDWriteFontSet_Impl {
@@ -3130,8 +3130,8 @@ impl IDWriteFontSet1_Vtbl {
             GetFontLocality: GetFontLocality::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteFontSet1 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFontSet as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteFontSet1 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFontSet as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteFontSet2_Impl: Sized + IDWriteFontSet1_Impl {
@@ -3147,8 +3147,8 @@ impl IDWriteFontSet2_Vtbl {
         }
         Self { base__: IDWriteFontSet1_Vtbl::new::<Identity, Impl, OFFSET>(), GetExpirationEvent: GetExpirationEvent::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteFontSet2 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFontSet as ::windows_core::ComInterface>::IID || *iid == <IDWriteFontSet1 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteFontSet2 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFontSet as ::windows_core::ComInterface>::IID || iid == &<IDWriteFontSet1 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteFontSet3_Impl: Sized + IDWriteFontSet2_Impl {
@@ -3181,8 +3181,8 @@ impl IDWriteFontSet3_Vtbl {
             GetFontSourceName: GetFontSourceName::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteFontSet3 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFontSet as ::windows_core::ComInterface>::IID || *iid == <IDWriteFontSet1 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFontSet2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteFontSet3 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFontSet as ::windows_core::ComInterface>::IID || iid == &<IDWriteFontSet1 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFontSet2 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteFontSet4_Impl: Sized + IDWriteFontSet3_Impl {
@@ -3214,8 +3214,8 @@ impl IDWriteFontSet4_Vtbl {
             GetMatchingFonts4: GetMatchingFonts4::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteFontSet4 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFontSet as ::windows_core::ComInterface>::IID || *iid == <IDWriteFontSet1 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFontSet2 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFontSet3 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteFontSet4 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFontSet as ::windows_core::ComInterface>::IID || iid == &<IDWriteFontSet1 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFontSet2 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFontSet3 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteFontSetBuilder_Impl: Sized {
@@ -3261,8 +3261,8 @@ impl IDWriteFontSetBuilder_Vtbl {
             CreateFontSet: CreateFontSet::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteFontSetBuilder as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteFontSetBuilder as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteFontSetBuilder1_Impl: Sized + IDWriteFontSetBuilder_Impl {
@@ -3278,8 +3278,8 @@ impl IDWriteFontSetBuilder1_Vtbl {
         }
         Self { base__: IDWriteFontSetBuilder_Vtbl::new::<Identity, Impl, OFFSET>(), AddFontFile: AddFontFile::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteFontSetBuilder1 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFontSetBuilder as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteFontSetBuilder1 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFontSetBuilder as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteFontSetBuilder2_Impl: Sized + IDWriteFontSetBuilder1_Impl {
@@ -3305,8 +3305,8 @@ impl IDWriteFontSetBuilder2_Vtbl {
             AddFontFile2: AddFontFile2::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteFontSetBuilder2 as ::windows_core::ComInterface>::IID || *iid == <IDWriteFontSetBuilder as ::windows_core::ComInterface>::IID || *iid == <IDWriteFontSetBuilder1 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteFontSetBuilder2 as ::windows_core::ComInterface>::IID || iid == &<IDWriteFontSetBuilder as ::windows_core::ComInterface>::IID || iid == &<IDWriteFontSetBuilder1 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
@@ -3375,8 +3375,8 @@ impl IDWriteGdiInterop_Vtbl {
             CreateBitmapRenderTarget: CreateBitmapRenderTarget::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteGdiInterop as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteGdiInterop as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`"]
@@ -3432,8 +3432,8 @@ impl IDWriteGdiInterop1_Vtbl {
             GetMatchingFontsByLOGFONT: GetMatchingFontsByLOGFONT::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteGdiInterop1 as ::windows_core::ComInterface>::IID || *iid == <IDWriteGdiInterop as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteGdiInterop1 as ::windows_core::ComInterface>::IID || iid == &<IDWriteGdiInterop as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteGlyphRunAnalysis_Impl: Sized {
@@ -3472,8 +3472,8 @@ impl IDWriteGlyphRunAnalysis_Vtbl {
             GetAlphaBlendParams: GetAlphaBlendParams::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteGlyphRunAnalysis as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteGlyphRunAnalysis as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteInMemoryFontFileLoader_Impl: Sized + IDWriteFontFileLoader_Impl {
@@ -3505,8 +3505,8 @@ impl IDWriteInMemoryFontFileLoader_Vtbl {
             GetFileCount: GetFileCount::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteInMemoryFontFileLoader as ::windows_core::ComInterface>::IID || *iid == <IDWriteFontFileLoader as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteInMemoryFontFileLoader as ::windows_core::ComInterface>::IID || iid == &<IDWriteFontFileLoader as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteInlineObject_Impl: Sized {
@@ -3558,8 +3558,8 @@ impl IDWriteInlineObject_Vtbl {
             GetBreakConditions: GetBreakConditions::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteInlineObject as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteInlineObject as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteLocalFontFileLoader_Impl: Sized + IDWriteFontFileLoader_Impl {
@@ -3604,8 +3604,8 @@ impl IDWriteLocalFontFileLoader_Vtbl {
             GetLastWriteTimeFromKey: GetLastWriteTimeFromKey::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteLocalFontFileLoader as ::windows_core::ComInterface>::IID || *iid == <IDWriteFontFileLoader as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteLocalFontFileLoader as ::windows_core::ComInterface>::IID || iid == &<IDWriteFontFileLoader as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteLocalizedStrings_Impl: Sized {
@@ -3671,8 +3671,8 @@ impl IDWriteLocalizedStrings_Vtbl {
             GetString: GetString::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteLocalizedStrings as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteLocalizedStrings as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteNumberSubstitution_Impl: Sized {}
@@ -3681,8 +3681,8 @@ impl IDWriteNumberSubstitution_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDWriteNumberSubstitution_Impl, const OFFSET: isize>() -> IDWriteNumberSubstitution_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>() }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteNumberSubstitution as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteNumberSubstitution as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWritePixelSnapping_Impl: Sized {
@@ -3727,8 +3727,8 @@ impl IDWritePixelSnapping_Vtbl {
             GetPixelsPerDip: GetPixelsPerDip::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWritePixelSnapping as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWritePixelSnapping as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteRemoteFontFileLoader_Impl: Sized + IDWriteFontFileLoader_Impl {
@@ -3779,8 +3779,8 @@ impl IDWriteRemoteFontFileLoader_Vtbl {
             CreateFontFileReferenceFromUrl: CreateFontFileReferenceFromUrl::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteRemoteFontFileLoader as ::windows_core::ComInterface>::IID || *iid == <IDWriteFontFileLoader as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteRemoteFontFileLoader as ::windows_core::ComInterface>::IID || iid == &<IDWriteFontFileLoader as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteRemoteFontFileStream_Impl: Sized + IDWriteFontFileStream_Impl {
@@ -3832,8 +3832,8 @@ impl IDWriteRemoteFontFileStream_Vtbl {
             BeginDownload: BeginDownload::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteRemoteFontFileStream as ::windows_core::ComInterface>::IID || *iid == <IDWriteFontFileStream as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteRemoteFontFileStream as ::windows_core::ComInterface>::IID || iid == &<IDWriteFontFileStream as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteRenderingParams_Impl: Sized {
@@ -3880,8 +3880,8 @@ impl IDWriteRenderingParams_Vtbl {
             GetRenderingMode: GetRenderingMode::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteRenderingParams as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteRenderingParams as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteRenderingParams1_Impl: Sized + IDWriteRenderingParams_Impl {
@@ -3900,8 +3900,8 @@ impl IDWriteRenderingParams1_Vtbl {
             GetGrayscaleEnhancedContrast: GetGrayscaleEnhancedContrast::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteRenderingParams1 as ::windows_core::ComInterface>::IID || *iid == <IDWriteRenderingParams as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteRenderingParams1 as ::windows_core::ComInterface>::IID || iid == &<IDWriteRenderingParams as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteRenderingParams2_Impl: Sized + IDWriteRenderingParams1_Impl {
@@ -3917,8 +3917,8 @@ impl IDWriteRenderingParams2_Vtbl {
         }
         Self { base__: IDWriteRenderingParams1_Vtbl::new::<Identity, Impl, OFFSET>(), GetGridFitMode: GetGridFitMode::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteRenderingParams2 as ::windows_core::ComInterface>::IID || *iid == <IDWriteRenderingParams as ::windows_core::ComInterface>::IID || *iid == <IDWriteRenderingParams1 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteRenderingParams2 as ::windows_core::ComInterface>::IID || iid == &<IDWriteRenderingParams as ::windows_core::ComInterface>::IID || iid == &<IDWriteRenderingParams1 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteRenderingParams3_Impl: Sized + IDWriteRenderingParams2_Impl {
@@ -3934,8 +3934,8 @@ impl IDWriteRenderingParams3_Vtbl {
         }
         Self { base__: IDWriteRenderingParams2_Vtbl::new::<Identity, Impl, OFFSET>(), GetRenderingMode1: GetRenderingMode1::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteRenderingParams3 as ::windows_core::ComInterface>::IID || *iid == <IDWriteRenderingParams as ::windows_core::ComInterface>::IID || *iid == <IDWriteRenderingParams1 as ::windows_core::ComInterface>::IID || *iid == <IDWriteRenderingParams2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteRenderingParams3 as ::windows_core::ComInterface>::IID || iid == &<IDWriteRenderingParams as ::windows_core::ComInterface>::IID || iid == &<IDWriteRenderingParams1 as ::windows_core::ComInterface>::IID || iid == &<IDWriteRenderingParams2 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteStringList_Impl: Sized {
@@ -3994,8 +3994,8 @@ impl IDWriteStringList_Vtbl {
             GetString: GetString::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteStringList as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteStringList as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteTextAnalysisSink_Impl: Sized {
@@ -4035,8 +4035,8 @@ impl IDWriteTextAnalysisSink_Vtbl {
             SetNumberSubstitution: SetNumberSubstitution::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteTextAnalysisSink as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteTextAnalysisSink as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteTextAnalysisSink1_Impl: Sized + IDWriteTextAnalysisSink_Impl {
@@ -4052,8 +4052,8 @@ impl IDWriteTextAnalysisSink1_Vtbl {
         }
         Self { base__: IDWriteTextAnalysisSink_Vtbl::new::<Identity, Impl, OFFSET>(), SetGlyphOrientation: SetGlyphOrientation::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteTextAnalysisSink1 as ::windows_core::ComInterface>::IID || *iid == <IDWriteTextAnalysisSink as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteTextAnalysisSink1 as ::windows_core::ComInterface>::IID || iid == &<IDWriteTextAnalysisSink as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteTextAnalysisSource_Impl: Sized {
@@ -4100,8 +4100,8 @@ impl IDWriteTextAnalysisSource_Vtbl {
             GetNumberSubstitution: GetNumberSubstitution::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteTextAnalysisSource as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteTextAnalysisSource as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteTextAnalysisSource1_Impl: Sized + IDWriteTextAnalysisSource_Impl {
@@ -4120,8 +4120,8 @@ impl IDWriteTextAnalysisSource1_Vtbl {
             GetVerticalGlyphOrientation: GetVerticalGlyphOrientation::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteTextAnalysisSource1 as ::windows_core::ComInterface>::IID || *iid == <IDWriteTextAnalysisSource as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteTextAnalysisSource1 as ::windows_core::ComInterface>::IID || iid == &<IDWriteTextAnalysisSource as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteTextAnalyzer_Impl: Sized {
@@ -4329,8 +4329,8 @@ impl IDWriteTextAnalyzer_Vtbl {
             GetGdiCompatibleGlyphPlacements: GetGdiCompatibleGlyphPlacements::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteTextAnalyzer as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteTextAnalyzer as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteTextAnalyzer1_Impl: Sized + IDWriteTextAnalyzer_Impl {
@@ -4437,8 +4437,8 @@ impl IDWriteTextAnalyzer1_Vtbl {
             GetJustifiedGlyphs: GetJustifiedGlyphs::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteTextAnalyzer1 as ::windows_core::ComInterface>::IID || *iid == <IDWriteTextAnalyzer as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteTextAnalyzer1 as ::windows_core::ComInterface>::IID || iid == &<IDWriteTextAnalyzer as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteTextAnalyzer2_Impl: Sized + IDWriteTextAnalyzer1_Impl {
@@ -4471,8 +4471,8 @@ impl IDWriteTextAnalyzer2_Vtbl {
             CheckTypographicFeature: CheckTypographicFeature::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteTextAnalyzer2 as ::windows_core::ComInterface>::IID || *iid == <IDWriteTextAnalyzer as ::windows_core::ComInterface>::IID || *iid == <IDWriteTextAnalyzer1 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteTextAnalyzer2 as ::windows_core::ComInterface>::IID || iid == &<IDWriteTextAnalyzer as ::windows_core::ComInterface>::IID || iid == &<IDWriteTextAnalyzer1 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteTextFormat_Impl: Sized {
@@ -4665,8 +4665,8 @@ impl IDWriteTextFormat_Vtbl {
             GetLocaleName: GetLocaleName::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteTextFormat as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteTextFormat as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteTextFormat1_Impl: Sized + IDWriteTextFormat_Impl {
@@ -4740,8 +4740,8 @@ impl IDWriteTextFormat1_Vtbl {
             GetFontFallback: GetFontFallback::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteTextFormat1 as ::windows_core::ComInterface>::IID || *iid == <IDWriteTextFormat as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteTextFormat1 as ::windows_core::ComInterface>::IID || iid == &<IDWriteTextFormat as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteTextFormat2_Impl: Sized + IDWriteTextFormat1_Impl {
@@ -4767,8 +4767,8 @@ impl IDWriteTextFormat2_Vtbl {
             GetLineSpacing2: GetLineSpacing2::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteTextFormat2 as ::windows_core::ComInterface>::IID || *iid == <IDWriteTextFormat as ::windows_core::ComInterface>::IID || *iid == <IDWriteTextFormat1 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteTextFormat2 as ::windows_core::ComInterface>::IID || iid == &<IDWriteTextFormat as ::windows_core::ComInterface>::IID || iid == &<IDWriteTextFormat1 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteTextFormat3_Impl: Sized + IDWriteTextFormat2_Impl {
@@ -4815,8 +4815,8 @@ impl IDWriteTextFormat3_Vtbl {
             SetAutomaticFontAxes: SetAutomaticFontAxes::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteTextFormat3 as ::windows_core::ComInterface>::IID || *iid == <IDWriteTextFormat as ::windows_core::ComInterface>::IID || *iid == <IDWriteTextFormat1 as ::windows_core::ComInterface>::IID || *iid == <IDWriteTextFormat2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteTextFormat3 as ::windows_core::ComInterface>::IID || iid == &<IDWriteTextFormat as ::windows_core::ComInterface>::IID || iid == &<IDWriteTextFormat1 as ::windows_core::ComInterface>::IID || iid == &<IDWriteTextFormat2 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteTextLayout_Impl: Sized + IDWriteTextFormat_Impl {
@@ -5113,8 +5113,8 @@ impl IDWriteTextLayout_Vtbl {
             HitTestTextRange: HitTestTextRange::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteTextLayout as ::windows_core::ComInterface>::IID || *iid == <IDWriteTextFormat as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteTextLayout as ::windows_core::ComInterface>::IID || iid == &<IDWriteTextFormat as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteTextLayout1_Impl: Sized + IDWriteTextLayout_Impl {
@@ -5154,8 +5154,8 @@ impl IDWriteTextLayout1_Vtbl {
             GetCharacterSpacing: GetCharacterSpacing::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteTextLayout1 as ::windows_core::ComInterface>::IID || *iid == <IDWriteTextFormat as ::windows_core::ComInterface>::IID || *iid == <IDWriteTextLayout as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteTextLayout1 as ::windows_core::ComInterface>::IID || iid == &<IDWriteTextFormat as ::windows_core::ComInterface>::IID || iid == &<IDWriteTextLayout as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteTextLayout2_Impl: Sized + IDWriteTextLayout1_Impl {
@@ -5236,8 +5236,8 @@ impl IDWriteTextLayout2_Vtbl {
             GetFontFallback: GetFontFallback::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteTextLayout2 as ::windows_core::ComInterface>::IID || *iid == <IDWriteTextFormat as ::windows_core::ComInterface>::IID || *iid == <IDWriteTextLayout as ::windows_core::ComInterface>::IID || *iid == <IDWriteTextLayout1 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteTextLayout2 as ::windows_core::ComInterface>::IID || iid == &<IDWriteTextFormat as ::windows_core::ComInterface>::IID || iid == &<IDWriteTextLayout as ::windows_core::ComInterface>::IID || iid == &<IDWriteTextLayout1 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteTextLayout3_Impl: Sized + IDWriteTextLayout2_Impl {
@@ -5277,8 +5277,8 @@ impl IDWriteTextLayout3_Vtbl {
             GetLineMetrics2: GetLineMetrics2::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteTextLayout3 as ::windows_core::ComInterface>::IID || *iid == <IDWriteTextFormat as ::windows_core::ComInterface>::IID || *iid == <IDWriteTextLayout as ::windows_core::ComInterface>::IID || *iid == <IDWriteTextLayout1 as ::windows_core::ComInterface>::IID || *iid == <IDWriteTextLayout2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteTextLayout3 as ::windows_core::ComInterface>::IID || iid == &<IDWriteTextFormat as ::windows_core::ComInterface>::IID || iid == &<IDWriteTextLayout as ::windows_core::ComInterface>::IID || iid == &<IDWriteTextLayout1 as ::windows_core::ComInterface>::IID || iid == &<IDWriteTextLayout2 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteTextLayout4_Impl: Sized + IDWriteTextLayout3_Impl {
@@ -5325,8 +5325,8 @@ impl IDWriteTextLayout4_Vtbl {
             SetAutomaticFontAxes: SetAutomaticFontAxes::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteTextLayout4 as ::windows_core::ComInterface>::IID || *iid == <IDWriteTextFormat as ::windows_core::ComInterface>::IID || *iid == <IDWriteTextLayout as ::windows_core::ComInterface>::IID || *iid == <IDWriteTextLayout1 as ::windows_core::ComInterface>::IID || *iid == <IDWriteTextLayout2 as ::windows_core::ComInterface>::IID || *iid == <IDWriteTextLayout3 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteTextLayout4 as ::windows_core::ComInterface>::IID || iid == &<IDWriteTextFormat as ::windows_core::ComInterface>::IID || iid == &<IDWriteTextLayout as ::windows_core::ComInterface>::IID || iid == &<IDWriteTextLayout1 as ::windows_core::ComInterface>::IID || iid == &<IDWriteTextLayout2 as ::windows_core::ComInterface>::IID || iid == &<IDWriteTextLayout3 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteTextRenderer_Impl: Sized + IDWritePixelSnapping_Impl {
@@ -5366,8 +5366,8 @@ impl IDWriteTextRenderer_Vtbl {
             DrawInlineObject: DrawInlineObject::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteTextRenderer as ::windows_core::ComInterface>::IID || *iid == <IDWritePixelSnapping as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteTextRenderer as ::windows_core::ComInterface>::IID || iid == &<IDWritePixelSnapping as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteTextRenderer1_Impl: Sized + IDWriteTextRenderer_Impl {
@@ -5407,8 +5407,8 @@ impl IDWriteTextRenderer1_Vtbl {
             DrawInlineObject2: DrawInlineObject2::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteTextRenderer1 as ::windows_core::ComInterface>::IID || *iid == <IDWritePixelSnapping as ::windows_core::ComInterface>::IID || *iid == <IDWriteTextRenderer as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteTextRenderer1 as ::windows_core::ComInterface>::IID || iid == &<IDWritePixelSnapping as ::windows_core::ComInterface>::IID || iid == &<IDWriteTextRenderer as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDWriteTypography_Impl: Sized {
@@ -5447,7 +5447,7 @@ impl IDWriteTypography_Vtbl {
             GetFontFeature: GetFontFeature::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDWriteTypography as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteTypography as ::windows_core::ComInterface>::IID
     }
 }

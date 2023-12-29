@@ -55,8 +55,8 @@ impl ISmsBinaryMessage_Vtbl {
             SetData: SetData::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISmsBinaryMessage as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISmsBinaryMessage as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"deprecated\"`"]
@@ -195,8 +195,8 @@ impl ISmsDevice_Vtbl {
             RemoveSmsDeviceStatusChanged: RemoveSmsDeviceStatusChanged::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISmsDevice as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISmsDevice as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ISmsMessage_Impl: Sized {
@@ -236,8 +236,8 @@ impl ISmsMessage_Vtbl {
             MessageClass: MessageClass::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISmsMessage as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISmsMessage as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ISmsMessageBase_Impl: Sized {
@@ -318,8 +318,8 @@ impl ISmsMessageBase_Vtbl {
             SimIccId: SimIccId::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISmsMessageBase as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISmsMessageBase as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Foundation_Collections\"`, `\"deprecated\"`"]
@@ -486,7 +486,7 @@ impl ISmsTextMessage_Vtbl {
             ToBinaryMessages: ToBinaryMessages::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISmsTextMessage as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISmsTextMessage as ::windows_core::ComInterface>::IID
     }
 }

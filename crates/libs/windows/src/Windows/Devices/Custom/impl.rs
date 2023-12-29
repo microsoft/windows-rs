@@ -74,7 +74,7 @@ impl IIOControlCode_Vtbl {
             ControlCode: ControlCode::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IIOControlCode as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IIOControlCode as ::windows_core::ComInterface>::IID
     }
 }

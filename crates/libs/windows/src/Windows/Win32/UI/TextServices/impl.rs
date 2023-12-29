@@ -63,8 +63,8 @@ impl IAccClientDocMgr_Vtbl {
             GetFocused: GetFocused::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IAccClientDocMgr as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IAccClientDocMgr as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -133,8 +133,8 @@ impl IAccDictionary_Vtbl {
             ConvertValueToString: ConvertValueToString::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IAccDictionary as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IAccDictionary as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IAccServerDocMgr_Impl: Sized {
@@ -167,8 +167,8 @@ impl IAccServerDocMgr_Vtbl {
             OnDocumentFocus: OnDocumentFocus::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IAccServerDocMgr as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IAccServerDocMgr as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -257,8 +257,8 @@ impl IAccStore_Vtbl {
             GetFocused: GetFocused::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IAccStore as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IAccStore as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IAnchor_Impl: Sized {
@@ -383,8 +383,8 @@ impl IAnchor_Vtbl {
             Clone: Clone::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IAnchor as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IAnchor as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IClonableWrapper_Impl: Sized {
@@ -400,8 +400,8 @@ impl IClonableWrapper_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CloneNewWrapper: CloneNewWrapper::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IClonableWrapper as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IClonableWrapper as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -421,8 +421,8 @@ impl ICoCreateLocally_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CoCreateLocally: CoCreateLocally::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ICoCreateLocally as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ICoCreateLocally as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -442,8 +442,8 @@ impl ICoCreatedLocally_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), LocalInit: LocalInit::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ICoCreatedLocally as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ICoCreatedLocally as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDocWrap_Impl: Sized {
@@ -475,8 +475,8 @@ impl IDocWrap_Vtbl {
             GetWrappedDoc: GetWrappedDoc::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDocWrap as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDocWrap as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IEnumITfCompositionView_Impl: Sized {
@@ -522,8 +522,8 @@ impl IEnumITfCompositionView_Vtbl {
             Skip: Skip::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IEnumITfCompositionView as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IEnumITfCompositionView as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IEnumSpeechCommands_Impl: Sized {
@@ -569,8 +569,8 @@ impl IEnumSpeechCommands_Vtbl {
             Skip: Skip::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IEnumSpeechCommands as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IEnumSpeechCommands as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IEnumTfCandidates_Impl: Sized {
@@ -616,8 +616,8 @@ impl IEnumTfCandidates_Vtbl {
             Skip: Skip::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IEnumTfCandidates as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IEnumTfCandidates as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IEnumTfContextViews_Impl: Sized {
@@ -663,8 +663,8 @@ impl IEnumTfContextViews_Vtbl {
             Skip: Skip::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IEnumTfContextViews as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IEnumTfContextViews as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IEnumTfContexts_Impl: Sized {
@@ -710,8 +710,8 @@ impl IEnumTfContexts_Vtbl {
             Skip: Skip::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IEnumTfContexts as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IEnumTfContexts as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IEnumTfDisplayAttributeInfo_Impl: Sized {
@@ -757,8 +757,8 @@ impl IEnumTfDisplayAttributeInfo_Vtbl {
             Skip: Skip::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IEnumTfDisplayAttributeInfo as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IEnumTfDisplayAttributeInfo as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IEnumTfDocumentMgrs_Impl: Sized {
@@ -804,8 +804,8 @@ impl IEnumTfDocumentMgrs_Vtbl {
             Skip: Skip::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IEnumTfDocumentMgrs as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IEnumTfDocumentMgrs as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IEnumTfFunctionProviders_Impl: Sized {
@@ -851,8 +851,8 @@ impl IEnumTfFunctionProviders_Vtbl {
             Skip: Skip::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IEnumTfFunctionProviders as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IEnumTfFunctionProviders as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IEnumTfInputProcessorProfiles_Impl: Sized {
@@ -898,8 +898,8 @@ impl IEnumTfInputProcessorProfiles_Vtbl {
             Skip: Skip::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IEnumTfInputProcessorProfiles as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IEnumTfInputProcessorProfiles as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IEnumTfLangBarItems_Impl: Sized {
@@ -945,8 +945,8 @@ impl IEnumTfLangBarItems_Vtbl {
             Skip: Skip::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IEnumTfLangBarItems as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IEnumTfLangBarItems as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IEnumTfLanguageProfiles_Impl: Sized {
@@ -992,8 +992,8 @@ impl IEnumTfLanguageProfiles_Vtbl {
             Skip: Skip::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IEnumTfLanguageProfiles as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IEnumTfLanguageProfiles as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IEnumTfLatticeElements_Impl: Sized {
@@ -1039,8 +1039,8 @@ impl IEnumTfLatticeElements_Vtbl {
             Skip: Skip::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IEnumTfLatticeElements as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IEnumTfLatticeElements as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IEnumTfProperties_Impl: Sized {
@@ -1086,8 +1086,8 @@ impl IEnumTfProperties_Vtbl {
             Skip: Skip::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IEnumTfProperties as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IEnumTfProperties as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -1137,8 +1137,8 @@ impl IEnumTfPropertyValue_Vtbl {
             Skip: Skip::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IEnumTfPropertyValue as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IEnumTfPropertyValue as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IEnumTfRanges_Impl: Sized {
@@ -1184,8 +1184,8 @@ impl IEnumTfRanges_Vtbl {
             Skip: Skip::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IEnumTfRanges as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IEnumTfRanges as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IEnumTfUIElements_Impl: Sized {
@@ -1231,8 +1231,8 @@ impl IEnumTfUIElements_Vtbl {
             Skip: Skip::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IEnumTfUIElements as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IEnumTfUIElements as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IInternalDocWrap_Impl: Sized {
@@ -1248,8 +1248,8 @@ impl IInternalDocWrap_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), NotifyRevoke: NotifyRevoke::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IInternalDocWrap as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IInternalDocWrap as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ISpeechCommandProvider_Impl: Sized {
@@ -1281,8 +1281,8 @@ impl ISpeechCommandProvider_Vtbl {
             ProcessCommand: ProcessCommand::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpeechCommandProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpeechCommandProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -1552,8 +1552,8 @@ impl ITextStoreACP_Vtbl {
             GetWnd: GetWnd::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITextStoreACP as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITextStoreACP as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -1810,8 +1810,8 @@ impl ITextStoreACP2_Vtbl {
             GetScreenExt: GetScreenExt::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITextStoreACP2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITextStoreACP2 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITextStoreACPEx_Impl: Sized {
@@ -1827,8 +1827,8 @@ impl ITextStoreACPEx_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ScrollToRect: ScrollToRect::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITextStoreACPEx as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITextStoreACPEx as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1878,8 +1878,8 @@ impl ITextStoreACPServices_Vtbl {
             CreateRange: CreateRange::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITextStoreACPServices as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITextStoreACPServices as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITextStoreACPSink_Impl: Sized {
@@ -1947,8 +1947,8 @@ impl ITextStoreACPSink_Vtbl {
             OnEndEditTransaction: OnEndEditTransaction::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITextStoreACPSink as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITextStoreACPSink as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITextStoreACPSinkEx_Impl: Sized + ITextStoreACPSink_Impl {
@@ -1964,8 +1964,8 @@ impl ITextStoreACPSinkEx_Vtbl {
         }
         Self { base__: ITextStoreACPSink_Vtbl::new::<Identity, Impl, OFFSET>(), OnDisconnect: OnDisconnect::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITextStoreACPSinkEx as ::windows_core::ComInterface>::IID || *iid == <ITextStoreACPSink as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITextStoreACPSinkEx as ::windows_core::ComInterface>::IID || iid == &<ITextStoreACPSink as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -2236,8 +2236,8 @@ impl ITextStoreAnchor_Vtbl {
             InsertEmbeddedAtSelection: InsertEmbeddedAtSelection::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITextStoreAnchor as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITextStoreAnchor as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITextStoreAnchorEx_Impl: Sized {
@@ -2253,8 +2253,8 @@ impl ITextStoreAnchorEx_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ScrollToRect: ScrollToRect::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITextStoreAnchorEx as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITextStoreAnchorEx as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITextStoreAnchorSink_Impl: Sized {
@@ -2322,8 +2322,8 @@ impl ITextStoreAnchorSink_Vtbl {
             OnEndEditTransaction: OnEndEditTransaction::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITextStoreAnchorSink as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITextStoreAnchorSink as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITextStoreSinkAnchorEx_Impl: Sized + ITextStoreAnchorSink_Impl {
@@ -2339,8 +2339,8 @@ impl ITextStoreSinkAnchorEx_Vtbl {
         }
         Self { base__: ITextStoreAnchorSink_Vtbl::new::<Identity, Impl, OFFSET>(), OnDisconnect: OnDisconnect::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITextStoreSinkAnchorEx as ::windows_core::ComInterface>::IID || *iid == <ITextStoreAnchorSink as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITextStoreSinkAnchorEx as ::windows_core::ComInterface>::IID || iid == &<ITextStoreAnchorSink as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfActiveLanguageProfileNotifySink_Impl: Sized {
@@ -2356,8 +2356,8 @@ impl ITfActiveLanguageProfileNotifySink_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnActivated: OnActivated::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfActiveLanguageProfileNotifySink as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfActiveLanguageProfileNotifySink as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfCandidateList_Impl: Sized {
@@ -2415,8 +2415,8 @@ impl ITfCandidateList_Vtbl {
             SetResult: SetResult::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfCandidateList as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfCandidateList as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfCandidateListUIElement_Impl: Sized + ITfUIElement_Impl {
@@ -2520,8 +2520,8 @@ impl ITfCandidateListUIElement_Vtbl {
             GetCurrentPage: GetCurrentPage::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfCandidateListUIElement as ::windows_core::ComInterface>::IID || *iid == <ITfUIElement as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfCandidateListUIElement as ::windows_core::ComInterface>::IID || iid == &<ITfUIElement as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfCandidateListUIElementBehavior_Impl: Sized + ITfCandidateListUIElement_Impl {
@@ -2554,8 +2554,8 @@ impl ITfCandidateListUIElementBehavior_Vtbl {
             Abort: Abort::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfCandidateListUIElementBehavior as ::windows_core::ComInterface>::IID || *iid == <ITfUIElement as ::windows_core::ComInterface>::IID || *iid == <ITfCandidateListUIElement as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfCandidateListUIElementBehavior as ::windows_core::ComInterface>::IID || iid == &<ITfUIElement as ::windows_core::ComInterface>::IID || iid == &<ITfCandidateListUIElement as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfCandidateString_Impl: Sized {
@@ -2593,8 +2593,8 @@ impl ITfCandidateString_Vtbl {
             GetIndex: GetIndex::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfCandidateString as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfCandidateString as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -2750,8 +2750,8 @@ impl ITfCategoryMgr_Vtbl {
             IsEqualTfGuidAtom: IsEqualTfGuidAtom::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfCategoryMgr as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfCategoryMgr as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfCleanupContextDurationSink_Impl: Sized {
@@ -2777,8 +2777,8 @@ impl ITfCleanupContextDurationSink_Vtbl {
             OnEndCleanupContext: OnEndCleanupContext::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfCleanupContextDurationSink as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfCleanupContextDurationSink as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfCleanupContextSink_Impl: Sized {
@@ -2794,8 +2794,8 @@ impl ITfCleanupContextSink_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnCleanupContext: OnCleanupContext::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfCleanupContextSink as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfCleanupContextSink as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfClientId_Impl: Sized {
@@ -2817,8 +2817,8 @@ impl ITfClientId_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetClientId: GetClientId::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfClientId as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfClientId as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -2854,8 +2854,8 @@ impl ITfCompartment_Vtbl {
             GetValue: GetValue::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfCompartment as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfCompartment as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfCompartmentEventSink_Impl: Sized {
@@ -2871,8 +2871,8 @@ impl ITfCompartmentEventSink_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnChange: OnChange::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfCompartmentEventSink as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfCompartmentEventSink as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -2921,8 +2921,8 @@ impl ITfCompartmentMgr_Vtbl {
             EnumCompartments: EnumCompartments::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfCompartmentMgr as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfCompartmentMgr as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfComposition_Impl: Sized {
@@ -2968,8 +2968,8 @@ impl ITfComposition_Vtbl {
             EndComposition: EndComposition::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfComposition as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfComposition as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfCompositionSink_Impl: Sized {
@@ -2985,8 +2985,8 @@ impl ITfCompositionSink_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnCompositionTerminated: OnCompositionTerminated::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfCompositionSink as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfCompositionSink as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfCompositionView_Impl: Sized {
@@ -3024,8 +3024,8 @@ impl ITfCompositionView_Vtbl {
             GetRange: GetRange::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfCompositionView as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfCompositionView as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfConfigureSystemKeystrokeFeed_Impl: Sized {
@@ -3051,8 +3051,8 @@ impl ITfConfigureSystemKeystrokeFeed_Vtbl {
             EnableSystemKeystrokeFeed: EnableSystemKeystrokeFeed::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfConfigureSystemKeystrokeFeed as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfConfigureSystemKeystrokeFeed as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfContext_Impl: Sized {
@@ -3247,8 +3247,8 @@ impl ITfContext_Vtbl {
             CreateRangeBackup: CreateRangeBackup::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfContext as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfContext as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfContextComposition_Impl: Sized {
@@ -3312,8 +3312,8 @@ impl ITfContextComposition_Vtbl {
             TakeOwnership: TakeOwnership::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfContextComposition as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfContextComposition as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfContextKeyEventSink_Impl: Sized {
@@ -3377,8 +3377,8 @@ impl ITfContextKeyEventSink_Vtbl {
             OnTestKeyUp: OnTestKeyUp::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfContextKeyEventSink as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfContextKeyEventSink as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -3466,8 +3466,8 @@ impl ITfContextOwner_Vtbl {
             GetAttribute: GetAttribute::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfContextOwner as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfContextOwner as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfContextOwnerCompositionServices_Impl: Sized + ITfContextComposition_Impl {
@@ -3483,8 +3483,8 @@ impl ITfContextOwnerCompositionServices_Vtbl {
         }
         Self { base__: ITfContextComposition_Vtbl::new::<Identity, Impl, OFFSET>(), TerminateComposition: TerminateComposition::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfContextOwnerCompositionServices as ::windows_core::ComInterface>::IID || *iid == <ITfContextComposition as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfContextOwnerCompositionServices as ::windows_core::ComInterface>::IID || iid == &<ITfContextComposition as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfContextOwnerCompositionSink_Impl: Sized {
@@ -3523,8 +3523,8 @@ impl ITfContextOwnerCompositionSink_Vtbl {
             OnEndComposition: OnEndComposition::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfContextOwnerCompositionSink as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfContextOwnerCompositionSink as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -3595,8 +3595,8 @@ impl ITfContextOwnerServices_Vtbl {
             CreateRange: CreateRange::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfContextOwnerServices as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfContextOwnerServices as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfContextView_Impl: Sized {
@@ -3654,8 +3654,8 @@ impl ITfContextView_Vtbl {
             GetWnd: GetWnd::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfContextView as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfContextView as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -3697,8 +3697,8 @@ impl ITfCreatePropertyStore_Vtbl {
             CreatePropertyStore: CreatePropertyStore::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfCreatePropertyStore as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfCreatePropertyStore as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfDisplayAttributeInfo_Impl: Sized {
@@ -3757,8 +3757,8 @@ impl ITfDisplayAttributeInfo_Vtbl {
             Reset: Reset::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfDisplayAttributeInfo as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfDisplayAttributeInfo as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfDisplayAttributeMgr_Impl: Sized {
@@ -3797,8 +3797,8 @@ impl ITfDisplayAttributeMgr_Vtbl {
             GetDisplayAttributeInfo: GetDisplayAttributeInfo::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfDisplayAttributeMgr as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfDisplayAttributeMgr as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfDisplayAttributeNotifySink_Impl: Sized {
@@ -3814,8 +3814,8 @@ impl ITfDisplayAttributeNotifySink_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnUpdateInfo: OnUpdateInfo::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfDisplayAttributeNotifySink as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfDisplayAttributeNotifySink as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfDisplayAttributeProvider_Impl: Sized {
@@ -3853,8 +3853,8 @@ impl ITfDisplayAttributeProvider_Vtbl {
             GetDisplayAttributeInfo: GetDisplayAttributeInfo::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfDisplayAttributeProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfDisplayAttributeProvider as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfDocumentMgr_Impl: Sized {
@@ -3926,8 +3926,8 @@ impl ITfDocumentMgr_Vtbl {
             EnumContexts: EnumContexts::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfDocumentMgr as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfDocumentMgr as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfEditRecord_Impl: Sized {
@@ -3965,8 +3965,8 @@ impl ITfEditRecord_Vtbl {
             GetTextAndPropertyUpdates: GetTextAndPropertyUpdates::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfEditRecord as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfEditRecord as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfEditSession_Impl: Sized {
@@ -3982,8 +3982,8 @@ impl ITfEditSession_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), DoEditSession: DoEditSession::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfEditSession as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfEditSession as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfEditTransactionSink_Impl: Sized {
@@ -4009,8 +4009,8 @@ impl ITfEditTransactionSink_Vtbl {
             OnEndEditTransaction: OnEndEditTransaction::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfEditTransactionSink as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfEditTransactionSink as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfFnAdviseText_Impl: Sized + ITfFunction_Impl {
@@ -4036,8 +4036,8 @@ impl ITfFnAdviseText_Vtbl {
             OnLatticeUpdate: OnLatticeUpdate::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfFnAdviseText as ::windows_core::ComInterface>::IID || *iid == <ITfFunction as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfFnAdviseText as ::windows_core::ComInterface>::IID || iid == &<ITfFunction as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfFnBalloon_Impl: Sized {
@@ -4053,8 +4053,8 @@ impl ITfFnBalloon_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), UpdateBalloon: UpdateBalloon::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfFnBalloon as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfFnBalloon as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfFnConfigure_Impl: Sized + ITfFunction_Impl {
@@ -4070,8 +4070,8 @@ impl ITfFnConfigure_Vtbl {
         }
         Self { base__: ITfFunction_Vtbl::new::<Identity, Impl, OFFSET>(), Show: Show::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfFnConfigure as ::windows_core::ComInterface>::IID || *iid == <ITfFunction as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfFnConfigure as ::windows_core::ComInterface>::IID || iid == &<ITfFunction as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfFnConfigureRegisterEudc_Impl: Sized + ITfFunction_Impl {
@@ -4087,8 +4087,8 @@ impl ITfFnConfigureRegisterEudc_Vtbl {
         }
         Self { base__: ITfFunction_Vtbl::new::<Identity, Impl, OFFSET>(), Show: Show::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfFnConfigureRegisterEudc as ::windows_core::ComInterface>::IID || *iid == <ITfFunction as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfFnConfigureRegisterEudc as ::windows_core::ComInterface>::IID || iid == &<ITfFunction as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfFnConfigureRegisterWord_Impl: Sized + ITfFunction_Impl {
@@ -4104,8 +4104,8 @@ impl ITfFnConfigureRegisterWord_Vtbl {
         }
         Self { base__: ITfFunction_Vtbl::new::<Identity, Impl, OFFSET>(), Show: Show::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfFnConfigureRegisterWord as ::windows_core::ComInterface>::IID || *iid == <ITfFunction as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfFnConfigureRegisterWord as ::windows_core::ComInterface>::IID || iid == &<ITfFunction as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfFnCustomSpeechCommand_Impl: Sized + ITfFunction_Impl {
@@ -4121,8 +4121,8 @@ impl ITfFnCustomSpeechCommand_Vtbl {
         }
         Self { base__: ITfFunction_Vtbl::new::<Identity, Impl, OFFSET>(), SetSpeechCommandProvider: SetSpeechCommandProvider::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfFnCustomSpeechCommand as ::windows_core::ComInterface>::IID || *iid == <ITfFunction as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfFnCustomSpeechCommand as ::windows_core::ComInterface>::IID || iid == &<ITfFunction as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfFnGetLinguisticAlternates_Impl: Sized + ITfFunction_Impl {
@@ -4144,8 +4144,8 @@ impl ITfFnGetLinguisticAlternates_Vtbl {
         }
         Self { base__: ITfFunction_Vtbl::new::<Identity, Impl, OFFSET>(), GetAlternates: GetAlternates::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfFnGetLinguisticAlternates as ::windows_core::ComInterface>::IID || *iid == <ITfFunction as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfFnGetLinguisticAlternates as ::windows_core::ComInterface>::IID || iid == &<ITfFunction as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfFnGetPreferredTouchKeyboardLayout_Impl: Sized + ITfFunction_Impl {
@@ -4161,8 +4161,8 @@ impl ITfFnGetPreferredTouchKeyboardLayout_Vtbl {
         }
         Self { base__: ITfFunction_Vtbl::new::<Identity, Impl, OFFSET>(), GetLayout: GetLayout::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfFnGetPreferredTouchKeyboardLayout as ::windows_core::ComInterface>::IID || *iid == <ITfFunction as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfFnGetPreferredTouchKeyboardLayout as ::windows_core::ComInterface>::IID || iid == &<ITfFunction as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfFnGetSAPIObject_Impl: Sized + ITfFunction_Impl {
@@ -4184,8 +4184,8 @@ impl ITfFnGetSAPIObject_Vtbl {
         }
         Self { base__: ITfFunction_Vtbl::new::<Identity, Impl, OFFSET>(), Get: Get::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfFnGetSAPIObject as ::windows_core::ComInterface>::IID || *iid == <ITfFunction as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfFnGetSAPIObject as ::windows_core::ComInterface>::IID || iid == &<ITfFunction as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfFnLMInternal_Impl: Sized + ITfFnLMProcessor_Impl {
@@ -4201,8 +4201,8 @@ impl ITfFnLMInternal_Vtbl {
         }
         Self { base__: ITfFnLMProcessor_Vtbl::new::<Identity, Impl, OFFSET>(), ProcessLattice: ProcessLattice::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfFnLMInternal as ::windows_core::ComInterface>::IID || *iid == <ITfFunction as ::windows_core::ComInterface>::IID || *iid == <ITfFnLMProcessor as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfFnLMInternal as ::windows_core::ComInterface>::IID || iid == &<ITfFunction as ::windows_core::ComInterface>::IID || iid == &<ITfFnLMProcessor as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfFnLMProcessor_Impl: Sized + ITfFunction_Impl {
@@ -4281,8 +4281,8 @@ impl ITfFnLMProcessor_Vtbl {
             InvokeFunc: InvokeFunc::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfFnLMProcessor as ::windows_core::ComInterface>::IID || *iid == <ITfFunction as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfFnLMProcessor as ::windows_core::ComInterface>::IID || iid == &<ITfFunction as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfFnLangProfileUtil_Impl: Sized + ITfFunction_Impl {
@@ -4314,8 +4314,8 @@ impl ITfFnLangProfileUtil_Vtbl {
             IsProfileAvailableForLang: IsProfileAvailableForLang::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfFnLangProfileUtil as ::windows_core::ComInterface>::IID || *iid == <ITfFunction as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfFnLangProfileUtil as ::windows_core::ComInterface>::IID || iid == &<ITfFunction as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfFnPlayBack_Impl: Sized + ITfFunction_Impl {
@@ -4341,8 +4341,8 @@ impl ITfFnPlayBack_Vtbl {
             Play: Play::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfFnPlayBack as ::windows_core::ComInterface>::IID || *iid == <ITfFunction as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfFnPlayBack as ::windows_core::ComInterface>::IID || iid == &<ITfFunction as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfFnPropertyUIStatus_Impl: Sized + ITfFunction_Impl {
@@ -4374,8 +4374,8 @@ impl ITfFnPropertyUIStatus_Vtbl {
             SetStatus: SetStatus::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfFnPropertyUIStatus as ::windows_core::ComInterface>::IID || *iid == <ITfFunction as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfFnPropertyUIStatus as ::windows_core::ComInterface>::IID || iid == &<ITfFunction as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfFnReconversion_Impl: Sized + ITfFunction_Impl {
@@ -4414,8 +4414,8 @@ impl ITfFnReconversion_Vtbl {
             Reconvert: Reconvert::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfFnReconversion as ::windows_core::ComInterface>::IID || *iid == <ITfFunction as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfFnReconversion as ::windows_core::ComInterface>::IID || iid == &<ITfFunction as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfFnSearchCandidateProvider_Impl: Sized + ITfFunction_Impl {
@@ -4447,8 +4447,8 @@ impl ITfFnSearchCandidateProvider_Vtbl {
             SetResult: SetResult::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfFnSearchCandidateProvider as ::windows_core::ComInterface>::IID || *iid == <ITfFunction as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfFnSearchCandidateProvider as ::windows_core::ComInterface>::IID || iid == &<ITfFunction as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfFnShowHelp_Impl: Sized + ITfFunction_Impl {
@@ -4464,8 +4464,8 @@ impl ITfFnShowHelp_Vtbl {
         }
         Self { base__: ITfFunction_Vtbl::new::<Identity, Impl, OFFSET>(), Show: Show::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfFnShowHelp as ::windows_core::ComInterface>::IID || *iid == <ITfFunction as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfFnShowHelp as ::windows_core::ComInterface>::IID || iid == &<ITfFunction as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfFunction_Impl: Sized {
@@ -4487,8 +4487,8 @@ impl ITfFunction_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetDisplayName: GetDisplayName::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfFunction as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfFunction as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfFunctionProvider_Impl: Sized {
@@ -4539,8 +4539,8 @@ impl ITfFunctionProvider_Vtbl {
             GetFunction: GetFunction::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfFunctionProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfFunctionProvider as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfInputProcessorProfileActivationSink_Impl: Sized {
@@ -4556,8 +4556,8 @@ impl ITfInputProcessorProfileActivationSink_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnActivated: OnActivated::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfInputProcessorProfileActivationSink as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfInputProcessorProfileActivationSink as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfInputProcessorProfileMgr_Impl: Sized {
@@ -4645,8 +4645,8 @@ impl ITfInputProcessorProfileMgr_Vtbl {
             GetActiveProfile: GetActiveProfile::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfInputProcessorProfileMgr as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfInputProcessorProfileMgr as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfInputProcessorProfileSubstituteLayout_Impl: Sized {
@@ -4671,8 +4671,8 @@ impl ITfInputProcessorProfileSubstituteLayout_Vtbl {
             GetSubstituteKeyboardLayout: GetSubstituteKeyboardLayout::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfInputProcessorProfileSubstituteLayout as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfInputProcessorProfileSubstituteLayout as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -4844,8 +4844,8 @@ impl ITfInputProcessorProfiles_Vtbl {
             SubstituteKeyboardLayout: SubstituteKeyboardLayout::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfInputProcessorProfiles as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfInputProcessorProfiles as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -4868,8 +4868,8 @@ impl ITfInputProcessorProfilesEx_Vtbl {
             SetLanguageProfileDisplayName: SetLanguageProfileDisplayName::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfInputProcessorProfilesEx as ::windows_core::ComInterface>::IID || *iid == <ITfInputProcessorProfiles as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfInputProcessorProfilesEx as ::windows_core::ComInterface>::IID || iid == &<ITfInputProcessorProfiles as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfInputScope_Impl: Sized {
@@ -4934,8 +4934,8 @@ impl ITfInputScope_Vtbl {
             GetXML: GetXML::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfInputScope as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfInputScope as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -4961,8 +4961,8 @@ impl ITfInputScope2_Vtbl {
         }
         Self { base__: ITfInputScope_Vtbl::new::<Identity, Impl, OFFSET>(), EnumWordList: EnumWordList::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfInputScope2 as ::windows_core::ComInterface>::IID || *iid == <ITfInputScope as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfInputScope2 as ::windows_core::ComInterface>::IID || iid == &<ITfInputScope as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -5004,8 +5004,8 @@ impl ITfInsertAtSelection_Vtbl {
             InsertEmbeddedAtSelection: InsertEmbeddedAtSelection::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfInsertAtSelection as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfInsertAtSelection as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfIntegratableCandidateListUIElement_Impl: Sized {
@@ -5070,8 +5070,8 @@ impl ITfIntegratableCandidateListUIElement_Vtbl {
             FinalizeExactCompositionString: FinalizeExactCompositionString::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfIntegratableCandidateListUIElement as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfIntegratableCandidateListUIElement as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfKeyEventSink_Impl: Sized {
@@ -5155,8 +5155,8 @@ impl ITfKeyEventSink_Vtbl {
             OnPreservedKey: OnPreservedKey::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfKeyEventSink as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfKeyEventSink as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfKeyTraceEventSink_Impl: Sized {
@@ -5182,8 +5182,8 @@ impl ITfKeyTraceEventSink_Vtbl {
             OnKeyTraceUp: OnKeyTraceUp::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfKeyTraceEventSink as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfKeyTraceEventSink as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfKeystrokeMgr_Impl: Sized {
@@ -5347,8 +5347,8 @@ impl ITfKeystrokeMgr_Vtbl {
             SimulatePreservedKey: SimulatePreservedKey::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfKeystrokeMgr as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfKeystrokeMgr as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfLMLattice_Impl: Sized {
@@ -5386,8 +5386,8 @@ impl ITfLMLattice_Vtbl {
             EnumLatticeElements: EnumLatticeElements::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfLMLattice as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfLMLattice as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfLangBarEventSink_Impl: Sized {
@@ -5447,8 +5447,8 @@ impl ITfLangBarEventSink_Vtbl {
             GetItemFloatingRect: GetItemFloatingRect::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfLangBarEventSink as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfLangBarEventSink as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfLangBarItem_Impl: Sized {
@@ -5500,8 +5500,8 @@ impl ITfLangBarItem_Vtbl {
             GetTooltipString: GetTooltipString::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfLangBarItem as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfLangBarItem as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfLangBarItemBalloon_Impl: Sized + ITfLangBarItem_Impl {
@@ -5546,8 +5546,8 @@ impl ITfLangBarItemBalloon_Vtbl {
             GetBalloonInfo: GetBalloonInfo::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfLangBarItemBalloon as ::windows_core::ComInterface>::IID || *iid == <ITfLangBarItem as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfLangBarItemBalloon as ::windows_core::ComInterface>::IID || iid == &<ITfLangBarItem as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
@@ -5590,8 +5590,8 @@ impl ITfLangBarItemBitmap_Vtbl {
             DrawBitmap: DrawBitmap::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfLangBarItemBitmap as ::windows_core::ComInterface>::IID || *iid == <ITfLangBarItem as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfLangBarItemBitmap as ::windows_core::ComInterface>::IID || iid == &<ITfLangBarItem as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
@@ -5661,8 +5661,8 @@ impl ITfLangBarItemBitmapButton_Vtbl {
             GetText: GetText::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfLangBarItemBitmapButton as ::windows_core::ComInterface>::IID || *iid == <ITfLangBarItem as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfLangBarItemBitmapButton as ::windows_core::ComInterface>::IID || iid == &<ITfLangBarItem as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
@@ -5725,8 +5725,8 @@ impl ITfLangBarItemButton_Vtbl {
             GetText: GetText::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfLangBarItemButton as ::windows_core::ComInterface>::IID || *iid == <ITfLangBarItem as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfLangBarItemButton as ::windows_core::ComInterface>::IID || iid == &<ITfLangBarItem as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfLangBarItemMgr_Impl: Sized {
@@ -5846,8 +5846,8 @@ impl ITfLangBarItemMgr_Vtbl {
             UnadviseItemsSink: UnadviseItemsSink::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfLangBarItemMgr as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfLangBarItemMgr as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfLangBarItemSink_Impl: Sized {
@@ -5863,8 +5863,8 @@ impl ITfLangBarItemSink_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnUpdate: OnUpdate::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfLangBarItemSink as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfLangBarItemSink as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfLangBarMgr_Impl: Sized {
@@ -5951,8 +5951,8 @@ impl ITfLangBarMgr_Vtbl {
             GetShowFloatingStatus: GetShowFloatingStatus::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfLangBarMgr as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfLangBarMgr as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfLanguageProfileNotifySink_Impl: Sized {
@@ -5984,8 +5984,8 @@ impl ITfLanguageProfileNotifySink_Vtbl {
             OnLanguageChanged: OnLanguageChanged::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfLanguageProfileNotifySink as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfLanguageProfileNotifySink as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfMSAAControl_Impl: Sized {
@@ -6011,8 +6011,8 @@ impl ITfMSAAControl_Vtbl {
             SystemDisableMSAA: SystemDisableMSAA::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfMSAAControl as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfMSAAControl as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
@@ -6032,8 +6032,8 @@ impl ITfMenu_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), AddMenuItem: AddMenuItem::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfMenu as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfMenu as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
@@ -6077,8 +6077,8 @@ impl ITfMessagePump_Vtbl {
             GetMessageW: GetMessageW::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfMessagePump as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfMessagePump as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfMouseSink_Impl: Sized {
@@ -6100,8 +6100,8 @@ impl ITfMouseSink_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnMouseEvent: OnMouseEvent::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfMouseSink as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfMouseSink as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfMouseTracker_Impl: Sized {
@@ -6133,8 +6133,8 @@ impl ITfMouseTracker_Vtbl {
             UnadviseMouseSink: UnadviseMouseSink::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfMouseTracker as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfMouseTracker as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfMouseTrackerACP_Impl: Sized {
@@ -6166,8 +6166,8 @@ impl ITfMouseTrackerACP_Vtbl {
             UnadviseMouseSink: UnadviseMouseSink::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfMouseTrackerACP as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfMouseTrackerACP as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -6193,8 +6193,8 @@ impl ITfPersistentPropertyLoaderACP_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), LoadProperty: LoadProperty::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfPersistentPropertyLoaderACP as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfPersistentPropertyLoaderACP as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfPreservedKeyNotifySink_Impl: Sized {
@@ -6210,8 +6210,8 @@ impl ITfPreservedKeyNotifySink_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnUpdated: OnUpdated::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfPreservedKeyNotifySink as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfPreservedKeyNotifySink as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -6255,8 +6255,8 @@ impl ITfProperty_Vtbl {
             Clear: Clear::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfProperty as ::windows_core::ComInterface>::IID || *iid == <ITfReadOnlyProperty as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfProperty as ::windows_core::ComInterface>::IID || iid == &<ITfReadOnlyProperty as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -6389,8 +6389,8 @@ impl ITfPropertyStore_Vtbl {
             Serialize: Serialize::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfPropertyStore as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfPropertyStore as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -6416,8 +6416,8 @@ impl ITfQueryEmbedded_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), QueryInsertEmbedded: QueryInsertEmbedded::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfQueryEmbedded as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfQueryEmbedded as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -6659,8 +6659,8 @@ impl ITfRange_Vtbl {
             GetContext: GetContext::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfRange as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfRange as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -6690,8 +6690,8 @@ impl ITfRangeACP_Vtbl {
             SetExtent: SetExtent::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfRangeACP as ::windows_core::ComInterface>::IID || *iid == <ITfRange as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfRangeACP as ::windows_core::ComInterface>::IID || iid == &<ITfRange as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfRangeBackup_Impl: Sized {
@@ -6707,8 +6707,8 @@ impl ITfRangeBackup_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Restore: Restore::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfRangeBackup as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfRangeBackup as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -6770,8 +6770,8 @@ impl ITfReadOnlyProperty_Vtbl {
             GetContext: GetContext::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfReadOnlyProperty as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfReadOnlyProperty as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfReadingInformationUIElement_Impl: Sized + ITfUIElement_Impl {
@@ -6861,8 +6861,8 @@ impl ITfReadingInformationUIElement_Vtbl {
             IsVerticalOrderPreferred: IsVerticalOrderPreferred::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfReadingInformationUIElement as ::windows_core::ComInterface>::IID || *iid == <ITfUIElement as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfReadingInformationUIElement as ::windows_core::ComInterface>::IID || iid == &<ITfUIElement as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfReverseConversion_Impl: Sized {
@@ -6884,8 +6884,8 @@ impl ITfReverseConversion_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), DoReverseConversion: DoReverseConversion::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfReverseConversion as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfReverseConversion as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfReverseConversionList_Impl: Sized {
@@ -6923,8 +6923,8 @@ impl ITfReverseConversionList_Vtbl {
             GetString: GetString::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfReverseConversionList as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfReverseConversionList as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfReverseConversionMgr_Impl: Sized {
@@ -6946,8 +6946,8 @@ impl ITfReverseConversionMgr_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetReverseConversion: GetReverseConversion::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfReverseConversionMgr as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfReverseConversionMgr as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfSource_Impl: Sized {
@@ -6979,8 +6979,8 @@ impl ITfSource_Vtbl {
             UnadviseSink: UnadviseSink::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfSource as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfSource as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfSourceSingle_Impl: Sized {
@@ -7006,8 +7006,8 @@ impl ITfSourceSingle_Vtbl {
             UnadviseSingleSink: UnadviseSingleSink::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfSourceSingle as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfSourceSingle as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfSpeechUIServer_Impl: Sized {
@@ -7040,8 +7040,8 @@ impl ITfSpeechUIServer_Vtbl {
             UpdateBalloon: UpdateBalloon::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfSpeechUIServer as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfSpeechUIServer as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfStatusSink_Impl: Sized {
@@ -7057,8 +7057,8 @@ impl ITfStatusSink_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnStatusChange: OnStatusChange::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfStatusSink as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfStatusSink as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfSystemDeviceTypeLangBarItem_Impl: Sized {
@@ -7090,8 +7090,8 @@ impl ITfSystemDeviceTypeLangBarItem_Vtbl {
             GetIconMode: GetIconMode::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfSystemDeviceTypeLangBarItem as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfSystemDeviceTypeLangBarItem as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
@@ -7121,8 +7121,8 @@ impl ITfSystemLangBarItem_Vtbl {
             SetTooltipString: SetTooltipString::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfSystemLangBarItem as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfSystemLangBarItem as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfSystemLangBarItemSink_Impl: Sized {
@@ -7148,8 +7148,8 @@ impl ITfSystemLangBarItemSink_Vtbl {
             OnMenuSelect: OnMenuSelect::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfSystemLangBarItemSink as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfSystemLangBarItemSink as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfSystemLangBarItemText_Impl: Sized {
@@ -7181,8 +7181,8 @@ impl ITfSystemLangBarItemText_Vtbl {
             GetItemText: GetItemText::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfSystemLangBarItemText as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfSystemLangBarItemText as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfTextEditSink_Impl: Sized {
@@ -7198,8 +7198,8 @@ impl ITfTextEditSink_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnEndEdit: OnEndEdit::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfTextEditSink as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfTextEditSink as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfTextInputProcessor_Impl: Sized {
@@ -7225,8 +7225,8 @@ impl ITfTextInputProcessor_Vtbl {
             Deactivate: Deactivate::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfTextInputProcessor as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfTextInputProcessor as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfTextInputProcessorEx_Impl: Sized + ITfTextInputProcessor_Impl {
@@ -7242,8 +7242,8 @@ impl ITfTextInputProcessorEx_Vtbl {
         }
         Self { base__: ITfTextInputProcessor_Vtbl::new::<Identity, Impl, OFFSET>(), ActivateEx: ActivateEx::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfTextInputProcessorEx as ::windows_core::ComInterface>::IID || *iid == <ITfTextInputProcessor as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfTextInputProcessorEx as ::windows_core::ComInterface>::IID || iid == &<ITfTextInputProcessor as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfTextLayoutSink_Impl: Sized {
@@ -7259,8 +7259,8 @@ impl ITfTextLayoutSink_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnLayoutChange: OnLayoutChange::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfTextLayoutSink as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfTextLayoutSink as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfThreadFocusSink_Impl: Sized {
@@ -7286,8 +7286,8 @@ impl ITfThreadFocusSink_Vtbl {
             OnKillThreadFocus: OnKillThreadFocus::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfThreadFocusSink as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfThreadFocusSink as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfThreadMgr_Impl: Sized {
@@ -7430,8 +7430,8 @@ impl ITfThreadMgr_Vtbl {
             GetGlobalCompartment: GetGlobalCompartment::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfThreadMgr as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfThreadMgr as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfThreadMgr2_Impl: Sized {
@@ -7595,8 +7595,8 @@ impl ITfThreadMgr2_Vtbl {
             ResumeKeystrokeHandling: ResumeKeystrokeHandling::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfThreadMgr2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfThreadMgr2 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfThreadMgrEventSink_Impl: Sized {
@@ -7643,8 +7643,8 @@ impl ITfThreadMgrEventSink_Vtbl {
             OnPopContext: OnPopContext::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfThreadMgrEventSink as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfThreadMgrEventSink as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfThreadMgrEx_Impl: Sized + ITfThreadMgr_Impl {
@@ -7676,8 +7676,8 @@ impl ITfThreadMgrEx_Vtbl {
             GetActiveFlags: GetActiveFlags::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfThreadMgrEx as ::windows_core::ComInterface>::IID || *iid == <ITfThreadMgr as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfThreadMgrEx as ::windows_core::ComInterface>::IID || iid == &<ITfThreadMgr as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfToolTipUIElement_Impl: Sized + ITfUIElement_Impl {
@@ -7699,8 +7699,8 @@ impl ITfToolTipUIElement_Vtbl {
         }
         Self { base__: ITfUIElement_Vtbl::new::<Identity, Impl, OFFSET>(), GetString: GetString::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfToolTipUIElement as ::windows_core::ComInterface>::IID || *iid == <ITfUIElement as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfToolTipUIElement as ::windows_core::ComInterface>::IID || iid == &<ITfUIElement as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfTransitoryExtensionSink_Impl: Sized {
@@ -7725,8 +7725,8 @@ impl ITfTransitoryExtensionSink_Vtbl {
             OnTransitoryExtensionUpdated: OnTransitoryExtensionUpdated::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfTransitoryExtensionSink as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfTransitoryExtensionSink as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfTransitoryExtensionUIElement_Impl: Sized + ITfUIElement_Impl {
@@ -7748,8 +7748,8 @@ impl ITfTransitoryExtensionUIElement_Vtbl {
         }
         Self { base__: ITfUIElement_Vtbl::new::<Identity, Impl, OFFSET>(), GetDocumentMgr: GetDocumentMgr::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfTransitoryExtensionUIElement as ::windows_core::ComInterface>::IID || *iid == <ITfUIElement as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfTransitoryExtensionUIElement as ::windows_core::ComInterface>::IID || iid == &<ITfUIElement as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfUIElement_Impl: Sized {
@@ -7807,8 +7807,8 @@ impl ITfUIElement_Vtbl {
             IsShown: IsShown::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfUIElement as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfUIElement as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfUIElementMgr_Impl: Sized {
@@ -7867,8 +7867,8 @@ impl ITfUIElementMgr_Vtbl {
             EnumUIElements: EnumUIElements::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfUIElementMgr as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfUIElementMgr as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITfUIElementSink_Impl: Sized {
@@ -7901,8 +7901,8 @@ impl ITfUIElementSink_Vtbl {
             EndUIElement: EndUIElement::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITfUIElementSink as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITfUIElementSink as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIManagerEventSink_Impl: Sized {
@@ -7956,8 +7956,8 @@ impl IUIManagerEventSink_Vtbl {
             OnWindowClosed: OnWindowClosed::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIManagerEventSink as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIManagerEventSink as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVersionInfo_Impl: Sized {
@@ -8028,7 +8028,7 @@ impl IVersionInfo_Vtbl {
             GetInstanceDescription: GetInstanceDescription::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVersionInfo as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVersionInfo as ::windows_core::ComInterface>::IID
     }
 }

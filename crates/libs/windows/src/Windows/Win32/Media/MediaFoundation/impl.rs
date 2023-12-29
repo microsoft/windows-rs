@@ -20,8 +20,8 @@ impl IAdvancedMediaCapture_Vtbl {
             GetAdvancedMediaCaptureSettings: GetAdvancedMediaCaptureSettings::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IAdvancedMediaCapture as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IAdvancedMediaCapture as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IAdvancedMediaCaptureInitializationSettings_Impl: Sized {
@@ -37,8 +37,8 @@ impl IAdvancedMediaCaptureInitializationSettings_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetDirectxDeviceManager: SetDirectxDeviceManager::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IAdvancedMediaCaptureInitializationSettings as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IAdvancedMediaCaptureInitializationSettings as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IAdvancedMediaCaptureSettings_Impl: Sized {
@@ -60,8 +60,8 @@ impl IAdvancedMediaCaptureSettings_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetDirectxDeviceManager: GetDirectxDeviceManager::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IAdvancedMediaCaptureSettings as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IAdvancedMediaCaptureSettings as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IAudioSourceProvider_Impl: Sized {
@@ -77,8 +77,8 @@ impl IAudioSourceProvider_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ProvideInput: ProvideInput::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IAudioSourceProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IAudioSourceProvider as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IClusterDetector_Impl: Sized {
@@ -110,8 +110,8 @@ impl IClusterDetector_Vtbl {
             Detect: Detect::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IClusterDetector as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IClusterDetector as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -244,8 +244,8 @@ impl ICodecAPI_Vtbl {
             SetAllSettingsWithNotify: SetAllSettingsWithNotify::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ICodecAPI as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ICodecAPI as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
@@ -359,8 +359,8 @@ impl ID3D12VideoDecodeCommandList_Vtbl {
             WriteBufferImmediate: WriteBufferImmediate::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ID3D12VideoDecodeCommandList as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoDecodeCommandList as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
@@ -380,8 +380,8 @@ impl ID3D12VideoDecodeCommandList1_Vtbl {
         }
         Self { base__: ID3D12VideoDecodeCommandList_Vtbl::new::<Identity, Impl, OFFSET>(), DecodeFrame1: DecodeFrame1::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ID3D12VideoDecodeCommandList1 as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::ComInterface>::IID || *iid == <ID3D12VideoDecodeCommandList as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoDecodeCommandList1 as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::ComInterface>::IID || iid == &<ID3D12VideoDecodeCommandList as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
@@ -418,8 +418,8 @@ impl ID3D12VideoDecodeCommandList2_Vtbl {
             ExecuteExtensionCommand: ExecuteExtensionCommand::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ID3D12VideoDecodeCommandList2 as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::ComInterface>::IID || *iid == <ID3D12VideoDecodeCommandList as ::windows_core::ComInterface>::IID || *iid == <ID3D12VideoDecodeCommandList1 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoDecodeCommandList2 as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::ComInterface>::IID || iid == &<ID3D12VideoDecodeCommandList as ::windows_core::ComInterface>::IID || iid == &<ID3D12VideoDecodeCommandList1 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
@@ -439,8 +439,8 @@ impl ID3D12VideoDecodeCommandList3_Vtbl {
         }
         Self { base__: ID3D12VideoDecodeCommandList2_Vtbl::new::<Identity, Impl, OFFSET>(), Barrier: Barrier::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ID3D12VideoDecodeCommandList3 as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::ComInterface>::IID || *iid == <ID3D12VideoDecodeCommandList as ::windows_core::ComInterface>::IID || *iid == <ID3D12VideoDecodeCommandList1 as ::windows_core::ComInterface>::IID || *iid == <ID3D12VideoDecodeCommandList2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoDecodeCommandList3 as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::ComInterface>::IID || iid == &<ID3D12VideoDecodeCommandList as ::windows_core::ComInterface>::IID || iid == &<ID3D12VideoDecodeCommandList1 as ::windows_core::ComInterface>::IID || iid == &<ID3D12VideoDecodeCommandList2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
@@ -460,8 +460,8 @@ impl ID3D12VideoDecoder_Vtbl {
         }
         Self { base__: super::super::Graphics::Direct3D12::ID3D12Pageable_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc: GetDesc::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ID3D12VideoDecoder as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Pageable as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoDecoder as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Pageable as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
@@ -484,8 +484,8 @@ impl ID3D12VideoDecoder1_Vtbl {
             GetProtectedResourceSession: GetProtectedResourceSession::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ID3D12VideoDecoder1 as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Pageable as ::windows_core::ComInterface>::IID || *iid == <ID3D12VideoDecoder as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoDecoder1 as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Pageable as ::windows_core::ComInterface>::IID || iid == &<ID3D12VideoDecoder as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
@@ -505,8 +505,8 @@ impl ID3D12VideoDecoderHeap_Vtbl {
         }
         Self { base__: super::super::Graphics::Direct3D12::ID3D12Pageable_Vtbl::new::<Identity, Impl, OFFSET>(), GetDesc: GetDesc::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ID3D12VideoDecoderHeap as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Pageable as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoDecoderHeap as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Pageable as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
@@ -529,8 +529,8 @@ impl ID3D12VideoDecoderHeap1_Vtbl {
             GetProtectedResourceSession: GetProtectedResourceSession::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ID3D12VideoDecoderHeap1 as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Pageable as ::windows_core::ComInterface>::IID || *iid == <ID3D12VideoDecoderHeap as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoDecoderHeap1 as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Pageable as ::windows_core::ComInterface>::IID || iid == &<ID3D12VideoDecoderHeap as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
@@ -574,8 +574,8 @@ impl ID3D12VideoDevice_Vtbl {
             CreateVideoProcessor: CreateVideoProcessor::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ID3D12VideoDevice as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoDevice as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
@@ -605,8 +605,8 @@ impl ID3D12VideoDevice1_Vtbl {
             CreateVideoMotionVectorHeap: CreateVideoMotionVectorHeap::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ID3D12VideoDevice1 as ::windows_core::ComInterface>::IID || *iid == <ID3D12VideoDevice as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoDevice1 as ::windows_core::ComInterface>::IID || iid == &<ID3D12VideoDevice as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
@@ -657,8 +657,8 @@ impl ID3D12VideoDevice2_Vtbl {
             ExecuteExtensionCommand: ExecuteExtensionCommand::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ID3D12VideoDevice2 as ::windows_core::ComInterface>::IID || *iid == <ID3D12VideoDevice as ::windows_core::ComInterface>::IID || *iid == <ID3D12VideoDevice1 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoDevice2 as ::windows_core::ComInterface>::IID || iid == &<ID3D12VideoDevice as ::windows_core::ComInterface>::IID || iid == &<ID3D12VideoDevice1 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
@@ -688,8 +688,8 @@ impl ID3D12VideoDevice3_Vtbl {
             CreateVideoEncoderHeap: CreateVideoEncoderHeap::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ID3D12VideoDevice3 as ::windows_core::ComInterface>::IID || *iid == <ID3D12VideoDevice as ::windows_core::ComInterface>::IID || *iid == <ID3D12VideoDevice1 as ::windows_core::ComInterface>::IID || *iid == <ID3D12VideoDevice2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoDevice3 as ::windows_core::ComInterface>::IID || iid == &<ID3D12VideoDevice as ::windows_core::ComInterface>::IID || iid == &<ID3D12VideoDevice1 as ::windows_core::ComInterface>::IID || iid == &<ID3D12VideoDevice2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
@@ -817,8 +817,8 @@ impl ID3D12VideoEncodeCommandList_Vtbl {
             SetProtectedResourceSession: SetProtectedResourceSession::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ID3D12VideoEncodeCommandList as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoEncodeCommandList as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
@@ -848,8 +848,8 @@ impl ID3D12VideoEncodeCommandList1_Vtbl {
             ExecuteExtensionCommand: ExecuteExtensionCommand::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ID3D12VideoEncodeCommandList1 as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::ComInterface>::IID || *iid == <ID3D12VideoEncodeCommandList as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoEncodeCommandList1 as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::ComInterface>::IID || iid == &<ID3D12VideoEncodeCommandList as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
@@ -879,8 +879,8 @@ impl ID3D12VideoEncodeCommandList2_Vtbl {
             ResolveEncoderOutputMetadata: ResolveEncoderOutputMetadata::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ID3D12VideoEncodeCommandList2 as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::ComInterface>::IID || *iid == <ID3D12VideoEncodeCommandList as ::windows_core::ComInterface>::IID || *iid == <ID3D12VideoEncodeCommandList1 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoEncodeCommandList2 as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::ComInterface>::IID || iid == &<ID3D12VideoEncodeCommandList as ::windows_core::ComInterface>::IID || iid == &<ID3D12VideoEncodeCommandList1 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
@@ -900,8 +900,8 @@ impl ID3D12VideoEncodeCommandList3_Vtbl {
         }
         Self { base__: ID3D12VideoEncodeCommandList2_Vtbl::new::<Identity, Impl, OFFSET>(), Barrier: Barrier::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ID3D12VideoEncodeCommandList3 as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::ComInterface>::IID || *iid == <ID3D12VideoEncodeCommandList as ::windows_core::ComInterface>::IID || *iid == <ID3D12VideoEncodeCommandList1 as ::windows_core::ComInterface>::IID || *iid == <ID3D12VideoEncodeCommandList2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoEncodeCommandList3 as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::ComInterface>::IID || iid == &<ID3D12VideoEncodeCommandList as ::windows_core::ComInterface>::IID || iid == &<ID3D12VideoEncodeCommandList1 as ::windows_core::ComInterface>::IID || iid == &<ID3D12VideoEncodeCommandList2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
@@ -966,8 +966,8 @@ impl ID3D12VideoEncoder_Vtbl {
             GetMaxMotionEstimationPrecision: GetMaxMotionEstimationPrecision::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ID3D12VideoEncoder as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Pageable as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoEncoder as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Pageable as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
@@ -1032,8 +1032,8 @@ impl ID3D12VideoEncoderHeap_Vtbl {
             GetResolutionList: GetResolutionList::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ID3D12VideoEncoderHeap as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Pageable as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoEncoderHeap as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Pageable as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
@@ -1063,8 +1063,8 @@ impl ID3D12VideoExtensionCommand_Vtbl {
             GetProtectedResourceSession: GetProtectedResourceSession::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ID3D12VideoExtensionCommand as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Pageable as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoExtensionCommand as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Pageable as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
@@ -1094,8 +1094,8 @@ impl ID3D12VideoMotionEstimator_Vtbl {
             GetProtectedResourceSession: GetProtectedResourceSession::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ID3D12VideoMotionEstimator as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Pageable as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoMotionEstimator as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Pageable as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
@@ -1125,8 +1125,8 @@ impl ID3D12VideoMotionVectorHeap_Vtbl {
             GetProtectedResourceSession: GetProtectedResourceSession::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ID3D12VideoMotionVectorHeap as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Pageable as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoMotionVectorHeap as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Pageable as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
@@ -1240,8 +1240,8 @@ impl ID3D12VideoProcessCommandList_Vtbl {
             WriteBufferImmediate: WriteBufferImmediate::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ID3D12VideoProcessCommandList as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoProcessCommandList as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
@@ -1261,8 +1261,8 @@ impl ID3D12VideoProcessCommandList1_Vtbl {
         }
         Self { base__: ID3D12VideoProcessCommandList_Vtbl::new::<Identity, Impl, OFFSET>(), ProcessFrames1: ProcessFrames1::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ID3D12VideoProcessCommandList1 as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::ComInterface>::IID || *iid == <ID3D12VideoProcessCommandList as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoProcessCommandList1 as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::ComInterface>::IID || iid == &<ID3D12VideoProcessCommandList as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
@@ -1299,8 +1299,8 @@ impl ID3D12VideoProcessCommandList2_Vtbl {
             ExecuteExtensionCommand: ExecuteExtensionCommand::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ID3D12VideoProcessCommandList2 as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::ComInterface>::IID || *iid == <ID3D12VideoProcessCommandList as ::windows_core::ComInterface>::IID || *iid == <ID3D12VideoProcessCommandList1 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoProcessCommandList2 as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::ComInterface>::IID || iid == &<ID3D12VideoProcessCommandList as ::windows_core::ComInterface>::IID || iid == &<ID3D12VideoProcessCommandList1 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
@@ -1320,8 +1320,8 @@ impl ID3D12VideoProcessCommandList3_Vtbl {
         }
         Self { base__: ID3D12VideoProcessCommandList2_Vtbl::new::<Identity, Impl, OFFSET>(), Barrier: Barrier::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ID3D12VideoProcessCommandList3 as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::ComInterface>::IID || *iid == <ID3D12VideoProcessCommandList as ::windows_core::ComInterface>::IID || *iid == <ID3D12VideoProcessCommandList1 as ::windows_core::ComInterface>::IID || *iid == <ID3D12VideoProcessCommandList2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoProcessCommandList3 as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::ComInterface>::IID || iid == &<ID3D12VideoProcessCommandList as ::windows_core::ComInterface>::IID || iid == &<ID3D12VideoProcessCommandList1 as ::windows_core::ComInterface>::IID || iid == &<ID3D12VideoProcessCommandList2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
@@ -1365,8 +1365,8 @@ impl ID3D12VideoProcessor_Vtbl {
             GetOutputStreamDesc: GetOutputStreamDesc::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ID3D12VideoProcessor as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Pageable as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoProcessor as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Pageable as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
@@ -1389,8 +1389,8 @@ impl ID3D12VideoProcessor1_Vtbl {
             GetProtectedResourceSession: GetProtectedResourceSession::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ID3D12VideoProcessor1 as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || *iid == <super::super::Graphics::Direct3D12::ID3D12Pageable as ::windows_core::ComInterface>::IID || *iid == <ID3D12VideoProcessor as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoProcessor1 as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::ComInterface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Pageable as ::windows_core::ComInterface>::IID || iid == &<ID3D12VideoProcessor as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
@@ -1474,8 +1474,8 @@ impl IDXVAHD_Device_Vtbl {
             CreateVideoProcessor: CreateVideoProcessor::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDXVAHD_Device as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDXVAHD_Device as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
@@ -1526,8 +1526,8 @@ impl IDXVAHD_VideoProcessor_Vtbl {
             VideoProcessBltHD: VideoProcessBltHD::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDXVAHD_VideoProcessor as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDXVAHD_VideoProcessor as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
@@ -1547,8 +1547,8 @@ impl IDirect3D9ExOverlayExtension_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CheckDeviceOverlayType: CheckDeviceOverlayType::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDirect3D9ExOverlayExtension as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDirect3D9ExOverlayExtension as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
@@ -1599,8 +1599,8 @@ impl IDirect3DAuthenticatedChannel9_Vtbl {
             Configure: Configure::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDirect3DAuthenticatedChannel9 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDirect3DAuthenticatedChannel9 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
@@ -1679,8 +1679,8 @@ impl IDirect3DCryptoSession9_Vtbl {
             GetEncryptionBltKey: GetEncryptionBltKey::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDirect3DCryptoSession9 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDirect3DCryptoSession9 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
@@ -1717,8 +1717,8 @@ impl IDirect3DDevice9Video_Vtbl {
             CreateCryptoSession: CreateCryptoSession::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDirect3DDevice9Video as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDirect3DDevice9Video as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
@@ -1789,8 +1789,8 @@ impl IDirect3DDeviceManager9_Vtbl {
             GetVideoService: GetVideoService::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDirect3DDeviceManager9 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDirect3DDeviceManager9 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
@@ -1810,8 +1810,8 @@ impl IDirectXVideoAccelerationService_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateSurface: CreateSurface::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDirectXVideoAccelerationService as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDirectXVideoAccelerationService as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
@@ -1882,8 +1882,8 @@ impl IDirectXVideoDecoder_Vtbl {
             Execute: Execute::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDirectXVideoDecoder as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDirectXVideoDecoder as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
@@ -1933,8 +1933,8 @@ impl IDirectXVideoDecoderService_Vtbl {
             CreateVideoDecoder: CreateVideoDecoder::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDirectXVideoDecoderService as ::windows_core::ComInterface>::IID || *iid == <IDirectXVideoAccelerationService as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDirectXVideoDecoderService as ::windows_core::ComInterface>::IID || iid == &<IDirectXVideoAccelerationService as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDirectXVideoMemoryConfiguration_Impl: Sized {
@@ -1966,8 +1966,8 @@ impl IDirectXVideoMemoryConfiguration_Vtbl {
             SetSurfaceType: SetSurfaceType::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDirectXVideoMemoryConfiguration as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDirectXVideoMemoryConfiguration as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
@@ -2043,8 +2043,8 @@ impl IDirectXVideoProcessor_Vtbl {
             VideoProcessBlt: VideoProcessBlt::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDirectXVideoProcessor as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDirectXVideoProcessor as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
@@ -2134,8 +2134,8 @@ impl IDirectXVideoProcessorService_Vtbl {
             CreateVideoProcessor: CreateVideoProcessor::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDirectXVideoProcessorService as ::windows_core::ComInterface>::IID || *iid == <IDirectXVideoAccelerationService as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDirectXVideoProcessorService as ::windows_core::ComInterface>::IID || iid == &<IDirectXVideoAccelerationService as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IEVRFilterConfig_Impl: Sized {
@@ -2167,8 +2167,8 @@ impl IEVRFilterConfig_Vtbl {
             GetNumberOfStreams: GetNumberOfStreams::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IEVRFilterConfig as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IEVRFilterConfig as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IEVRFilterConfigEx_Impl: Sized + IEVRFilterConfig_Impl {
@@ -2200,8 +2200,8 @@ impl IEVRFilterConfigEx_Vtbl {
             GetConfigPrefs: GetConfigPrefs::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IEVRFilterConfigEx as ::windows_core::ComInterface>::IID || *iid == <IEVRFilterConfig as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IEVRFilterConfigEx as ::windows_core::ComInterface>::IID || iid == &<IEVRFilterConfig as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IEVRTrustedVideoPlugin_Impl: Sized {
@@ -2253,8 +2253,8 @@ impl IEVRTrustedVideoPlugin_Vtbl {
             DisableImageExport: DisableImageExport::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IEVRTrustedVideoPlugin as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IEVRTrustedVideoPlugin as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IEVRVideoStreamControl_Impl: Sized {
@@ -2286,8 +2286,8 @@ impl IEVRVideoStreamControl_Vtbl {
             GetStreamActiveState: GetStreamActiveState::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IEVRVideoStreamControl as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IEVRVideoStreamControl as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IFileClient_Impl: Sized {
@@ -2320,8 +2320,8 @@ impl IFileClient_Vtbl {
             Read: Read::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IFileClient as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IFileClient as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IFileIo_Impl: Sized {
@@ -2403,8 +2403,8 @@ impl IFileIo_Vtbl {
             Close: Close::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IFileIo as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IFileIo as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMF2DBuffer_Impl: Sized {
@@ -2477,8 +2477,8 @@ impl IMF2DBuffer_Vtbl {
             ContiguousCopyFrom: ContiguousCopyFrom::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMF2DBuffer as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMF2DBuffer as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMF2DBuffer2_Impl: Sized + IMF2DBuffer_Impl {
@@ -2504,8 +2504,8 @@ impl IMF2DBuffer2_Vtbl {
             Copy2DTo: Copy2DTo::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMF2DBuffer2 as ::windows_core::ComInterface>::IID || *iid == <IMF2DBuffer as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMF2DBuffer2 as ::windows_core::ComInterface>::IID || iid == &<IMF2DBuffer as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
@@ -2600,8 +2600,8 @@ impl IMFASFContentInfo_Vtbl {
             GetEncodingConfigurationPropertyStore: GetEncodingConfigurationPropertyStore::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFASFContentInfo as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFASFContentInfo as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
@@ -2732,8 +2732,8 @@ impl IMFASFIndexer_Vtbl {
             GetCompletedIndex: GetCompletedIndex::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFASFIndexer as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFASFIndexer as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFASFMultiplexer_Impl: Sized {
@@ -2820,8 +2820,8 @@ impl IMFASFMultiplexer_Vtbl {
             SetSyncTolerance: SetSyncTolerance::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFASFMultiplexer as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFASFMultiplexer as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFASFMutualExclusion_Impl: Sized {
@@ -2920,8 +2920,8 @@ impl IMFASFMutualExclusion_Vtbl {
             Clone: Clone::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFASFMutualExclusion as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFASFMutualExclusion as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
@@ -3103,8 +3103,8 @@ impl IMFASFProfile_Vtbl {
             Clone: Clone::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFASFProfile as ::windows_core::ComInterface>::IID || *iid == <IMFAttributes as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFASFProfile as ::windows_core::ComInterface>::IID || iid == &<IMFAttributes as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFASFSplitter_Impl: Sized {
@@ -3191,8 +3191,8 @@ impl IMFASFSplitter_Vtbl {
             GetLastSendTime: GetLastSendTime::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFASFSplitter as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFASFSplitter as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
@@ -3302,8 +3302,8 @@ impl IMFASFStreamConfig_Vtbl {
             Clone: Clone::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFASFStreamConfig as ::windows_core::ComInterface>::IID || *iid == <IMFAttributes as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFASFStreamConfig as ::windows_core::ComInterface>::IID || iid == &<IMFAttributes as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFASFStreamPrioritization_Impl: Sized {
@@ -3362,8 +3362,8 @@ impl IMFASFStreamPrioritization_Vtbl {
             Clone: Clone::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFASFStreamPrioritization as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFASFStreamPrioritization as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFASFStreamSelector_Impl: Sized {
@@ -3533,8 +3533,8 @@ impl IMFASFStreamSelector_Vtbl {
             SetStreamSelectorFlags: SetStreamSelectorFlags::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFASFStreamSelector as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFASFStreamSelector as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
@@ -3571,8 +3571,8 @@ impl IMFActivate_Vtbl {
             DetachObject: DetachObject::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFActivate as ::windows_core::ComInterface>::IID || *iid == <IMFAttributes as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFActivate as ::windows_core::ComInterface>::IID || iid == &<IMFAttributes as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFAsyncCallback_Impl: Sized {
@@ -3598,8 +3598,8 @@ impl IMFAsyncCallback_Vtbl {
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFAsyncCallback as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFAsyncCallback as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFAsyncCallbackLogging_Impl: Sized + IMFAsyncCallback_Impl {
@@ -3625,8 +3625,8 @@ impl IMFAsyncCallbackLogging_Vtbl {
             GetObjectTag: GetObjectTag::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFAsyncCallbackLogging as ::windows_core::ComInterface>::IID || *iid == <IMFAsyncCallback as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFAsyncCallbackLogging as ::windows_core::ComInterface>::IID || iid == &<IMFAsyncCallback as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFAsyncResult_Impl: Sized {
@@ -3685,8 +3685,8 @@ impl IMFAsyncResult_Vtbl {
             GetStateNoAddRef: GetStateNoAddRef::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFAsyncResult as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFAsyncResult as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
@@ -3972,8 +3972,8 @@ impl IMFAttributes_Vtbl {
             CopyAllItems: CopyAllItems::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFAttributes as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFAttributes as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Media_Audio\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
@@ -3993,8 +3993,8 @@ impl IMFAudioMediaType_Vtbl {
         }
         Self { base__: IMFMediaType_Vtbl::new::<Identity, Impl, OFFSET>(), GetAudioFormat: GetAudioFormat::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFAudioMediaType as ::windows_core::ComInterface>::IID || *iid == <IMFAttributes as ::windows_core::ComInterface>::IID || *iid == <IMFMediaType as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFAudioMediaType as ::windows_core::ComInterface>::IID || iid == &<IMFAttributes as ::windows_core::ComInterface>::IID || iid == &<IMFMediaType as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFAudioPolicy_Impl: Sized {
@@ -4066,8 +4066,8 @@ impl IMFAudioPolicy_Vtbl {
             GetIconPath: GetIconPath::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFAudioPolicy as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFAudioPolicy as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFAudioStreamVolume_Impl: Sized {
@@ -4126,8 +4126,8 @@ impl IMFAudioStreamVolume_Vtbl {
             GetAllVolumes: GetAllVolumes::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFAudioStreamVolume as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFAudioStreamVolume as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFBufferListNotify_Impl: Sized {
@@ -4153,8 +4153,8 @@ impl IMFBufferListNotify_Vtbl {
             OnRemoveSourceBuffer: OnRemoveSourceBuffer::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFBufferListNotify as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFBufferListNotify as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFByteStream_Impl: Sized {
@@ -4319,8 +4319,8 @@ impl IMFByteStream_Vtbl {
             Close: Close::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFByteStream as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFByteStream as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFByteStreamBuffering_Impl: Sized {
@@ -4353,8 +4353,8 @@ impl IMFByteStreamBuffering_Vtbl {
             StopBuffering: StopBuffering::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFByteStreamBuffering as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFByteStreamBuffering as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFByteStreamCacheControl_Impl: Sized {
@@ -4370,8 +4370,8 @@ impl IMFByteStreamCacheControl_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), StopBackgroundTransfer: StopBackgroundTransfer::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFByteStreamCacheControl as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFByteStreamCacheControl as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFByteStreamCacheControl2_Impl: Sized + IMFByteStreamCacheControl_Impl {
@@ -4410,8 +4410,8 @@ impl IMFByteStreamCacheControl2_Vtbl {
             IsBackgroundTransferActive: IsBackgroundTransferActive::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFByteStreamCacheControl2 as ::windows_core::ComInterface>::IID || *iid == <IMFByteStreamCacheControl as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFByteStreamCacheControl2 as ::windows_core::ComInterface>::IID || iid == &<IMFByteStreamCacheControl as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
@@ -4461,8 +4461,8 @@ impl IMFByteStreamHandler_Vtbl {
             GetMaxNumberOfBytesRequiredForResolution: GetMaxNumberOfBytesRequiredForResolution::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFByteStreamHandler as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFByteStreamHandler as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFByteStreamProxyClassFactory_Impl: Sized {
@@ -4478,8 +4478,8 @@ impl IMFByteStreamProxyClassFactory_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateByteStreamProxy: CreateByteStreamProxy::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFByteStreamProxyClassFactory as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFByteStreamProxyClassFactory as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFByteStreamTimeSeek_Impl: Sized {
@@ -4518,8 +4518,8 @@ impl IMFByteStreamTimeSeek_Vtbl {
             GetTimeSeekResult: GetTimeSeekResult::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFByteStreamTimeSeek as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFByteStreamTimeSeek as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFCameraConfigurationManager_Impl: Sized {
@@ -4558,8 +4558,8 @@ impl IMFCameraConfigurationManager_Vtbl {
             Shutdown: Shutdown::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFCameraConfigurationManager as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFCameraConfigurationManager as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFCameraControlDefaults_Impl: Sized {
@@ -4605,8 +4605,8 @@ impl IMFCameraControlDefaults_Vtbl {
             UnlockControlData: UnlockControlData::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFCameraControlDefaults as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFCameraControlDefaults as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
@@ -4682,8 +4682,8 @@ impl IMFCameraControlDefaultsCollection_Vtbl {
             RemoveAllControls: RemoveAllControls::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFCameraControlDefaultsCollection as ::windows_core::ComInterface>::IID || *iid == <IMFAttributes as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFCameraControlDefaultsCollection as ::windows_core::ComInterface>::IID || iid == &<IMFAttributes as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFCameraControlMonitor_Impl: Sized {
@@ -4730,8 +4730,8 @@ impl IMFCameraControlMonitor_Vtbl {
             Shutdown: Shutdown::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFCameraControlMonitor as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFCameraControlMonitor as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFCameraControlNotify_Impl: Sized {
@@ -4757,8 +4757,8 @@ impl IMFCameraControlNotify_Vtbl {
             OnError: OnError::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFCameraControlNotify as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFCameraControlNotify as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFCameraOcclusionStateMonitor_Impl: Sized {
@@ -4791,8 +4791,8 @@ impl IMFCameraOcclusionStateMonitor_Vtbl {
             GetSupportedStates: GetSupportedStates::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFCameraOcclusionStateMonitor as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFCameraOcclusionStateMonitor as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFCameraOcclusionStateReport_Impl: Sized {
@@ -4814,8 +4814,8 @@ impl IMFCameraOcclusionStateReport_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetOcclusionState: GetOcclusionState::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFCameraOcclusionStateReport as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFCameraOcclusionStateReport as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFCameraOcclusionStateReportCallback_Impl: Sized {
@@ -4831,8 +4831,8 @@ impl IMFCameraOcclusionStateReportCallback_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnOcclusionStateReport: OnOcclusionStateReport::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFCameraOcclusionStateReportCallback as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFCameraOcclusionStateReportCallback as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFCameraSyncObject_Impl: Sized {
@@ -4858,8 +4858,8 @@ impl IMFCameraSyncObject_Vtbl {
             Shutdown: Shutdown::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFCameraSyncObject as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFCameraSyncObject as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFCaptureEngine_Impl: Sized {
@@ -4939,8 +4939,8 @@ impl IMFCaptureEngine_Vtbl {
             GetSource: GetSource::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFCaptureEngine as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFCaptureEngine as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFCaptureEngineClassFactory_Impl: Sized {
@@ -4956,8 +4956,8 @@ impl IMFCaptureEngineClassFactory_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateInstance: CreateInstance::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFCaptureEngineClassFactory as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFCaptureEngineClassFactory as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFCaptureEngineOnEventCallback_Impl: Sized {
@@ -4973,8 +4973,8 @@ impl IMFCaptureEngineOnEventCallback_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnEvent: OnEvent::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFCaptureEngineOnEventCallback as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFCaptureEngineOnEventCallback as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFCaptureEngineOnSampleCallback_Impl: Sized {
@@ -4990,8 +4990,8 @@ impl IMFCaptureEngineOnSampleCallback_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnSample: OnSample::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFCaptureEngineOnSampleCallback as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFCaptureEngineOnSampleCallback as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFCaptureEngineOnSampleCallback2_Impl: Sized + IMFCaptureEngineOnSampleCallback_Impl {
@@ -5010,8 +5010,8 @@ impl IMFCaptureEngineOnSampleCallback2_Vtbl {
             OnSynchronizedEvent: OnSynchronizedEvent::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFCaptureEngineOnSampleCallback2 as ::windows_core::ComInterface>::IID || *iid == <IMFCaptureEngineOnSampleCallback as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFCaptureEngineOnSampleCallback2 as ::windows_core::ComInterface>::IID || iid == &<IMFCaptureEngineOnSampleCallback as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFCapturePhotoConfirmation_Impl: Sized {
@@ -5050,8 +5050,8 @@ impl IMFCapturePhotoConfirmation_Vtbl {
             GetPixelFormat: GetPixelFormat::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFCapturePhotoConfirmation as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFCapturePhotoConfirmation as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFCapturePhotoSink_Impl: Sized + IMFCaptureSink_Impl {
@@ -5084,8 +5084,8 @@ impl IMFCapturePhotoSink_Vtbl {
             SetOutputByteStream: SetOutputByteStream::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFCapturePhotoSink as ::windows_core::ComInterface>::IID || *iid == <IMFCaptureSink as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFCapturePhotoSink as ::windows_core::ComInterface>::IID || iid == &<IMFCaptureSink as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFCapturePreviewSink_Impl: Sized + IMFCaptureSink_Impl {
@@ -5172,8 +5172,8 @@ impl IMFCapturePreviewSink_Vtbl {
             SetCustomSink: SetCustomSink::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFCapturePreviewSink as ::windows_core::ComInterface>::IID || *iid == <IMFCaptureSink as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFCapturePreviewSink as ::windows_core::ComInterface>::IID || iid == &<IMFCaptureSink as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFCaptureRecordSink_Impl: Sized + IMFCaptureSink_Impl {
@@ -5233,8 +5233,8 @@ impl IMFCaptureRecordSink_Vtbl {
             SetRotation: SetRotation::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFCaptureRecordSink as ::windows_core::ComInterface>::IID || *iid == <IMFCaptureSink as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFCaptureRecordSink as ::windows_core::ComInterface>::IID || iid == &<IMFCaptureSink as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFCaptureSink_Impl: Sized {
@@ -5281,8 +5281,8 @@ impl IMFCaptureSink_Vtbl {
             RemoveAllStreams: RemoveAllStreams::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFCaptureSink as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFCaptureSink as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFCaptureSink2_Impl: Sized + IMFCaptureSink_Impl {
@@ -5298,8 +5298,8 @@ impl IMFCaptureSink2_Vtbl {
         }
         Self { base__: IMFCaptureSink_Vtbl::new::<Identity, Impl, OFFSET>(), SetOutputMediaType: SetOutputMediaType::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFCaptureSink2 as ::windows_core::ComInterface>::IID || *iid == <IMFCaptureSink as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFCaptureSink2 as ::windows_core::ComInterface>::IID || iid == &<IMFCaptureSink as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFCaptureSource_Impl: Sized {
@@ -5439,8 +5439,8 @@ impl IMFCaptureSource_Vtbl {
             GetStreamIndexFromFriendlyName: GetStreamIndexFromFriendlyName::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFCaptureSource as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFCaptureSource as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFCdmSuspendNotify_Impl: Sized {
@@ -5462,8 +5462,8 @@ impl IMFCdmSuspendNotify_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Begin: Begin::<Identity, Impl, OFFSET>, End: End::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFCdmSuspendNotify as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFCdmSuspendNotify as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFClock_Impl: Sized {
@@ -5528,8 +5528,8 @@ impl IMFClock_Vtbl {
             GetProperties: GetProperties::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFClock as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFClock as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFClockConsumer_Impl: Sized {
@@ -5561,8 +5561,8 @@ impl IMFClockConsumer_Vtbl {
             GetPresentationClock: GetPresentationClock::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFClockConsumer as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFClockConsumer as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFClockStateSink_Impl: Sized {
@@ -5609,8 +5609,8 @@ impl IMFClockStateSink_Vtbl {
             OnClockSetRate: OnClockSetRate::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFClockStateSink as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFClockStateSink as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFCollection_Impl: Sized {
@@ -5682,8 +5682,8 @@ impl IMFCollection_Vtbl {
             RemoveAllElements: RemoveAllElements::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFCollection as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFCollection as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFContentDecryptionModule_Impl: Sized {
@@ -5762,8 +5762,8 @@ impl IMFContentDecryptionModule_Vtbl {
             GetProtectionSystemIds: GetProtectionSystemIds::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFContentDecryptionModule as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFContentDecryptionModule as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
@@ -5818,8 +5818,8 @@ impl IMFContentDecryptionModuleAccess_Vtbl {
             GetKeySystem: GetKeySystem::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFContentDecryptionModuleAccess as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFContentDecryptionModuleAccess as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
@@ -5855,8 +5855,8 @@ impl IMFContentDecryptionModuleFactory_Vtbl {
             CreateContentDecryptionModuleAccess: CreateContentDecryptionModuleAccess::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFContentDecryptionModuleFactory as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFContentDecryptionModuleFactory as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFContentDecryptionModuleSession_Impl: Sized {
@@ -5942,8 +5942,8 @@ impl IMFContentDecryptionModuleSession_Vtbl {
             Remove: Remove::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFContentDecryptionModuleSession as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFContentDecryptionModuleSession as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFContentDecryptionModuleSessionCallbacks_Impl: Sized {
@@ -5969,8 +5969,8 @@ impl IMFContentDecryptionModuleSessionCallbacks_Vtbl {
             KeyStatusChanged: KeyStatusChanged::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFContentDecryptionModuleSessionCallbacks as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFContentDecryptionModuleSessionCallbacks as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFContentDecryptorContext_Impl: Sized {
@@ -5992,8 +5992,8 @@ impl IMFContentDecryptorContext_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), InitializeHardwareKey: InitializeHardwareKey::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFContentDecryptorContext as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFContentDecryptorContext as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFContentEnabler_Impl: Sized {
@@ -6066,8 +6066,8 @@ impl IMFContentEnabler_Vtbl {
             Cancel: Cancel::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFContentEnabler as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFContentEnabler as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFContentProtectionDevice_Impl: Sized {
@@ -6093,8 +6093,8 @@ impl IMFContentProtectionDevice_Vtbl {
             GetPrivateDataByteCount: GetPrivateDataByteCount::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFContentProtectionDevice as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFContentProtectionDevice as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFContentProtectionManager_Impl: Sized {
@@ -6120,8 +6120,8 @@ impl IMFContentProtectionManager_Vtbl {
             EndEnableContent: EndEnableContent::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFContentProtectionManager as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFContentProtectionManager as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFD3D12SynchronizationObject_Impl: Sized {
@@ -6147,8 +6147,8 @@ impl IMFD3D12SynchronizationObject_Vtbl {
             Reset: Reset::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFD3D12SynchronizationObject as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFD3D12SynchronizationObject as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
@@ -6192,8 +6192,8 @@ impl IMFD3D12SynchronizationObjectCommands_Vtbl {
             EnqueueResourceRelease: EnqueueResourceRelease::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFD3D12SynchronizationObjectCommands as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFD3D12SynchronizationObjectCommands as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFDLNASinkInit_Impl: Sized {
@@ -6209,8 +6209,8 @@ impl IMFDLNASinkInit_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFDLNASinkInit as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFDLNASinkInit as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFDRMNetHelper_Impl: Sized {
@@ -6236,8 +6236,8 @@ impl IMFDRMNetHelper_Vtbl {
             GetChainedLicenseResponse: GetChainedLicenseResponse::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFDRMNetHelper as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFDRMNetHelper as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFDXGIBuffer_Impl: Sized {
@@ -6283,8 +6283,8 @@ impl IMFDXGIBuffer_Vtbl {
             SetUnknown: SetUnknown::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFDXGIBuffer as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFDXGIBuffer as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFDXGIDeviceManager_Impl: Sized {
@@ -6351,8 +6351,8 @@ impl IMFDXGIDeviceManager_Vtbl {
             UnlockDevice: UnlockDevice::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFDXGIDeviceManager as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFDXGIDeviceManager as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFDXGIDeviceManagerSource_Impl: Sized {
@@ -6374,8 +6374,8 @@ impl IMFDXGIDeviceManagerSource_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetManager: GetManager::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFDXGIDeviceManagerSource as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFDXGIDeviceManagerSource as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFDesiredSample_Impl: Sized {
@@ -6408,8 +6408,8 @@ impl IMFDesiredSample_Vtbl {
             Clear: Clear::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFDesiredSample as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFDesiredSample as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFDeviceTransform_Impl: Sized {
@@ -6609,8 +6609,8 @@ impl IMFDeviceTransform_Vtbl {
             FlushOutputStream: FlushOutputStream::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFDeviceTransform as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFDeviceTransform as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFDeviceTransformCallback_Impl: Sized {
@@ -6626,8 +6626,8 @@ impl IMFDeviceTransformCallback_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnBufferSent: OnBufferSent::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFDeviceTransformCallback as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFDeviceTransformCallback as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFExtendedCameraControl_Impl: Sized {
@@ -6681,8 +6681,8 @@ impl IMFExtendedCameraControl_Vtbl {
             CommitSettings: CommitSettings::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFExtendedCameraControl as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFExtendedCameraControl as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFExtendedCameraController_Impl: Sized {
@@ -6704,8 +6704,8 @@ impl IMFExtendedCameraController_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetExtendedCameraControl: GetExtendedCameraControl::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFExtendedCameraController as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFExtendedCameraController as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFExtendedCameraIntrinsicModel_Impl: Sized {
@@ -6744,8 +6744,8 @@ impl IMFExtendedCameraIntrinsicModel_Vtbl {
             GetDistortionModelType: GetDistortionModelType::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFExtendedCameraIntrinsicModel as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFExtendedCameraIntrinsicModel as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFExtendedCameraIntrinsics_Impl: Sized {
@@ -6817,8 +6817,8 @@ impl IMFExtendedCameraIntrinsics_Vtbl {
             AddIntrinsicModel: AddIntrinsicModel::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFExtendedCameraIntrinsics as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFExtendedCameraIntrinsics as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFExtendedCameraIntrinsicsDistortionModel6KT_Impl: Sized {
@@ -6844,8 +6844,8 @@ impl IMFExtendedCameraIntrinsicsDistortionModel6KT_Vtbl {
             SetDistortionModel: SetDistortionModel::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFExtendedCameraIntrinsicsDistortionModel6KT as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFExtendedCameraIntrinsicsDistortionModel6KT as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFExtendedCameraIntrinsicsDistortionModelArcTan_Impl: Sized {
@@ -6871,8 +6871,8 @@ impl IMFExtendedCameraIntrinsicsDistortionModelArcTan_Vtbl {
             SetDistortionModel: SetDistortionModel::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFExtendedCameraIntrinsicsDistortionModelArcTan as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFExtendedCameraIntrinsicsDistortionModelArcTan as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFExtendedDRMTypeSupport_Impl: Sized {
@@ -6894,8 +6894,8 @@ impl IMFExtendedDRMTypeSupport_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), IsTypeSupportedEx: IsTypeSupportedEx::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFExtendedDRMTypeSupport as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFExtendedDRMTypeSupport as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFFieldOfUseMFTUnlock_Impl: Sized {
@@ -6911,8 +6911,8 @@ impl IMFFieldOfUseMFTUnlock_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Unlock: Unlock::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFFieldOfUseMFTUnlock as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFFieldOfUseMFTUnlock as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFFinalizableMediaSink_Impl: Sized + IMFMediaSink_Impl {
@@ -6938,8 +6938,8 @@ impl IMFFinalizableMediaSink_Vtbl {
             EndFinalize: EndFinalize::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFFinalizableMediaSink as ::windows_core::ComInterface>::IID || *iid == <IMFMediaSink as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFFinalizableMediaSink as ::windows_core::ComInterface>::IID || iid == &<IMFMediaSink as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFGetService_Impl: Sized {
@@ -6955,8 +6955,8 @@ impl IMFGetService_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetService: GetService::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFGetService as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFGetService as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFHDCPStatus_Impl: Sized {
@@ -6978,8 +6978,8 @@ impl IMFHDCPStatus_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Query: Query::<Identity, Impl, OFFSET>, Set: Set::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFHDCPStatus as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFHDCPStatus as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFHttpDownloadRequest_Impl: Sized {
@@ -7145,8 +7145,8 @@ impl IMFHttpDownloadRequest_Vtbl {
             Close: Close::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFHttpDownloadRequest as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFHttpDownloadRequest as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFHttpDownloadSession_Impl: Sized {
@@ -7185,8 +7185,8 @@ impl IMFHttpDownloadSession_Vtbl {
             Close: Close::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFHttpDownloadSession as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFHttpDownloadSession as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFHttpDownloadSessionProvider_Impl: Sized {
@@ -7208,8 +7208,8 @@ impl IMFHttpDownloadSessionProvider_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateHttpDownloadSession: CreateHttpDownloadSession::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFHttpDownloadSessionProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFHttpDownloadSessionProvider as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFImageSharingEngine_Impl: Sized {
@@ -7242,8 +7242,8 @@ impl IMFImageSharingEngine_Vtbl {
             Shutdown: Shutdown::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFImageSharingEngine as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFImageSharingEngine as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFImageSharingEngineClassFactory_Impl: Sized {
@@ -7265,8 +7265,8 @@ impl IMFImageSharingEngineClassFactory_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateInstanceFromUDN: CreateInstanceFromUDN::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFImageSharingEngineClassFactory as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFImageSharingEngineClassFactory as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFInputTrustAuthority_Impl: Sized {
@@ -7332,8 +7332,8 @@ impl IMFInputTrustAuthority_Vtbl {
             Reset: Reset::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFInputTrustAuthority as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFInputTrustAuthority as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFLocalMFTRegistration_Impl: Sized {
@@ -7349,8 +7349,8 @@ impl IMFLocalMFTRegistration_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), RegisterMFTs: RegisterMFTs::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFLocalMFTRegistration as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFLocalMFTRegistration as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFMediaBuffer_Impl: Sized {
@@ -7409,8 +7409,8 @@ impl IMFMediaBuffer_Vtbl {
             GetMaxLength: GetMaxLength::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFMediaBuffer as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFMediaBuffer as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFMediaEngine_Impl: Sized {
@@ -7758,8 +7758,8 @@ impl IMFMediaEngine_Vtbl {
             OnVideoStreamTick: OnVideoStreamTick::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFMediaEngine as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFMediaEngine as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFMediaEngineAudioEndpointId_Impl: Sized {
@@ -7791,8 +7791,8 @@ impl IMFMediaEngineAudioEndpointId_Vtbl {
             GetAudioEndpointId: GetAudioEndpointId::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFMediaEngineAudioEndpointId as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFMediaEngineAudioEndpointId as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFMediaEngineClassFactory_Impl: Sized {
@@ -7843,8 +7843,8 @@ impl IMFMediaEngineClassFactory_Vtbl {
             CreateError: CreateError::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFMediaEngineClassFactory as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFMediaEngineClassFactory as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFMediaEngineClassFactory2_Impl: Sized {
@@ -7866,8 +7866,8 @@ impl IMFMediaEngineClassFactory2_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateMediaKeys2: CreateMediaKeys2::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFMediaEngineClassFactory2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFMediaEngineClassFactory2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
@@ -7896,8 +7896,8 @@ impl IMFMediaEngineClassFactory3_Vtbl {
             CreateMediaKeySystemAccess: CreateMediaKeySystemAccess::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFMediaEngineClassFactory3 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFMediaEngineClassFactory3 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFMediaEngineClassFactory4_Impl: Sized {
@@ -7916,8 +7916,8 @@ impl IMFMediaEngineClassFactory4_Vtbl {
             CreateContentDecryptionModuleFactory: CreateContentDecryptionModuleFactory::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFMediaEngineClassFactory4 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFMediaEngineClassFactory4 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFMediaEngineClassFactoryEx_Impl: Sized + IMFMediaEngineClassFactory_Impl {
@@ -7968,8 +7968,8 @@ impl IMFMediaEngineClassFactoryEx_Vtbl {
             IsTypeSupported: IsTypeSupported::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFMediaEngineClassFactoryEx as ::windows_core::ComInterface>::IID || *iid == <IMFMediaEngineClassFactory as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFMediaEngineClassFactoryEx as ::windows_core::ComInterface>::IID || iid == &<IMFMediaEngineClassFactory as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFMediaEngineEME_Impl: Sized {
@@ -8001,8 +8001,8 @@ impl IMFMediaEngineEME_Vtbl {
             SetMediaKeys: SetMediaKeys::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFMediaEngineEME as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFMediaEngineEME as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFMediaEngineEMENotify_Impl: Sized {
@@ -8028,8 +8028,8 @@ impl IMFMediaEngineEMENotify_Vtbl {
             WaitingForKey: WaitingForKey::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFMediaEngineEMENotify as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFMediaEngineEMENotify as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
@@ -8388,8 +8388,8 @@ impl IMFMediaEngineEx_Vtbl {
             EnableTimeUpdateTimer: EnableTimeUpdateTimer::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFMediaEngineEx as ::windows_core::ComInterface>::IID || *iid == <IMFMediaEngine as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFMediaEngineEx as ::windows_core::ComInterface>::IID || iid == &<IMFMediaEngine as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFMediaEngineExtension_Impl: Sized {
@@ -8441,8 +8441,8 @@ impl IMFMediaEngineExtension_Vtbl {
             EndCreateObject: EndCreateObject::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFMediaEngineExtension as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFMediaEngineExtension as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFMediaEngineNeedKeyNotify_Impl: Sized {
@@ -8458,8 +8458,8 @@ impl IMFMediaEngineNeedKeyNotify_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), NeedKey: NeedKey::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFMediaEngineNeedKeyNotify as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFMediaEngineNeedKeyNotify as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFMediaEngineNotify_Impl: Sized {
@@ -8475,8 +8475,8 @@ impl IMFMediaEngineNotify_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), EventNotify: EventNotify::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFMediaEngineNotify as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFMediaEngineNotify as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFMediaEngineOPMInfo_Impl: Sized {
@@ -8492,8 +8492,8 @@ impl IMFMediaEngineOPMInfo_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetOPMInfo: GetOPMInfo::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFMediaEngineOPMInfo as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFMediaEngineOPMInfo as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFMediaEngineProtectedContent_Impl: Sized {
@@ -8559,8 +8559,8 @@ impl IMFMediaEngineProtectedContent_Vtbl {
             SetApplicationCertificate: SetApplicationCertificate::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFMediaEngineProtectedContent as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFMediaEngineProtectedContent as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFMediaEngineSrcElements_Impl: Sized {
@@ -8632,8 +8632,8 @@ impl IMFMediaEngineSrcElements_Vtbl {
             RemoveAllElements: RemoveAllElements::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFMediaEngineSrcElements as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFMediaEngineSrcElements as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFMediaEngineSrcElementsEx_Impl: Sized + IMFMediaEngineSrcElements_Impl {
@@ -8665,8 +8665,8 @@ impl IMFMediaEngineSrcElementsEx_Vtbl {
             GetKeySystem: GetKeySystem::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFMediaEngineSrcElementsEx as ::windows_core::ComInterface>::IID || *iid == <IMFMediaEngineSrcElements as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFMediaEngineSrcElementsEx as ::windows_core::ComInterface>::IID || iid == &<IMFMediaEngineSrcElements as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFMediaEngineSupportsSourceTransfer_Impl: Sized {
@@ -8705,8 +8705,8 @@ impl IMFMediaEngineSupportsSourceTransfer_Vtbl {
             AttachMediaSource: AttachMediaSource::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFMediaEngineSupportsSourceTransfer as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFMediaEngineSupportsSourceTransfer as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFMediaEngineTransferSource_Impl: Sized {
@@ -8725,8 +8725,8 @@ impl IMFMediaEngineTransferSource_Vtbl {
             TransferSourceToMediaEngine: TransferSourceToMediaEngine::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFMediaEngineTransferSource as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFMediaEngineTransferSource as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFMediaEngineWebSupport_Impl: Sized {
@@ -8765,8 +8765,8 @@ impl IMFMediaEngineWebSupport_Vtbl {
             DisconnectWebAudio: DisconnectWebAudio::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFMediaEngineWebSupport as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFMediaEngineWebSupport as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFMediaError_Impl: Sized {
@@ -8806,8 +8806,8 @@ impl IMFMediaError_Vtbl {
             SetExtendedErrorCode: SetExtendedErrorCode::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFMediaError as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFMediaError as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
@@ -8875,8 +8875,8 @@ impl IMFMediaEvent_Vtbl {
             GetValue: GetValue::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFMediaEvent as ::windows_core::ComInterface>::IID || *iid == <IMFAttributes as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFMediaEvent as ::windows_core::ComInterface>::IID || iid == &<IMFAttributes as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
@@ -8932,8 +8932,8 @@ impl IMFMediaEventGenerator_Vtbl {
             QueueEvent: QueueEvent::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFMediaEventGenerator as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFMediaEventGenerator as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
@@ -9010,8 +9010,8 @@ impl IMFMediaEventQueue_Vtbl {
             Shutdown: Shutdown::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFMediaEventQueue as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFMediaEventQueue as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFMediaKeySession_Impl: Sized {
@@ -9070,8 +9070,8 @@ impl IMFMediaKeySession_Vtbl {
             Close: Close::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFMediaKeySession as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFMediaKeySession as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFMediaKeySession2_Impl: Sized + IMFMediaKeySession_Impl {
@@ -9137,8 +9137,8 @@ impl IMFMediaKeySession2_Vtbl {
             Shutdown: Shutdown::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFMediaKeySession2 as ::windows_core::ComInterface>::IID || *iid == <IMFMediaKeySession as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFMediaKeySession2 as ::windows_core::ComInterface>::IID || iid == &<IMFMediaKeySession as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFMediaKeySessionNotify_Impl: Sized {
@@ -9171,8 +9171,8 @@ impl IMFMediaKeySessionNotify_Vtbl {
             KeyError: KeyError::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFMediaKeySessionNotify as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFMediaKeySessionNotify as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFMediaKeySessionNotify2_Impl: Sized + IMFMediaKeySessionNotify_Impl {
@@ -9198,8 +9198,8 @@ impl IMFMediaKeySessionNotify2_Vtbl {
             KeyStatusChange: KeyStatusChange::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFMediaKeySessionNotify2 as ::windows_core::ComInterface>::IID || *iid == <IMFMediaKeySessionNotify as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFMediaKeySessionNotify2 as ::windows_core::ComInterface>::IID || iid == &<IMFMediaKeySessionNotify as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
@@ -9254,8 +9254,8 @@ impl IMFMediaKeySystemAccess_Vtbl {
             KeySystem: KeySystem::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFMediaKeySystemAccess as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFMediaKeySystemAccess as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFMediaKeys_Impl: Sized {
@@ -9313,8 +9313,8 @@ impl IMFMediaKeys_Vtbl {
             GetSuspendNotify: GetSuspendNotify::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFMediaKeys as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFMediaKeys as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFMediaKeys2_Impl: Sized + IMFMediaKeys_Impl {
@@ -9359,8 +9359,8 @@ impl IMFMediaKeys2_Vtbl {
             GetDOMException: GetDOMException::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFMediaKeys2 as ::windows_core::ComInterface>::IID || *iid == <IMFMediaKeys as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFMediaKeys2 as ::windows_core::ComInterface>::IID || iid == &<IMFMediaKeys as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
@@ -9464,8 +9464,8 @@ impl IMFMediaSession_Vtbl {
             GetFullTopology: GetFullTopology::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFMediaSession as ::windows_core::ComInterface>::IID || *iid == <IMFMediaEventGenerator as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFMediaSession as ::windows_core::ComInterface>::IID || iid == &<IMFMediaEventGenerator as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFMediaSharingEngine_Impl: Sized + IMFMediaEngine_Impl {
@@ -9481,8 +9481,8 @@ impl IMFMediaSharingEngine_Vtbl {
         }
         Self { base__: IMFMediaEngine_Vtbl::new::<Identity, Impl, OFFSET>(), GetDevice: GetDevice::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFMediaSharingEngine as ::windows_core::ComInterface>::IID || *iid == <IMFMediaEngine as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFMediaSharingEngine as ::windows_core::ComInterface>::IID || iid == &<IMFMediaEngine as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFMediaSharingEngineClassFactory_Impl: Sized {
@@ -9504,8 +9504,8 @@ impl IMFMediaSharingEngineClassFactory_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateInstance: CreateInstance::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFMediaSharingEngineClassFactory as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFMediaSharingEngineClassFactory as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFMediaSink_Impl: Sized {
@@ -9616,8 +9616,8 @@ impl IMFMediaSink_Vtbl {
             Shutdown: Shutdown::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFMediaSink as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFMediaSink as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFMediaSinkPreroll_Impl: Sized {
@@ -9633,8 +9633,8 @@ impl IMFMediaSinkPreroll_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), NotifyPreroll: NotifyPreroll::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFMediaSinkPreroll as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFMediaSinkPreroll as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
@@ -9704,8 +9704,8 @@ impl IMFMediaSource_Vtbl {
             Shutdown: Shutdown::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFMediaSource as ::windows_core::ComInterface>::IID || *iid == <IMFMediaEventGenerator as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFMediaSource as ::windows_core::ComInterface>::IID || iid == &<IMFMediaEventGenerator as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
@@ -9725,8 +9725,8 @@ impl IMFMediaSource2_Vtbl {
         }
         Self { base__: IMFMediaSourceEx_Vtbl::new::<Identity, Impl, OFFSET>(), SetMediaType: SetMediaType::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFMediaSource2 as ::windows_core::ComInterface>::IID || *iid == <IMFMediaEventGenerator as ::windows_core::ComInterface>::IID || *iid == <IMFMediaSource as ::windows_core::ComInterface>::IID || *iid == <IMFMediaSourceEx as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFMediaSource2 as ::windows_core::ComInterface>::IID || iid == &<IMFMediaEventGenerator as ::windows_core::ComInterface>::IID || iid == &<IMFMediaSource as ::windows_core::ComInterface>::IID || iid == &<IMFMediaSourceEx as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
@@ -9775,8 +9775,8 @@ impl IMFMediaSourceEx_Vtbl {
             SetD3DManager: SetD3DManager::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFMediaSourceEx as ::windows_core::ComInterface>::IID || *iid == <IMFMediaEventGenerator as ::windows_core::ComInterface>::IID || *iid == <IMFMediaSource as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFMediaSourceEx as ::windows_core::ComInterface>::IID || iid == &<IMFMediaEventGenerator as ::windows_core::ComInterface>::IID || iid == &<IMFMediaSource as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFMediaSourceExtension_Impl: Sized {
@@ -9864,8 +9864,8 @@ impl IMFMediaSourceExtension_Vtbl {
             GetSourceBuffer: GetSourceBuffer::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFMediaSourceExtension as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFMediaSourceExtension as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFMediaSourceExtensionLiveSeekableRange_Impl: Sized {
@@ -9891,8 +9891,8 @@ impl IMFMediaSourceExtensionLiveSeekableRange_Vtbl {
             ClearLiveSeekableRange: ClearLiveSeekableRange::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFMediaSourceExtensionLiveSeekableRange as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFMediaSourceExtensionLiveSeekableRange as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFMediaSourceExtensionNotify_Impl: Sized {
@@ -9925,8 +9925,8 @@ impl IMFMediaSourceExtensionNotify_Vtbl {
             OnSourceClose: OnSourceClose::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFMediaSourceExtensionNotify as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFMediaSourceExtensionNotify as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFMediaSourcePresentationProvider_Impl: Sized {
@@ -9942,8 +9942,8 @@ impl IMFMediaSourcePresentationProvider_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ForceEndOfPresentation: ForceEndOfPresentation::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFMediaSourcePresentationProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFMediaSourcePresentationProvider as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFMediaSourceTopologyProvider_Impl: Sized {
@@ -9965,8 +9965,8 @@ impl IMFMediaSourceTopologyProvider_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetMediaSourceTopology: GetMediaSourceTopology::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFMediaSourceTopologyProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFMediaSourceTopologyProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
@@ -10015,8 +10015,8 @@ impl IMFMediaStream_Vtbl {
             RequestSample: RequestSample::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFMediaStream as ::windows_core::ComInterface>::IID || *iid == <IMFMediaEventGenerator as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFMediaStream as ::windows_core::ComInterface>::IID || iid == &<IMFMediaEventGenerator as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
@@ -10052,8 +10052,8 @@ impl IMFMediaStream2_Vtbl {
             GetStreamState: GetStreamState::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFMediaStream2 as ::windows_core::ComInterface>::IID || *iid == <IMFMediaEventGenerator as ::windows_core::ComInterface>::IID || *iid == <IMFMediaStream as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFMediaStream2 as ::windows_core::ComInterface>::IID || iid == &<IMFMediaEventGenerator as ::windows_core::ComInterface>::IID || iid == &<IMFMediaStream as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFMediaStreamSourceSampleRequest_Impl: Sized {
@@ -10069,8 +10069,8 @@ impl IMFMediaStreamSourceSampleRequest_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetSample: SetSample::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFMediaStreamSourceSampleRequest as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFMediaStreamSourceSampleRequest as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFMediaTimeRange_Impl: Sized {
@@ -10136,8 +10136,8 @@ impl IMFMediaTimeRange_Vtbl {
             Clear: Clear::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFMediaTimeRange as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFMediaTimeRange as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
@@ -10206,8 +10206,8 @@ impl IMFMediaType_Vtbl {
             FreeRepresentation: FreeRepresentation::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFMediaType as ::windows_core::ComInterface>::IID || *iid == <IMFAttributes as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFMediaType as ::windows_core::ComInterface>::IID || iid == &<IMFAttributes as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFMediaTypeHandler_Impl: Sized {
@@ -10285,8 +10285,8 @@ impl IMFMediaTypeHandler_Vtbl {
             GetMajorType: GetMajorType::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFMediaTypeHandler as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFMediaTypeHandler as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
@@ -10375,8 +10375,8 @@ impl IMFMetadata_Vtbl {
             GetAllPropertyNames: GetAllPropertyNames::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFMetadata as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFMetadata as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFMetadataProvider_Impl: Sized {
@@ -10398,8 +10398,8 @@ impl IMFMetadataProvider_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetMFMetadata: GetMFMetadata::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFMetadataProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFMetadataProvider as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFMuxStreamAttributesManager_Impl: Sized {
@@ -10437,8 +10437,8 @@ impl IMFMuxStreamAttributesManager_Vtbl {
             GetAttributes: GetAttributes::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFMuxStreamAttributesManager as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFMuxStreamAttributesManager as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFMuxStreamMediaTypeManager_Impl: Sized {
@@ -10516,8 +10516,8 @@ impl IMFMuxStreamMediaTypeManager_Vtbl {
             GetStreamConfiguration: GetStreamConfiguration::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFMuxStreamMediaTypeManager as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFMuxStreamMediaTypeManager as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFMuxStreamSampleManager_Impl: Sized {
@@ -10562,8 +10562,8 @@ impl IMFMuxStreamSampleManager_Vtbl {
             GetStreamConfiguration: GetStreamConfiguration::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFMuxStreamSampleManager as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFMuxStreamSampleManager as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFNetCredential_Impl: Sized {
@@ -10616,8 +10616,8 @@ impl IMFNetCredential_Vtbl {
             LoggedOnUser: LoggedOnUser::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFNetCredential as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFNetCredential as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFNetCredentialCache_Impl: Sized {
@@ -10650,8 +10650,8 @@ impl IMFNetCredentialCache_Vtbl {
             SetUserOptions: SetUserOptions::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFNetCredentialCache as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFNetCredentialCache as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFNetCredentialManager_Impl: Sized {
@@ -10690,8 +10690,8 @@ impl IMFNetCredentialManager_Vtbl {
             SetGood: SetGood::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFNetCredentialManager as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFNetCredentialManager as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFNetCrossOriginSupport_Impl: Sized {
@@ -10742,8 +10742,8 @@ impl IMFNetCrossOriginSupport_Vtbl {
             IsSameOrigin: IsSameOrigin::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFNetCrossOriginSupport as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFNetCrossOriginSupport as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFNetProxyLocator_Impl: Sized {
@@ -10796,8 +10796,8 @@ impl IMFNetProxyLocator_Vtbl {
             Clone: Clone::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFNetProxyLocator as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFNetProxyLocator as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFNetProxyLocatorFactory_Impl: Sized {
@@ -10819,8 +10819,8 @@ impl IMFNetProxyLocatorFactory_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateProxyLocator: CreateProxyLocator::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFNetProxyLocatorFactory as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFNetProxyLocatorFactory as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFNetResourceFilter_Impl: Sized {
@@ -10852,8 +10852,8 @@ impl IMFNetResourceFilter_Vtbl {
             OnSendingRequest: OnSendingRequest::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFNetResourceFilter as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFNetResourceFilter as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFNetSchemeHandlerConfig_Impl: Sized {
@@ -10898,8 +10898,8 @@ impl IMFNetSchemeHandlerConfig_Vtbl {
             ResetProtocolRolloverSettings: ResetProtocolRolloverSettings::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFNetSchemeHandlerConfig as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFNetSchemeHandlerConfig as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFObjectReferenceStream_Impl: Sized {
@@ -10925,8 +10925,8 @@ impl IMFObjectReferenceStream_Vtbl {
             LoadReference: LoadReference::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFObjectReferenceStream as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFObjectReferenceStream as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
@@ -10981,8 +10981,8 @@ impl IMFOutputPolicy_Vtbl {
             GetMinimumGRLVersion: GetMinimumGRLVersion::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFOutputPolicy as ::windows_core::ComInterface>::IID || *iid == <IMFAttributes as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFOutputPolicy as ::windows_core::ComInterface>::IID || iid == &<IMFAttributes as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
@@ -11037,8 +11037,8 @@ impl IMFOutputSchema_Vtbl {
             GetOriginatorID: GetOriginatorID::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFOutputSchema as ::windows_core::ComInterface>::IID || *iid == <IMFAttributes as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFOutputSchema as ::windows_core::ComInterface>::IID || iid == &<IMFAttributes as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFOutputTrustAuthority_Impl: Sized {
@@ -11070,8 +11070,8 @@ impl IMFOutputTrustAuthority_Vtbl {
             SetPolicy: SetPolicy::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFOutputTrustAuthority as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFOutputTrustAuthority as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFPMPClient_Impl: Sized {
@@ -11087,8 +11087,8 @@ impl IMFPMPClient_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetPMPHost: SetPMPHost::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFPMPClient as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFPMPClient as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFPMPClientApp_Impl: Sized {
@@ -11104,8 +11104,8 @@ impl IMFPMPClientApp_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetPMPHost: SetPMPHost::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFPMPClientApp as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFPMPClientApp as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -11142,8 +11142,8 @@ impl IMFPMPHost_Vtbl {
             CreateObjectByCLSID: CreateObjectByCLSID::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFPMPHost as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFPMPHost as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -11180,8 +11180,8 @@ impl IMFPMPHostApp_Vtbl {
             ActivateClassById: ActivateClassById::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFPMPHostApp as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFPMPHostApp as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFPMPServer_Impl: Sized {
@@ -11214,8 +11214,8 @@ impl IMFPMPServer_Vtbl {
             CreateObjectByCLSID: CreateObjectByCLSID::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFPMPServer as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFPMPServer as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`"]
@@ -11436,8 +11436,8 @@ impl IMFPMediaItem_Vtbl {
             GetMetadata: GetMetadata::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFPMediaItem as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFPMediaItem as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
@@ -11777,8 +11777,8 @@ impl IMFPMediaPlayer_Vtbl {
             Shutdown: Shutdown::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFPMediaPlayer as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFPMediaPlayer as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
@@ -11798,8 +11798,8 @@ impl IMFPMediaPlayerCallback_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnMediaPlayerEvent: OnMediaPlayerEvent::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFPMediaPlayerCallback as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFPMediaPlayerCallback as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFPluginControl_Impl: Sized {
@@ -11865,8 +11865,8 @@ impl IMFPluginControl_Vtbl {
             SetDisabled: SetDisabled::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFPluginControl as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFPluginControl as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFPluginControl2_Impl: Sized + IMFPluginControl_Impl {
@@ -11882,8 +11882,8 @@ impl IMFPluginControl2_Vtbl {
         }
         Self { base__: IMFPluginControl_Vtbl::new::<Identity, Impl, OFFSET>(), SetPolicy: SetPolicy::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFPluginControl2 as ::windows_core::ComInterface>::IID || *iid == <IMFPluginControl as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFPluginControl2 as ::windows_core::ComInterface>::IID || iid == &<IMFPluginControl as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFPresentationClock_Impl: Sized + IMFClock_Impl {
@@ -11963,8 +11963,8 @@ impl IMFPresentationClock_Vtbl {
             Pause: Pause::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFPresentationClock as ::windows_core::ComInterface>::IID || *iid == <IMFClock as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFPresentationClock as ::windows_core::ComInterface>::IID || iid == &<IMFClock as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
@@ -12027,8 +12027,8 @@ impl IMFPresentationDescriptor_Vtbl {
             Clone: Clone::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFPresentationDescriptor as ::windows_core::ComInterface>::IID || *iid == <IMFAttributes as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFPresentationDescriptor as ::windows_core::ComInterface>::IID || iid == &<IMFAttributes as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFPresentationTimeSource_Impl: Sized + IMFClock_Impl {
@@ -12050,8 +12050,8 @@ impl IMFPresentationTimeSource_Vtbl {
         }
         Self { base__: IMFClock_Vtbl::new::<Identity, Impl, OFFSET>(), GetUnderlyingClock: GetUnderlyingClock::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFPresentationTimeSource as ::windows_core::ComInterface>::IID || *iid == <IMFClock as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFPresentationTimeSource as ::windows_core::ComInterface>::IID || iid == &<IMFClock as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFProtectedEnvironmentAccess_Impl: Sized {
@@ -12077,8 +12077,8 @@ impl IMFProtectedEnvironmentAccess_Vtbl {
             ReadGRL: ReadGRL::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFProtectedEnvironmentAccess as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFProtectedEnvironmentAccess as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFQualityAdvise_Impl: Sized {
@@ -12137,8 +12137,8 @@ impl IMFQualityAdvise_Vtbl {
             DropTime: DropTime::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFQualityAdvise as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFQualityAdvise as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFQualityAdvise2_Impl: Sized + IMFQualityAdvise_Impl {
@@ -12160,8 +12160,8 @@ impl IMFQualityAdvise2_Vtbl {
         }
         Self { base__: IMFQualityAdvise_Vtbl::new::<Identity, Impl, OFFSET>(), NotifyQualityEvent: NotifyQualityEvent::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFQualityAdvise2 as ::windows_core::ComInterface>::IID || *iid == <IMFQualityAdvise as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFQualityAdvise2 as ::windows_core::ComInterface>::IID || iid == &<IMFQualityAdvise as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFQualityAdviseLimits_Impl: Sized {
@@ -12199,8 +12199,8 @@ impl IMFQualityAdviseLimits_Vtbl {
             GetMinimumQualityLevel: GetMinimumQualityLevel::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFQualityAdviseLimits as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFQualityAdviseLimits as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFQualityManager_Impl: Sized {
@@ -12254,8 +12254,8 @@ impl IMFQualityManager_Vtbl {
             Shutdown: Shutdown::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFQualityManager as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFQualityManager as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFRateControl_Impl: Sized {
@@ -12281,8 +12281,8 @@ impl IMFRateControl_Vtbl {
             GetRate: GetRate::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFRateControl as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFRateControl as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFRateSupport_Impl: Sized {
@@ -12327,8 +12327,8 @@ impl IMFRateSupport_Vtbl {
             IsRateSupported: IsRateSupported::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFRateSupport as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFRateSupport as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFReadWriteClassFactory_Impl: Sized {
@@ -12354,8 +12354,8 @@ impl IMFReadWriteClassFactory_Vtbl {
             CreateInstanceFromObject: CreateInstanceFromObject::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFReadWriteClassFactory as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFReadWriteClassFactory as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFRealTimeClient_Impl: Sized {
@@ -12388,8 +12388,8 @@ impl IMFRealTimeClient_Vtbl {
             SetWorkQueue: SetWorkQueue::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFRealTimeClient as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFRealTimeClient as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFRealTimeClientEx_Impl: Sized {
@@ -12422,8 +12422,8 @@ impl IMFRealTimeClientEx_Vtbl {
             SetWorkQueueEx: SetWorkQueueEx::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFRealTimeClientEx as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFRealTimeClientEx as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFRelativePanelReport_Impl: Sized {
@@ -12445,8 +12445,8 @@ impl IMFRelativePanelReport_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetRelativePanel: GetRelativePanel::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFRelativePanelReport as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFRelativePanelReport as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFRelativePanelWatcher_Impl: Sized + IMFShutdown_Impl {
@@ -12491,8 +12491,8 @@ impl IMFRelativePanelWatcher_Vtbl {
             GetReport: GetReport::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFRelativePanelWatcher as ::windows_core::ComInterface>::IID || *iid == <IMFShutdown as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFRelativePanelWatcher as ::windows_core::ComInterface>::IID || iid == &<IMFShutdown as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFRemoteAsyncCallback_Impl: Sized {
@@ -12508,8 +12508,8 @@ impl IMFRemoteAsyncCallback_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Invoke: Invoke::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFRemoteAsyncCallback as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFRemoteAsyncCallback as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFRemoteDesktopPlugin_Impl: Sized {
@@ -12525,8 +12525,8 @@ impl IMFRemoteDesktopPlugin_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), UpdateTopology: UpdateTopology::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFRemoteDesktopPlugin as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFRemoteDesktopPlugin as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFRemoteProxy_Impl: Sized {
@@ -12552,8 +12552,8 @@ impl IMFRemoteProxy_Vtbl {
             GetRemoteHost: GetRemoteHost::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFRemoteProxy as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFRemoteProxy as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
@@ -12615,8 +12615,8 @@ impl IMFSAMIStyle_Vtbl {
             GetSelectedStyle: GetSelectedStyle::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFSAMIStyle as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFSAMIStyle as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFSSLCertificateManager_Impl: Sized {
@@ -12669,8 +12669,8 @@ impl IMFSSLCertificateManager_Vtbl {
             OnServerCertificate: OnServerCertificate::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFSSLCertificateManager as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFSSLCertificateManager as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
@@ -12826,8 +12826,8 @@ impl IMFSample_Vtbl {
             CopyToBuffer: CopyToBuffer::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFSample as ::windows_core::ComInterface>::IID || *iid == <IMFAttributes as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFSample as ::windows_core::ComInterface>::IID || iid == &<IMFAttributes as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFSampleAllocatorControl_Impl: Sized {
@@ -12853,8 +12853,8 @@ impl IMFSampleAllocatorControl_Vtbl {
             GetAllocatorUsage: GetAllocatorUsage::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFSampleAllocatorControl as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFSampleAllocatorControl as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFSampleGrabberSinkCallback_Impl: Sized + IMFClockStateSink_Impl {
@@ -12887,8 +12887,8 @@ impl IMFSampleGrabberSinkCallback_Vtbl {
             OnShutdown: OnShutdown::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFSampleGrabberSinkCallback as ::windows_core::ComInterface>::IID || *iid == <IMFClockStateSink as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFSampleGrabberSinkCallback as ::windows_core::ComInterface>::IID || iid == &<IMFClockStateSink as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFSampleGrabberSinkCallback2_Impl: Sized + IMFSampleGrabberSinkCallback_Impl {
@@ -12904,8 +12904,8 @@ impl IMFSampleGrabberSinkCallback2_Vtbl {
         }
         Self { base__: IMFSampleGrabberSinkCallback_Vtbl::new::<Identity, Impl, OFFSET>(), OnProcessSampleEx: OnProcessSampleEx::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFSampleGrabberSinkCallback2 as ::windows_core::ComInterface>::IID || *iid == <IMFClockStateSink as ::windows_core::ComInterface>::IID || *iid == <IMFSampleGrabberSinkCallback as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFSampleGrabberSinkCallback2 as ::windows_core::ComInterface>::IID || iid == &<IMFClockStateSink as ::windows_core::ComInterface>::IID || iid == &<IMFSampleGrabberSinkCallback as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFSampleOutputStream_Impl: Sized {
@@ -12938,8 +12938,8 @@ impl IMFSampleOutputStream_Vtbl {
             Close: Close::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFSampleOutputStream as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFSampleOutputStream as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFSampleProtection_Impl: Sized {
@@ -12998,8 +12998,8 @@ impl IMFSampleProtection_Vtbl {
             InitInputProtection: InitInputProtection::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFSampleProtection as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFSampleProtection as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFSaveJob_Impl: Sized {
@@ -13045,8 +13045,8 @@ impl IMFSaveJob_Vtbl {
             GetProgress: GetProgress::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFSaveJob as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFSaveJob as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
@@ -13083,8 +13083,8 @@ impl IMFSchemeHandler_Vtbl {
             CancelObjectCreation: CancelObjectCreation::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFSchemeHandler as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFSchemeHandler as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFSecureBuffer_Impl: Sized {
@@ -13106,8 +13106,8 @@ impl IMFSecureBuffer_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetIdentifier: GetIdentifier::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFSecureBuffer as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFSecureBuffer as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFSecureChannel_Impl: Sized {
@@ -13133,8 +13133,8 @@ impl IMFSecureChannel_Vtbl {
             SetupSession: SetupSession::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFSecureChannel as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFSecureChannel as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
@@ -13154,8 +13154,8 @@ impl IMFSeekInfo_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetNearestKeyFrames: GetNearestKeyFrames::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFSeekInfo as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFSeekInfo as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFSensorActivitiesReport_Impl: Sized {
@@ -13206,8 +13206,8 @@ impl IMFSensorActivitiesReport_Vtbl {
             GetActivityReportByDeviceName: GetActivityReportByDeviceName::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFSensorActivitiesReport as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFSensorActivitiesReport as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFSensorActivitiesReportCallback_Impl: Sized {
@@ -13223,8 +13223,8 @@ impl IMFSensorActivitiesReportCallback_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnActivitiesReport: OnActivitiesReport::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFSensorActivitiesReportCallback as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFSensorActivitiesReportCallback as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFSensorActivityMonitor_Impl: Sized {
@@ -13246,8 +13246,8 @@ impl IMFSensorActivityMonitor_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Start: Start::<Identity, Impl, OFFSET>, Stop: Stop::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFSensorActivityMonitor as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFSensorActivityMonitor as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFSensorActivityReport_Impl: Sized {
@@ -13299,8 +13299,8 @@ impl IMFSensorActivityReport_Vtbl {
             GetProcessActivity: GetProcessActivity::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFSensorActivityReport as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFSensorActivityReport as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFSensorDevice_Impl: Sized {
@@ -13417,8 +13417,8 @@ impl IMFSensorDevice_Vtbl {
             GetSensorDeviceMode: GetSensorDeviceMode::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFSensorDevice as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFSensorDevice as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFSensorGroup_Impl: Sized {
@@ -13522,8 +13522,8 @@ impl IMFSensorGroup_Vtbl {
             CreateMediaSource: CreateMediaSource::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFSensorGroup as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFSensorGroup as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFSensorProcessActivity_Impl: Sized {
@@ -13587,8 +13587,8 @@ impl IMFSensorProcessActivity_Vtbl {
             GetReportTime: GetReportTime::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFSensorProcessActivity as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFSensorProcessActivity as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFSensorProfile_Impl: Sized {
@@ -13634,8 +13634,8 @@ impl IMFSensorProfile_Vtbl {
             AddBlockedControl: AddBlockedControl::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFSensorProfile as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFSensorProfile as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFSensorProfileCollection_Impl: Sized {
@@ -13701,8 +13701,8 @@ impl IMFSensorProfileCollection_Vtbl {
             RemoveProfile: RemoveProfile::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFSensorProfileCollection as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFSensorProfileCollection as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
@@ -13757,8 +13757,8 @@ impl IMFSensorStream_Vtbl {
             CloneSensorStream: CloneSensorStream::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFSensorStream as ::windows_core::ComInterface>::IID || *iid == <IMFAttributes as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFSensorStream as ::windows_core::ComInterface>::IID || iid == &<IMFAttributes as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFSensorTransformFactory_Impl: Sized {
@@ -13823,8 +13823,8 @@ impl IMFSensorTransformFactory_Vtbl {
             CreateTransform: CreateTransform::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFSensorTransformFactory as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFSensorTransformFactory as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFSequencerSource_Impl: Sized {
@@ -13877,8 +13877,8 @@ impl IMFSequencerSource_Vtbl {
             UpdateTopologyFlags: UpdateTopologyFlags::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFSequencerSource as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFSequencerSource as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFSharingEngineClassFactory_Impl: Sized {
@@ -13900,8 +13900,8 @@ impl IMFSharingEngineClassFactory_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateInstance: CreateInstance::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFSharingEngineClassFactory as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFSharingEngineClassFactory as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFShutdown_Impl: Sized {
@@ -13933,8 +13933,8 @@ impl IMFShutdown_Vtbl {
             GetShutdownStatus: GetShutdownStatus::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFShutdown as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFShutdown as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFSignedLibrary_Impl: Sized {
@@ -13950,8 +13950,8 @@ impl IMFSignedLibrary_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetProcedureAddress: GetProcedureAddress::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFSignedLibrary as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFSignedLibrary as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFSimpleAudioVolume_Impl: Sized {
@@ -14003,8 +14003,8 @@ impl IMFSimpleAudioVolume_Vtbl {
             GetMute: GetMute::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFSimpleAudioVolume as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFSimpleAudioVolume as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFSinkWriter_Impl: Sized {
@@ -14099,8 +14099,8 @@ impl IMFSinkWriter_Vtbl {
             GetStatistics: GetStatistics::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFSinkWriter as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFSinkWriter as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFSinkWriterCallback_Impl: Sized {
@@ -14126,8 +14126,8 @@ impl IMFSinkWriterCallback_Vtbl {
             OnMarker: OnMarker::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFSinkWriterCallback as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFSinkWriterCallback as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFSinkWriterCallback2_Impl: Sized + IMFSinkWriterCallback_Impl {
@@ -14153,8 +14153,8 @@ impl IMFSinkWriterCallback2_Vtbl {
             OnStreamError: OnStreamError::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFSinkWriterCallback2 as ::windows_core::ComInterface>::IID || *iid == <IMFSinkWriterCallback as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFSinkWriterCallback2 as ::windows_core::ComInterface>::IID || iid == &<IMFSinkWriterCallback as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFSinkWriterEncoderConfig_Impl: Sized {
@@ -14180,8 +14180,8 @@ impl IMFSinkWriterEncoderConfig_Vtbl {
             PlaceEncodingParameters: PlaceEncodingParameters::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFSinkWriterEncoderConfig as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFSinkWriterEncoderConfig as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFSinkWriterEx_Impl: Sized + IMFSinkWriter_Impl {
@@ -14197,8 +14197,8 @@ impl IMFSinkWriterEx_Vtbl {
         }
         Self { base__: IMFSinkWriter_Vtbl::new::<Identity, Impl, OFFSET>(), GetTransformForStream: GetTransformForStream::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFSinkWriterEx as ::windows_core::ComInterface>::IID || *iid == <IMFSinkWriter as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFSinkWriterEx as ::windows_core::ComInterface>::IID || iid == &<IMFSinkWriter as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFSourceBuffer_Impl: Sized {
@@ -14300,8 +14300,8 @@ impl IMFSourceBuffer_Vtbl {
             Remove: Remove::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFSourceBuffer as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFSourceBuffer as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFSourceBufferAppendMode_Impl: Sized {
@@ -14327,8 +14327,8 @@ impl IMFSourceBufferAppendMode_Vtbl {
             SetAppendMode: SetAppendMode::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFSourceBufferAppendMode as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFSourceBufferAppendMode as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFSourceBufferList_Impl: Sized {
@@ -14354,8 +14354,8 @@ impl IMFSourceBufferList_Vtbl {
             GetSourceBuffer: GetSourceBuffer::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFSourceBufferList as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFSourceBufferList as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFSourceBufferNotify_Impl: Sized {
@@ -14402,8 +14402,8 @@ impl IMFSourceBufferNotify_Vtbl {
             OnUpdateEnd: OnUpdateEnd::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFSourceBufferNotify as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFSourceBufferNotify as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFSourceOpenMonitor_Impl: Sized {
@@ -14419,8 +14419,8 @@ impl IMFSourceOpenMonitor_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnSourceEvent: OnSourceEvent::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFSourceOpenMonitor as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFSourceOpenMonitor as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
@@ -14530,8 +14530,8 @@ impl IMFSourceReader_Vtbl {
             GetPresentationAttribute: GetPresentationAttribute::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFSourceReader as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFSourceReader as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFSourceReaderCallback_Impl: Sized {
@@ -14564,8 +14564,8 @@ impl IMFSourceReaderCallback_Vtbl {
             OnEvent: OnEvent::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFSourceReaderCallback as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFSourceReaderCallback as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFSourceReaderCallback2_Impl: Sized + IMFSourceReaderCallback_Impl {
@@ -14591,8 +14591,8 @@ impl IMFSourceReaderCallback2_Vtbl {
             OnStreamError: OnStreamError::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFSourceReaderCallback2 as ::windows_core::ComInterface>::IID || *iid == <IMFSourceReaderCallback as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFSourceReaderCallback2 as ::windows_core::ComInterface>::IID || iid == &<IMFSourceReaderCallback as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
@@ -14642,8 +14642,8 @@ impl IMFSourceReaderEx_Vtbl {
             GetTransformForStream: GetTransformForStream::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFSourceReaderEx as ::windows_core::ComInterface>::IID || *iid == <IMFSourceReader as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFSourceReaderEx as ::windows_core::ComInterface>::IID || iid == &<IMFSourceReader as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
@@ -14708,8 +14708,8 @@ impl IMFSourceResolver_Vtbl {
             CancelObjectCreation: CancelObjectCreation::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFSourceResolver as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFSourceResolver as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Media_Audio\"`"]
@@ -14778,8 +14778,8 @@ impl IMFSpatialAudioObjectBuffer_Vtbl {
             GetMetadataItems: GetMetadataItems::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFSpatialAudioObjectBuffer as ::windows_core::ComInterface>::IID || *iid == <IMFMediaBuffer as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFSpatialAudioObjectBuffer as ::windows_core::ComInterface>::IID || iid == &<IMFMediaBuffer as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
@@ -14828,8 +14828,8 @@ impl IMFSpatialAudioSample_Vtbl {
             GetSpatialAudioObjectByIndex: GetSpatialAudioObjectByIndex::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFSpatialAudioSample as ::windows_core::ComInterface>::IID || *iid == <IMFAttributes as ::windows_core::ComInterface>::IID || *iid == <IMFSample as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFSpatialAudioSample as ::windows_core::ComInterface>::IID || iid == &<IMFAttributes as ::windows_core::ComInterface>::IID || iid == &<IMFSample as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
@@ -14871,8 +14871,8 @@ impl IMFStreamDescriptor_Vtbl {
             GetMediaTypeHandler: GetMediaTypeHandler::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFStreamDescriptor as ::windows_core::ComInterface>::IID || *iid == <IMFAttributes as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFStreamDescriptor as ::windows_core::ComInterface>::IID || iid == &<IMFAttributes as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
@@ -14948,8 +14948,8 @@ impl IMFStreamSink_Vtbl {
             Flush: Flush::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFStreamSink as ::windows_core::ComInterface>::IID || *iid == <IMFMediaEventGenerator as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFStreamSink as ::windows_core::ComInterface>::IID || iid == &<IMFMediaEventGenerator as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFStreamingSinkConfig_Impl: Sized {
@@ -14965,8 +14965,8 @@ impl IMFStreamingSinkConfig_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), StartStreaming: StartStreaming::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFStreamingSinkConfig as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFStreamingSinkConfig as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFSystemId_Impl: Sized {
@@ -14992,8 +14992,8 @@ impl IMFSystemId_Vtbl {
             Setup: Setup::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFSystemId as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFSystemId as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
@@ -15049,8 +15049,8 @@ impl IMFTimecodeTranslate_Vtbl {
             EndConvertHNSToTimecode: EndConvertHNSToTimecode::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFTimecodeTranslate as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFTimecodeTranslate as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFTimedText_Impl: Sized {
@@ -15208,8 +15208,8 @@ impl IMFTimedText_Vtbl {
             IsInBandEnabled: IsInBandEnabled::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFTimedText as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFTimedText as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFTimedTextBinary_Impl: Sized {
@@ -15225,8 +15225,8 @@ impl IMFTimedTextBinary_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetData: GetData::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFTimedTextBinary as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFTimedTextBinary as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFTimedTextBouten_Impl: Sized {
@@ -15277,8 +15277,8 @@ impl IMFTimedTextBouten_Vtbl {
             GetBoutenPosition: GetBoutenPosition::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFTimedTextBouten as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFTimedTextBouten as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFTimedTextCue_Impl: Sized {
@@ -15397,8 +15397,8 @@ impl IMFTimedTextCue_Vtbl {
             GetLine: GetLine::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFTimedTextCue as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFTimedTextCue as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFTimedTextCueList_Impl: Sized {
@@ -15477,8 +15477,8 @@ impl IMFTimedTextCueList_Vtbl {
             RemoveCue: RemoveCue::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFTimedTextCueList as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFTimedTextCueList as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFTimedTextFormattedText_Impl: Sized {
@@ -15517,8 +15517,8 @@ impl IMFTimedTextFormattedText_Vtbl {
             GetSubformatting: GetSubformatting::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFTimedTextFormattedText as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFTimedTextFormattedText as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFTimedTextNotify_Impl: Sized {
@@ -15579,8 +15579,8 @@ impl IMFTimedTextNotify_Vtbl {
             Reset: Reset::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFTimedTextNotify as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFTimedTextNotify as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFTimedTextRegion_Impl: Sized {
@@ -15724,8 +15724,8 @@ impl IMFTimedTextRegion_Vtbl {
             GetScrollMode: GetScrollMode::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFTimedTextRegion as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFTimedTextRegion as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFTimedTextRuby_Impl: Sized {
@@ -15789,8 +15789,8 @@ impl IMFTimedTextRuby_Vtbl {
             GetRubyReserve: GetRubyReserve::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFTimedTextRuby as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFTimedTextRuby as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFTimedTextStyle_Impl: Sized {
@@ -15953,8 +15953,8 @@ impl IMFTimedTextStyle_Vtbl {
             GetTextOutline: GetTextOutline::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFTimedTextStyle as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFTimedTextStyle as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFTimedTextStyle2_Impl: Sized {
@@ -16018,8 +16018,8 @@ impl IMFTimedTextStyle2_Vtbl {
             GetFontAngleInDegrees: GetFontAngleInDegrees::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFTimedTextStyle2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFTimedTextStyle2 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFTimedTextTrack_Impl: Sized {
@@ -16152,8 +16152,8 @@ impl IMFTimedTextTrack_Vtbl {
             GetCueList: GetCueList::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFTimedTextTrack as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFTimedTextTrack as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFTimedTextTrackList_Impl: Sized {
@@ -16198,8 +16198,8 @@ impl IMFTimedTextTrackList_Vtbl {
             GetTrackById: GetTrackById::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFTimedTextTrackList as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFTimedTextTrackList as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFTimer_Impl: Sized {
@@ -16231,8 +16231,8 @@ impl IMFTimer_Vtbl {
             CancelTimer: CancelTimer::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFTimer as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFTimer as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFTopoLoader_Impl: Sized {
@@ -16248,8 +16248,8 @@ impl IMFTopoLoader_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Load: Load::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFTopoLoader as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFTopoLoader as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
@@ -16371,8 +16371,8 @@ impl IMFTopology_Vtbl {
             GetOutputNodeCollection: GetOutputNodeCollection::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFTopology as ::windows_core::ComInterface>::IID || *iid == <IMFAttributes as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFTopology as ::windows_core::ComInterface>::IID || iid == &<IMFAttributes as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
@@ -16542,8 +16542,8 @@ impl IMFTopologyNode_Vtbl {
             CloneFrom: CloneFrom::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFTopologyNode as ::windows_core::ComInterface>::IID || *iid == <IMFAttributes as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFTopologyNode as ::windows_core::ComInterface>::IID || iid == &<IMFAttributes as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFTopologyNodeAttributeEditor_Impl: Sized {
@@ -16559,8 +16559,8 @@ impl IMFTopologyNodeAttributeEditor_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), UpdateNodeAttributes: UpdateNodeAttributes::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFTopologyNodeAttributeEditor as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFTopologyNodeAttributeEditor as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFTopologyServiceLookup_Impl: Sized {
@@ -16576,8 +16576,8 @@ impl IMFTopologyServiceLookup_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), LookupService: LookupService::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFTopologyServiceLookup as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFTopologyServiceLookup as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFTopologyServiceLookupClient_Impl: Sized {
@@ -16603,8 +16603,8 @@ impl IMFTopologyServiceLookupClient_Vtbl {
             ReleaseServicePointers: ReleaseServicePointers::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFTopologyServiceLookupClient as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFTopologyServiceLookupClient as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFTrackedSample_Impl: Sized {
@@ -16620,8 +16620,8 @@ impl IMFTrackedSample_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetAllocator: SetAllocator::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFTrackedSample as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFTrackedSample as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFTranscodeProfile_Impl: Sized {
@@ -16693,8 +16693,8 @@ impl IMFTranscodeProfile_Vtbl {
             GetContainerAttributes: GetContainerAttributes::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFTranscodeProfile as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFTranscodeProfile as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFTranscodeSinkInfoProvider_Impl: Sized {
@@ -16740,8 +16740,8 @@ impl IMFTranscodeSinkInfoProvider_Vtbl {
             GetSinkInfo: GetSinkInfo::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFTranscodeSinkInfoProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFTranscodeSinkInfoProvider as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFTransform_Impl: Sized {
@@ -16974,8 +16974,8 @@ impl IMFTransform_Vtbl {
             ProcessOutput: ProcessOutput::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFTransform as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFTransform as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFTrustedInput_Impl: Sized {
@@ -16997,8 +16997,8 @@ impl IMFTrustedInput_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetInputTrustAuthority: GetInputTrustAuthority::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFTrustedInput as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFTrustedInput as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFTrustedOutput_Impl: Sized {
@@ -17049,8 +17049,8 @@ impl IMFTrustedOutput_Vtbl {
             IsFinal: IsFinal::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFTrustedOutput as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFTrustedOutput as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFVideoCaptureSampleAllocator_Impl: Sized + IMFVideoSampleAllocator_Impl {
@@ -17069,8 +17069,8 @@ impl IMFVideoCaptureSampleAllocator_Vtbl {
             InitializeCaptureSampleAllocator: InitializeCaptureSampleAllocator::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFVideoCaptureSampleAllocator as ::windows_core::ComInterface>::IID || *iid == <IMFVideoSampleAllocator as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFVideoCaptureSampleAllocator as ::windows_core::ComInterface>::IID || iid == &<IMFVideoSampleAllocator as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFVideoDeviceID_Impl: Sized {
@@ -17092,8 +17092,8 @@ impl IMFVideoDeviceID_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetDeviceID: GetDeviceID::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFVideoDeviceID as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFVideoDeviceID as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
@@ -17251,8 +17251,8 @@ impl IMFVideoDisplayControl_Vtbl {
             GetFullscreen: GetFullscreen::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFVideoDisplayControl as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFVideoDisplayControl as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
@@ -17282,8 +17282,8 @@ impl IMFVideoMediaType_Vtbl {
             GetVideoRepresentation: GetVideoRepresentation::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFVideoMediaType as ::windows_core::ComInterface>::IID || *iid == <IMFAttributes as ::windows_core::ComInterface>::IID || *iid == <IMFMediaType as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFVideoMediaType as ::windows_core::ComInterface>::IID || iid == &<IMFAttributes as ::windows_core::ComInterface>::IID || iid == &<IMFMediaType as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_Gdi\"`"]
@@ -17327,8 +17327,8 @@ impl IMFVideoMixerBitmap_Vtbl {
             GetAlphaBitmapParameters: GetAlphaBitmapParameters::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFVideoMixerBitmap as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFVideoMixerBitmap as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFVideoMixerControl_Impl: Sized {
@@ -17380,8 +17380,8 @@ impl IMFVideoMixerControl_Vtbl {
             GetStreamOutputRect: GetStreamOutputRect::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFVideoMixerControl as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFVideoMixerControl as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFVideoMixerControl2_Impl: Sized + IMFVideoMixerControl_Impl {
@@ -17413,8 +17413,8 @@ impl IMFVideoMixerControl2_Vtbl {
             GetMixingPrefs: GetMixingPrefs::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFVideoMixerControl2 as ::windows_core::ComInterface>::IID || *iid == <IMFVideoMixerControl as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFVideoMixerControl2 as ::windows_core::ComInterface>::IID || iid == &<IMFVideoMixerControl as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFVideoPositionMapper_Impl: Sized {
@@ -17433,8 +17433,8 @@ impl IMFVideoPositionMapper_Vtbl {
             MapOutputCoordinateToInputStream: MapOutputCoordinateToInputStream::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFVideoPositionMapper as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFVideoPositionMapper as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFVideoPresenter_Impl: Sized + IMFClockStateSink_Impl {
@@ -17466,8 +17466,8 @@ impl IMFVideoPresenter_Vtbl {
             GetCurrentMediaType: GetCurrentMediaType::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFVideoPresenter as ::windows_core::ComInterface>::IID || *iid == <IMFClockStateSink as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFVideoPresenter as ::windows_core::ComInterface>::IID || iid == &<IMFClockStateSink as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
@@ -17603,8 +17603,8 @@ impl IMFVideoProcessor_Vtbl {
             SetBackgroundColor: SetBackgroundColor::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFVideoProcessor as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFVideoProcessor as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFVideoProcessorControl_Impl: Sized {
@@ -17658,8 +17658,8 @@ impl IMFVideoProcessorControl_Vtbl {
             SetConstrictionSize: SetConstrictionSize::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFVideoProcessorControl as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFVideoProcessorControl as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFVideoProcessorControl2_Impl: Sized + IMFVideoProcessorControl_Impl {
@@ -17698,8 +17698,8 @@ impl IMFVideoProcessorControl2_Vtbl {
             GetSupportedHardwareEffects: GetSupportedHardwareEffects::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFVideoProcessorControl2 as ::windows_core::ComInterface>::IID || *iid == <IMFVideoProcessorControl as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFVideoProcessorControl2 as ::windows_core::ComInterface>::IID || iid == &<IMFVideoProcessorControl as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFVideoProcessorControl3_Impl: Sized + IMFVideoProcessorControl2_Impl {
@@ -17745,8 +17745,8 @@ impl IMFVideoProcessorControl3_Vtbl {
             SetOutputDevice: SetOutputDevice::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFVideoProcessorControl3 as ::windows_core::ComInterface>::IID || *iid == <IMFVideoProcessorControl as ::windows_core::ComInterface>::IID || *iid == <IMFVideoProcessorControl2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFVideoProcessorControl3 as ::windows_core::ComInterface>::IID || iid == &<IMFVideoProcessorControl as ::windows_core::ComInterface>::IID || iid == &<IMFVideoProcessorControl2 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFVideoRenderer_Impl: Sized {
@@ -17762,8 +17762,8 @@ impl IMFVideoRenderer_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), InitializeRenderer: InitializeRenderer::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFVideoRenderer as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFVideoRenderer as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFVideoRendererEffectControl_Impl: Sized {
@@ -17782,8 +17782,8 @@ impl IMFVideoRendererEffectControl_Vtbl {
             OnAppServiceConnectionEstablished: OnAppServiceConnectionEstablished::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFVideoRendererEffectControl as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFVideoRendererEffectControl as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFVideoSampleAllocator_Impl: Sized {
@@ -17829,8 +17829,8 @@ impl IMFVideoSampleAllocator_Vtbl {
             AllocateSample: AllocateSample::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFVideoSampleAllocator as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFVideoSampleAllocator as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFVideoSampleAllocatorCallback_Impl: Sized {
@@ -17862,8 +17862,8 @@ impl IMFVideoSampleAllocatorCallback_Vtbl {
             GetFreeSampleCount: GetFreeSampleCount::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFVideoSampleAllocatorCallback as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFVideoSampleAllocatorCallback as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFVideoSampleAllocatorEx_Impl: Sized + IMFVideoSampleAllocator_Impl {
@@ -17882,8 +17882,8 @@ impl IMFVideoSampleAllocatorEx_Vtbl {
             InitializeSampleAllocatorEx: InitializeSampleAllocatorEx::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFVideoSampleAllocatorEx as ::windows_core::ComInterface>::IID || *iid == <IMFVideoSampleAllocator as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFVideoSampleAllocatorEx as ::windows_core::ComInterface>::IID || iid == &<IMFVideoSampleAllocator as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFVideoSampleAllocatorNotify_Impl: Sized {
@@ -17899,8 +17899,8 @@ impl IMFVideoSampleAllocatorNotify_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), NotifyRelease: NotifyRelease::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFVideoSampleAllocatorNotify as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFVideoSampleAllocatorNotify as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFVideoSampleAllocatorNotifyEx_Impl: Sized + IMFVideoSampleAllocatorNotify_Impl {
@@ -17916,8 +17916,8 @@ impl IMFVideoSampleAllocatorNotifyEx_Vtbl {
         }
         Self { base__: IMFVideoSampleAllocatorNotify_Vtbl::new::<Identity, Impl, OFFSET>(), NotifyPrune: NotifyPrune::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFVideoSampleAllocatorNotifyEx as ::windows_core::ComInterface>::IID || *iid == <IMFVideoSampleAllocatorNotify as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFVideoSampleAllocatorNotifyEx as ::windows_core::ComInterface>::IID || iid == &<IMFVideoSampleAllocatorNotify as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Devices_Properties\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
@@ -18028,8 +18028,8 @@ impl IMFVirtualCamera_Vtbl {
             Shutdown: Shutdown::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFVirtualCamera as ::windows_core::ComInterface>::IID || *iid == <IMFAttributes as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFVirtualCamera as ::windows_core::ComInterface>::IID || iid == &<IMFAttributes as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFWorkQueueServices_Impl: Sized {
@@ -18143,8 +18143,8 @@ impl IMFWorkQueueServices_Vtbl {
             GetPlatformWorkQueueMMCSSTaskId: GetPlatformWorkQueueMMCSSTaskId::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFWorkQueueServices as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFWorkQueueServices as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMFWorkQueueServicesEx_Impl: Sized + IMFWorkQueueServices_Impl {
@@ -18189,8 +18189,8 @@ impl IMFWorkQueueServicesEx_Vtbl {
             GetPlatformWorkQueueMMCSSPriority: GetPlatformWorkQueueMMCSSPriority::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMFWorkQueueServicesEx as ::windows_core::ComInterface>::IID || *iid == <IMFWorkQueueServices as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMFWorkQueueServicesEx as ::windows_core::ComInterface>::IID || iid == &<IMFWorkQueueServices as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IOPMVideoOutput_Impl: Sized {
@@ -18237,8 +18237,8 @@ impl IOPMVideoOutput_Vtbl {
             Configure: Configure::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IOPMVideoOutput as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IOPMVideoOutput as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IPlayToControl_Impl: Sized {
@@ -18264,8 +18264,8 @@ impl IPlayToControl_Vtbl {
             Disconnect: Disconnect::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IPlayToControl as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IPlayToControl as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IPlayToControlWithCapabilities_Impl: Sized + IPlayToControl_Impl {
@@ -18287,8 +18287,8 @@ impl IPlayToControlWithCapabilities_Vtbl {
         }
         Self { base__: IPlayToControl_Vtbl::new::<Identity, Impl, OFFSET>(), GetCapabilities: GetCapabilities::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IPlayToControlWithCapabilities as ::windows_core::ComInterface>::IID || *iid == <IPlayToControl as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IPlayToControlWithCapabilities as ::windows_core::ComInterface>::IID || iid == &<IPlayToControl as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IPlayToSourceClassFactory_Impl: Sized {
@@ -18310,8 +18310,8 @@ impl IPlayToSourceClassFactory_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateInstance: CreateInstance::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IPlayToSourceClassFactory as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IPlayToSourceClassFactory as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IToc_Impl: Sized {
@@ -18406,8 +18406,8 @@ impl IToc_Vtbl {
             RemoveEntryListByIndex: RemoveEntryListByIndex::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IToc as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IToc as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITocCollection_Impl: Sized {
@@ -18460,8 +18460,8 @@ impl ITocCollection_Vtbl {
             RemoveEntryByIndex: RemoveEntryByIndex::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITocCollection as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITocCollection as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITocEntry_Impl: Sized {
@@ -18529,8 +18529,8 @@ impl ITocEntry_Vtbl {
             GetDescriptionData: GetDescriptionData::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITocEntry as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITocEntry as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITocEntryList_Impl: Sized {
@@ -18583,8 +18583,8 @@ impl ITocEntryList_Vtbl {
             RemoveEntryByIndex: RemoveEntryByIndex::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITocEntryList as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITocEntryList as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITocParser_Impl: Sized {
@@ -18664,8 +18664,8 @@ impl ITocParser_Vtbl {
             Commit: Commit::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITocParser as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITocParser as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IValidateBinding_Impl: Sized {
@@ -18681,8 +18681,8 @@ impl IValidateBinding_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetIdentifier: GetIdentifier::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IValidateBinding as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IValidateBinding as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IWMCodecLeakyBucket_Impl: Sized {
@@ -18722,8 +18722,8 @@ impl IWMCodecLeakyBucket_Vtbl {
             GetBufferFullnessBits: GetBufferFullnessBits::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IWMCodecLeakyBucket as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IWMCodecLeakyBucket as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IWMCodecOutputTimestamp_Impl: Sized {
@@ -18739,8 +18739,8 @@ impl IWMCodecOutputTimestamp_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetNextOutputTime: GetNextOutputTime::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IWMCodecOutputTimestamp as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IWMCodecOutputTimestamp as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Media_DxMediaObjects\"`"]
@@ -18770,8 +18770,8 @@ impl IWMCodecPrivateData_Vtbl {
             GetPrivateData: GetPrivateData::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IWMCodecPrivateData as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IWMCodecPrivateData as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Media_DxMediaObjects\"`"]
@@ -18801,8 +18801,8 @@ impl IWMCodecProps_Vtbl {
             GetCodecProp: GetCodecProp::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IWMCodecProps as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IWMCodecProps as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Media_DxMediaObjects\"`"]
@@ -18832,8 +18832,8 @@ impl IWMCodecStrings_Vtbl {
             GetDescription: GetDescription::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IWMCodecStrings as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IWMCodecStrings as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IWMColorConvProps_Impl: Sized {
@@ -18859,8 +18859,8 @@ impl IWMColorConvProps_Vtbl {
             SetFullCroppingParam: SetFullCroppingParam::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IWMColorConvProps as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IWMColorConvProps as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IWMColorLegalizerProps_Impl: Sized {
@@ -18876,8 +18876,8 @@ impl IWMColorLegalizerProps_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetColorLegalizerQuality: SetColorLegalizerQuality::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IWMColorLegalizerProps as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IWMColorLegalizerProps as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IWMFrameInterpProps_Impl: Sized {
@@ -18917,8 +18917,8 @@ impl IWMFrameInterpProps_Vtbl {
             SetComplexityLevel: SetComplexityLevel::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IWMFrameInterpProps as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IWMFrameInterpProps as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IWMInterlaceProps_Impl: Sized {
@@ -18951,8 +18951,8 @@ impl IWMInterlaceProps_Vtbl {
             SetLastFrame: SetLastFrame::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IWMInterlaceProps as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IWMInterlaceProps as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IWMResamplerProps_Impl: Sized {
@@ -18978,8 +18978,8 @@ impl IWMResamplerProps_Vtbl {
             SetUserChannelMtx: SetUserChannelMtx::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IWMResamplerProps as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IWMResamplerProps as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IWMResizerProps_Impl: Sized {
@@ -19026,8 +19026,8 @@ impl IWMResizerProps_Vtbl {
             GetFullCropRegion: GetFullCropRegion::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IWMResizerProps as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IWMResizerProps as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IWMSampleExtensionSupport_Impl: Sized {
@@ -19043,8 +19043,8 @@ impl IWMSampleExtensionSupport_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetUseSampleExtensions: SetUseSampleExtensions::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IWMSampleExtensionSupport as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IWMSampleExtensionSupport as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IWMValidate_Impl: Sized {
@@ -19060,8 +19060,8 @@ impl IWMValidate_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetIdentifier: SetIdentifier::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IWMValidate as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IWMValidate as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IWMVideoDecoderHurryup_Impl: Sized {
@@ -19087,8 +19087,8 @@ impl IWMVideoDecoderHurryup_Vtbl {
             GetHurryup: GetHurryup::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IWMVideoDecoderHurryup as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IWMVideoDecoderHurryup as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Media_DxMediaObjects\"`"]
@@ -19125,8 +19125,8 @@ impl IWMVideoDecoderReconBuffer_Vtbl {
             SetReconstructedVideoFrame: SetReconstructedVideoFrame::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IWMVideoDecoderReconBuffer as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IWMVideoDecoderReconBuffer as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IWMVideoForceKeyFrame_Impl: Sized {
@@ -19142,8 +19142,8 @@ impl IWMVideoForceKeyFrame_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetKeyFrame: SetKeyFrame::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IWMVideoForceKeyFrame as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IWMVideoForceKeyFrame as ::windows_core::ComInterface>::IID
     }
 }
 pub trait MFASYNCRESULT_Impl: Sized + IMFAsyncResult_Impl {}
@@ -19152,7 +19152,7 @@ impl MFASYNCRESULT_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: MFASYNCRESULT_Impl, const OFFSET: isize>() -> MFASYNCRESULT_Vtbl {
         Self { base__: IMFAsyncResult_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <MFASYNCRESULT as ::windows_core::ComInterface>::IID || *iid == <IMFAsyncResult as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<MFASYNCRESULT as ::windows_core::ComInterface>::IID || iid == &<IMFAsyncResult as ::windows_core::ComInterface>::IID
     }
 }

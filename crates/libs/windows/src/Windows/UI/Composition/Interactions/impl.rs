@@ -6,8 +6,8 @@ impl ICompositionInteractionSource_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICompositionInteractionSource_Impl, const OFFSET: isize>() -> ICompositionInteractionSource_Vtbl {
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, ICompositionInteractionSource, OFFSET>() }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ICompositionInteractionSource as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ICompositionInteractionSource as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IInteractionTrackerOwner_Impl: Sized {
@@ -63,7 +63,7 @@ impl IInteractionTrackerOwner_Vtbl {
             ValuesChanged: ValuesChanged::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IInteractionTrackerOwner as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IInteractionTrackerOwner as ::windows_core::ComInterface>::IID
     }
 }

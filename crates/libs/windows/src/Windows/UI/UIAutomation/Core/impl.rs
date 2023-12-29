@@ -22,8 +22,8 @@ impl ICoreAutomationConnectionBoundObjectProvider_Vtbl {
             IsComThreadingRequired: IsComThreadingRequired::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ICoreAutomationConnectionBoundObjectProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ICoreAutomationConnectionBoundObjectProvider as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ICoreAutomationRemoteOperationExtensionProvider_Impl: Sized {
@@ -57,7 +57,7 @@ impl ICoreAutomationRemoteOperationExtensionProvider_Vtbl {
             IsExtensionSupported: IsExtensionSupported::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ICoreAutomationRemoteOperationExtensionProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ICoreAutomationRemoteOperationExtensionProvider as ::windows_core::ComInterface>::IID
     }
 }

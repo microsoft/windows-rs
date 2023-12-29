@@ -109,8 +109,8 @@ impl ITraceEvent_Vtbl {
             SetProviderId: SetProviderId::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITraceEvent as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITraceEvent as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITraceEventCallback_Impl: Sized {
@@ -143,8 +143,8 @@ impl ITraceEventCallback_Vtbl {
             OnEvent: OnEvent::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITraceEventCallback as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITraceEventCallback as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITraceRelogger_Impl: Sized {
@@ -237,7 +237,7 @@ impl ITraceRelogger_Vtbl {
             Cancel: Cancel::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITraceRelogger as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITraceRelogger as ::windows_core::ComInterface>::IID
     }
 }

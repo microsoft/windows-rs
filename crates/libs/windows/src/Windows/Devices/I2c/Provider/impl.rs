@@ -23,8 +23,8 @@ impl II2cControllerProvider_Vtbl {
             GetDeviceProvider: GetDeviceProvider::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <II2cControllerProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<II2cControllerProvider as ::windows_core::ComInterface>::IID
     }
 }
 pub trait II2cDeviceProvider_Impl: Sized + super::super::super::Foundation::IClosable_Impl {
@@ -112,8 +112,8 @@ impl II2cDeviceProvider_Vtbl {
             WriteReadPartial: WriteReadPartial::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <II2cDeviceProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<II2cDeviceProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Foundation_Collections\"`"]
@@ -145,7 +145,7 @@ impl II2cProvider_Vtbl {
             GetControllersAsync: GetControllersAsync::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <II2cProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<II2cProvider as ::windows_core::ComInterface>::IID
     }
 }

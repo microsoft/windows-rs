@@ -27,8 +27,8 @@ impl IObjectArray_Vtbl {
             GetAt: GetAt::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IObjectArray as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IObjectArray as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IObjectCollection_Impl: Sized + IObjectArray_Impl {
@@ -68,7 +68,7 @@ impl IObjectCollection_Vtbl {
             Clear: Clear::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IObjectCollection as ::windows_core::ComInterface>::IID || *iid == <IObjectArray as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IObjectCollection as ::windows_core::ComInterface>::IID || iid == &<IObjectArray as ::windows_core::ComInterface>::IID
     }
 }

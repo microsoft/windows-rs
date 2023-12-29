@@ -27,7 +27,7 @@ impl IUriToStreamResolver_Vtbl {
             UriToStreamAsync: UriToStreamAsync::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUriToStreamResolver as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUriToStreamResolver as ::windows_core::ComInterface>::IID
     }
 }

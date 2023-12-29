@@ -63,8 +63,8 @@ impl IOpcCertificateEnumerator_Vtbl {
             Clone: Clone::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IOpcCertificateEnumerator as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IOpcCertificateEnumerator as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
@@ -107,8 +107,8 @@ impl IOpcCertificateSet_Vtbl {
             GetEnumerator: GetEnumerator::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IOpcCertificateSet as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IOpcCertificateSet as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -301,8 +301,8 @@ impl IOpcDigitalSignature_Vtbl {
             GetSignatureXml: GetSignatureXml::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IOpcDigitalSignature as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IOpcDigitalSignature as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IOpcDigitalSignatureEnumerator_Impl: Sized {
@@ -366,8 +366,8 @@ impl IOpcDigitalSignatureEnumerator_Vtbl {
             Clone: Clone::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IOpcDigitalSignatureEnumerator as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IOpcDigitalSignatureEnumerator as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_System_Com\"`"]
@@ -475,8 +475,8 @@ impl IOpcDigitalSignatureManager_Vtbl {
             ReplaceSignatureXml: ReplaceSignatureXml::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IOpcDigitalSignatureManager as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IOpcDigitalSignatureManager as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Security\"`, `\"Win32_System_Com\"`"]
@@ -577,8 +577,8 @@ impl IOpcFactory_Vtbl {
             CreateDigitalSignatureManager: CreateDigitalSignatureManager::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IOpcFactory as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IOpcFactory as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IOpcPackage_Impl: Sized {
@@ -616,8 +616,8 @@ impl IOpcPackage_Vtbl {
             GetRelationshipSet: GetRelationshipSet::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IOpcPackage as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IOpcPackage as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -698,8 +698,8 @@ impl IOpcPart_Vtbl {
             GetCompressionOptions: GetCompressionOptions::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IOpcPart as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IOpcPart as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IOpcPartEnumerator_Impl: Sized {
@@ -763,8 +763,8 @@ impl IOpcPartEnumerator_Vtbl {
             Clone: Clone::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IOpcPartEnumerator as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IOpcPartEnumerator as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -839,8 +839,8 @@ impl IOpcPartSet_Vtbl {
             GetEnumerator: GetEnumerator::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IOpcPartSet as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IOpcPartSet as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -895,8 +895,8 @@ impl IOpcPartUri_Vtbl {
             IsRelationshipsPartUri: IsRelationshipsPartUri::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IOpcPartUri as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IUri as ::windows_core::ComInterface>::IID || *iid == <IOpcUri as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IOpcPartUri as ::windows_core::ComInterface>::IID || iid == &<super::super::super::System::Com::IUri as ::windows_core::ComInterface>::IID || iid == &<IOpcUri as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -977,8 +977,8 @@ impl IOpcRelationship_Vtbl {
             GetTargetMode: GetTargetMode::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IOpcRelationship as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IOpcRelationship as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IOpcRelationshipEnumerator_Impl: Sized {
@@ -1042,8 +1042,8 @@ impl IOpcRelationshipEnumerator_Vtbl {
             Clone: Clone::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IOpcRelationshipEnumerator as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IOpcRelationshipEnumerator as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IOpcRelationshipSelector_Impl: Sized {
@@ -1081,8 +1081,8 @@ impl IOpcRelationshipSelector_Vtbl {
             GetSelectionCriterion: GetSelectionCriterion::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IOpcRelationshipSelector as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IOpcRelationshipSelector as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IOpcRelationshipSelectorEnumerator_Impl: Sized {
@@ -1146,8 +1146,8 @@ impl IOpcRelationshipSelectorEnumerator_Vtbl {
             Clone: Clone::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IOpcRelationshipSelectorEnumerator as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IOpcRelationshipSelectorEnumerator as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IOpcRelationshipSelectorSet_Impl: Sized {
@@ -1192,8 +1192,8 @@ impl IOpcRelationshipSelectorSet_Vtbl {
             GetEnumerator: GetEnumerator::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IOpcRelationshipSelectorSet as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IOpcRelationshipSelectorSet as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1294,8 +1294,8 @@ impl IOpcRelationshipSet_Vtbl {
             GetRelationshipsContentStream: GetRelationshipsContentStream::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IOpcRelationshipSet as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IOpcRelationshipSet as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IOpcSignatureCustomObject_Impl: Sized {
@@ -1311,8 +1311,8 @@ impl IOpcSignatureCustomObject_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetXml: GetXml::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IOpcSignatureCustomObject as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IOpcSignatureCustomObject as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IOpcSignatureCustomObjectEnumerator_Impl: Sized {
@@ -1376,8 +1376,8 @@ impl IOpcSignatureCustomObjectEnumerator_Vtbl {
             Clone: Clone::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IOpcSignatureCustomObjectEnumerator as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IOpcSignatureCustomObjectEnumerator as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IOpcSignatureCustomObjectSet_Impl: Sized {
@@ -1422,8 +1422,8 @@ impl IOpcSignatureCustomObjectSet_Vtbl {
             GetEnumerator: GetEnumerator::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IOpcSignatureCustomObjectSet as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IOpcSignatureCustomObjectSet as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1498,8 +1498,8 @@ impl IOpcSignaturePartReference_Vtbl {
             GetTransformMethod: GetTransformMethod::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IOpcSignaturePartReference as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IOpcSignaturePartReference as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IOpcSignaturePartReferenceEnumerator_Impl: Sized {
@@ -1563,8 +1563,8 @@ impl IOpcSignaturePartReferenceEnumerator_Vtbl {
             Clone: Clone::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IOpcSignaturePartReferenceEnumerator as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IOpcSignaturePartReferenceEnumerator as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1613,8 +1613,8 @@ impl IOpcSignaturePartReferenceSet_Vtbl {
             GetEnumerator: GetEnumerator::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IOpcSignaturePartReferenceSet as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IOpcSignaturePartReferenceSet as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1702,8 +1702,8 @@ impl IOpcSignatureReference_Vtbl {
             GetDigestValue: GetDigestValue::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IOpcSignatureReference as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IOpcSignatureReference as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IOpcSignatureReferenceEnumerator_Impl: Sized {
@@ -1767,8 +1767,8 @@ impl IOpcSignatureReferenceEnumerator_Vtbl {
             Clone: Clone::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IOpcSignatureReferenceEnumerator as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IOpcSignatureReferenceEnumerator as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1817,8 +1817,8 @@ impl IOpcSignatureReferenceSet_Vtbl {
             GetEnumerator: GetEnumerator::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IOpcSignatureReferenceSet as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IOpcSignatureReferenceSet as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1906,8 +1906,8 @@ impl IOpcSignatureRelationshipReference_Vtbl {
             GetRelationshipSelectorEnumerator: GetRelationshipSelectorEnumerator::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IOpcSignatureRelationshipReference as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IOpcSignatureRelationshipReference as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IOpcSignatureRelationshipReferenceEnumerator_Impl: Sized {
@@ -1971,8 +1971,8 @@ impl IOpcSignatureRelationshipReferenceEnumerator_Vtbl {
             Clone: Clone::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IOpcSignatureRelationshipReferenceEnumerator as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IOpcSignatureRelationshipReferenceEnumerator as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -2034,8 +2034,8 @@ impl IOpcSignatureRelationshipReferenceSet_Vtbl {
             GetEnumerator: GetEnumerator::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IOpcSignatureRelationshipReferenceSet as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IOpcSignatureRelationshipReferenceSet as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -2236,8 +2236,8 @@ impl IOpcSigningOptions_Vtbl {
             SetSignaturePartName: SetSignaturePartName::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IOpcSigningOptions as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IOpcSigningOptions as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -2292,7 +2292,7 @@ impl IOpcUri_Vtbl {
             CombinePartUri: CombinePartUri::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IOpcUri as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IUri as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IOpcUri as ::windows_core::ComInterface>::IID || iid == &<super::super::super::System::Com::IUri as ::windows_core::ComInterface>::IID
     }
 }

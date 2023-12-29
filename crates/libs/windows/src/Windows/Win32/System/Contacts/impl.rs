@@ -28,8 +28,8 @@ impl IContact_Vtbl {
             CommitChanges: CommitChanges::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IContact as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IContact as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IContactAggregationAggregate_Impl: Sized {
@@ -134,8 +134,8 @@ impl IContactAggregationAggregate_Vtbl {
             Id: Id::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IContactAggregationAggregate as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IContactAggregationAggregate as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IContactAggregationAggregateCollection_Impl: Sized {
@@ -199,8 +199,8 @@ impl IContactAggregationAggregateCollection_Vtbl {
             Count: Count::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IContactAggregationAggregateCollection as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IContactAggregationAggregateCollection as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IContactAggregationContact_Impl: Sized {
@@ -392,8 +392,8 @@ impl IContactAggregationContact_Vtbl {
             SetSyncIdentityHash: SetSyncIdentityHash::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IContactAggregationContact as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IContactAggregationContact as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IContactAggregationContactCollection_Impl: Sized {
@@ -470,8 +470,8 @@ impl IContactAggregationContactCollection_Vtbl {
             FindFirstByRemoteId: FindFirstByRemoteId::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IContactAggregationContactCollection as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IContactAggregationContactCollection as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IContactAggregationGroup_Impl: Sized {
@@ -577,8 +577,8 @@ impl IContactAggregationGroup_Vtbl {
             SetName: SetName::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IContactAggregationGroup as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IContactAggregationGroup as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IContactAggregationGroupCollection_Impl: Sized {
@@ -642,8 +642,8 @@ impl IContactAggregationGroupCollection_Vtbl {
             Count: Count::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IContactAggregationGroupCollection as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IContactAggregationGroupCollection as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IContactAggregationLink_Impl: Sized {
@@ -822,8 +822,8 @@ impl IContactAggregationLink_Vtbl {
             SetSyncIdentityHash: SetSyncIdentityHash::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IContactAggregationLink as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IContactAggregationLink as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IContactAggregationLinkCollection_Impl: Sized {
@@ -887,8 +887,8 @@ impl IContactAggregationLinkCollection_Vtbl {
             Count: Count::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IContactAggregationLinkCollection as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IContactAggregationLinkCollection as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IContactAggregationManager_Impl: Sized {
@@ -1077,8 +1077,8 @@ impl IContactAggregationManager_Vtbl {
             get_ServerContactLinks: get_ServerContactLinks::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IContactAggregationManager as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IContactAggregationManager as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IContactAggregationServerPerson_Impl: Sized {
@@ -1317,8 +1317,8 @@ impl IContactAggregationServerPerson_Vtbl {
             SetObjectId: SetObjectId::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IContactAggregationServerPerson as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IContactAggregationServerPerson as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IContactAggregationServerPersonCollection_Impl: Sized {
@@ -1408,8 +1408,8 @@ impl IContactAggregationServerPersonCollection_Vtbl {
             Count: Count::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IContactAggregationServerPersonCollection as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IContactAggregationServerPersonCollection as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IContactCollection_Impl: Sized {
@@ -1448,8 +1448,8 @@ impl IContactCollection_Vtbl {
             GetCurrent: GetCurrent::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IContactCollection as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IContactCollection as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IContactManager_Impl: Sized {
@@ -1521,8 +1521,8 @@ impl IContactManager_Vtbl {
             GetContactCollection: GetContactCollection::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IContactManager as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IContactManager as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1629,8 +1629,8 @@ impl IContactProperties_Vtbl {
             GetPropertyCollection: GetPropertyCollection::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IContactProperties as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IContactProperties as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IContactPropertyCollection_Impl: Sized {
@@ -1691,7 +1691,7 @@ impl IContactPropertyCollection_Vtbl {
             GetPropertyArrayElementID: GetPropertyArrayElementID::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IContactPropertyCollection as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IContactPropertyCollection as ::windows_core::ComInterface>::IID
     }
 }

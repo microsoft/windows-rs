@@ -31,8 +31,8 @@ impl IDialBranding_Vtbl {
             GetBitmap: GetBitmap::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDialBranding as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDialBranding as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDialEngine_Impl: Sized {
@@ -105,8 +105,8 @@ impl IDialEngine_Vtbl {
             GetConnectHandle: GetConnectHandle::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDialEngine as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDialEngine as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDialEventSink_Impl: Sized {
@@ -122,8 +122,8 @@ impl IDialEventSink_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnEvent: OnEvent::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDialEventSink as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDialEventSink as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IProofOfPossessionCookieInfoManager_Impl: Sized {
@@ -139,8 +139,8 @@ impl IProofOfPossessionCookieInfoManager_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetCookieInfoForUri: GetCookieInfoForUri::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IProofOfPossessionCookieInfoManager as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IProofOfPossessionCookieInfoManager as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IProofOfPossessionCookieInfoManager2_Impl: Sized {
@@ -159,7 +159,7 @@ impl IProofOfPossessionCookieInfoManager2_Vtbl {
             GetCookieInfoWithUriForAccount: GetCookieInfoWithUriForAccount::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IProofOfPossessionCookieInfoManager2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IProofOfPossessionCookieInfoManager2 as ::windows_core::ComInterface>::IID
     }
 }

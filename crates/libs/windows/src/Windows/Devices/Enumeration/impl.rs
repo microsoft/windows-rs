@@ -6,7 +6,7 @@ impl IDevicePairingSettings_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDevicePairingSettings_Impl, const OFFSET: isize>() -> IDevicePairingSettings_Vtbl {
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, IDevicePairingSettings, OFFSET>() }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDevicePairingSettings as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDevicePairingSettings as ::windows_core::ComInterface>::IID
     }
 }

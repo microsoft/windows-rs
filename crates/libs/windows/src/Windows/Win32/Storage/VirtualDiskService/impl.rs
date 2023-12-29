@@ -41,8 +41,8 @@ impl IEnumVdsObject_Vtbl {
             Clone: Clone::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IEnumVdsObject as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IEnumVdsObject as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsAdmin_Impl: Sized {
@@ -68,8 +68,8 @@ impl IVdsAdmin_Vtbl {
             UnregisterProvider: UnregisterProvider::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsAdmin as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsAdmin as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsAdvancedDisk_Impl: Sized {
@@ -169,8 +169,8 @@ impl IVdsAdvancedDisk_Vtbl {
             Clean: Clean::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsAdvancedDisk as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsAdvancedDisk as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsAdvancedDisk2_Impl: Sized {
@@ -186,8 +186,8 @@ impl IVdsAdvancedDisk2_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ChangePartitionType: ChangePartitionType::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsAdvancedDisk2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsAdvancedDisk2 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsAdvancedDisk3_Impl: Sized {
@@ -219,8 +219,8 @@ impl IVdsAdvancedDisk3_Vtbl {
             GetUniqueId: GetUniqueId::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsAdvancedDisk3 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsAdvancedDisk3 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsAdviseSink_Impl: Sized {
@@ -236,8 +236,8 @@ impl IVdsAdviseSink_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnNotify: OnNotify::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsAdviseSink as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsAdviseSink as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsAsync_Impl: Sized {
@@ -270,8 +270,8 @@ impl IVdsAsync_Vtbl {
             QueryStatus: QueryStatus::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsAsync as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsAsync as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsController_Impl: Sized {
@@ -351,8 +351,8 @@ impl IVdsController_Vtbl {
             SetStatus: SetStatus::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsController as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsController as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsControllerControllerPort_Impl: Sized {
@@ -374,8 +374,8 @@ impl IVdsControllerControllerPort_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), QueryControllerPorts: QueryControllerPorts::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsControllerControllerPort as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsControllerControllerPort as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsControllerPort_Impl: Sized {
@@ -434,8 +434,8 @@ impl IVdsControllerPort_Vtbl {
             SetStatus: SetStatus::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsControllerPort as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsControllerPort as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsCreatePartitionEx_Impl: Sized {
@@ -457,8 +457,8 @@ impl IVdsCreatePartitionEx_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreatePartitionEx: CreatePartitionEx::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsCreatePartitionEx as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsCreatePartitionEx as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsDisk_Impl: Sized {
@@ -525,8 +525,8 @@ impl IVdsDisk_Vtbl {
             ClearFlags: ClearFlags::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsDisk as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsDisk as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsDisk2_Impl: Sized {
@@ -542,8 +542,8 @@ impl IVdsDisk2_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetSANMode: SetSANMode::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsDisk2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsDisk2 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsDisk3_Impl: Sized {
@@ -569,8 +569,8 @@ impl IVdsDisk3_Vtbl {
             QueryFreeExtents: QueryFreeExtents::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsDisk3 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsDisk3 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsDiskOnline_Impl: Sized {
@@ -596,8 +596,8 @@ impl IVdsDiskOnline_Vtbl {
             Offline: Offline::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsDiskOnline as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsDiskOnline as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsDiskPartitionMF_Impl: Sized {
@@ -649,8 +649,8 @@ impl IVdsDiskPartitionMF_Vtbl {
             FormatPartitionEx: FormatPartitionEx::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsDiskPartitionMF as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsDiskPartitionMF as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsDiskPartitionMF2_Impl: Sized {
@@ -672,8 +672,8 @@ impl IVdsDiskPartitionMF2_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), FormatPartitionEx2: FormatPartitionEx2::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsDiskPartitionMF2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsDiskPartitionMF2 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsDrive_Impl: Sized {
@@ -733,8 +733,8 @@ impl IVdsDrive_Vtbl {
             SetStatus: SetStatus::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsDrive as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsDrive as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsDrive2_Impl: Sized {
@@ -750,8 +750,8 @@ impl IVdsDrive2_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetProperties2: GetProperties2::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsDrive2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsDrive2 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsHbaPort_Impl: Sized {
@@ -777,8 +777,8 @@ impl IVdsHbaPort_Vtbl {
             SetAllPathStatuses: SetAllPathStatuses::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsHbaPort as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsHbaPort as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsHwProvider_Impl: Sized {
@@ -817,8 +817,8 @@ impl IVdsHwProvider_Vtbl {
             Refresh: Refresh::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsHwProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsHwProvider as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsHwProviderPrivate_Impl: Sized {
@@ -840,8 +840,8 @@ impl IVdsHwProviderPrivate_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), QueryIfCreatedLun: QueryIfCreatedLun::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsHwProviderPrivate as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsHwProviderPrivate as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsHwProviderPrivateMpio_Impl: Sized {
@@ -860,8 +860,8 @@ impl IVdsHwProviderPrivateMpio_Vtbl {
             SetAllPathStatusesFromHbaPort: SetAllPathStatusesFromHbaPort::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsHwProviderPrivateMpio as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsHwProviderPrivateMpio as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsHwProviderStoragePools_Impl: Sized {
@@ -912,8 +912,8 @@ impl IVdsHwProviderStoragePools_Vtbl {
             QueryMaxLunCreateSizeInStoragePool: QueryMaxLunCreateSizeInStoragePool::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsHwProviderStoragePools as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsHwProviderStoragePools as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsHwProviderType_Impl: Sized {
@@ -935,8 +935,8 @@ impl IVdsHwProviderType_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetProviderType: GetProviderType::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsHwProviderType as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsHwProviderType as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsHwProviderType2_Impl: Sized {
@@ -958,8 +958,8 @@ impl IVdsHwProviderType2_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetProviderType2: GetProviderType2::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsHwProviderType2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsHwProviderType2 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsIscsiInitiatorAdapter_Impl: Sized {
@@ -1017,8 +1017,8 @@ impl IVdsIscsiInitiatorAdapter_Vtbl {
             LogoutFromTarget: LogoutFromTarget::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsIscsiInitiatorAdapter as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsIscsiInitiatorAdapter as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsIscsiInitiatorPortal_Impl: Sized {
@@ -1077,8 +1077,8 @@ impl IVdsIscsiInitiatorPortal_Vtbl {
             SetIpsecSecurity: SetIpsecSecurity::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsIscsiInitiatorPortal as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsIscsiInitiatorPortal as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsIscsiPortal_Impl: Sized {
@@ -1157,8 +1157,8 @@ impl IVdsIscsiPortal_Vtbl {
             SetIpsecSecurity: SetIpsecSecurity::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsIscsiPortal as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsIscsiPortal as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsIscsiPortalGroup_Impl: Sized {
@@ -1242,8 +1242,8 @@ impl IVdsIscsiPortalGroup_Vtbl {
             Delete: Delete::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsIscsiPortalGroup as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsIscsiPortalGroup as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsIscsiPortalLocal_Impl: Sized {
@@ -1259,8 +1259,8 @@ impl IVdsIscsiPortalLocal_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetIpsecSecurityLocal: SetIpsecSecurityLocal::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsIscsiPortalLocal as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsIscsiPortalLocal as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsIscsiTarget_Impl: Sized {
@@ -1372,8 +1372,8 @@ impl IVdsIscsiTarget_Vtbl {
             GetConnectedInitiators: GetConnectedInitiators::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsIscsiTarget as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsIscsiTarget as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsLun_Impl: Sized {
@@ -1558,8 +1558,8 @@ impl IVdsLun_Vtbl {
             QueryMaxLunExtendSize: QueryMaxLunExtendSize::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsLun as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsLun as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsLun2_Impl: Sized {
@@ -1585,8 +1585,8 @@ impl IVdsLun2_Vtbl {
             ApplyHints2: ApplyHints2::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsLun2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsLun2 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsLunControllerPorts_Impl: Sized {
@@ -1618,8 +1618,8 @@ impl IVdsLunControllerPorts_Vtbl {
             QueryActiveControllerPorts: QueryActiveControllerPorts::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsLunControllerPorts as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsLunControllerPorts as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsLunIscsi_Impl: Sized {
@@ -1651,8 +1651,8 @@ impl IVdsLunIscsi_Vtbl {
             QueryAssociatedTargets: QueryAssociatedTargets::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsLunIscsi as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsLunIscsi as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsLunMpio_Impl: Sized {
@@ -1698,8 +1698,8 @@ impl IVdsLunMpio_Vtbl {
             GetSupportedLbPolicies: GetSupportedLbPolicies::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsLunMpio as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsLunMpio as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsLunNaming_Impl: Sized {
@@ -1715,8 +1715,8 @@ impl IVdsLunNaming_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetFriendlyName: SetFriendlyName::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsLunNaming as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsLunNaming as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsLunNumber_Impl: Sized {
@@ -1738,8 +1738,8 @@ impl IVdsLunNumber_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetLunNumber: GetLunNumber::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsLunNumber as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsLunNumber as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsLunPlex_Impl: Sized {
@@ -1792,8 +1792,8 @@ impl IVdsLunPlex_Vtbl {
             ApplyHints: ApplyHints::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsLunPlex as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsLunPlex as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsMaintenance_Impl: Sized {
@@ -1826,8 +1826,8 @@ impl IVdsMaintenance_Vtbl {
             PulseMaintenance: PulseMaintenance::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsMaintenance as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsMaintenance as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Storage_Vhd\"`"]
@@ -1909,8 +1909,8 @@ impl IVdsOpenVDisk_Vtbl {
             Expand: Expand::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsOpenVDisk as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsOpenVDisk as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsPack_Impl: Sized {
@@ -2028,8 +2028,8 @@ impl IVdsPack_Vtbl {
             Recover: Recover::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsPack as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsPack as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsPack2_Impl: Sized {
@@ -2051,8 +2051,8 @@ impl IVdsPack2_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateVolume2: CreateVolume2::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsPack2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsPack2 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsProvider_Impl: Sized {
@@ -2068,8 +2068,8 @@ impl IVdsProvider_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetProperties: GetProperties::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsProvider as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsProviderPrivate_Impl: Sized {
@@ -2108,8 +2108,8 @@ impl IVdsProviderPrivate_Vtbl {
             OnUnload: OnUnload::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsProviderPrivate as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsProviderPrivate as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsProviderSupport_Impl: Sized {
@@ -2131,8 +2131,8 @@ impl IVdsProviderSupport_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetVersionSupport: GetVersionSupport::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsProviderSupport as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsProviderSupport as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsRemovable_Impl: Sized {
@@ -2158,8 +2158,8 @@ impl IVdsRemovable_Vtbl {
             Eject: Eject::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsRemovable as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsRemovable as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsService_Impl: Sized {
@@ -2326,8 +2326,8 @@ impl IVdsService_Vtbl {
             ClearFlags: ClearFlags::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsService as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsService as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsServiceHba_Impl: Sized {
@@ -2349,8 +2349,8 @@ impl IVdsServiceHba_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), QueryHbaPorts: QueryHbaPorts::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsServiceHba as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsServiceHba as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsServiceInitialization_Impl: Sized {
@@ -2366,8 +2366,8 @@ impl IVdsServiceInitialization_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsServiceInitialization as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsServiceInitialization as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsServiceIscsi_Impl: Sized {
@@ -2440,8 +2440,8 @@ impl IVdsServiceIscsi_Vtbl {
             RememberTargetSharedSecret: RememberTargetSharedSecret::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsServiceIscsi as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsServiceIscsi as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsServiceLoader_Impl: Sized {
@@ -2463,8 +2463,8 @@ impl IVdsServiceLoader_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), LoadService: LoadService::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsServiceLoader as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsServiceLoader as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsServiceSAN_Impl: Sized {
@@ -2496,8 +2496,8 @@ impl IVdsServiceSAN_Vtbl {
             SetSANPolicy: SetSANPolicy::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsServiceSAN as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsServiceSAN as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsServiceSw_Impl: Sized {
@@ -2519,8 +2519,8 @@ impl IVdsServiceSw_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetDiskObject: GetDiskObject::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsServiceSw as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsServiceSw as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsServiceUninstallDisk_Impl: Sized {
@@ -2552,8 +2552,8 @@ impl IVdsServiceUninstallDisk_Vtbl {
             UninstallDisks: UninstallDisks::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsServiceUninstallDisk as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsServiceUninstallDisk as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsStoragePool_Impl: Sized {
@@ -2625,8 +2625,8 @@ impl IVdsStoragePool_Vtbl {
             QueryAllocatedStoragePools: QueryAllocatedStoragePools::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsStoragePool as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsStoragePool as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsSubSystem_Impl: Sized {
@@ -2764,8 +2764,8 @@ impl IVdsSubSystem_Vtbl {
             QueryMaxLunCreateSize: QueryMaxLunCreateSize::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsSubSystem as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsSubSystem as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsSubSystem2_Impl: Sized {
@@ -2823,8 +2823,8 @@ impl IVdsSubSystem2_Vtbl {
             QueryMaxLunCreateSize2: QueryMaxLunCreateSize2::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsSubSystem2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsSubSystem2 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsSubSystemImportTarget_Impl: Sized {
@@ -2856,8 +2856,8 @@ impl IVdsSubSystemImportTarget_Vtbl {
             SetImportTarget: SetImportTarget::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsSubSystemImportTarget as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsSubSystemImportTarget as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsSubSystemInterconnect_Impl: Sized {
@@ -2879,8 +2879,8 @@ impl IVdsSubSystemInterconnect_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetSupportedInterconnects: GetSupportedInterconnects::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsSubSystemInterconnect as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsSubSystemInterconnect as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsSubSystemIscsi_Impl: Sized {
@@ -2938,8 +2938,8 @@ impl IVdsSubSystemIscsi_Vtbl {
             SetIpsecGroupPresharedKey: SetIpsecGroupPresharedKey::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsSubSystemIscsi as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsSubSystemIscsi as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsSubSystemNaming_Impl: Sized {
@@ -2955,8 +2955,8 @@ impl IVdsSubSystemNaming_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetFriendlyName: SetFriendlyName::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsSubSystemNaming as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsSubSystemNaming as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsSwProvider_Impl: Sized {
@@ -2994,8 +2994,8 @@ impl IVdsSwProvider_Vtbl {
             CreatePack: CreatePack::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsSwProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsSwProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Storage_Vhd\"`"]
@@ -3057,8 +3057,8 @@ impl IVdsVDisk_Vtbl {
             GetDeviceName: GetDeviceName::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsVDisk as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsVDisk as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Storage_Vhd\"`"]
@@ -3127,8 +3127,8 @@ impl IVdsVdProvider_Vtbl {
             GetVDiskFromDisk: GetVDiskFromDisk::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsVdProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsVdProvider as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsVolume_Impl: Sized {
@@ -3259,8 +3259,8 @@ impl IVdsVolume_Vtbl {
             ClearFlags: ClearFlags::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsVolume as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsVolume as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsVolume2_Impl: Sized {
@@ -3276,8 +3276,8 @@ impl IVdsVolume2_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetProperties2: GetProperties2::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsVolume2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsVolume2 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsVolumeMF_Impl: Sized {
@@ -3365,8 +3365,8 @@ impl IVdsVolumeMF_Vtbl {
             ClearFileSystemFlags: ClearFileSystemFlags::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsVolumeMF as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsVolumeMF as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsVolumeMF2_Impl: Sized {
@@ -3411,8 +3411,8 @@ impl IVdsVolumeMF2_Vtbl {
             FormatEx: FormatEx::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsVolumeMF2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsVolumeMF2 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsVolumeMF3_Impl: Sized {
@@ -3451,8 +3451,8 @@ impl IVdsVolumeMF3_Vtbl {
             OfflineVolume: OfflineVolume::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsVolumeMF3 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsVolumeMF3 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsVolumeOnline_Impl: Sized {
@@ -3468,8 +3468,8 @@ impl IVdsVolumeOnline_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Online: Online::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsVolumeOnline as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsVolumeOnline as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsVolumePlex_Impl: Sized {
@@ -3521,8 +3521,8 @@ impl IVdsVolumePlex_Vtbl {
             Repair: Repair::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsVolumePlex as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsVolumePlex as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVdsVolumeShrink_Impl: Sized {
@@ -3560,7 +3560,7 @@ impl IVdsVolumeShrink_Vtbl {
             Shrink: Shrink::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVdsVolumeShrink as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVdsVolumeShrink as ::windows_core::ComInterface>::IID
     }
 }

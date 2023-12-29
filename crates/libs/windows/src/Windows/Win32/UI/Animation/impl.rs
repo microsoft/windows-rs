@@ -80,8 +80,8 @@ impl IUIAnimationInterpolator_Vtbl {
             GetDependencies: GetDependencies::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAnimationInterpolator as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAnimationInterpolator as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAnimationInterpolator2_Impl: Sized {
@@ -168,8 +168,8 @@ impl IUIAnimationInterpolator2_Vtbl {
             GetDependencies: GetDependencies::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAnimationInterpolator2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAnimationInterpolator2 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAnimationLoopIterationChangeHandler2_Impl: Sized {
@@ -185,8 +185,8 @@ impl IUIAnimationLoopIterationChangeHandler2_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnLoopIterationChanged: OnLoopIterationChanged::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAnimationLoopIterationChangeHandler2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAnimationLoopIterationChangeHandler2 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAnimationManager_Impl: Sized {
@@ -361,8 +361,8 @@ impl IUIAnimationManager_Vtbl {
             Shutdown: Shutdown::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAnimationManager as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAnimationManager as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAnimationManager2_Impl: Sized {
@@ -563,8 +563,8 @@ impl IUIAnimationManager2_Vtbl {
             Shutdown: Shutdown::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAnimationManager2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAnimationManager2 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAnimationManagerEventHandler_Impl: Sized {
@@ -580,8 +580,8 @@ impl IUIAnimationManagerEventHandler_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnManagerStatusChanged: OnManagerStatusChanged::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAnimationManagerEventHandler as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAnimationManagerEventHandler as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAnimationManagerEventHandler2_Impl: Sized {
@@ -597,8 +597,8 @@ impl IUIAnimationManagerEventHandler2_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnManagerStatusChanged: OnManagerStatusChanged::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAnimationManagerEventHandler2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAnimationManagerEventHandler2 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAnimationPrimitiveInterpolation_Impl: Sized {
@@ -624,8 +624,8 @@ impl IUIAnimationPrimitiveInterpolation_Vtbl {
             AddSinusoidal: AddSinusoidal::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAnimationPrimitiveInterpolation as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAnimationPrimitiveInterpolation as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAnimationPriorityComparison_Impl: Sized {
@@ -641,8 +641,8 @@ impl IUIAnimationPriorityComparison_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), HasPriority: HasPriority::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAnimationPriorityComparison as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAnimationPriorityComparison as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAnimationPriorityComparison2_Impl: Sized {
@@ -658,8 +658,8 @@ impl IUIAnimationPriorityComparison2_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), HasPriority: HasPriority::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAnimationPriorityComparison2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAnimationPriorityComparison2 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAnimationStoryboard_Impl: Sized {
@@ -814,8 +814,8 @@ impl IUIAnimationStoryboard_Vtbl {
             SetStoryboardEventHandler: SetStoryboardEventHandler::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAnimationStoryboard as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAnimationStoryboard as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAnimationStoryboard2_Impl: Sized {
@@ -977,8 +977,8 @@ impl IUIAnimationStoryboard2_Vtbl {
             SetStoryboardEventHandler: SetStoryboardEventHandler::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAnimationStoryboard2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAnimationStoryboard2 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAnimationStoryboardEventHandler_Impl: Sized {
@@ -1004,8 +1004,8 @@ impl IUIAnimationStoryboardEventHandler_Vtbl {
             OnStoryboardUpdated: OnStoryboardUpdated::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAnimationStoryboardEventHandler as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAnimationStoryboardEventHandler as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAnimationStoryboardEventHandler2_Impl: Sized {
@@ -1031,8 +1031,8 @@ impl IUIAnimationStoryboardEventHandler2_Vtbl {
             OnStoryboardUpdated: OnStoryboardUpdated::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAnimationStoryboardEventHandler2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAnimationStoryboardEventHandler2 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAnimationTimer_Impl: Sized {
@@ -1099,8 +1099,8 @@ impl IUIAnimationTimer_Vtbl {
             SetFrameRateThreshold: SetFrameRateThreshold::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAnimationTimer as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAnimationTimer as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAnimationTimerClientEventHandler_Impl: Sized {
@@ -1119,8 +1119,8 @@ impl IUIAnimationTimerClientEventHandler_Vtbl {
             OnTimerClientStatusChanged: OnTimerClientStatusChanged::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAnimationTimerClientEventHandler as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAnimationTimerClientEventHandler as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAnimationTimerEventHandler_Impl: Sized {
@@ -1153,8 +1153,8 @@ impl IUIAnimationTimerEventHandler_Vtbl {
             OnRenderingTooSlow: OnRenderingTooSlow::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAnimationTimerEventHandler as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAnimationTimerEventHandler as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAnimationTimerUpdateHandler_Impl: Sized {
@@ -1193,8 +1193,8 @@ impl IUIAnimationTimerUpdateHandler_Vtbl {
             ClearTimerClientEventHandler: ClearTimerClientEventHandler::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAnimationTimerUpdateHandler as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAnimationTimerUpdateHandler as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAnimationTransition_Impl: Sized {
@@ -1240,8 +1240,8 @@ impl IUIAnimationTransition_Vtbl {
             GetDuration: GetDuration::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAnimationTransition as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAnimationTransition as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAnimationTransition2_Impl: Sized {
@@ -1314,8 +1314,8 @@ impl IUIAnimationTransition2_Vtbl {
             GetDuration: GetDuration::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAnimationTransition2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAnimationTransition2 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAnimationTransitionFactory_Impl: Sized {
@@ -1337,8 +1337,8 @@ impl IUIAnimationTransitionFactory_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateTransition: CreateTransition::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAnimationTransitionFactory as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAnimationTransitionFactory as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAnimationTransitionFactory2_Impl: Sized {
@@ -1360,8 +1360,8 @@ impl IUIAnimationTransitionFactory2_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateTransition: CreateTransition::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAnimationTransitionFactory2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAnimationTransitionFactory2 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAnimationTransitionLibrary_Impl: Sized {
@@ -1529,8 +1529,8 @@ impl IUIAnimationTransitionLibrary_Vtbl {
             CreateParabolicTransitionFromAcceleration: CreateParabolicTransitionFromAcceleration::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAnimationTransitionLibrary as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAnimationTransitionLibrary as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAnimationTransitionLibrary2_Impl: Sized {
@@ -1789,8 +1789,8 @@ impl IUIAnimationTransitionLibrary2_Vtbl {
             CreateCubicBezierLinearVectorTransition: CreateCubicBezierLinearVectorTransition::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAnimationTransitionLibrary2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAnimationTransitionLibrary2 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAnimationVariable_Impl: Sized {
@@ -1942,8 +1942,8 @@ impl IUIAnimationVariable_Vtbl {
             SetVariableIntegerChangeHandler: SetVariableIntegerChangeHandler::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAnimationVariable as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAnimationVariable as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_DirectComposition\"`"]
@@ -2189,8 +2189,8 @@ impl IUIAnimationVariable2_Vtbl {
             SetVariableCurveChangeHandler: SetVariableCurveChangeHandler::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAnimationVariable2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAnimationVariable2 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAnimationVariableChangeHandler_Impl: Sized {
@@ -2206,8 +2206,8 @@ impl IUIAnimationVariableChangeHandler_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnValueChanged: OnValueChanged::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAnimationVariableChangeHandler as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAnimationVariableChangeHandler as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAnimationVariableChangeHandler2_Impl: Sized {
@@ -2223,8 +2223,8 @@ impl IUIAnimationVariableChangeHandler2_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnValueChanged: OnValueChanged::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAnimationVariableChangeHandler2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAnimationVariableChangeHandler2 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAnimationVariableCurveChangeHandler2_Impl: Sized {
@@ -2240,8 +2240,8 @@ impl IUIAnimationVariableCurveChangeHandler2_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnCurveChanged: OnCurveChanged::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAnimationVariableCurveChangeHandler2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAnimationVariableCurveChangeHandler2 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAnimationVariableIntegerChangeHandler_Impl: Sized {
@@ -2257,8 +2257,8 @@ impl IUIAnimationVariableIntegerChangeHandler_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnIntegerValueChanged: OnIntegerValueChanged::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAnimationVariableIntegerChangeHandler as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAnimationVariableIntegerChangeHandler as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAnimationVariableIntegerChangeHandler2_Impl: Sized {
@@ -2274,7 +2274,7 @@ impl IUIAnimationVariableIntegerChangeHandler2_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnIntegerValueChanged: OnIntegerValueChanged::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAnimationVariableIntegerChangeHandler2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAnimationVariableIntegerChangeHandler2 as ::windows_core::ComInterface>::IID
     }
 }

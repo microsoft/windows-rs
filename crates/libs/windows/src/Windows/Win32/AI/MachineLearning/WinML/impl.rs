@@ -47,8 +47,8 @@ impl IMLOperatorAttributes_Vtbl {
             GetStringAttributeElement: GetStringAttributeElement::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMLOperatorAttributes as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMLOperatorAttributes as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMLOperatorKernel_Impl: Sized {
@@ -64,8 +64,8 @@ impl IMLOperatorKernel_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Compute: Compute::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMLOperatorKernel as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMLOperatorKernel as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMLOperatorKernelContext_Impl: Sized {
@@ -136,8 +136,8 @@ impl IMLOperatorKernelContext_Vtbl {
             GetExecutionInterface: GetExecutionInterface::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMLOperatorKernelContext as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMLOperatorKernelContext as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMLOperatorKernelCreationContext_Impl: Sized + IMLOperatorAttributes_Impl {
@@ -230,8 +230,8 @@ impl IMLOperatorKernelCreationContext_Vtbl {
             GetExecutionInterface: GetExecutionInterface::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMLOperatorKernelCreationContext as ::windows_core::ComInterface>::IID || *iid == <IMLOperatorAttributes as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMLOperatorKernelCreationContext as ::windows_core::ComInterface>::IID || iid == &<IMLOperatorAttributes as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMLOperatorKernelFactory_Impl: Sized {
@@ -253,8 +253,8 @@ impl IMLOperatorKernelFactory_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateKernel: CreateKernel::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMLOperatorKernelFactory as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMLOperatorKernelFactory as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMLOperatorRegistry_Impl: Sized {
@@ -280,8 +280,8 @@ impl IMLOperatorRegistry_Vtbl {
             RegisterOperatorKernel: RegisterOperatorKernel::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMLOperatorRegistry as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMLOperatorRegistry as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMLOperatorShapeInferenceContext_Impl: Sized + IMLOperatorAttributes_Impl {
@@ -361,8 +361,8 @@ impl IMLOperatorShapeInferenceContext_Vtbl {
             SetOutputTensorShape: SetOutputTensorShape::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMLOperatorShapeInferenceContext as ::windows_core::ComInterface>::IID || *iid == <IMLOperatorAttributes as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMLOperatorShapeInferenceContext as ::windows_core::ComInterface>::IID || iid == &<IMLOperatorAttributes as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMLOperatorShapeInferrer_Impl: Sized {
@@ -378,8 +378,8 @@ impl IMLOperatorShapeInferrer_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), InferOutputShapes: InferOutputShapes::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMLOperatorShapeInferrer as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMLOperatorShapeInferrer as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMLOperatorTensor_Impl: Sized {
@@ -440,8 +440,8 @@ impl IMLOperatorTensor_Vtbl {
             GetDataInterface: GetDataInterface::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMLOperatorTensor as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMLOperatorTensor as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMLOperatorTensorShapeDescription_Impl: Sized {
@@ -500,8 +500,8 @@ impl IMLOperatorTensorShapeDescription_Vtbl {
             GetOutputTensorShape: GetOutputTensorShape::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMLOperatorTensorShapeDescription as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMLOperatorTensorShapeDescription as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMLOperatorTypeInferenceContext_Impl: Sized + IMLOperatorAttributes_Impl {
@@ -561,8 +561,8 @@ impl IMLOperatorTypeInferenceContext_Vtbl {
             SetOutputEdgeDescription: SetOutputEdgeDescription::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMLOperatorTypeInferenceContext as ::windows_core::ComInterface>::IID || *iid == <IMLOperatorAttributes as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMLOperatorTypeInferenceContext as ::windows_core::ComInterface>::IID || iid == &<IMLOperatorAttributes as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMLOperatorTypeInferrer_Impl: Sized {
@@ -578,8 +578,8 @@ impl IMLOperatorTypeInferrer_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), InferOutputTypes: InferOutputTypes::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMLOperatorTypeInferrer as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMLOperatorTypeInferrer as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
@@ -622,8 +622,8 @@ impl IWinMLEvaluationContext_Vtbl {
             Clear: Clear::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IWinMLEvaluationContext as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IWinMLEvaluationContext as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IWinMLModel_Impl: Sized {
@@ -681,8 +681,8 @@ impl IWinMLModel_Vtbl {
             EnumerateModelOutputs: EnumerateModelOutputs::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IWinMLModel as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IWinMLModel as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
@@ -731,8 +731,8 @@ impl IWinMLRuntime_Vtbl {
             EvaluateModel: EvaluateModel::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IWinMLRuntime as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IWinMLRuntime as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IWinMLRuntimeFactory_Impl: Sized {
@@ -754,7 +754,7 @@ impl IWinMLRuntimeFactory_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateRuntime: CreateRuntime::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IWinMLRuntimeFactory as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IWinMLRuntimeFactory as ::windows_core::ComInterface>::IID
     }
 }

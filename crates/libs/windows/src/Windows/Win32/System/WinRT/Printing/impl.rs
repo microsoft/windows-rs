@@ -21,8 +21,8 @@ impl IPrintManagerInterop_Vtbl {
             ShowPrintUIForWindowAsync: ShowPrintUIForWindowAsync::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IPrintManagerInterop as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IPrintManagerInterop as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`"]
@@ -77,8 +77,8 @@ impl IPrintWorkflowConfigurationNative_Vtbl {
             UserProperties: UserProperties::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IPrintWorkflowConfigurationNative as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IPrintWorkflowConfigurationNative as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Storage_Xps\"`"]
@@ -114,8 +114,8 @@ impl IPrintWorkflowObjectModelSourceFileContentNative_Vtbl {
             ObjectFactory: ObjectFactory::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IPrintWorkflowObjectModelSourceFileContentNative as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IPrintWorkflowObjectModelSourceFileContentNative as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Storage_Xps\"`"]
@@ -141,8 +141,8 @@ impl IPrintWorkflowXpsObjectModelTargetPackageNative_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), DocumentPackageTarget: DocumentPackageTarget::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IPrintWorkflowXpsObjectModelTargetPackageNative as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IPrintWorkflowXpsObjectModelTargetPackageNative as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Storage_Xps\"`, `\"Win32_System_Com\"`"]
@@ -193,8 +193,8 @@ impl IPrintWorkflowXpsReceiver_Vtbl {
             Close: Close::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IPrintWorkflowXpsReceiver as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IPrintWorkflowXpsReceiver as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Storage_Xps\"`, `\"Win32_System_Com\"`"]
@@ -214,8 +214,8 @@ impl IPrintWorkflowXpsReceiver2_Vtbl {
         }
         Self { base__: IPrintWorkflowXpsReceiver_Vtbl::new::<Identity, Impl, OFFSET>(), Failed: Failed::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IPrintWorkflowXpsReceiver2 as ::windows_core::ComInterface>::IID || *iid == <IPrintWorkflowXpsReceiver as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IPrintWorkflowXpsReceiver2 as ::windows_core::ComInterface>::IID || iid == &<IPrintWorkflowXpsReceiver as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IPrinting3DManagerInterop_Impl: Sized {
@@ -241,7 +241,7 @@ impl IPrinting3DManagerInterop_Vtbl {
             ShowPrintUIForWindowAsync: ShowPrintUIForWindowAsync::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IPrinting3DManagerInterop as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IPrinting3DManagerInterop as ::windows_core::ComInterface>::IID
     }
 }

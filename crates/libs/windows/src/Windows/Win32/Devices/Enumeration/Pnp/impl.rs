@@ -27,8 +27,8 @@ impl IUPnPAddressFamilyControl_Vtbl {
             GetAddressFamily: GetAddressFamily::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUPnPAddressFamilyControl as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUPnPAddressFamilyControl as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUPnPAsyncResult_Impl: Sized {
@@ -44,8 +44,8 @@ impl IUPnPAsyncResult_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), AsyncOperationComplete: AsyncOperationComplete::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUPnPAsyncResult as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUPnPAsyncResult as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -134,8 +134,8 @@ impl IUPnPDescriptionDocument_Vtbl {
             DeviceByUDN: DeviceByUDN::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUPnPDescriptionDocument as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUPnPDescriptionDocument as ::windows_core::ComInterface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUPnPDescriptionDocumentCallback_Impl: Sized {
@@ -151,8 +151,8 @@ impl IUPnPDescriptionDocumentCallback_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), LoadComplete: LoadComplete::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUPnPDescriptionDocumentCallback as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUPnPDescriptionDocumentCallback as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -415,8 +415,8 @@ impl IUPnPDevice_Vtbl {
             Services: Services::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUPnPDevice as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUPnPDevice as ::windows_core::ComInterface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -452,8 +452,8 @@ impl IUPnPDeviceControl_Vtbl {
             GetServiceObject: GetServiceObject::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUPnPDeviceControl as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUPnPDeviceControl as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUPnPDeviceControlHttpHeaders_Impl: Sized {
@@ -478,8 +478,8 @@ impl IUPnPDeviceControlHttpHeaders_Vtbl {
             GetAdditionalResponseHeaders: GetAdditionalResponseHeaders::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUPnPDeviceControlHttpHeaders as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUPnPDeviceControlHttpHeaders as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUPnPDeviceDocumentAccess_Impl: Sized {
@@ -501,8 +501,8 @@ impl IUPnPDeviceDocumentAccess_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetDocumentURL: GetDocumentURL::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUPnPDeviceDocumentAccess as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUPnPDeviceDocumentAccess as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUPnPDeviceDocumentAccessEx_Impl: Sized {
@@ -524,8 +524,8 @@ impl IUPnPDeviceDocumentAccessEx_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetDocument: GetDocument::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUPnPDeviceDocumentAccessEx as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUPnPDeviceDocumentAccessEx as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -594,8 +594,8 @@ impl IUPnPDeviceFinder_Vtbl {
             FindByUDN: FindByUDN::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUPnPDeviceFinder as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUPnPDeviceFinder as ::windows_core::ComInterface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -615,8 +615,8 @@ impl IUPnPDeviceFinderAddCallbackWithInterface_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), DeviceAddedWithInterface: DeviceAddedWithInterface::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUPnPDeviceFinderAddCallbackWithInterface as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUPnPDeviceFinderAddCallbackWithInterface as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -653,8 +653,8 @@ impl IUPnPDeviceFinderCallback_Vtbl {
             SearchComplete: SearchComplete::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUPnPDeviceFinderCallback as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUPnPDeviceFinderCallback as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUPnPDeviceProvider_Impl: Sized {
@@ -676,8 +676,8 @@ impl IUPnPDeviceProvider_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Start: Start::<Identity, Impl, OFFSET>, Stop: Stop::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUPnPDeviceProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUPnPDeviceProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -732,8 +732,8 @@ impl IUPnPDevices_Vtbl {
             get_Item: get_Item::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUPnPDevices as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUPnPDevices as ::windows_core::ComInterface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -763,8 +763,8 @@ impl IUPnPEventSink_Vtbl {
             OnStateChangedSafe: OnStateChangedSafe::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUPnPEventSink as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUPnPEventSink as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUPnPEventSource_Impl: Sized {
@@ -790,8 +790,8 @@ impl IUPnPEventSource_Vtbl {
             Unadvise: Unadvise::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUPnPEventSource as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUPnPEventSource as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUPnPHttpHeaderControl_Impl: Sized {
@@ -807,8 +807,8 @@ impl IUPnPHttpHeaderControl_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), AddRequestHeaders: AddRequestHeaders::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUPnPHttpHeaderControl as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUPnPHttpHeaderControl as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUPnPRegistrar_Impl: Sized {
@@ -880,8 +880,8 @@ impl IUPnPRegistrar_Vtbl {
             UnregisterDeviceProvider: UnregisterDeviceProvider::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUPnPRegistrar as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUPnPRegistrar as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUPnPRemoteEndpointInfo_Impl: Sized {
@@ -932,8 +932,8 @@ impl IUPnPRemoteEndpointInfo_Vtbl {
             GetGuidValue: GetGuidValue::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUPnPRemoteEndpointInfo as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUPnPRemoteEndpointInfo as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUPnPReregistrar_Impl: Sized {
@@ -959,8 +959,8 @@ impl IUPnPReregistrar_Vtbl {
             ReregisterRunningDevice: ReregisterRunningDevice::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUPnPReregistrar as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUPnPReregistrar as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -1042,8 +1042,8 @@ impl IUPnPService_Vtbl {
             LastTransportStatus: LastTransportStatus::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUPnPService as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUPnPService as ::windows_core::ComInterface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -1152,8 +1152,8 @@ impl IUPnPServiceAsync_Vtbl {
             CancelAsyncOperation: CancelAsyncOperation::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUPnPServiceAsync as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUPnPServiceAsync as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -1183,8 +1183,8 @@ impl IUPnPServiceCallback_Vtbl {
             ServiceInstanceDied: ServiceInstanceDied::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUPnPServiceCallback as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUPnPServiceCallback as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUPnPServiceDocumentAccess_Impl: Sized {
@@ -1222,8 +1222,8 @@ impl IUPnPServiceDocumentAccess_Vtbl {
             GetDocument: GetDocument::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUPnPServiceDocumentAccess as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUPnPServiceDocumentAccess as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUPnPServiceEnumProperty_Impl: Sized {
@@ -1239,8 +1239,8 @@ impl IUPnPServiceEnumProperty_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetServiceEnumProperty: SetServiceEnumProperty::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUPnPServiceEnumProperty as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUPnPServiceEnumProperty as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -1295,7 +1295,7 @@ impl IUPnPServices_Vtbl {
             get_Item: get_Item::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUPnPServices as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUPnPServices as ::windows_core::ComInterface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }

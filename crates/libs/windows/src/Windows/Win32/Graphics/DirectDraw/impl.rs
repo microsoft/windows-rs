@@ -35,8 +35,8 @@ impl IDDVideoPortContainer_Vtbl {
             QueryVideoPortStatus: QueryVideoPortStatus::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDDVideoPortContainer as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDDVideoPortContainer as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
@@ -204,8 +204,8 @@ impl IDirectDraw_Vtbl {
             WaitForVerticalBlank: WaitForVerticalBlank::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDirectDraw as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDirectDraw as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
@@ -380,8 +380,8 @@ impl IDirectDraw2_Vtbl {
             GetAvailableVidMem: GetAvailableVidMem::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDirectDraw2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDirectDraw2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
@@ -590,8 +590,8 @@ impl IDirectDraw4_Vtbl {
             GetDeviceIdentifier: GetDeviceIdentifier::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDirectDraw4 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDirectDraw4 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
@@ -814,8 +814,8 @@ impl IDirectDraw7_Vtbl {
             EvaluateMode: EvaluateMode::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDirectDraw7 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDirectDraw7 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
@@ -873,8 +873,8 @@ impl IDirectDrawClipper_Vtbl {
             SetHWnd: SetHWnd::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDirectDrawClipper as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDirectDrawClipper as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDirectDrawColorControl_Impl: Sized {
@@ -900,8 +900,8 @@ impl IDirectDrawColorControl_Vtbl {
             SetColorControls: SetColorControls::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDirectDrawColorControl as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDirectDrawColorControl as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDirectDrawGammaControl_Impl: Sized {
@@ -927,8 +927,8 @@ impl IDirectDrawGammaControl_Vtbl {
             SetGammaRamp: SetGammaRamp::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDirectDrawGammaControl as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDirectDrawGammaControl as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDirectDrawKernel_Impl: Sized {
@@ -961,8 +961,8 @@ impl IDirectDrawKernel_Vtbl {
             ReleaseKernelHandle: ReleaseKernelHandle::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDirectDrawKernel as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDirectDrawKernel as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
@@ -1006,8 +1006,8 @@ impl IDirectDrawPalette_Vtbl {
             SetEntries: SetEntries::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDirectDrawPalette as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDirectDrawPalette as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
@@ -1266,8 +1266,8 @@ impl IDirectDrawSurface_Vtbl {
             UpdateOverlayZOrder: UpdateOverlayZOrder::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDirectDrawSurface as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDirectDrawSurface as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
@@ -1547,8 +1547,8 @@ impl IDirectDrawSurface2_Vtbl {
             PageUnlock: PageUnlock::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDirectDrawSurface2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDirectDrawSurface2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
@@ -1835,8 +1835,8 @@ impl IDirectDrawSurface3_Vtbl {
             SetSurfaceDesc: SetSurfaceDesc::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDirectDrawSurface3 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDirectDrawSurface3 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
@@ -2158,8 +2158,8 @@ impl IDirectDrawSurface4_Vtbl {
             ChangeUniquenessValue: ChangeUniquenessValue::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDirectDrawSurface4 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDirectDrawSurface4 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
@@ -2509,8 +2509,8 @@ impl IDirectDrawSurface7_Vtbl {
             GetLOD: GetLOD::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDirectDrawSurface7 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDirectDrawSurface7 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDirectDrawSurfaceKernel_Impl: Sized {
@@ -2536,8 +2536,8 @@ impl IDirectDrawSurfaceKernel_Vtbl {
             ReleaseKernelHandle: ReleaseKernelHandle::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDirectDrawSurfaceKernel as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDirectDrawSurfaceKernel as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDirectDrawVideoPort_Impl: Sized {
@@ -2647,8 +2647,8 @@ impl IDirectDrawVideoPort_Vtbl {
             WaitForSync: WaitForSync::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDirectDrawVideoPort as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDirectDrawVideoPort as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDirectDrawVideoPortNotify_Impl: Sized {
@@ -2674,7 +2674,7 @@ impl IDirectDrawVideoPortNotify_Vtbl {
             ReleaseNotification: ReleaseNotification::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDirectDrawVideoPortNotify as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDirectDrawVideoPortNotify as ::windows_core::ComInterface>::IID
     }
 }

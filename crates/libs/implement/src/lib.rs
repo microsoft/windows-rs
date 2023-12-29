@@ -133,9 +133,11 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
                     return ::windows::core::HRESULT(-2147467261); // E_POINTER
                 }
 
-                *interface = if *iid == <::windows::core::IUnknown as ::windows::core::ComInterface>::IID
-                    || *iid == <::windows::core::IInspectable as ::windows::core::ComInterface>::IID
-                    || *iid == <::windows::core::imp::IAgileObject as ::windows::core::ComInterface>::IID {
+                let iid = &*iid;
+
+                *interface = if iid == &<::windows::core::IUnknown as ::windows::core::ComInterface>::IID
+                    || iid == &<::windows::core::IInspectable as ::windows::core::ComInterface>::IID
+                    || iid == &<::windows::core::imp::IAgileObject as ::windows::core::ComInterface>::IID {
                         &self.identity as *const _ as *mut _
                 } #(#queries)* else {
                     ::core::ptr::null_mut()

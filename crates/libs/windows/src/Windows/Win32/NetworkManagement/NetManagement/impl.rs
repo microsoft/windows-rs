@@ -35,8 +35,8 @@ impl IEnumNetCfgBindingInterface_Vtbl {
             Clone: Clone::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IEnumNetCfgBindingInterface as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IEnumNetCfgBindingInterface as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IEnumNetCfgBindingPath_Impl: Sized {
@@ -76,8 +76,8 @@ impl IEnumNetCfgBindingPath_Vtbl {
             Clone: Clone::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IEnumNetCfgBindingPath as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IEnumNetCfgBindingPath as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IEnumNetCfgComponent_Impl: Sized {
@@ -117,8 +117,8 @@ impl IEnumNetCfgComponent_Vtbl {
             Clone: Clone::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IEnumNetCfgComponent as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IEnumNetCfgComponent as ::windows_core::ComInterface>::IID
     }
 }
 pub trait INetCfg_Impl: Sized {
@@ -179,8 +179,8 @@ impl INetCfg_Vtbl {
             QueryNetCfgClass: QueryNetCfgClass::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <INetCfg as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<INetCfg as ::windows_core::ComInterface>::IID
     }
 }
 pub trait INetCfgBindingInterface_Impl: Sized {
@@ -213,8 +213,8 @@ impl INetCfgBindingInterface_Vtbl {
             GetLowerComponent: GetLowerComponent::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <INetCfgBindingInterface as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<INetCfgBindingInterface as ::windows_core::ComInterface>::IID
     }
 }
 pub trait INetCfgBindingPath_Impl: Sized {
@@ -288,8 +288,8 @@ impl INetCfgBindingPath_Vtbl {
             EnumBindingInterfaces: EnumBindingInterfaces::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <INetCfgBindingPath as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<INetCfgBindingPath as ::windows_core::ComInterface>::IID
     }
 }
 pub trait INetCfgClass_Impl: Sized {
@@ -315,8 +315,8 @@ impl INetCfgClass_Vtbl {
             EnumComponents: EnumComponents::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <INetCfgClass as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<INetCfgClass as ::windows_core::ComInterface>::IID
     }
 }
 pub trait INetCfgClassSetup_Impl: Sized {
@@ -349,8 +349,8 @@ impl INetCfgClassSetup_Vtbl {
             DeInstall: DeInstall::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <INetCfgClassSetup as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<INetCfgClassSetup as ::windows_core::ComInterface>::IID
     }
 }
 pub trait INetCfgClassSetup2_Impl: Sized + INetCfgClassSetup_Impl {
@@ -369,8 +369,8 @@ impl INetCfgClassSetup2_Vtbl {
             UpdateNonEnumeratedComponent: UpdateNonEnumeratedComponent::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <INetCfgClassSetup2 as ::windows_core::ComInterface>::IID || *iid == <INetCfgClassSetup as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<INetCfgClassSetup2 as ::windows_core::ComInterface>::IID || iid == &<INetCfgClassSetup as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Registry\"`"]
@@ -482,8 +482,8 @@ impl INetCfgComponent_Vtbl {
             RaisePropertyUi: RaisePropertyUi::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <INetCfgComponent as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<INetCfgComponent as ::windows_core::ComInterface>::IID
     }
 }
 pub trait INetCfgComponentBindings_Impl: Sized {
@@ -551,8 +551,8 @@ impl INetCfgComponentBindings_Vtbl {
             MoveAfter: MoveAfter::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <INetCfgComponentBindings as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<INetCfgComponentBindings as ::windows_core::ComInterface>::IID
     }
 }
 pub trait INetCfgComponentControl_Impl: Sized {
@@ -592,8 +592,8 @@ impl INetCfgComponentControl_Vtbl {
             CancelChanges: CancelChanges::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <INetCfgComponentControl as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<INetCfgComponentControl as ::windows_core::ComInterface>::IID
     }
 }
 pub trait INetCfgComponentNotifyBinding_Impl: Sized {
@@ -619,8 +619,8 @@ impl INetCfgComponentNotifyBinding_Vtbl {
             NotifyBindingPath: NotifyBindingPath::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <INetCfgComponentNotifyBinding as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<INetCfgComponentNotifyBinding as ::windows_core::ComInterface>::IID
     }
 }
 pub trait INetCfgComponentNotifyGlobal_Impl: Sized {
@@ -666,8 +666,8 @@ impl INetCfgComponentNotifyGlobal_Vtbl {
             SysNotifyComponent: SysNotifyComponent::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <INetCfgComponentNotifyGlobal as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<INetCfgComponentNotifyGlobal as ::windows_core::ComInterface>::IID
     }
 }
 pub trait INetCfgComponentPropertyUi_Impl: Sized {
@@ -721,8 +721,8 @@ impl INetCfgComponentPropertyUi_Vtbl {
             CancelProperties: CancelProperties::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <INetCfgComponentPropertyUi as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<INetCfgComponentPropertyUi as ::windows_core::ComInterface>::IID
     }
 }
 pub trait INetCfgComponentSetup_Impl: Sized {
@@ -762,8 +762,8 @@ impl INetCfgComponentSetup_Vtbl {
             Removing: Removing::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <INetCfgComponentSetup as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<INetCfgComponentSetup as ::windows_core::ComInterface>::IID
     }
 }
 pub trait INetCfgComponentSysPrep_Impl: Sized {
@@ -789,8 +789,8 @@ impl INetCfgComponentSysPrep_Vtbl {
             RestoreAdapterParameters: RestoreAdapterParameters::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <INetCfgComponentSysPrep as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<INetCfgComponentSysPrep as ::windows_core::ComInterface>::IID
     }
 }
 pub trait INetCfgComponentUpperEdge_Impl: Sized {
@@ -823,8 +823,8 @@ impl INetCfgComponentUpperEdge_Vtbl {
             RemoveInterfacesFromAdapter: RemoveInterfacesFromAdapter::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <INetCfgComponentUpperEdge as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<INetCfgComponentUpperEdge as ::windows_core::ComInterface>::IID
     }
 }
 pub trait INetCfgLock_Impl: Sized {
@@ -857,8 +857,8 @@ impl INetCfgLock_Vtbl {
             IsWriteLocked: IsWriteLocked::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <INetCfgLock as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<INetCfgLock as ::windows_core::ComInterface>::IID
     }
 }
 pub trait INetCfgPnpReconfigCallback_Impl: Sized {
@@ -874,8 +874,8 @@ impl INetCfgPnpReconfigCallback_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SendPnpReconfig: SendPnpReconfig::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <INetCfgPnpReconfigCallback as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<INetCfgPnpReconfigCallback as ::windows_core::ComInterface>::IID
     }
 }
 pub trait INetCfgSysPrep_Impl: Sized {
@@ -915,8 +915,8 @@ impl INetCfgSysPrep_Vtbl {
             HrSetupSetFirstMultiSzField: HrSetupSetFirstMultiSzField::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <INetCfgSysPrep as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<INetCfgSysPrep as ::windows_core::ComInterface>::IID
     }
 }
 pub trait INetLanConnectionUiInfo_Impl: Sized {
@@ -938,8 +938,8 @@ impl INetLanConnectionUiInfo_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetDeviceGuid: GetDeviceGuid::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <INetLanConnectionUiInfo as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<INetLanConnectionUiInfo as ::windows_core::ComInterface>::IID
     }
 }
 pub trait INetRasConnectionIpUiInfo_Impl: Sized {
@@ -955,8 +955,8 @@ impl INetRasConnectionIpUiInfo_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetUiInfo: GetUiInfo::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <INetRasConnectionIpUiInfo as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<INetRasConnectionIpUiInfo as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`"]
@@ -988,8 +988,8 @@ impl IProvisioningDomain_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Add: Add::<Identity, Impl, OFFSET>, Query: Query::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IProvisioningDomain as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IProvisioningDomain as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IProvisioningProfileWireless_Impl: Sized {
@@ -1011,7 +1011,7 @@ impl IProvisioningProfileWireless_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateProfile: CreateProfile::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IProvisioningProfileWireless as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IProvisioningProfileWireless as ::windows_core::ComInterface>::IID
     }
 }

@@ -118,8 +118,8 @@ impl ICeeGen_Vtbl {
             ComputePointer: ComputePointer::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ICeeGen as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ICeeGen as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IHostFilter_Impl: Sized {
@@ -135,8 +135,8 @@ impl IHostFilter_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), MarkToken: MarkToken::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IHostFilter as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IHostFilter as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMapToken_Impl: Sized {
@@ -152,8 +152,8 @@ impl IMapToken_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Map: Map::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMapToken as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMapToken as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMetaDataAssemblyEmit_Impl: Sized {
@@ -235,8 +235,8 @@ impl IMetaDataAssemblyEmit_Vtbl {
             SetManifestResourceProps: SetManifestResourceProps::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMetaDataAssemblyEmit as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMetaDataAssemblyEmit as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMetaDataAssemblyImport_Impl: Sized {
@@ -346,8 +346,8 @@ impl IMetaDataAssemblyImport_Vtbl {
             FindAssembliesByName: FindAssembliesByName::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMetaDataAssemblyImport as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMetaDataAssemblyImport as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMetaDataDispenser_Impl: Sized {
@@ -398,8 +398,8 @@ impl IMetaDataDispenser_Vtbl {
             OpenScopeOnMemory: OpenScopeOnMemory::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMetaDataDispenser as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMetaDataDispenser as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -463,8 +463,8 @@ impl IMetaDataDispenserEx_Vtbl {
             FindAssemblyModule: FindAssemblyModule::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMetaDataDispenserEx as ::windows_core::ComInterface>::IID || *iid == <IMetaDataDispenser as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMetaDataDispenserEx as ::windows_core::ComInterface>::IID || iid == &<IMetaDataDispenser as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -837,8 +837,8 @@ impl IMetaDataEmit_Vtbl {
             MergeEnd: MergeEnd::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMetaDataEmit as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMetaDataEmit as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -910,8 +910,8 @@ impl IMetaDataEmit2_Vtbl {
             ResetENCLog: ResetENCLog::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMetaDataEmit2 as ::windows_core::ComInterface>::IID || *iid == <IMetaDataEmit as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMetaDataEmit2 as ::windows_core::ComInterface>::IID || iid == &<IMetaDataEmit as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMetaDataError_Impl: Sized {
@@ -927,8 +927,8 @@ impl IMetaDataError_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnError: OnError::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMetaDataError as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMetaDataError as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMetaDataFilter_Impl: Sized {
@@ -961,8 +961,8 @@ impl IMetaDataFilter_Vtbl {
             IsTokenMarked: IsTokenMarked::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMetaDataFilter as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMetaDataFilter as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMetaDataImport_Impl: Sized {
@@ -1456,8 +1456,8 @@ impl IMetaDataImport_Vtbl {
             IsGlobal: IsGlobal::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMetaDataImport as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMetaDataImport as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMetaDataImport2_Impl: Sized + IMetaDataImport_Impl {
@@ -1525,8 +1525,8 @@ impl IMetaDataImport2_Vtbl {
             EnumMethodSpecs: EnumMethodSpecs::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMetaDataImport2 as ::windows_core::ComInterface>::IID || *iid == <IMetaDataImport as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMetaDataImport2 as ::windows_core::ComInterface>::IID || iid == &<IMetaDataImport as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMetaDataInfo_Impl: Sized {
@@ -1542,8 +1542,8 @@ impl IMetaDataInfo_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetFileMapping: GetFileMapping::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMetaDataInfo as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMetaDataInfo as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMetaDataTables_Impl: Sized {
@@ -1688,8 +1688,8 @@ impl IMetaDataTables_Vtbl {
             GetNextUserString: GetNextUserString::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMetaDataTables as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMetaDataTables as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMetaDataTables2_Impl: Sized + IMetaDataTables_Impl {
@@ -1715,8 +1715,8 @@ impl IMetaDataTables2_Vtbl {
             GetMetaDataStreamInfo: GetMetaDataStreamInfo::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMetaDataTables2 as ::windows_core::ComInterface>::IID || *iid == <IMetaDataTables as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMetaDataTables2 as ::windows_core::ComInterface>::IID || iid == &<IMetaDataTables as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMetaDataValidate_Impl: Sized {
@@ -1742,8 +1742,8 @@ impl IMetaDataValidate_Vtbl {
             ValidateMetaData: ValidateMetaData::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMetaDataValidate as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMetaDataValidate as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMetaDataWinMDImport_Impl: Sized {
@@ -1762,8 +1762,8 @@ impl IMetaDataWinMDImport_Vtbl {
             GetUntransformedTypeRefProps: GetUntransformedTypeRefProps::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMetaDataWinMDImport as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMetaDataWinMDImport as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IRoMetaDataLocator_Impl: Sized {

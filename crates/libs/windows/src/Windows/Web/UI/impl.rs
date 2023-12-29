@@ -594,8 +594,8 @@ impl IWebViewControl_Vtbl {
             RemoveWebResourceRequested: RemoveWebResourceRequested::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IWebViewControl as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IWebViewControl as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IWebViewControl2_Impl: Sized {
@@ -616,7 +616,7 @@ impl IWebViewControl2_Vtbl {
             AddInitializeScript: AddInitializeScript::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IWebViewControl2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IWebViewControl2 as ::windows_core::ComInterface>::IID
     }
 }

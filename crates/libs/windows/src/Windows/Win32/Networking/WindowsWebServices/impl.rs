@@ -27,7 +27,7 @@ impl IContentPrefetcherTaskTrigger_Vtbl {
             IsRegisteredForContentPrefetch: IsRegisteredForContentPrefetch::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IContentPrefetcherTaskTrigger as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IContentPrefetcherTaskTrigger as ::windows_core::ComInterface>::IID
     }
 }

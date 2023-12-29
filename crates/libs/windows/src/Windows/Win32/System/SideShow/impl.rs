@@ -15,8 +15,8 @@ impl ISideShowBulkCapabilities_Vtbl {
         }
         Self { base__: ISideShowCapabilities_Vtbl::new::<Identity, Impl, OFFSET>(), GetCapabilities: GetCapabilities::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISideShowBulkCapabilities as ::windows_core::ComInterface>::IID || *iid == <ISideShowCapabilities as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISideShowBulkCapabilities as ::windows_core::ComInterface>::IID || iid == &<ISideShowCapabilities as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`"]
@@ -36,8 +36,8 @@ impl ISideShowCapabilities_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetCapability: GetCapability::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISideShowCapabilities as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISideShowCapabilities as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ISideShowCapabilitiesCollection_Impl: Sized {
@@ -75,8 +75,8 @@ impl ISideShowCapabilitiesCollection_Vtbl {
             GetAt: GetAt::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISideShowCapabilitiesCollection as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISideShowCapabilitiesCollection as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ISideShowContent_Impl: Sized {
@@ -121,8 +121,8 @@ impl ISideShowContent_Vtbl {
             DifferentiateContent: DifferentiateContent::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISideShowContent as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISideShowContent as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ISideShowContentManager_Impl: Sized {
@@ -175,8 +175,8 @@ impl ISideShowContentManager_Vtbl {
             GetDeviceCapabilities: GetDeviceCapabilities::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISideShowContentManager as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISideShowContentManager as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ISideShowEvents_Impl: Sized {
@@ -222,8 +222,8 @@ impl ISideShowEvents_Vtbl {
             DeviceRemoved: DeviceRemoved::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISideShowEvents as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISideShowEvents as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
@@ -274,8 +274,8 @@ impl ISideShowKeyCollection_Vtbl {
             RemoveAt: RemoveAt::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISideShowKeyCollection as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISideShowKeyCollection as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
@@ -391,8 +391,8 @@ impl ISideShowNotification_Vtbl {
             SetExpirationTime: SetExpirationTime::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISideShowNotification as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISideShowNotification as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ISideShowNotificationManager_Impl: Sized {
@@ -425,8 +425,8 @@ impl ISideShowNotificationManager_Vtbl {
             RevokeAll: RevokeAll::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISideShowNotificationManager as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISideShowNotificationManager as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
@@ -477,8 +477,8 @@ impl ISideShowPropVariantCollection_Vtbl {
             RemoveAt: RemoveAt::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISideShowPropVariantCollection as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISideShowPropVariantCollection as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ISideShowSession_Impl: Sized {
@@ -516,7 +516,7 @@ impl ISideShowSession_Vtbl {
             RegisterNotifications: RegisterNotifications::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISideShowSession as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISideShowSession as ::windows_core::ComInterface>::IID
     }
 }

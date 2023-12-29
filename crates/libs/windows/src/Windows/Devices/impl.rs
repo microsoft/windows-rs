@@ -83,7 +83,7 @@ impl ILowLevelDevicesAggregateProvider_Vtbl {
             SpiControllerProvider: SpiControllerProvider::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ILowLevelDevicesAggregateProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ILowLevelDevicesAggregateProvider as ::windows_core::ComInterface>::IID
     }
 }

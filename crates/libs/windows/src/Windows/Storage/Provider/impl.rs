@@ -27,8 +27,8 @@ impl IStorageProviderItemPropertySource_Vtbl {
             GetItemProperties: GetItemProperties::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IStorageProviderItemPropertySource as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IStorageProviderItemPropertySource as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IStorageProviderKnownFolderSyncInfoSource_Impl: Sized {
@@ -76,8 +76,8 @@ impl IStorageProviderKnownFolderSyncInfoSource_Vtbl {
             RemoveKnownFolderSyncInfoChanged: RemoveKnownFolderSyncInfoChanged::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IStorageProviderKnownFolderSyncInfoSource as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IStorageProviderKnownFolderSyncInfoSource as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IStorageProviderKnownFolderSyncInfoSourceFactory_Impl: Sized {
@@ -105,8 +105,8 @@ impl IStorageProviderKnownFolderSyncInfoSourceFactory_Vtbl {
             GetKnownFolderSyncInfoSource: GetKnownFolderSyncInfoSource::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IStorageProviderKnownFolderSyncInfoSourceFactory as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IStorageProviderKnownFolderSyncInfoSourceFactory as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IStorageProviderPropertyCapabilities_Impl: Sized {
@@ -133,8 +133,8 @@ impl IStorageProviderPropertyCapabilities_Vtbl {
             IsPropertySupported: IsPropertySupported::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IStorageProviderPropertyCapabilities as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IStorageProviderPropertyCapabilities as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IStorageProviderStatusUISource_Impl: Sized {
@@ -182,8 +182,8 @@ impl IStorageProviderStatusUISource_Vtbl {
             RemoveStatusUIChanged: RemoveStatusUIChanged::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IStorageProviderStatusUISource as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IStorageProviderStatusUISource as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IStorageProviderStatusUISourceFactory_Impl: Sized {
@@ -211,8 +211,8 @@ impl IStorageProviderStatusUISourceFactory_Vtbl {
             GetStatusUISource: GetStatusUISource::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IStorageProviderStatusUISourceFactory as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IStorageProviderStatusUISourceFactory as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IStorageProviderUICommand_Impl: Sized {
@@ -288,8 +288,8 @@ impl IStorageProviderUICommand_Vtbl {
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IStorageProviderUICommand as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IStorageProviderUICommand as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IStorageProviderUriSource_Impl: Sized {
@@ -317,7 +317,7 @@ impl IStorageProviderUriSource_Vtbl {
             GetContentInfoForPath: GetContentInfoForPath::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IStorageProviderUriSource as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IStorageProviderUriSource as ::windows_core::ComInterface>::IID
     }
 }

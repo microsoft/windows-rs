@@ -44,8 +44,8 @@ impl IPhotoAcquire_Vtbl {
             EnumResults: EnumResults::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IPhotoAcquire as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IPhotoAcquire as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IPhotoAcquireDeviceSelectionDialog_Impl: Sized {
@@ -78,8 +78,8 @@ impl IPhotoAcquireDeviceSelectionDialog_Vtbl {
             DoModal: DoModal::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IPhotoAcquireDeviceSelectionDialog as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IPhotoAcquireDeviceSelectionDialog as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`"]
@@ -200,8 +200,8 @@ impl IPhotoAcquireItem_Vtbl {
             GetSubItemAt: GetSubItemAt::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IPhotoAcquireItem as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IPhotoAcquireItem as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IPhotoAcquireOptionsDialog_Impl: Sized {
@@ -254,8 +254,8 @@ impl IPhotoAcquireOptionsDialog_Vtbl {
             SaveData: SaveData::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IPhotoAcquireOptionsDialog as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IPhotoAcquireOptionsDialog as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_UI_Shell_PropertiesSystem\"`"]
@@ -299,8 +299,8 @@ impl IPhotoAcquirePlugin_Vtbl {
             DisplayConfigureDialog: DisplayConfigureDialog::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IPhotoAcquirePlugin as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IPhotoAcquirePlugin as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
@@ -467,8 +467,8 @@ impl IPhotoAcquireProgressCB_Vtbl {
             GetUserInput: GetUserInput::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IPhotoAcquireProgressCB as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IPhotoAcquireProgressCB as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IPhotoAcquireSettings_Impl: Sized {
@@ -607,8 +607,8 @@ impl IPhotoAcquireSettings_Vtbl {
             GetAcquisitionTime: GetAcquisitionTime::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IPhotoAcquireSettings as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IPhotoAcquireSettings as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
@@ -710,8 +710,8 @@ impl IPhotoAcquireSource_Vtbl {
             BindToObject: BindToObject::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IPhotoAcquireSource as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IPhotoAcquireSource as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IPhotoProgressActionCB_Impl: Sized {
@@ -727,8 +727,8 @@ impl IPhotoProgressActionCB_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), DoAction: DoAction::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IPhotoProgressActionCB as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IPhotoProgressActionCB as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
@@ -888,8 +888,8 @@ impl IPhotoProgressDialog_Vtbl {
             GetUserInput: GetUserInput::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IPhotoProgressDialog as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IPhotoProgressDialog as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
@@ -1029,7 +1029,7 @@ impl IUserInputString_Vtbl {
             GetImage: GetImage::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUserInputString as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUserInputString as ::windows_core::ComInterface>::IID
     }
 }

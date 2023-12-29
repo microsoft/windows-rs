@@ -21,8 +21,8 @@ impl IRtwqAsyncCallback_Vtbl {
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IRtwqAsyncCallback as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IRtwqAsyncCallback as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IRtwqAsyncResult_Impl: Sized {
@@ -81,8 +81,8 @@ impl IRtwqAsyncResult_Vtbl {
             GetStateNoAddRef: GetStateNoAddRef::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IRtwqAsyncResult as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IRtwqAsyncResult as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IRtwqPlatformEvents_Impl: Sized {
@@ -115,8 +115,8 @@ impl IRtwqPlatformEvents_Vtbl {
             ShutdownComplete: ShutdownComplete::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IRtwqPlatformEvents as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IRtwqPlatformEvents as ::windows_core::ComInterface>::IID
     }
 }
 pub trait RTWQASYNCRESULT_Impl: Sized + IRtwqAsyncResult_Impl {}
@@ -125,7 +125,7 @@ impl RTWQASYNCRESULT_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: RTWQASYNCRESULT_Impl, const OFFSET: isize>() -> RTWQASYNCRESULT_Vtbl {
         Self { base__: IRtwqAsyncResult_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <RTWQASYNCRESULT as ::windows_core::ComInterface>::IID || *iid == <IRtwqAsyncResult as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<RTWQASYNCRESULT as ::windows_core::ComInterface>::IID || iid == &<IRtwqAsyncResult as ::windows_core::ComInterface>::IID
     }
 }

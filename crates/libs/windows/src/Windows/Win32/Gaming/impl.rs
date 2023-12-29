@@ -41,8 +41,8 @@ impl IGameExplorer_Vtbl {
             VerifyAccess: VerifyAccess::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IGameExplorer as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IGameExplorer as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IGameExplorer2_Impl: Sized {
@@ -81,8 +81,8 @@ impl IGameExplorer2_Vtbl {
             CheckAccess: CheckAccess::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IGameExplorer2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IGameExplorer2 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IGameStatistics_Impl: Sized {
@@ -220,8 +220,8 @@ impl IGameStatistics_Vtbl {
             GetLastPlayedCategory: GetLastPlayedCategory::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IGameStatistics as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IGameStatistics as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IGameStatisticsMgr_Impl: Sized {
@@ -247,8 +247,8 @@ impl IGameStatisticsMgr_Vtbl {
             RemoveGameStatistics: RemoveGameStatistics::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IGameStatisticsMgr as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IGameStatisticsMgr as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IXblIdpAuthManager_Impl: Sized {
@@ -320,8 +320,8 @@ impl IXblIdpAuthManager_Vtbl {
             GetTokenAndSignatureWithTokenResult: GetTokenAndSignatureWithTokenResult::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IXblIdpAuthManager as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IXblIdpAuthManager as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IXblIdpAuthManager2_Impl: Sized {
@@ -346,8 +346,8 @@ impl IXblIdpAuthManager2_Vtbl {
             GetUserlessTokenAndSignatureWithTokenResult: GetUserlessTokenAndSignatureWithTokenResult::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IXblIdpAuthManager2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IXblIdpAuthManager2 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IXblIdpAuthTokenResult_Impl: Sized {
@@ -619,8 +619,8 @@ impl IXblIdpAuthTokenResult_Vtbl {
             GetTitleRestrictions: GetTitleRestrictions::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IXblIdpAuthTokenResult as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IXblIdpAuthTokenResult as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IXblIdpAuthTokenResult2_Impl: Sized {
@@ -671,7 +671,7 @@ impl IXblIdpAuthTokenResult2_Vtbl {
             GetUniqueModernGamertag: GetUniqueModernGamertag::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IXblIdpAuthTokenResult2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IXblIdpAuthTokenResult2 as ::windows_core::ComInterface>::IID
     }
 }

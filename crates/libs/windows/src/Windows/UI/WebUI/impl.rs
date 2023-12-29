@@ -23,8 +23,8 @@ impl IActivatedEventArgsDeferral_Vtbl {
             ActivatedOperation: ActivatedOperation::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IActivatedEventArgsDeferral as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IActivatedEventArgsDeferral as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IWebUIBackgroundTaskInstance_Impl: Sized {
@@ -58,8 +58,8 @@ impl IWebUIBackgroundTaskInstance_Vtbl {
             SetSucceeded: SetSucceeded::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IWebUIBackgroundTaskInstance as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IWebUIBackgroundTaskInstance as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IWebUINavigatedEventArgs_Impl: Sized {
@@ -87,7 +87,7 @@ impl IWebUINavigatedEventArgs_Vtbl {
             NavigatedOperation: NavigatedOperation::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IWebUINavigatedEventArgs as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IWebUINavigatedEventArgs as ::windows_core::ComInterface>::IID
     }
 }

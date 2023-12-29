@@ -204,8 +204,8 @@ impl IXmlReader_Vtbl {
             IsEOF: IsEOF::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IXmlReader as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IXmlReader as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IXmlResolver_Impl: Sized {
@@ -227,8 +227,8 @@ impl IXmlResolver_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ResolveUri: ResolveUri::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IXmlResolver as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IXmlResolver as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IXmlWriter_Impl: Sized {
@@ -449,8 +449,8 @@ impl IXmlWriter_Vtbl {
             Flush: Flush::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IXmlWriter as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IXmlWriter as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IXmlWriterLite_Impl: Sized {
@@ -664,7 +664,7 @@ impl IXmlWriterLite_Vtbl {
             Flush: Flush::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IXmlWriterLite as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IXmlWriterLite as ::windows_core::ComInterface>::IID
     }
 }

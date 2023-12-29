@@ -25,7 +25,7 @@ impl IPdfRendererNative_Vtbl {
             RenderPageToDeviceContext: RenderPageToDeviceContext::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IPdfRendererNative as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IPdfRendererNative as ::windows_core::ComInterface>::IID
     }
 }

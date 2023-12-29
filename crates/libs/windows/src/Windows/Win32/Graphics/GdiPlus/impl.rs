@@ -53,7 +53,7 @@ impl IImageBytes_Vtbl {
             UnlockBytes: UnlockBytes::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IImageBytes as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IImageBytes as ::windows_core::ComInterface>::IID
     }
 }

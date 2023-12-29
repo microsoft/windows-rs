@@ -136,8 +136,8 @@ impl ISyndicationClient_Vtbl {
             RetrieveFeedAsync: RetrieveFeedAsync::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISyndicationClient as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISyndicationClient as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Data_Xml_Dom\"`, `\"Foundation_Collections\"`"]
@@ -302,8 +302,8 @@ impl ISyndicationNode_Vtbl {
             GetXmlDocument: GetXmlDocument::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISyndicationNode as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISyndicationNode as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Data_Xml_Dom\"`, `\"Foundation_Collections\"`"]
@@ -384,7 +384,7 @@ impl ISyndicationText_Vtbl {
             SetXml: SetXml::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISyndicationText as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISyndicationText as ::windows_core::ComInterface>::IID
     }
 }

@@ -6,8 +6,8 @@ impl IPrintDocumentSource_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPrintDocumentSource_Impl, const OFFSET: isize>() -> IPrintDocumentSource_Vtbl {
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, IPrintDocumentSource, OFFSET>() }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IPrintDocumentSource as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IPrintDocumentSource as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IPrintTaskOptionsCore_Impl: Sized {
@@ -34,8 +34,8 @@ impl IPrintTaskOptionsCore_Vtbl {
             GetPageDescription: GetPageDescription::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IPrintTaskOptionsCore as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IPrintTaskOptionsCore as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IPrintTaskOptionsCoreProperties_Impl: Sized {
@@ -295,8 +295,8 @@ impl IPrintTaskOptionsCoreProperties_Vtbl {
             NumberOfCopies: NumberOfCopies::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IPrintTaskOptionsCoreProperties as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IPrintTaskOptionsCoreProperties as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Foundation_Collections\"`"]
@@ -328,7 +328,7 @@ impl IPrintTaskOptionsCoreUIConfiguration_Vtbl {
             DisplayedOptions: DisplayedOptions::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IPrintTaskOptionsCoreUIConfiguration as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IPrintTaskOptionsCoreUIConfiguration as ::windows_core::ComInterface>::IID
     }
 }

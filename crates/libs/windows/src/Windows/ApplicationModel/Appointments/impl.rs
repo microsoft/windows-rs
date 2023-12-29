@@ -51,7 +51,7 @@ impl IAppointmentParticipant_Vtbl {
             SetAddress: SetAddress::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IAppointmentParticipant as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IAppointmentParticipant as ::windows_core::ComInterface>::IID
     }
 }

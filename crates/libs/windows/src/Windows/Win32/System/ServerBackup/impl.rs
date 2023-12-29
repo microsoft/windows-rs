@@ -27,8 +27,8 @@ impl IWsbApplicationAsync_Vtbl {
             Abort: Abort::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IWsbApplicationAsync as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IWsbApplicationAsync as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IWsbApplicationBackupSupport_Impl: Sized {
@@ -50,8 +50,8 @@ impl IWsbApplicationBackupSupport_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CheckConsistency: CheckConsistency::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IWsbApplicationBackupSupport as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IWsbApplicationBackupSupport as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IWsbApplicationRestoreSupport_Impl: Sized {
@@ -97,7 +97,7 @@ impl IWsbApplicationRestoreSupport_Vtbl {
             IsRollForwardSupported: IsRollForwardSupported::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IWsbApplicationRestoreSupport as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IWsbApplicationRestoreSupport as ::windows_core::ComInterface>::IID
     }
 }

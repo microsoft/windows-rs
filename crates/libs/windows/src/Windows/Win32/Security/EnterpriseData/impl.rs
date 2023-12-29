@@ -21,8 +21,8 @@ impl IProtectionPolicyManagerInterop_Vtbl {
             GetForWindow: GetForWindow::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IProtectionPolicyManagerInterop as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IProtectionPolicyManagerInterop as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IProtectionPolicyManagerInterop2_Impl: Sized {
@@ -69,8 +69,8 @@ impl IProtectionPolicyManagerInterop2_Vtbl {
             RequestAccessForAppWithMessageForWindowAsync: RequestAccessForAppWithMessageForWindowAsync::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IProtectionPolicyManagerInterop2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IProtectionPolicyManagerInterop2 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IProtectionPolicyManagerInterop3_Impl: Sized {
@@ -124,7 +124,7 @@ impl IProtectionPolicyManagerInterop3_Vtbl {
             RequestAccessToFilesForProcessWithMessageAndBehaviorForWindowAsync: RequestAccessToFilesForProcessWithMessageAndBehaviorForWindowAsync::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IProtectionPolicyManagerInterop3 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IProtectionPolicyManagerInterop3 as ::windows_core::ComInterface>::IID
     }
 }

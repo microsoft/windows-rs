@@ -48,8 +48,8 @@ impl IAccountingProviderConfig_Vtbl {
             Deactivate: Deactivate::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IAccountingProviderConfig as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IAccountingProviderConfig as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IAuthenticationProviderConfig_Impl: Sized {
@@ -102,8 +102,8 @@ impl IAuthenticationProviderConfig_Vtbl {
             Deactivate: Deactivate::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IAuthenticationProviderConfig as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IAuthenticationProviderConfig as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IEAPProviderConfig_Impl: Sized {
@@ -157,8 +157,8 @@ impl IEAPProviderConfig_Vtbl {
             RouterInvokeCredentialsUI: RouterInvokeCredentialsUI::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IEAPProviderConfig as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IEAPProviderConfig as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IEAPProviderConfig2_Impl: Sized + IEAPProviderConfig_Impl {
@@ -184,8 +184,8 @@ impl IEAPProviderConfig2_Vtbl {
             GetGlobalConfig: GetGlobalConfig::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IEAPProviderConfig2 as ::windows_core::ComInterface>::IID || *iid == <IEAPProviderConfig as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IEAPProviderConfig2 as ::windows_core::ComInterface>::IID || iid == &<IEAPProviderConfig as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IEAPProviderConfig3_Impl: Sized + IEAPProviderConfig2_Impl {
@@ -204,8 +204,8 @@ impl IEAPProviderConfig3_Vtbl {
             ServerInvokeCertificateConfigUI: ServerInvokeCertificateConfigUI::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IEAPProviderConfig3 as ::windows_core::ComInterface>::IID || *iid == <IEAPProviderConfig as ::windows_core::ComInterface>::IID || *iid == <IEAPProviderConfig2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IEAPProviderConfig3 as ::windows_core::ComInterface>::IID || iid == &<IEAPProviderConfig as ::windows_core::ComInterface>::IID || iid == &<IEAPProviderConfig2 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IRouterProtocolConfig_Impl: Sized {
@@ -231,7 +231,7 @@ impl IRouterProtocolConfig_Vtbl {
             RemoveProtocol: RemoveProtocol::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IRouterProtocolConfig as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IRouterProtocolConfig as ::windows_core::ComInterface>::IID
     }
 }

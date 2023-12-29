@@ -37,8 +37,8 @@ impl ICustomGameControllerFactory_Vtbl {
             OnGameControllerRemoved: OnGameControllerRemoved::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ICustomGameControllerFactory as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ICustomGameControllerFactory as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IGameControllerInputSink_Impl: Sized {
@@ -66,8 +66,8 @@ impl IGameControllerInputSink_Vtbl {
             OnInputSuspended: OnInputSuspended::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IGameControllerInputSink as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IGameControllerInputSink as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IGameControllerProvider_Impl: Sized {
@@ -146,8 +146,8 @@ impl IGameControllerProvider_Vtbl {
             IsConnected: IsConnected::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IGameControllerProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IGameControllerProvider as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IGipGameControllerInputSink_Impl: Sized + IGameControllerInputSink_Impl {
@@ -175,8 +175,8 @@ impl IGipGameControllerInputSink_Vtbl {
             OnMessageReceived: OnMessageReceived::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IGipGameControllerInputSink as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IGipGameControllerInputSink as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IHidGameControllerInputSink_Impl: Sized + IGameControllerInputSink_Impl {
@@ -197,8 +197,8 @@ impl IHidGameControllerInputSink_Vtbl {
             OnInputReportReceived: OnInputReportReceived::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IHidGameControllerInputSink as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IHidGameControllerInputSink as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IXusbGameControllerInputSink_Impl: Sized + IGameControllerInputSink_Impl {
@@ -219,7 +219,7 @@ impl IXusbGameControllerInputSink_Vtbl {
             OnInputReceived: OnInputReceived::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IXusbGameControllerInputSink as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IXusbGameControllerInputSink as ::windows_core::ComInterface>::IID
     }
 }
