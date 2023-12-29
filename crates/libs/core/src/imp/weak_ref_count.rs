@@ -32,8 +32,8 @@ impl WeakRefCount {
     }
 
     /// # Safety
-    pub unsafe fn query(&self, iid: *const crate::GUID, object: *mut std::ffi::c_void) -> *mut std::ffi::c_void {
-        if *iid != IWeakReferenceSource::IID {
+    pub unsafe fn query(&self, iid: &crate::GUID, object: *mut std::ffi::c_void) -> *mut std::ffi::c_void {
+        if iid != &IWeakReferenceSource::IID {
             return std::ptr::null_mut();
         }
 
