@@ -243,21 +243,16 @@ impl ::windows_core::RuntimeName for Class {
 unsafe impl ::core::marker::Send for Class {}
 unsafe impl ::core::marker::Sync for Class {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(
+    ::core::cmp::PartialEq,
+    ::core::cmp::Eq,
+    ::core::marker::Copy,
+    ::core::clone::Clone,
+    ::core::default::Default,
+)]
 pub struct Flags(pub u32);
 impl Flags {
     pub const Ok: Self = Self(0u32);
-}
-impl ::core::marker::Copy for Flags {}
-impl ::core::clone::Clone for Flags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for Flags {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for Flags {
     type TypeKind = ::windows_core::CopyType;
