@@ -28,8 +28,8 @@ impl IPrintDialogCallback_Vtbl {
             HandleMessage: HandleMessage::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IPrintDialogCallback as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IPrintDialogCallback as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
@@ -66,7 +66,7 @@ impl IPrintDialogServices_Vtbl {
             GetCurrentPortName: GetCurrentPortName::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IPrintDialogServices as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IPrintDialogServices as ::windows_core::ComInterface>::IID
     }
 }

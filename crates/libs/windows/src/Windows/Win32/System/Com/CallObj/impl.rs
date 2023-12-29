@@ -174,8 +174,8 @@ impl ICallFrame_Vtbl {
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ICallFrame as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ICallFrame as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ICallFrameEvents_Impl: Sized {
@@ -191,8 +191,8 @@ impl ICallFrameEvents_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnCall: OnCall::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ICallFrameEvents as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ICallFrameEvents as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ICallFrameWalker_Impl: Sized {
@@ -208,8 +208,8 @@ impl ICallFrameWalker_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnWalkInterface: OnWalkInterface::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ICallFrameWalker as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ICallFrameWalker as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ICallIndirect_Impl: Sized {
@@ -255,8 +255,8 @@ impl ICallIndirect_Vtbl {
             GetIID: GetIID::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ICallIndirect as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ICallIndirect as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ICallInterceptor_Impl: Sized + ICallIndirect_Impl {
@@ -288,8 +288,8 @@ impl ICallInterceptor_Vtbl {
             GetRegisteredSink: GetRegisteredSink::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ICallInterceptor as ::windows_core::ComInterface>::IID || *iid == <ICallIndirect as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ICallInterceptor as ::windows_core::ComInterface>::IID || iid == &<ICallIndirect as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ICallUnmarshal_Impl: Sized {
@@ -315,8 +315,8 @@ impl ICallUnmarshal_Vtbl {
             ReleaseMarshalData: ReleaseMarshalData::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ICallUnmarshal as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ICallUnmarshal as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IInterfaceRelated_Impl: Sized {
@@ -348,7 +348,7 @@ impl IInterfaceRelated_Vtbl {
             GetIID: GetIID::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IInterfaceRelated as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IInterfaceRelated as ::windows_core::ComInterface>::IID
     }
 }

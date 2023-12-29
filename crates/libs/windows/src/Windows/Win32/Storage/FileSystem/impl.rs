@@ -188,8 +188,8 @@ impl IDiskQuotaControl_Vtbl {
             ShutdownNameResolution: ShutdownNameResolution::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDiskQuotaControl as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IConnectionPointContainer as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDiskQuotaControl as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IConnectionPointContainer as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDiskQuotaEvents_Impl: Sized {
@@ -205,8 +205,8 @@ impl IDiskQuotaEvents_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnUserNameChanged: OnUserNameChanged::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDiskQuotaEvents as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDiskQuotaEvents as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDiskQuotaUser_Impl: Sized {
@@ -323,8 +323,8 @@ impl IDiskQuotaUser_Vtbl {
             GetAccountStatus: GetAccountStatus::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDiskQuotaUser as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDiskQuotaUser as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDiskQuotaUserBatch_Impl: Sized {
@@ -364,8 +364,8 @@ impl IDiskQuotaUserBatch_Vtbl {
             FlushToDisk: FlushToDisk::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDiskQuotaUserBatch as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDiskQuotaUserBatch as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IEnumDiskQuotaUsers_Impl: Sized {
@@ -411,7 +411,7 @@ impl IEnumDiskQuotaUsers_Vtbl {
             Clone: Clone::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IEnumDiskQuotaUsers as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IEnumDiskQuotaUsers as ::windows_core::ComInterface>::IID
     }
 }

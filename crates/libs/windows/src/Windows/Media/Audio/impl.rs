@@ -48,8 +48,8 @@ impl IAudioInputNode_Vtbl {
             RemoveOutgoingConnection: RemoveOutgoingConnection::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IAudioInputNode as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IAudioInputNode as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Foundation_Collections\"`, `\"Media_Effects\"`, `\"Media_MediaProperties\"`"]
@@ -78,8 +78,8 @@ impl IAudioInputNode2_Vtbl {
         }
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, IAudioInputNode2, OFFSET>(), Emitter: Emitter::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IAudioInputNode2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IAudioInputNode2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Foundation_Collections\"`, `\"Media_Effects\"`, `\"Media_MediaProperties\"`"]
@@ -200,8 +200,8 @@ impl IAudioNode_Vtbl {
             EnableEffectsByDefinition: EnableEffectsByDefinition::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IAudioNode as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IAudioNode as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Foundation_Collections\"`, `\"Media_Effects\"`, `\"Media_MediaProperties\"`"]
@@ -240,7 +240,7 @@ impl IAudioNodeWithListener_Vtbl {
             Listener: Listener::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IAudioNodeWithListener as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IAudioNodeWithListener as ::windows_core::ComInterface>::IID
     }
 }

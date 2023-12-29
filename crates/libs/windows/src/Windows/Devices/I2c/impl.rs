@@ -51,7 +51,7 @@ impl II2cDeviceStatics_Vtbl {
             FromIdAsync: FromIdAsync::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <II2cDeviceStatics as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<II2cDeviceStatics as ::windows_core::ComInterface>::IID
     }
 }

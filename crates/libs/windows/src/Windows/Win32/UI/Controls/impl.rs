@@ -274,8 +274,8 @@ impl IImageList_Vtbl {
             GetOverlayImage: GetOverlayImage::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IImageList as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IImageList as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
@@ -375,7 +375,7 @@ impl IImageList2_Vtbl {
             ReplaceFromImageList: ReplaceFromImageList::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IImageList2 as ::windows_core::ComInterface>::IID || *iid == <IImageList as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IImageList2 as ::windows_core::ComInterface>::IID || iid == &<IImageList as ::windows_core::ComInterface>::IID
     }
 }

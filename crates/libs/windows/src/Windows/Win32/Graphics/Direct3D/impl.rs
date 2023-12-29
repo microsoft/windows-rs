@@ -21,8 +21,8 @@ impl ID3DBlob_Vtbl {
             GetBufferSize: GetBufferSize::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ID3DBlob as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ID3DBlob as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ID3DDestructionNotifier_Impl: Sized {
@@ -54,8 +54,8 @@ impl ID3DDestructionNotifier_Vtbl {
             UnregisterDestructionCallback: UnregisterDestructionCallback::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ID3DDestructionNotifier as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ID3DDestructionNotifier as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ID3DInclude_Impl: Sized {

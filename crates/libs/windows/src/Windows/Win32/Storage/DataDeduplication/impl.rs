@@ -11,8 +11,8 @@ impl IDedupBackupSupport_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), RestoreFiles: RestoreFiles::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDedupBackupSupport as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDedupBackupSupport as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -62,8 +62,8 @@ impl IDedupChunkLibrary_Vtbl {
             StartChunking: StartChunking::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDedupChunkLibrary as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDedupChunkLibrary as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -211,8 +211,8 @@ impl IDedupDataPort_Vtbl {
             GetRequestResults: GetRequestResults::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDedupDataPort as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDedupDataPort as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDedupDataPortManager_Impl: Sized {
@@ -257,8 +257,8 @@ impl IDedupDataPortManager_Vtbl {
             GetVolumeDataPort: GetVolumeDataPort::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDedupDataPortManager as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDedupDataPortManager as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDedupIterateChunksHash32_Impl: Sized {
@@ -298,8 +298,8 @@ impl IDedupIterateChunksHash32_Vtbl {
             Reset: Reset::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDedupIterateChunksHash32 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDedupIterateChunksHash32 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDedupReadFileCallback_Impl: Sized {
@@ -332,7 +332,7 @@ impl IDedupReadFileCallback_Vtbl {
             PreviewContainerRead: PreviewContainerRead::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDedupReadFileCallback as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDedupReadFileCallback as ::windows_core::ComInterface>::IID
     }
 }

@@ -11,8 +11,8 @@ impl INetDiagExtensibleHelper_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ResolveAttributes: ResolveAttributes::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <INetDiagExtensibleHelper as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<INetDiagExtensibleHelper as ::windows_core::ComInterface>::IID
     }
 }
 pub trait INetDiagHelper_Impl: Sized {
@@ -168,8 +168,8 @@ impl INetDiagHelper_Vtbl {
             Cleanup: Cleanup::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <INetDiagHelper as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<INetDiagHelper as ::windows_core::ComInterface>::IID
     }
 }
 pub trait INetDiagHelperEx_Impl: Sized {
@@ -202,8 +202,8 @@ impl INetDiagHelperEx_Vtbl {
             ReproduceFailure: ReproduceFailure::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <INetDiagHelperEx as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<INetDiagHelperEx as ::windows_core::ComInterface>::IID
     }
 }
 pub trait INetDiagHelperInfo_Impl: Sized {
@@ -219,8 +219,8 @@ impl INetDiagHelperInfo_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetAttributeInfo: GetAttributeInfo::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <INetDiagHelperInfo as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<INetDiagHelperInfo as ::windows_core::ComInterface>::IID
     }
 }
 pub trait INetDiagHelperUtilFactory_Impl: Sized {
@@ -236,7 +236,7 @@ impl INetDiagHelperUtilFactory_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateUtilityInstance: CreateUtilityInstance::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <INetDiagHelperUtilFactory as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<INetDiagHelperUtilFactory as ::windows_core::ComInterface>::IID
     }
 }

@@ -46,8 +46,8 @@ impl IFilter_Vtbl {
             BindRegion: BindRegion::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IFilter as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IFilter as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IPhraseSink_Impl: Sized {
@@ -73,7 +73,7 @@ impl IPhraseSink_Vtbl {
             PutPhrase: PutPhrase::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IPhraseSink as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IPhraseSink as ::windows_core::ComInterface>::IID
     }
 }

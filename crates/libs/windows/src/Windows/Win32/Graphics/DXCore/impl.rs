@@ -83,8 +83,8 @@ impl IDXCoreAdapter_Vtbl {
             GetFactory: GetFactory::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDXCoreAdapter as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDXCoreAdapter as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDXCoreAdapterFactory_Impl: Sized {
@@ -137,8 +137,8 @@ impl IDXCoreAdapterFactory_Vtbl {
             UnregisterEventNotification: UnregisterEventNotification::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDXCoreAdapterFactory as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDXCoreAdapterFactory as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDXCoreAdapterList_Impl: Sized {
@@ -192,7 +192,7 @@ impl IDXCoreAdapterList_Vtbl {
             IsAdapterPreferenceSupported: IsAdapterPreferenceSupported::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDXCoreAdapterList as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDXCoreAdapterList as ::windows_core::ComInterface>::IID
     }
 }

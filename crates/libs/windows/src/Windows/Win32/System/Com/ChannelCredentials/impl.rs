@@ -81,7 +81,7 @@ impl IChannelCredentials_Vtbl {
             SetIssuedToken: SetIssuedToken::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IChannelCredentials as ::windows_core::ComInterface>::IID || *iid == <super::IDispatch as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IChannelCredentials as ::windows_core::ComInterface>::IID || iid == &<super::IDispatch as ::windows_core::ComInterface>::IID
     }
 }

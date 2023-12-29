@@ -21,8 +21,8 @@ impl IKsAggregateControl_Vtbl {
             KsRemoveAggregate: KsRemoveAggregate::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IKsAggregateControl as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IKsAggregateControl as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IKsAllocator_Impl: Sized {
@@ -62,8 +62,8 @@ impl IKsAllocator_Vtbl {
             KsSetAllocatorMode: KsSetAllocatorMode::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IKsAllocator as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IKsAllocator as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IKsAllocatorEx_Impl: Sized + IKsAllocator_Impl {
@@ -103,8 +103,8 @@ impl IKsAllocatorEx_Vtbl {
             KsCreateAllocatorAndGetHandle: KsCreateAllocatorAndGetHandle::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IKsAllocatorEx as ::windows_core::ComInterface>::IID || *iid == <IKsAllocator as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IKsAllocatorEx as ::windows_core::ComInterface>::IID || iid == &<IKsAllocator as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IKsClockPropertySet_Impl: Sized {
@@ -222,8 +222,8 @@ impl IKsClockPropertySet_Vtbl {
             KsGetState: KsGetState::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IKsClockPropertySet as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IKsClockPropertySet as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IKsControl_Impl: Sized {
@@ -256,8 +256,8 @@ impl IKsControl_Vtbl {
             KsEvent: KsEvent::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IKsControl as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IKsControl as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Media_MediaFoundation\"`"]
@@ -277,8 +277,8 @@ impl IKsDataTypeCompletion_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), KsCompleteMediaType: KsCompleteMediaType::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IKsDataTypeCompletion as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IKsDataTypeCompletion as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Media_MediaFoundation\"`"]
@@ -335,8 +335,8 @@ impl IKsDataTypeHandler_Vtbl {
             KsSetMediaType: KsSetMediaType::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IKsDataTypeHandler as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IKsDataTypeHandler as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IKsFormatSupport_Impl: Sized {
@@ -368,8 +368,8 @@ impl IKsFormatSupport_Vtbl {
             GetDevicePreferredFormat: GetDevicePreferredFormat::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IKsFormatSupport as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IKsFormatSupport as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Media_DirectShow\"`"]
@@ -406,8 +406,8 @@ impl IKsInterfaceHandler_Vtbl {
             KsCompleteIo: KsCompleteIo::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IKsInterfaceHandler as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IKsInterfaceHandler as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IKsJackContainerId_Impl: Sized {
@@ -429,8 +429,8 @@ impl IKsJackContainerId_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetJackContainerId: GetJackContainerId::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IKsJackContainerId as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IKsJackContainerId as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IKsJackDescription_Impl: Sized {
@@ -462,8 +462,8 @@ impl IKsJackDescription_Vtbl {
             GetJackDescription: GetJackDescription::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IKsJackDescription as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IKsJackDescription as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IKsJackDescription2_Impl: Sized {
@@ -501,8 +501,8 @@ impl IKsJackDescription2_Vtbl {
             GetJackDescription2: GetJackDescription2::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IKsJackDescription2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IKsJackDescription2 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IKsJackDescription3_Impl: Sized {
@@ -540,8 +540,8 @@ impl IKsJackDescription3_Vtbl {
             GetJackDescription3: GetJackDescription3::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IKsJackDescription3 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IKsJackDescription3 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IKsJackSinkInformation_Impl: Sized {
@@ -557,8 +557,8 @@ impl IKsJackSinkInformation_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetJackSinkInformation: GetJackSinkInformation::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IKsJackSinkInformation as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IKsJackSinkInformation as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IKsNodeControl_Impl: Sized {
@@ -584,8 +584,8 @@ impl IKsNodeControl_Vtbl {
             SetKsControl: SetKsControl::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IKsNodeControl as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IKsNodeControl as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IKsNotifyEvent_Impl: Sized {
@@ -601,8 +601,8 @@ impl IKsNotifyEvent_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), KsNotifyEvent: KsNotifyEvent::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IKsNotifyEvent as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IKsNotifyEvent as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IKsObject_Impl: Sized {
@@ -618,8 +618,8 @@ impl IKsObject_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), KsGetObjectHandle: KsGetObjectHandle::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IKsObject as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IKsObject as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Media_DirectShow\"`"]
@@ -738,8 +738,8 @@ impl IKsPin_Vtbl {
             KsQualityNotify: KsQualityNotify::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IKsPin as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IKsPin as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Media_DirectShow\"`"]
@@ -759,8 +759,8 @@ impl IKsPinEx_Vtbl {
         }
         Self { base__: IKsPin_Vtbl::new::<Identity, Impl, OFFSET>(), KsNotifyError: KsNotifyError::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IKsPinEx as ::windows_core::ComInterface>::IID || *iid == <IKsPin as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IKsPinEx as ::windows_core::ComInterface>::IID || iid == &<IKsPin as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IKsPinFactory_Impl: Sized {
@@ -782,8 +782,8 @@ impl IKsPinFactory_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), KsPinFactory: KsPinFactory::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IKsPinFactory as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IKsPinFactory as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Media_DirectShow\"`"]
@@ -876,8 +876,8 @@ impl IKsPinPipe_Vtbl {
             KsGetFilterName: KsGetFilterName::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IKsPinPipe as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IKsPinPipe as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IKsPropertySet_Impl: Sized {
@@ -916,8 +916,8 @@ impl IKsPropertySet_Vtbl {
             QuerySupported: QuerySupported::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IKsPropertySet as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IKsPropertySet as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IKsQualityForwarder_Impl: Sized + IKsObject_Impl {
@@ -933,8 +933,8 @@ impl IKsQualityForwarder_Vtbl {
         }
         Self { base__: IKsObject_Vtbl::new::<Identity, Impl, OFFSET>(), KsFlushClient: KsFlushClient::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IKsQualityForwarder as ::windows_core::ComInterface>::IID || *iid == <IKsObject as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IKsQualityForwarder as ::windows_core::ComInterface>::IID || iid == &<IKsObject as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IKsTopology_Impl: Sized {
@@ -950,8 +950,8 @@ impl IKsTopology_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateNodeInstance: CreateNodeInstance::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IKsTopology as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IKsTopology as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IKsTopologyInfo_Impl: Sized {
@@ -1055,7 +1055,7 @@ impl IKsTopologyInfo_Vtbl {
             CreateNodeInstance: CreateNodeInstance::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IKsTopologyInfo as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IKsTopologyInfo as ::windows_core::ComInterface>::IID
     }
 }

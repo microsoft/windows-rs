@@ -27,7 +27,7 @@ impl IToastNotificationManagerStatics3_Vtbl {
             CreateToastNotifierForSecondaryTile: CreateToastNotifierForSecondaryTile::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IToastNotificationManagerStatics3 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IToastNotificationManagerStatics3 as ::windows_core::ComInterface>::IID
     }
 }

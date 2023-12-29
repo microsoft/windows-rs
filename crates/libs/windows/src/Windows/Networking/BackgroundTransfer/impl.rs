@@ -124,8 +124,8 @@ impl IBackgroundTransferBase_Vtbl {
             SetCostPolicy: SetCostPolicy::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IBackgroundTransferBase as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IBackgroundTransferBase as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IBackgroundTransferContentPartFactory_Impl: Sized {
@@ -167,8 +167,8 @@ impl IBackgroundTransferContentPartFactory_Vtbl {
             CreateWithNameAndFileName: CreateWithNameAndFileName::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IBackgroundTransferContentPartFactory as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IBackgroundTransferContentPartFactory as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Storage_Streams\"`"]
@@ -289,8 +289,8 @@ impl IBackgroundTransferOperation_Vtbl {
             GetResponseInformation: GetResponseInformation::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IBackgroundTransferOperation as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IBackgroundTransferOperation as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IBackgroundTransferOperationPriority_Impl: Sized {
@@ -324,7 +324,7 @@ impl IBackgroundTransferOperationPriority_Vtbl {
             SetPriority: SetPriority::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IBackgroundTransferOperationPriority as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IBackgroundTransferOperationPriority as ::windows_core::ComInterface>::IID
     }
 }

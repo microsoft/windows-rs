@@ -21,8 +21,8 @@ impl IWCNConnectNotify_Vtbl {
             ConnectFailed: ConnectFailed::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IWCNConnectNotify as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IWCNConnectNotify as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IWCNDevice_Impl: Sized {
@@ -117,7 +117,7 @@ impl IWCNDevice_Vtbl {
             SetNFCPasswordParams: SetNFCPasswordParams::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IWCNDevice as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IWCNDevice as ::windows_core::ComInterface>::IID
     }
 }

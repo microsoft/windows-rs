@@ -21,8 +21,8 @@ impl AsyncIFtpAuthenticationProvider_Vtbl {
             Finish_AuthenticateUser: Finish_AuthenticateUser::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <AsyncIFtpAuthenticationProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<AsyncIFtpAuthenticationProvider as ::windows_core::ComInterface>::IID
     }
 }
 pub trait AsyncIFtpAuthorizationProvider_Impl: Sized {
@@ -54,8 +54,8 @@ impl AsyncIFtpAuthorizationProvider_Vtbl {
             Finish_GetUserAccessPermission: Finish_GetUserAccessPermission::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <AsyncIFtpAuthorizationProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<AsyncIFtpAuthorizationProvider as ::windows_core::ComInterface>::IID
     }
 }
 pub trait AsyncIFtpHomeDirectoryProvider_Impl: Sized {
@@ -87,8 +87,8 @@ impl AsyncIFtpHomeDirectoryProvider_Vtbl {
             Finish_GetUserHomeDirectoryData: Finish_GetUserHomeDirectoryData::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <AsyncIFtpHomeDirectoryProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<AsyncIFtpHomeDirectoryProvider as ::windows_core::ComInterface>::IID
     }
 }
 pub trait AsyncIFtpLogProvider_Impl: Sized {
@@ -114,8 +114,8 @@ impl AsyncIFtpLogProvider_Vtbl {
             Finish_Log: Finish_Log::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <AsyncIFtpLogProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<AsyncIFtpLogProvider as ::windows_core::ComInterface>::IID
     }
 }
 pub trait AsyncIFtpPostprocessProvider_Impl: Sized {
@@ -147,8 +147,8 @@ impl AsyncIFtpPostprocessProvider_Vtbl {
             Finish_HandlePostprocess: Finish_HandlePostprocess::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <AsyncIFtpPostprocessProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<AsyncIFtpPostprocessProvider as ::windows_core::ComInterface>::IID
     }
 }
 pub trait AsyncIFtpPreprocessProvider_Impl: Sized {
@@ -180,8 +180,8 @@ impl AsyncIFtpPreprocessProvider_Vtbl {
             Finish_HandlePreprocess: Finish_HandlePreprocess::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <AsyncIFtpPreprocessProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<AsyncIFtpPreprocessProvider as ::windows_core::ComInterface>::IID
     }
 }
 pub trait AsyncIFtpRoleProvider_Impl: Sized {
@@ -213,8 +213,8 @@ impl AsyncIFtpRoleProvider_Vtbl {
             Finish_IsUserInRole: Finish_IsUserInRole::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <AsyncIFtpRoleProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<AsyncIFtpRoleProvider as ::windows_core::ComInterface>::IID
     }
 }
 pub trait AsyncIMSAdminBaseSinkW_Impl: Sized {
@@ -254,8 +254,8 @@ impl AsyncIMSAdminBaseSinkW_Vtbl {
             Finish_ShutdownNotify: Finish_ShutdownNotify::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <AsyncIMSAdminBaseSinkW as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<AsyncIMSAdminBaseSinkW as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IADMEXT_Impl: Sized {
@@ -288,8 +288,8 @@ impl IADMEXT_Vtbl {
             Terminate: Terminate::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IADMEXT as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IADMEXT as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IFtpAuthenticationProvider_Impl: Sized {
@@ -305,8 +305,8 @@ impl IFtpAuthenticationProvider_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), AuthenticateUser: AuthenticateUser::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IFtpAuthenticationProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IFtpAuthenticationProvider as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IFtpAuthorizationProvider_Impl: Sized {
@@ -328,8 +328,8 @@ impl IFtpAuthorizationProvider_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetUserAccessPermission: GetUserAccessPermission::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IFtpAuthorizationProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IFtpAuthorizationProvider as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IFtpHomeDirectoryProvider_Impl: Sized {
@@ -351,8 +351,8 @@ impl IFtpHomeDirectoryProvider_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetUserHomeDirectoryData: GetUserHomeDirectoryData::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IFtpHomeDirectoryProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IFtpHomeDirectoryProvider as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IFtpLogProvider_Impl: Sized {
@@ -368,8 +368,8 @@ impl IFtpLogProvider_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Log: Log::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IFtpLogProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IFtpLogProvider as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IFtpPostprocessProvider_Impl: Sized {
@@ -391,8 +391,8 @@ impl IFtpPostprocessProvider_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), HandlePostprocess: HandlePostprocess::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IFtpPostprocessProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IFtpPostprocessProvider as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IFtpPreprocessProvider_Impl: Sized {
@@ -414,8 +414,8 @@ impl IFtpPreprocessProvider_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), HandlePreprocess: HandlePreprocess::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IFtpPreprocessProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IFtpPreprocessProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -435,8 +435,8 @@ impl IFtpProviderConstruct_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Construct: Construct::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IFtpProviderConstruct as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IFtpProviderConstruct as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IFtpRoleProvider_Impl: Sized {
@@ -458,8 +458,8 @@ impl IFtpRoleProvider_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), IsUserInRole: IsUserInRole::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IFtpRoleProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IFtpRoleProvider as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMSAdminBase2W_Impl: Sized + IMSAdminBaseW_Impl {
@@ -513,8 +513,8 @@ impl IMSAdminBase2W_Vtbl {
             EnumHistory: EnumHistory::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMSAdminBase2W as ::windows_core::ComInterface>::IID || *iid == <IMSAdminBaseW as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMSAdminBase2W as ::windows_core::ComInterface>::IID || iid == &<IMSAdminBaseW as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMSAdminBase3W_Impl: Sized + IMSAdminBase2W_Impl {
@@ -530,8 +530,8 @@ impl IMSAdminBase3W_Vtbl {
         }
         Self { base__: IMSAdminBase2W_Vtbl::new::<Identity, Impl, OFFSET>(), GetChildPaths: GetChildPaths::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMSAdminBase3W as ::windows_core::ComInterface>::IID || *iid == <IMSAdminBaseW as ::windows_core::ComInterface>::IID || *iid == <IMSAdminBase2W as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMSAdminBase3W as ::windows_core::ComInterface>::IID || iid == &<IMSAdminBaseW as ::windows_core::ComInterface>::IID || iid == &<IMSAdminBase2W as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMSAdminBaseSinkW_Impl: Sized {
@@ -557,8 +557,8 @@ impl IMSAdminBaseSinkW_Vtbl {
             ShutdownNotify: ShutdownNotify::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMSAdminBaseSinkW as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMSAdminBaseSinkW as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMSAdminBaseW_Impl: Sized {
@@ -817,8 +817,8 @@ impl IMSAdminBaseW_Vtbl {
             GetServerGuid: GetServerGuid::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMSAdminBaseW as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMSAdminBaseW as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMSImpExpHelpW_Impl: Sized {
@@ -834,7 +834,7 @@ impl IMSImpExpHelpW_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), EnumeratePathsInFile: EnumeratePathsInFile::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMSImpExpHelpW as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMSImpExpHelpW as ::windows_core::ComInterface>::IID
     }
 }

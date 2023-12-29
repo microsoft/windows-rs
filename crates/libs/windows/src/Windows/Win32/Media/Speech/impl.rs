@@ -61,8 +61,8 @@ impl IEnumSpObjectTokens_Vtbl {
             GetCount: GetCount::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IEnumSpObjectTokens as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IEnumSpObjectTokens as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Media_Audio\"`, `\"Win32_System_Com\"`"]
@@ -155,8 +155,8 @@ impl ISpAudio_Vtbl {
             SetBufferNotifySize: SetBufferNotifySize::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpAudio as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::ISequentialStream as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IStream as ::windows_core::ComInterface>::IID || *iid == <ISpStreamFormat as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpAudio as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::ISequentialStream as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IStream as ::windows_core::ComInterface>::IID || iid == &<ISpStreamFormat as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ISpContainerLexicon_Impl: Sized + ISpLexicon_Impl {
@@ -172,8 +172,8 @@ impl ISpContainerLexicon_Vtbl {
         }
         Self { base__: ISpLexicon_Vtbl::new::<Identity, Impl, OFFSET>(), AddLexicon: AddLexicon::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpContainerLexicon as ::windows_core::ComInterface>::IID || *iid == <ISpLexicon as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpContainerLexicon as ::windows_core::ComInterface>::IID || iid == &<ISpLexicon as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ISpDataKey_Impl: Sized {
@@ -299,8 +299,8 @@ impl ISpDataKey_Vtbl {
             EnumValues: EnumValues::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpDataKey as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpDataKey as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ISpDisplayAlternates_Impl: Sized {
@@ -326,8 +326,8 @@ impl ISpDisplayAlternates_Vtbl {
             SetFullStopTrailSpace: SetFullStopTrailSpace::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpDisplayAlternates as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpDisplayAlternates as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ISpEnginePronunciation_Impl: Sized {
@@ -353,8 +353,8 @@ impl ISpEnginePronunciation_Vtbl {
             GetPronunciations: GetPronunciations::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpEnginePronunciation as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpEnginePronunciation as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ISpEventSink_Impl: Sized {
@@ -380,8 +380,8 @@ impl ISpEventSink_Vtbl {
             GetEventInterest: GetEventInterest::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpEventSink as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpEventSink as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ISpEventSource_Impl: Sized + ISpNotifySource_Impl {
@@ -414,8 +414,8 @@ impl ISpEventSource_Vtbl {
             GetInfo: GetInfo::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpEventSource as ::windows_core::ComInterface>::IID || *iid == <ISpNotifySource as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpEventSource as ::windows_core::ComInterface>::IID || iid == &<ISpNotifySource as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ISpEventSource2_Impl: Sized + ISpEventSource_Impl {
@@ -431,8 +431,8 @@ impl ISpEventSource2_Vtbl {
         }
         Self { base__: ISpEventSource_Vtbl::new::<Identity, Impl, OFFSET>(), GetEventsEx: GetEventsEx::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpEventSource2 as ::windows_core::ComInterface>::IID || *iid == <ISpNotifySource as ::windows_core::ComInterface>::IID || *iid == <ISpEventSource as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpEventSource2 as ::windows_core::ComInterface>::IID || iid == &<ISpNotifySource as ::windows_core::ComInterface>::IID || iid == &<ISpEventSource as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -504,8 +504,8 @@ impl ISpGrammarBuilder_Vtbl {
             Commit: Commit::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpGrammarBuilder as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpGrammarBuilder as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ISpGrammarBuilder2_Impl: Sized {
@@ -531,8 +531,8 @@ impl ISpGrammarBuilder2_Vtbl {
             SetPhoneticAlphabet: SetPhoneticAlphabet::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpGrammarBuilder2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpGrammarBuilder2 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ISpLexicon_Impl: Sized {
@@ -586,8 +586,8 @@ impl ISpLexicon_Vtbl {
             GetWords: GetWords::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpLexicon as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpLexicon as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Media_Audio\"`, `\"Win32_System_Com\"`"]
@@ -638,8 +638,8 @@ impl ISpMMSysAudio_Vtbl {
             SetLineId: SetLineId::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpMMSysAudio as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::ISequentialStream as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IStream as ::windows_core::ComInterface>::IID || *iid == <ISpStreamFormat as ::windows_core::ComInterface>::IID || *iid == <ISpAudio as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpMMSysAudio as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::ISequentialStream as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IStream as ::windows_core::ComInterface>::IID || iid == &<ISpStreamFormat as ::windows_core::ComInterface>::IID || iid == &<ISpAudio as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ISpNotifyCallback_Impl: Sized {
@@ -680,8 +680,8 @@ impl ISpNotifySink_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Notify: Notify::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpNotifySink as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpNotifySink as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ISpNotifySource_Impl: Sized {
@@ -742,8 +742,8 @@ impl ISpNotifySource_Vtbl {
             GetNotifyEventHandle: GetNotifyEventHandle::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpNotifySource as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpNotifySource as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ISpNotifyTranslator_Impl: Sized + ISpNotifySink_Impl {
@@ -797,8 +797,8 @@ impl ISpNotifyTranslator_Vtbl {
             GetEventHandle: GetEventHandle::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpNotifyTranslator as ::windows_core::ComInterface>::IID || *iid == <ISpNotifySink as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpNotifyTranslator as ::windows_core::ComInterface>::IID || iid == &<ISpNotifySink as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ISpObjectToken_Impl: Sized + ISpDataKey_Impl {
@@ -898,8 +898,8 @@ impl ISpObjectToken_Vtbl {
             MatchesAttributes: MatchesAttributes::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpObjectToken as ::windows_core::ComInterface>::IID || *iid == <ISpDataKey as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpObjectToken as ::windows_core::ComInterface>::IID || iid == &<ISpDataKey as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ISpObjectTokenCategory_Impl: Sized + ISpDataKey_Impl {
@@ -977,8 +977,8 @@ impl ISpObjectTokenCategory_Vtbl {
             GetDefaultTokenId: GetDefaultTokenId::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpObjectTokenCategory as ::windows_core::ComInterface>::IID || *iid == <ISpDataKey as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpObjectTokenCategory as ::windows_core::ComInterface>::IID || iid == &<ISpDataKey as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ISpObjectTokenInit_Impl: Sized + ISpObjectToken_Impl {
@@ -994,8 +994,8 @@ impl ISpObjectTokenInit_Vtbl {
         }
         Self { base__: ISpObjectToken_Vtbl::new::<Identity, Impl, OFFSET>(), InitFromDataKey: InitFromDataKey::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpObjectTokenInit as ::windows_core::ComInterface>::IID || *iid == <ISpDataKey as ::windows_core::ComInterface>::IID || *iid == <ISpObjectToken as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpObjectTokenInit as ::windows_core::ComInterface>::IID || iid == &<ISpDataKey as ::windows_core::ComInterface>::IID || iid == &<ISpObjectToken as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ISpObjectWithToken_Impl: Sized {
@@ -1027,8 +1027,8 @@ impl ISpObjectWithToken_Vtbl {
             GetObjectToken: GetObjectToken::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpObjectWithToken as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpObjectWithToken as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ISpPhoneConverter_Impl: Sized + ISpObjectWithToken_Impl {
@@ -1060,8 +1060,8 @@ impl ISpPhoneConverter_Vtbl {
             IdToPhone: IdToPhone::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpPhoneConverter as ::windows_core::ComInterface>::IID || *iid == <ISpObjectWithToken as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpPhoneConverter as ::windows_core::ComInterface>::IID || iid == &<ISpObjectWithToken as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ISpPhoneticAlphabetConverter_Impl: Sized {
@@ -1120,8 +1120,8 @@ impl ISpPhoneticAlphabetConverter_Vtbl {
             GetMaxConvertLength: GetMaxConvertLength::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpPhoneticAlphabetConverter as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpPhoneticAlphabetConverter as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ISpPhoneticAlphabetSelection_Impl: Sized {
@@ -1153,8 +1153,8 @@ impl ISpPhoneticAlphabetSelection_Vtbl {
             SetAlphabetToUPS: SetAlphabetToUPS::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpPhoneticAlphabetSelection as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpPhoneticAlphabetSelection as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -1210,8 +1210,8 @@ impl ISpPhrase_Vtbl {
             Discard: Discard::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpPhrase as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpPhrase as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -1254,8 +1254,8 @@ impl ISpPhrase2_Vtbl {
             GetAudio: GetAudio::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpPhrase2 as ::windows_core::ComInterface>::IID || *iid == <ISpPhrase as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpPhrase2 as ::windows_core::ComInterface>::IID || iid == &<ISpPhrase as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -1285,8 +1285,8 @@ impl ISpPhraseAlt_Vtbl {
             Commit: Commit::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpPhraseAlt as ::windows_core::ComInterface>::IID || *iid == <ISpPhrase as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpPhraseAlt as ::windows_core::ComInterface>::IID || iid == &<ISpPhrase as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ISpProperties_Impl: Sized {
@@ -1332,8 +1332,8 @@ impl ISpProperties_Vtbl {
             GetPropertyString: GetPropertyString::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpProperties as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpProperties as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Media_Audio\"`"]
@@ -1499,8 +1499,8 @@ impl ISpRecoContext_Vtbl {
             GetContextState: GetContextState::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpRecoContext as ::windows_core::ComInterface>::IID || *iid == <ISpNotifySource as ::windows_core::ComInterface>::IID || *iid == <ISpEventSource as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpRecoContext as ::windows_core::ComInterface>::IID || iid == &<ISpNotifySource as ::windows_core::ComInterface>::IID || iid == &<ISpEventSource as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ISpRecoContext2_Impl: Sized {
@@ -1533,8 +1533,8 @@ impl ISpRecoContext2_Vtbl {
             SetAdaptationData2: SetAdaptationData2::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpRecoContext2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpRecoContext2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -1682,8 +1682,8 @@ impl ISpRecoGrammar_Vtbl {
             GetGrammarState: GetGrammarState::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpRecoGrammar as ::windows_core::ComInterface>::IID || *iid == <ISpGrammarBuilder as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpRecoGrammar as ::windows_core::ComInterface>::IID || iid == &<ISpGrammarBuilder as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_Urlmon\"`"]
@@ -1755,8 +1755,8 @@ impl ISpRecoGrammar2_Vtbl {
             SetSMLSecurityManager: SetSMLSecurityManager::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpRecoGrammar2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpRecoGrammar2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Media_Audio\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -1833,8 +1833,8 @@ impl ISpRecoResult_Vtbl {
             GetRecoContext: GetRecoContext::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpRecoResult as ::windows_core::ComInterface>::IID || *iid == <ISpPhrase as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpRecoResult as ::windows_core::ComInterface>::IID || iid == &<ISpPhrase as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Media_Audio\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -1877,8 +1877,8 @@ impl ISpRecoResult2_Vtbl {
             SetTextFeedback: SetTextFeedback::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpRecoResult2 as ::windows_core::ComInterface>::IID || *iid == <ISpPhrase as ::windows_core::ComInterface>::IID || *iid == <ISpRecoResult as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpRecoResult2 as ::windows_core::ComInterface>::IID || iid == &<ISpPhrase as ::windows_core::ComInterface>::IID || iid == &<ISpRecoResult as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Media_Audio\"`, `\"Win32_System_Com\"`"]
@@ -2036,8 +2036,8 @@ impl ISpRecognizer_Vtbl {
             EmulateRecognition: EmulateRecognition::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpRecognizer as ::windows_core::ComInterface>::IID || *iid == <ISpProperties as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpRecognizer as ::windows_core::ComInterface>::IID || iid == &<ISpProperties as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ISpRecognizer2_Impl: Sized {
@@ -2070,8 +2070,8 @@ impl ISpRecognizer2_Vtbl {
             ResetAcousticModelAdaptation: ResetAcousticModelAdaptation::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpRecognizer2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpRecognizer2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Registry\"`"]
@@ -2091,8 +2091,8 @@ impl ISpRegDataKey_Vtbl {
         }
         Self { base__: ISpDataKey_Vtbl::new::<Identity, Impl, OFFSET>(), SetKey: SetKey::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpRegDataKey as ::windows_core::ComInterface>::IID || *iid == <ISpDataKey as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpRegDataKey as ::windows_core::ComInterface>::IID || iid == &<ISpDataKey as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -2122,8 +2122,8 @@ impl ISpResourceManager_Vtbl {
             GetObject: GetObject::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpResourceManager as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IServiceProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpResourceManager as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IServiceProvider as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ISpSerializeState_Impl: Sized {
@@ -2149,8 +2149,8 @@ impl ISpSerializeState_Vtbl {
             SetSerializedState: SetSerializedState::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpSerializeState as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpSerializeState as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ISpShortcut_Impl: Sized {
@@ -2224,8 +2224,8 @@ impl ISpShortcut_Vtbl {
             GetGenerationChange: GetGenerationChange::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpShortcut as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpShortcut as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Media_Audio\"`, `\"Win32_System_Com\"`"]
@@ -2275,8 +2275,8 @@ impl ISpStream_Vtbl {
             Close: Close::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpStream as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::ISequentialStream as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IStream as ::windows_core::ComInterface>::IID || *iid == <ISpStreamFormat as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpStream as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::ISequentialStream as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IStream as ::windows_core::ComInterface>::IID || iid == &<ISpStreamFormat as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Media_Audio\"`, `\"Win32_System_Com\"`"]
@@ -2302,8 +2302,8 @@ impl ISpStreamFormat_Vtbl {
         }
         Self { base__: super::super::System::Com::IStream_Vtbl::new::<Identity, Impl, OFFSET>(), GetFormat: GetFormat::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpStreamFormat as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::ISequentialStream as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IStream as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpStreamFormat as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::ISequentialStream as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IStream as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Media_Audio\"`, `\"Win32_System_Com\"`"]
@@ -2379,8 +2379,8 @@ impl ISpStreamFormatConverter_Vtbl {
             ScaleBaseToConvertedOffset: ScaleBaseToConvertedOffset::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpStreamFormatConverter as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::ISequentialStream as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IStream as ::windows_core::ComInterface>::IID || *iid == <ISpStreamFormat as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpStreamFormatConverter as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::ISequentialStream as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IStream as ::windows_core::ComInterface>::IID || iid == &<ISpStreamFormat as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ISpTranscript_Impl: Sized {
@@ -2412,8 +2412,8 @@ impl ISpTranscript_Vtbl {
             AppendTranscript: AppendTranscript::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpTranscript as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpTranscript as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -2622,8 +2622,8 @@ impl ISpVoice_Vtbl {
             DisplayUI: DisplayUI::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpVoice as ::windows_core::ComInterface>::IID || *iid == <ISpNotifySource as ::windows_core::ComInterface>::IID || *iid == <ISpEventSource as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpVoice as ::windows_core::ComInterface>::IID || iid == &<ISpNotifySource as ::windows_core::ComInterface>::IID || iid == &<ISpEventSource as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Media_Audio\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -2653,8 +2653,8 @@ impl ISpXMLRecoResult_Vtbl {
             GetXMLErrorInfo: GetXMLErrorInfo::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpXMLRecoResult as ::windows_core::ComInterface>::IID || *iid == <ISpPhrase as ::windows_core::ComInterface>::IID || *iid == <ISpRecoResult as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpXMLRecoResult as ::windows_core::ComInterface>::IID || iid == &<ISpPhrase as ::windows_core::ComInterface>::IID || iid == &<ISpRecoResult as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -2769,8 +2769,8 @@ impl ISpeechAudio_Vtbl {
             SetState: SetState::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpeechAudio as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <ISpeechBaseStream as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpeechAudio as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || iid == &<ISpeechBaseStream as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -2846,8 +2846,8 @@ impl ISpeechAudioBufferInfo_Vtbl {
             SetEventBias: SetEventBias::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpeechAudioBufferInfo as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpeechAudioBufferInfo as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -2923,8 +2923,8 @@ impl ISpeechAudioFormat_Vtbl {
             SetWaveFormatEx: SetWaveFormatEx::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpeechAudioFormat as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpeechAudioFormat as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -3005,8 +3005,8 @@ impl ISpeechAudioStatus_Vtbl {
             CurrentDevicePosition: CurrentDevicePosition::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpeechAudioStatus as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpeechAudioStatus as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -3075,8 +3075,8 @@ impl ISpeechBaseStream_Vtbl {
             Seek: Seek::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpeechBaseStream as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpeechBaseStream as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -3112,8 +3112,8 @@ impl ISpeechCustomStream_Vtbl {
             putref_BaseStream: putref_BaseStream::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpeechCustomStream as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <ISpeechBaseStream as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpeechCustomStream as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || iid == &<ISpeechBaseStream as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -3255,8 +3255,8 @@ impl ISpeechDataKey_Vtbl {
             EnumValues: EnumValues::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpeechDataKey as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpeechDataKey as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -3282,8 +3282,8 @@ impl ISpeechFileStream_Vtbl {
         }
         Self { base__: ISpeechBaseStream_Vtbl::new::<Identity, Impl, OFFSET>(), Open: Open::<Identity, Impl, OFFSET>, Close: Close::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpeechFileStream as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <ISpeechBaseStream as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpeechFileStream as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || iid == &<ISpeechBaseStream as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -3378,8 +3378,8 @@ impl ISpeechGrammarRule_Vtbl {
             AddState: AddState::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpeechGrammarRule as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpeechGrammarRule as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -3442,8 +3442,8 @@ impl ISpeechGrammarRuleState_Vtbl {
             AddSpecialTransition: AddSpecialTransition::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpeechGrammarRuleState as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpeechGrammarRuleState as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -3563,8 +3563,8 @@ impl ISpeechGrammarRuleStateTransition_Vtbl {
             NextState: NextState::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpeechGrammarRuleStateTransition as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpeechGrammarRuleStateTransition as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -3619,8 +3619,8 @@ impl ISpeechGrammarRuleStateTransitions_Vtbl {
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpeechGrammarRuleStateTransitions as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpeechGrammarRuleStateTransitions as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -3728,8 +3728,8 @@ impl ISpeechGrammarRules_Vtbl {
             CommitAndSave: CommitAndSave::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpeechGrammarRules as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpeechGrammarRules as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -3813,8 +3813,8 @@ impl ISpeechLexicon_Vtbl {
             GetGenerationChange: GetGenerationChange::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpeechLexicon as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpeechLexicon as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -3895,8 +3895,8 @@ impl ISpeechLexiconPronunciation_Vtbl {
             Symbolic: Symbolic::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpeechLexiconPronunciation as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpeechLexiconPronunciation as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -3951,8 +3951,8 @@ impl ISpeechLexiconPronunciations_Vtbl {
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpeechLexiconPronunciations as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpeechLexiconPronunciations as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -4020,8 +4020,8 @@ impl ISpeechLexiconWord_Vtbl {
             Pronunciations: Pronunciations::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpeechLexiconWord as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpeechLexiconWord as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -4076,8 +4076,8 @@ impl ISpeechLexiconWords_Vtbl {
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpeechLexiconWords as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpeechLexiconWords as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -4146,8 +4146,8 @@ impl ISpeechMMSysAudio_Vtbl {
             MMHandle: MMHandle::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpeechMMSysAudio as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <ISpeechBaseStream as ::windows_core::ComInterface>::IID || *iid == <ISpeechAudio as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpeechMMSysAudio as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || iid == &<ISpeechBaseStream as ::windows_core::ComInterface>::IID || iid == &<ISpeechAudio as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -4183,8 +4183,8 @@ impl ISpeechMemoryStream_Vtbl {
             GetData: GetData::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpeechMemoryStream as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <ISpeechBaseStream as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpeechMemoryStream as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || iid == &<ISpeechBaseStream as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -4345,8 +4345,8 @@ impl ISpeechObjectToken_Vtbl {
             MatchesAttributes: MatchesAttributes::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpeechObjectToken as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpeechObjectToken as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -4428,8 +4428,8 @@ impl ISpeechObjectTokenCategory_Vtbl {
             EnumerateTokens: EnumerateTokens::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpeechObjectTokenCategory as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpeechObjectTokenCategory as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -4484,8 +4484,8 @@ impl ISpeechObjectTokens_Vtbl {
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpeechObjectTokens as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpeechObjectTokens as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -4547,8 +4547,8 @@ impl ISpeechPhoneConverter_Vtbl {
             IdToPhone: IdToPhone::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpeechPhoneConverter as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpeechPhoneConverter as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -4623,8 +4623,8 @@ impl ISpeechPhraseAlternate_Vtbl {
             Commit: Commit::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpeechPhraseAlternate as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpeechPhraseAlternate as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -4679,8 +4679,8 @@ impl ISpeechPhraseAlternates_Vtbl {
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpeechPhraseAlternates as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpeechPhraseAlternates as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -4865,8 +4865,8 @@ impl ISpeechPhraseElement_Vtbl {
             EngineConfidence: EngineConfidence::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpeechPhraseElement as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpeechPhraseElement as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -4921,8 +4921,8 @@ impl ISpeechPhraseElements_Vtbl {
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpeechPhraseElements as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpeechPhraseElements as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -5146,8 +5146,8 @@ impl ISpeechPhraseInfo_Vtbl {
             GetDisplayAttributes: GetDisplayAttributes::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpeechPhraseInfo as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpeechPhraseInfo as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -5176,8 +5176,8 @@ impl ISpeechPhraseInfoBuilder_Vtbl {
             RestorePhraseFromMemory: RestorePhraseFromMemory::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpeechPhraseInfoBuilder as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpeechPhraseInfoBuilder as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -5232,8 +5232,8 @@ impl ISpeechPhraseProperties_Vtbl {
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpeechPhraseProperties as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpeechPhraseProperties as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -5366,8 +5366,8 @@ impl ISpeechPhraseProperty_Vtbl {
             Children: Children::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpeechPhraseProperty as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpeechPhraseProperty as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -5435,8 +5435,8 @@ impl ISpeechPhraseReplacement_Vtbl {
             NumberOfElements: NumberOfElements::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpeechPhraseReplacement as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpeechPhraseReplacement as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -5491,8 +5491,8 @@ impl ISpeechPhraseReplacements_Vtbl {
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpeechPhraseReplacements as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpeechPhraseReplacements as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -5612,8 +5612,8 @@ impl ISpeechPhraseRule_Vtbl {
             EngineConfidence: EngineConfidence::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpeechPhraseRule as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpeechPhraseRule as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -5668,8 +5668,8 @@ impl ISpeechPhraseRules_Vtbl {
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpeechPhraseRules as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpeechPhraseRules as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -5938,8 +5938,8 @@ impl ISpeechRecoContext_Vtbl {
             SetAdaptationData: SetAdaptationData::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpeechRecoContext as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpeechRecoContext as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -6118,8 +6118,8 @@ impl ISpeechRecoGrammar_Vtbl {
             IsPronounceable: IsPronounceable::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpeechRecoGrammar as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpeechRecoGrammar as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -6253,8 +6253,8 @@ impl ISpeechRecoResult_Vtbl {
             DiscardResultInfo: DiscardResultInfo::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpeechRecoResult as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpeechRecoResult as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -6274,8 +6274,8 @@ impl ISpeechRecoResult2_Vtbl {
         }
         Self { base__: ISpeechRecoResult_Vtbl::new::<Identity, Impl, OFFSET>(), SetTextFeedback: SetTextFeedback::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpeechRecoResult2 as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <ISpeechRecoResult as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpeechRecoResult2 as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || iid == &<ISpeechRecoResult as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -6436,8 +6436,8 @@ impl ISpeechRecoResultDispatch_Vtbl {
             SetTextFeedback: SetTextFeedback::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpeechRecoResultDispatch as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpeechRecoResultDispatch as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -6505,8 +6505,8 @@ impl ISpeechRecoResultTimes_Vtbl {
             OffsetFromStart: OffsetFromStart::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpeechRecoResultTimes as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpeechRecoResultTimes as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -6800,8 +6800,8 @@ impl ISpeechRecognizer_Vtbl {
             GetProfiles: GetProfiles::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpeechRecognizer as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpeechRecognizer as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -6895,8 +6895,8 @@ impl ISpeechRecognizerStatus_Vtbl {
             SupportedLanguages: SupportedLanguages::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpeechRecognizerStatus as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpeechRecognizerStatus as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -6933,8 +6933,8 @@ impl ISpeechResourceLoader_Vtbl {
             ReleaseLocalCopy: ReleaseLocalCopy::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpeechResourceLoader as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpeechResourceLoader as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -7030,8 +7030,8 @@ impl ISpeechTextSelectionInformation_Vtbl {
             SelectionLength: SelectionLength::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpeechTextSelectionInformation as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpeechTextSelectionInformation as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -7385,8 +7385,8 @@ impl ISpeechVoice_Vtbl {
             DisplayUI: DisplayUI::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpeechVoice as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpeechVoice as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -7558,8 +7558,8 @@ impl ISpeechVoiceStatus_Vtbl {
             VisemeId: VisemeId::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpeechVoiceStatus as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpeechVoiceStatus as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -7715,8 +7715,8 @@ impl ISpeechWaveFormatEx_Vtbl {
             SetExtraData: SetExtraData::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpeechWaveFormatEx as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpeechWaveFormatEx as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -7752,8 +7752,8 @@ impl ISpeechXMLRecoResult_Vtbl {
             GetXMLErrorInfo: GetXMLErrorInfo::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpeechXMLRecoResult as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <ISpeechRecoResult as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpeechXMLRecoResult as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || iid == &<ISpeechRecoResult as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -7766,8 +7766,8 @@ impl _ISpeechRecoContextEvents_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: _ISpeechRecoContextEvents_Impl, const OFFSET: isize>() -> _ISpeechRecoContextEvents_Vtbl {
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <_ISpeechRecoContextEvents as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<_ISpeechRecoContextEvents as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -7780,7 +7780,7 @@ impl _ISpeechVoiceEvents_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: _ISpeechVoiceEvents_Impl, const OFFSET: isize>() -> _ISpeechVoiceEvents_Vtbl {
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <_ISpeechVoiceEvents as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<_ISpeechVoiceEvents as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }

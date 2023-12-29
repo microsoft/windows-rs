@@ -67,8 +67,8 @@ impl IEnhancedStorageACT_Vtbl {
             GetSilos: GetSilos::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IEnhancedStorageACT as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IEnhancedStorageACT as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IEnhancedStorageACT2_Impl: Sized + IEnhancedStorageACT_Impl {
@@ -106,8 +106,8 @@ impl IEnhancedStorageACT2_Vtbl {
             IsDeviceRemovable: IsDeviceRemovable::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IEnhancedStorageACT2 as ::windows_core::ComInterface>::IID || *iid == <IEnhancedStorageACT as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IEnhancedStorageACT2 as ::windows_core::ComInterface>::IID || iid == &<IEnhancedStorageACT as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IEnhancedStorageACT3_Impl: Sized + IEnhancedStorageACT2_Impl {
@@ -152,8 +152,8 @@ impl IEnhancedStorageACT3_Vtbl {
             GetShellExtSupport: GetShellExtSupport::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IEnhancedStorageACT3 as ::windows_core::ComInterface>::IID || *iid == <IEnhancedStorageACT as ::windows_core::ComInterface>::IID || *iid == <IEnhancedStorageACT2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IEnhancedStorageACT3 as ::windows_core::ComInterface>::IID || iid == &<IEnhancedStorageACT as ::windows_core::ComInterface>::IID || iid == &<IEnhancedStorageACT2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Devices_PortableDevices\"`"]
@@ -222,8 +222,8 @@ impl IEnhancedStorageSilo_Vtbl {
             GetDevicePath: GetDevicePath::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IEnhancedStorageSilo as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IEnhancedStorageSilo as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IEnhancedStorageSiloAction_Impl: Sized {
@@ -268,8 +268,8 @@ impl IEnhancedStorageSiloAction_Vtbl {
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IEnhancedStorageSiloAction as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IEnhancedStorageSiloAction as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IEnumEnhancedStorageACT_Impl: Sized {
@@ -301,7 +301,7 @@ impl IEnumEnhancedStorageACT_Vtbl {
             GetMatchingACT: GetMatchingACT::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IEnumEnhancedStorageACT as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IEnumEnhancedStorageACT as ::windows_core::ComInterface>::IID
     }
 }

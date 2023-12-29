@@ -55,8 +55,8 @@ impl IImageScannerFormatConfiguration_Vtbl {
             IsFormatSupported: IsFormatSupported::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IImageScannerFormatConfiguration as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IImageScannerFormatConfiguration as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IImageScannerSourceConfiguration_Impl: Sized + IImageScannerFormatConfiguration_Impl {
@@ -411,7 +411,7 @@ impl IImageScannerSourceConfiguration_Vtbl {
             SetContrast: SetContrast::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IImageScannerSourceConfiguration as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IImageScannerSourceConfiguration as ::windows_core::ComInterface>::IID
     }
 }

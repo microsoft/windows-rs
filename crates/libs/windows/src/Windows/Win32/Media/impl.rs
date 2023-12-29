@@ -53,8 +53,8 @@ impl IReferenceClock_Vtbl {
             Unadvise: Unadvise::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IReferenceClock as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IReferenceClock as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IReferenceClock2_Impl: Sized + IReferenceClock_Impl {}
@@ -63,8 +63,8 @@ impl IReferenceClock2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IReferenceClock2_Impl, const OFFSET: isize>() -> IReferenceClock2_Vtbl {
         Self { base__: IReferenceClock_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IReferenceClock2 as ::windows_core::ComInterface>::IID || *iid == <IReferenceClock as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IReferenceClock2 as ::windows_core::ComInterface>::IID || iid == &<IReferenceClock as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IReferenceClockTimerControl_Impl: Sized {
@@ -96,7 +96,7 @@ impl IReferenceClockTimerControl_Vtbl {
             GetDefaultTimerResolution: GetDefaultTimerResolution::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IReferenceClockTimerControl as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IReferenceClockTimerControl as ::windows_core::ComInterface>::IID
     }
 }

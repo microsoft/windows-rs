@@ -29,8 +29,8 @@ impl ICoreAcceleratorKeys_Vtbl {
             RemoveAcceleratorKeyActivated: RemoveAcceleratorKeyActivated::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ICoreAcceleratorKeys as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ICoreAcceleratorKeys as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ICoreInputSourceBase_Impl: Sized {
@@ -98,8 +98,8 @@ impl ICoreInputSourceBase_Vtbl {
             RemoveInputEnabled: RemoveInputEnabled::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ICoreInputSourceBase as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ICoreInputSourceBase as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ICorePointerInputSource_Impl: Sized {
@@ -314,8 +314,8 @@ impl ICorePointerInputSource_Vtbl {
             RemovePointerWheelChanged: RemovePointerWheelChanged::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ICorePointerInputSource as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ICorePointerInputSource as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"System\"`"]
@@ -347,8 +347,8 @@ impl ICorePointerInputSource2_Vtbl {
             DispatcherQueue: DispatcherQueue::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ICorePointerInputSource2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ICorePointerInputSource2 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ICorePointerRedirector_Impl: Sized {
@@ -422,8 +422,8 @@ impl ICorePointerRedirector_Vtbl {
             RemovePointerRoutedReleased: RemovePointerRoutedReleased::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ICorePointerRedirector as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ICorePointerRedirector as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Foundation_Collections\"`, `\"System\"`"]
@@ -977,8 +977,8 @@ impl ICoreWindow_Vtbl {
             RemoveVisibilityChanged: RemoveVisibilityChanged::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ICoreWindow as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ICoreWindow as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ICoreWindowEventArgs_Impl: Sized {
@@ -1012,8 +1012,8 @@ impl ICoreWindowEventArgs_Vtbl {
             SetHandled: SetHandled::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ICoreWindowEventArgs as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ICoreWindowEventArgs as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IInitializeWithCoreWindow_Impl: Sized {
@@ -1034,7 +1034,7 @@ impl IInitializeWithCoreWindow_Vtbl {
             Initialize: Initialize::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IInitializeWithCoreWindow as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IInitializeWithCoreWindow as ::windows_core::ComInterface>::IID
     }
 }

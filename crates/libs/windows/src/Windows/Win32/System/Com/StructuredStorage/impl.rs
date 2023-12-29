@@ -28,8 +28,8 @@ impl IDirectWriterLock_Vtbl {
             HaveWriteAccess: HaveWriteAccess::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDirectWriterLock as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDirectWriterLock as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IEnumSTATPROPSETSTG_Impl: Sized {
@@ -75,8 +75,8 @@ impl IEnumSTATPROPSETSTG_Vtbl {
             Clone: Clone::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IEnumSTATPROPSETSTG as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IEnumSTATPROPSETSTG as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Variant\"`"]
@@ -126,8 +126,8 @@ impl IEnumSTATPROPSTG_Vtbl {
             Clone: Clone::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IEnumSTATPROPSTG as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IEnumSTATPROPSTG as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IEnumSTATSTG_Impl: Sized {
@@ -173,8 +173,8 @@ impl IEnumSTATSTG_Vtbl {
             Clone: Clone::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IEnumSTATSTG as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IEnumSTATSTG as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IFillLockBytes_Impl: Sized {
@@ -226,8 +226,8 @@ impl IFillLockBytes_Vtbl {
             Terminate: Terminate::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IFillLockBytes as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IFillLockBytes as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ILayoutStorage_Impl: Sized {
@@ -274,8 +274,8 @@ impl ILayoutStorage_Vtbl {
             ReLayoutDocfileOnILockBytes: ReLayoutDocfileOnILockBytes::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ILayoutStorage as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ILayoutStorage as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ILockBytes_Impl: Sized {
@@ -336,8 +336,8 @@ impl ILockBytes_Vtbl {
             Stat: Stat::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ILockBytes as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ILockBytes as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IPersistStorage_Impl: Sized + super::IPersist_Impl {
@@ -391,8 +391,8 @@ impl IPersistStorage_Vtbl {
             HandsOffStorage: HandsOffStorage::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IPersistStorage as ::windows_core::ComInterface>::IID || *iid == <super::IPersist as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IPersistStorage as ::windows_core::ComInterface>::IID || iid == &<super::IPersist as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -418,8 +418,8 @@ impl IPropertyBag_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Read: Read::<Identity, Impl, OFFSET>, Write: Write::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IPropertyBag as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IPropertyBag as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -476,8 +476,8 @@ impl IPropertyBag2_Vtbl {
             LoadObject: LoadObject::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IPropertyBag2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IPropertyBag2 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IPropertySetStorage_Impl: Sized {
@@ -535,8 +535,8 @@ impl IPropertySetStorage_Vtbl {
             Enum: Enum::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IPropertySetStorage as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IPropertySetStorage as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Variant\"`"]
@@ -642,8 +642,8 @@ impl IPropertyStorage_Vtbl {
             Stat: Stat::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IPropertyStorage as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IPropertyStorage as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IRootStorage_Impl: Sized {
@@ -659,8 +659,8 @@ impl IRootStorage_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SwitchToFile: SwitchToFile::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IRootStorage as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IRootStorage as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IStorage_Impl: Sized {
@@ -807,7 +807,7 @@ impl IStorage_Vtbl {
             Stat: Stat::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IStorage as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IStorage as ::windows_core::ComInterface>::IID
     }
 }

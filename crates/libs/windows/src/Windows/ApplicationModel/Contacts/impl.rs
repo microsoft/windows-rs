@@ -63,8 +63,8 @@ impl IContactField_Vtbl {
             Value: Value::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IContactField as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IContactField as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IContactFieldFactory_Impl: Sized {
@@ -120,8 +120,8 @@ impl IContactFieldFactory_Vtbl {
             CreateField_Custom: CreateField_Custom::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IContactFieldFactory as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IContactFieldFactory as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IContactInstantMessageFieldFactory_Impl: Sized {
@@ -177,8 +177,8 @@ impl IContactInstantMessageFieldFactory_Vtbl {
             CreateInstantMessage_All: CreateInstantMessage_All::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IContactInstantMessageFieldFactory as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IContactInstantMessageFieldFactory as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IContactLocationFieldFactory_Impl: Sized {
@@ -234,7 +234,7 @@ impl IContactLocationFieldFactory_Vtbl {
             CreateLocation_All: CreateLocation_All::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IContactLocationFieldFactory as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IContactLocationFieldFactory as ::windows_core::ComInterface>::IID
     }
 }

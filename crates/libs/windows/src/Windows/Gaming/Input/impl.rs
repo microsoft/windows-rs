@@ -114,8 +114,8 @@ impl IGameController_Vtbl {
             User: User::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IGameController as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IGameController as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Devices_Power\"`"]
@@ -147,7 +147,7 @@ impl IGameControllerBatteryInfo_Vtbl {
             TryGetBatteryReport: TryGetBatteryReport::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IGameControllerBatteryInfo as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IGameControllerBatteryInfo as ::windows_core::ComInterface>::IID
     }
 }

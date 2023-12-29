@@ -30,8 +30,8 @@ impl IGraphicsEffect_Vtbl {
             SetName: SetName::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IGraphicsEffect as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IGraphicsEffect as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IGraphicsEffectSource_Impl: Sized {}
@@ -42,7 +42,7 @@ impl IGraphicsEffectSource_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IGraphicsEffectSource_Impl, const OFFSET: isize>() -> IGraphicsEffectSource_Vtbl {
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, IGraphicsEffectSource, OFFSET>() }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IGraphicsEffectSource as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IGraphicsEffectSource as ::windows_core::ComInterface>::IID
     }
 }

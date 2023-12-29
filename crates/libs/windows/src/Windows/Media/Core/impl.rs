@@ -70,8 +70,8 @@ impl IMediaCue_Vtbl {
             Id: Id::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMediaCue as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMediaCue as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMediaSource_Impl: Sized {}
@@ -82,8 +82,8 @@ impl IMediaSource_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaSource_Impl, const OFFSET: isize>() -> IMediaSource_Vtbl {
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, IMediaSource, OFFSET>() }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMediaSource as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMediaSource as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMediaStreamDescriptor_Impl: Sized {
@@ -152,8 +152,8 @@ impl IMediaStreamDescriptor_Vtbl {
             Language: Language::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMediaStreamDescriptor as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMediaStreamDescriptor as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMediaStreamDescriptor2_Impl: Sized + IMediaStreamDescriptor_Impl {
@@ -188,8 +188,8 @@ impl IMediaStreamDescriptor2_Vtbl {
             Label: Label::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMediaStreamDescriptor2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMediaStreamDescriptor2 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMediaTrack_Impl: Sized {
@@ -265,8 +265,8 @@ impl IMediaTrack_Vtbl {
             Label: Label::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMediaTrack as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMediaTrack as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ISingleSelectMediaTrackList_Impl: Sized {
@@ -320,8 +320,8 @@ impl ISingleSelectMediaTrackList_Vtbl {
             SelectedIndex: SelectedIndex::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISingleSelectMediaTrackList as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISingleSelectMediaTrackList as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Foundation_Collections\"`"]
@@ -353,7 +353,7 @@ impl ITimedMetadataTrackProvider_Vtbl {
             TimedMetadataTracks: TimedMetadataTracks::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITimedMetadataTrackProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITimedMetadataTrackProvider as ::windows_core::ComInterface>::IID
     }
 }

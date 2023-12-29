@@ -11,8 +11,8 @@ impl IDirectInput2A_Vtbl {
         }
         Self { base__: IDirectInputA_Vtbl::new::<Identity, Impl, OFFSET>(), FindDevice: FindDevice::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDirectInput2A as ::windows_core::ComInterface>::IID || *iid == <IDirectInputA as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDirectInput2A as ::windows_core::ComInterface>::IID || iid == &<IDirectInputA as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDirectInput2W_Impl: Sized + IDirectInputW_Impl {
@@ -28,8 +28,8 @@ impl IDirectInput2W_Vtbl {
         }
         Self { base__: IDirectInputW_Vtbl::new::<Identity, Impl, OFFSET>(), FindDevice: FindDevice::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDirectInput2W as ::windows_core::ComInterface>::IID || *iid == <IDirectInputW as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDirectInput2W as ::windows_core::ComInterface>::IID || iid == &<IDirectInputW as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDirectInput7A_Impl: Sized + IDirectInput2A_Impl {
@@ -45,8 +45,8 @@ impl IDirectInput7A_Vtbl {
         }
         Self { base__: IDirectInput2A_Vtbl::new::<Identity, Impl, OFFSET>(), CreateDeviceEx: CreateDeviceEx::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDirectInput7A as ::windows_core::ComInterface>::IID || *iid == <IDirectInputA as ::windows_core::ComInterface>::IID || *iid == <IDirectInput2A as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDirectInput7A as ::windows_core::ComInterface>::IID || iid == &<IDirectInputA as ::windows_core::ComInterface>::IID || iid == &<IDirectInput2A as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDirectInput7W_Impl: Sized + IDirectInput2W_Impl {
@@ -62,8 +62,8 @@ impl IDirectInput7W_Vtbl {
         }
         Self { base__: IDirectInput2W_Vtbl::new::<Identity, Impl, OFFSET>(), CreateDeviceEx: CreateDeviceEx::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDirectInput7W as ::windows_core::ComInterface>::IID || *iid == <IDirectInputW as ::windows_core::ComInterface>::IID || *iid == <IDirectInput2W as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDirectInput7W as ::windows_core::ComInterface>::IID || iid == &<IDirectInputW as ::windows_core::ComInterface>::IID || iid == &<IDirectInput2W as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDirectInput8A_Impl: Sized {
@@ -131,8 +131,8 @@ impl IDirectInput8A_Vtbl {
             ConfigureDevices: ConfigureDevices::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDirectInput8A as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDirectInput8A as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDirectInput8W_Impl: Sized {
@@ -200,8 +200,8 @@ impl IDirectInput8W_Vtbl {
             ConfigureDevices: ConfigureDevices::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDirectInput8W as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDirectInput8W as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDirectInputA_Impl: Sized {
@@ -248,8 +248,8 @@ impl IDirectInputA_Vtbl {
             Initialize: Initialize::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDirectInputA as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDirectInputA as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDirectInputDevice2A_Impl: Sized + IDirectInputDeviceA_Impl {
@@ -324,8 +324,8 @@ impl IDirectInputDevice2A_Vtbl {
             SendDeviceData: SendDeviceData::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDirectInputDevice2A as ::windows_core::ComInterface>::IID || *iid == <IDirectInputDeviceA as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDirectInputDevice2A as ::windows_core::ComInterface>::IID || iid == &<IDirectInputDeviceA as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDirectInputDevice2W_Impl: Sized + IDirectInputDeviceW_Impl {
@@ -400,8 +400,8 @@ impl IDirectInputDevice2W_Vtbl {
             SendDeviceData: SendDeviceData::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDirectInputDevice2W as ::windows_core::ComInterface>::IID || *iid == <IDirectInputDeviceW as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDirectInputDevice2W as ::windows_core::ComInterface>::IID || iid == &<IDirectInputDeviceW as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDirectInputDevice7A_Impl: Sized + IDirectInputDevice2A_Impl {
@@ -427,8 +427,8 @@ impl IDirectInputDevice7A_Vtbl {
             WriteEffectToFile: WriteEffectToFile::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDirectInputDevice7A as ::windows_core::ComInterface>::IID || *iid == <IDirectInputDeviceA as ::windows_core::ComInterface>::IID || *iid == <IDirectInputDevice2A as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDirectInputDevice7A as ::windows_core::ComInterface>::IID || iid == &<IDirectInputDeviceA as ::windows_core::ComInterface>::IID || iid == &<IDirectInputDevice2A as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDirectInputDevice7W_Impl: Sized + IDirectInputDevice2W_Impl {
@@ -454,8 +454,8 @@ impl IDirectInputDevice7W_Vtbl {
             WriteEffectToFile: WriteEffectToFile::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDirectInputDevice7W as ::windows_core::ComInterface>::IID || *iid == <IDirectInputDeviceW as ::windows_core::ComInterface>::IID || *iid == <IDirectInputDevice2W as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDirectInputDevice7W as ::windows_core::ComInterface>::IID || iid == &<IDirectInputDeviceW as ::windows_core::ComInterface>::IID || iid == &<IDirectInputDevice2W as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDirectInputDevice8A_Impl: Sized {
@@ -670,8 +670,8 @@ impl IDirectInputDevice8A_Vtbl {
             GetImageInfo: GetImageInfo::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDirectInputDevice8A as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDirectInputDevice8A as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDirectInputDevice8W_Impl: Sized {
@@ -886,8 +886,8 @@ impl IDirectInputDevice8W_Vtbl {
             GetImageInfo: GetImageInfo::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDirectInputDevice8W as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDirectInputDevice8W as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDirectInputDeviceA_Impl: Sized {
@@ -1004,8 +1004,8 @@ impl IDirectInputDeviceA_Vtbl {
             Initialize: Initialize::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDirectInputDeviceA as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDirectInputDeviceA as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDirectInputDeviceW_Impl: Sized {
@@ -1122,8 +1122,8 @@ impl IDirectInputDeviceW_Vtbl {
             Initialize: Initialize::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDirectInputDeviceW as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDirectInputDeviceW as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDirectInputEffect_Impl: Sized {
@@ -1205,8 +1205,8 @@ impl IDirectInputEffect_Vtbl {
             Escape: Escape::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDirectInputEffect as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDirectInputEffect as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDirectInputEffectDriver_Impl: Sized {
@@ -1295,8 +1295,8 @@ impl IDirectInputEffectDriver_Vtbl {
             GetEffectStatus: GetEffectStatus::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDirectInputEffectDriver as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDirectInputEffectDriver as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Registry\"`"]
@@ -1424,8 +1424,8 @@ impl IDirectInputJoyConfig_Vtbl {
             OpenConfigKey: OpenConfigKey::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDirectInputJoyConfig as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDirectInputJoyConfig as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Registry\"`"]
@@ -1553,8 +1553,8 @@ impl IDirectInputJoyConfig8_Vtbl {
             OpenAppStatusKey: OpenAppStatusKey::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDirectInputJoyConfig8 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDirectInputJoyConfig8 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDirectInputW_Impl: Sized {
@@ -1601,7 +1601,7 @@ impl IDirectInputW_Vtbl {
             Initialize: Initialize::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDirectInputW as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDirectInputW as ::windows_core::ComInterface>::IID
     }
 }

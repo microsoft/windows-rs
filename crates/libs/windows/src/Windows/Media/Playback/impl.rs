@@ -34,8 +34,8 @@ impl IMediaEnginePlaybackSource_Vtbl {
             SetPlaybackSource: SetPlaybackSource::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMediaEnginePlaybackSource as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMediaEnginePlaybackSource as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMediaPlaybackSource_Impl: Sized {}
@@ -46,7 +46,7 @@ impl IMediaPlaybackSource_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMediaPlaybackSource_Impl, const OFFSET: isize>() -> IMediaPlaybackSource_Vtbl {
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, IMediaPlaybackSource, OFFSET>() }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMediaPlaybackSource as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMediaPlaybackSource as ::windows_core::ComInterface>::IID
     }
 }

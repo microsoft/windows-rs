@@ -51,8 +51,8 @@ impl INumberFormatter_Vtbl {
             FormatDouble: FormatDouble::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <INumberFormatter as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<INumberFormatter as ::windows_core::ComInterface>::IID
     }
 }
 pub trait INumberFormatter2_Impl: Sized {
@@ -108,8 +108,8 @@ impl INumberFormatter2_Vtbl {
             FormatDouble: FormatDouble::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <INumberFormatter2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<INumberFormatter2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Foundation_Collections\"`"]
@@ -284,8 +284,8 @@ impl INumberFormatterOptions_Vtbl {
             ResolvedGeographicRegion: ResolvedGeographicRegion::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <INumberFormatterOptions as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<INumberFormatterOptions as ::windows_core::ComInterface>::IID
     }
 }
 pub trait INumberParser_Impl: Sized {
@@ -341,8 +341,8 @@ impl INumberParser_Vtbl {
             ParseDouble: ParseDouble::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <INumberParser as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<INumberParser as ::windows_core::ComInterface>::IID
     }
 }
 pub trait INumberRounder_Impl: Sized {
@@ -434,8 +434,8 @@ impl INumberRounder_Vtbl {
             RoundDouble: RoundDouble::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <INumberRounder as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<INumberRounder as ::windows_core::ComInterface>::IID
     }
 }
 pub trait INumberRounderOption_Impl: Sized {
@@ -470,8 +470,8 @@ impl INumberRounderOption_Vtbl {
             SetNumberRounder: SetNumberRounder::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <INumberRounderOption as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<INumberRounderOption as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ISignedZeroOption_Impl: Sized {
@@ -505,8 +505,8 @@ impl ISignedZeroOption_Vtbl {
             SetIsZeroSigned: SetIsZeroSigned::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISignedZeroOption as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISignedZeroOption as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ISignificantDigitsOption_Impl: Sized {
@@ -540,7 +540,7 @@ impl ISignificantDigitsOption_Vtbl {
             SetSignificantDigits: SetSignificantDigits::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISignificantDigitsOption as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISignificantDigitsOption as ::windows_core::ComInterface>::IID
     }
 }

@@ -206,7 +206,7 @@ impl IStorageItemAccessList_Vtbl {
             MaximumItemsAllowed: MaximumItemsAllowed::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IStorageItemAccessList as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IStorageItemAccessList as ::windows_core::ComInterface>::IID
     }
 }

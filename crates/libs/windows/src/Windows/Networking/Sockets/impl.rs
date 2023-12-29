@@ -23,8 +23,8 @@ impl IControlChannelTriggerEventDetails_Vtbl {
             ControlChannelTrigger: ControlChannelTrigger::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IControlChannelTriggerEventDetails as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IControlChannelTriggerEventDetails as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IControlChannelTriggerResetEventDetails_Impl: Sized {
@@ -77,8 +77,8 @@ impl IControlChannelTriggerResetEventDetails_Vtbl {
             SoftwareSlotReset: SoftwareSlotReset::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IControlChannelTriggerResetEventDetails as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IControlChannelTriggerResetEventDetails as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Storage_Streams\"`"]
@@ -158,8 +158,8 @@ impl IWebSocket_Vtbl {
             CloseWithStatus: CloseWithStatus::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IWebSocket as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IWebSocket as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Foundation_Collections\"`, `\"Security_Credentials\"`"]
@@ -253,8 +253,8 @@ impl IWebSocketControl_Vtbl {
             SupportedProtocols: SupportedProtocols::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IWebSocketControl as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IWebSocketControl as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Foundation_Collections\"`, `\"Security_Credentials\"`, `\"Security_Cryptography_Certificates\"`"]
@@ -286,8 +286,8 @@ impl IWebSocketControl2_Vtbl {
             IgnorableServerCertificateErrors: IgnorableServerCertificateErrors::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IWebSocketControl2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IWebSocketControl2 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IWebSocketInformation_Impl: Sized {
@@ -342,8 +342,8 @@ impl IWebSocketInformation_Vtbl {
             Protocol: Protocol::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IWebSocketInformation as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IWebSocketInformation as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Foundation_Collections\"`, `\"Security_Cryptography_Certificates\"`"]
@@ -416,7 +416,7 @@ impl IWebSocketInformation2_Vtbl {
             ServerIntermediateCertificates: ServerIntermediateCertificates::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IWebSocketInformation2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IWebSocketInformation2 as ::windows_core::ComInterface>::IID
     }
 }

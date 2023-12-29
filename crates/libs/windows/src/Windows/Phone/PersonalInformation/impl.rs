@@ -202,8 +202,8 @@ impl IContactInformation_Vtbl {
             ToVcardWithOptionsAsync: ToVcardWithOptionsAsync::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IContactInformation as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IContactInformation as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IContactInformation2_Impl: Sized {
@@ -237,7 +237,7 @@ impl IContactInformation2_Vtbl {
             SetDisplayPictureDate: SetDisplayPictureDate::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IContactInformation2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IContactInformation2 as ::windows_core::ComInterface>::IID
     }
 }

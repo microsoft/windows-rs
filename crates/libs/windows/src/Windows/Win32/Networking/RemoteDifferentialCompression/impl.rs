@@ -27,8 +27,8 @@ impl IFindSimilarResults_Vtbl {
             GetNextFileId: GetNextFileId::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IFindSimilarResults as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IFindSimilarResults as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IRdcComparator_Impl: Sized {
@@ -44,8 +44,8 @@ impl IRdcComparator_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Process: Process::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IRdcComparator as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IRdcComparator as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IRdcFileReader_Impl: Sized {
@@ -90,8 +90,8 @@ impl IRdcFileReader_Vtbl {
             GetFilePosition: GetFilePosition::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IRdcFileReader as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IRdcFileReader as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IRdcFileWriter_Impl: Sized + IRdcFileReader_Impl {
@@ -130,8 +130,8 @@ impl IRdcFileWriter_Vtbl {
             DeleteOnClose: DeleteOnClose::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IRdcFileWriter as ::windows_core::ComInterface>::IID || *iid == <IRdcFileReader as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IRdcFileWriter as ::windows_core::ComInterface>::IID || iid == &<IRdcFileReader as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IRdcGenerator_Impl: Sized {
@@ -163,8 +163,8 @@ impl IRdcGenerator_Vtbl {
             Process: Process::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IRdcGenerator as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IRdcGenerator as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IRdcGeneratorFilterMaxParameters_Impl: Sized {
@@ -216,8 +216,8 @@ impl IRdcGeneratorFilterMaxParameters_Vtbl {
             SetHashWindowSize: SetHashWindowSize::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IRdcGeneratorFilterMaxParameters as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IRdcGeneratorFilterMaxParameters as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IRdcGeneratorParameters_Impl: Sized {
@@ -269,8 +269,8 @@ impl IRdcGeneratorParameters_Vtbl {
             Serialize: Serialize::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IRdcGeneratorParameters as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IRdcGeneratorParameters as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IRdcLibrary_Impl: Sized {
@@ -367,8 +367,8 @@ impl IRdcLibrary_Vtbl {
             GetRDCVersion: GetRDCVersion::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IRdcLibrary as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IRdcLibrary as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IRdcSignatureReader_Impl: Sized {
@@ -400,8 +400,8 @@ impl IRdcSignatureReader_Vtbl {
             ReadSignatures: ReadSignatures::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IRdcSignatureReader as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IRdcSignatureReader as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IRdcSimilarityGenerator_Impl: Sized {
@@ -433,8 +433,8 @@ impl IRdcSimilarityGenerator_Vtbl {
             Results: Results::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IRdcSimilarityGenerator as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IRdcSimilarityGenerator as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ISimilarity_Impl: Sized {
@@ -519,8 +519,8 @@ impl ISimilarity_Vtbl {
             GetRecordCount: GetRecordCount::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISimilarity as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISimilarity as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ISimilarityFileIdTable_Impl: Sized {
@@ -605,8 +605,8 @@ impl ISimilarityFileIdTable_Vtbl {
             GetRecordCount: GetRecordCount::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISimilarityFileIdTable as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISimilarityFileIdTable as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ISimilarityReportProgress_Impl: Sized {
@@ -622,8 +622,8 @@ impl ISimilarityReportProgress_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ReportProgress: ReportProgress::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISimilarityReportProgress as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISimilarityReportProgress as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ISimilarityTableDumpState_Impl: Sized {
@@ -639,8 +639,8 @@ impl ISimilarityTableDumpState_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetNextData: GetNextData::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISimilarityTableDumpState as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISimilarityTableDumpState as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ISimilarityTraitsMappedView_Impl: Sized {
@@ -686,8 +686,8 @@ impl ISimilarityTraitsMappedView_Vtbl {
             GetView: GetView::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISimilarityTraitsMappedView as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISimilarityTraitsMappedView as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ISimilarityTraitsMapping_Impl: Sized {
@@ -772,8 +772,8 @@ impl ISimilarityTraitsMapping_Vtbl {
             CreateView: CreateView::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISimilarityTraitsMapping as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISimilarityTraitsMapping as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ISimilarityTraitsTable_Impl: Sized {
@@ -858,7 +858,7 @@ impl ISimilarityTraitsTable_Vtbl {
             GetLastIndex: GetLastIndex::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISimilarityTraitsTable as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISimilarityTraitsTable as ::windows_core::ComInterface>::IID
     }
 }

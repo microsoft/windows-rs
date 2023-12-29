@@ -15,8 +15,8 @@ impl ICorProfilerAssemblyReferenceProvider_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), AddAssemblyReference: AddAssemblyReference::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ICorProfilerAssemblyReferenceProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ICorProfilerAssemblyReferenceProvider as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ICorProfilerCallback_Impl: Sized {
@@ -523,8 +523,8 @@ impl ICorProfilerCallback_Vtbl {
             ExceptionCLRCatcherExecute: ExceptionCLRCatcherExecute::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ICorProfilerCallback as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ICorProfilerCallback as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ICorProfilerCallback10_Impl: Sized + ICorProfilerCallback9_Impl {
@@ -564,8 +564,8 @@ impl ICorProfilerCallback10_Vtbl {
             EventPipeProviderCreated: EventPipeProviderCreated::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ICorProfilerCallback10 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback2 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback3 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback4 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback5 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback6 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback7 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback8 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback9 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ICorProfilerCallback10 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerCallback as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerCallback2 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerCallback3 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerCallback4 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerCallback5 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerCallback6 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerCallback7 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerCallback8 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerCallback9 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ICorProfilerCallback11_Impl: Sized + ICorProfilerCallback10_Impl {
@@ -581,8 +581,8 @@ impl ICorProfilerCallback11_Vtbl {
         }
         Self { base__: ICorProfilerCallback10_Vtbl::new::<Identity, Impl, OFFSET>(), LoadAsNotificationOnly: LoadAsNotificationOnly::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ICorProfilerCallback11 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback2 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback3 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback4 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback5 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback6 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback7 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback8 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback9 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback10 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ICorProfilerCallback11 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerCallback as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerCallback2 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerCallback3 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerCallback4 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerCallback5 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerCallback6 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerCallback7 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerCallback8 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerCallback9 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerCallback10 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ICorProfilerCallback2_Impl: Sized + ICorProfilerCallback_Impl {
@@ -650,8 +650,8 @@ impl ICorProfilerCallback2_Vtbl {
             HandleDestroyed: HandleDestroyed::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ICorProfilerCallback2 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ICorProfilerCallback2 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerCallback as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ICorProfilerCallback3_Impl: Sized + ICorProfilerCallback2_Impl {
@@ -684,8 +684,8 @@ impl ICorProfilerCallback3_Vtbl {
             ProfilerDetachSucceeded: ProfilerDetachSucceeded::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ICorProfilerCallback3 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ICorProfilerCallback3 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerCallback as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerCallback2 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ICorProfilerCallback4_Impl: Sized + ICorProfilerCallback3_Impl {
@@ -739,8 +739,8 @@ impl ICorProfilerCallback4_Vtbl {
             SurvivingReferences2: SurvivingReferences2::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ICorProfilerCallback4 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback2 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback3 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ICorProfilerCallback4 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerCallback as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerCallback2 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerCallback3 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ICorProfilerCallback5_Impl: Sized + ICorProfilerCallback4_Impl {
@@ -759,8 +759,8 @@ impl ICorProfilerCallback5_Vtbl {
             ConditionalWeakTableElementReferences: ConditionalWeakTableElementReferences::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ICorProfilerCallback5 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback2 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback3 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback4 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ICorProfilerCallback5 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerCallback as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerCallback2 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerCallback3 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerCallback4 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ICorProfilerCallback6_Impl: Sized + ICorProfilerCallback5_Impl {
@@ -776,8 +776,8 @@ impl ICorProfilerCallback6_Vtbl {
         }
         Self { base__: ICorProfilerCallback5_Vtbl::new::<Identity, Impl, OFFSET>(), GetAssemblyReferences: GetAssemblyReferences::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ICorProfilerCallback6 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback2 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback3 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback4 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback5 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ICorProfilerCallback6 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerCallback as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerCallback2 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerCallback3 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerCallback4 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerCallback5 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ICorProfilerCallback7_Impl: Sized + ICorProfilerCallback6_Impl {
@@ -796,8 +796,8 @@ impl ICorProfilerCallback7_Vtbl {
             ModuleInMemorySymbolsUpdated: ModuleInMemorySymbolsUpdated::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ICorProfilerCallback7 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback2 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback3 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback4 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback5 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback6 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ICorProfilerCallback7 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerCallback as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerCallback2 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerCallback3 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerCallback4 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerCallback5 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerCallback6 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ICorProfilerCallback8_Impl: Sized + ICorProfilerCallback7_Impl {
@@ -823,8 +823,8 @@ impl ICorProfilerCallback8_Vtbl {
             DynamicMethodJITCompilationFinished: DynamicMethodJITCompilationFinished::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ICorProfilerCallback8 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback2 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback3 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback4 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback5 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback6 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback7 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ICorProfilerCallback8 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerCallback as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerCallback2 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerCallback3 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerCallback4 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerCallback5 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerCallback6 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerCallback7 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ICorProfilerCallback9_Impl: Sized + ICorProfilerCallback8_Impl {
@@ -840,8 +840,8 @@ impl ICorProfilerCallback9_Vtbl {
         }
         Self { base__: ICorProfilerCallback8_Vtbl::new::<Identity, Impl, OFFSET>(), DynamicMethodUnloaded: DynamicMethodUnloaded::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ICorProfilerCallback9 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback2 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback3 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback4 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback5 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback6 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback7 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback8 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ICorProfilerCallback9 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerCallback as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerCallback2 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerCallback3 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerCallback4 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerCallback5 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerCallback6 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerCallback7 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerCallback8 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ICorProfilerFunctionControl_Impl: Sized {
@@ -874,8 +874,8 @@ impl ICorProfilerFunctionControl_Vtbl {
             SetILInstrumentedCodeMap: SetILInstrumentedCodeMap::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ICorProfilerFunctionControl as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ICorProfilerFunctionControl as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ICorProfilerFunctionEnum_Impl: Sized {
@@ -934,8 +934,8 @@ impl ICorProfilerFunctionEnum_Vtbl {
             Next: Next::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ICorProfilerFunctionEnum as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ICorProfilerFunctionEnum as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
@@ -1272,8 +1272,8 @@ impl ICorProfilerInfo_Vtbl {
             GetILToNativeMapping: GetILToNativeMapping::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ICorProfilerInfo as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ICorProfilerInfo as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
@@ -1331,8 +1331,8 @@ impl ICorProfilerInfo10_Vtbl {
             ResumeRuntime: ResumeRuntime::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ICorProfilerInfo10 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo2 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo3 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo4 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo5 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo6 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo7 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo8 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo9 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ICorProfilerInfo10 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerInfo as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerInfo2 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerInfo3 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerInfo4 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerInfo5 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerInfo6 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerInfo7 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerInfo8 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerInfo9 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
@@ -1362,8 +1362,8 @@ impl ICorProfilerInfo11_Vtbl {
             SetEnvironmentVariable: SetEnvironmentVariable::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ICorProfilerInfo11 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo2 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo3 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo4 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo5 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo6 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo7 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo8 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo9 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo10 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ICorProfilerInfo11 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerInfo as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerInfo2 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerInfo3 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerInfo4 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerInfo5 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerInfo6 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerInfo7 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerInfo8 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerInfo9 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerInfo10 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
@@ -1446,19 +1446,19 @@ impl ICorProfilerInfo12_Vtbl {
             EventPipeWriteEvent: EventPipeWriteEvent::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ICorProfilerInfo12 as ::windows_core::ComInterface>::IID
-            || *iid == <ICorProfilerInfo as ::windows_core::ComInterface>::IID
-            || *iid == <ICorProfilerInfo2 as ::windows_core::ComInterface>::IID
-            || *iid == <ICorProfilerInfo3 as ::windows_core::ComInterface>::IID
-            || *iid == <ICorProfilerInfo4 as ::windows_core::ComInterface>::IID
-            || *iid == <ICorProfilerInfo5 as ::windows_core::ComInterface>::IID
-            || *iid == <ICorProfilerInfo6 as ::windows_core::ComInterface>::IID
-            || *iid == <ICorProfilerInfo7 as ::windows_core::ComInterface>::IID
-            || *iid == <ICorProfilerInfo8 as ::windows_core::ComInterface>::IID
-            || *iid == <ICorProfilerInfo9 as ::windows_core::ComInterface>::IID
-            || *iid == <ICorProfilerInfo10 as ::windows_core::ComInterface>::IID
-            || *iid == <ICorProfilerInfo11 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ICorProfilerInfo12 as ::windows_core::ComInterface>::IID
+            || iid == &<ICorProfilerInfo as ::windows_core::ComInterface>::IID
+            || iid == &<ICorProfilerInfo2 as ::windows_core::ComInterface>::IID
+            || iid == &<ICorProfilerInfo3 as ::windows_core::ComInterface>::IID
+            || iid == &<ICorProfilerInfo4 as ::windows_core::ComInterface>::IID
+            || iid == &<ICorProfilerInfo5 as ::windows_core::ComInterface>::IID
+            || iid == &<ICorProfilerInfo6 as ::windows_core::ComInterface>::IID
+            || iid == &<ICorProfilerInfo7 as ::windows_core::ComInterface>::IID
+            || iid == &<ICorProfilerInfo8 as ::windows_core::ComInterface>::IID
+            || iid == &<ICorProfilerInfo9 as ::windows_core::ComInterface>::IID
+            || iid == &<ICorProfilerInfo10 as ::windows_core::ComInterface>::IID
+            || iid == &<ICorProfilerInfo11 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
@@ -1501,20 +1501,20 @@ impl ICorProfilerInfo13_Vtbl {
             GetObjectIDFromHandle: GetObjectIDFromHandle::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ICorProfilerInfo13 as ::windows_core::ComInterface>::IID
-            || *iid == <ICorProfilerInfo as ::windows_core::ComInterface>::IID
-            || *iid == <ICorProfilerInfo2 as ::windows_core::ComInterface>::IID
-            || *iid == <ICorProfilerInfo3 as ::windows_core::ComInterface>::IID
-            || *iid == <ICorProfilerInfo4 as ::windows_core::ComInterface>::IID
-            || *iid == <ICorProfilerInfo5 as ::windows_core::ComInterface>::IID
-            || *iid == <ICorProfilerInfo6 as ::windows_core::ComInterface>::IID
-            || *iid == <ICorProfilerInfo7 as ::windows_core::ComInterface>::IID
-            || *iid == <ICorProfilerInfo8 as ::windows_core::ComInterface>::IID
-            || *iid == <ICorProfilerInfo9 as ::windows_core::ComInterface>::IID
-            || *iid == <ICorProfilerInfo10 as ::windows_core::ComInterface>::IID
-            || *iid == <ICorProfilerInfo11 as ::windows_core::ComInterface>::IID
-            || *iid == <ICorProfilerInfo12 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ICorProfilerInfo13 as ::windows_core::ComInterface>::IID
+            || iid == &<ICorProfilerInfo as ::windows_core::ComInterface>::IID
+            || iid == &<ICorProfilerInfo2 as ::windows_core::ComInterface>::IID
+            || iid == &<ICorProfilerInfo3 as ::windows_core::ComInterface>::IID
+            || iid == &<ICorProfilerInfo4 as ::windows_core::ComInterface>::IID
+            || iid == &<ICorProfilerInfo5 as ::windows_core::ComInterface>::IID
+            || iid == &<ICorProfilerInfo6 as ::windows_core::ComInterface>::IID
+            || iid == &<ICorProfilerInfo7 as ::windows_core::ComInterface>::IID
+            || iid == &<ICorProfilerInfo8 as ::windows_core::ComInterface>::IID
+            || iid == &<ICorProfilerInfo9 as ::windows_core::ComInterface>::IID
+            || iid == &<ICorProfilerInfo10 as ::windows_core::ComInterface>::IID
+            || iid == &<ICorProfilerInfo11 as ::windows_core::ComInterface>::IID
+            || iid == &<ICorProfilerInfo12 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
@@ -1563,21 +1563,21 @@ impl ICorProfilerInfo14_Vtbl {
             EventPipeCreateProvider2: EventPipeCreateProvider2::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ICorProfilerInfo14 as ::windows_core::ComInterface>::IID
-            || *iid == <ICorProfilerInfo as ::windows_core::ComInterface>::IID
-            || *iid == <ICorProfilerInfo2 as ::windows_core::ComInterface>::IID
-            || *iid == <ICorProfilerInfo3 as ::windows_core::ComInterface>::IID
-            || *iid == <ICorProfilerInfo4 as ::windows_core::ComInterface>::IID
-            || *iid == <ICorProfilerInfo5 as ::windows_core::ComInterface>::IID
-            || *iid == <ICorProfilerInfo6 as ::windows_core::ComInterface>::IID
-            || *iid == <ICorProfilerInfo7 as ::windows_core::ComInterface>::IID
-            || *iid == <ICorProfilerInfo8 as ::windows_core::ComInterface>::IID
-            || *iid == <ICorProfilerInfo9 as ::windows_core::ComInterface>::IID
-            || *iid == <ICorProfilerInfo10 as ::windows_core::ComInterface>::IID
-            || *iid == <ICorProfilerInfo11 as ::windows_core::ComInterface>::IID
-            || *iid == <ICorProfilerInfo12 as ::windows_core::ComInterface>::IID
-            || *iid == <ICorProfilerInfo13 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ICorProfilerInfo14 as ::windows_core::ComInterface>::IID
+            || iid == &<ICorProfilerInfo as ::windows_core::ComInterface>::IID
+            || iid == &<ICorProfilerInfo2 as ::windows_core::ComInterface>::IID
+            || iid == &<ICorProfilerInfo3 as ::windows_core::ComInterface>::IID
+            || iid == &<ICorProfilerInfo4 as ::windows_core::ComInterface>::IID
+            || iid == &<ICorProfilerInfo5 as ::windows_core::ComInterface>::IID
+            || iid == &<ICorProfilerInfo6 as ::windows_core::ComInterface>::IID
+            || iid == &<ICorProfilerInfo7 as ::windows_core::ComInterface>::IID
+            || iid == &<ICorProfilerInfo8 as ::windows_core::ComInterface>::IID
+            || iid == &<ICorProfilerInfo9 as ::windows_core::ComInterface>::IID
+            || iid == &<ICorProfilerInfo10 as ::windows_core::ComInterface>::IID
+            || iid == &<ICorProfilerInfo11 as ::windows_core::ComInterface>::IID
+            || iid == &<ICorProfilerInfo12 as ::windows_core::ComInterface>::IID
+            || iid == &<ICorProfilerInfo13 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
@@ -1788,8 +1788,8 @@ impl ICorProfilerInfo2_Vtbl {
             GetNotifiedExceptionClauseInfo: GetNotifiedExceptionClauseInfo::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ICorProfilerInfo2 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ICorProfilerInfo2 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerInfo as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
@@ -1921,8 +1921,8 @@ impl ICorProfilerInfo3_Vtbl {
             GetModuleInfo2: GetModuleInfo2::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ICorProfilerInfo3 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ICorProfilerInfo3 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerInfo as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerInfo2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
@@ -2026,8 +2026,8 @@ impl ICorProfilerInfo4_Vtbl {
             GetObjectSize2: GetObjectSize2::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ICorProfilerInfo4 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo2 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo3 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ICorProfilerInfo4 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerInfo as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerInfo2 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerInfo3 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
@@ -2057,8 +2057,8 @@ impl ICorProfilerInfo5_Vtbl {
             SetEventMask2: SetEventMask2::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ICorProfilerInfo5 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo2 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo3 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo4 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ICorProfilerInfo5 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerInfo as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerInfo2 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerInfo3 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerInfo4 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
@@ -2081,8 +2081,8 @@ impl ICorProfilerInfo6_Vtbl {
             EnumNgenModuleMethodsInliningThisMethod: EnumNgenModuleMethodsInliningThisMethod::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ICorProfilerInfo6 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo2 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo3 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo4 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo5 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ICorProfilerInfo6 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerInfo as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerInfo2 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerInfo3 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerInfo4 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerInfo5 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
@@ -2125,8 +2125,8 @@ impl ICorProfilerInfo7_Vtbl {
             ReadInMemorySymbols: ReadInMemorySymbols::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ICorProfilerInfo7 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo2 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo3 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo4 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo5 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo6 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ICorProfilerInfo7 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerInfo as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerInfo2 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerInfo3 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerInfo4 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerInfo5 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerInfo6 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
@@ -2169,8 +2169,8 @@ impl ICorProfilerInfo8_Vtbl {
             GetDynamicFunctionInfo: GetDynamicFunctionInfo::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ICorProfilerInfo8 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo2 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo3 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo4 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo5 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo6 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo7 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ICorProfilerInfo8 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerInfo as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerInfo2 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerInfo3 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerInfo4 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerInfo5 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerInfo6 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerInfo7 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
@@ -2207,8 +2207,8 @@ impl ICorProfilerInfo9_Vtbl {
             GetCodeInfo4: GetCodeInfo4::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ICorProfilerInfo9 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo2 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo3 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo4 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo5 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo6 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo7 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo8 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ICorProfilerInfo9 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerInfo as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerInfo2 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerInfo3 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerInfo4 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerInfo5 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerInfo6 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerInfo7 as ::windows_core::ComInterface>::IID || iid == &<ICorProfilerInfo8 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ICorProfilerMethodEnum_Impl: Sized {
@@ -2267,8 +2267,8 @@ impl ICorProfilerMethodEnum_Vtbl {
             Next: Next::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ICorProfilerMethodEnum as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ICorProfilerMethodEnum as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ICorProfilerModuleEnum_Impl: Sized {
@@ -2327,8 +2327,8 @@ impl ICorProfilerModuleEnum_Vtbl {
             Next: Next::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ICorProfilerModuleEnum as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ICorProfilerModuleEnum as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ICorProfilerObjectEnum_Impl: Sized {
@@ -2387,8 +2387,8 @@ impl ICorProfilerObjectEnum_Vtbl {
             Next: Next::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ICorProfilerObjectEnum as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ICorProfilerObjectEnum as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ICorProfilerThreadEnum_Impl: Sized {
@@ -2447,8 +2447,8 @@ impl ICorProfilerThreadEnum_Vtbl {
             Next: Next::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ICorProfilerThreadEnum as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ICorProfilerThreadEnum as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IMethodMalloc_Impl: Sized {
@@ -2464,7 +2464,7 @@ impl IMethodMalloc_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Alloc: Alloc::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMethodMalloc as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMethodMalloc as ::windows_core::ComInterface>::IID
     }
 }

@@ -16,8 +16,8 @@ impl IVpnChannelStatics_Vtbl {
             ProcessEventAsync: ProcessEventAsync::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVpnChannelStatics as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVpnChannelStatics as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Security_Credentials\"`, `\"Security_Cryptography_Certificates\"`"]
@@ -91,8 +91,8 @@ impl IVpnCredential_Vtbl {
             OldPasswordCredential: OldPasswordCredential::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVpnCredential as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVpnCredential as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVpnCustomPrompt_Impl: Sized {
@@ -167,8 +167,8 @@ impl IVpnCustomPrompt_Vtbl {
             Bordered: Bordered::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVpnCustomPrompt as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVpnCustomPrompt as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVpnCustomPromptElement_Impl: Sized {
@@ -243,8 +243,8 @@ impl IVpnCustomPromptElement_Vtbl {
             Emphasized: Emphasized::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVpnCustomPromptElement as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVpnCustomPromptElement as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Foundation_Collections\"`"]
@@ -276,8 +276,8 @@ impl IVpnDomainNameInfoFactory_Vtbl {
             CreateVpnDomainNameInfo: CreateVpnDomainNameInfo::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVpnDomainNameInfoFactory as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVpnDomainNameInfoFactory as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVpnInterfaceIdFactory_Impl: Sized {
@@ -305,8 +305,8 @@ impl IVpnInterfaceIdFactory_Vtbl {
             CreateVpnInterfaceId: CreateVpnInterfaceId::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVpnInterfaceIdFactory as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVpnInterfaceIdFactory as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Foundation_Collections\"`"]
@@ -338,8 +338,8 @@ impl IVpnNamespaceInfoFactory_Vtbl {
             CreateVpnNamespaceInfo: CreateVpnNamespaceInfo::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVpnNamespaceInfoFactory as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVpnNamespaceInfoFactory as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVpnPacketBufferFactory_Impl: Sized {
@@ -367,8 +367,8 @@ impl IVpnPacketBufferFactory_Vtbl {
             CreateVpnPacketBuffer: CreateVpnPacketBuffer::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVpnPacketBufferFactory as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVpnPacketBufferFactory as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVpnPlugIn_Impl: Sized {
@@ -417,8 +417,8 @@ impl IVpnPlugIn_Vtbl {
             Decapsulate: Decapsulate::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVpnPlugIn as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVpnPlugIn as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Foundation_Collections\"`"]
@@ -553,8 +553,8 @@ impl IVpnProfile_Vtbl {
             SetAlwaysOn: SetAlwaysOn::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVpnProfile as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVpnProfile as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVpnRouteFactory_Impl: Sized {
@@ -579,7 +579,7 @@ impl IVpnRouteFactory_Vtbl {
         }
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, IVpnRouteFactory, OFFSET>(), CreateVpnRoute: CreateVpnRoute::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVpnRouteFactory as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVpnRouteFactory as ::windows_core::ComInterface>::IID
     }
 }

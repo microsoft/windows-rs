@@ -11,8 +11,8 @@ impl IAccIdentity_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetIdentityString: GetIdentityString::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IAccIdentity as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IAccIdentity as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -32,8 +32,8 @@ impl IAccPropServer_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetPropValue: GetPropValue::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IAccPropServer as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IAccPropServer as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
@@ -154,8 +154,8 @@ impl IAccPropServices_Vtbl {
             DecomposeHmenuIdentityString: DecomposeHmenuIdentityString::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IAccPropServices as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IAccPropServices as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -408,8 +408,8 @@ impl IAccessible_Vtbl {
             put_accValue: put_accValue::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IAccessible as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IAccessible as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -471,8 +471,8 @@ impl IAccessibleEx_Vtbl {
             ConvertReturnedElement: ConvertReturnedElement::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IAccessibleEx as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IAccessibleEx as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -498,8 +498,8 @@ impl IAccessibleHandler_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), AccessibleObjectFromID: AccessibleObjectFromID::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IAccessibleHandler as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IAccessibleHandler as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -541,8 +541,8 @@ impl IAccessibleHostingElementProviders_Vtbl {
             GetObjectIdForProvider: GetObjectIdForProvider::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IAccessibleHostingElementProviders as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IAccessibleHostingElementProviders as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -604,8 +604,8 @@ impl IAccessibleWindowlessSite_Vtbl {
             GetParentAccessible: GetParentAccessible::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IAccessibleWindowlessSite as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IAccessibleWindowlessSite as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IAnnotationProvider_Impl: Sized {
@@ -682,8 +682,8 @@ impl IAnnotationProvider_Vtbl {
             Target: Target::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IAnnotationProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IAnnotationProvider as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ICustomNavigationProvider_Impl: Sized {
@@ -705,8 +705,8 @@ impl ICustomNavigationProvider_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Navigate: Navigate::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ICustomNavigationProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ICustomNavigationProvider as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDockProvider_Impl: Sized {
@@ -738,8 +738,8 @@ impl IDockProvider_Vtbl {
             DockPosition: DockPosition::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDockProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDockProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -807,8 +807,8 @@ impl IDragProvider_Vtbl {
             GetGrabbedItems: GetGrabbedItems::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDragProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDragProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -850,8 +850,8 @@ impl IDropTargetProvider_Vtbl {
             DropTargetEffects: DropTargetEffects::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDropTargetProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDropTargetProvider as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IExpandCollapseProvider_Impl: Sized {
@@ -890,8 +890,8 @@ impl IExpandCollapseProvider_Vtbl {
             ExpandCollapseState: ExpandCollapseState::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IExpandCollapseProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IExpandCollapseProvider as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IGridItemProvider_Impl: Sized {
@@ -968,8 +968,8 @@ impl IGridItemProvider_Vtbl {
             ContainingGrid: ContainingGrid::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IGridItemProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IGridItemProvider as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IGridProvider_Impl: Sized {
@@ -1020,8 +1020,8 @@ impl IGridProvider_Vtbl {
             ColumnCount: ColumnCount::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IGridProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IGridProvider as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IInvokeProvider_Impl: Sized {
@@ -1037,8 +1037,8 @@ impl IInvokeProvider_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Invoke: Invoke::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IInvokeProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IInvokeProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -1064,8 +1064,8 @@ impl IItemContainerProvider_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), FindItemByProperty: FindItemByProperty::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IItemContainerProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IItemContainerProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1245,8 +1245,8 @@ impl ILegacyIAccessibleProvider_Vtbl {
             DefaultAction: DefaultAction::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ILegacyIAccessibleProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ILegacyIAccessibleProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1308,8 +1308,8 @@ impl IMultipleViewProvider_Vtbl {
             GetSupportedViews: GetSupportedViews::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMultipleViewProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMultipleViewProvider as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IObjectModelProvider_Impl: Sized {
@@ -1331,8 +1331,8 @@ impl IObjectModelProvider_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetUnderlyingObjectModel: GetUnderlyingObjectModel::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IObjectModelProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IObjectModelProvider as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IProxyProviderWinEventHandler_Impl: Sized {
@@ -1348,8 +1348,8 @@ impl IProxyProviderWinEventHandler_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), RespondToWinEvent: RespondToWinEvent::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IProxyProviderWinEventHandler as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IProxyProviderWinEventHandler as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -1386,8 +1386,8 @@ impl IProxyProviderWinEventSink_Vtbl {
             AddStructureChangedEvent: AddStructureChangedEvent::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IProxyProviderWinEventSink as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IProxyProviderWinEventSink as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IRangeValueProvider_Impl: Sized {
@@ -1484,8 +1484,8 @@ impl IRangeValueProvider_Vtbl {
             SmallChange: SmallChange::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IRangeValueProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IRangeValueProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1515,8 +1515,8 @@ impl IRawElementProviderAdviseEvents_Vtbl {
             AdviseEventRemoved: AdviseEventRemoved::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IRawElementProviderAdviseEvents as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IRawElementProviderAdviseEvents as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1604,8 +1604,8 @@ impl IRawElementProviderFragment_Vtbl {
             FragmentRoot: FragmentRoot::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IRawElementProviderFragment as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IRawElementProviderFragment as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IRawElementProviderFragmentRoot_Impl: Sized {
@@ -1643,8 +1643,8 @@ impl IRawElementProviderFragmentRoot_Vtbl {
             GetFocus: GetFocus::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IRawElementProviderFragmentRoot as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IRawElementProviderFragmentRoot as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1670,8 +1670,8 @@ impl IRawElementProviderHostingAccessibles_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetEmbeddedAccessibles: GetEmbeddedAccessibles::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IRawElementProviderHostingAccessibles as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IRawElementProviderHostingAccessibles as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IRawElementProviderHwndOverride_Impl: Sized {
@@ -1696,8 +1696,8 @@ impl IRawElementProviderHwndOverride_Vtbl {
             GetOverrideProviderForHwnd: GetOverrideProviderForHwnd::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IRawElementProviderHwndOverride as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IRawElementProviderHwndOverride as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -1765,8 +1765,8 @@ impl IRawElementProviderSimple_Vtbl {
             HostRawElementProvider: HostRawElementProvider::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IRawElementProviderSimple as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IRawElementProviderSimple as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -1786,8 +1786,8 @@ impl IRawElementProviderSimple2_Vtbl {
         }
         Self { base__: IRawElementProviderSimple_Vtbl::new::<Identity, Impl, OFFSET>(), ShowContextMenu: ShowContextMenu::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IRawElementProviderSimple2 as ::windows_core::ComInterface>::IID || *iid == <IRawElementProviderSimple as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IRawElementProviderSimple2 as ::windows_core::ComInterface>::IID || iid == &<IRawElementProviderSimple as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -1813,8 +1813,8 @@ impl IRawElementProviderSimple3_Vtbl {
         }
         Self { base__: IRawElementProviderSimple2_Vtbl::new::<Identity, Impl, OFFSET>(), GetMetadataValue: GetMetadataValue::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IRawElementProviderSimple3 as ::windows_core::ComInterface>::IID || *iid == <IRawElementProviderSimple as ::windows_core::ComInterface>::IID || *iid == <IRawElementProviderSimple2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IRawElementProviderSimple3 as ::windows_core::ComInterface>::IID || iid == &<IRawElementProviderSimple as ::windows_core::ComInterface>::IID || iid == &<IRawElementProviderSimple2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1856,8 +1856,8 @@ impl IRawElementProviderWindowlessSite_Vtbl {
             GetRuntimeIdPrefix: GetRuntimeIdPrefix::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IRawElementProviderWindowlessSite as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IRawElementProviderWindowlessSite as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IRichEditUiaInformation_Impl: Sized {
@@ -1883,8 +1883,8 @@ impl IRichEditUiaInformation_Vtbl {
             IsVisible: IsVisible::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IRichEditUiaInformation as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IRichEditUiaInformation as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IRicheditWindowlessAccessibility_Impl: Sized {
@@ -1906,8 +1906,8 @@ impl IRicheditWindowlessAccessibility_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateProvider: CreateProvider::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IRicheditWindowlessAccessibility as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IRicheditWindowlessAccessibility as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IScrollItemProvider_Impl: Sized {
@@ -1923,8 +1923,8 @@ impl IScrollItemProvider_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ScrollIntoView: ScrollIntoView::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IScrollItemProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IScrollItemProvider as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IScrollProvider_Impl: Sized {
@@ -2028,8 +2028,8 @@ impl IScrollProvider_Vtbl {
             VerticallyScrollable: VerticallyScrollable::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IScrollProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IScrollProvider as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ISelectionItemProvider_Impl: Sized {
@@ -2088,8 +2088,8 @@ impl ISelectionItemProvider_Vtbl {
             SelectionContainer: SelectionContainer::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISelectionItemProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISelectionItemProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -2144,8 +2144,8 @@ impl ISelectionProvider_Vtbl {
             IsSelectionRequired: IsSelectionRequired::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISelectionProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISelectionProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -2213,8 +2213,8 @@ impl ISelectionProvider2_Vtbl {
             ItemCount: ItemCount::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISelectionProvider2 as ::windows_core::ComInterface>::IID || *iid == <ISelectionProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISelectionProvider2 as ::windows_core::ComInterface>::IID || iid == &<ISelectionProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -2269,8 +2269,8 @@ impl ISpreadsheetItemProvider_Vtbl {
             GetAnnotationTypes: GetAnnotationTypes::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpreadsheetItemProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpreadsheetItemProvider as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ISpreadsheetProvider_Impl: Sized {
@@ -2292,8 +2292,8 @@ impl ISpreadsheetProvider_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetItemByName: GetItemByName::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISpreadsheetProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISpreadsheetProvider as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IStylesProvider_Impl: Sized {
@@ -2396,8 +2396,8 @@ impl IStylesProvider_Vtbl {
             ExtendedProperties: ExtendedProperties::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IStylesProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IStylesProvider as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ISynchronizedInputProvider_Impl: Sized {
@@ -2423,8 +2423,8 @@ impl ISynchronizedInputProvider_Vtbl {
             Cancel: Cancel::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ISynchronizedInputProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ISynchronizedInputProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -2466,8 +2466,8 @@ impl ITableItemProvider_Vtbl {
             GetColumnHeaderItems: GetColumnHeaderItems::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITableItemProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITableItemProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -2522,8 +2522,8 @@ impl ITableProvider_Vtbl {
             RowOrColumnMajor: RowOrColumnMajor::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITableProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITableProvider as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITextChildProvider_Impl: Sized {
@@ -2561,8 +2561,8 @@ impl ITextChildProvider_Vtbl {
             TextRange: TextRange::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITextChildProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITextChildProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -2604,8 +2604,8 @@ impl ITextEditProvider_Vtbl {
             GetConversionTarget: GetConversionTarget::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITextEditProvider as ::windows_core::ComInterface>::IID || *iid == <ITextProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITextEditProvider as ::windows_core::ComInterface>::IID || iid == &<ITextProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -2699,8 +2699,8 @@ impl ITextProvider_Vtbl {
             SupportedTextSelection: SupportedTextSelection::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITextProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITextProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -2736,8 +2736,8 @@ impl ITextProvider2_Vtbl {
             GetCaretRange: GetCaretRange::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITextProvider2 as ::windows_core::ComInterface>::IID || *iid == <ITextProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITextProvider2 as ::windows_core::ComInterface>::IID || iid == &<ITextProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -2951,8 +2951,8 @@ impl ITextRangeProvider_Vtbl {
             GetChildren: GetChildren::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITextRangeProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITextRangeProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -2972,8 +2972,8 @@ impl ITextRangeProvider2_Vtbl {
         }
         Self { base__: ITextRangeProvider_Vtbl::new::<Identity, Impl, OFFSET>(), ShowContextMenu: ShowContextMenu::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITextRangeProvider2 as ::windows_core::ComInterface>::IID || *iid == <ITextRangeProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITextRangeProvider2 as ::windows_core::ComInterface>::IID || iid == &<ITextRangeProvider as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IToggleProvider_Impl: Sized {
@@ -3005,8 +3005,8 @@ impl IToggleProvider_Vtbl {
             ToggleState: ToggleState::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IToggleProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IToggleProvider as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITransformProvider_Impl: Sized {
@@ -3078,8 +3078,8 @@ impl ITransformProvider_Vtbl {
             CanRotate: CanRotate::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITransformProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITransformProvider as ::windows_core::ComInterface>::IID
     }
 }
 pub trait ITransformProvider2_Impl: Sized + ITransformProvider_Impl {
@@ -3157,8 +3157,8 @@ impl ITransformProvider2_Vtbl {
             ZoomByUnit: ZoomByUnit::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <ITransformProvider2 as ::windows_core::ComInterface>::IID || *iid == <ITransformProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ITransformProvider2 as ::windows_core::ComInterface>::IID || iid == &<ITransformProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -3805,8 +3805,8 @@ impl IUIAutomation_Vtbl {
             ElementFromIAccessibleBuildCache: ElementFromIAccessibleBuildCache::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomation as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomation as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -3882,8 +3882,8 @@ impl IUIAutomation2_Vtbl {
             SetTransactionTimeout: SetTransactionTimeout::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomation2 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomation as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomation2 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomation as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -3913,8 +3913,8 @@ impl IUIAutomation3_Vtbl {
             RemoveTextEditTextChangedEventHandler: RemoveTextEditTextChangedEventHandler::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomation3 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomation as ::windows_core::ComInterface>::IID || *iid == <IUIAutomation2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomation3 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomation as ::windows_core::ComInterface>::IID || iid == &<IUIAutomation2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -3944,8 +3944,8 @@ impl IUIAutomation4_Vtbl {
             RemoveChangesEventHandler: RemoveChangesEventHandler::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomation4 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomation as ::windows_core::ComInterface>::IID || *iid == <IUIAutomation2 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomation3 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomation4 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomation as ::windows_core::ComInterface>::IID || iid == &<IUIAutomation2 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomation3 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -3975,8 +3975,8 @@ impl IUIAutomation5_Vtbl {
             RemoveNotificationEventHandler: RemoveNotificationEventHandler::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomation5 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomation as ::windows_core::ComInterface>::IID || *iid == <IUIAutomation2 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomation3 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomation4 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomation5 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomation as ::windows_core::ComInterface>::IID || iid == &<IUIAutomation2 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomation3 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomation4 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -4073,8 +4073,8 @@ impl IUIAutomation6_Vtbl {
             RemoveActiveTextPositionChangedEventHandler: RemoveActiveTextPositionChangedEventHandler::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomation6 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomation as ::windows_core::ComInterface>::IID || *iid == <IUIAutomation2 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomation3 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomation4 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomation5 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomation6 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomation as ::windows_core::ComInterface>::IID || iid == &<IUIAutomation2 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomation3 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomation4 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomation5 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAutomationActiveTextPositionChangedEventHandler_Impl: Sized {
@@ -4093,8 +4093,8 @@ impl IUIAutomationActiveTextPositionChangedEventHandler_Vtbl {
             HandleActiveTextPositionChangedEvent: HandleActiveTextPositionChangedEvent::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationActiveTextPositionChangedEventHandler as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationActiveTextPositionChangedEventHandler as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -4143,8 +4143,8 @@ impl IUIAutomationAndCondition_Vtbl {
             GetChildren: GetChildren::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationAndCondition as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationCondition as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationAndCondition as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationCondition as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAutomationAnnotationPattern_Impl: Sized {
@@ -4286,8 +4286,8 @@ impl IUIAutomationAnnotationPattern_Vtbl {
             CachedTarget: CachedTarget::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationAnnotationPattern as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationAnnotationPattern as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAutomationBoolCondition_Impl: Sized + IUIAutomationCondition_Impl {
@@ -4309,8 +4309,8 @@ impl IUIAutomationBoolCondition_Vtbl {
         }
         Self { base__: IUIAutomationCondition_Vtbl::new::<Identity, Impl, OFFSET>(), BooleanValue: BooleanValue::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationBoolCondition as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationCondition as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationBoolCondition as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationCondition as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAutomationCacheRequest_Impl: Sized {
@@ -4409,8 +4409,8 @@ impl IUIAutomationCacheRequest_Vtbl {
             SetAutomationElementMode: SetAutomationElementMode::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationCacheRequest as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationCacheRequest as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -4430,8 +4430,8 @@ impl IUIAutomationChangesEventHandler_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), HandleChangesEvent: HandleChangesEvent::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationChangesEventHandler as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationChangesEventHandler as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAutomationCondition_Impl: Sized {}
@@ -4440,8 +4440,8 @@ impl IUIAutomationCondition_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationCondition_Impl, const OFFSET: isize>() -> IUIAutomationCondition_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>() }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationCondition as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationCondition as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAutomationCustomNavigationPattern_Impl: Sized {
@@ -4463,8 +4463,8 @@ impl IUIAutomationCustomNavigationPattern_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Navigate: Navigate::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationCustomNavigationPattern as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationCustomNavigationPattern as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAutomationDockPattern_Impl: Sized {
@@ -4509,8 +4509,8 @@ impl IUIAutomationDockPattern_Vtbl {
             CachedDockPosition: CachedDockPosition::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationDockPattern as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationDockPattern as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -4630,8 +4630,8 @@ impl IUIAutomationDragPattern_Vtbl {
             GetCachedGrabbedItems: GetCachedGrabbedItems::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationDragPattern as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationDragPattern as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -4699,8 +4699,8 @@ impl IUIAutomationDropTargetPattern_Vtbl {
             CachedDropTargetEffects: CachedDropTargetEffects::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationDropTargetPattern as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationDropTargetPattern as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -5758,8 +5758,8 @@ impl IUIAutomationElement_Vtbl {
             GetClickablePoint: GetClickablePoint::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationElement as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationElement as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -5853,8 +5853,8 @@ impl IUIAutomationElement2_Vtbl {
             CachedFlowsFrom: CachedFlowsFrom::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationElement2 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationElement2 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -5903,8 +5903,8 @@ impl IUIAutomationElement3_Vtbl {
             CachedIsPeripheral: CachedIsPeripheral::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationElement3 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationElement3 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -6050,8 +6050,8 @@ impl IUIAutomationElement4_Vtbl {
             CachedAnnotationObjects: CachedAnnotationObjects::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationElement4 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement2 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement3 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationElement4 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement2 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement3 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -6119,8 +6119,8 @@ impl IUIAutomationElement5_Vtbl {
             CachedLocalizedLandmarkType: CachedLocalizedLandmarkType::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationElement5 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement2 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement3 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement4 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationElement5 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement2 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement3 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement4 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -6162,8 +6162,8 @@ impl IUIAutomationElement6_Vtbl {
             CachedFullDescription: CachedFullDescription::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationElement6 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement2 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement3 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement4 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement5 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationElement6 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement2 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement3 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement4 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement5 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -6244,8 +6244,8 @@ impl IUIAutomationElement7_Vtbl {
             GetCurrentMetadataValue: GetCurrentMetadataValue::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationElement7 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement2 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement3 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement4 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement5 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement6 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationElement7 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement2 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement3 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement4 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement5 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement6 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -6287,8 +6287,8 @@ impl IUIAutomationElement8_Vtbl {
             CachedHeadingLevel: CachedHeadingLevel::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationElement8 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement2 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement3 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement4 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement5 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement6 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement7 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationElement8 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement2 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement3 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement4 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement5 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement6 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement7 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -6330,8 +6330,8 @@ impl IUIAutomationElement9_Vtbl {
             CachedIsDialog: CachedIsDialog::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationElement9 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement2 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement3 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement4 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement5 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement6 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement7 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement8 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationElement9 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement2 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement3 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement4 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement5 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement6 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement7 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement8 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAutomationElementArray_Impl: Sized {
@@ -6369,8 +6369,8 @@ impl IUIAutomationElementArray_Vtbl {
             GetElement: GetElement::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationElementArray as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationElementArray as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAutomationEventHandler_Impl: Sized {
@@ -6386,8 +6386,8 @@ impl IUIAutomationEventHandler_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), HandleAutomationEvent: HandleAutomationEvent::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationEventHandler as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationEventHandler as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAutomationEventHandlerGroup_Impl: Sized {
@@ -6448,8 +6448,8 @@ impl IUIAutomationEventHandlerGroup_Vtbl {
             AddTextEditTextChangedEventHandler: AddTextEditTextChangedEventHandler::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationEventHandlerGroup as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationEventHandlerGroup as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAutomationExpandCollapsePattern_Impl: Sized {
@@ -6501,8 +6501,8 @@ impl IUIAutomationExpandCollapsePattern_Vtbl {
             CachedExpandCollapseState: CachedExpandCollapseState::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationExpandCollapsePattern as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationExpandCollapsePattern as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAutomationFocusChangedEventHandler_Impl: Sized {
@@ -6518,8 +6518,8 @@ impl IUIAutomationFocusChangedEventHandler_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), HandleFocusChangedEvent: HandleFocusChangedEvent::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationFocusChangedEventHandler as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationFocusChangedEventHandler as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAutomationGridItemPattern_Impl: Sized {
@@ -6661,8 +6661,8 @@ impl IUIAutomationGridItemPattern_Vtbl {
             CachedColumnSpan: CachedColumnSpan::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationGridItemPattern as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationGridItemPattern as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAutomationGridPattern_Impl: Sized {
@@ -6739,8 +6739,8 @@ impl IUIAutomationGridPattern_Vtbl {
             CachedColumnCount: CachedColumnCount::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationGridPattern as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationGridPattern as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAutomationInvokePattern_Impl: Sized {
@@ -6756,8 +6756,8 @@ impl IUIAutomationInvokePattern_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Invoke: Invoke::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationInvokePattern as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationInvokePattern as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -6783,8 +6783,8 @@ impl IUIAutomationItemContainerPattern_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), FindItemByProperty: FindItemByProperty::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationItemContainerPattern as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationItemContainerPattern as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -7094,8 +7094,8 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
             GetIAccessible: GetIAccessible::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationLegacyIAccessiblePattern as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationLegacyIAccessiblePattern as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -7183,8 +7183,8 @@ impl IUIAutomationMultipleViewPattern_Vtbl {
             GetCachedSupportedViews: GetCachedSupportedViews::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationMultipleViewPattern as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationMultipleViewPattern as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAutomationNotCondition_Impl: Sized + IUIAutomationCondition_Impl {
@@ -7206,8 +7206,8 @@ impl IUIAutomationNotCondition_Vtbl {
         }
         Self { base__: IUIAutomationCondition_Vtbl::new::<Identity, Impl, OFFSET>(), GetChild: GetChild::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationNotCondition as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationCondition as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationNotCondition as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationCondition as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAutomationNotificationEventHandler_Impl: Sized {
@@ -7223,8 +7223,8 @@ impl IUIAutomationNotificationEventHandler_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), HandleNotificationEvent: HandleNotificationEvent::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationNotificationEventHandler as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationNotificationEventHandler as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAutomationObjectModelPattern_Impl: Sized {
@@ -7246,8 +7246,8 @@ impl IUIAutomationObjectModelPattern_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetUnderlyingObjectModel: GetUnderlyingObjectModel::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationObjectModelPattern as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationObjectModelPattern as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -7296,8 +7296,8 @@ impl IUIAutomationOrCondition_Vtbl {
             GetChildren: GetChildren::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationOrCondition as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationCondition as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationOrCondition as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationCondition as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAutomationPatternHandler_Impl: Sized {
@@ -7329,8 +7329,8 @@ impl IUIAutomationPatternHandler_Vtbl {
             Dispatch: Dispatch::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationPatternHandler as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationPatternHandler as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAutomationPatternInstance_Impl: Sized {
@@ -7356,8 +7356,8 @@ impl IUIAutomationPatternInstance_Vtbl {
             CallMethod: CallMethod::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationPatternInstance as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationPatternInstance as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -7380,8 +7380,8 @@ impl IUIAutomationPropertyChangedEventHandler_Vtbl {
             HandlePropertyChangedEvent: HandlePropertyChangedEvent::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationPropertyChangedEventHandler as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationPropertyChangedEventHandler as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -7436,8 +7436,8 @@ impl IUIAutomationPropertyCondition_Vtbl {
             PropertyConditionFlags: PropertyConditionFlags::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationPropertyCondition as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationCondition as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationPropertyCondition as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationCondition as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAutomationProxyFactory_Impl: Sized {
@@ -7475,8 +7475,8 @@ impl IUIAutomationProxyFactory_Vtbl {
             ProxyFactoryId: ProxyFactoryId::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationProxyFactory as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationProxyFactory as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -7625,8 +7625,8 @@ impl IUIAutomationProxyFactoryEntry_Vtbl {
             GetWinEventsForAutomationEvent: GetWinEventsForAutomationEvent::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationProxyFactoryEntry as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationProxyFactoryEntry as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -7723,8 +7723,8 @@ impl IUIAutomationProxyFactoryMapping_Vtbl {
             RestoreDefaultTable: RestoreDefaultTable::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationProxyFactoryMapping as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationProxyFactoryMapping as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAutomationRangeValuePattern_Impl: Sized {
@@ -7899,8 +7899,8 @@ impl IUIAutomationRangeValuePattern_Vtbl {
             CachedSmallChange: CachedSmallChange::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationRangeValuePattern as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationRangeValuePattern as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAutomationRegistrar_Impl: Sized {
@@ -7945,8 +7945,8 @@ impl IUIAutomationRegistrar_Vtbl {
             RegisterPattern: RegisterPattern::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationRegistrar as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationRegistrar as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAutomationScrollItemPattern_Impl: Sized {
@@ -7962,8 +7962,8 @@ impl IUIAutomationScrollItemPattern_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ScrollIntoView: ScrollIntoView::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationScrollItemPattern as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationScrollItemPattern as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAutomationScrollPattern_Impl: Sized {
@@ -8145,8 +8145,8 @@ impl IUIAutomationScrollPattern_Vtbl {
             CachedVerticallyScrollable: CachedVerticallyScrollable::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationScrollPattern as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationScrollPattern as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAutomationSelectionItemPattern_Impl: Sized {
@@ -8231,8 +8231,8 @@ impl IUIAutomationSelectionItemPattern_Vtbl {
             CachedSelectionContainer: CachedSelectionContainer::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationSelectionItemPattern as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationSelectionItemPattern as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAutomationSelectionPattern_Impl: Sized {
@@ -8322,8 +8322,8 @@ impl IUIAutomationSelectionPattern_Vtbl {
             CachedIsSelectionRequired: CachedIsSelectionRequired::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationSelectionPattern as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationSelectionPattern as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAutomationSelectionPattern2_Impl: Sized + IUIAutomationSelectionPattern_Impl {
@@ -8439,8 +8439,8 @@ impl IUIAutomationSelectionPattern2_Vtbl {
             CachedItemCount: CachedItemCount::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationSelectionPattern2 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationSelectionPattern as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationSelectionPattern2 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationSelectionPattern as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -8534,8 +8534,8 @@ impl IUIAutomationSpreadsheetItemPattern_Vtbl {
             GetCachedAnnotationTypes: GetCachedAnnotationTypes::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationSpreadsheetItemPattern as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationSpreadsheetItemPattern as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAutomationSpreadsheetPattern_Impl: Sized {
@@ -8557,8 +8557,8 @@ impl IUIAutomationSpreadsheetPattern_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetItemByName: GetItemByName::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationSpreadsheetPattern as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationSpreadsheetPattern as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -8581,8 +8581,8 @@ impl IUIAutomationStructureChangedEventHandler_Vtbl {
             HandleStructureChangedEvent: HandleStructureChangedEvent::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationStructureChangedEventHandler as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationStructureChangedEventHandler as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAutomationStylesPattern_Impl: Sized {
@@ -8790,8 +8790,8 @@ impl IUIAutomationStylesPattern_Vtbl {
             GetCachedExtendedPropertiesAsArray: GetCachedExtendedPropertiesAsArray::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationStylesPattern as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationStylesPattern as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAutomationSynchronizedInputPattern_Impl: Sized {
@@ -8817,8 +8817,8 @@ impl IUIAutomationSynchronizedInputPattern_Vtbl {
             Cancel: Cancel::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationSynchronizedInputPattern as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationSynchronizedInputPattern as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAutomationTableItemPattern_Impl: Sized {
@@ -8882,8 +8882,8 @@ impl IUIAutomationTableItemPattern_Vtbl {
             GetCachedColumnHeaderItems: GetCachedColumnHeaderItems::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationTableItemPattern as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationTableItemPattern as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAutomationTablePattern_Impl: Sized {
@@ -8973,8 +8973,8 @@ impl IUIAutomationTablePattern_Vtbl {
             CachedRowOrColumnMajor: CachedRowOrColumnMajor::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationTablePattern as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationTablePattern as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAutomationTextChildPattern_Impl: Sized {
@@ -9012,8 +9012,8 @@ impl IUIAutomationTextChildPattern_Vtbl {
             TextRange: TextRange::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationTextChildPattern as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationTextChildPattern as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAutomationTextEditPattern_Impl: Sized + IUIAutomationTextPattern_Impl {
@@ -9051,8 +9051,8 @@ impl IUIAutomationTextEditPattern_Vtbl {
             GetConversionTarget: GetConversionTarget::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationTextEditPattern as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationTextPattern as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationTextEditPattern as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationTextPattern as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -9075,8 +9075,8 @@ impl IUIAutomationTextEditTextChangedEventHandler_Vtbl {
             HandleTextEditTextChangedEvent: HandleTextEditTextChangedEvent::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationTextEditTextChangedEventHandler as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationTextEditTextChangedEventHandler as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAutomationTextPattern_Impl: Sized {
@@ -9166,8 +9166,8 @@ impl IUIAutomationTextPattern_Vtbl {
             SupportedTextSelection: SupportedTextSelection::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationTextPattern as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationTextPattern as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAutomationTextPattern2_Impl: Sized + IUIAutomationTextPattern_Impl {
@@ -9199,8 +9199,8 @@ impl IUIAutomationTextPattern2_Vtbl {
             GetCaretRange: GetCaretRange::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationTextPattern2 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationTextPattern as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationTextPattern2 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationTextPattern as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -9414,8 +9414,8 @@ impl IUIAutomationTextRange_Vtbl {
             GetChildren: GetChildren::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationTextRange as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationTextRange as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -9435,8 +9435,8 @@ impl IUIAutomationTextRange2_Vtbl {
         }
         Self { base__: IUIAutomationTextRange_Vtbl::new::<Identity, Impl, OFFSET>(), ShowContextMenu: ShowContextMenu::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationTextRange2 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationTextRange as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationTextRange2 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationTextRange as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -9491,8 +9491,8 @@ impl IUIAutomationTextRange3_Vtbl {
             GetAttributeValues: GetAttributeValues::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationTextRange3 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationTextRange as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationTextRange2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationTextRange3 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationTextRange as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationTextRange2 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAutomationTextRangeArray_Impl: Sized {
@@ -9530,8 +9530,8 @@ impl IUIAutomationTextRangeArray_Vtbl {
             GetElement: GetElement::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationTextRangeArray as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationTextRangeArray as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAutomationTogglePattern_Impl: Sized {
@@ -9576,8 +9576,8 @@ impl IUIAutomationTogglePattern_Vtbl {
             CachedToggleState: CachedToggleState::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationTogglePattern as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationTogglePattern as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAutomationTransformPattern_Impl: Sized {
@@ -9688,8 +9688,8 @@ impl IUIAutomationTransformPattern_Vtbl {
             CachedCanRotate: CachedCanRotate::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationTransformPattern as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationTransformPattern as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAutomationTransformPattern2_Impl: Sized + IUIAutomationTransformPattern_Impl {
@@ -9819,8 +9819,8 @@ impl IUIAutomationTransformPattern2_Vtbl {
             CachedZoomMaximum: CachedZoomMaximum::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationTransformPattern2 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationTransformPattern as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationTransformPattern2 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationTransformPattern as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAutomationTreeWalker_Impl: Sized {
@@ -10001,8 +10001,8 @@ impl IUIAutomationTreeWalker_Vtbl {
             Condition: Condition::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationTreeWalker as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationTreeWalker as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAutomationValuePattern_Impl: Sized {
@@ -10073,8 +10073,8 @@ impl IUIAutomationValuePattern_Vtbl {
             CachedIsReadOnly: CachedIsReadOnly::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationValuePattern as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationValuePattern as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAutomationVirtualizedItemPattern_Impl: Sized {
@@ -10090,8 +10090,8 @@ impl IUIAutomationVirtualizedItemPattern_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Realize: Realize::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationVirtualizedItemPattern as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationVirtualizedItemPattern as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IUIAutomationWindowPattern_Impl: Sized {
@@ -10286,8 +10286,8 @@ impl IUIAutomationWindowPattern_Vtbl {
             CachedWindowInteractionState: CachedWindowInteractionState::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IUIAutomationWindowPattern as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IUIAutomationWindowPattern as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IValueProvider_Impl: Sized {
@@ -10332,8 +10332,8 @@ impl IValueProvider_Vtbl {
             IsReadOnly: IsReadOnly::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IValueProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IValueProvider as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IVirtualizedItemProvider_Impl: Sized {
@@ -10349,8 +10349,8 @@ impl IVirtualizedItemProvider_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Realize: Realize::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IVirtualizedItemProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IVirtualizedItemProvider as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IWindowProvider_Impl: Sized {
@@ -10467,7 +10467,7 @@ impl IWindowProvider_Vtbl {
             IsTopmost: IsTopmost::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IWindowProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IWindowProvider as ::windows_core::ComInterface>::IID
     }
 }

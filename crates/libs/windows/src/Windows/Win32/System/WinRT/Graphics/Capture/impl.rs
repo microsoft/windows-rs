@@ -25,7 +25,7 @@ impl IGraphicsCaptureItemInterop_Vtbl {
             CreateForMonitor: CreateForMonitor::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IGraphicsCaptureItemInterop as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IGraphicsCaptureItemInterop as ::windows_core::ComInterface>::IID
     }
 }

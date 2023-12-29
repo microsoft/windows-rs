@@ -48,7 +48,7 @@ impl IGeoshape_Vtbl {
             AltitudeReferenceSystem: AltitudeReferenceSystem::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IGeoshape as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IGeoshape as ::windows_core::ComInterface>::IID
     }
 }

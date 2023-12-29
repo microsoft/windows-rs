@@ -60,8 +60,8 @@ impl IDCompositionAffineTransform2DEffect_Vtbl {
             SetSharpness2: SetSharpness2::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDCompositionAffineTransform2DEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionFilterEffect as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDCompositionAffineTransform2DEffect as ::windows_core::ComInterface>::IID || iid == &<IDCompositionEffect as ::windows_core::ComInterface>::IID || iid == &<IDCompositionFilterEffect as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDCompositionAnimation_Impl: Sized {
@@ -115,8 +115,8 @@ impl IDCompositionAnimation_Vtbl {
             End: End::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDCompositionAnimation as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDCompositionAnimation as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct2D_Common\"`"]
@@ -202,8 +202,8 @@ impl IDCompositionArithmeticCompositeEffect_Vtbl {
             SetCoefficient42: SetCoefficient42::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDCompositionArithmeticCompositeEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionFilterEffect as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDCompositionArithmeticCompositeEffect as ::windows_core::ComInterface>::IID || iid == &<IDCompositionEffect as ::windows_core::ComInterface>::IID || iid == &<IDCompositionFilterEffect as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct2D_Common\"`"]
@@ -223,8 +223,8 @@ impl IDCompositionBlendEffect_Vtbl {
         }
         Self { base__: IDCompositionFilterEffect_Vtbl::new::<Identity, Impl, OFFSET>(), SetMode: SetMode::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDCompositionBlendEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionFilterEffect as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDCompositionBlendEffect as ::windows_core::ComInterface>::IID || iid == &<IDCompositionEffect as ::windows_core::ComInterface>::IID || iid == &<IDCompositionFilterEffect as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct2D_Common\"`"]
@@ -310,8 +310,8 @@ impl IDCompositionBrightnessEffect_Vtbl {
             SetBlackPointY2: SetBlackPointY2::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDCompositionBrightnessEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionFilterEffect as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDCompositionBrightnessEffect as ::windows_core::ComInterface>::IID || iid == &<IDCompositionEffect as ::windows_core::ComInterface>::IID || iid == &<IDCompositionFilterEffect as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDCompositionClip_Impl: Sized {}
@@ -320,8 +320,8 @@ impl IDCompositionClip_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionClip_Impl, const OFFSET: isize>() -> IDCompositionClip_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>() }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDCompositionClip as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDCompositionClip as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct2D_Common\"`"]
@@ -372,8 +372,8 @@ impl IDCompositionColorMatrixEffect_Vtbl {
             SetClampOutput: SetClampOutput::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDCompositionColorMatrixEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionFilterEffect as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDCompositionColorMatrixEffect as ::windows_core::ComInterface>::IID || iid == &<IDCompositionEffect as ::windows_core::ComInterface>::IID || iid == &<IDCompositionFilterEffect as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct2D_Common\"`"]
@@ -393,8 +393,8 @@ impl IDCompositionCompositeEffect_Vtbl {
         }
         Self { base__: IDCompositionFilterEffect_Vtbl::new::<Identity, Impl, OFFSET>(), SetMode: SetMode::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDCompositionCompositeEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionFilterEffect as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDCompositionCompositeEffect as ::windows_core::ComInterface>::IID || iid == &<IDCompositionEffect as ::windows_core::ComInterface>::IID || iid == &<IDCompositionFilterEffect as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct2D_Common\"`"]
@@ -450,8 +450,8 @@ impl IDCompositionDelegatedInkTrail_Vtbl {
             StartNewTrail: StartNewTrail::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDCompositionDelegatedInkTrail as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDCompositionDelegatedInkTrail as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
@@ -506,8 +506,8 @@ impl IDCompositionDesktopDevice_Vtbl {
             CreateSurfaceFromHwnd: CreateSurfaceFromHwnd::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDCompositionDesktopDevice as ::windows_core::ComInterface>::IID || *iid == <IDCompositionDevice2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDCompositionDesktopDevice as ::windows_core::ComInterface>::IID || iid == &<IDCompositionDevice2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
@@ -817,8 +817,8 @@ impl IDCompositionDevice_Vtbl {
             CheckDeviceState: CheckDeviceState::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDCompositionDevice as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDCompositionDevice as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
@@ -1089,8 +1089,8 @@ impl IDCompositionDevice2_Vtbl {
             CreateAnimation: CreateAnimation::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDCompositionDevice2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDCompositionDevice2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
@@ -1275,8 +1275,8 @@ impl IDCompositionDevice3_Vtbl {
             CreateAffineTransform2DEffect: CreateAffineTransform2DEffect::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDCompositionDevice3 as ::windows_core::ComInterface>::IID || *iid == <IDCompositionDevice2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDCompositionDevice3 as ::windows_core::ComInterface>::IID || iid == &<IDCompositionDevice2 as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDCompositionDeviceDebug_Impl: Sized {
@@ -1302,8 +1302,8 @@ impl IDCompositionDeviceDebug_Vtbl {
             DisableDebugCounters: DisableDebugCounters::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDCompositionDeviceDebug as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDCompositionDeviceDebug as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDCompositionEffect_Impl: Sized {}
@@ -1312,8 +1312,8 @@ impl IDCompositionEffect_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionEffect_Impl, const OFFSET: isize>() -> IDCompositionEffect_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>() }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDCompositionEffect as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDCompositionEffect as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDCompositionEffectGroup_Impl: Sized + IDCompositionEffect_Impl {
@@ -1346,8 +1346,8 @@ impl IDCompositionEffectGroup_Vtbl {
             SetTransform3D: SetTransform3D::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDCompositionEffectGroup as ::windows_core::ComInterface>::IID || *iid == <IDCompositionEffect as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDCompositionEffectGroup as ::windows_core::ComInterface>::IID || iid == &<IDCompositionEffect as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDCompositionFilterEffect_Impl: Sized + IDCompositionEffect_Impl {
@@ -1363,8 +1363,8 @@ impl IDCompositionFilterEffect_Vtbl {
         }
         Self { base__: IDCompositionEffect_Vtbl::new::<Identity, Impl, OFFSET>(), SetInput: SetInput::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDCompositionFilterEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionEffect as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDCompositionFilterEffect as ::windows_core::ComInterface>::IID || iid == &<IDCompositionEffect as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct2D_Common\"`"]
@@ -1401,8 +1401,8 @@ impl IDCompositionGaussianBlurEffect_Vtbl {
             SetBorderMode: SetBorderMode::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDCompositionGaussianBlurEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionFilterEffect as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDCompositionGaussianBlurEffect as ::windows_core::ComInterface>::IID || iid == &<IDCompositionEffect as ::windows_core::ComInterface>::IID || iid == &<IDCompositionFilterEffect as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDCompositionHueRotationEffect_Impl: Sized + IDCompositionFilterEffect_Impl {
@@ -1428,8 +1428,8 @@ impl IDCompositionHueRotationEffect_Vtbl {
             SetAngle2: SetAngle2::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDCompositionHueRotationEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionFilterEffect as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDCompositionHueRotationEffect as ::windows_core::ComInterface>::IID || iid == &<IDCompositionEffect as ::windows_core::ComInterface>::IID || iid == &<IDCompositionFilterEffect as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDCompositionInkTrailDevice_Impl: Sized {
@@ -1467,8 +1467,8 @@ impl IDCompositionInkTrailDevice_Vtbl {
             CreateDelegatedInkTrailForSwapChain: CreateDelegatedInkTrailForSwapChain::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDCompositionInkTrailDevice as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDCompositionInkTrailDevice as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDCompositionLinearTransferEffect_Impl: Sized + IDCompositionFilterEffect_Impl {
@@ -1627,8 +1627,8 @@ impl IDCompositionLinearTransferEffect_Vtbl {
             SetClampOutput: SetClampOutput::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDCompositionLinearTransferEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionFilterEffect as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDCompositionLinearTransferEffect as ::windows_core::ComInterface>::IID || iid == &<IDCompositionEffect as ::windows_core::ComInterface>::IID || iid == &<IDCompositionFilterEffect as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Foundation_Numerics\"`"]
@@ -1665,8 +1665,8 @@ impl IDCompositionMatrixTransform_Vtbl {
             SetMatrixElement2: SetMatrixElement2::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDCompositionMatrixTransform as ::windows_core::ComInterface>::IID || *iid == <IDCompositionEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionTransform3D as ::windows_core::ComInterface>::IID || *iid == <IDCompositionTransform as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDCompositionMatrixTransform as ::windows_core::ComInterface>::IID || iid == &<IDCompositionEffect as ::windows_core::ComInterface>::IID || iid == &<IDCompositionTransform3D as ::windows_core::ComInterface>::IID || iid == &<IDCompositionTransform as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Foundation_Numerics\"`"]
@@ -1703,8 +1703,8 @@ impl IDCompositionMatrixTransform3D_Vtbl {
             SetMatrixElement2: SetMatrixElement2::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDCompositionMatrixTransform3D as ::windows_core::ComInterface>::IID || *iid == <IDCompositionEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionTransform3D as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDCompositionMatrixTransform3D as ::windows_core::ComInterface>::IID || iid == &<IDCompositionEffect as ::windows_core::ComInterface>::IID || iid == &<IDCompositionTransform3D as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDCompositionRectangleClip_Impl: Sized + IDCompositionClip_Impl {
@@ -1884,8 +1884,8 @@ impl IDCompositionRectangleClip_Vtbl {
             SetBottomRightRadiusY2: SetBottomRightRadiusY2::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDCompositionRectangleClip as ::windows_core::ComInterface>::IID || *iid == <IDCompositionClip as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDCompositionRectangleClip as ::windows_core::ComInterface>::IID || iid == &<IDCompositionClip as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDCompositionRotateTransform_Impl: Sized + IDCompositionTransform_Impl {
@@ -1939,8 +1939,8 @@ impl IDCompositionRotateTransform_Vtbl {
             SetCenterY2: SetCenterY2::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDCompositionRotateTransform as ::windows_core::ComInterface>::IID || *iid == <IDCompositionEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionTransform3D as ::windows_core::ComInterface>::IID || *iid == <IDCompositionTransform as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDCompositionRotateTransform as ::windows_core::ComInterface>::IID || iid == &<IDCompositionEffect as ::windows_core::ComInterface>::IID || iid == &<IDCompositionTransform3D as ::windows_core::ComInterface>::IID || iid == &<IDCompositionTransform as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDCompositionRotateTransform3D_Impl: Sized + IDCompositionTransform3D_Impl {
@@ -2050,8 +2050,8 @@ impl IDCompositionRotateTransform3D_Vtbl {
             SetCenterZ2: SetCenterZ2::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDCompositionRotateTransform3D as ::windows_core::ComInterface>::IID || *iid == <IDCompositionEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionTransform3D as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDCompositionRotateTransform3D as ::windows_core::ComInterface>::IID || iid == &<IDCompositionEffect as ::windows_core::ComInterface>::IID || iid == &<IDCompositionTransform3D as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDCompositionSaturationEffect_Impl: Sized + IDCompositionFilterEffect_Impl {
@@ -2077,8 +2077,8 @@ impl IDCompositionSaturationEffect_Vtbl {
             SetSaturation2: SetSaturation2::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDCompositionSaturationEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionFilterEffect as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDCompositionSaturationEffect as ::windows_core::ComInterface>::IID || iid == &<IDCompositionEffect as ::windows_core::ComInterface>::IID || iid == &<IDCompositionFilterEffect as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDCompositionScaleTransform_Impl: Sized + IDCompositionTransform_Impl {
@@ -2146,8 +2146,8 @@ impl IDCompositionScaleTransform_Vtbl {
             SetCenterY2: SetCenterY2::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDCompositionScaleTransform as ::windows_core::ComInterface>::IID || *iid == <IDCompositionEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionTransform3D as ::windows_core::ComInterface>::IID || *iid == <IDCompositionTransform as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDCompositionScaleTransform as ::windows_core::ComInterface>::IID || iid == &<IDCompositionEffect as ::windows_core::ComInterface>::IID || iid == &<IDCompositionTransform3D as ::windows_core::ComInterface>::IID || iid == &<IDCompositionTransform as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDCompositionScaleTransform3D_Impl: Sized + IDCompositionTransform3D_Impl {
@@ -2243,8 +2243,8 @@ impl IDCompositionScaleTransform3D_Vtbl {
             SetCenterZ2: SetCenterZ2::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDCompositionScaleTransform3D as ::windows_core::ComInterface>::IID || *iid == <IDCompositionEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionTransform3D as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDCompositionScaleTransform3D as ::windows_core::ComInterface>::IID || iid == &<IDCompositionEffect as ::windows_core::ComInterface>::IID || iid == &<IDCompositionTransform3D as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct2D_Common\"`"]
@@ -2337,8 +2337,8 @@ impl IDCompositionShadowEffect_Vtbl {
             SetAlpha2: SetAlpha2::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDCompositionShadowEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionFilterEffect as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDCompositionShadowEffect as ::windows_core::ComInterface>::IID || iid == &<IDCompositionEffect as ::windows_core::ComInterface>::IID || iid == &<IDCompositionFilterEffect as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDCompositionSkewTransform_Impl: Sized + IDCompositionTransform_Impl {
@@ -2406,8 +2406,8 @@ impl IDCompositionSkewTransform_Vtbl {
             SetCenterY2: SetCenterY2::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDCompositionSkewTransform as ::windows_core::ComInterface>::IID || *iid == <IDCompositionEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionTransform3D as ::windows_core::ComInterface>::IID || *iid == <IDCompositionTransform as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDCompositionSkewTransform as ::windows_core::ComInterface>::IID || iid == &<IDCompositionEffect as ::windows_core::ComInterface>::IID || iid == &<IDCompositionTransform3D as ::windows_core::ComInterface>::IID || iid == &<IDCompositionTransform as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDCompositionSurface_Impl: Sized {
@@ -2454,8 +2454,8 @@ impl IDCompositionSurface_Vtbl {
             Scroll: Scroll::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDCompositionSurface as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDCompositionSurface as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
@@ -2497,8 +2497,8 @@ impl IDCompositionSurfaceFactory_Vtbl {
             CreateVirtualSurface: CreateVirtualSurface::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDCompositionSurfaceFactory as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDCompositionSurfaceFactory as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDCompositionTableTransferEffect_Impl: Sized + IDCompositionFilterEffect_Impl {
@@ -2629,8 +2629,8 @@ impl IDCompositionTableTransferEffect_Vtbl {
             SetAlphaTableValue2: SetAlphaTableValue2::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDCompositionTableTransferEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionFilterEffect as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDCompositionTableTransferEffect as ::windows_core::ComInterface>::IID || iid == &<IDCompositionEffect as ::windows_core::ComInterface>::IID || iid == &<IDCompositionFilterEffect as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDCompositionTarget_Impl: Sized {
@@ -2646,8 +2646,8 @@ impl IDCompositionTarget_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetRoot: SetRoot::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDCompositionTarget as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDCompositionTarget as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDCompositionTransform_Impl: Sized + IDCompositionTransform3D_Impl {}
@@ -2656,8 +2656,8 @@ impl IDCompositionTransform_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionTransform_Impl, const OFFSET: isize>() -> IDCompositionTransform_Vtbl {
         Self { base__: IDCompositionTransform3D_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDCompositionTransform as ::windows_core::ComInterface>::IID || *iid == <IDCompositionEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionTransform3D as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDCompositionTransform as ::windows_core::ComInterface>::IID || iid == &<IDCompositionEffect as ::windows_core::ComInterface>::IID || iid == &<IDCompositionTransform3D as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDCompositionTransform3D_Impl: Sized + IDCompositionEffect_Impl {}
@@ -2666,8 +2666,8 @@ impl IDCompositionTransform3D_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionTransform3D_Impl, const OFFSET: isize>() -> IDCompositionTransform3D_Vtbl {
         Self { base__: IDCompositionEffect_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDCompositionTransform3D as ::windows_core::ComInterface>::IID || *iid == <IDCompositionEffect as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDCompositionTransform3D as ::windows_core::ComInterface>::IID || iid == &<IDCompositionEffect as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDCompositionTranslateTransform_Impl: Sized + IDCompositionTransform_Impl {
@@ -2707,8 +2707,8 @@ impl IDCompositionTranslateTransform_Vtbl {
             SetOffsetY2: SetOffsetY2::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDCompositionTranslateTransform as ::windows_core::ComInterface>::IID || *iid == <IDCompositionEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionTransform3D as ::windows_core::ComInterface>::IID || *iid == <IDCompositionTransform as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDCompositionTranslateTransform as ::windows_core::ComInterface>::IID || iid == &<IDCompositionEffect as ::windows_core::ComInterface>::IID || iid == &<IDCompositionTransform3D as ::windows_core::ComInterface>::IID || iid == &<IDCompositionTransform as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDCompositionTranslateTransform3D_Impl: Sized + IDCompositionTransform3D_Impl {
@@ -2762,8 +2762,8 @@ impl IDCompositionTranslateTransform3D_Vtbl {
             SetOffsetZ2: SetOffsetZ2::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDCompositionTranslateTransform3D as ::windows_core::ComInterface>::IID || *iid == <IDCompositionEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionTransform3D as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDCompositionTranslateTransform3D as ::windows_core::ComInterface>::IID || iid == &<IDCompositionEffect as ::windows_core::ComInterface>::IID || iid == &<IDCompositionTransform3D as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct2D_Common\"`"]
@@ -2828,8 +2828,8 @@ impl IDCompositionTurbulenceEffect_Vtbl {
             SetStitchable: SetStitchable::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDCompositionTurbulenceEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionEffect as ::windows_core::ComInterface>::IID || *iid == <IDCompositionFilterEffect as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDCompositionTurbulenceEffect as ::windows_core::ComInterface>::IID || iid == &<IDCompositionEffect as ::windows_core::ComInterface>::IID || iid == &<IDCompositionFilterEffect as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDCompositionVirtualSurface_Impl: Sized + IDCompositionSurface_Impl {
@@ -2855,8 +2855,8 @@ impl IDCompositionVirtualSurface_Vtbl {
             Trim: Trim::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDCompositionVirtualSurface as ::windows_core::ComInterface>::IID || *iid == <IDCompositionSurface as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDCompositionVirtualSurface as ::windows_core::ComInterface>::IID || iid == &<IDCompositionSurface as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Foundation_Numerics\"`, `\"Win32_Graphics_Direct2D_Common\"`"]
@@ -2991,8 +2991,8 @@ impl IDCompositionVisual_Vtbl {
             SetCompositeMode: SetCompositeMode::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDCompositionVisual as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDCompositionVisual as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Foundation_Numerics\"`, `\"Win32_Graphics_Direct2D_Common\"`"]
@@ -3022,8 +3022,8 @@ impl IDCompositionVisual2_Vtbl {
             SetBackFaceVisibility: SetBackFaceVisibility::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDCompositionVisual2 as ::windows_core::ComInterface>::IID || *iid == <IDCompositionVisual as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDCompositionVisual2 as ::windows_core::ComInterface>::IID || iid == &<IDCompositionVisual as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Foundation_Numerics\"`, `\"Win32_Graphics_Direct2D_Common\"`"]
@@ -3095,8 +3095,8 @@ impl IDCompositionVisual3_Vtbl {
             SetVisible: SetVisible::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDCompositionVisual3 as ::windows_core::ComInterface>::IID || *iid == <IDCompositionVisual as ::windows_core::ComInterface>::IID || *iid == <IDCompositionVisual2 as ::windows_core::ComInterface>::IID || *iid == <IDCompositionVisualDebug as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDCompositionVisual3 as ::windows_core::ComInterface>::IID || iid == &<IDCompositionVisual as ::windows_core::ComInterface>::IID || iid == &<IDCompositionVisual2 as ::windows_core::ComInterface>::IID || iid == &<IDCompositionVisualDebug as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Foundation_Numerics\"`, `\"Win32_Graphics_Direct2D_Common\"`"]
@@ -3140,7 +3140,7 @@ impl IDCompositionVisualDebug_Vtbl {
             DisableRedrawRegions: DisableRedrawRegions::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDCompositionVisualDebug as ::windows_core::ComInterface>::IID || *iid == <IDCompositionVisual as ::windows_core::ComInterface>::IID || *iid == <IDCompositionVisual2 as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDCompositionVisualDebug as ::windows_core::ComInterface>::IID || iid == &<IDCompositionVisual as ::windows_core::ComInterface>::IID || iid == &<IDCompositionVisual2 as ::windows_core::ComInterface>::IID
     }
 }

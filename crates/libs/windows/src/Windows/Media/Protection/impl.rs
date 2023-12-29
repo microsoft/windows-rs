@@ -35,7 +35,7 @@ impl IMediaProtectionServiceRequest_Vtbl {
             Type: Type::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IMediaProtectionServiceRequest as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IMediaProtectionServiceRequest as ::windows_core::ComInterface>::IID
     }
 }

@@ -30,8 +30,8 @@ impl IPrintCustomOptionDetails_Vtbl {
             DisplayName: DisplayName::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IPrintCustomOptionDetails as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IPrintCustomOptionDetails as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Foundation_Collections\"`"]
@@ -60,8 +60,8 @@ impl IPrintItemListOptionDetails_Vtbl {
         }
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, IPrintItemListOptionDetails, OFFSET>(), Items: Items::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IPrintItemListOptionDetails as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IPrintItemListOptionDetails as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IPrintNumberOptionDetails_Impl: Sized + IPrintOptionDetails_Impl {
@@ -101,8 +101,8 @@ impl IPrintNumberOptionDetails_Vtbl {
             MaxValue: MaxValue::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IPrintNumberOptionDetails as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IPrintNumberOptionDetails as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IPrintOptionDetails_Impl: Sized {
@@ -211,8 +211,8 @@ impl IPrintOptionDetails_Vtbl {
             TrySetValue: TrySetValue::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IPrintOptionDetails as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IPrintOptionDetails as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IPrintTextOptionDetails_Impl: Sized + IPrintOptionDetails_Impl {
@@ -239,7 +239,7 @@ impl IPrintTextOptionDetails_Vtbl {
             MaxCharacters: MaxCharacters::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IPrintTextOptionDetails as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IPrintTextOptionDetails as ::windows_core::ComInterface>::IID
     }
 }

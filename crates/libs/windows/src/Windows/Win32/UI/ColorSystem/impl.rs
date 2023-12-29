@@ -108,8 +108,8 @@ impl IDeviceModelPlugIn_Vtbl {
             GetNeutralAxis: GetNeutralAxis::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDeviceModelPlugIn as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDeviceModelPlugIn as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IGamutMapModelPlugIn_Impl: Sized {
@@ -135,7 +135,7 @@ impl IGamutMapModelPlugIn_Vtbl {
             SourceToDestinationAppearanceColors: SourceToDestinationAppearanceColors::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IGamutMapModelPlugIn as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IGamutMapModelPlugIn as ::windows_core::ComInterface>::IID
     }
 }

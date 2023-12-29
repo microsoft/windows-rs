@@ -42,8 +42,8 @@ impl IBuffer_Vtbl {
             SetLength: SetLength::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IBuffer as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IBuffer as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IContentTypeProvider_Impl: Sized {
@@ -68,8 +68,8 @@ impl IContentTypeProvider_Vtbl {
         }
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, IContentTypeProvider, OFFSET>(), ContentType: ContentType::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IContentTypeProvider as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IContentTypeProvider as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDataReader_Impl: Sized {
@@ -402,8 +402,8 @@ impl IDataReader_Vtbl {
             DetachStream: DetachStream::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDataReader as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDataReader as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IDataWriter_Impl: Sized {
@@ -664,8 +664,8 @@ impl IDataWriter_Vtbl {
             DetachStream: DetachStream::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IDataWriter as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDataWriter as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IInputStream_Impl: Sized + super::super::Foundation::IClosable_Impl {
@@ -690,8 +690,8 @@ impl IInputStream_Vtbl {
         }
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, IInputStream, OFFSET>(), ReadAsync: ReadAsync::<Identity, Impl, OFFSET> }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IInputStream as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IInputStream as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IInputStreamReference_Impl: Sized {
@@ -719,8 +719,8 @@ impl IInputStreamReference_Vtbl {
             OpenSequentialReadAsync: OpenSequentialReadAsync::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IInputStreamReference as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IInputStreamReference as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IOutputStream_Impl: Sized + super::super::Foundation::IClosable_Impl {
@@ -762,8 +762,8 @@ impl IOutputStream_Vtbl {
             FlushAsync: FlushAsync::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IOutputStream as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IOutputStream as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "Required features: `\"Foundation_Collections\"`"]
@@ -802,8 +802,8 @@ impl IPropertySetSerializer_Vtbl {
             Deserialize: Deserialize::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IPropertySetSerializer as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IPropertySetSerializer as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IRandomAccessStream_Impl: Sized + super::super::Foundation::IClosable_Impl + IInputStream_Impl + IOutputStream_Impl {
@@ -925,8 +925,8 @@ impl IRandomAccessStream_Vtbl {
             CanWrite: CanWrite::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IRandomAccessStream as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IRandomAccessStream as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IRandomAccessStreamReference_Impl: Sized {
@@ -954,8 +954,8 @@ impl IRandomAccessStreamReference_Vtbl {
             OpenReadAsync: OpenReadAsync::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IRandomAccessStreamReference as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IRandomAccessStreamReference as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IRandomAccessStreamWithContentType_Impl: Sized + super::super::Foundation::IClosable_Impl + IContentTypeProvider_Impl + IInputStream_Impl + IOutputStream_Impl + IRandomAccessStream_Impl {}
@@ -966,7 +966,7 @@ impl IRandomAccessStreamWithContentType_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IRandomAccessStreamWithContentType_Impl, const OFFSET: isize>() -> IRandomAccessStreamWithContentType_Vtbl {
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, IRandomAccessStreamWithContentType, OFFSET>() }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IRandomAccessStreamWithContentType as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IRandomAccessStreamWithContentType as ::windows_core::ComInterface>::IID
     }
 }

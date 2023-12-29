@@ -494,8 +494,8 @@ impl IInertiaProcessor_Vtbl {
             CompleteTime: CompleteTime::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IInertiaProcessor as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IInertiaProcessor as ::windows_core::ComInterface>::IID
     }
 }
 pub trait IManipulationProcessor_Impl: Sized {
@@ -708,8 +708,8 @@ impl IManipulationProcessor_Vtbl {
             SetMinimumScaleRotateRadius: SetMinimumScaleRotateRadius::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <IManipulationProcessor as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IManipulationProcessor as ::windows_core::ComInterface>::IID
     }
 }
 pub trait _IManipulationEvents_Impl: Sized {
@@ -756,7 +756,7 @@ impl _IManipulationEvents_Vtbl {
             ManipulationCompleted: ManipulationCompleted::<Identity, Impl, OFFSET>,
         }
     }
-    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
-        *iid == <_IManipulationEvents as ::windows_core::ComInterface>::IID
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<_IManipulationEvents as ::windows_core::ComInterface>::IID
     }
 }
