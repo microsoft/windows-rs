@@ -500,19 +500,8 @@ pub const CF_UPDATE_FLAG_REMOVE_FILE_IDENTITY: CF_UPDATE_FLAGS = CF_UPDATE_FLAGS
 pub const CF_UPDATE_FLAG_REMOVE_PROPERTY: CF_UPDATE_FLAGS = CF_UPDATE_FLAGS(128i32);
 pub const CF_UPDATE_FLAG_VERIFY_IN_SYNC: CF_UPDATE_FLAGS = CF_UPDATE_FLAGS(1i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CF_CALLBACK_CANCEL_FLAGS(pub i32);
-impl ::core::marker::Copy for CF_CALLBACK_CANCEL_FLAGS {}
-impl ::core::clone::Clone for CF_CALLBACK_CANCEL_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CF_CALLBACK_CANCEL_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CF_CALLBACK_CANCEL_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -555,19 +544,8 @@ impl ::core::ops::Not for CF_CALLBACK_CANCEL_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CF_CALLBACK_CLOSE_COMPLETION_FLAGS(pub i32);
-impl ::core::marker::Copy for CF_CALLBACK_CLOSE_COMPLETION_FLAGS {}
-impl ::core::clone::Clone for CF_CALLBACK_CLOSE_COMPLETION_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CF_CALLBACK_CLOSE_COMPLETION_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CF_CALLBACK_CLOSE_COMPLETION_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -610,19 +588,8 @@ impl ::core::ops::Not for CF_CALLBACK_CLOSE_COMPLETION_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS(pub i32);
-impl ::core::marker::Copy for CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS {}
-impl ::core::clone::Clone for CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -665,19 +632,8 @@ impl ::core::ops::Not for CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CF_CALLBACK_DEHYDRATE_FLAGS(pub i32);
-impl ::core::marker::Copy for CF_CALLBACK_DEHYDRATE_FLAGS {}
-impl ::core::clone::Clone for CF_CALLBACK_DEHYDRATE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CF_CALLBACK_DEHYDRATE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CF_CALLBACK_DEHYDRATE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -720,19 +676,8 @@ impl ::core::ops::Not for CF_CALLBACK_DEHYDRATE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CF_CALLBACK_DEHYDRATION_REASON(pub i32);
-impl ::core::marker::Copy for CF_CALLBACK_DEHYDRATION_REASON {}
-impl ::core::clone::Clone for CF_CALLBACK_DEHYDRATION_REASON {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CF_CALLBACK_DEHYDRATION_REASON {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CF_CALLBACK_DEHYDRATION_REASON {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -742,19 +687,8 @@ impl ::core::fmt::Debug for CF_CALLBACK_DEHYDRATION_REASON {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CF_CALLBACK_DELETE_COMPLETION_FLAGS(pub i32);
-impl ::core::marker::Copy for CF_CALLBACK_DELETE_COMPLETION_FLAGS {}
-impl ::core::clone::Clone for CF_CALLBACK_DELETE_COMPLETION_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CF_CALLBACK_DELETE_COMPLETION_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CF_CALLBACK_DELETE_COMPLETION_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -797,19 +731,8 @@ impl ::core::ops::Not for CF_CALLBACK_DELETE_COMPLETION_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CF_CALLBACK_DELETE_FLAGS(pub i32);
-impl ::core::marker::Copy for CF_CALLBACK_DELETE_FLAGS {}
-impl ::core::clone::Clone for CF_CALLBACK_DELETE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CF_CALLBACK_DELETE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CF_CALLBACK_DELETE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -852,19 +775,8 @@ impl ::core::ops::Not for CF_CALLBACK_DELETE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CF_CALLBACK_FETCH_DATA_FLAGS(pub i32);
-impl ::core::marker::Copy for CF_CALLBACK_FETCH_DATA_FLAGS {}
-impl ::core::clone::Clone for CF_CALLBACK_FETCH_DATA_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CF_CALLBACK_FETCH_DATA_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CF_CALLBACK_FETCH_DATA_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -907,19 +819,8 @@ impl ::core::ops::Not for CF_CALLBACK_FETCH_DATA_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS(pub i32);
-impl ::core::marker::Copy for CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS {}
-impl ::core::clone::Clone for CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -962,19 +863,8 @@ impl ::core::ops::Not for CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CF_CALLBACK_OPEN_COMPLETION_FLAGS(pub i32);
-impl ::core::marker::Copy for CF_CALLBACK_OPEN_COMPLETION_FLAGS {}
-impl ::core::clone::Clone for CF_CALLBACK_OPEN_COMPLETION_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CF_CALLBACK_OPEN_COMPLETION_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CF_CALLBACK_OPEN_COMPLETION_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1017,19 +907,8 @@ impl ::core::ops::Not for CF_CALLBACK_OPEN_COMPLETION_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CF_CALLBACK_RENAME_COMPLETION_FLAGS(pub i32);
-impl ::core::marker::Copy for CF_CALLBACK_RENAME_COMPLETION_FLAGS {}
-impl ::core::clone::Clone for CF_CALLBACK_RENAME_COMPLETION_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CF_CALLBACK_RENAME_COMPLETION_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CF_CALLBACK_RENAME_COMPLETION_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1072,19 +951,8 @@ impl ::core::ops::Not for CF_CALLBACK_RENAME_COMPLETION_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CF_CALLBACK_RENAME_FLAGS(pub i32);
-impl ::core::marker::Copy for CF_CALLBACK_RENAME_FLAGS {}
-impl ::core::clone::Clone for CF_CALLBACK_RENAME_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CF_CALLBACK_RENAME_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CF_CALLBACK_RENAME_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1127,19 +995,8 @@ impl ::core::ops::Not for CF_CALLBACK_RENAME_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CF_CALLBACK_TYPE(pub i32);
-impl ::core::marker::Copy for CF_CALLBACK_TYPE {}
-impl ::core::clone::Clone for CF_CALLBACK_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CF_CALLBACK_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CF_CALLBACK_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1149,19 +1006,8 @@ impl ::core::fmt::Debug for CF_CALLBACK_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CF_CALLBACK_VALIDATE_DATA_FLAGS(pub i32);
-impl ::core::marker::Copy for CF_CALLBACK_VALIDATE_DATA_FLAGS {}
-impl ::core::clone::Clone for CF_CALLBACK_VALIDATE_DATA_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CF_CALLBACK_VALIDATE_DATA_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CF_CALLBACK_VALIDATE_DATA_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1204,19 +1050,8 @@ impl ::core::ops::Not for CF_CALLBACK_VALIDATE_DATA_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CF_CONNECT_FLAGS(pub i32);
-impl ::core::marker::Copy for CF_CONNECT_FLAGS {}
-impl ::core::clone::Clone for CF_CONNECT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CF_CONNECT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CF_CONNECT_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1259,19 +1094,8 @@ impl ::core::ops::Not for CF_CONNECT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CF_CONVERT_FLAGS(pub i32);
-impl ::core::marker::Copy for CF_CONVERT_FLAGS {}
-impl ::core::clone::Clone for CF_CONVERT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CF_CONVERT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CF_CONVERT_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1314,19 +1138,8 @@ impl ::core::ops::Not for CF_CONVERT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CF_CREATE_FLAGS(pub i32);
-impl ::core::marker::Copy for CF_CREATE_FLAGS {}
-impl ::core::clone::Clone for CF_CREATE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CF_CREATE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CF_CREATE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1369,19 +1182,8 @@ impl ::core::ops::Not for CF_CREATE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CF_DEHYDRATE_FLAGS(pub i32);
-impl ::core::marker::Copy for CF_DEHYDRATE_FLAGS {}
-impl ::core::clone::Clone for CF_DEHYDRATE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CF_DEHYDRATE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CF_DEHYDRATE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1424,19 +1226,8 @@ impl ::core::ops::Not for CF_DEHYDRATE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CF_HARDLINK_POLICY(pub i32);
-impl ::core::marker::Copy for CF_HARDLINK_POLICY {}
-impl ::core::clone::Clone for CF_HARDLINK_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CF_HARDLINK_POLICY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CF_HARDLINK_POLICY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1479,19 +1270,8 @@ impl ::core::ops::Not for CF_HARDLINK_POLICY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CF_HYDRATE_FLAGS(pub i32);
-impl ::core::marker::Copy for CF_HYDRATE_FLAGS {}
-impl ::core::clone::Clone for CF_HYDRATE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CF_HYDRATE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CF_HYDRATE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1534,19 +1314,8 @@ impl ::core::ops::Not for CF_HYDRATE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CF_HYDRATION_POLICY_MODIFIER(pub u16);
-impl ::core::marker::Copy for CF_HYDRATION_POLICY_MODIFIER {}
-impl ::core::clone::Clone for CF_HYDRATION_POLICY_MODIFIER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CF_HYDRATION_POLICY_MODIFIER {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CF_HYDRATION_POLICY_MODIFIER {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1589,19 +1358,8 @@ impl ::core::ops::Not for CF_HYDRATION_POLICY_MODIFIER {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CF_HYDRATION_POLICY_PRIMARY(pub u16);
-impl ::core::marker::Copy for CF_HYDRATION_POLICY_PRIMARY {}
-impl ::core::clone::Clone for CF_HYDRATION_POLICY_PRIMARY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CF_HYDRATION_POLICY_PRIMARY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CF_HYDRATION_POLICY_PRIMARY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1611,19 +1369,8 @@ impl ::core::fmt::Debug for CF_HYDRATION_POLICY_PRIMARY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CF_INSYNC_POLICY(pub u32);
-impl ::core::marker::Copy for CF_INSYNC_POLICY {}
-impl ::core::clone::Clone for CF_INSYNC_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CF_INSYNC_POLICY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CF_INSYNC_POLICY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1666,19 +1413,8 @@ impl ::core::ops::Not for CF_INSYNC_POLICY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CF_IN_SYNC_STATE(pub i32);
-impl ::core::marker::Copy for CF_IN_SYNC_STATE {}
-impl ::core::clone::Clone for CF_IN_SYNC_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CF_IN_SYNC_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CF_IN_SYNC_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1688,19 +1424,8 @@ impl ::core::fmt::Debug for CF_IN_SYNC_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CF_OPEN_FILE_FLAGS(pub i32);
-impl ::core::marker::Copy for CF_OPEN_FILE_FLAGS {}
-impl ::core::clone::Clone for CF_OPEN_FILE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CF_OPEN_FILE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CF_OPEN_FILE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1743,19 +1468,8 @@ impl ::core::ops::Not for CF_OPEN_FILE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CF_OPERATION_ACK_DATA_FLAGS(pub i32);
-impl ::core::marker::Copy for CF_OPERATION_ACK_DATA_FLAGS {}
-impl ::core::clone::Clone for CF_OPERATION_ACK_DATA_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CF_OPERATION_ACK_DATA_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CF_OPERATION_ACK_DATA_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1798,19 +1512,8 @@ impl ::core::ops::Not for CF_OPERATION_ACK_DATA_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CF_OPERATION_ACK_DEHYDRATE_FLAGS(pub i32);
-impl ::core::marker::Copy for CF_OPERATION_ACK_DEHYDRATE_FLAGS {}
-impl ::core::clone::Clone for CF_OPERATION_ACK_DEHYDRATE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CF_OPERATION_ACK_DEHYDRATE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CF_OPERATION_ACK_DEHYDRATE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1853,19 +1556,8 @@ impl ::core::ops::Not for CF_OPERATION_ACK_DEHYDRATE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CF_OPERATION_ACK_DELETE_FLAGS(pub i32);
-impl ::core::marker::Copy for CF_OPERATION_ACK_DELETE_FLAGS {}
-impl ::core::clone::Clone for CF_OPERATION_ACK_DELETE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CF_OPERATION_ACK_DELETE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CF_OPERATION_ACK_DELETE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1908,19 +1600,8 @@ impl ::core::ops::Not for CF_OPERATION_ACK_DELETE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CF_OPERATION_ACK_RENAME_FLAGS(pub i32);
-impl ::core::marker::Copy for CF_OPERATION_ACK_RENAME_FLAGS {}
-impl ::core::clone::Clone for CF_OPERATION_ACK_RENAME_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CF_OPERATION_ACK_RENAME_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CF_OPERATION_ACK_RENAME_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1963,19 +1644,8 @@ impl ::core::ops::Not for CF_OPERATION_ACK_RENAME_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CF_OPERATION_RESTART_HYDRATION_FLAGS(pub i32);
-impl ::core::marker::Copy for CF_OPERATION_RESTART_HYDRATION_FLAGS {}
-impl ::core::clone::Clone for CF_OPERATION_RESTART_HYDRATION_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CF_OPERATION_RESTART_HYDRATION_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CF_OPERATION_RESTART_HYDRATION_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2018,19 +1688,8 @@ impl ::core::ops::Not for CF_OPERATION_RESTART_HYDRATION_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CF_OPERATION_RETRIEVE_DATA_FLAGS(pub i32);
-impl ::core::marker::Copy for CF_OPERATION_RETRIEVE_DATA_FLAGS {}
-impl ::core::clone::Clone for CF_OPERATION_RETRIEVE_DATA_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CF_OPERATION_RETRIEVE_DATA_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CF_OPERATION_RETRIEVE_DATA_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2073,19 +1732,8 @@ impl ::core::ops::Not for CF_OPERATION_RETRIEVE_DATA_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CF_OPERATION_TRANSFER_DATA_FLAGS(pub i32);
-impl ::core::marker::Copy for CF_OPERATION_TRANSFER_DATA_FLAGS {}
-impl ::core::clone::Clone for CF_OPERATION_TRANSFER_DATA_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CF_OPERATION_TRANSFER_DATA_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CF_OPERATION_TRANSFER_DATA_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2128,19 +1776,8 @@ impl ::core::ops::Not for CF_OPERATION_TRANSFER_DATA_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS(pub i32);
-impl ::core::marker::Copy for CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS {}
-impl ::core::clone::Clone for CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2183,19 +1820,8 @@ impl ::core::ops::Not for CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CF_OPERATION_TYPE(pub i32);
-impl ::core::marker::Copy for CF_OPERATION_TYPE {}
-impl ::core::clone::Clone for CF_OPERATION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CF_OPERATION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CF_OPERATION_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2205,19 +1831,8 @@ impl ::core::fmt::Debug for CF_OPERATION_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CF_PIN_STATE(pub i32);
-impl ::core::marker::Copy for CF_PIN_STATE {}
-impl ::core::clone::Clone for CF_PIN_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CF_PIN_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CF_PIN_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2227,19 +1842,8 @@ impl ::core::fmt::Debug for CF_PIN_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CF_PLACEHOLDER_CREATE_FLAGS(pub i32);
-impl ::core::marker::Copy for CF_PLACEHOLDER_CREATE_FLAGS {}
-impl ::core::clone::Clone for CF_PLACEHOLDER_CREATE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CF_PLACEHOLDER_CREATE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CF_PLACEHOLDER_CREATE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2282,19 +1886,8 @@ impl ::core::ops::Not for CF_PLACEHOLDER_CREATE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CF_PLACEHOLDER_INFO_CLASS(pub i32);
-impl ::core::marker::Copy for CF_PLACEHOLDER_INFO_CLASS {}
-impl ::core::clone::Clone for CF_PLACEHOLDER_INFO_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CF_PLACEHOLDER_INFO_CLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CF_PLACEHOLDER_INFO_CLASS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2304,19 +1897,8 @@ impl ::core::fmt::Debug for CF_PLACEHOLDER_INFO_CLASS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CF_PLACEHOLDER_MANAGEMENT_POLICY(pub i32);
-impl ::core::marker::Copy for CF_PLACEHOLDER_MANAGEMENT_POLICY {}
-impl ::core::clone::Clone for CF_PLACEHOLDER_MANAGEMENT_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CF_PLACEHOLDER_MANAGEMENT_POLICY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CF_PLACEHOLDER_MANAGEMENT_POLICY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2326,19 +1908,8 @@ impl ::core::fmt::Debug for CF_PLACEHOLDER_MANAGEMENT_POLICY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CF_PLACEHOLDER_RANGE_INFO_CLASS(pub i32);
-impl ::core::marker::Copy for CF_PLACEHOLDER_RANGE_INFO_CLASS {}
-impl ::core::clone::Clone for CF_PLACEHOLDER_RANGE_INFO_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CF_PLACEHOLDER_RANGE_INFO_CLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CF_PLACEHOLDER_RANGE_INFO_CLASS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2348,19 +1919,8 @@ impl ::core::fmt::Debug for CF_PLACEHOLDER_RANGE_INFO_CLASS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CF_PLACEHOLDER_STATE(pub u32);
-impl ::core::marker::Copy for CF_PLACEHOLDER_STATE {}
-impl ::core::clone::Clone for CF_PLACEHOLDER_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CF_PLACEHOLDER_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CF_PLACEHOLDER_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2403,19 +1963,8 @@ impl ::core::ops::Not for CF_PLACEHOLDER_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CF_POPULATION_POLICY_MODIFIER(pub u16);
-impl ::core::marker::Copy for CF_POPULATION_POLICY_MODIFIER {}
-impl ::core::clone::Clone for CF_POPULATION_POLICY_MODIFIER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CF_POPULATION_POLICY_MODIFIER {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CF_POPULATION_POLICY_MODIFIER {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2458,19 +2007,8 @@ impl ::core::ops::Not for CF_POPULATION_POLICY_MODIFIER {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CF_POPULATION_POLICY_PRIMARY(pub u16);
-impl ::core::marker::Copy for CF_POPULATION_POLICY_PRIMARY {}
-impl ::core::clone::Clone for CF_POPULATION_POLICY_PRIMARY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CF_POPULATION_POLICY_PRIMARY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CF_POPULATION_POLICY_PRIMARY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2480,19 +2018,8 @@ impl ::core::fmt::Debug for CF_POPULATION_POLICY_PRIMARY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CF_REGISTER_FLAGS(pub i32);
-impl ::core::marker::Copy for CF_REGISTER_FLAGS {}
-impl ::core::clone::Clone for CF_REGISTER_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CF_REGISTER_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CF_REGISTER_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2535,19 +2062,8 @@ impl ::core::ops::Not for CF_REGISTER_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CF_REVERT_FLAGS(pub i32);
-impl ::core::marker::Copy for CF_REVERT_FLAGS {}
-impl ::core::clone::Clone for CF_REVERT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CF_REVERT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CF_REVERT_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2590,19 +2106,8 @@ impl ::core::ops::Not for CF_REVERT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CF_SET_IN_SYNC_FLAGS(pub i32);
-impl ::core::marker::Copy for CF_SET_IN_SYNC_FLAGS {}
-impl ::core::clone::Clone for CF_SET_IN_SYNC_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CF_SET_IN_SYNC_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CF_SET_IN_SYNC_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2645,19 +2150,8 @@ impl ::core::ops::Not for CF_SET_IN_SYNC_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CF_SET_PIN_FLAGS(pub i32);
-impl ::core::marker::Copy for CF_SET_PIN_FLAGS {}
-impl ::core::clone::Clone for CF_SET_PIN_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CF_SET_PIN_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CF_SET_PIN_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2700,19 +2194,8 @@ impl ::core::ops::Not for CF_SET_PIN_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CF_SYNC_PROVIDER_STATUS(pub u32);
-impl ::core::marker::Copy for CF_SYNC_PROVIDER_STATUS {}
-impl ::core::clone::Clone for CF_SYNC_PROVIDER_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CF_SYNC_PROVIDER_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CF_SYNC_PROVIDER_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2755,19 +2238,8 @@ impl ::core::ops::Not for CF_SYNC_PROVIDER_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CF_SYNC_ROOT_INFO_CLASS(pub i32);
-impl ::core::marker::Copy for CF_SYNC_ROOT_INFO_CLASS {}
-impl ::core::clone::Clone for CF_SYNC_ROOT_INFO_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CF_SYNC_ROOT_INFO_CLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CF_SYNC_ROOT_INFO_CLASS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2777,19 +2249,8 @@ impl ::core::fmt::Debug for CF_SYNC_ROOT_INFO_CLASS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CF_UPDATE_FLAGS(pub i32);
-impl ::core::marker::Copy for CF_UPDATE_FLAGS {}
-impl ::core::clone::Clone for CF_UPDATE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CF_UPDATE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CF_UPDATE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }

@@ -155,19 +155,8 @@ pub const ThreadUmsInformation: THREADINFOCLASS = THREADINFOCLASS(31i32);
 pub const ThreadWow64Context: THREADINFOCLASS = THREADINFOCLASS(29i32);
 pub const ThreadZeroTlsCell: THREADINFOCLASS = THREADINFOCLASS(10i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PROCESSINFOCLASS(pub i32);
-impl ::core::marker::Copy for PROCESSINFOCLASS {}
-impl ::core::clone::Clone for PROCESSINFOCLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PROCESSINFOCLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PROCESSINFOCLASS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -177,19 +166,8 @@ impl ::core::fmt::Debug for PROCESSINFOCLASS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct THREADINFOCLASS(pub i32);
-impl ::core::marker::Copy for THREADINFOCLASS {}
-impl ::core::clone::Clone for THREADINFOCLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for THREADINFOCLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for THREADINFOCLASS {
     type TypeKind = ::windows_core::CopyType;
 }

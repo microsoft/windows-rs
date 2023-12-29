@@ -371,19 +371,8 @@ pub const DMO_SET_TYPEF_CLEAR: _DMO_SET_TYPE_FLAGS = _DMO_SET_TYPE_FLAGS(2i32);
 pub const DMO_SET_TYPEF_TEST_ONLY: _DMO_SET_TYPE_FLAGS = _DMO_SET_TYPE_FLAGS(1i32);
 pub const DMO_VOSF_NEEDS_PREVIOUS_SAMPLE: _DMO_VIDEO_OUTPUT_STREAM_FLAGS = _DMO_VIDEO_OUTPUT_STREAM_FLAGS(1i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DMO_ENUM_FLAGS(pub i32);
-impl ::core::marker::Copy for DMO_ENUM_FLAGS {}
-impl ::core::clone::Clone for DMO_ENUM_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DMO_ENUM_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DMO_ENUM_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -393,19 +382,8 @@ impl ::core::fmt::Debug for DMO_ENUM_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DMO_REGISTER_FLAGS(pub i32);
-impl ::core::marker::Copy for DMO_REGISTER_FLAGS {}
-impl ::core::clone::Clone for DMO_REGISTER_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DMO_REGISTER_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DMO_REGISTER_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -415,19 +393,8 @@ impl ::core::fmt::Debug for DMO_REGISTER_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct _DMO_INPLACE_PROCESS_FLAGS(pub i32);
-impl ::core::marker::Copy for _DMO_INPLACE_PROCESS_FLAGS {}
-impl ::core::clone::Clone for _DMO_INPLACE_PROCESS_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for _DMO_INPLACE_PROCESS_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for _DMO_INPLACE_PROCESS_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -437,19 +404,8 @@ impl ::core::fmt::Debug for _DMO_INPLACE_PROCESS_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct _DMO_INPUT_DATA_BUFFER_FLAGS(pub i32);
-impl ::core::marker::Copy for _DMO_INPUT_DATA_BUFFER_FLAGS {}
-impl ::core::clone::Clone for _DMO_INPUT_DATA_BUFFER_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for _DMO_INPUT_DATA_BUFFER_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for _DMO_INPUT_DATA_BUFFER_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -459,19 +415,8 @@ impl ::core::fmt::Debug for _DMO_INPUT_DATA_BUFFER_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct _DMO_INPUT_STATUS_FLAGS(pub i32);
-impl ::core::marker::Copy for _DMO_INPUT_STATUS_FLAGS {}
-impl ::core::clone::Clone for _DMO_INPUT_STATUS_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for _DMO_INPUT_STATUS_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for _DMO_INPUT_STATUS_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -481,19 +426,8 @@ impl ::core::fmt::Debug for _DMO_INPUT_STATUS_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct _DMO_INPUT_STREAM_INFO_FLAGS(pub i32);
-impl ::core::marker::Copy for _DMO_INPUT_STREAM_INFO_FLAGS {}
-impl ::core::clone::Clone for _DMO_INPUT_STREAM_INFO_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for _DMO_INPUT_STREAM_INFO_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for _DMO_INPUT_STREAM_INFO_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -503,19 +437,8 @@ impl ::core::fmt::Debug for _DMO_INPUT_STREAM_INFO_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct _DMO_OUTPUT_DATA_BUFFER_FLAGS(pub i32);
-impl ::core::marker::Copy for _DMO_OUTPUT_DATA_BUFFER_FLAGS {}
-impl ::core::clone::Clone for _DMO_OUTPUT_DATA_BUFFER_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for _DMO_OUTPUT_DATA_BUFFER_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for _DMO_OUTPUT_DATA_BUFFER_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -525,19 +448,8 @@ impl ::core::fmt::Debug for _DMO_OUTPUT_DATA_BUFFER_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct _DMO_OUTPUT_STREAM_INFO_FLAGS(pub i32);
-impl ::core::marker::Copy for _DMO_OUTPUT_STREAM_INFO_FLAGS {}
-impl ::core::clone::Clone for _DMO_OUTPUT_STREAM_INFO_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for _DMO_OUTPUT_STREAM_INFO_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for _DMO_OUTPUT_STREAM_INFO_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -547,19 +459,8 @@ impl ::core::fmt::Debug for _DMO_OUTPUT_STREAM_INFO_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct _DMO_PROCESS_OUTPUT_FLAGS(pub i32);
-impl ::core::marker::Copy for _DMO_PROCESS_OUTPUT_FLAGS {}
-impl ::core::clone::Clone for _DMO_PROCESS_OUTPUT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for _DMO_PROCESS_OUTPUT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for _DMO_PROCESS_OUTPUT_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -569,19 +470,8 @@ impl ::core::fmt::Debug for _DMO_PROCESS_OUTPUT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct _DMO_QUALITY_STATUS_FLAGS(pub i32);
-impl ::core::marker::Copy for _DMO_QUALITY_STATUS_FLAGS {}
-impl ::core::clone::Clone for _DMO_QUALITY_STATUS_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for _DMO_QUALITY_STATUS_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for _DMO_QUALITY_STATUS_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -591,19 +481,8 @@ impl ::core::fmt::Debug for _DMO_QUALITY_STATUS_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct _DMO_SET_TYPE_FLAGS(pub i32);
-impl ::core::marker::Copy for _DMO_SET_TYPE_FLAGS {}
-impl ::core::clone::Clone for _DMO_SET_TYPE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for _DMO_SET_TYPE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for _DMO_SET_TYPE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -613,19 +492,8 @@ impl ::core::fmt::Debug for _DMO_SET_TYPE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct _DMO_VIDEO_OUTPUT_STREAM_FLAGS(pub i32);
-impl ::core::marker::Copy for _DMO_VIDEO_OUTPUT_STREAM_FLAGS {}
-impl ::core::clone::Clone for _DMO_VIDEO_OUTPUT_STREAM_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for _DMO_VIDEO_OUTPUT_STREAM_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for _DMO_VIDEO_OUTPUT_STREAM_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }

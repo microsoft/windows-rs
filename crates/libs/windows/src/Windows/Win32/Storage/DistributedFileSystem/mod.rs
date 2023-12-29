@@ -260,19 +260,8 @@ pub const NET_DFS_SETDC_FLAGS: u32 = 0u32;
 pub const NET_DFS_SETDC_INITPKT: u32 = 2u32;
 pub const NET_DFS_SETDC_TIMEOUT: u32 = 1u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DFS_NAMESPACE_VERSION_ORIGIN(pub i32);
-impl ::core::marker::Copy for DFS_NAMESPACE_VERSION_ORIGIN {}
-impl ::core::clone::Clone for DFS_NAMESPACE_VERSION_ORIGIN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DFS_NAMESPACE_VERSION_ORIGIN {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DFS_NAMESPACE_VERSION_ORIGIN {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -282,19 +271,8 @@ impl ::core::fmt::Debug for DFS_NAMESPACE_VERSION_ORIGIN {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DFS_TARGET_PRIORITY_CLASS(pub i32);
-impl ::core::marker::Copy for DFS_TARGET_PRIORITY_CLASS {}
-impl ::core::clone::Clone for DFS_TARGET_PRIORITY_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DFS_TARGET_PRIORITY_CLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DFS_TARGET_PRIORITY_CLASS {
     type TypeKind = ::windows_core::CopyType;
 }

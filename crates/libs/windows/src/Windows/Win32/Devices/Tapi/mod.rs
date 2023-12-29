@@ -10705,19 +10705,8 @@ pub const prioHigh: u32 = 1u32;
 pub const prioLow: u32 = 3u32;
 pub const prioNorm: u32 = 2u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ACDGROUP_EVENT(pub i32);
-impl ::core::marker::Copy for ACDGROUP_EVENT {}
-impl ::core::clone::Clone for ACDGROUP_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ACDGROUP_EVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ACDGROUP_EVENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10727,19 +10716,8 @@ impl ::core::fmt::Debug for ACDGROUP_EVENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ACDQUEUE_EVENT(pub i32);
-impl ::core::marker::Copy for ACDQUEUE_EVENT {}
-impl ::core::clone::Clone for ACDQUEUE_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ACDQUEUE_EVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ACDQUEUE_EVENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10749,19 +10727,8 @@ impl ::core::fmt::Debug for ACDQUEUE_EVENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ADDRESS_CAPABILITY(pub i32);
-impl ::core::marker::Copy for ADDRESS_CAPABILITY {}
-impl ::core::clone::Clone for ADDRESS_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADDRESS_CAPABILITY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ADDRESS_CAPABILITY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10771,19 +10738,8 @@ impl ::core::fmt::Debug for ADDRESS_CAPABILITY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ADDRESS_CAPABILITY_STRING(pub i32);
-impl ::core::marker::Copy for ADDRESS_CAPABILITY_STRING {}
-impl ::core::clone::Clone for ADDRESS_CAPABILITY_STRING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADDRESS_CAPABILITY_STRING {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ADDRESS_CAPABILITY_STRING {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10793,19 +10749,8 @@ impl ::core::fmt::Debug for ADDRESS_CAPABILITY_STRING {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ADDRESS_EVENT(pub i32);
-impl ::core::marker::Copy for ADDRESS_EVENT {}
-impl ::core::clone::Clone for ADDRESS_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADDRESS_EVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ADDRESS_EVENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10815,19 +10760,8 @@ impl ::core::fmt::Debug for ADDRESS_EVENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ADDRESS_STATE(pub i32);
-impl ::core::marker::Copy for ADDRESS_STATE {}
-impl ::core::clone::Clone for ADDRESS_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADDRESS_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ADDRESS_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10837,19 +10771,8 @@ impl ::core::fmt::Debug for ADDRESS_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AGENTHANDLER_EVENT(pub i32);
-impl ::core::marker::Copy for AGENTHANDLER_EVENT {}
-impl ::core::clone::Clone for AGENTHANDLER_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AGENTHANDLER_EVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AGENTHANDLER_EVENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10859,19 +10782,8 @@ impl ::core::fmt::Debug for AGENTHANDLER_EVENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AGENT_EVENT(pub i32);
-impl ::core::marker::Copy for AGENT_EVENT {}
-impl ::core::clone::Clone for AGENT_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AGENT_EVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AGENT_EVENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10881,19 +10793,8 @@ impl ::core::fmt::Debug for AGENT_EVENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AGENT_SESSION_EVENT(pub i32);
-impl ::core::marker::Copy for AGENT_SESSION_EVENT {}
-impl ::core::clone::Clone for AGENT_SESSION_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AGENT_SESSION_EVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AGENT_SESSION_EVENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10903,19 +10804,8 @@ impl ::core::fmt::Debug for AGENT_SESSION_EVENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AGENT_SESSION_STATE(pub i32);
-impl ::core::marker::Copy for AGENT_SESSION_STATE {}
-impl ::core::clone::Clone for AGENT_SESSION_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AGENT_SESSION_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AGENT_SESSION_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10925,19 +10815,8 @@ impl ::core::fmt::Debug for AGENT_SESSION_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AGENT_STATE(pub i32);
-impl ::core::marker::Copy for AGENT_STATE {}
-impl ::core::clone::Clone for AGENT_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AGENT_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AGENT_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10947,19 +10826,8 @@ impl ::core::fmt::Debug for AGENT_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CALLHUB_EVENT(pub i32);
-impl ::core::marker::Copy for CALLHUB_EVENT {}
-impl ::core::clone::Clone for CALLHUB_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CALLHUB_EVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CALLHUB_EVENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10969,19 +10837,8 @@ impl ::core::fmt::Debug for CALLHUB_EVENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CALLHUB_STATE(pub i32);
-impl ::core::marker::Copy for CALLHUB_STATE {}
-impl ::core::clone::Clone for CALLHUB_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CALLHUB_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CALLHUB_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10991,19 +10848,8 @@ impl ::core::fmt::Debug for CALLHUB_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CALLINFOCHANGE_CAUSE(pub i32);
-impl ::core::marker::Copy for CALLINFOCHANGE_CAUSE {}
-impl ::core::clone::Clone for CALLINFOCHANGE_CAUSE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CALLINFOCHANGE_CAUSE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CALLINFOCHANGE_CAUSE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11013,19 +10859,8 @@ impl ::core::fmt::Debug for CALLINFOCHANGE_CAUSE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CALLINFO_BUFFER(pub i32);
-impl ::core::marker::Copy for CALLINFO_BUFFER {}
-impl ::core::clone::Clone for CALLINFO_BUFFER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CALLINFO_BUFFER {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CALLINFO_BUFFER {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11035,19 +10870,8 @@ impl ::core::fmt::Debug for CALLINFO_BUFFER {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CALLINFO_LONG(pub i32);
-impl ::core::marker::Copy for CALLINFO_LONG {}
-impl ::core::clone::Clone for CALLINFO_LONG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CALLINFO_LONG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CALLINFO_LONG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11057,19 +10881,8 @@ impl ::core::fmt::Debug for CALLINFO_LONG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CALLINFO_STRING(pub i32);
-impl ::core::marker::Copy for CALLINFO_STRING {}
-impl ::core::clone::Clone for CALLINFO_STRING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CALLINFO_STRING {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CALLINFO_STRING {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11079,19 +10892,8 @@ impl ::core::fmt::Debug for CALLINFO_STRING {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CALL_MEDIA_EVENT(pub i32);
-impl ::core::marker::Copy for CALL_MEDIA_EVENT {}
-impl ::core::clone::Clone for CALL_MEDIA_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CALL_MEDIA_EVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CALL_MEDIA_EVENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11101,19 +10903,8 @@ impl ::core::fmt::Debug for CALL_MEDIA_EVENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CALL_MEDIA_EVENT_CAUSE(pub i32);
-impl ::core::marker::Copy for CALL_MEDIA_EVENT_CAUSE {}
-impl ::core::clone::Clone for CALL_MEDIA_EVENT_CAUSE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CALL_MEDIA_EVENT_CAUSE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CALL_MEDIA_EVENT_CAUSE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11123,19 +10914,8 @@ impl ::core::fmt::Debug for CALL_MEDIA_EVENT_CAUSE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CALL_NOTIFICATION_EVENT(pub i32);
-impl ::core::marker::Copy for CALL_NOTIFICATION_EVENT {}
-impl ::core::clone::Clone for CALL_NOTIFICATION_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CALL_NOTIFICATION_EVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CALL_NOTIFICATION_EVENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11145,19 +10925,8 @@ impl ::core::fmt::Debug for CALL_NOTIFICATION_EVENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CALL_PRIVILEGE(pub i32);
-impl ::core::marker::Copy for CALL_PRIVILEGE {}
-impl ::core::clone::Clone for CALL_PRIVILEGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CALL_PRIVILEGE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CALL_PRIVILEGE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11167,19 +10936,8 @@ impl ::core::fmt::Debug for CALL_PRIVILEGE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CALL_STATE(pub i32);
-impl ::core::marker::Copy for CALL_STATE {}
-impl ::core::clone::Clone for CALL_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CALL_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CALL_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11189,19 +10947,8 @@ impl ::core::fmt::Debug for CALL_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CALL_STATE_EVENT_CAUSE(pub i32);
-impl ::core::marker::Copy for CALL_STATE_EVENT_CAUSE {}
-impl ::core::clone::Clone for CALL_STATE_EVENT_CAUSE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CALL_STATE_EVENT_CAUSE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CALL_STATE_EVENT_CAUSE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11211,19 +10958,8 @@ impl ::core::fmt::Debug for CALL_STATE_EVENT_CAUSE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DIRECTORY_OBJECT_TYPE(pub i32);
-impl ::core::marker::Copy for DIRECTORY_OBJECT_TYPE {}
-impl ::core::clone::Clone for DIRECTORY_OBJECT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DIRECTORY_OBJECT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DIRECTORY_OBJECT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11233,19 +10969,8 @@ impl ::core::fmt::Debug for DIRECTORY_OBJECT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DIRECTORY_TYPE(pub i32);
-impl ::core::marker::Copy for DIRECTORY_TYPE {}
-impl ::core::clone::Clone for DIRECTORY_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DIRECTORY_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DIRECTORY_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11255,19 +10980,8 @@ impl ::core::fmt::Debug for DIRECTORY_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISCONNECT_CODE(pub i32);
-impl ::core::marker::Copy for DISCONNECT_CODE {}
-impl ::core::clone::Clone for DISCONNECT_CODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISCONNECT_CODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISCONNECT_CODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11277,19 +10991,8 @@ impl ::core::fmt::Debug for DISCONNECT_CODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FINISH_MODE(pub i32);
-impl ::core::marker::Copy for FINISH_MODE {}
-impl ::core::clone::Clone for FINISH_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FINISH_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FINISH_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11299,19 +11002,8 @@ impl ::core::fmt::Debug for FINISH_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FT_STATE_EVENT_CAUSE(pub i32);
-impl ::core::marker::Copy for FT_STATE_EVENT_CAUSE {}
-impl ::core::clone::Clone for FT_STATE_EVENT_CAUSE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FT_STATE_EVENT_CAUSE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FT_STATE_EVENT_CAUSE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11321,19 +11013,8 @@ impl ::core::fmt::Debug for FT_STATE_EVENT_CAUSE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FULLDUPLEX_SUPPORT(pub i32);
-impl ::core::marker::Copy for FULLDUPLEX_SUPPORT {}
-impl ::core::clone::Clone for FULLDUPLEX_SUPPORT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FULLDUPLEX_SUPPORT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FULLDUPLEX_SUPPORT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11343,19 +11024,8 @@ impl ::core::fmt::Debug for FULLDUPLEX_SUPPORT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MSP_ADDRESS_EVENT(pub i32);
-impl ::core::marker::Copy for MSP_ADDRESS_EVENT {}
-impl ::core::clone::Clone for MSP_ADDRESS_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MSP_ADDRESS_EVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MSP_ADDRESS_EVENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11365,19 +11035,8 @@ impl ::core::fmt::Debug for MSP_ADDRESS_EVENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MSP_CALL_EVENT(pub i32);
-impl ::core::marker::Copy for MSP_CALL_EVENT {}
-impl ::core::clone::Clone for MSP_CALL_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MSP_CALL_EVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MSP_CALL_EVENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11387,19 +11046,8 @@ impl ::core::fmt::Debug for MSP_CALL_EVENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MSP_CALL_EVENT_CAUSE(pub i32);
-impl ::core::marker::Copy for MSP_CALL_EVENT_CAUSE {}
-impl ::core::clone::Clone for MSP_CALL_EVENT_CAUSE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MSP_CALL_EVENT_CAUSE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MSP_CALL_EVENT_CAUSE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11409,19 +11057,8 @@ impl ::core::fmt::Debug for MSP_CALL_EVENT_CAUSE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MSP_EVENT(pub i32);
-impl ::core::marker::Copy for MSP_EVENT {}
-impl ::core::clone::Clone for MSP_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MSP_EVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MSP_EVENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11431,19 +11068,8 @@ impl ::core::fmt::Debug for MSP_EVENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PHONECAPS_BUFFER(pub i32);
-impl ::core::marker::Copy for PHONECAPS_BUFFER {}
-impl ::core::clone::Clone for PHONECAPS_BUFFER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PHONECAPS_BUFFER {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PHONECAPS_BUFFER {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11453,19 +11079,8 @@ impl ::core::fmt::Debug for PHONECAPS_BUFFER {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PHONECAPS_LONG(pub i32);
-impl ::core::marker::Copy for PHONECAPS_LONG {}
-impl ::core::clone::Clone for PHONECAPS_LONG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PHONECAPS_LONG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PHONECAPS_LONG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11475,19 +11090,8 @@ impl ::core::fmt::Debug for PHONECAPS_LONG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PHONECAPS_STRING(pub i32);
-impl ::core::marker::Copy for PHONECAPS_STRING {}
-impl ::core::clone::Clone for PHONECAPS_STRING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PHONECAPS_STRING {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PHONECAPS_STRING {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11497,19 +11101,8 @@ impl ::core::fmt::Debug for PHONECAPS_STRING {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PHONE_BUTTON_FUNCTION(pub i32);
-impl ::core::marker::Copy for PHONE_BUTTON_FUNCTION {}
-impl ::core::clone::Clone for PHONE_BUTTON_FUNCTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PHONE_BUTTON_FUNCTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PHONE_BUTTON_FUNCTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11519,19 +11112,8 @@ impl ::core::fmt::Debug for PHONE_BUTTON_FUNCTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PHONE_BUTTON_MODE(pub i32);
-impl ::core::marker::Copy for PHONE_BUTTON_MODE {}
-impl ::core::clone::Clone for PHONE_BUTTON_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PHONE_BUTTON_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PHONE_BUTTON_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11541,19 +11123,8 @@ impl ::core::fmt::Debug for PHONE_BUTTON_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PHONE_BUTTON_STATE(pub i32);
-impl ::core::marker::Copy for PHONE_BUTTON_STATE {}
-impl ::core::clone::Clone for PHONE_BUTTON_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PHONE_BUTTON_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PHONE_BUTTON_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11563,19 +11134,8 @@ impl ::core::fmt::Debug for PHONE_BUTTON_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PHONE_EVENT(pub i32);
-impl ::core::marker::Copy for PHONE_EVENT {}
-impl ::core::clone::Clone for PHONE_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PHONE_EVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PHONE_EVENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11585,19 +11145,8 @@ impl ::core::fmt::Debug for PHONE_EVENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PHONE_HOOK_SWITCH_DEVICE(pub i32);
-impl ::core::marker::Copy for PHONE_HOOK_SWITCH_DEVICE {}
-impl ::core::clone::Clone for PHONE_HOOK_SWITCH_DEVICE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PHONE_HOOK_SWITCH_DEVICE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PHONE_HOOK_SWITCH_DEVICE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11607,19 +11156,8 @@ impl ::core::fmt::Debug for PHONE_HOOK_SWITCH_DEVICE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PHONE_HOOK_SWITCH_STATE(pub i32);
-impl ::core::marker::Copy for PHONE_HOOK_SWITCH_STATE {}
-impl ::core::clone::Clone for PHONE_HOOK_SWITCH_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PHONE_HOOK_SWITCH_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PHONE_HOOK_SWITCH_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11629,19 +11167,8 @@ impl ::core::fmt::Debug for PHONE_HOOK_SWITCH_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PHONE_LAMP_MODE(pub i32);
-impl ::core::marker::Copy for PHONE_LAMP_MODE {}
-impl ::core::clone::Clone for PHONE_LAMP_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PHONE_LAMP_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PHONE_LAMP_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11651,19 +11178,8 @@ impl ::core::fmt::Debug for PHONE_LAMP_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PHONE_PRIVILEGE(pub i32);
-impl ::core::marker::Copy for PHONE_PRIVILEGE {}
-impl ::core::clone::Clone for PHONE_PRIVILEGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PHONE_PRIVILEGE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PHONE_PRIVILEGE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11673,19 +11189,8 @@ impl ::core::fmt::Debug for PHONE_PRIVILEGE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PHONE_TONE(pub i32);
-impl ::core::marker::Copy for PHONE_TONE {}
-impl ::core::clone::Clone for PHONE_TONE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PHONE_TONE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PHONE_TONE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11695,19 +11200,8 @@ impl ::core::fmt::Debug for PHONE_TONE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct QOS_EVENT(pub i32);
-impl ::core::marker::Copy for QOS_EVENT {}
-impl ::core::clone::Clone for QOS_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for QOS_EVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for QOS_EVENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11717,19 +11211,8 @@ impl ::core::fmt::Debug for QOS_EVENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct QOS_SERVICE_LEVEL(pub i32);
-impl ::core::marker::Copy for QOS_SERVICE_LEVEL {}
-impl ::core::clone::Clone for QOS_SERVICE_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for QOS_SERVICE_LEVEL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for QOS_SERVICE_LEVEL {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11739,19 +11222,8 @@ impl ::core::fmt::Debug for QOS_SERVICE_LEVEL {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RND_ADVERTISING_SCOPE(pub i32);
-impl ::core::marker::Copy for RND_ADVERTISING_SCOPE {}
-impl ::core::clone::Clone for RND_ADVERTISING_SCOPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RND_ADVERTISING_SCOPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RND_ADVERTISING_SCOPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11761,19 +11233,8 @@ impl ::core::fmt::Debug for RND_ADVERTISING_SCOPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TAPIOBJECT_EVENT(pub i32);
-impl ::core::marker::Copy for TAPIOBJECT_EVENT {}
-impl ::core::clone::Clone for TAPIOBJECT_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TAPIOBJECT_EVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TAPIOBJECT_EVENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11783,19 +11244,8 @@ impl ::core::fmt::Debug for TAPIOBJECT_EVENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TAPI_EVENT(pub i32);
-impl ::core::marker::Copy for TAPI_EVENT {}
-impl ::core::clone::Clone for TAPI_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TAPI_EVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TAPI_EVENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11805,19 +11255,8 @@ impl ::core::fmt::Debug for TAPI_EVENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TAPI_GATHERTERM(pub i32);
-impl ::core::marker::Copy for TAPI_GATHERTERM {}
-impl ::core::clone::Clone for TAPI_GATHERTERM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TAPI_GATHERTERM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TAPI_GATHERTERM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11827,19 +11266,8 @@ impl ::core::fmt::Debug for TAPI_GATHERTERM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TAPI_OBJECT_TYPE(pub i32);
-impl ::core::marker::Copy for TAPI_OBJECT_TYPE {}
-impl ::core::clone::Clone for TAPI_OBJECT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TAPI_OBJECT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TAPI_OBJECT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11849,19 +11277,8 @@ impl ::core::fmt::Debug for TAPI_OBJECT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TAPI_TONEMODE(pub i32);
-impl ::core::marker::Copy for TAPI_TONEMODE {}
-impl ::core::clone::Clone for TAPI_TONEMODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TAPI_TONEMODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TAPI_TONEMODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11871,19 +11288,8 @@ impl ::core::fmt::Debug for TAPI_TONEMODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TERMINAL_DIRECTION(pub i32);
-impl ::core::marker::Copy for TERMINAL_DIRECTION {}
-impl ::core::clone::Clone for TERMINAL_DIRECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TERMINAL_DIRECTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TERMINAL_DIRECTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11893,19 +11299,8 @@ impl ::core::fmt::Debug for TERMINAL_DIRECTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TERMINAL_MEDIA_STATE(pub i32);
-impl ::core::marker::Copy for TERMINAL_MEDIA_STATE {}
-impl ::core::clone::Clone for TERMINAL_MEDIA_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TERMINAL_MEDIA_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TERMINAL_MEDIA_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11915,19 +11310,8 @@ impl ::core::fmt::Debug for TERMINAL_MEDIA_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TERMINAL_STATE(pub i32);
-impl ::core::marker::Copy for TERMINAL_STATE {}
-impl ::core::clone::Clone for TERMINAL_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TERMINAL_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TERMINAL_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11937,19 +11321,8 @@ impl ::core::fmt::Debug for TERMINAL_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TERMINAL_TYPE(pub i32);
-impl ::core::marker::Copy for TERMINAL_TYPE {}
-impl ::core::clone::Clone for TERMINAL_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TERMINAL_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TERMINAL_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }

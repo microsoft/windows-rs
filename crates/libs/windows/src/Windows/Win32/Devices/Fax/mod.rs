@@ -7217,19 +7217,8 @@ pub const lDEFAULT_PREFETCH_SIZE: i32 = 100i32;
 pub const prv_DEFAULT_PREFETCH_SIZE: u32 = 100u32;
 pub const wcharREASSIGN_RECIPIENTS_DELIMITER: u16 = 59u16;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FAXROUTE_ENABLE(pub i32);
-impl ::core::marker::Copy for FAXROUTE_ENABLE {}
-impl ::core::clone::Clone for FAXROUTE_ENABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FAXROUTE_ENABLE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FAXROUTE_ENABLE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7239,19 +7228,8 @@ impl ::core::fmt::Debug for FAXROUTE_ENABLE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FAX_ACCESS_RIGHTS_ENUM(pub i32);
-impl ::core::marker::Copy for FAX_ACCESS_RIGHTS_ENUM {}
-impl ::core::clone::Clone for FAX_ACCESS_RIGHTS_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FAX_ACCESS_RIGHTS_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FAX_ACCESS_RIGHTS_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7261,19 +7239,8 @@ impl ::core::fmt::Debug for FAX_ACCESS_RIGHTS_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FAX_ACCESS_RIGHTS_ENUM_2(pub i32);
-impl ::core::marker::Copy for FAX_ACCESS_RIGHTS_ENUM_2 {}
-impl ::core::clone::Clone for FAX_ACCESS_RIGHTS_ENUM_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FAX_ACCESS_RIGHTS_ENUM_2 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FAX_ACCESS_RIGHTS_ENUM_2 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7283,19 +7250,8 @@ impl ::core::fmt::Debug for FAX_ACCESS_RIGHTS_ENUM_2 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FAX_ACCOUNT_EVENTS_TYPE_ENUM(pub i32);
-impl ::core::marker::Copy for FAX_ACCOUNT_EVENTS_TYPE_ENUM {}
-impl ::core::clone::Clone for FAX_ACCOUNT_EVENTS_TYPE_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FAX_ACCOUNT_EVENTS_TYPE_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FAX_ACCOUNT_EVENTS_TYPE_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7305,19 +7261,8 @@ impl ::core::fmt::Debug for FAX_ACCOUNT_EVENTS_TYPE_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FAX_COVERPAGE_TYPE_ENUM(pub i32);
-impl ::core::marker::Copy for FAX_COVERPAGE_TYPE_ENUM {}
-impl ::core::clone::Clone for FAX_COVERPAGE_TYPE_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FAX_COVERPAGE_TYPE_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FAX_COVERPAGE_TYPE_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7327,19 +7272,8 @@ impl ::core::fmt::Debug for FAX_COVERPAGE_TYPE_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FAX_DEVICE_RECEIVE_MODE_ENUM(pub i32);
-impl ::core::marker::Copy for FAX_DEVICE_RECEIVE_MODE_ENUM {}
-impl ::core::clone::Clone for FAX_DEVICE_RECEIVE_MODE_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FAX_DEVICE_RECEIVE_MODE_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FAX_DEVICE_RECEIVE_MODE_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7349,19 +7283,8 @@ impl ::core::fmt::Debug for FAX_DEVICE_RECEIVE_MODE_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FAX_ENUM_DELIVERY_REPORT_TYPES(pub i32);
-impl ::core::marker::Copy for FAX_ENUM_DELIVERY_REPORT_TYPES {}
-impl ::core::clone::Clone for FAX_ENUM_DELIVERY_REPORT_TYPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FAX_ENUM_DELIVERY_REPORT_TYPES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FAX_ENUM_DELIVERY_REPORT_TYPES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7371,19 +7294,8 @@ impl ::core::fmt::Debug for FAX_ENUM_DELIVERY_REPORT_TYPES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FAX_ENUM_DEVICE_ID_SOURCE(pub i32);
-impl ::core::marker::Copy for FAX_ENUM_DEVICE_ID_SOURCE {}
-impl ::core::clone::Clone for FAX_ENUM_DEVICE_ID_SOURCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FAX_ENUM_DEVICE_ID_SOURCE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FAX_ENUM_DEVICE_ID_SOURCE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7393,19 +7305,8 @@ impl ::core::fmt::Debug for FAX_ENUM_DEVICE_ID_SOURCE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FAX_ENUM_JOB_COMMANDS(pub i32);
-impl ::core::marker::Copy for FAX_ENUM_JOB_COMMANDS {}
-impl ::core::clone::Clone for FAX_ENUM_JOB_COMMANDS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FAX_ENUM_JOB_COMMANDS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FAX_ENUM_JOB_COMMANDS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7415,19 +7316,8 @@ impl ::core::fmt::Debug for FAX_ENUM_JOB_COMMANDS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FAX_ENUM_JOB_SEND_ATTRIBUTES(pub i32);
-impl ::core::marker::Copy for FAX_ENUM_JOB_SEND_ATTRIBUTES {}
-impl ::core::clone::Clone for FAX_ENUM_JOB_SEND_ATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FAX_ENUM_JOB_SEND_ATTRIBUTES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FAX_ENUM_JOB_SEND_ATTRIBUTES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7437,19 +7327,8 @@ impl ::core::fmt::Debug for FAX_ENUM_JOB_SEND_ATTRIBUTES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FAX_ENUM_LOG_CATEGORIES(pub i32);
-impl ::core::marker::Copy for FAX_ENUM_LOG_CATEGORIES {}
-impl ::core::clone::Clone for FAX_ENUM_LOG_CATEGORIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FAX_ENUM_LOG_CATEGORIES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FAX_ENUM_LOG_CATEGORIES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7459,19 +7338,8 @@ impl ::core::fmt::Debug for FAX_ENUM_LOG_CATEGORIES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FAX_ENUM_LOG_LEVELS(pub i32);
-impl ::core::marker::Copy for FAX_ENUM_LOG_LEVELS {}
-impl ::core::clone::Clone for FAX_ENUM_LOG_LEVELS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FAX_ENUM_LOG_LEVELS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FAX_ENUM_LOG_LEVELS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7481,19 +7349,8 @@ impl ::core::fmt::Debug for FAX_ENUM_LOG_LEVELS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FAX_ENUM_PORT_OPEN_TYPE(pub i32);
-impl ::core::marker::Copy for FAX_ENUM_PORT_OPEN_TYPE {}
-impl ::core::clone::Clone for FAX_ENUM_PORT_OPEN_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FAX_ENUM_PORT_OPEN_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FAX_ENUM_PORT_OPEN_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7503,19 +7360,8 @@ impl ::core::fmt::Debug for FAX_ENUM_PORT_OPEN_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FAX_GROUP_STATUS_ENUM(pub i32);
-impl ::core::marker::Copy for FAX_GROUP_STATUS_ENUM {}
-impl ::core::clone::Clone for FAX_GROUP_STATUS_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FAX_GROUP_STATUS_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FAX_GROUP_STATUS_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7525,19 +7371,8 @@ impl ::core::fmt::Debug for FAX_GROUP_STATUS_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FAX_JOB_EXTENDED_STATUS_ENUM(pub i32);
-impl ::core::marker::Copy for FAX_JOB_EXTENDED_STATUS_ENUM {}
-impl ::core::clone::Clone for FAX_JOB_EXTENDED_STATUS_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FAX_JOB_EXTENDED_STATUS_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FAX_JOB_EXTENDED_STATUS_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7547,19 +7382,8 @@ impl ::core::fmt::Debug for FAX_JOB_EXTENDED_STATUS_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FAX_JOB_OPERATIONS_ENUM(pub i32);
-impl ::core::marker::Copy for FAX_JOB_OPERATIONS_ENUM {}
-impl ::core::clone::Clone for FAX_JOB_OPERATIONS_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FAX_JOB_OPERATIONS_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FAX_JOB_OPERATIONS_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7569,19 +7393,8 @@ impl ::core::fmt::Debug for FAX_JOB_OPERATIONS_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FAX_JOB_STATUS_ENUM(pub i32);
-impl ::core::marker::Copy for FAX_JOB_STATUS_ENUM {}
-impl ::core::clone::Clone for FAX_JOB_STATUS_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FAX_JOB_STATUS_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FAX_JOB_STATUS_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7591,19 +7404,8 @@ impl ::core::fmt::Debug for FAX_JOB_STATUS_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FAX_JOB_TYPE_ENUM(pub i32);
-impl ::core::marker::Copy for FAX_JOB_TYPE_ENUM {}
-impl ::core::clone::Clone for FAX_JOB_TYPE_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FAX_JOB_TYPE_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FAX_JOB_TYPE_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7613,19 +7415,8 @@ impl ::core::fmt::Debug for FAX_JOB_TYPE_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FAX_LOG_LEVEL_ENUM(pub i32);
-impl ::core::marker::Copy for FAX_LOG_LEVEL_ENUM {}
-impl ::core::clone::Clone for FAX_LOG_LEVEL_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FAX_LOG_LEVEL_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FAX_LOG_LEVEL_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7635,19 +7426,8 @@ impl ::core::fmt::Debug for FAX_LOG_LEVEL_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FAX_PRIORITY_TYPE_ENUM(pub i32);
-impl ::core::marker::Copy for FAX_PRIORITY_TYPE_ENUM {}
-impl ::core::clone::Clone for FAX_PRIORITY_TYPE_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FAX_PRIORITY_TYPE_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FAX_PRIORITY_TYPE_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7657,19 +7437,8 @@ impl ::core::fmt::Debug for FAX_PRIORITY_TYPE_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FAX_PROVIDER_STATUS_ENUM(pub i32);
-impl ::core::marker::Copy for FAX_PROVIDER_STATUS_ENUM {}
-impl ::core::clone::Clone for FAX_PROVIDER_STATUS_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FAX_PROVIDER_STATUS_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FAX_PROVIDER_STATUS_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7679,19 +7448,8 @@ impl ::core::fmt::Debug for FAX_PROVIDER_STATUS_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FAX_RECEIPT_TYPE_ENUM(pub i32);
-impl ::core::marker::Copy for FAX_RECEIPT_TYPE_ENUM {}
-impl ::core::clone::Clone for FAX_RECEIPT_TYPE_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FAX_RECEIPT_TYPE_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FAX_RECEIPT_TYPE_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7701,19 +7459,8 @@ impl ::core::fmt::Debug for FAX_RECEIPT_TYPE_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FAX_ROUTING_RULE_CODE_ENUM(pub i32);
-impl ::core::marker::Copy for FAX_ROUTING_RULE_CODE_ENUM {}
-impl ::core::clone::Clone for FAX_ROUTING_RULE_CODE_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FAX_ROUTING_RULE_CODE_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FAX_ROUTING_RULE_CODE_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7723,19 +7470,8 @@ impl ::core::fmt::Debug for FAX_ROUTING_RULE_CODE_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FAX_RULE_STATUS_ENUM(pub i32);
-impl ::core::marker::Copy for FAX_RULE_STATUS_ENUM {}
-impl ::core::clone::Clone for FAX_RULE_STATUS_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FAX_RULE_STATUS_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FAX_RULE_STATUS_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7745,19 +7481,8 @@ impl ::core::fmt::Debug for FAX_RULE_STATUS_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FAX_SCHEDULE_TYPE_ENUM(pub i32);
-impl ::core::marker::Copy for FAX_SCHEDULE_TYPE_ENUM {}
-impl ::core::clone::Clone for FAX_SCHEDULE_TYPE_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FAX_SCHEDULE_TYPE_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FAX_SCHEDULE_TYPE_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7767,19 +7492,8 @@ impl ::core::fmt::Debug for FAX_SCHEDULE_TYPE_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FAX_SERVER_APIVERSION_ENUM(pub i32);
-impl ::core::marker::Copy for FAX_SERVER_APIVERSION_ENUM {}
-impl ::core::clone::Clone for FAX_SERVER_APIVERSION_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FAX_SERVER_APIVERSION_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FAX_SERVER_APIVERSION_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7789,19 +7503,8 @@ impl ::core::fmt::Debug for FAX_SERVER_APIVERSION_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FAX_SERVER_EVENTS_TYPE_ENUM(pub i32);
-impl ::core::marker::Copy for FAX_SERVER_EVENTS_TYPE_ENUM {}
-impl ::core::clone::Clone for FAX_SERVER_EVENTS_TYPE_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FAX_SERVER_EVENTS_TYPE_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FAX_SERVER_EVENTS_TYPE_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7811,19 +7514,8 @@ impl ::core::fmt::Debug for FAX_SERVER_EVENTS_TYPE_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FAX_SMTP_AUTHENTICATION_TYPE_ENUM(pub i32);
-impl ::core::marker::Copy for FAX_SMTP_AUTHENTICATION_TYPE_ENUM {}
-impl ::core::clone::Clone for FAX_SMTP_AUTHENTICATION_TYPE_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FAX_SMTP_AUTHENTICATION_TYPE_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FAX_SMTP_AUTHENTICATION_TYPE_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7833,19 +7525,8 @@ impl ::core::fmt::Debug for FAX_SMTP_AUTHENTICATION_TYPE_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct STI_DEVICE_MJ_TYPE(pub i32);
-impl ::core::marker::Copy for STI_DEVICE_MJ_TYPE {}
-impl ::core::clone::Clone for STI_DEVICE_MJ_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for STI_DEVICE_MJ_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for STI_DEVICE_MJ_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7855,19 +7536,8 @@ impl ::core::fmt::Debug for STI_DEVICE_MJ_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SendToMode(pub i32);
-impl ::core::marker::Copy for SendToMode {}
-impl ::core::clone::Clone for SendToMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SendToMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SendToMode {
     type TypeKind = ::windows_core::CopyType;
 }

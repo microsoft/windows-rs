@@ -2412,22 +2412,11 @@ impl ::windows_core::CanTryInto<IRandomAccessStreamReference> for RandomAccessSt
 unsafe impl ::core::marker::Send for RandomAccessStreamReference {}
 unsafe impl ::core::marker::Sync for RandomAccessStreamReference {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ByteOrder(pub i32);
 impl ByteOrder {
     pub const LittleEndian: Self = Self(0i32);
     pub const BigEndian: Self = Self(1i32);
-}
-impl ::core::marker::Copy for ByteOrder {}
-impl ::core::clone::Clone for ByteOrder {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ByteOrder {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ByteOrder {
     type TypeKind = ::windows_core::CopyType;
@@ -2441,7 +2430,7 @@ impl ::windows_core::RuntimeType for ByteOrder {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Streams.ByteOrder;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FileOpenDisposition(pub i32);
 impl FileOpenDisposition {
     pub const OpenExisting: Self = Self(0i32);
@@ -2449,17 +2438,6 @@ impl FileOpenDisposition {
     pub const CreateNew: Self = Self(2i32);
     pub const CreateAlways: Self = Self(3i32);
     pub const TruncateExisting: Self = Self(4i32);
-}
-impl ::core::marker::Copy for FileOpenDisposition {}
-impl ::core::clone::Clone for FileOpenDisposition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FileOpenDisposition {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for FileOpenDisposition {
     type TypeKind = ::windows_core::CopyType;
@@ -2473,23 +2451,12 @@ impl ::windows_core::RuntimeType for FileOpenDisposition {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Streams.FileOpenDisposition;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InputStreamOptions(pub u32);
 impl InputStreamOptions {
     pub const None: Self = Self(0u32);
     pub const Partial: Self = Self(1u32);
     pub const ReadAhead: Self = Self(2u32);
-}
-impl ::core::marker::Copy for InputStreamOptions {}
-impl ::core::clone::Clone for InputStreamOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InputStreamOptions {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for InputStreamOptions {
     type TypeKind = ::windows_core::CopyType;
@@ -2536,23 +2503,12 @@ impl ::windows_core::RuntimeType for InputStreamOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Streams.InputStreamOptions;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UnicodeEncoding(pub i32);
 impl UnicodeEncoding {
     pub const Utf8: Self = Self(0i32);
     pub const Utf16LE: Self = Self(1i32);
     pub const Utf16BE: Self = Self(2i32);
-}
-impl ::core::marker::Copy for UnicodeEncoding {}
-impl ::core::clone::Clone for UnicodeEncoding {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UnicodeEncoding {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for UnicodeEncoding {
     type TypeKind = ::windows_core::CopyType;

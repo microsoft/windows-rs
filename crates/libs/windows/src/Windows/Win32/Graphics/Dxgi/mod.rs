@@ -5278,19 +5278,8 @@ pub const DXGI_USAGE_SHADER_INPUT: DXGI_USAGE = DXGI_USAGE(16u32);
 pub const DXGI_USAGE_SHARED: DXGI_USAGE = DXGI_USAGE(128u32);
 pub const DXGI_USAGE_UNORDERED_ACCESS: DXGI_USAGE = DXGI_USAGE(1024u32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXGI_ADAPTER_FLAG(pub i32);
-impl ::core::marker::Copy for DXGI_ADAPTER_FLAG {}
-impl ::core::clone::Clone for DXGI_ADAPTER_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXGI_ADAPTER_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXGI_ADAPTER_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5333,19 +5322,8 @@ impl ::core::ops::Not for DXGI_ADAPTER_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXGI_ADAPTER_FLAG3(pub i32);
-impl ::core::marker::Copy for DXGI_ADAPTER_FLAG3 {}
-impl ::core::clone::Clone for DXGI_ADAPTER_FLAG3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXGI_ADAPTER_FLAG3 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXGI_ADAPTER_FLAG3 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5388,19 +5366,8 @@ impl ::core::ops::Not for DXGI_ADAPTER_FLAG3 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXGI_COMPUTE_PREEMPTION_GRANULARITY(pub i32);
-impl ::core::marker::Copy for DXGI_COMPUTE_PREEMPTION_GRANULARITY {}
-impl ::core::clone::Clone for DXGI_COMPUTE_PREEMPTION_GRANULARITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXGI_COMPUTE_PREEMPTION_GRANULARITY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXGI_COMPUTE_PREEMPTION_GRANULARITY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5410,19 +5377,8 @@ impl ::core::fmt::Debug for DXGI_COMPUTE_PREEMPTION_GRANULARITY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXGI_DEBUG_RLO_FLAGS(pub i32);
-impl ::core::marker::Copy for DXGI_DEBUG_RLO_FLAGS {}
-impl ::core::clone::Clone for DXGI_DEBUG_RLO_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXGI_DEBUG_RLO_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXGI_DEBUG_RLO_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5465,19 +5421,8 @@ impl ::core::ops::Not for DXGI_DEBUG_RLO_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXGI_FEATURE(pub i32);
-impl ::core::marker::Copy for DXGI_FEATURE {}
-impl ::core::clone::Clone for DXGI_FEATURE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXGI_FEATURE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXGI_FEATURE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5487,19 +5432,8 @@ impl ::core::fmt::Debug for DXGI_FEATURE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXGI_FRAME_PRESENTATION_MODE(pub i32);
-impl ::core::marker::Copy for DXGI_FRAME_PRESENTATION_MODE {}
-impl ::core::clone::Clone for DXGI_FRAME_PRESENTATION_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXGI_FRAME_PRESENTATION_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXGI_FRAME_PRESENTATION_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5509,19 +5443,8 @@ impl ::core::fmt::Debug for DXGI_FRAME_PRESENTATION_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXGI_GPU_PREFERENCE(pub i32);
-impl ::core::marker::Copy for DXGI_GPU_PREFERENCE {}
-impl ::core::clone::Clone for DXGI_GPU_PREFERENCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXGI_GPU_PREFERENCE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXGI_GPU_PREFERENCE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5531,19 +5454,8 @@ impl ::core::fmt::Debug for DXGI_GPU_PREFERENCE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXGI_GRAPHICS_PREEMPTION_GRANULARITY(pub i32);
-impl ::core::marker::Copy for DXGI_GRAPHICS_PREEMPTION_GRANULARITY {}
-impl ::core::clone::Clone for DXGI_GRAPHICS_PREEMPTION_GRANULARITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXGI_GRAPHICS_PREEMPTION_GRANULARITY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXGI_GRAPHICS_PREEMPTION_GRANULARITY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5553,19 +5465,8 @@ impl ::core::fmt::Debug for DXGI_GRAPHICS_PREEMPTION_GRANULARITY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS(pub i32);
-impl ::core::marker::Copy for DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS {}
-impl ::core::clone::Clone for DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5608,19 +5509,8 @@ impl ::core::ops::Not for DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXGI_HDR_METADATA_TYPE(pub i32);
-impl ::core::marker::Copy for DXGI_HDR_METADATA_TYPE {}
-impl ::core::clone::Clone for DXGI_HDR_METADATA_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXGI_HDR_METADATA_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXGI_HDR_METADATA_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5630,19 +5520,8 @@ impl ::core::fmt::Debug for DXGI_HDR_METADATA_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXGI_INFO_QUEUE_MESSAGE_CATEGORY(pub i32);
-impl ::core::marker::Copy for DXGI_INFO_QUEUE_MESSAGE_CATEGORY {}
-impl ::core::clone::Clone for DXGI_INFO_QUEUE_MESSAGE_CATEGORY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXGI_INFO_QUEUE_MESSAGE_CATEGORY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXGI_INFO_QUEUE_MESSAGE_CATEGORY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5652,19 +5531,8 @@ impl ::core::fmt::Debug for DXGI_INFO_QUEUE_MESSAGE_CATEGORY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXGI_INFO_QUEUE_MESSAGE_SEVERITY(pub i32);
-impl ::core::marker::Copy for DXGI_INFO_QUEUE_MESSAGE_SEVERITY {}
-impl ::core::clone::Clone for DXGI_INFO_QUEUE_MESSAGE_SEVERITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXGI_INFO_QUEUE_MESSAGE_SEVERITY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXGI_INFO_QUEUE_MESSAGE_SEVERITY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5674,19 +5542,8 @@ impl ::core::fmt::Debug for DXGI_INFO_QUEUE_MESSAGE_SEVERITY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXGI_MEMORY_SEGMENT_GROUP(pub i32);
-impl ::core::marker::Copy for DXGI_MEMORY_SEGMENT_GROUP {}
-impl ::core::clone::Clone for DXGI_MEMORY_SEGMENT_GROUP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXGI_MEMORY_SEGMENT_GROUP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXGI_MEMORY_SEGMENT_GROUP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5696,19 +5553,8 @@ impl ::core::fmt::Debug for DXGI_MEMORY_SEGMENT_GROUP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS(pub i32);
-impl ::core::marker::Copy for DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS {}
-impl ::core::clone::Clone for DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5718,19 +5564,8 @@ impl ::core::fmt::Debug for DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXGI_Message_Id(pub i32);
-impl ::core::marker::Copy for DXGI_Message_Id {}
-impl ::core::clone::Clone for DXGI_Message_Id {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXGI_Message_Id {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXGI_Message_Id {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5740,19 +5575,8 @@ impl ::core::fmt::Debug for DXGI_Message_Id {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXGI_OFFER_RESOURCE_FLAGS(pub i32);
-impl ::core::marker::Copy for DXGI_OFFER_RESOURCE_FLAGS {}
-impl ::core::clone::Clone for DXGI_OFFER_RESOURCE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXGI_OFFER_RESOURCE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXGI_OFFER_RESOURCE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5762,19 +5586,8 @@ impl ::core::fmt::Debug for DXGI_OFFER_RESOURCE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXGI_OFFER_RESOURCE_PRIORITY(pub i32);
-impl ::core::marker::Copy for DXGI_OFFER_RESOURCE_PRIORITY {}
-impl ::core::clone::Clone for DXGI_OFFER_RESOURCE_PRIORITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXGI_OFFER_RESOURCE_PRIORITY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXGI_OFFER_RESOURCE_PRIORITY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5784,19 +5597,8 @@ impl ::core::fmt::Debug for DXGI_OFFER_RESOURCE_PRIORITY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXGI_OUTDUPL_FLAG(pub i32);
-impl ::core::marker::Copy for DXGI_OUTDUPL_FLAG {}
-impl ::core::clone::Clone for DXGI_OUTDUPL_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXGI_OUTDUPL_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXGI_OUTDUPL_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5806,19 +5608,8 @@ impl ::core::fmt::Debug for DXGI_OUTDUPL_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXGI_OUTDUPL_POINTER_SHAPE_TYPE(pub i32);
-impl ::core::marker::Copy for DXGI_OUTDUPL_POINTER_SHAPE_TYPE {}
-impl ::core::clone::Clone for DXGI_OUTDUPL_POINTER_SHAPE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXGI_OUTDUPL_POINTER_SHAPE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXGI_OUTDUPL_POINTER_SHAPE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5828,19 +5619,8 @@ impl ::core::fmt::Debug for DXGI_OUTDUPL_POINTER_SHAPE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXGI_OVERLAY_COLOR_SPACE_SUPPORT_FLAG(pub i32);
-impl ::core::marker::Copy for DXGI_OVERLAY_COLOR_SPACE_SUPPORT_FLAG {}
-impl ::core::clone::Clone for DXGI_OVERLAY_COLOR_SPACE_SUPPORT_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXGI_OVERLAY_COLOR_SPACE_SUPPORT_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXGI_OVERLAY_COLOR_SPACE_SUPPORT_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5850,19 +5630,8 @@ impl ::core::fmt::Debug for DXGI_OVERLAY_COLOR_SPACE_SUPPORT_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXGI_OVERLAY_SUPPORT_FLAG(pub i32);
-impl ::core::marker::Copy for DXGI_OVERLAY_SUPPORT_FLAG {}
-impl ::core::clone::Clone for DXGI_OVERLAY_SUPPORT_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXGI_OVERLAY_SUPPORT_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXGI_OVERLAY_SUPPORT_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5872,19 +5641,8 @@ impl ::core::fmt::Debug for DXGI_OVERLAY_SUPPORT_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXGI_RECLAIM_RESOURCE_RESULTS(pub i32);
-impl ::core::marker::Copy for DXGI_RECLAIM_RESOURCE_RESULTS {}
-impl ::core::clone::Clone for DXGI_RECLAIM_RESOURCE_RESULTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXGI_RECLAIM_RESOURCE_RESULTS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXGI_RECLAIM_RESOURCE_RESULTS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5894,19 +5652,8 @@ impl ::core::fmt::Debug for DXGI_RECLAIM_RESOURCE_RESULTS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXGI_RESIDENCY(pub i32);
-impl ::core::marker::Copy for DXGI_RESIDENCY {}
-impl ::core::clone::Clone for DXGI_RESIDENCY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXGI_RESIDENCY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXGI_RESIDENCY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5916,19 +5663,8 @@ impl ::core::fmt::Debug for DXGI_RESIDENCY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXGI_SCALING(pub i32);
-impl ::core::marker::Copy for DXGI_SCALING {}
-impl ::core::clone::Clone for DXGI_SCALING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXGI_SCALING {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXGI_SCALING {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5938,19 +5674,8 @@ impl ::core::fmt::Debug for DXGI_SCALING {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG(pub i32);
-impl ::core::marker::Copy for DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG {}
-impl ::core::clone::Clone for DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5960,19 +5685,8 @@ impl ::core::fmt::Debug for DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXGI_SWAP_CHAIN_FLAG(pub i32);
-impl ::core::marker::Copy for DXGI_SWAP_CHAIN_FLAG {}
-impl ::core::clone::Clone for DXGI_SWAP_CHAIN_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXGI_SWAP_CHAIN_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXGI_SWAP_CHAIN_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5982,19 +5696,8 @@ impl ::core::fmt::Debug for DXGI_SWAP_CHAIN_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXGI_SWAP_EFFECT(pub i32);
-impl ::core::marker::Copy for DXGI_SWAP_EFFECT {}
-impl ::core::clone::Clone for DXGI_SWAP_EFFECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXGI_SWAP_EFFECT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXGI_SWAP_EFFECT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6004,19 +5707,8 @@ impl ::core::fmt::Debug for DXGI_SWAP_EFFECT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXGI_USAGE(pub u32);
-impl ::core::marker::Copy for DXGI_USAGE {}
-impl ::core::clone::Clone for DXGI_USAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXGI_USAGE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXGI_USAGE {
     type TypeKind = ::windows_core::CopyType;
 }

@@ -5219,7 +5219,7 @@ impl ::windows_core::CanTryInto<IXmlText> for XmlText {}
 unsafe impl ::core::marker::Send for XmlText {}
 unsafe impl ::core::marker::Sync for XmlText {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NodeType(pub i32);
 impl NodeType {
     pub const Invalid: Self = Self(0i32);
@@ -5235,17 +5235,6 @@ impl NodeType {
     pub const DocumentTypeNode: Self = Self(10i32);
     pub const DocumentFragmentNode: Self = Self(11i32);
     pub const NotationNode: Self = Self(12i32);
-}
-impl ::core::marker::Copy for NodeType {}
-impl ::core::clone::Clone for NodeType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NodeType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for NodeType {
     type TypeKind = ::windows_core::CopyType;

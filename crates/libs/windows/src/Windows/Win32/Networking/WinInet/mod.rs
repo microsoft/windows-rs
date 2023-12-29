@@ -3394,19 +3394,8 @@ pub const WPAD_CACHE_DELETE_ALL: WPAD_CACHE_DELETE = WPAD_CACHE_DELETE(1i32);
 pub const WPAD_CACHE_DELETE_CURRENT: WPAD_CACHE_DELETE = WPAD_CACHE_DELETE(0i32);
 pub const XDR_CACHE_ENTRY: u32 = 262144u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct APP_CACHE_FINALIZE_STATE(pub i32);
-impl ::core::marker::Copy for APP_CACHE_FINALIZE_STATE {}
-impl ::core::clone::Clone for APP_CACHE_FINALIZE_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for APP_CACHE_FINALIZE_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for APP_CACHE_FINALIZE_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3416,19 +3405,8 @@ impl ::core::fmt::Debug for APP_CACHE_FINALIZE_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct APP_CACHE_STATE(pub i32);
-impl ::core::marker::Copy for APP_CACHE_STATE {}
-impl ::core::clone::Clone for APP_CACHE_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for APP_CACHE_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for APP_CACHE_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3438,19 +3416,8 @@ impl ::core::fmt::Debug for APP_CACHE_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CACHE_CONFIG(pub u32);
-impl ::core::marker::Copy for CACHE_CONFIG {}
-impl ::core::clone::Clone for CACHE_CONFIG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CACHE_CONFIG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CACHE_CONFIG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3460,19 +3427,8 @@ impl ::core::fmt::Debug for CACHE_CONFIG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FORTCMD(pub i32);
-impl ::core::marker::Copy for FORTCMD {}
-impl ::core::clone::Clone for FORTCMD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FORTCMD {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FORTCMD {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3482,19 +3438,8 @@ impl ::core::fmt::Debug for FORTCMD {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FORTSTAT(pub i32);
-impl ::core::marker::Copy for FORTSTAT {}
-impl ::core::clone::Clone for FORTSTAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FORTSTAT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FORTSTAT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3504,19 +3449,8 @@ impl ::core::fmt::Debug for FORTSTAT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FTP_FLAGS(pub u32);
-impl ::core::marker::Copy for FTP_FLAGS {}
-impl ::core::clone::Clone for FTP_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FTP_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FTP_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3526,19 +3460,8 @@ impl ::core::fmt::Debug for FTP_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GOPHER_TYPE(pub u32);
-impl ::core::marker::Copy for GOPHER_TYPE {}
-impl ::core::clone::Clone for GOPHER_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GOPHER_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for GOPHER_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3548,19 +3471,8 @@ impl ::core::fmt::Debug for GOPHER_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HTTP_ADDREQ_FLAG(pub u32);
-impl ::core::marker::Copy for HTTP_ADDREQ_FLAG {}
-impl ::core::clone::Clone for HTTP_ADDREQ_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HTTP_ADDREQ_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HTTP_ADDREQ_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3603,19 +3515,8 @@ impl ::core::ops::Not for HTTP_ADDREQ_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HTTP_POLICY_EXTENSION_TYPE(pub i32);
-impl ::core::marker::Copy for HTTP_POLICY_EXTENSION_TYPE {}
-impl ::core::clone::Clone for HTTP_POLICY_EXTENSION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HTTP_POLICY_EXTENSION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HTTP_POLICY_EXTENSION_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3625,19 +3526,8 @@ impl ::core::fmt::Debug for HTTP_POLICY_EXTENSION_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HTTP_POLICY_EXTENSION_VERSION(pub i32);
-impl ::core::marker::Copy for HTTP_POLICY_EXTENSION_VERSION {}
-impl ::core::clone::Clone for HTTP_POLICY_EXTENSION_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HTTP_POLICY_EXTENSION_VERSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HTTP_POLICY_EXTENSION_VERSION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3647,19 +3537,8 @@ impl ::core::fmt::Debug for HTTP_POLICY_EXTENSION_VERSION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HTTP_PUSH_WAIT_TYPE(pub i32);
-impl ::core::marker::Copy for HTTP_PUSH_WAIT_TYPE {}
-impl ::core::clone::Clone for HTTP_PUSH_WAIT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HTTP_PUSH_WAIT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HTTP_PUSH_WAIT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3669,19 +3548,8 @@ impl ::core::fmt::Debug for HTTP_PUSH_WAIT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HTTP_WEB_SOCKET_BUFFER_TYPE(pub i32);
-impl ::core::marker::Copy for HTTP_WEB_SOCKET_BUFFER_TYPE {}
-impl ::core::clone::Clone for HTTP_WEB_SOCKET_BUFFER_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HTTP_WEB_SOCKET_BUFFER_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HTTP_WEB_SOCKET_BUFFER_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3691,19 +3559,8 @@ impl ::core::fmt::Debug for HTTP_WEB_SOCKET_BUFFER_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HTTP_WEB_SOCKET_CLOSE_STATUS(pub i32);
-impl ::core::marker::Copy for HTTP_WEB_SOCKET_CLOSE_STATUS {}
-impl ::core::clone::Clone for HTTP_WEB_SOCKET_CLOSE_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HTTP_WEB_SOCKET_CLOSE_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HTTP_WEB_SOCKET_CLOSE_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3713,19 +3570,8 @@ impl ::core::fmt::Debug for HTTP_WEB_SOCKET_CLOSE_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HTTP_WEB_SOCKET_OPERATION(pub i32);
-impl ::core::marker::Copy for HTTP_WEB_SOCKET_OPERATION {}
-impl ::core::clone::Clone for HTTP_WEB_SOCKET_OPERATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HTTP_WEB_SOCKET_OPERATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HTTP_WEB_SOCKET_OPERATION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3735,19 +3581,8 @@ impl ::core::fmt::Debug for HTTP_WEB_SOCKET_OPERATION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct INTERNET_ACCESS_TYPE(pub u32);
-impl ::core::marker::Copy for INTERNET_ACCESS_TYPE {}
-impl ::core::clone::Clone for INTERNET_ACCESS_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for INTERNET_ACCESS_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for INTERNET_ACCESS_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3757,19 +3592,8 @@ impl ::core::fmt::Debug for INTERNET_ACCESS_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct INTERNET_AUTODIAL(pub u32);
-impl ::core::marker::Copy for INTERNET_AUTODIAL {}
-impl ::core::clone::Clone for INTERNET_AUTODIAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for INTERNET_AUTODIAL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for INTERNET_AUTODIAL {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3779,19 +3603,8 @@ impl ::core::fmt::Debug for INTERNET_AUTODIAL {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct INTERNET_CONNECTION(pub u32);
-impl ::core::marker::Copy for INTERNET_CONNECTION {}
-impl ::core::clone::Clone for INTERNET_CONNECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for INTERNET_CONNECTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for INTERNET_CONNECTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3834,19 +3647,8 @@ impl ::core::ops::Not for INTERNET_CONNECTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct INTERNET_COOKIE_FLAGS(pub u32);
-impl ::core::marker::Copy for INTERNET_COOKIE_FLAGS {}
-impl ::core::clone::Clone for INTERNET_COOKIE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for INTERNET_COOKIE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for INTERNET_COOKIE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3856,19 +3658,8 @@ impl ::core::fmt::Debug for INTERNET_COOKIE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct INTERNET_PER_CONN(pub u32);
-impl ::core::marker::Copy for INTERNET_PER_CONN {}
-impl ::core::clone::Clone for INTERNET_PER_CONN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for INTERNET_PER_CONN {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for INTERNET_PER_CONN {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3878,19 +3669,8 @@ impl ::core::fmt::Debug for INTERNET_PER_CONN {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct INTERNET_SCHEME(pub i32);
-impl ::core::marker::Copy for INTERNET_SCHEME {}
-impl ::core::clone::Clone for INTERNET_SCHEME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for INTERNET_SCHEME {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for INTERNET_SCHEME {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3900,19 +3680,8 @@ impl ::core::fmt::Debug for INTERNET_SCHEME {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct INTERNET_STATE(pub u32);
-impl ::core::marker::Copy for INTERNET_STATE {}
-impl ::core::clone::Clone for INTERNET_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for INTERNET_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for INTERNET_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3922,19 +3691,8 @@ impl ::core::fmt::Debug for INTERNET_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InternetCookieState(pub i32);
-impl ::core::marker::Copy for InternetCookieState {}
-impl ::core::clone::Clone for InternetCookieState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InternetCookieState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for InternetCookieState {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3944,19 +3702,8 @@ impl ::core::fmt::Debug for InternetCookieState {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PROXY_AUTO_DETECT_TYPE(pub u32);
-impl ::core::marker::Copy for PROXY_AUTO_DETECT_TYPE {}
-impl ::core::clone::Clone for PROXY_AUTO_DETECT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PROXY_AUTO_DETECT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PROXY_AUTO_DETECT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3999,19 +3746,8 @@ impl ::core::ops::Not for PROXY_AUTO_DETECT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct REQUEST_TIMES(pub i32);
-impl ::core::marker::Copy for REQUEST_TIMES {}
-impl ::core::clone::Clone for REQUEST_TIMES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for REQUEST_TIMES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for REQUEST_TIMES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4021,19 +3757,8 @@ impl ::core::fmt::Debug for REQUEST_TIMES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct URL_CACHE_LIMIT_TYPE(pub i32);
-impl ::core::marker::Copy for URL_CACHE_LIMIT_TYPE {}
-impl ::core::clone::Clone for URL_CACHE_LIMIT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for URL_CACHE_LIMIT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for URL_CACHE_LIMIT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4043,19 +3768,8 @@ impl ::core::fmt::Debug for URL_CACHE_LIMIT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WININET_SYNC_MODE(pub i32);
-impl ::core::marker::Copy for WININET_SYNC_MODE {}
-impl ::core::clone::Clone for WININET_SYNC_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WININET_SYNC_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WININET_SYNC_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4065,19 +3779,8 @@ impl ::core::fmt::Debug for WININET_SYNC_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPAD_CACHE_DELETE(pub i32);
-impl ::core::marker::Copy for WPAD_CACHE_DELETE {}
-impl ::core::clone::Clone for WPAD_CACHE_DELETE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPAD_CACHE_DELETE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPAD_CACHE_DELETE {
     type TypeKind = ::windows_core::CopyType;
 }

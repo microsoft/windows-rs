@@ -4555,19 +4555,8 @@ pub const TaskHandlerPS: ::windows_core::GUID = ::windows_core::GUID::from_u128(
 pub const TaskHandlerStatusPS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9f15266d_d7ba_48f0_93c1_e6895f6fe5ac);
 pub const TaskScheduler: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0f87369f_a4e5_4cfc_bd3e_73e6154572dd);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TASKPAGE(pub i32);
-impl ::core::marker::Copy for TASKPAGE {}
-impl ::core::clone::Clone for TASKPAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TASKPAGE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TASKPAGE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4577,19 +4566,8 @@ impl ::core::fmt::Debug for TASKPAGE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TASK_ACTION_TYPE(pub i32);
-impl ::core::marker::Copy for TASK_ACTION_TYPE {}
-impl ::core::clone::Clone for TASK_ACTION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TASK_ACTION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TASK_ACTION_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4599,19 +4577,8 @@ impl ::core::fmt::Debug for TASK_ACTION_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TASK_COMPATIBILITY(pub i32);
-impl ::core::marker::Copy for TASK_COMPATIBILITY {}
-impl ::core::clone::Clone for TASK_COMPATIBILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TASK_COMPATIBILITY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TASK_COMPATIBILITY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4621,19 +4588,8 @@ impl ::core::fmt::Debug for TASK_COMPATIBILITY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TASK_CREATION(pub i32);
-impl ::core::marker::Copy for TASK_CREATION {}
-impl ::core::clone::Clone for TASK_CREATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TASK_CREATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TASK_CREATION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4643,19 +4599,8 @@ impl ::core::fmt::Debug for TASK_CREATION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TASK_ENUM_FLAGS(pub i32);
-impl ::core::marker::Copy for TASK_ENUM_FLAGS {}
-impl ::core::clone::Clone for TASK_ENUM_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TASK_ENUM_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TASK_ENUM_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4665,19 +4610,8 @@ impl ::core::fmt::Debug for TASK_ENUM_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TASK_INSTANCES_POLICY(pub i32);
-impl ::core::marker::Copy for TASK_INSTANCES_POLICY {}
-impl ::core::clone::Clone for TASK_INSTANCES_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TASK_INSTANCES_POLICY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TASK_INSTANCES_POLICY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4687,19 +4621,8 @@ impl ::core::fmt::Debug for TASK_INSTANCES_POLICY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TASK_LOGON_TYPE(pub i32);
-impl ::core::marker::Copy for TASK_LOGON_TYPE {}
-impl ::core::clone::Clone for TASK_LOGON_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TASK_LOGON_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TASK_LOGON_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4709,19 +4632,8 @@ impl ::core::fmt::Debug for TASK_LOGON_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TASK_PROCESSTOKENSID_TYPE(pub i32);
-impl ::core::marker::Copy for TASK_PROCESSTOKENSID_TYPE {}
-impl ::core::clone::Clone for TASK_PROCESSTOKENSID_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TASK_PROCESSTOKENSID_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TASK_PROCESSTOKENSID_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4731,19 +4643,8 @@ impl ::core::fmt::Debug for TASK_PROCESSTOKENSID_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TASK_RUNLEVEL_TYPE(pub i32);
-impl ::core::marker::Copy for TASK_RUNLEVEL_TYPE {}
-impl ::core::clone::Clone for TASK_RUNLEVEL_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TASK_RUNLEVEL_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TASK_RUNLEVEL_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4753,19 +4654,8 @@ impl ::core::fmt::Debug for TASK_RUNLEVEL_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TASK_RUN_FLAGS(pub i32);
-impl ::core::marker::Copy for TASK_RUN_FLAGS {}
-impl ::core::clone::Clone for TASK_RUN_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TASK_RUN_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TASK_RUN_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4775,19 +4665,8 @@ impl ::core::fmt::Debug for TASK_RUN_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TASK_SESSION_STATE_CHANGE_TYPE(pub i32);
-impl ::core::marker::Copy for TASK_SESSION_STATE_CHANGE_TYPE {}
-impl ::core::clone::Clone for TASK_SESSION_STATE_CHANGE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TASK_SESSION_STATE_CHANGE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TASK_SESSION_STATE_CHANGE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4797,19 +4676,8 @@ impl ::core::fmt::Debug for TASK_SESSION_STATE_CHANGE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TASK_STATE(pub i32);
-impl ::core::marker::Copy for TASK_STATE {}
-impl ::core::clone::Clone for TASK_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TASK_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TASK_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4819,19 +4687,8 @@ impl ::core::fmt::Debug for TASK_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TASK_TRIGGER_TYPE(pub i32);
-impl ::core::marker::Copy for TASK_TRIGGER_TYPE {}
-impl ::core::clone::Clone for TASK_TRIGGER_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TASK_TRIGGER_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TASK_TRIGGER_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4841,19 +4698,8 @@ impl ::core::fmt::Debug for TASK_TRIGGER_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TASK_TRIGGER_TYPE2(pub i32);
-impl ::core::marker::Copy for TASK_TRIGGER_TYPE2 {}
-impl ::core::clone::Clone for TASK_TRIGGER_TYPE2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TASK_TRIGGER_TYPE2 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TASK_TRIGGER_TYPE2 {
     type TypeKind = ::windows_core::CopyType;
 }

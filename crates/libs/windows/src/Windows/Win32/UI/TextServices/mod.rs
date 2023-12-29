@@ -7542,19 +7542,8 @@ pub const TS_TC_CORRECTION: TEXT_STORE_CHANGE_FLAGS = TEXT_STORE_CHANGE_FLAGS(1u
 pub const TS_TC_NONE: TEXT_STORE_CHANGE_FLAGS = TEXT_STORE_CHANGE_FLAGS(0u32);
 pub const TS_VCOOKIE_NUL: u32 = 4294967295u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ANCHOR_CHANGE_HISTORY_FLAGS(pub u32);
-impl ::core::marker::Copy for ANCHOR_CHANGE_HISTORY_FLAGS {}
-impl ::core::clone::Clone for ANCHOR_CHANGE_HISTORY_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ANCHOR_CHANGE_HISTORY_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ANCHOR_CHANGE_HISTORY_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7597,19 +7586,8 @@ impl ::core::ops::Not for ANCHOR_CHANGE_HISTORY_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GET_TEXT_AND_PROPERTY_UPDATES_FLAGS(pub u32);
-impl ::core::marker::Copy for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {}
-impl ::core::clone::Clone for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7652,19 +7630,8 @@ impl ::core::ops::Not for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct INSERT_TEXT_AT_SELECTION_FLAGS(pub u32);
-impl ::core::marker::Copy for INSERT_TEXT_AT_SELECTION_FLAGS {}
-impl ::core::clone::Clone for INSERT_TEXT_AT_SELECTION_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for INSERT_TEXT_AT_SELECTION_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for INSERT_TEXT_AT_SELECTION_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7674,19 +7641,8 @@ impl ::core::fmt::Debug for INSERT_TEXT_AT_SELECTION_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InputScope(pub i32);
-impl ::core::marker::Copy for InputScope {}
-impl ::core::clone::Clone for InputScope {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InputScope {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for InputScope {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7696,19 +7652,8 @@ impl ::core::fmt::Debug for InputScope {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct LANG_BAR_ITEM_ICON_MODE_FLAGS(pub u32);
-impl ::core::marker::Copy for LANG_BAR_ITEM_ICON_MODE_FLAGS {}
-impl ::core::clone::Clone for LANG_BAR_ITEM_ICON_MODE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for LANG_BAR_ITEM_ICON_MODE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for LANG_BAR_ITEM_ICON_MODE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7718,19 +7663,8 @@ impl ::core::fmt::Debug for LANG_BAR_ITEM_ICON_MODE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TEXT_STORE_CHANGE_FLAGS(pub u32);
-impl ::core::marker::Copy for TEXT_STORE_CHANGE_FLAGS {}
-impl ::core::clone::Clone for TEXT_STORE_CHANGE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TEXT_STORE_CHANGE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TEXT_STORE_CHANGE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7773,19 +7707,8 @@ impl ::core::ops::Not for TEXT_STORE_CHANGE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TEXT_STORE_LOCK_FLAGS(pub u32);
-impl ::core::marker::Copy for TEXT_STORE_LOCK_FLAGS {}
-impl ::core::clone::Clone for TEXT_STORE_LOCK_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TEXT_STORE_LOCK_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TEXT_STORE_LOCK_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7795,19 +7718,8 @@ impl ::core::fmt::Debug for TEXT_STORE_LOCK_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TEXT_STORE_TEXT_CHANGE_FLAGS(pub u32);
-impl ::core::marker::Copy for TEXT_STORE_TEXT_CHANGE_FLAGS {}
-impl ::core::clone::Clone for TEXT_STORE_TEXT_CHANGE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TEXT_STORE_TEXT_CHANGE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TEXT_STORE_TEXT_CHANGE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7850,19 +7762,8 @@ impl ::core::ops::Not for TEXT_STORE_TEXT_CHANGE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TF_CONTEXT_EDIT_CONTEXT_FLAGS(pub u32);
-impl ::core::marker::Copy for TF_CONTEXT_EDIT_CONTEXT_FLAGS {}
-impl ::core::clone::Clone for TF_CONTEXT_EDIT_CONTEXT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TF_CONTEXT_EDIT_CONTEXT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TF_CONTEXT_EDIT_CONTEXT_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7905,19 +7806,8 @@ impl ::core::ops::Not for TF_CONTEXT_EDIT_CONTEXT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TF_DA_ATTR_INFO(pub i32);
-impl ::core::marker::Copy for TF_DA_ATTR_INFO {}
-impl ::core::clone::Clone for TF_DA_ATTR_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TF_DA_ATTR_INFO {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TF_DA_ATTR_INFO {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7927,19 +7817,8 @@ impl ::core::fmt::Debug for TF_DA_ATTR_INFO {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TF_DA_COLORTYPE(pub i32);
-impl ::core::marker::Copy for TF_DA_COLORTYPE {}
-impl ::core::clone::Clone for TF_DA_COLORTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TF_DA_COLORTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TF_DA_COLORTYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7949,19 +7828,8 @@ impl ::core::fmt::Debug for TF_DA_COLORTYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TF_DA_LINESTYLE(pub i32);
-impl ::core::marker::Copy for TF_DA_LINESTYLE {}
-impl ::core::clone::Clone for TF_DA_LINESTYLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TF_DA_LINESTYLE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TF_DA_LINESTYLE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7971,19 +7839,8 @@ impl ::core::fmt::Debug for TF_DA_LINESTYLE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TKBLayoutType(pub i32);
-impl ::core::marker::Copy for TKBLayoutType {}
-impl ::core::clone::Clone for TKBLayoutType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TKBLayoutType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TKBLayoutType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7993,19 +7850,8 @@ impl ::core::fmt::Debug for TKBLayoutType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TfActiveSelEnd(pub i32);
-impl ::core::marker::Copy for TfActiveSelEnd {}
-impl ::core::clone::Clone for TfActiveSelEnd {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TfActiveSelEnd {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TfActiveSelEnd {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8015,19 +7861,8 @@ impl ::core::fmt::Debug for TfActiveSelEnd {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TfAnchor(pub i32);
-impl ::core::marker::Copy for TfAnchor {}
-impl ::core::clone::Clone for TfAnchor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TfAnchor {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TfAnchor {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8037,19 +7872,8 @@ impl ::core::fmt::Debug for TfAnchor {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TfCandidateResult(pub i32);
-impl ::core::marker::Copy for TfCandidateResult {}
-impl ::core::clone::Clone for TfCandidateResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TfCandidateResult {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TfCandidateResult {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8059,19 +7883,8 @@ impl ::core::fmt::Debug for TfCandidateResult {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TfGravity(pub i32);
-impl ::core::marker::Copy for TfGravity {}
-impl ::core::clone::Clone for TfGravity {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TfGravity {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TfGravity {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8081,19 +7894,8 @@ impl ::core::fmt::Debug for TfGravity {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TfIntegratableCandidateListSelectionStyle(pub i32);
-impl ::core::marker::Copy for TfIntegratableCandidateListSelectionStyle {}
-impl ::core::clone::Clone for TfIntegratableCandidateListSelectionStyle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TfIntegratableCandidateListSelectionStyle {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TfIntegratableCandidateListSelectionStyle {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8103,19 +7905,8 @@ impl ::core::fmt::Debug for TfIntegratableCandidateListSelectionStyle {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TfLBBalloonStyle(pub i32);
-impl ::core::marker::Copy for TfLBBalloonStyle {}
-impl ::core::clone::Clone for TfLBBalloonStyle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TfLBBalloonStyle {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TfLBBalloonStyle {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8125,19 +7916,8 @@ impl ::core::fmt::Debug for TfLBBalloonStyle {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TfLBIClick(pub i32);
-impl ::core::marker::Copy for TfLBIClick {}
-impl ::core::clone::Clone for TfLBIClick {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TfLBIClick {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TfLBIClick {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8147,19 +7927,8 @@ impl ::core::fmt::Debug for TfLBIClick {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TfLayoutCode(pub i32);
-impl ::core::marker::Copy for TfLayoutCode {}
-impl ::core::clone::Clone for TfLayoutCode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TfLayoutCode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TfLayoutCode {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8169,19 +7938,8 @@ impl ::core::fmt::Debug for TfLayoutCode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TfSapiObject(pub i32);
-impl ::core::marker::Copy for TfSapiObject {}
-impl ::core::clone::Clone for TfSapiObject {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TfSapiObject {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TfSapiObject {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8191,19 +7949,8 @@ impl ::core::fmt::Debug for TfSapiObject {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TfShiftDir(pub i32);
-impl ::core::marker::Copy for TfShiftDir {}
-impl ::core::clone::Clone for TfShiftDir {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TfShiftDir {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TfShiftDir {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8213,19 +7960,8 @@ impl ::core::fmt::Debug for TfShiftDir {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TsActiveSelEnd(pub i32);
-impl ::core::marker::Copy for TsActiveSelEnd {}
-impl ::core::clone::Clone for TsActiveSelEnd {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TsActiveSelEnd {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TsActiveSelEnd {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8235,19 +7971,8 @@ impl ::core::fmt::Debug for TsActiveSelEnd {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TsGravity(pub i32);
-impl ::core::marker::Copy for TsGravity {}
-impl ::core::clone::Clone for TsGravity {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TsGravity {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TsGravity {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8257,19 +7982,8 @@ impl ::core::fmt::Debug for TsGravity {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TsLayoutCode(pub i32);
-impl ::core::marker::Copy for TsLayoutCode {}
-impl ::core::clone::Clone for TsLayoutCode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TsLayoutCode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TsLayoutCode {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8279,19 +7993,8 @@ impl ::core::fmt::Debug for TsLayoutCode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TsRunType(pub i32);
-impl ::core::marker::Copy for TsRunType {}
-impl ::core::clone::Clone for TsRunType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TsRunType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TsRunType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8301,19 +8004,8 @@ impl ::core::fmt::Debug for TsRunType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TsShiftDir(pub i32);
-impl ::core::marker::Copy for TsShiftDir {}
-impl ::core::clone::Clone for TsShiftDir {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TsShiftDir {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TsShiftDir {
     type TypeKind = ::windows_core::CopyType;
 }

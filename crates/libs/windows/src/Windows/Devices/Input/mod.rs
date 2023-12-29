@@ -977,23 +977,12 @@ impl ::windows_core::RuntimeName for TouchCapabilities {
 unsafe impl ::core::marker::Send for TouchCapabilities {}
 unsafe impl ::core::marker::Sync for TouchCapabilities {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PointerDeviceType(pub i32);
 impl PointerDeviceType {
     pub const Touch: Self = Self(0i32);
     pub const Pen: Self = Self(1i32);
     pub const Mouse: Self = Self(2i32);
-}
-impl ::core::marker::Copy for PointerDeviceType {}
-impl ::core::clone::Clone for PointerDeviceType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PointerDeviceType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PointerDeviceType {
     type TypeKind = ::windows_core::CopyType;

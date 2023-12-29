@@ -112,19 +112,8 @@ pub const NS_REQ_ONE_OR_MORE: NS_REQS = NS_REQS(3i32);
 pub const NS_REQ_PRESENT: NS_REQS = NS_REQS(1i32);
 pub const NS_REQ_ZERO: NS_REQS = NS_REQS(0i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NS_CMD_FLAGS(pub i32);
-impl ::core::marker::Copy for NS_CMD_FLAGS {}
-impl ::core::clone::Clone for NS_CMD_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NS_CMD_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NS_CMD_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -134,19 +123,8 @@ impl ::core::fmt::Debug for NS_CMD_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NS_EVENTS(pub i32);
-impl ::core::marker::Copy for NS_EVENTS {}
-impl ::core::clone::Clone for NS_EVENTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NS_EVENTS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NS_EVENTS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -156,19 +134,8 @@ impl ::core::fmt::Debug for NS_EVENTS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NS_MODE_CHANGE(pub i32);
-impl ::core::marker::Copy for NS_MODE_CHANGE {}
-impl ::core::clone::Clone for NS_MODE_CHANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NS_MODE_CHANGE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NS_MODE_CHANGE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -178,19 +145,8 @@ impl ::core::fmt::Debug for NS_MODE_CHANGE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NS_REQS(pub i32);
-impl ::core::marker::Copy for NS_REQS {}
-impl ::core::clone::Clone for NS_REQS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NS_REQS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NS_REQS {
     type TypeKind = ::windows_core::CopyType;
 }

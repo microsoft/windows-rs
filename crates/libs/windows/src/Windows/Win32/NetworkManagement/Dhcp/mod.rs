@@ -2114,19 +2114,8 @@ pub const V5_ADDRESS_STATE_DOOM: u32 = 3u32;
 pub const V5_ADDRESS_STATE_OFFERED: u32 = 0u32;
 pub const WARNING_EXTENDED_LESS: i32 = 20026i32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DHCPV6_STATELESS_PARAM_TYPE(pub i32);
-impl ::core::marker::Copy for DHCPV6_STATELESS_PARAM_TYPE {}
-impl ::core::clone::Clone for DHCPV6_STATELESS_PARAM_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DHCPV6_STATELESS_PARAM_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DHCPV6_STATELESS_PARAM_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2136,19 +2125,8 @@ impl ::core::fmt::Debug for DHCPV6_STATELESS_PARAM_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DHCP_FAILOVER_MODE(pub i32);
-impl ::core::marker::Copy for DHCP_FAILOVER_MODE {}
-impl ::core::clone::Clone for DHCP_FAILOVER_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DHCP_FAILOVER_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DHCP_FAILOVER_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2158,19 +2136,8 @@ impl ::core::fmt::Debug for DHCP_FAILOVER_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DHCP_FAILOVER_SERVER(pub i32);
-impl ::core::marker::Copy for DHCP_FAILOVER_SERVER {}
-impl ::core::clone::Clone for DHCP_FAILOVER_SERVER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DHCP_FAILOVER_SERVER {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DHCP_FAILOVER_SERVER {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2180,19 +2147,8 @@ impl ::core::fmt::Debug for DHCP_FAILOVER_SERVER {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DHCP_FILTER_LIST_TYPE(pub i32);
-impl ::core::marker::Copy for DHCP_FILTER_LIST_TYPE {}
-impl ::core::clone::Clone for DHCP_FILTER_LIST_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DHCP_FILTER_LIST_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DHCP_FILTER_LIST_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2202,19 +2158,8 @@ impl ::core::fmt::Debug for DHCP_FILTER_LIST_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DHCP_FORCE_FLAG(pub i32);
-impl ::core::marker::Copy for DHCP_FORCE_FLAG {}
-impl ::core::clone::Clone for DHCP_FORCE_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DHCP_FORCE_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DHCP_FORCE_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2224,19 +2169,8 @@ impl ::core::fmt::Debug for DHCP_FORCE_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DHCP_OPTION_DATA_TYPE(pub i32);
-impl ::core::marker::Copy for DHCP_OPTION_DATA_TYPE {}
-impl ::core::clone::Clone for DHCP_OPTION_DATA_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DHCP_OPTION_DATA_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DHCP_OPTION_DATA_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2246,19 +2180,8 @@ impl ::core::fmt::Debug for DHCP_OPTION_DATA_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DHCP_OPTION_SCOPE_TYPE(pub i32);
-impl ::core::marker::Copy for DHCP_OPTION_SCOPE_TYPE {}
-impl ::core::clone::Clone for DHCP_OPTION_SCOPE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DHCP_OPTION_SCOPE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DHCP_OPTION_SCOPE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2268,19 +2191,8 @@ impl ::core::fmt::Debug for DHCP_OPTION_SCOPE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DHCP_OPTION_SCOPE_TYPE6(pub i32);
-impl ::core::marker::Copy for DHCP_OPTION_SCOPE_TYPE6 {}
-impl ::core::clone::Clone for DHCP_OPTION_SCOPE_TYPE6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DHCP_OPTION_SCOPE_TYPE6 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DHCP_OPTION_SCOPE_TYPE6 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2290,19 +2202,8 @@ impl ::core::fmt::Debug for DHCP_OPTION_SCOPE_TYPE6 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DHCP_OPTION_TYPE(pub i32);
-impl ::core::marker::Copy for DHCP_OPTION_TYPE {}
-impl ::core::clone::Clone for DHCP_OPTION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DHCP_OPTION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DHCP_OPTION_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2312,19 +2213,8 @@ impl ::core::fmt::Debug for DHCP_OPTION_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DHCP_POLICY_FIELDS_TO_UPDATE(pub i32);
-impl ::core::marker::Copy for DHCP_POLICY_FIELDS_TO_UPDATE {}
-impl ::core::clone::Clone for DHCP_POLICY_FIELDS_TO_UPDATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DHCP_POLICY_FIELDS_TO_UPDATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DHCP_POLICY_FIELDS_TO_UPDATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2334,19 +2224,8 @@ impl ::core::fmt::Debug for DHCP_POLICY_FIELDS_TO_UPDATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DHCP_POL_ATTR_TYPE(pub i32);
-impl ::core::marker::Copy for DHCP_POL_ATTR_TYPE {}
-impl ::core::clone::Clone for DHCP_POL_ATTR_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DHCP_POL_ATTR_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DHCP_POL_ATTR_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2356,19 +2235,8 @@ impl ::core::fmt::Debug for DHCP_POL_ATTR_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DHCP_POL_COMPARATOR(pub i32);
-impl ::core::marker::Copy for DHCP_POL_COMPARATOR {}
-impl ::core::clone::Clone for DHCP_POL_COMPARATOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DHCP_POL_COMPARATOR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DHCP_POL_COMPARATOR {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2378,19 +2246,8 @@ impl ::core::fmt::Debug for DHCP_POL_COMPARATOR {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DHCP_POL_LOGIC_OPER(pub i32);
-impl ::core::marker::Copy for DHCP_POL_LOGIC_OPER {}
-impl ::core::clone::Clone for DHCP_POL_LOGIC_OPER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DHCP_POL_LOGIC_OPER {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DHCP_POL_LOGIC_OPER {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2400,19 +2257,8 @@ impl ::core::fmt::Debug for DHCP_POL_LOGIC_OPER {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DHCP_PROPERTY_ID(pub i32);
-impl ::core::marker::Copy for DHCP_PROPERTY_ID {}
-impl ::core::clone::Clone for DHCP_PROPERTY_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DHCP_PROPERTY_ID {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DHCP_PROPERTY_ID {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2422,19 +2268,8 @@ impl ::core::fmt::Debug for DHCP_PROPERTY_ID {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DHCP_PROPERTY_TYPE(pub i32);
-impl ::core::marker::Copy for DHCP_PROPERTY_TYPE {}
-impl ::core::clone::Clone for DHCP_PROPERTY_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DHCP_PROPERTY_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DHCP_PROPERTY_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2444,19 +2279,8 @@ impl ::core::fmt::Debug for DHCP_PROPERTY_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DHCP_SCAN_FLAG(pub i32);
-impl ::core::marker::Copy for DHCP_SCAN_FLAG {}
-impl ::core::clone::Clone for DHCP_SCAN_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DHCP_SCAN_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DHCP_SCAN_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2466,19 +2290,8 @@ impl ::core::fmt::Debug for DHCP_SCAN_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DHCP_SEARCH_INFO_TYPE(pub i32);
-impl ::core::marker::Copy for DHCP_SEARCH_INFO_TYPE {}
-impl ::core::clone::Clone for DHCP_SEARCH_INFO_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DHCP_SEARCH_INFO_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DHCP_SEARCH_INFO_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2488,19 +2301,8 @@ impl ::core::fmt::Debug for DHCP_SEARCH_INFO_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DHCP_SEARCH_INFO_TYPE_V6(pub i32);
-impl ::core::marker::Copy for DHCP_SEARCH_INFO_TYPE_V6 {}
-impl ::core::clone::Clone for DHCP_SEARCH_INFO_TYPE_V6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DHCP_SEARCH_INFO_TYPE_V6 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DHCP_SEARCH_INFO_TYPE_V6 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2510,19 +2312,8 @@ impl ::core::fmt::Debug for DHCP_SEARCH_INFO_TYPE_V6 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DHCP_SUBNET_ELEMENT_TYPE(pub i32);
-impl ::core::marker::Copy for DHCP_SUBNET_ELEMENT_TYPE {}
-impl ::core::clone::Clone for DHCP_SUBNET_ELEMENT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DHCP_SUBNET_ELEMENT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DHCP_SUBNET_ELEMENT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2532,19 +2323,8 @@ impl ::core::fmt::Debug for DHCP_SUBNET_ELEMENT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DHCP_SUBNET_ELEMENT_TYPE_V6(pub i32);
-impl ::core::marker::Copy for DHCP_SUBNET_ELEMENT_TYPE_V6 {}
-impl ::core::clone::Clone for DHCP_SUBNET_ELEMENT_TYPE_V6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DHCP_SUBNET_ELEMENT_TYPE_V6 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DHCP_SUBNET_ELEMENT_TYPE_V6 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2554,19 +2334,8 @@ impl ::core::fmt::Debug for DHCP_SUBNET_ELEMENT_TYPE_V6 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DHCP_SUBNET_STATE(pub i32);
-impl ::core::marker::Copy for DHCP_SUBNET_STATE {}
-impl ::core::clone::Clone for DHCP_SUBNET_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DHCP_SUBNET_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DHCP_SUBNET_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2576,19 +2345,8 @@ impl ::core::fmt::Debug for DHCP_SUBNET_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FSM_STATE(pub i32);
-impl ::core::marker::Copy for FSM_STATE {}
-impl ::core::clone::Clone for FSM_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FSM_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FSM_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2598,19 +2356,8 @@ impl ::core::fmt::Debug for FSM_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct QuarantineStatus(pub i32);
-impl ::core::marker::Copy for QuarantineStatus {}
-impl ::core::clone::Clone for QuarantineStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for QuarantineStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for QuarantineStatus {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2620,19 +2367,8 @@ impl ::core::fmt::Debug for QuarantineStatus {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct StatusCode(pub i32);
-impl ::core::marker::Copy for StatusCode {}
-impl ::core::clone::Clone for StatusCode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for StatusCode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for StatusCode {
     type TypeKind = ::windows_core::CopyType;
 }

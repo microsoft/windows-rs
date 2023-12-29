@@ -5036,19 +5036,8 @@ pub const QCC_FALSE: u32 = 0u32;
 pub const QCC_TRUE: u32 = 1u32;
 pub const UNANNOUNCED: alljoyn_about_announceflag = alljoyn_about_announceflag(0i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct QStatus(pub i32);
-impl ::core::marker::Copy for QStatus {}
-impl ::core::clone::Clone for QStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for QStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for QStatus {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5058,19 +5047,8 @@ impl ::core::fmt::Debug for QStatus {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct alljoyn_about_announceflag(pub i32);
-impl ::core::marker::Copy for alljoyn_about_announceflag {}
-impl ::core::clone::Clone for alljoyn_about_announceflag {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for alljoyn_about_announceflag {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for alljoyn_about_announceflag {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5080,19 +5058,8 @@ impl ::core::fmt::Debug for alljoyn_about_announceflag {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct alljoyn_applicationstate(pub i32);
-impl ::core::marker::Copy for alljoyn_applicationstate {}
-impl ::core::clone::Clone for alljoyn_applicationstate {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for alljoyn_applicationstate {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for alljoyn_applicationstate {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5102,19 +5069,8 @@ impl ::core::fmt::Debug for alljoyn_applicationstate {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct alljoyn_claimcapability_masks(pub i32);
-impl ::core::marker::Copy for alljoyn_claimcapability_masks {}
-impl ::core::clone::Clone for alljoyn_claimcapability_masks {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for alljoyn_claimcapability_masks {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for alljoyn_claimcapability_masks {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5124,19 +5080,8 @@ impl ::core::fmt::Debug for alljoyn_claimcapability_masks {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct alljoyn_claimcapabilityadditionalinfo_masks(pub i32);
-impl ::core::marker::Copy for alljoyn_claimcapabilityadditionalinfo_masks {}
-impl ::core::clone::Clone for alljoyn_claimcapabilityadditionalinfo_masks {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for alljoyn_claimcapabilityadditionalinfo_masks {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for alljoyn_claimcapabilityadditionalinfo_masks {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5146,19 +5091,8 @@ impl ::core::fmt::Debug for alljoyn_claimcapabilityadditionalinfo_masks {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct alljoyn_interfacedescription_securitypolicy(pub i32);
-impl ::core::marker::Copy for alljoyn_interfacedescription_securitypolicy {}
-impl ::core::clone::Clone for alljoyn_interfacedescription_securitypolicy {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for alljoyn_interfacedescription_securitypolicy {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for alljoyn_interfacedescription_securitypolicy {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5168,19 +5102,8 @@ impl ::core::fmt::Debug for alljoyn_interfacedescription_securitypolicy {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct alljoyn_messagetype(pub i32);
-impl ::core::marker::Copy for alljoyn_messagetype {}
-impl ::core::clone::Clone for alljoyn_messagetype {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for alljoyn_messagetype {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for alljoyn_messagetype {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5190,19 +5113,8 @@ impl ::core::fmt::Debug for alljoyn_messagetype {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct alljoyn_sessionlostreason(pub i32);
-impl ::core::marker::Copy for alljoyn_sessionlostreason {}
-impl ::core::clone::Clone for alljoyn_sessionlostreason {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for alljoyn_sessionlostreason {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for alljoyn_sessionlostreason {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5212,19 +5124,8 @@ impl ::core::fmt::Debug for alljoyn_sessionlostreason {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct alljoyn_typeid(pub i32);
-impl ::core::marker::Copy for alljoyn_typeid {}
-impl ::core::clone::Clone for alljoyn_typeid {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for alljoyn_typeid {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for alljoyn_typeid {
     type TypeKind = ::windows_core::CopyType;
 }

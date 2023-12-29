@@ -829,19 +829,8 @@ pub const STR_OUT_OF_BOX_UPGRADE_EXPERIENCE: ::windows_core::PCWSTR = ::windows_
 pub const STR_PROPERTY_STORE: ::windows_core::PCWSTR = ::windows_core::w!("PropertyStore");
 pub const STR_USER_NAME: ::windows_core::PCWSTR = ::windows_core::w!("Username");
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ACCOUNT_STATE(pub i32);
-impl ::core::marker::Copy for ACCOUNT_STATE {}
-impl ::core::clone::Clone for ACCOUNT_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ACCOUNT_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ACCOUNT_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -851,19 +840,8 @@ impl ::core::fmt::Debug for ACCOUNT_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct IDENTITY_TYPE(pub i32);
-impl ::core::marker::Copy for IDENTITY_TYPE {}
-impl ::core::clone::Clone for IDENTITY_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for IDENTITY_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for IDENTITY_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -873,19 +851,8 @@ impl ::core::fmt::Debug for IDENTITY_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct IDENTITY_URL(pub i32);
-impl ::core::marker::Copy for IDENTITY_URL {}
-impl ::core::clone::Clone for IDENTITY_URL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for IDENTITY_URL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for IDENTITY_URL {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -895,19 +862,8 @@ impl ::core::fmt::Debug for IDENTITY_URL {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct IdentityUpdateEvent(pub i32);
-impl ::core::marker::Copy for IdentityUpdateEvent {}
-impl ::core::clone::Clone for IdentityUpdateEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for IdentityUpdateEvent {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for IdentityUpdateEvent {
     type TypeKind = ::windows_core::CopyType;
 }

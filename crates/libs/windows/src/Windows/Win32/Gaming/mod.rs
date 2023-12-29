@@ -683,19 +683,8 @@ pub const XPRIVILEGE_VIEW_FRIENDS_LIST: KnownGamingPrivileges = KnownGamingPrivi
 pub const XblIdpAuthManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xce23534b_56d8_4978_86a2_7ee570640468);
 pub const XblIdpAuthTokenResult: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9f493441_744a_410c_ae2b_9a22f7c7731f);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GAMESTATS_OPEN_RESULT(pub i32);
-impl ::core::marker::Copy for GAMESTATS_OPEN_RESULT {}
-impl ::core::clone::Clone for GAMESTATS_OPEN_RESULT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GAMESTATS_OPEN_RESULT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for GAMESTATS_OPEN_RESULT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -705,19 +694,8 @@ impl ::core::fmt::Debug for GAMESTATS_OPEN_RESULT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GAMESTATS_OPEN_TYPE(pub i32);
-impl ::core::marker::Copy for GAMESTATS_OPEN_TYPE {}
-impl ::core::clone::Clone for GAMESTATS_OPEN_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GAMESTATS_OPEN_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for GAMESTATS_OPEN_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -727,19 +705,8 @@ impl ::core::fmt::Debug for GAMESTATS_OPEN_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GAME_INSTALL_SCOPE(pub i32);
-impl ::core::marker::Copy for GAME_INSTALL_SCOPE {}
-impl ::core::clone::Clone for GAME_INSTALL_SCOPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GAME_INSTALL_SCOPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for GAME_INSTALL_SCOPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -749,19 +716,8 @@ impl ::core::fmt::Debug for GAME_INSTALL_SCOPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GAMING_DEVICE_DEVICE_ID(pub i32);
-impl ::core::marker::Copy for GAMING_DEVICE_DEVICE_ID {}
-impl ::core::clone::Clone for GAMING_DEVICE_DEVICE_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GAMING_DEVICE_DEVICE_ID {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for GAMING_DEVICE_DEVICE_ID {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -771,19 +727,8 @@ impl ::core::fmt::Debug for GAMING_DEVICE_DEVICE_ID {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GAMING_DEVICE_VENDOR_ID(pub i32);
-impl ::core::marker::Copy for GAMING_DEVICE_VENDOR_ID {}
-impl ::core::clone::Clone for GAMING_DEVICE_VENDOR_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GAMING_DEVICE_VENDOR_ID {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for GAMING_DEVICE_VENDOR_ID {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -793,19 +738,8 @@ impl ::core::fmt::Debug for GAMING_DEVICE_VENDOR_ID {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct KnownGamingPrivileges(pub i32);
-impl ::core::marker::Copy for KnownGamingPrivileges {}
-impl ::core::clone::Clone for KnownGamingPrivileges {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KnownGamingPrivileges {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for KnownGamingPrivileges {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -815,19 +749,8 @@ impl ::core::fmt::Debug for KnownGamingPrivileges {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XBL_IDP_AUTH_TOKEN_STATUS(pub i32);
-impl ::core::marker::Copy for XBL_IDP_AUTH_TOKEN_STATUS {}
-impl ::core::clone::Clone for XBL_IDP_AUTH_TOKEN_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XBL_IDP_AUTH_TOKEN_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XBL_IDP_AUTH_TOKEN_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }

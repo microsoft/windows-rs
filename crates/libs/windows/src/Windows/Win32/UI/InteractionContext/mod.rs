@@ -345,19 +345,8 @@ pub const TRANSLATION_PARAMETER_MAX: TRANSLATION_PARAMETER = TRANSLATION_PARAMET
 pub const TRANSLATION_PARAMETER_MAX_CONTACT_COUNT: TRANSLATION_PARAMETER = TRANSLATION_PARAMETER(1i32);
 pub const TRANSLATION_PARAMETER_MIN_CONTACT_COUNT: TRANSLATION_PARAMETER = TRANSLATION_PARAMETER(0i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CROSS_SLIDE_FLAGS(pub u32);
-impl ::core::marker::Copy for CROSS_SLIDE_FLAGS {}
-impl ::core::clone::Clone for CROSS_SLIDE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CROSS_SLIDE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CROSS_SLIDE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -400,19 +389,8 @@ impl ::core::ops::Not for CROSS_SLIDE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CROSS_SLIDE_THRESHOLD(pub i32);
-impl ::core::marker::Copy for CROSS_SLIDE_THRESHOLD {}
-impl ::core::clone::Clone for CROSS_SLIDE_THRESHOLD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CROSS_SLIDE_THRESHOLD {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CROSS_SLIDE_THRESHOLD {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -422,19 +400,8 @@ impl ::core::fmt::Debug for CROSS_SLIDE_THRESHOLD {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HOLD_PARAMETER(pub i32);
-impl ::core::marker::Copy for HOLD_PARAMETER {}
-impl ::core::clone::Clone for HOLD_PARAMETER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HOLD_PARAMETER {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HOLD_PARAMETER {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -444,19 +411,8 @@ impl ::core::fmt::Debug for HOLD_PARAMETER {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct INERTIA_PARAMETER(pub i32);
-impl ::core::marker::Copy for INERTIA_PARAMETER {}
-impl ::core::clone::Clone for INERTIA_PARAMETER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for INERTIA_PARAMETER {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for INERTIA_PARAMETER {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -466,19 +422,8 @@ impl ::core::fmt::Debug for INERTIA_PARAMETER {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct INTERACTION_CONFIGURATION_FLAGS(pub u32);
-impl ::core::marker::Copy for INTERACTION_CONFIGURATION_FLAGS {}
-impl ::core::clone::Clone for INTERACTION_CONFIGURATION_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for INTERACTION_CONFIGURATION_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for INTERACTION_CONFIGURATION_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -521,19 +466,8 @@ impl ::core::ops::Not for INTERACTION_CONFIGURATION_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct INTERACTION_CONTEXT_PROPERTY(pub i32);
-impl ::core::marker::Copy for INTERACTION_CONTEXT_PROPERTY {}
-impl ::core::clone::Clone for INTERACTION_CONTEXT_PROPERTY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for INTERACTION_CONTEXT_PROPERTY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for INTERACTION_CONTEXT_PROPERTY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -543,19 +477,8 @@ impl ::core::fmt::Debug for INTERACTION_CONTEXT_PROPERTY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct INTERACTION_FLAGS(pub u32);
-impl ::core::marker::Copy for INTERACTION_FLAGS {}
-impl ::core::clone::Clone for INTERACTION_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for INTERACTION_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for INTERACTION_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -598,19 +521,8 @@ impl ::core::ops::Not for INTERACTION_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct INTERACTION_ID(pub i32);
-impl ::core::marker::Copy for INTERACTION_ID {}
-impl ::core::clone::Clone for INTERACTION_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for INTERACTION_ID {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for INTERACTION_ID {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -620,19 +532,8 @@ impl ::core::fmt::Debug for INTERACTION_ID {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct INTERACTION_STATE(pub i32);
-impl ::core::marker::Copy for INTERACTION_STATE {}
-impl ::core::clone::Clone for INTERACTION_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for INTERACTION_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for INTERACTION_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -642,19 +543,8 @@ impl ::core::fmt::Debug for INTERACTION_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MANIPULATION_RAILS_STATE(pub i32);
-impl ::core::marker::Copy for MANIPULATION_RAILS_STATE {}
-impl ::core::clone::Clone for MANIPULATION_RAILS_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MANIPULATION_RAILS_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MANIPULATION_RAILS_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -664,19 +554,8 @@ impl ::core::fmt::Debug for MANIPULATION_RAILS_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MOUSE_WHEEL_PARAMETER(pub i32);
-impl ::core::marker::Copy for MOUSE_WHEEL_PARAMETER {}
-impl ::core::clone::Clone for MOUSE_WHEEL_PARAMETER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MOUSE_WHEEL_PARAMETER {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MOUSE_WHEEL_PARAMETER {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -686,19 +565,8 @@ impl ::core::fmt::Debug for MOUSE_WHEEL_PARAMETER {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TAP_PARAMETER(pub i32);
-impl ::core::marker::Copy for TAP_PARAMETER {}
-impl ::core::clone::Clone for TAP_PARAMETER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TAP_PARAMETER {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TAP_PARAMETER {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -708,19 +576,8 @@ impl ::core::fmt::Debug for TAP_PARAMETER {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TRANSLATION_PARAMETER(pub i32);
-impl ::core::marker::Copy for TRANSLATION_PARAMETER {}
-impl ::core::clone::Clone for TRANSLATION_PARAMETER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TRANSLATION_PARAMETER {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TRANSLATION_PARAMETER {
     type TypeKind = ::windows_core::CopyType;
 }

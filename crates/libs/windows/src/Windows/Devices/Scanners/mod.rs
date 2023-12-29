@@ -1232,23 +1232,12 @@ impl ::windows_core::RuntimeName for ImageScannerScanResult {
 unsafe impl ::core::marker::Send for ImageScannerScanResult {}
 unsafe impl ::core::marker::Sync for ImageScannerScanResult {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ImageScannerAutoCroppingMode(pub i32);
 impl ImageScannerAutoCroppingMode {
     pub const Disabled: Self = Self(0i32);
     pub const SingleRegion: Self = Self(1i32);
     pub const MultipleRegion: Self = Self(2i32);
-}
-impl ::core::marker::Copy for ImageScannerAutoCroppingMode {}
-impl ::core::clone::Clone for ImageScannerAutoCroppingMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ImageScannerAutoCroppingMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ImageScannerAutoCroppingMode {
     type TypeKind = ::windows_core::CopyType;
@@ -1262,24 +1251,13 @@ impl ::windows_core::RuntimeType for ImageScannerAutoCroppingMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Scanners.ImageScannerAutoCroppingMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ImageScannerColorMode(pub i32);
 impl ImageScannerColorMode {
     pub const Color: Self = Self(0i32);
     pub const Grayscale: Self = Self(1i32);
     pub const Monochrome: Self = Self(2i32);
     pub const AutoColor: Self = Self(3i32);
-}
-impl ::core::marker::Copy for ImageScannerColorMode {}
-impl ::core::clone::Clone for ImageScannerColorMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ImageScannerColorMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ImageScannerColorMode {
     type TypeKind = ::windows_core::CopyType;
@@ -1293,7 +1271,7 @@ impl ::windows_core::RuntimeType for ImageScannerColorMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Scanners.ImageScannerColorMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ImageScannerFormat(pub i32);
 impl ImageScannerFormat {
     pub const Jpeg: Self = Self(0i32);
@@ -1303,17 +1281,6 @@ impl ImageScannerFormat {
     pub const Xps: Self = Self(4i32);
     pub const OpenXps: Self = Self(5i32);
     pub const Pdf: Self = Self(6i32);
-}
-impl ::core::marker::Copy for ImageScannerFormat {}
-impl ::core::clone::Clone for ImageScannerFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ImageScannerFormat {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ImageScannerFormat {
     type TypeKind = ::windows_core::CopyType;
@@ -1327,24 +1294,13 @@ impl ::windows_core::RuntimeType for ImageScannerFormat {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Scanners.ImageScannerFormat;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ImageScannerScanSource(pub i32);
 impl ImageScannerScanSource {
     pub const Default: Self = Self(0i32);
     pub const Flatbed: Self = Self(1i32);
     pub const Feeder: Self = Self(2i32);
     pub const AutoConfigured: Self = Self(3i32);
-}
-impl ::core::marker::Copy for ImageScannerScanSource {}
-impl ::core::clone::Clone for ImageScannerScanSource {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ImageScannerScanSource {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ImageScannerScanSource {
     type TypeKind = ::windows_core::CopyType;

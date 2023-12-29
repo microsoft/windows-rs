@@ -1148,27 +1148,13 @@ unsafe impl ::core::marker::Sync for UserProfilePersonalizationSettings {}
 #[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AccountPictureKind(pub i32);
 #[cfg(feature = "deprecated")]
 impl AccountPictureKind {
     pub const SmallImage: Self = Self(0i32);
     pub const LargeImage: Self = Self(1i32);
     pub const Video: Self = Self(2i32);
-}
-#[cfg(feature = "deprecated")]
-impl ::core::marker::Copy for AccountPictureKind {}
-#[cfg(feature = "deprecated")]
-impl ::core::clone::Clone for AccountPictureKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::default::Default for AccountPictureKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 #[cfg(feature = "deprecated")]
 impl ::windows_core::TypeKind for AccountPictureKind {
@@ -1187,7 +1173,7 @@ impl ::windows_core::RuntimeType for AccountPictureKind {
 #[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SetAccountPictureResult(pub i32);
 #[cfg(feature = "deprecated")]
 impl SetAccountPictureResult {
@@ -1197,20 +1183,6 @@ impl SetAccountPictureResult {
     pub const VideoFrameSizeError: Self = Self(3i32);
     pub const FileSizeError: Self = Self(4i32);
     pub const Failure: Self = Self(5i32);
-}
-#[cfg(feature = "deprecated")]
-impl ::core::marker::Copy for SetAccountPictureResult {}
-#[cfg(feature = "deprecated")]
-impl ::core::clone::Clone for SetAccountPictureResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::default::Default for SetAccountPictureResult {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 #[cfg(feature = "deprecated")]
 impl ::windows_core::TypeKind for SetAccountPictureResult {
@@ -1227,23 +1199,12 @@ impl ::windows_core::RuntimeType for SetAccountPictureResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.UserProfile.SetAccountPictureResult;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SetImageFeedResult(pub i32);
 impl SetImageFeedResult {
     pub const Success: Self = Self(0i32);
     pub const ChangeDisabled: Self = Self(1i32);
     pub const UserCanceled: Self = Self(2i32);
-}
-impl ::core::marker::Copy for SetImageFeedResult {}
-impl ::core::clone::Clone for SetImageFeedResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SetImageFeedResult {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SetImageFeedResult {
     type TypeKind = ::windows_core::CopyType;

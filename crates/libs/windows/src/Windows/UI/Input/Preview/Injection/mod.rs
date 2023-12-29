@@ -784,7 +784,7 @@ impl ::windows_core::RuntimeName for InputInjector {
 }
 ::windows_core::imp::interface_hierarchy!(InputInjector, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InjectedInputButtonChangeKind(pub i32);
 impl InjectedInputButtonChangeKind {
     pub const None: Self = Self(0i32);
@@ -799,17 +799,6 @@ impl InjectedInputButtonChangeKind {
     pub const FifthButtonDown: Self = Self(9i32);
     pub const FifthButtonUp: Self = Self(10i32);
 }
-impl ::core::marker::Copy for InjectedInputButtonChangeKind {}
-impl ::core::clone::Clone for InjectedInputButtonChangeKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InjectedInputButtonChangeKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for InjectedInputButtonChangeKind {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -822,7 +811,7 @@ impl ::windows_core::RuntimeType for InjectedInputButtonChangeKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputButtonChangeKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InjectedInputKeyOptions(pub u32);
 impl InjectedInputKeyOptions {
     pub const None: Self = Self(0u32);
@@ -830,17 +819,6 @@ impl InjectedInputKeyOptions {
     pub const KeyUp: Self = Self(2u32);
     pub const ScanCode: Self = Self(8u32);
     pub const Unicode: Self = Self(4u32);
-}
-impl ::core::marker::Copy for InjectedInputKeyOptions {}
-impl ::core::clone::Clone for InjectedInputKeyOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InjectedInputKeyOptions {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for InjectedInputKeyOptions {
     type TypeKind = ::windows_core::CopyType;
@@ -887,7 +865,7 @@ impl ::windows_core::RuntimeType for InjectedInputKeyOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputKeyOptions;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InjectedInputMouseOptions(pub u32);
 impl InjectedInputMouseOptions {
     pub const None: Self = Self(0u32);
@@ -905,17 +883,6 @@ impl InjectedInputMouseOptions {
     pub const MoveNoCoalesce: Self = Self(8192u32);
     pub const VirtualDesk: Self = Self(16384u32);
     pub const Absolute: Self = Self(32768u32);
-}
-impl ::core::marker::Copy for InjectedInputMouseOptions {}
-impl ::core::clone::Clone for InjectedInputMouseOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InjectedInputMouseOptions {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for InjectedInputMouseOptions {
     type TypeKind = ::windows_core::CopyType;
@@ -962,24 +929,13 @@ impl ::windows_core::RuntimeType for InjectedInputMouseOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputMouseOptions;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InjectedInputPenButtons(pub u32);
 impl InjectedInputPenButtons {
     pub const None: Self = Self(0u32);
     pub const Barrel: Self = Self(1u32);
     pub const Inverted: Self = Self(2u32);
     pub const Eraser: Self = Self(4u32);
-}
-impl ::core::marker::Copy for InjectedInputPenButtons {}
-impl ::core::clone::Clone for InjectedInputPenButtons {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InjectedInputPenButtons {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for InjectedInputPenButtons {
     type TypeKind = ::windows_core::CopyType;
@@ -1026,7 +982,7 @@ impl ::windows_core::RuntimeType for InjectedInputPenButtons {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputPenButtons;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InjectedInputPenParameters(pub u32);
 impl InjectedInputPenParameters {
     pub const None: Self = Self(0u32);
@@ -1034,17 +990,6 @@ impl InjectedInputPenParameters {
     pub const Rotation: Self = Self(2u32);
     pub const TiltX: Self = Self(4u32);
     pub const TiltY: Self = Self(8u32);
-}
-impl ::core::marker::Copy for InjectedInputPenParameters {}
-impl ::core::clone::Clone for InjectedInputPenParameters {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InjectedInputPenParameters {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for InjectedInputPenParameters {
     type TypeKind = ::windows_core::CopyType;
@@ -1091,7 +1036,7 @@ impl ::windows_core::RuntimeType for InjectedInputPenParameters {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputPenParameters;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InjectedInputPointerOptions(pub u32);
 impl InjectedInputPointerOptions {
     pub const None: Self = Self(0u32);
@@ -1107,17 +1052,6 @@ impl InjectedInputPointerOptions {
     pub const Update: Self = Self(131072u32);
     pub const PointerUp: Self = Self(262144u32);
     pub const CaptureChanged: Self = Self(2097152u32);
-}
-impl ::core::marker::Copy for InjectedInputPointerOptions {}
-impl ::core::clone::Clone for InjectedInputPointerOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InjectedInputPointerOptions {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for InjectedInputPointerOptions {
     type TypeKind = ::windows_core::CopyType;
@@ -1164,23 +1098,12 @@ impl ::windows_core::RuntimeType for InjectedInputPointerOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputPointerOptions;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InjectedInputShortcut(pub i32);
 impl InjectedInputShortcut {
     pub const Back: Self = Self(0i32);
     pub const Start: Self = Self(1i32);
     pub const Search: Self = Self(2i32);
-}
-impl ::core::marker::Copy for InjectedInputShortcut {}
-impl ::core::clone::Clone for InjectedInputShortcut {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InjectedInputShortcut {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for InjectedInputShortcut {
     type TypeKind = ::windows_core::CopyType;
@@ -1194,24 +1117,13 @@ impl ::windows_core::RuntimeType for InjectedInputShortcut {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputShortcut;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InjectedInputTouchParameters(pub u32);
 impl InjectedInputTouchParameters {
     pub const None: Self = Self(0u32);
     pub const Contact: Self = Self(1u32);
     pub const Orientation: Self = Self(2u32);
     pub const Pressure: Self = Self(4u32);
-}
-impl ::core::marker::Copy for InjectedInputTouchParameters {}
-impl ::core::clone::Clone for InjectedInputTouchParameters {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InjectedInputTouchParameters {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for InjectedInputTouchParameters {
     type TypeKind = ::windows_core::CopyType;
@@ -1258,23 +1170,12 @@ impl ::windows_core::RuntimeType for InjectedInputTouchParameters {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputTouchParameters;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InjectedInputVisualizationMode(pub i32);
 impl InjectedInputVisualizationMode {
     pub const None: Self = Self(0i32);
     pub const Default: Self = Self(1i32);
     pub const Indirect: Self = Self(2i32);
-}
-impl ::core::marker::Copy for InjectedInputVisualizationMode {}
-impl ::core::clone::Clone for InjectedInputVisualizationMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InjectedInputVisualizationMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for InjectedInputVisualizationMode {
     type TypeKind = ::windows_core::CopyType;

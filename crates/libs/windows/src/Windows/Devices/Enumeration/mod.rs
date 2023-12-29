@@ -2226,24 +2226,13 @@ impl ::windows_core::RuntimeName for EnclosureLocation {
 unsafe impl ::core::marker::Send for EnclosureLocation {}
 unsafe impl ::core::marker::Sync for EnclosureLocation {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DeviceAccessStatus(pub i32);
 impl DeviceAccessStatus {
     pub const Unspecified: Self = Self(0i32);
     pub const Allowed: Self = Self(1i32);
     pub const DeniedByUser: Self = Self(2i32);
     pub const DeniedBySystem: Self = Self(3i32);
-}
-impl ::core::marker::Copy for DeviceAccessStatus {}
-impl ::core::clone::Clone for DeviceAccessStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DeviceAccessStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DeviceAccessStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -2257,7 +2246,7 @@ impl ::windows_core::RuntimeType for DeviceAccessStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DeviceAccessStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DeviceClass(pub i32);
 impl DeviceClass {
     pub const All: Self = Self(0i32);
@@ -2267,17 +2256,6 @@ impl DeviceClass {
     pub const VideoCapture: Self = Self(4i32);
     pub const ImageScanner: Self = Self(5i32);
     pub const Location: Self = Self(6i32);
-}
-impl ::core::marker::Copy for DeviceClass {}
-impl ::core::clone::Clone for DeviceClass {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DeviceClass {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DeviceClass {
     type TypeKind = ::windows_core::CopyType;
@@ -2291,7 +2269,7 @@ impl ::windows_core::RuntimeType for DeviceClass {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DeviceClass;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DeviceInformationKind(pub i32);
 impl DeviceInformationKind {
     pub const Unknown: Self = Self(0i32);
@@ -2303,17 +2281,6 @@ impl DeviceInformationKind {
     pub const AssociationEndpointContainer: Self = Self(6i32);
     pub const AssociationEndpointService: Self = Self(7i32);
     pub const DevicePanel: Self = Self(8i32);
-}
-impl ::core::marker::Copy for DeviceInformationKind {}
-impl ::core::clone::Clone for DeviceInformationKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DeviceInformationKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DeviceInformationKind {
     type TypeKind = ::windows_core::CopyType;
@@ -2327,7 +2294,7 @@ impl ::windows_core::RuntimeType for DeviceInformationKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DeviceInformationKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DevicePairingKinds(pub u32);
 impl DevicePairingKinds {
     pub const None: Self = Self(0u32);
@@ -2336,17 +2303,6 @@ impl DevicePairingKinds {
     pub const ProvidePin: Self = Self(4u32);
     pub const ConfirmPinMatch: Self = Self(8u32);
     pub const ProvidePasswordCredential: Self = Self(16u32);
-}
-impl ::core::marker::Copy for DevicePairingKinds {}
-impl ::core::clone::Clone for DevicePairingKinds {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DevicePairingKinds {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DevicePairingKinds {
     type TypeKind = ::windows_core::CopyType;
@@ -2393,24 +2349,13 @@ impl ::windows_core::RuntimeType for DevicePairingKinds {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DevicePairingKinds;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DevicePairingProtectionLevel(pub i32);
 impl DevicePairingProtectionLevel {
     pub const Default: Self = Self(0i32);
     pub const None: Self = Self(1i32);
     pub const Encryption: Self = Self(2i32);
     pub const EncryptionAndAuthentication: Self = Self(3i32);
-}
-impl ::core::marker::Copy for DevicePairingProtectionLevel {}
-impl ::core::clone::Clone for DevicePairingProtectionLevel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DevicePairingProtectionLevel {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DevicePairingProtectionLevel {
     type TypeKind = ::windows_core::CopyType;
@@ -2424,7 +2369,7 @@ impl ::windows_core::RuntimeType for DevicePairingProtectionLevel {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DevicePairingProtectionLevel;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DevicePairingResultStatus(pub i32);
 impl DevicePairingResultStatus {
     pub const Paired: Self = Self(0i32);
@@ -2448,17 +2393,6 @@ impl DevicePairingResultStatus {
     pub const RemoteDeviceHasAssociation: Self = Self(18i32);
     pub const Failed: Self = Self(19i32);
 }
-impl ::core::marker::Copy for DevicePairingResultStatus {}
-impl ::core::clone::Clone for DevicePairingResultStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DevicePairingResultStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DevicePairingResultStatus {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2471,24 +2405,13 @@ impl ::windows_core::RuntimeType for DevicePairingResultStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DevicePairingResultStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DevicePickerDisplayStatusOptions(pub u32);
 impl DevicePickerDisplayStatusOptions {
     pub const None: Self = Self(0u32);
     pub const ShowProgress: Self = Self(1u32);
     pub const ShowDisconnectButton: Self = Self(2u32);
     pub const ShowRetryButton: Self = Self(4u32);
-}
-impl ::core::marker::Copy for DevicePickerDisplayStatusOptions {}
-impl ::core::clone::Clone for DevicePickerDisplayStatusOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DevicePickerDisplayStatusOptions {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DevicePickerDisplayStatusOptions {
     type TypeKind = ::windows_core::CopyType;
@@ -2535,7 +2458,7 @@ impl ::windows_core::RuntimeType for DevicePickerDisplayStatusOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DevicePickerDisplayStatusOptions;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DeviceUnpairingResultStatus(pub i32);
 impl DeviceUnpairingResultStatus {
     pub const Unpaired: Self = Self(0i32);
@@ -2543,17 +2466,6 @@ impl DeviceUnpairingResultStatus {
     pub const OperationAlreadyInProgress: Self = Self(2i32);
     pub const AccessDenied: Self = Self(3i32);
     pub const Failed: Self = Self(4i32);
-}
-impl ::core::marker::Copy for DeviceUnpairingResultStatus {}
-impl ::core::clone::Clone for DeviceUnpairingResultStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DeviceUnpairingResultStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DeviceUnpairingResultStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -2567,23 +2479,12 @@ impl ::windows_core::RuntimeType for DeviceUnpairingResultStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DeviceUnpairingResultStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DeviceWatcherEventKind(pub i32);
 impl DeviceWatcherEventKind {
     pub const Add: Self = Self(0i32);
     pub const Update: Self = Self(1i32);
     pub const Remove: Self = Self(2i32);
-}
-impl ::core::marker::Copy for DeviceWatcherEventKind {}
-impl ::core::clone::Clone for DeviceWatcherEventKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DeviceWatcherEventKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DeviceWatcherEventKind {
     type TypeKind = ::windows_core::CopyType;
@@ -2597,7 +2498,7 @@ impl ::windows_core::RuntimeType for DeviceWatcherEventKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DeviceWatcherEventKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DeviceWatcherStatus(pub i32);
 impl DeviceWatcherStatus {
     pub const Created: Self = Self(0i32);
@@ -2606,17 +2507,6 @@ impl DeviceWatcherStatus {
     pub const Stopping: Self = Self(3i32);
     pub const Stopped: Self = Self(4i32);
     pub const Aborted: Self = Self(5i32);
-}
-impl ::core::marker::Copy for DeviceWatcherStatus {}
-impl ::core::clone::Clone for DeviceWatcherStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DeviceWatcherStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DeviceWatcherStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -2630,7 +2520,7 @@ impl ::windows_core::RuntimeType for DeviceWatcherStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.DeviceWatcherStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct Panel(pub i32);
 impl Panel {
     pub const Unknown: Self = Self(0i32);
@@ -2640,17 +2530,6 @@ impl Panel {
     pub const Bottom: Self = Self(4i32);
     pub const Left: Self = Self(5i32);
     pub const Right: Self = Self(6i32);
-}
-impl ::core::marker::Copy for Panel {}
-impl ::core::clone::Clone for Panel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for Panel {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for Panel {
     type TypeKind = ::windows_core::CopyType;

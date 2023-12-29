@@ -589,24 +589,13 @@ impl ::windows_core::RuntimeName for HttpServerCustomValidationRequestedEventArg
 unsafe impl ::core::marker::Send for HttpServerCustomValidationRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for HttpServerCustomValidationRequestedEventArgs {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HttpCacheReadBehavior(pub i32);
 impl HttpCacheReadBehavior {
     pub const Default: Self = Self(0i32);
     pub const MostRecent: Self = Self(1i32);
     pub const OnlyFromCache: Self = Self(2i32);
     pub const NoCache: Self = Self(3i32);
-}
-impl ::core::marker::Copy for HttpCacheReadBehavior {}
-impl ::core::clone::Clone for HttpCacheReadBehavior {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HttpCacheReadBehavior {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for HttpCacheReadBehavior {
     type TypeKind = ::windows_core::CopyType;
@@ -620,22 +609,11 @@ impl ::windows_core::RuntimeType for HttpCacheReadBehavior {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Http.Filters.HttpCacheReadBehavior;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HttpCacheWriteBehavior(pub i32);
 impl HttpCacheWriteBehavior {
     pub const Default: Self = Self(0i32);
     pub const NoCache: Self = Self(1i32);
-}
-impl ::core::marker::Copy for HttpCacheWriteBehavior {}
-impl ::core::clone::Clone for HttpCacheWriteBehavior {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HttpCacheWriteBehavior {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for HttpCacheWriteBehavior {
     type TypeKind = ::windows_core::CopyType;
@@ -649,22 +627,11 @@ impl ::windows_core::RuntimeType for HttpCacheWriteBehavior {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Http.Filters.HttpCacheWriteBehavior;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HttpCookieUsageBehavior(pub i32);
 impl HttpCookieUsageBehavior {
     pub const Default: Self = Self(0i32);
     pub const NoCookies: Self = Self(1i32);
-}
-impl ::core::marker::Copy for HttpCookieUsageBehavior {}
-impl ::core::clone::Clone for HttpCookieUsageBehavior {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HttpCookieUsageBehavior {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for HttpCookieUsageBehavior {
     type TypeKind = ::windows_core::CopyType;

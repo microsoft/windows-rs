@@ -585,24 +585,13 @@ impl ::windows_core::CanTryInto<IForceFeedbackEffect> for RampForceEffect {}
 unsafe impl ::core::marker::Send for RampForceEffect {}
 unsafe impl ::core::marker::Sync for RampForceEffect {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ConditionForceEffectKind(pub i32);
 impl ConditionForceEffectKind {
     pub const Spring: Self = Self(0i32);
     pub const Damper: Self = Self(1i32);
     pub const Inertia: Self = Self(2i32);
     pub const Friction: Self = Self(3i32);
-}
-impl ::core::marker::Copy for ConditionForceEffectKind {}
-impl ::core::clone::Clone for ConditionForceEffectKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ConditionForceEffectKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ConditionForceEffectKind {
     type TypeKind = ::windows_core::CopyType;
@@ -616,24 +605,13 @@ impl ::windows_core::RuntimeType for ConditionForceEffectKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.ForceFeedback.ConditionForceEffectKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ForceFeedbackEffectAxes(pub u32);
 impl ForceFeedbackEffectAxes {
     pub const None: Self = Self(0u32);
     pub const X: Self = Self(1u32);
     pub const Y: Self = Self(2u32);
     pub const Z: Self = Self(4u32);
-}
-impl ::core::marker::Copy for ForceFeedbackEffectAxes {}
-impl ::core::clone::Clone for ForceFeedbackEffectAxes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ForceFeedbackEffectAxes {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ForceFeedbackEffectAxes {
     type TypeKind = ::windows_core::CopyType;
@@ -680,24 +658,13 @@ impl ::windows_core::RuntimeType for ForceFeedbackEffectAxes {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.ForceFeedback.ForceFeedbackEffectAxes;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ForceFeedbackEffectState(pub i32);
 impl ForceFeedbackEffectState {
     pub const Stopped: Self = Self(0i32);
     pub const Running: Self = Self(1i32);
     pub const Paused: Self = Self(2i32);
     pub const Faulted: Self = Self(3i32);
-}
-impl ::core::marker::Copy for ForceFeedbackEffectState {}
-impl ::core::clone::Clone for ForceFeedbackEffectState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ForceFeedbackEffectState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ForceFeedbackEffectState {
     type TypeKind = ::windows_core::CopyType;
@@ -711,23 +678,12 @@ impl ::windows_core::RuntimeType for ForceFeedbackEffectState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.ForceFeedback.ForceFeedbackEffectState;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ForceFeedbackLoadEffectResult(pub i32);
 impl ForceFeedbackLoadEffectResult {
     pub const Succeeded: Self = Self(0i32);
     pub const EffectStorageFull: Self = Self(1i32);
     pub const EffectNotSupported: Self = Self(2i32);
-}
-impl ::core::marker::Copy for ForceFeedbackLoadEffectResult {}
-impl ::core::clone::Clone for ForceFeedbackLoadEffectResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ForceFeedbackLoadEffectResult {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ForceFeedbackLoadEffectResult {
     type TypeKind = ::windows_core::CopyType;
@@ -741,7 +697,7 @@ impl ::windows_core::RuntimeType for ForceFeedbackLoadEffectResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.ForceFeedback.ForceFeedbackLoadEffectResult;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PeriodicForceEffectKind(pub i32);
 impl PeriodicForceEffectKind {
     pub const SquareWave: Self = Self(0i32);
@@ -749,17 +705,6 @@ impl PeriodicForceEffectKind {
     pub const TriangleWave: Self = Self(2i32);
     pub const SawtoothWaveUp: Self = Self(3i32);
     pub const SawtoothWaveDown: Self = Self(4i32);
-}
-impl ::core::marker::Copy for PeriodicForceEffectKind {}
-impl ::core::clone::Clone for PeriodicForceEffectKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PeriodicForceEffectKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PeriodicForceEffectKind {
     type TypeKind = ::windows_core::CopyType;

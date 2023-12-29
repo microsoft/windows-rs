@@ -326,24 +326,13 @@ impl ::windows_core::RuntimeName for RatedContentRestrictions {
 unsafe impl ::core::marker::Send for RatedContentRestrictions {}
 unsafe impl ::core::marker::Sync for RatedContentRestrictions {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ContentAccessRestrictionLevel(pub i32);
 impl ContentAccessRestrictionLevel {
     pub const Allow: Self = Self(0i32);
     pub const Warn: Self = Self(1i32);
     pub const Block: Self = Self(2i32);
     pub const Hide: Self = Self(3i32);
-}
-impl ::core::marker::Copy for ContentAccessRestrictionLevel {}
-impl ::core::clone::Clone for ContentAccessRestrictionLevel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ContentAccessRestrictionLevel {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ContentAccessRestrictionLevel {
     type TypeKind = ::windows_core::CopyType;
@@ -357,7 +346,7 @@ impl ::windows_core::RuntimeType for ContentAccessRestrictionLevel {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.ContentRestrictions.ContentAccessRestrictionLevel;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RatedContentCategory(pub i32);
 impl RatedContentCategory {
     pub const General: Self = Self(0i32);
@@ -366,17 +355,6 @@ impl RatedContentCategory {
     pub const Movie: Self = Self(3i32);
     pub const Television: Self = Self(4i32);
     pub const Music: Self = Self(5i32);
-}
-impl ::core::marker::Copy for RatedContentCategory {}
-impl ::core::clone::Clone for RatedContentCategory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RatedContentCategory {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for RatedContentCategory {
     type TypeKind = ::windows_core::CopyType;

@@ -9605,7 +9605,7 @@ impl ::windows_core::RuntimeName for UnifiedPosErrorData {
 unsafe impl ::core::marker::Send for UnifiedPosErrorData {}
 unsafe impl ::core::marker::Sync for UnifiedPosErrorData {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BarcodeScannerStatus(pub i32);
 impl BarcodeScannerStatus {
     pub const Online: Self = Self(0i32);
@@ -9613,17 +9613,6 @@ impl BarcodeScannerStatus {
     pub const Offline: Self = Self(2i32);
     pub const OffOrOffline: Self = Self(3i32);
     pub const Extended: Self = Self(4i32);
-}
-impl ::core::marker::Copy for BarcodeScannerStatus {}
-impl ::core::clone::Clone for BarcodeScannerStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BarcodeScannerStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for BarcodeScannerStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -9637,23 +9626,12 @@ impl ::windows_core::RuntimeType for BarcodeScannerStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.BarcodeScannerStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BarcodeSymbologyDecodeLengthKind(pub i32);
 impl BarcodeSymbologyDecodeLengthKind {
     pub const AnyLength: Self = Self(0i32);
     pub const Discrete: Self = Self(1i32);
     pub const Range: Self = Self(2i32);
-}
-impl ::core::marker::Copy for BarcodeSymbologyDecodeLengthKind {}
-impl ::core::clone::Clone for BarcodeSymbologyDecodeLengthKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BarcodeSymbologyDecodeLengthKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for BarcodeSymbologyDecodeLengthKind {
     type TypeKind = ::windows_core::CopyType;
@@ -9667,7 +9645,7 @@ impl ::windows_core::RuntimeType for BarcodeSymbologyDecodeLengthKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.BarcodeSymbologyDecodeLengthKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CashDrawerStatusKind(pub i32);
 impl CashDrawerStatusKind {
     pub const Online: Self = Self(0i32);
@@ -9675,17 +9653,6 @@ impl CashDrawerStatusKind {
     pub const Offline: Self = Self(2i32);
     pub const OffOrOffline: Self = Self(3i32);
     pub const Extended: Self = Self(4i32);
-}
-impl ::core::marker::Copy for CashDrawerStatusKind {}
-impl ::core::clone::Clone for CashDrawerStatusKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CashDrawerStatusKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CashDrawerStatusKind {
     type TypeKind = ::windows_core::CopyType;
@@ -9699,7 +9666,7 @@ impl ::windows_core::RuntimeType for CashDrawerStatusKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.CashDrawerStatusKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct LineDisplayCursorType(pub i32);
 impl LineDisplayCursorType {
     pub const None: Self = Self(0i32);
@@ -9708,17 +9675,6 @@ impl LineDisplayCursorType {
     pub const Underline: Self = Self(3i32);
     pub const Reverse: Self = Self(4i32);
     pub const Other: Self = Self(5i32);
-}
-impl ::core::marker::Copy for LineDisplayCursorType {}
-impl ::core::clone::Clone for LineDisplayCursorType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for LineDisplayCursorType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for LineDisplayCursorType {
     type TypeKind = ::windows_core::CopyType;
@@ -9732,23 +9688,12 @@ impl ::windows_core::RuntimeType for LineDisplayCursorType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayCursorType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct LineDisplayDescriptorState(pub i32);
 impl LineDisplayDescriptorState {
     pub const Off: Self = Self(0i32);
     pub const On: Self = Self(1i32);
     pub const Blink: Self = Self(2i32);
-}
-impl ::core::marker::Copy for LineDisplayDescriptorState {}
-impl ::core::clone::Clone for LineDisplayDescriptorState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for LineDisplayDescriptorState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for LineDisplayDescriptorState {
     type TypeKind = ::windows_core::CopyType;
@@ -9762,23 +9707,12 @@ impl ::windows_core::RuntimeType for LineDisplayDescriptorState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayDescriptorState;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct LineDisplayHorizontalAlignment(pub i32);
 impl LineDisplayHorizontalAlignment {
     pub const Left: Self = Self(0i32);
     pub const Center: Self = Self(1i32);
     pub const Right: Self = Self(2i32);
-}
-impl ::core::marker::Copy for LineDisplayHorizontalAlignment {}
-impl ::core::clone::Clone for LineDisplayHorizontalAlignment {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for LineDisplayHorizontalAlignment {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for LineDisplayHorizontalAlignment {
     type TypeKind = ::windows_core::CopyType;
@@ -9792,23 +9726,12 @@ impl ::windows_core::RuntimeType for LineDisplayHorizontalAlignment {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayHorizontalAlignment;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct LineDisplayMarqueeFormat(pub i32);
 impl LineDisplayMarqueeFormat {
     pub const None: Self = Self(0i32);
     pub const Walk: Self = Self(1i32);
     pub const Place: Self = Self(2i32);
-}
-impl ::core::marker::Copy for LineDisplayMarqueeFormat {}
-impl ::core::clone::Clone for LineDisplayMarqueeFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for LineDisplayMarqueeFormat {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for LineDisplayMarqueeFormat {
     type TypeKind = ::windows_core::CopyType;
@@ -9822,7 +9745,7 @@ impl ::windows_core::RuntimeType for LineDisplayMarqueeFormat {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayMarqueeFormat;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct LineDisplayPowerStatus(pub i32);
 impl LineDisplayPowerStatus {
     pub const Unknown: Self = Self(0i32);
@@ -9830,17 +9753,6 @@ impl LineDisplayPowerStatus {
     pub const Off: Self = Self(2i32);
     pub const Offline: Self = Self(3i32);
     pub const OffOrOffline: Self = Self(4i32);
-}
-impl ::core::marker::Copy for LineDisplayPowerStatus {}
-impl ::core::clone::Clone for LineDisplayPowerStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for LineDisplayPowerStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for LineDisplayPowerStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -9854,24 +9766,13 @@ impl ::windows_core::RuntimeType for LineDisplayPowerStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayPowerStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct LineDisplayScrollDirection(pub i32);
 impl LineDisplayScrollDirection {
     pub const Up: Self = Self(0i32);
     pub const Down: Self = Self(1i32);
     pub const Left: Self = Self(2i32);
     pub const Right: Self = Self(3i32);
-}
-impl ::core::marker::Copy for LineDisplayScrollDirection {}
-impl ::core::clone::Clone for LineDisplayScrollDirection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for LineDisplayScrollDirection {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for LineDisplayScrollDirection {
     type TypeKind = ::windows_core::CopyType;
@@ -9885,24 +9786,13 @@ impl ::windows_core::RuntimeType for LineDisplayScrollDirection {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayScrollDirection;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct LineDisplayTextAttribute(pub i32);
 impl LineDisplayTextAttribute {
     pub const Normal: Self = Self(0i32);
     pub const Blink: Self = Self(1i32);
     pub const Reverse: Self = Self(2i32);
     pub const ReverseBlink: Self = Self(3i32);
-}
-impl ::core::marker::Copy for LineDisplayTextAttribute {}
-impl ::core::clone::Clone for LineDisplayTextAttribute {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for LineDisplayTextAttribute {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for LineDisplayTextAttribute {
     type TypeKind = ::windows_core::CopyType;
@@ -9916,23 +9806,12 @@ impl ::windows_core::RuntimeType for LineDisplayTextAttribute {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayTextAttribute;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct LineDisplayTextAttributeGranularity(pub i32);
 impl LineDisplayTextAttributeGranularity {
     pub const NotSupported: Self = Self(0i32);
     pub const EntireDisplay: Self = Self(1i32);
     pub const PerCharacter: Self = Self(2i32);
-}
-impl ::core::marker::Copy for LineDisplayTextAttributeGranularity {}
-impl ::core::clone::Clone for LineDisplayTextAttributeGranularity {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for LineDisplayTextAttributeGranularity {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for LineDisplayTextAttributeGranularity {
     type TypeKind = ::windows_core::CopyType;
@@ -9946,23 +9825,12 @@ impl ::windows_core::RuntimeType for LineDisplayTextAttributeGranularity {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayTextAttributeGranularity;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct LineDisplayVerticalAlignment(pub i32);
 impl LineDisplayVerticalAlignment {
     pub const Top: Self = Self(0i32);
     pub const Center: Self = Self(1i32);
     pub const Bottom: Self = Self(2i32);
-}
-impl ::core::marker::Copy for LineDisplayVerticalAlignment {}
-impl ::core::clone::Clone for LineDisplayVerticalAlignment {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for LineDisplayVerticalAlignment {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for LineDisplayVerticalAlignment {
     type TypeKind = ::windows_core::CopyType;
@@ -9976,23 +9844,12 @@ impl ::windows_core::RuntimeType for LineDisplayVerticalAlignment {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayVerticalAlignment;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MagneticStripeReaderAuthenticationLevel(pub i32);
 impl MagneticStripeReaderAuthenticationLevel {
     pub const NotSupported: Self = Self(0i32);
     pub const Optional: Self = Self(1i32);
     pub const Required: Self = Self(2i32);
-}
-impl ::core::marker::Copy for MagneticStripeReaderAuthenticationLevel {}
-impl ::core::clone::Clone for MagneticStripeReaderAuthenticationLevel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MagneticStripeReaderAuthenticationLevel {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MagneticStripeReaderAuthenticationLevel {
     type TypeKind = ::windows_core::CopyType;
@@ -10006,22 +9863,11 @@ impl ::windows_core::RuntimeType for MagneticStripeReaderAuthenticationLevel {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.MagneticStripeReaderAuthenticationLevel;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MagneticStripeReaderAuthenticationProtocol(pub i32);
 impl MagneticStripeReaderAuthenticationProtocol {
     pub const None: Self = Self(0i32);
     pub const ChallengeResponse: Self = Self(1i32);
-}
-impl ::core::marker::Copy for MagneticStripeReaderAuthenticationProtocol {}
-impl ::core::clone::Clone for MagneticStripeReaderAuthenticationProtocol {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MagneticStripeReaderAuthenticationProtocol {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MagneticStripeReaderAuthenticationProtocol {
     type TypeKind = ::windows_core::CopyType;
@@ -10035,22 +9881,11 @@ impl ::windows_core::RuntimeType for MagneticStripeReaderAuthenticationProtocol 
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.MagneticStripeReaderAuthenticationProtocol;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MagneticStripeReaderErrorReportingType(pub i32);
 impl MagneticStripeReaderErrorReportingType {
     pub const CardLevel: Self = Self(0i32);
     pub const TrackLevel: Self = Self(1i32);
-}
-impl ::core::marker::Copy for MagneticStripeReaderErrorReportingType {}
-impl ::core::clone::Clone for MagneticStripeReaderErrorReportingType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MagneticStripeReaderErrorReportingType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MagneticStripeReaderErrorReportingType {
     type TypeKind = ::windows_core::CopyType;
@@ -10064,23 +9899,12 @@ impl ::windows_core::RuntimeType for MagneticStripeReaderErrorReportingType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.MagneticStripeReaderErrorReportingType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MagneticStripeReaderStatus(pub i32);
 impl MagneticStripeReaderStatus {
     pub const Unauthenticated: Self = Self(0i32);
     pub const Authenticated: Self = Self(1i32);
     pub const Extended: Self = Self(2i32);
-}
-impl ::core::marker::Copy for MagneticStripeReaderStatus {}
-impl ::core::clone::Clone for MagneticStripeReaderStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MagneticStripeReaderStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MagneticStripeReaderStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -10094,7 +9918,7 @@ impl ::windows_core::RuntimeType for MagneticStripeReaderStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.MagneticStripeReaderStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MagneticStripeReaderTrackErrorType(pub i32);
 impl MagneticStripeReaderTrackErrorType {
     pub const None: Self = Self(0i32);
@@ -10103,17 +9927,6 @@ impl MagneticStripeReaderTrackErrorType {
     pub const ParityError: Self = Self(3i32);
     pub const LrcError: Self = Self(4i32);
     pub const Unknown: Self = Self(-1i32);
-}
-impl ::core::marker::Copy for MagneticStripeReaderTrackErrorType {}
-impl ::core::clone::Clone for MagneticStripeReaderTrackErrorType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MagneticStripeReaderTrackErrorType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MagneticStripeReaderTrackErrorType {
     type TypeKind = ::windows_core::CopyType;
@@ -10127,7 +9940,7 @@ impl ::windows_core::RuntimeType for MagneticStripeReaderTrackErrorType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.MagneticStripeReaderTrackErrorType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MagneticStripeReaderTrackIds(pub i32);
 impl MagneticStripeReaderTrackIds {
     pub const None: Self = Self(0i32);
@@ -10135,17 +9948,6 @@ impl MagneticStripeReaderTrackIds {
     pub const Track2: Self = Self(2i32);
     pub const Track3: Self = Self(4i32);
     pub const Track4: Self = Self(8i32);
-}
-impl ::core::marker::Copy for MagneticStripeReaderTrackIds {}
-impl ::core::clone::Clone for MagneticStripeReaderTrackIds {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MagneticStripeReaderTrackIds {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MagneticStripeReaderTrackIds {
     type TypeKind = ::windows_core::CopyType;
@@ -10159,24 +9961,13 @@ impl ::windows_core::RuntimeType for MagneticStripeReaderTrackIds {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.MagneticStripeReaderTrackIds;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PosConnectionTypes(pub u32);
 impl PosConnectionTypes {
     pub const Local: Self = Self(1u32);
     pub const IP: Self = Self(2u32);
     pub const Bluetooth: Self = Self(4u32);
     pub const All: Self = Self(4294967295u32);
-}
-impl ::core::marker::Copy for PosConnectionTypes {}
-impl ::core::clone::Clone for PosConnectionTypes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PosConnectionTypes {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PosConnectionTypes {
     type TypeKind = ::windows_core::CopyType;
@@ -10223,23 +10014,12 @@ impl ::windows_core::RuntimeType for PosConnectionTypes {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosConnectionTypes;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PosPrinterAlignment(pub i32);
 impl PosPrinterAlignment {
     pub const Left: Self = Self(0i32);
     pub const Center: Self = Self(1i32);
     pub const Right: Self = Self(2i32);
-}
-impl ::core::marker::Copy for PosPrinterAlignment {}
-impl ::core::clone::Clone for PosPrinterAlignment {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PosPrinterAlignment {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PosPrinterAlignment {
     type TypeKind = ::windows_core::CopyType;
@@ -10253,23 +10033,12 @@ impl ::windows_core::RuntimeType for PosPrinterAlignment {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterAlignment;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PosPrinterBarcodeTextPosition(pub i32);
 impl PosPrinterBarcodeTextPosition {
     pub const None: Self = Self(0i32);
     pub const Above: Self = Self(1i32);
     pub const Below: Self = Self(2i32);
-}
-impl ::core::marker::Copy for PosPrinterBarcodeTextPosition {}
-impl ::core::clone::Clone for PosPrinterBarcodeTextPosition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PosPrinterBarcodeTextPosition {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PosPrinterBarcodeTextPosition {
     type TypeKind = ::windows_core::CopyType;
@@ -10283,7 +10052,7 @@ impl ::windows_core::RuntimeType for PosPrinterBarcodeTextPosition {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterBarcodeTextPosition;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PosPrinterCartridgeSensors(pub u32);
 impl PosPrinterCartridgeSensors {
     pub const None: Self = Self(0u32);
@@ -10291,17 +10060,6 @@ impl PosPrinterCartridgeSensors {
     pub const Empty: Self = Self(2u32);
     pub const HeadCleaning: Self = Self(4u32);
     pub const NearEnd: Self = Self(8u32);
-}
-impl ::core::marker::Copy for PosPrinterCartridgeSensors {}
-impl ::core::clone::Clone for PosPrinterCartridgeSensors {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PosPrinterCartridgeSensors {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PosPrinterCartridgeSensors {
     type TypeKind = ::windows_core::CopyType;
@@ -10348,7 +10106,7 @@ impl ::windows_core::RuntimeType for PosPrinterCartridgeSensors {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterCartridgeSensors;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PosPrinterColorCapabilities(pub u32);
 impl PosPrinterColorCapabilities {
     pub const None: Self = Self(0u32);
@@ -10363,17 +10121,6 @@ impl PosPrinterColorCapabilities {
     pub const Magenta: Self = Self(256u32);
     pub const Yellow: Self = Self(512u32);
     pub const Full: Self = Self(1024u32);
-}
-impl ::core::marker::Copy for PosPrinterColorCapabilities {}
-impl ::core::clone::Clone for PosPrinterColorCapabilities {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PosPrinterColorCapabilities {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PosPrinterColorCapabilities {
     type TypeKind = ::windows_core::CopyType;
@@ -10420,7 +10167,7 @@ impl ::windows_core::RuntimeType for PosPrinterColorCapabilities {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterColorCapabilities;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PosPrinterColorCartridge(pub i32);
 impl PosPrinterColorCartridge {
     pub const Unknown: Self = Self(0i32);
@@ -10435,17 +10182,6 @@ impl PosPrinterColorCartridge {
     pub const Magenta: Self = Self(9i32);
     pub const Yellow: Self = Self(10i32);
 }
-impl ::core::marker::Copy for PosPrinterColorCartridge {}
-impl ::core::clone::Clone for PosPrinterColorCartridge {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PosPrinterColorCartridge {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PosPrinterColorCartridge {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10458,22 +10194,11 @@ impl ::windows_core::RuntimeType for PosPrinterColorCartridge {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterColorCartridge;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PosPrinterLineDirection(pub i32);
 impl PosPrinterLineDirection {
     pub const Horizontal: Self = Self(0i32);
     pub const Vertical: Self = Self(1i32);
-}
-impl ::core::marker::Copy for PosPrinterLineDirection {}
-impl ::core::clone::Clone for PosPrinterLineDirection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PosPrinterLineDirection {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PosPrinterLineDirection {
     type TypeKind = ::windows_core::CopyType;
@@ -10487,24 +10212,13 @@ impl ::windows_core::RuntimeType for PosPrinterLineDirection {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterLineDirection;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PosPrinterLineStyle(pub i32);
 impl PosPrinterLineStyle {
     pub const SingleSolid: Self = Self(0i32);
     pub const DoubleSolid: Self = Self(1i32);
     pub const Broken: Self = Self(2i32);
     pub const Chain: Self = Self(3i32);
-}
-impl ::core::marker::Copy for PosPrinterLineStyle {}
-impl ::core::clone::Clone for PosPrinterLineStyle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PosPrinterLineStyle {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PosPrinterLineStyle {
     type TypeKind = ::windows_core::CopyType;
@@ -10518,24 +10232,13 @@ impl ::windows_core::RuntimeType for PosPrinterLineStyle {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterLineStyle;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PosPrinterMapMode(pub i32);
 impl PosPrinterMapMode {
     pub const Dots: Self = Self(0i32);
     pub const Twips: Self = Self(1i32);
     pub const English: Self = Self(2i32);
     pub const Metric: Self = Self(3i32);
-}
-impl ::core::marker::Copy for PosPrinterMapMode {}
-impl ::core::clone::Clone for PosPrinterMapMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PosPrinterMapMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PosPrinterMapMode {
     type TypeKind = ::windows_core::CopyType;
@@ -10549,7 +10252,7 @@ impl ::windows_core::RuntimeType for PosPrinterMapMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterMapMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PosPrinterMarkFeedCapabilities(pub u32);
 impl PosPrinterMarkFeedCapabilities {
     pub const None: Self = Self(0u32);
@@ -10557,17 +10260,6 @@ impl PosPrinterMarkFeedCapabilities {
     pub const ToCutter: Self = Self(2u32);
     pub const ToCurrentTopOfForm: Self = Self(4u32);
     pub const ToNextTopOfForm: Self = Self(8u32);
-}
-impl ::core::marker::Copy for PosPrinterMarkFeedCapabilities {}
-impl ::core::clone::Clone for PosPrinterMarkFeedCapabilities {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PosPrinterMarkFeedCapabilities {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PosPrinterMarkFeedCapabilities {
     type TypeKind = ::windows_core::CopyType;
@@ -10614,24 +10306,13 @@ impl ::windows_core::RuntimeType for PosPrinterMarkFeedCapabilities {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterMarkFeedCapabilities;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PosPrinterMarkFeedKind(pub i32);
 impl PosPrinterMarkFeedKind {
     pub const ToTakeUp: Self = Self(0i32);
     pub const ToCutter: Self = Self(1i32);
     pub const ToCurrentTopOfForm: Self = Self(2i32);
     pub const ToNextTopOfForm: Self = Self(3i32);
-}
-impl ::core::marker::Copy for PosPrinterMarkFeedKind {}
-impl ::core::clone::Clone for PosPrinterMarkFeedKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PosPrinterMarkFeedKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PosPrinterMarkFeedKind {
     type TypeKind = ::windows_core::CopyType;
@@ -10645,23 +10326,12 @@ impl ::windows_core::RuntimeType for PosPrinterMarkFeedKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterMarkFeedKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PosPrinterPrintSide(pub i32);
 impl PosPrinterPrintSide {
     pub const Unknown: Self = Self(0i32);
     pub const Side1: Self = Self(1i32);
     pub const Side2: Self = Self(2i32);
-}
-impl ::core::marker::Copy for PosPrinterPrintSide {}
-impl ::core::clone::Clone for PosPrinterPrintSide {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PosPrinterPrintSide {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PosPrinterPrintSide {
     type TypeKind = ::windows_core::CopyType;
@@ -10675,24 +10345,13 @@ impl ::windows_core::RuntimeType for PosPrinterPrintSide {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterPrintSide;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PosPrinterRotation(pub i32);
 impl PosPrinterRotation {
     pub const Normal: Self = Self(0i32);
     pub const Right90: Self = Self(1i32);
     pub const Left90: Self = Self(2i32);
     pub const Rotate180: Self = Self(3i32);
-}
-impl ::core::marker::Copy for PosPrinterRotation {}
-impl ::core::clone::Clone for PosPrinterRotation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PosPrinterRotation {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PosPrinterRotation {
     type TypeKind = ::windows_core::CopyType;
@@ -10706,23 +10365,12 @@ impl ::windows_core::RuntimeType for PosPrinterRotation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterRotation;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PosPrinterRuledLineCapabilities(pub u32);
 impl PosPrinterRuledLineCapabilities {
     pub const None: Self = Self(0u32);
     pub const Horizontal: Self = Self(1u32);
     pub const Vertical: Self = Self(2u32);
-}
-impl ::core::marker::Copy for PosPrinterRuledLineCapabilities {}
-impl ::core::clone::Clone for PosPrinterRuledLineCapabilities {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PosPrinterRuledLineCapabilities {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PosPrinterRuledLineCapabilities {
     type TypeKind = ::windows_core::CopyType;
@@ -10769,7 +10417,7 @@ impl ::windows_core::RuntimeType for PosPrinterRuledLineCapabilities {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterRuledLineCapabilities;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PosPrinterStatusKind(pub i32);
 impl PosPrinterStatusKind {
     pub const Online: Self = Self(0i32);
@@ -10777,17 +10425,6 @@ impl PosPrinterStatusKind {
     pub const Offline: Self = Self(2i32);
     pub const OffOrOffline: Self = Self(3i32);
     pub const Extended: Self = Self(4i32);
-}
-impl ::core::marker::Copy for PosPrinterStatusKind {}
-impl ::core::clone::Clone for PosPrinterStatusKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PosPrinterStatusKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PosPrinterStatusKind {
     type TypeKind = ::windows_core::CopyType;
@@ -10801,7 +10438,7 @@ impl ::windows_core::RuntimeType for PosPrinterStatusKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterStatusKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UnifiedPosErrorReason(pub i32);
 impl UnifiedPosErrorReason {
     pub const UnknownErrorReason: Self = Self(0i32);
@@ -10816,17 +10453,6 @@ impl UnifiedPosErrorReason {
     pub const Busy: Self = Self(9i32);
     pub const Extended: Self = Self(10i32);
 }
-impl ::core::marker::Copy for UnifiedPosErrorReason {}
-impl ::core::clone::Clone for UnifiedPosErrorReason {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UnifiedPosErrorReason {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for UnifiedPosErrorReason {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10839,7 +10465,7 @@ impl ::windows_core::RuntimeType for UnifiedPosErrorReason {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.UnifiedPosErrorReason;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UnifiedPosErrorSeverity(pub i32);
 impl UnifiedPosErrorSeverity {
     pub const UnknownErrorSeverity: Self = Self(0i32);
@@ -10848,17 +10474,6 @@ impl UnifiedPosErrorSeverity {
     pub const Unrecoverable: Self = Self(3i32);
     pub const AssistanceRequired: Self = Self(4i32);
     pub const Fatal: Self = Self(5i32);
-}
-impl ::core::marker::Copy for UnifiedPosErrorSeverity {}
-impl ::core::clone::Clone for UnifiedPosErrorSeverity {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UnifiedPosErrorSeverity {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for UnifiedPosErrorSeverity {
     type TypeKind = ::windows_core::CopyType;
@@ -10872,24 +10487,13 @@ impl ::windows_core::RuntimeType for UnifiedPosErrorSeverity {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.UnifiedPosErrorSeverity;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UnifiedPosHealthCheckLevel(pub i32);
 impl UnifiedPosHealthCheckLevel {
     pub const UnknownHealthCheckLevel: Self = Self(0i32);
     pub const POSInternal: Self = Self(1i32);
     pub const External: Self = Self(2i32);
     pub const Interactive: Self = Self(3i32);
-}
-impl ::core::marker::Copy for UnifiedPosHealthCheckLevel {}
-impl ::core::clone::Clone for UnifiedPosHealthCheckLevel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UnifiedPosHealthCheckLevel {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for UnifiedPosHealthCheckLevel {
     type TypeKind = ::windows_core::CopyType;
@@ -10903,23 +10507,12 @@ impl ::windows_core::RuntimeType for UnifiedPosHealthCheckLevel {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.UnifiedPosHealthCheckLevel;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UnifiedPosPowerReportingType(pub i32);
 impl UnifiedPosPowerReportingType {
     pub const UnknownPowerReportingType: Self = Self(0i32);
     pub const Standard: Self = Self(1i32);
     pub const Advanced: Self = Self(2i32);
-}
-impl ::core::marker::Copy for UnifiedPosPowerReportingType {}
-impl ::core::clone::Clone for UnifiedPosPowerReportingType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UnifiedPosPowerReportingType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for UnifiedPosPowerReportingType {
     type TypeKind = ::windows_core::CopyType;

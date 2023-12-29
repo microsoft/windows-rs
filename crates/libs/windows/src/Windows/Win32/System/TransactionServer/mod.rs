@@ -298,19 +298,8 @@ pub const mtsErrUserPasswdNotValid: MTSAdminErrorCodes = MTSAdminErrorCodes(-214
 pub const mtsExportUsers: MTSPackageExportOptions = MTSPackageExportOptions(1i32);
 pub const mtsInstallUsers: MTSPackageInstallOptions = MTSPackageInstallOptions(1i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MTSAdminErrorCodes(pub i32);
-impl ::core::marker::Copy for MTSAdminErrorCodes {}
-impl ::core::clone::Clone for MTSAdminErrorCodes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MTSAdminErrorCodes {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MTSAdminErrorCodes {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -320,19 +309,8 @@ impl ::core::fmt::Debug for MTSAdminErrorCodes {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MTSPackageExportOptions(pub i32);
-impl ::core::marker::Copy for MTSPackageExportOptions {}
-impl ::core::clone::Clone for MTSPackageExportOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MTSPackageExportOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MTSPackageExportOptions {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -342,19 +320,8 @@ impl ::core::fmt::Debug for MTSPackageExportOptions {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MTSPackageInstallOptions(pub i32);
-impl ::core::marker::Copy for MTSPackageInstallOptions {}
-impl ::core::clone::Clone for MTSPackageInstallOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MTSPackageInstallOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MTSPackageInstallOptions {
     type TypeKind = ::windows_core::CopyType;
 }

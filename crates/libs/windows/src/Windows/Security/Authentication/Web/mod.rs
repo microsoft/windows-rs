@@ -185,23 +185,12 @@ impl ::windows_core::RuntimeName for WebAuthenticationResult {
 }
 ::windows_core::imp::interface_hierarchy!(WebAuthenticationResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TokenBindingKeyType(pub i32);
 impl TokenBindingKeyType {
     pub const Rsa2048: Self = Self(0i32);
     pub const EcdsaP256: Self = Self(1i32);
     pub const AnyExisting: Self = Self(2i32);
-}
-impl ::core::marker::Copy for TokenBindingKeyType {}
-impl ::core::clone::Clone for TokenBindingKeyType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TokenBindingKeyType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for TokenBindingKeyType {
     type TypeKind = ::windows_core::CopyType;
@@ -215,7 +204,7 @@ impl ::windows_core::RuntimeType for TokenBindingKeyType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.TokenBindingKeyType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WebAuthenticationOptions(pub u32);
 impl WebAuthenticationOptions {
     pub const None: Self = Self(0u32);
@@ -223,17 +212,6 @@ impl WebAuthenticationOptions {
     pub const UseTitle: Self = Self(2u32);
     pub const UseHttpPost: Self = Self(4u32);
     pub const UseCorporateNetwork: Self = Self(8u32);
-}
-impl ::core::marker::Copy for WebAuthenticationOptions {}
-impl ::core::clone::Clone for WebAuthenticationOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WebAuthenticationOptions {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for WebAuthenticationOptions {
     type TypeKind = ::windows_core::CopyType;
@@ -280,23 +258,12 @@ impl ::windows_core::RuntimeType for WebAuthenticationOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.WebAuthenticationOptions;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WebAuthenticationStatus(pub i32);
 impl WebAuthenticationStatus {
     pub const Success: Self = Self(0i32);
     pub const UserCancel: Self = Self(1i32);
     pub const ErrorHttp: Self = Self(2i32);
-}
-impl ::core::marker::Copy for WebAuthenticationStatus {}
-impl ::core::clone::Clone for WebAuthenticationStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WebAuthenticationStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for WebAuthenticationStatus {
     type TypeKind = ::windows_core::CopyType;

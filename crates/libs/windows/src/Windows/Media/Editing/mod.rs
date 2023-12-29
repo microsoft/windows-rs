@@ -1094,22 +1094,11 @@ impl ::windows_core::RuntimeName for MediaOverlayLayer {
 unsafe impl ::core::marker::Send for MediaOverlayLayer {}
 unsafe impl ::core::marker::Sync for MediaOverlayLayer {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MediaTrimmingPreference(pub i32);
 impl MediaTrimmingPreference {
     pub const Fast: Self = Self(0i32);
     pub const Precise: Self = Self(1i32);
-}
-impl ::core::marker::Copy for MediaTrimmingPreference {}
-impl ::core::clone::Clone for MediaTrimmingPreference {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MediaTrimmingPreference {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MediaTrimmingPreference {
     type TypeKind = ::windows_core::CopyType;
@@ -1123,22 +1112,11 @@ impl ::windows_core::RuntimeType for MediaTrimmingPreference {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Editing.MediaTrimmingPreference;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VideoFramePrecision(pub i32);
 impl VideoFramePrecision {
     pub const NearestFrame: Self = Self(0i32);
     pub const NearestKeyFrame: Self = Self(1i32);
-}
-impl ::core::marker::Copy for VideoFramePrecision {}
-impl ::core::clone::Clone for VideoFramePrecision {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VideoFramePrecision {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for VideoFramePrecision {
     type TypeKind = ::windows_core::CopyType;

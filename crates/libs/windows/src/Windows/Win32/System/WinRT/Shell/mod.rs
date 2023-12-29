@@ -38,19 +38,8 @@ pub const CpAicLaunchAdminProcess: CreateProcessMethod = CreateProcessMethod(2i3
 pub const CpCreateProcess: CreateProcessMethod = CreateProcessMethod(0i32);
 pub const CpCreateProcessAsUser: CreateProcessMethod = CreateProcessMethod(1i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CreateProcessMethod(pub i32);
-impl ::core::marker::Copy for CreateProcessMethod {}
-impl ::core::clone::Clone for CreateProcessMethod {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CreateProcessMethod {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CreateProcessMethod {
     type TypeKind = ::windows_core::CopyType;
 }

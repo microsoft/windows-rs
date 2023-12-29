@@ -10298,19 +10298,8 @@ pub const _WIN32_MAXVER: u32 = 2560u32;
 pub const _WIN32_WINDOWS_MAXVER: u32 = 2560u32;
 pub const _WIN32_WINNT_MAXVER: u32 = 2560u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DUPLICATE_HANDLE_OPTIONS(pub u32);
-impl ::core::marker::Copy for DUPLICATE_HANDLE_OPTIONS {}
-impl ::core::clone::Clone for DUPLICATE_HANDLE_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DUPLICATE_HANDLE_OPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DUPLICATE_HANDLE_OPTIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10353,19 +10342,8 @@ impl ::core::ops::Not for DUPLICATE_HANDLE_OPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GENERIC_ACCESS_RIGHTS(pub u32);
-impl ::core::marker::Copy for GENERIC_ACCESS_RIGHTS {}
-impl ::core::clone::Clone for GENERIC_ACCESS_RIGHTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GENERIC_ACCESS_RIGHTS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for GENERIC_ACCESS_RIGHTS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10408,19 +10386,8 @@ impl ::core::ops::Not for GENERIC_ACCESS_RIGHTS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HANDLE_FLAGS(pub u32);
-impl ::core::marker::Copy for HANDLE_FLAGS {}
-impl ::core::clone::Clone for HANDLE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HANDLE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HANDLE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10463,19 +10430,8 @@ impl ::core::ops::Not for HANDLE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NTSTATUS_FACILITY_CODE(pub u32);
-impl ::core::marker::Copy for NTSTATUS_FACILITY_CODE {}
-impl ::core::clone::Clone for NTSTATUS_FACILITY_CODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NTSTATUS_FACILITY_CODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NTSTATUS_FACILITY_CODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10485,19 +10441,8 @@ impl ::core::fmt::Debug for NTSTATUS_FACILITY_CODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NTSTATUS_SEVERITY_CODE(pub u32);
-impl ::core::marker::Copy for NTSTATUS_SEVERITY_CODE {}
-impl ::core::clone::Clone for NTSTATUS_SEVERITY_CODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NTSTATUS_SEVERITY_CODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NTSTATUS_SEVERITY_CODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10507,19 +10452,8 @@ impl ::core::fmt::Debug for NTSTATUS_SEVERITY_CODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WAIT_EVENT(pub u32);
-impl ::core::marker::Copy for WAIT_EVENT {}
-impl ::core::clone::Clone for WAIT_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WAIT_EVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WAIT_EVENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10529,19 +10463,8 @@ impl ::core::fmt::Debug for WAIT_EVENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WIN32_ERROR(pub u32);
-impl ::core::marker::Copy for WIN32_ERROR {}
-impl ::core::clone::Clone for WIN32_ERROR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WIN32_ERROR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WIN32_ERROR {
     type TypeKind = ::windows_core::CopyType;
 }

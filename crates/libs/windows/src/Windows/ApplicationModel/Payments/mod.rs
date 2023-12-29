@@ -1984,7 +1984,7 @@ impl ::windows_core::RuntimeName for PaymentToken {
 unsafe impl ::core::marker::Send for PaymentToken {}
 unsafe impl ::core::marker::Sync for PaymentToken {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PaymentCanMakePaymentResultStatus(pub i32);
 impl PaymentCanMakePaymentResultStatus {
     pub const Unknown: Self = Self(0i32);
@@ -1994,17 +1994,6 @@ impl PaymentCanMakePaymentResultStatus {
     pub const UserNotSignedIn: Self = Self(4i32);
     pub const SpecifiedPaymentMethodIdsNotSupported: Self = Self(5i32);
     pub const NoQualifyingCardOnFile: Self = Self(6i32);
-}
-impl ::core::marker::Copy for PaymentCanMakePaymentResultStatus {}
-impl ::core::clone::Clone for PaymentCanMakePaymentResultStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PaymentCanMakePaymentResultStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PaymentCanMakePaymentResultStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -2018,23 +2007,12 @@ impl ::windows_core::RuntimeType for PaymentCanMakePaymentResultStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentCanMakePaymentResultStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PaymentOptionPresence(pub i32);
 impl PaymentOptionPresence {
     pub const None: Self = Self(0i32);
     pub const Optional: Self = Self(1i32);
     pub const Required: Self = Self(2i32);
-}
-impl ::core::marker::Copy for PaymentOptionPresence {}
-impl ::core::clone::Clone for PaymentOptionPresence {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PaymentOptionPresence {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PaymentOptionPresence {
     type TypeKind = ::windows_core::CopyType;
@@ -2048,22 +2026,11 @@ impl ::windows_core::RuntimeType for PaymentOptionPresence {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentOptionPresence;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PaymentRequestChangeKind(pub i32);
 impl PaymentRequestChangeKind {
     pub const ShippingOption: Self = Self(0i32);
     pub const ShippingAddress: Self = Self(1i32);
-}
-impl ::core::marker::Copy for PaymentRequestChangeKind {}
-impl ::core::clone::Clone for PaymentRequestChangeKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PaymentRequestChangeKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PaymentRequestChangeKind {
     type TypeKind = ::windows_core::CopyType;
@@ -2077,23 +2044,12 @@ impl ::windows_core::RuntimeType for PaymentRequestChangeKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentRequestChangeKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PaymentRequestCompletionStatus(pub i32);
 impl PaymentRequestCompletionStatus {
     pub const Succeeded: Self = Self(0i32);
     pub const Failed: Self = Self(1i32);
     pub const Unknown: Self = Self(2i32);
-}
-impl ::core::marker::Copy for PaymentRequestCompletionStatus {}
-impl ::core::clone::Clone for PaymentRequestCompletionStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PaymentRequestCompletionStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PaymentRequestCompletionStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -2107,23 +2063,12 @@ impl ::windows_core::RuntimeType for PaymentRequestCompletionStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentRequestCompletionStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PaymentRequestStatus(pub i32);
 impl PaymentRequestStatus {
     pub const Succeeded: Self = Self(0i32);
     pub const Failed: Self = Self(1i32);
     pub const Canceled: Self = Self(2i32);
-}
-impl ::core::marker::Copy for PaymentRequestStatus {}
-impl ::core::clone::Clone for PaymentRequestStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PaymentRequestStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PaymentRequestStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -2137,23 +2082,12 @@ impl ::windows_core::RuntimeType for PaymentRequestStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentRequestStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PaymentShippingType(pub i32);
 impl PaymentShippingType {
     pub const Shipping: Self = Self(0i32);
     pub const Delivery: Self = Self(1i32);
     pub const Pickup: Self = Self(2i32);
-}
-impl ::core::marker::Copy for PaymentShippingType {}
-impl ::core::clone::Clone for PaymentShippingType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PaymentShippingType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PaymentShippingType {
     type TypeKind = ::windows_core::CopyType;

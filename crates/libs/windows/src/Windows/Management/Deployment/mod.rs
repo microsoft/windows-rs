@@ -3404,7 +3404,7 @@ impl ::windows_core::RuntimeName for UpdateSharedPackageContainerResult {
 unsafe impl ::core::marker::Send for UpdateSharedPackageContainerResult {}
 unsafe impl ::core::marker::Sync for UpdateSharedPackageContainerResult {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AddPackageByAppInstallerOptions(pub u32);
 impl AddPackageByAppInstallerOptions {
     pub const None: Self = Self(0u32);
@@ -3412,17 +3412,6 @@ impl AddPackageByAppInstallerOptions {
     pub const ForceTargetAppShutdown: Self = Self(64u32);
     pub const RequiredContentGroupOnly: Self = Self(256u32);
     pub const LimitToExistingPackages: Self = Self(512u32);
-}
-impl ::core::marker::Copy for AddPackageByAppInstallerOptions {}
-impl ::core::clone::Clone for AddPackageByAppInstallerOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AddPackageByAppInstallerOptions {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AddPackageByAppInstallerOptions {
     type TypeKind = ::windows_core::CopyType;
@@ -3469,7 +3458,7 @@ impl ::windows_core::RuntimeType for AddPackageByAppInstallerOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.AddPackageByAppInstallerOptions;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DeploymentOptions(pub u32);
 impl DeploymentOptions {
     pub const None: Self = Self(0u32);
@@ -3481,17 +3470,6 @@ impl DeploymentOptions {
     pub const ForceUpdateFromAnyVersion: Self = Self(262144u32);
     pub const RetainFilesOnFailure: Self = Self(2097152u32);
     pub const StageInPlace: Self = Self(4194304u32);
-}
-impl ::core::marker::Copy for DeploymentOptions {}
-impl ::core::clone::Clone for DeploymentOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DeploymentOptions {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DeploymentOptions {
     type TypeKind = ::windows_core::CopyType;
@@ -3538,22 +3516,11 @@ impl ::windows_core::RuntimeType for DeploymentOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.DeploymentOptions;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DeploymentProgressState(pub i32);
 impl DeploymentProgressState {
     pub const Queued: Self = Self(0i32);
     pub const Processing: Self = Self(1i32);
-}
-impl ::core::marker::Copy for DeploymentProgressState {}
-impl ::core::clone::Clone for DeploymentProgressState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DeploymentProgressState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DeploymentProgressState {
     type TypeKind = ::windows_core::CopyType;
@@ -3567,24 +3534,13 @@ impl ::windows_core::RuntimeType for DeploymentProgressState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.DeploymentProgressState;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PackageInstallState(pub i32);
 impl PackageInstallState {
     pub const NotInstalled: Self = Self(0i32);
     pub const Staged: Self = Self(1i32);
     pub const Installed: Self = Self(2i32);
     pub const Paused: Self = Self(6i32);
-}
-impl ::core::marker::Copy for PackageInstallState {}
-impl ::core::clone::Clone for PackageInstallState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PackageInstallState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PackageInstallState {
     type TypeKind = ::windows_core::CopyType;
@@ -3598,24 +3554,13 @@ impl ::windows_core::RuntimeType for PackageInstallState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.PackageInstallState;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PackageState(pub i32);
 impl PackageState {
     pub const Normal: Self = Self(0i32);
     pub const LicenseInvalid: Self = Self(1i32);
     pub const Modified: Self = Self(2i32);
     pub const Tampered: Self = Self(3i32);
-}
-impl ::core::marker::Copy for PackageState {}
-impl ::core::clone::Clone for PackageState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PackageState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PackageState {
     type TypeKind = ::windows_core::CopyType;
@@ -3629,7 +3574,7 @@ impl ::windows_core::RuntimeType for PackageState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.PackageState;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PackageStatus(pub u32);
 impl PackageStatus {
     pub const OK: Self = Self(0u32);
@@ -3637,17 +3582,6 @@ impl PackageStatus {
     pub const Modified: Self = Self(2u32);
     pub const Tampered: Self = Self(4u32);
     pub const Disabled: Self = Self(8u32);
-}
-impl ::core::marker::Copy for PackageStatus {}
-impl ::core::clone::Clone for PackageStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PackageStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PackageStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -3694,22 +3628,11 @@ impl ::windows_core::RuntimeType for PackageStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.PackageStatus;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PackageStubPreference(pub i32);
 impl PackageStubPreference {
     pub const Full: Self = Self(0i32);
     pub const Stub: Self = Self(1i32);
-}
-impl ::core::marker::Copy for PackageStubPreference {}
-impl ::core::clone::Clone for PackageStubPreference {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PackageStubPreference {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PackageStubPreference {
     type TypeKind = ::windows_core::CopyType;
@@ -3723,7 +3646,7 @@ impl ::windows_core::RuntimeType for PackageStubPreference {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.PackageStubPreference;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PackageTypes(pub u32);
 impl PackageTypes {
     pub const None: Self = Self(0u32);
@@ -3734,17 +3657,6 @@ impl PackageTypes {
     pub const Xap: Self = Self(16u32);
     pub const Optional: Self = Self(32u32);
     pub const All: Self = Self(4294967295u32);
-}
-impl ::core::marker::Copy for PackageTypes {}
-impl ::core::clone::Clone for PackageTypes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PackageTypes {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PackageTypes {
     type TypeKind = ::windows_core::CopyType;
@@ -3791,24 +3703,13 @@ impl ::windows_core::RuntimeType for PackageTypes {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.PackageTypes;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RemovalOptions(pub u32);
 impl RemovalOptions {
     pub const None: Self = Self(0u32);
     pub const PreserveApplicationData: Self = Self(4096u32);
     pub const PreserveRoamableApplicationData: Self = Self(128u32);
     pub const RemoveForAllUsers: Self = Self(524288u32);
-}
-impl ::core::marker::Copy for RemovalOptions {}
-impl ::core::clone::Clone for RemovalOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RemovalOptions {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for RemovalOptions {
     type TypeKind = ::windows_core::CopyType;
@@ -3855,23 +3756,12 @@ impl ::windows_core::RuntimeType for RemovalOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.RemovalOptions;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SharedPackageContainerCreationCollisionOptions(pub i32);
 impl SharedPackageContainerCreationCollisionOptions {
     pub const FailIfExists: Self = Self(0i32);
     pub const MergeWithExisting: Self = Self(1i32);
     pub const ReplaceExisting: Self = Self(2i32);
-}
-impl ::core::marker::Copy for SharedPackageContainerCreationCollisionOptions {}
-impl ::core::clone::Clone for SharedPackageContainerCreationCollisionOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SharedPackageContainerCreationCollisionOptions {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SharedPackageContainerCreationCollisionOptions {
     type TypeKind = ::windows_core::CopyType;
@@ -3885,7 +3775,7 @@ impl ::windows_core::RuntimeType for SharedPackageContainerCreationCollisionOpti
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.SharedPackageContainerCreationCollisionOptions;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SharedPackageContainerOperationStatus(pub i32);
 impl SharedPackageContainerOperationStatus {
     pub const Success: Self = Self(0i32);
@@ -3894,17 +3784,6 @@ impl SharedPackageContainerOperationStatus {
     pub const PackageFamilyExistsInAnotherContainer: Self = Self(3i32);
     pub const NotFound: Self = Self(4i32);
     pub const UnknownFailure: Self = Self(5i32);
-}
-impl ::core::marker::Copy for SharedPackageContainerOperationStatus {}
-impl ::core::clone::Clone for SharedPackageContainerOperationStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SharedPackageContainerOperationStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SharedPackageContainerOperationStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -3918,24 +3797,13 @@ impl ::windows_core::RuntimeType for SharedPackageContainerOperationStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.SharedPackageContainerOperationStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct StubPackageOption(pub i32);
 impl StubPackageOption {
     pub const Default: Self = Self(0i32);
     pub const InstallFull: Self = Self(1i32);
     pub const InstallStub: Self = Self(2i32);
     pub const UsePreference: Self = Self(3i32);
-}
-impl ::core::marker::Copy for StubPackageOption {}
-impl ::core::clone::Clone for StubPackageOption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for StubPackageOption {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for StubPackageOption {
     type TypeKind = ::windows_core::CopyType;

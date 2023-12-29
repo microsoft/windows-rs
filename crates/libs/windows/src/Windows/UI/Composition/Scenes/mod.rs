@@ -4175,23 +4175,12 @@ impl ::windows_core::CanTryInto<super::CompositionObject> for SceneVisual {}
 unsafe impl ::core::marker::Send for SceneVisual {}
 unsafe impl ::core::marker::Sync for SceneVisual {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SceneAlphaMode(pub i32);
 impl SceneAlphaMode {
     pub const Opaque: Self = Self(0i32);
     pub const AlphaTest: Self = Self(1i32);
     pub const Blend: Self = Self(2i32);
-}
-impl ::core::marker::Copy for SceneAlphaMode {}
-impl ::core::clone::Clone for SceneAlphaMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SceneAlphaMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SceneAlphaMode {
     type TypeKind = ::windows_core::CopyType;
@@ -4205,7 +4194,7 @@ impl ::windows_core::RuntimeType for SceneAlphaMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Scenes.SceneAlphaMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SceneAttributeSemantic(pub i32);
 impl SceneAttributeSemantic {
     pub const Index: Self = Self(0i32);
@@ -4215,17 +4204,6 @@ impl SceneAttributeSemantic {
     pub const TexCoord1: Self = Self(4i32);
     pub const Color: Self = Self(5i32);
     pub const Tangent: Self = Self(6i32);
-}
-impl ::core::marker::Copy for SceneAttributeSemantic {}
-impl ::core::clone::Clone for SceneAttributeSemantic {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SceneAttributeSemantic {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SceneAttributeSemantic {
     type TypeKind = ::windows_core::CopyType;
@@ -4239,21 +4217,10 @@ impl ::windows_core::RuntimeType for SceneAttributeSemantic {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Scenes.SceneAttributeSemantic;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SceneComponentType(pub i32);
 impl SceneComponentType {
     pub const MeshRendererComponent: Self = Self(0i32);
-}
-impl ::core::marker::Copy for SceneComponentType {}
-impl ::core::clone::Clone for SceneComponentType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SceneComponentType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SceneComponentType {
     type TypeKind = ::windows_core::CopyType;
@@ -4267,23 +4234,12 @@ impl ::windows_core::RuntimeType for SceneComponentType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Scenes.SceneComponentType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SceneWrappingMode(pub i32);
 impl SceneWrappingMode {
     pub const ClampToEdge: Self = Self(0i32);
     pub const MirroredRepeat: Self = Self(1i32);
     pub const Repeat: Self = Self(2i32);
-}
-impl ::core::marker::Copy for SceneWrappingMode {}
-impl ::core::clone::Clone for SceneWrappingMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SceneWrappingMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SceneWrappingMode {
     type TypeKind = ::windows_core::CopyType;

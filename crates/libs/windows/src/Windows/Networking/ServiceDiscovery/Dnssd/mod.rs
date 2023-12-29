@@ -492,24 +492,13 @@ impl ::windows_core::RuntimeName for DnssdServiceWatcher {
 unsafe impl ::core::marker::Send for DnssdServiceWatcher {}
 unsafe impl ::core::marker::Sync for DnssdServiceWatcher {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DnssdRegistrationStatus(pub i32);
 impl DnssdRegistrationStatus {
     pub const Success: Self = Self(0i32);
     pub const InvalidServiceName: Self = Self(1i32);
     pub const ServerError: Self = Self(2i32);
     pub const SecurityError: Self = Self(3i32);
-}
-impl ::core::marker::Copy for DnssdRegistrationStatus {}
-impl ::core::clone::Clone for DnssdRegistrationStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DnssdRegistrationStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DnssdRegistrationStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -523,7 +512,7 @@ impl ::windows_core::RuntimeType for DnssdRegistrationStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.ServiceDiscovery.Dnssd.DnssdRegistrationStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DnssdServiceWatcherStatus(pub i32);
 impl DnssdServiceWatcherStatus {
     pub const Created: Self = Self(0i32);
@@ -532,17 +521,6 @@ impl DnssdServiceWatcherStatus {
     pub const Stopping: Self = Self(3i32);
     pub const Stopped: Self = Self(4i32);
     pub const Aborted: Self = Self(5i32);
-}
-impl ::core::marker::Copy for DnssdServiceWatcherStatus {}
-impl ::core::clone::Clone for DnssdServiceWatcherStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DnssdServiceWatcherStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DnssdServiceWatcherStatus {
     type TypeKind = ::windows_core::CopyType;

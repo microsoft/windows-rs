@@ -1945,7 +1945,7 @@ impl ::windows_core::CanTryInto<IMidiMessage> for MidiTuneRequestMessage {}
 unsafe impl ::core::marker::Send for MidiTuneRequestMessage {}
 unsafe impl ::core::marker::Sync for MidiTuneRequestMessage {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MidiMessageType(pub i32);
 impl MidiMessageType {
     pub const None: Self = Self(0i32);
@@ -1968,17 +1968,6 @@ impl MidiMessageType {
     pub const Stop: Self = Self(252i32);
     pub const ActiveSensing: Self = Self(254i32);
     pub const SystemReset: Self = Self(255i32);
-}
-impl ::core::marker::Copy for MidiMessageType {}
-impl ::core::clone::Clone for MidiMessageType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MidiMessageType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MidiMessageType {
     type TypeKind = ::windows_core::CopyType;

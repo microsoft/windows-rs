@@ -3776,23 +3776,12 @@ impl ::windows_core::CanTryInto<ISmsMessageBase> for SmsWapMessage {}
 unsafe impl ::core::marker::Send for SmsWapMessage {}
 unsafe impl ::core::marker::Sync for SmsWapMessage {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CellularClass(pub i32);
 impl CellularClass {
     pub const None: Self = Self(0i32);
     pub const Gsm: Self = Self(1i32);
     pub const Cdma: Self = Self(2i32);
-}
-impl ::core::marker::Copy for CellularClass {}
-impl ::core::clone::Clone for CellularClass {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CellularClass {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CellularClass {
     type TypeKind = ::windows_core::CopyType;
@@ -3806,7 +3795,7 @@ impl ::windows_core::RuntimeType for CellularClass {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.CellularClass;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SmsBroadcastType(pub i32);
 impl SmsBroadcastType {
     pub const Other: Self = Self(0i32);
@@ -3825,17 +3814,6 @@ impl SmsBroadcastType {
     pub const EtwsTsunamiAndEarthquake: Self = Self(13i32);
     pub const LatAlertLocal: Self = Self(14i32);
 }
-impl ::core::marker::Copy for SmsBroadcastType {}
-impl ::core::clone::Clone for SmsBroadcastType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SmsBroadcastType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SmsBroadcastType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3848,7 +3826,7 @@ impl ::windows_core::RuntimeType for SmsBroadcastType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsBroadcastType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SmsDataFormat(pub i32);
 impl SmsDataFormat {
     pub const Unknown: Self = Self(0i32);
@@ -3856,17 +3834,6 @@ impl SmsDataFormat {
     pub const GsmSubmit: Self = Self(2i32);
     pub const CdmaDeliver: Self = Self(3i32);
     pub const GsmDeliver: Self = Self(4i32);
-}
-impl ::core::marker::Copy for SmsDataFormat {}
-impl ::core::clone::Clone for SmsDataFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SmsDataFormat {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SmsDataFormat {
     type TypeKind = ::windows_core::CopyType;
@@ -3880,7 +3847,7 @@ impl ::windows_core::RuntimeType for SmsDataFormat {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsDataFormat;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SmsDeviceStatus(pub i32);
 impl SmsDeviceStatus {
     pub const Off: Self = Self(0i32);
@@ -3891,17 +3858,6 @@ impl SmsDeviceStatus {
     pub const SubscriptionNotActivated: Self = Self(5i32);
     pub const DeviceLocked: Self = Self(6i32);
     pub const DeviceBlocked: Self = Self(7i32);
-}
-impl ::core::marker::Copy for SmsDeviceStatus {}
-impl ::core::clone::Clone for SmsDeviceStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SmsDeviceStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SmsDeviceStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -3915,7 +3871,7 @@ impl ::windows_core::RuntimeType for SmsDeviceStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsDeviceStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SmsEncoding(pub i32);
 impl SmsEncoding {
     pub const Unknown: Self = Self(0i32);
@@ -3930,17 +3886,6 @@ impl SmsEncoding {
     pub const ShiftJis: Self = Self(9i32);
     pub const LatinHebrew: Self = Self(10i32);
 }
-impl ::core::marker::Copy for SmsEncoding {}
-impl ::core::clone::Clone for SmsEncoding {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SmsEncoding {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SmsEncoding {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3953,24 +3898,13 @@ impl ::windows_core::RuntimeType for SmsEncoding {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsEncoding;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SmsFilterActionType(pub i32);
 impl SmsFilterActionType {
     pub const AcceptImmediately: Self = Self(0i32);
     pub const Drop: Self = Self(1i32);
     pub const Peek: Self = Self(2i32);
     pub const Accept: Self = Self(3i32);
-}
-impl ::core::marker::Copy for SmsFilterActionType {}
-impl ::core::clone::Clone for SmsFilterActionType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SmsFilterActionType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SmsFilterActionType {
     type TypeKind = ::windows_core::CopyType;
@@ -3984,7 +3918,7 @@ impl ::windows_core::RuntimeType for SmsFilterActionType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsFilterActionType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SmsGeographicalScope(pub i32);
 impl SmsGeographicalScope {
     pub const None: Self = Self(0i32);
@@ -3992,17 +3926,6 @@ impl SmsGeographicalScope {
     pub const LocationArea: Self = Self(2i32);
     pub const Plmn: Self = Self(3i32);
     pub const Cell: Self = Self(4i32);
-}
-impl ::core::marker::Copy for SmsGeographicalScope {}
-impl ::core::clone::Clone for SmsGeographicalScope {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SmsGeographicalScope {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SmsGeographicalScope {
     type TypeKind = ::windows_core::CopyType;
@@ -4016,7 +3939,7 @@ impl ::windows_core::RuntimeType for SmsGeographicalScope {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsGeographicalScope;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SmsMessageClass(pub i32);
 impl SmsMessageClass {
     pub const None: Self = Self(0i32);
@@ -4024,17 +3947,6 @@ impl SmsMessageClass {
     pub const Class1: Self = Self(2i32);
     pub const Class2: Self = Self(3i32);
     pub const Class3: Self = Self(4i32);
-}
-impl ::core::marker::Copy for SmsMessageClass {}
-impl ::core::clone::Clone for SmsMessageClass {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SmsMessageClass {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SmsMessageClass {
     type TypeKind = ::windows_core::CopyType;
@@ -4050,7 +3962,7 @@ impl ::windows_core::RuntimeType for SmsMessageClass {
 #[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SmsMessageFilter(pub i32);
 #[cfg(feature = "deprecated")]
 impl SmsMessageFilter {
@@ -4059,20 +3971,6 @@ impl SmsMessageFilter {
     pub const Read: Self = Self(2i32);
     pub const Sent: Self = Self(3i32);
     pub const Draft: Self = Self(4i32);
-}
-#[cfg(feature = "deprecated")]
-impl ::core::marker::Copy for SmsMessageFilter {}
-#[cfg(feature = "deprecated")]
-impl ::core::clone::Clone for SmsMessageFilter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::default::Default for SmsMessageFilter {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 #[cfg(feature = "deprecated")]
 impl ::windows_core::TypeKind for SmsMessageFilter {
@@ -4089,7 +3987,7 @@ impl ::windows_core::RuntimeType for SmsMessageFilter {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsMessageFilter;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SmsMessageType(pub i32);
 impl SmsMessageType {
     pub const Binary: Self = Self(0i32);
@@ -4099,17 +3997,6 @@ impl SmsMessageType {
     pub const Broadcast: Self = Self(4i32);
     pub const Voicemail: Self = Self(5i32);
     pub const Status: Self = Self(6i32);
-}
-impl ::core::marker::Copy for SmsMessageType {}
-impl ::core::clone::Clone for SmsMessageType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SmsMessageType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SmsMessageType {
     type TypeKind = ::windows_core::CopyType;
@@ -4123,7 +4010,7 @@ impl ::windows_core::RuntimeType for SmsMessageType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsMessageType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SmsModemErrorCode(pub i32);
 impl SmsModemErrorCode {
     pub const Other: Self = Self(0i32);
@@ -4138,17 +4025,6 @@ impl SmsModemErrorCode {
     pub const InvalidSmscAddress: Self = Self(9i32);
     pub const NetworkFailure: Self = Self(10i32);
     pub const FixedDialingNumberRestricted: Self = Self(11i32);
-}
-impl ::core::marker::Copy for SmsModemErrorCode {}
-impl ::core::clone::Clone for SmsModemErrorCode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SmsModemErrorCode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SmsModemErrorCode {
     type TypeKind = ::windows_core::CopyType;

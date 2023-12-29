@@ -1671,22 +1671,11 @@ impl ::windows_core::RuntimeName for WebProviderTokenResponse {
 unsafe impl ::core::marker::Send for WebProviderTokenResponse {}
 unsafe impl ::core::marker::Sync for WebProviderTokenResponse {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WebAccountClientViewType(pub i32);
 impl WebAccountClientViewType {
     pub const IdOnly: Self = Self(0i32);
     pub const IdAndProperties: Self = Self(1i32);
-}
-impl ::core::marker::Copy for WebAccountClientViewType {}
-impl ::core::clone::Clone for WebAccountClientViewType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WebAccountClientViewType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for WebAccountClientViewType {
     type TypeKind = ::windows_core::CopyType;
@@ -1700,7 +1689,7 @@ impl ::windows_core::RuntimeType for WebAccountClientViewType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Provider.WebAccountClientViewType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WebAccountProviderOperationKind(pub i32);
 impl WebAccountProviderOperationKind {
     pub const RequestToken: Self = Self(0i32);
@@ -1710,17 +1699,6 @@ impl WebAccountProviderOperationKind {
     pub const DeleteAccount: Self = Self(4i32);
     pub const RetrieveCookies: Self = Self(5i32);
     pub const SignOutAccount: Self = Self(6i32);
-}
-impl ::core::marker::Copy for WebAccountProviderOperationKind {}
-impl ::core::clone::Clone for WebAccountProviderOperationKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WebAccountProviderOperationKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for WebAccountProviderOperationKind {
     type TypeKind = ::windows_core::CopyType;
@@ -1734,22 +1712,11 @@ impl ::windows_core::RuntimeType for WebAccountProviderOperationKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Provider.WebAccountProviderOperationKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WebAccountScope(pub i32);
 impl WebAccountScope {
     pub const PerUser: Self = Self(0i32);
     pub const PerApplication: Self = Self(1i32);
-}
-impl ::core::marker::Copy for WebAccountScope {}
-impl ::core::clone::Clone for WebAccountScope {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WebAccountScope {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for WebAccountScope {
     type TypeKind = ::windows_core::CopyType;
@@ -1763,22 +1730,11 @@ impl ::windows_core::RuntimeType for WebAccountScope {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Provider.WebAccountScope;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WebAccountSelectionOptions(pub u32);
 impl WebAccountSelectionOptions {
     pub const Default: Self = Self(0u32);
     pub const New: Self = Self(1u32);
-}
-impl ::core::marker::Copy for WebAccountSelectionOptions {}
-impl ::core::clone::Clone for WebAccountSelectionOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WebAccountSelectionOptions {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for WebAccountSelectionOptions {
     type TypeKind = ::windows_core::CopyType;

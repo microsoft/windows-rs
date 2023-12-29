@@ -3749,21 +3749,10 @@ impl ::windows_core::RuntimeName for UserNotificationChangedEventArgs {
 unsafe impl ::core::marker::Send for UserNotificationChangedEventArgs {}
 unsafe impl ::core::marker::Sync for UserNotificationChangedEventArgs {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AdaptiveNotificationContentKind(pub i32);
 impl AdaptiveNotificationContentKind {
     pub const Text: Self = Self(0i32);
-}
-impl ::core::marker::Copy for AdaptiveNotificationContentKind {}
-impl ::core::clone::Clone for AdaptiveNotificationContentKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AdaptiveNotificationContentKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AdaptiveNotificationContentKind {
     type TypeKind = ::windows_core::CopyType;
@@ -3777,22 +3766,11 @@ impl ::windows_core::RuntimeType for AdaptiveNotificationContentKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.AdaptiveNotificationContentKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BadgeTemplateType(pub i32);
 impl BadgeTemplateType {
     pub const BadgeGlyph: Self = Self(0i32);
     pub const BadgeNumber: Self = Self(1i32);
-}
-impl ::core::marker::Copy for BadgeTemplateType {}
-impl ::core::clone::Clone for BadgeTemplateType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BadgeTemplateType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for BadgeTemplateType {
     type TypeKind = ::windows_core::CopyType;
@@ -3806,22 +3784,11 @@ impl ::windows_core::RuntimeType for BadgeTemplateType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.BadgeTemplateType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NotificationKinds(pub u32);
 impl NotificationKinds {
     pub const Unknown: Self = Self(0u32);
     pub const Toast: Self = Self(1u32);
-}
-impl ::core::marker::Copy for NotificationKinds {}
-impl ::core::clone::Clone for NotificationKinds {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NotificationKinds {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for NotificationKinds {
     type TypeKind = ::windows_core::CopyType;
@@ -3868,22 +3835,11 @@ impl ::windows_core::RuntimeType for NotificationKinds {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.NotificationKinds;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NotificationMirroring(pub i32);
 impl NotificationMirroring {
     pub const Allowed: Self = Self(0i32);
     pub const Disabled: Self = Self(1i32);
-}
-impl ::core::marker::Copy for NotificationMirroring {}
-impl ::core::clone::Clone for NotificationMirroring {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NotificationMirroring {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for NotificationMirroring {
     type TypeKind = ::windows_core::CopyType;
@@ -3897,7 +3853,7 @@ impl ::windows_core::RuntimeType for NotificationMirroring {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.NotificationMirroring;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NotificationSetting(pub i32);
 impl NotificationSetting {
     pub const Enabled: Self = Self(0i32);
@@ -3905,17 +3861,6 @@ impl NotificationSetting {
     pub const DisabledForUser: Self = Self(2i32);
     pub const DisabledByGroupPolicy: Self = Self(3i32);
     pub const DisabledByManifest: Self = Self(4i32);
-}
-impl ::core::marker::Copy for NotificationSetting {}
-impl ::core::clone::Clone for NotificationSetting {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NotificationSetting {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for NotificationSetting {
     type TypeKind = ::windows_core::CopyType;
@@ -3929,23 +3874,12 @@ impl ::windows_core::RuntimeType for NotificationSetting {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.NotificationSetting;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NotificationUpdateResult(pub i32);
 impl NotificationUpdateResult {
     pub const Succeeded: Self = Self(0i32);
     pub const Failed: Self = Self(1i32);
     pub const NotificationNotFound: Self = Self(2i32);
-}
-impl ::core::marker::Copy for NotificationUpdateResult {}
-impl ::core::clone::Clone for NotificationUpdateResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NotificationUpdateResult {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for NotificationUpdateResult {
     type TypeKind = ::windows_core::CopyType;
@@ -3959,7 +3893,7 @@ impl ::windows_core::RuntimeType for NotificationUpdateResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.NotificationUpdateResult;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PeriodicUpdateRecurrence(pub i32);
 impl PeriodicUpdateRecurrence {
     pub const HalfHour: Self = Self(0i32);
@@ -3967,17 +3901,6 @@ impl PeriodicUpdateRecurrence {
     pub const SixHours: Self = Self(2i32);
     pub const TwelveHours: Self = Self(3i32);
     pub const Daily: Self = Self(4i32);
-}
-impl ::core::marker::Copy for PeriodicUpdateRecurrence {}
-impl ::core::clone::Clone for PeriodicUpdateRecurrence {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PeriodicUpdateRecurrence {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PeriodicUpdateRecurrence {
     type TypeKind = ::windows_core::CopyType;
@@ -3991,21 +3914,10 @@ impl ::windows_core::RuntimeType for PeriodicUpdateRecurrence {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.PeriodicUpdateRecurrence;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TileFlyoutTemplateType(pub i32);
 impl TileFlyoutTemplateType {
     pub const TileFlyoutTemplate01: Self = Self(0i32);
-}
-impl ::core::marker::Copy for TileFlyoutTemplateType {}
-impl ::core::clone::Clone for TileFlyoutTemplateType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TileFlyoutTemplateType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for TileFlyoutTemplateType {
     type TypeKind = ::windows_core::CopyType;
@@ -4019,7 +3931,7 @@ impl ::windows_core::RuntimeType for TileFlyoutTemplateType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.TileFlyoutTemplateType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TileTemplateType(pub i32);
 impl TileTemplateType {
     pub const TileSquareImage: Self = Self(0i32);
@@ -4149,17 +4061,6 @@ impl TileTemplateType {
     pub const TileSquare71x71Image: Self = Self(78i32);
     pub const TileTall150x310Image: Self = Self(79i32);
 }
-impl ::core::marker::Copy for TileTemplateType {}
-impl ::core::clone::Clone for TileTemplateType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TileTemplateType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TileTemplateType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4172,23 +4073,12 @@ impl ::windows_core::RuntimeType for TileTemplateType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.TileTemplateType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ToastDismissalReason(pub i32);
 impl ToastDismissalReason {
     pub const UserCanceled: Self = Self(0i32);
     pub const ApplicationHidden: Self = Self(1i32);
     pub const TimedOut: Self = Self(2i32);
-}
-impl ::core::marker::Copy for ToastDismissalReason {}
-impl ::core::clone::Clone for ToastDismissalReason {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ToastDismissalReason {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ToastDismissalReason {
     type TypeKind = ::windows_core::CopyType;
@@ -4202,24 +4092,13 @@ impl ::windows_core::RuntimeType for ToastDismissalReason {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.ToastDismissalReason;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ToastHistoryChangedType(pub i32);
 impl ToastHistoryChangedType {
     pub const Cleared: Self = Self(0i32);
     pub const Removed: Self = Self(1i32);
     pub const Expired: Self = Self(2i32);
     pub const Added: Self = Self(3i32);
-}
-impl ::core::marker::Copy for ToastHistoryChangedType {}
-impl ::core::clone::Clone for ToastHistoryChangedType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ToastHistoryChangedType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ToastHistoryChangedType {
     type TypeKind = ::windows_core::CopyType;
@@ -4233,23 +4112,12 @@ impl ::windows_core::RuntimeType for ToastHistoryChangedType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.ToastHistoryChangedType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ToastNotificationMode(pub i32);
 impl ToastNotificationMode {
     pub const Unrestricted: Self = Self(0i32);
     pub const PriorityOnly: Self = Self(1i32);
     pub const AlarmsOnly: Self = Self(2i32);
-}
-impl ::core::marker::Copy for ToastNotificationMode {}
-impl ::core::clone::Clone for ToastNotificationMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ToastNotificationMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ToastNotificationMode {
     type TypeKind = ::windows_core::CopyType;
@@ -4263,22 +4131,11 @@ impl ::windows_core::RuntimeType for ToastNotificationMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.ToastNotificationMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ToastNotificationPriority(pub i32);
 impl ToastNotificationPriority {
     pub const Default: Self = Self(0i32);
     pub const High: Self = Self(1i32);
-}
-impl ::core::marker::Copy for ToastNotificationPriority {}
-impl ::core::clone::Clone for ToastNotificationPriority {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ToastNotificationPriority {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ToastNotificationPriority {
     type TypeKind = ::windows_core::CopyType;
@@ -4292,7 +4149,7 @@ impl ::windows_core::RuntimeType for ToastNotificationPriority {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.ToastNotificationPriority;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ToastTemplateType(pub i32);
 impl ToastTemplateType {
     pub const ToastImageAndText01: Self = Self(0i32);
@@ -4303,17 +4160,6 @@ impl ToastTemplateType {
     pub const ToastText02: Self = Self(5i32);
     pub const ToastText03: Self = Self(6i32);
     pub const ToastText04: Self = Self(7i32);
-}
-impl ::core::marker::Copy for ToastTemplateType {}
-impl ::core::clone::Clone for ToastTemplateType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ToastTemplateType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ToastTemplateType {
     type TypeKind = ::windows_core::CopyType;
@@ -4327,22 +4173,11 @@ impl ::windows_core::RuntimeType for ToastTemplateType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.ToastTemplateType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UserNotificationChangedKind(pub i32);
 impl UserNotificationChangedKind {
     pub const Added: Self = Self(0i32);
     pub const Removed: Self = Self(1i32);
-}
-impl ::core::marker::Copy for UserNotificationChangedKind {}
-impl ::core::clone::Clone for UserNotificationChangedKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UserNotificationChangedKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for UserNotificationChangedKind {
     type TypeKind = ::windows_core::CopyType;

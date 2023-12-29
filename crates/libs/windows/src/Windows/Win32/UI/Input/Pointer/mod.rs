@@ -230,19 +230,8 @@ pub const TOUCH_FEEDBACK_DEFAULT: TOUCH_FEEDBACK_MODE = TOUCH_FEEDBACK_MODE(1u32
 pub const TOUCH_FEEDBACK_INDIRECT: TOUCH_FEEDBACK_MODE = TOUCH_FEEDBACK_MODE(2u32);
 pub const TOUCH_FEEDBACK_NONE: TOUCH_FEEDBACK_MODE = TOUCH_FEEDBACK_MODE(3u32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct POINTER_BUTTON_CHANGE_TYPE(pub i32);
-impl ::core::marker::Copy for POINTER_BUTTON_CHANGE_TYPE {}
-impl ::core::clone::Clone for POINTER_BUTTON_CHANGE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for POINTER_BUTTON_CHANGE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for POINTER_BUTTON_CHANGE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -252,19 +241,8 @@ impl ::core::fmt::Debug for POINTER_BUTTON_CHANGE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct POINTER_FLAGS(pub u32);
-impl ::core::marker::Copy for POINTER_FLAGS {}
-impl ::core::clone::Clone for POINTER_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for POINTER_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for POINTER_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -307,19 +285,8 @@ impl ::core::ops::Not for POINTER_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TOUCH_FEEDBACK_MODE(pub u32);
-impl ::core::marker::Copy for TOUCH_FEEDBACK_MODE {}
-impl ::core::clone::Clone for TOUCH_FEEDBACK_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TOUCH_FEEDBACK_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TOUCH_FEEDBACK_MODE {
     type TypeKind = ::windows_core::CopyType;
 }

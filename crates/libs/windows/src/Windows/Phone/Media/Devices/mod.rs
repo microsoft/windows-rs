@@ -98,7 +98,7 @@ impl ::windows_core::RuntimeName for AudioRoutingManager {
 unsafe impl ::core::marker::Send for AudioRoutingManager {}
 unsafe impl ::core::marker::Sync for AudioRoutingManager {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AudioRoutingEndpoint(pub i32);
 impl AudioRoutingEndpoint {
     pub const Default: Self = Self(0i32);
@@ -109,17 +109,6 @@ impl AudioRoutingEndpoint {
     pub const WiredHeadsetSpeakerOnly: Self = Self(5i32);
     pub const BluetoothWithNoiseAndEchoCancellation: Self = Self(6i32);
     pub const BluetoothPreferred: Self = Self(7i32);
-}
-impl ::core::marker::Copy for AudioRoutingEndpoint {}
-impl ::core::clone::Clone for AudioRoutingEndpoint {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AudioRoutingEndpoint {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AudioRoutingEndpoint {
     type TypeKind = ::windows_core::CopyType;
@@ -133,24 +122,13 @@ impl ::windows_core::RuntimeType for AudioRoutingEndpoint {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Phone.Media.Devices.AudioRoutingEndpoint;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AvailableAudioRoutingEndpoints(pub u32);
 impl AvailableAudioRoutingEndpoints {
     pub const None: Self = Self(0u32);
     pub const Earpiece: Self = Self(1u32);
     pub const Speakerphone: Self = Self(2u32);
     pub const Bluetooth: Self = Self(4u32);
-}
-impl ::core::marker::Copy for AvailableAudioRoutingEndpoints {}
-impl ::core::clone::Clone for AvailableAudioRoutingEndpoints {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AvailableAudioRoutingEndpoints {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AvailableAudioRoutingEndpoints {
     type TypeKind = ::windows_core::CopyType;

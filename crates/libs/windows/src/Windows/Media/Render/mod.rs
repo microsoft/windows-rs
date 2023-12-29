@@ -1,5 +1,5 @@
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AudioRenderCategory(pub i32);
 impl AudioRenderCategory {
     pub const Other: Self = Self(0i32);
@@ -14,17 +14,6 @@ impl AudioRenderCategory {
     pub const Speech: Self = Self(9i32);
     pub const Movie: Self = Self(10i32);
     pub const Media: Self = Self(11i32);
-}
-impl ::core::marker::Copy for AudioRenderCategory {}
-impl ::core::clone::Clone for AudioRenderCategory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AudioRenderCategory {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AudioRenderCategory {
     type TypeKind = ::windows_core::CopyType;

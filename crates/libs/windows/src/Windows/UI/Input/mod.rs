@@ -4160,7 +4160,7 @@ impl ::windows_core::RuntimeName for TappedEventArgs {
 }
 ::windows_core::imp::interface_hierarchy!(TappedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CrossSlidingState(pub i32);
 impl CrossSlidingState {
     pub const Started: Self = Self(0i32);
@@ -4170,17 +4170,6 @@ impl CrossSlidingState {
     pub const SpeedBumping: Self = Self(4i32);
     pub const Rearranging: Self = Self(5i32);
     pub const Completed: Self = Self(6i32);
-}
-impl ::core::marker::Copy for CrossSlidingState {}
-impl ::core::clone::Clone for CrossSlidingState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CrossSlidingState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CrossSlidingState {
     type TypeKind = ::windows_core::CopyType;
@@ -4194,23 +4183,12 @@ impl ::windows_core::RuntimeType for CrossSlidingState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.CrossSlidingState;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DraggingState(pub i32);
 impl DraggingState {
     pub const Started: Self = Self(0i32);
     pub const Continuing: Self = Self(1i32);
     pub const Completed: Self = Self(2i32);
-}
-impl ::core::marker::Copy for DraggingState {}
-impl ::core::clone::Clone for DraggingState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DraggingState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DraggingState {
     type TypeKind = ::windows_core::CopyType;
@@ -4224,23 +4202,12 @@ impl ::windows_core::RuntimeType for DraggingState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.DraggingState;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EdgeGestureKind(pub i32);
 impl EdgeGestureKind {
     pub const Touch: Self = Self(0i32);
     pub const Keyboard: Self = Self(1i32);
     pub const Mouse: Self = Self(2i32);
-}
-impl ::core::marker::Copy for EdgeGestureKind {}
-impl ::core::clone::Clone for EdgeGestureKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EdgeGestureKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for EdgeGestureKind {
     type TypeKind = ::windows_core::CopyType;
@@ -4254,24 +4221,13 @@ impl ::windows_core::RuntimeType for EdgeGestureKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.EdgeGestureKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GazeInputAccessStatus(pub i32);
 impl GazeInputAccessStatus {
     pub const Unspecified: Self = Self(0i32);
     pub const Allowed: Self = Self(1i32);
     pub const DeniedByUser: Self = Self(2i32);
     pub const DeniedBySystem: Self = Self(3i32);
-}
-impl ::core::marker::Copy for GazeInputAccessStatus {}
-impl ::core::clone::Clone for GazeInputAccessStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GazeInputAccessStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for GazeInputAccessStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -4285,7 +4241,7 @@ impl ::windows_core::RuntimeType for GazeInputAccessStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.GazeInputAccessStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GestureSettings(pub u32);
 impl GestureSettings {
     pub const None: Self = Self(0u32);
@@ -4306,17 +4262,6 @@ impl GestureSettings {
     pub const ManipulationScaleInertia: Self = Self(16384u32);
     pub const CrossSlide: Self = Self(32768u32);
     pub const ManipulationMultipleFingerPanning: Self = Self(65536u32);
-}
-impl ::core::marker::Copy for GestureSettings {}
-impl ::core::clone::Clone for GestureSettings {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GestureSettings {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for GestureSettings {
     type TypeKind = ::windows_core::CopyType;
@@ -4363,23 +4308,12 @@ impl ::windows_core::RuntimeType for GestureSettings {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.GestureSettings;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HoldingState(pub i32);
 impl HoldingState {
     pub const Started: Self = Self(0i32);
     pub const Completed: Self = Self(1i32);
     pub const Canceled: Self = Self(2i32);
-}
-impl ::core::marker::Copy for HoldingState {}
-impl ::core::clone::Clone for HoldingState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HoldingState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for HoldingState {
     type TypeKind = ::windows_core::CopyType;
@@ -4393,24 +4327,13 @@ impl ::windows_core::RuntimeType for HoldingState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.HoldingState;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InputActivationState(pub i32);
 impl InputActivationState {
     pub const None: Self = Self(0i32);
     pub const Deactivated: Self = Self(1i32);
     pub const ActivatedNotForeground: Self = Self(2i32);
     pub const ActivatedInForeground: Self = Self(3i32);
-}
-impl ::core::marker::Copy for InputActivationState {}
-impl ::core::clone::Clone for InputActivationState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InputActivationState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for InputActivationState {
     type TypeKind = ::windows_core::CopyType;
@@ -4424,7 +4347,7 @@ impl ::windows_core::RuntimeType for InputActivationState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.InputActivationState;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PointerUpdateKind(pub i32);
 impl PointerUpdateKind {
     pub const Other: Self = Self(0i32);
@@ -4439,17 +4362,6 @@ impl PointerUpdateKind {
     pub const XButton2Pressed: Self = Self(9i32);
     pub const XButton2Released: Self = Self(10i32);
 }
-impl ::core::marker::Copy for PointerUpdateKind {}
-impl ::core::clone::Clone for PointerUpdateKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PointerUpdateKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PointerUpdateKind {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4462,7 +4374,7 @@ impl ::windows_core::RuntimeType for PointerUpdateKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.PointerUpdateKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RadialControllerMenuKnownIcon(pub i32);
 impl RadialControllerMenuKnownIcon {
     pub const Scroll: Self = Self(0i32);
@@ -4474,17 +4386,6 @@ impl RadialControllerMenuKnownIcon {
     pub const InkColor: Self = Self(6i32);
     pub const InkThickness: Self = Self(7i32);
     pub const PenType: Self = Self(8i32);
-}
-impl ::core::marker::Copy for RadialControllerMenuKnownIcon {}
-impl ::core::clone::Clone for RadialControllerMenuKnownIcon {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RadialControllerMenuKnownIcon {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for RadialControllerMenuKnownIcon {
     type TypeKind = ::windows_core::CopyType;
@@ -4498,7 +4399,7 @@ impl ::windows_core::RuntimeType for RadialControllerMenuKnownIcon {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.RadialControllerMenuKnownIcon;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RadialControllerSystemMenuItemKind(pub i32);
 impl RadialControllerSystemMenuItemKind {
     pub const Scroll: Self = Self(0i32);
@@ -4506,17 +4407,6 @@ impl RadialControllerSystemMenuItemKind {
     pub const UndoRedo: Self = Self(2i32);
     pub const Volume: Self = Self(3i32);
     pub const NextPreviousTrack: Self = Self(4i32);
-}
-impl ::core::marker::Copy for RadialControllerSystemMenuItemKind {}
-impl ::core::clone::Clone for RadialControllerSystemMenuItemKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RadialControllerSystemMenuItemKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for RadialControllerSystemMenuItemKind {
     type TypeKind = ::windows_core::CopyType;

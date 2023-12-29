@@ -909,22 +909,11 @@ impl ::windows_core::RuntimeName for WebViewControlProcessOptions {
 }
 ::windows_core::imp::interface_hierarchy!(WebViewControlProcessOptions, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WebViewControlAcceleratorKeyRoutingStage(pub i32);
 impl WebViewControlAcceleratorKeyRoutingStage {
     pub const Tunneling: Self = Self(0i32);
     pub const Bubbling: Self = Self(1i32);
-}
-impl ::core::marker::Copy for WebViewControlAcceleratorKeyRoutingStage {}
-impl ::core::clone::Clone for WebViewControlAcceleratorKeyRoutingStage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WebViewControlAcceleratorKeyRoutingStage {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for WebViewControlAcceleratorKeyRoutingStage {
     type TypeKind = ::windows_core::CopyType;
@@ -938,23 +927,12 @@ impl ::windows_core::RuntimeType for WebViewControlAcceleratorKeyRoutingStage {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.UI.Interop.WebViewControlAcceleratorKeyRoutingStage;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WebViewControlMoveFocusReason(pub i32);
 impl WebViewControlMoveFocusReason {
     pub const Programmatic: Self = Self(0i32);
     pub const Next: Self = Self(1i32);
     pub const Previous: Self = Self(2i32);
-}
-impl ::core::marker::Copy for WebViewControlMoveFocusReason {}
-impl ::core::clone::Clone for WebViewControlMoveFocusReason {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WebViewControlMoveFocusReason {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for WebViewControlMoveFocusReason {
     type TypeKind = ::windows_core::CopyType;
@@ -968,23 +946,12 @@ impl ::windows_core::RuntimeType for WebViewControlMoveFocusReason {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.UI.Interop.WebViewControlMoveFocusReason;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WebViewControlProcessCapabilityState(pub i32);
 impl WebViewControlProcessCapabilityState {
     pub const Default: Self = Self(0i32);
     pub const Disabled: Self = Self(1i32);
     pub const Enabled: Self = Self(2i32);
-}
-impl ::core::marker::Copy for WebViewControlProcessCapabilityState {}
-impl ::core::clone::Clone for WebViewControlProcessCapabilityState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WebViewControlProcessCapabilityState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for WebViewControlProcessCapabilityState {
     type TypeKind = ::windows_core::CopyType;

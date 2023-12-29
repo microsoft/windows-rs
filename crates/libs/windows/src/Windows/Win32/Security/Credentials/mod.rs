@@ -1161,19 +1161,8 @@ pub const UsernameForPackedCredentials: CRED_MARSHAL_TYPE = CRED_MARSHAL_TYPE(4i
 pub const UsernameTargetCredential: CRED_MARSHAL_TYPE = CRED_MARSHAL_TYPE(2i32);
 pub const szOID_TS_KP_TS_SERVER_AUTH: ::windows_core::PCSTR = ::windows_core::s!("1.3.6.1.4.1.311.54.1.2");
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CREDSPP_SUBMIT_TYPE(pub i32);
-impl ::core::marker::Copy for CREDSPP_SUBMIT_TYPE {}
-impl ::core::clone::Clone for CREDSPP_SUBMIT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CREDSPP_SUBMIT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CREDSPP_SUBMIT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1183,19 +1172,8 @@ impl ::core::fmt::Debug for CREDSPP_SUBMIT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CREDUIWIN_FLAGS(pub u32);
-impl ::core::marker::Copy for CREDUIWIN_FLAGS {}
-impl ::core::clone::Clone for CREDUIWIN_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CREDUIWIN_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CREDUIWIN_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1238,19 +1216,8 @@ impl ::core::ops::Not for CREDUIWIN_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CREDUI_FLAGS(pub u32);
-impl ::core::marker::Copy for CREDUI_FLAGS {}
-impl ::core::clone::Clone for CREDUI_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CREDUI_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CREDUI_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1293,19 +1260,8 @@ impl ::core::ops::Not for CREDUI_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CRED_ENUMERATE_FLAGS(pub u32);
-impl ::core::marker::Copy for CRED_ENUMERATE_FLAGS {}
-impl ::core::clone::Clone for CRED_ENUMERATE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CRED_ENUMERATE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CRED_ENUMERATE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1348,19 +1304,8 @@ impl ::core::ops::Not for CRED_ENUMERATE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CRED_FLAGS(pub u32);
-impl ::core::marker::Copy for CRED_FLAGS {}
-impl ::core::clone::Clone for CRED_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CRED_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CRED_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1403,19 +1348,8 @@ impl ::core::ops::Not for CRED_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CRED_MARSHAL_TYPE(pub i32);
-impl ::core::marker::Copy for CRED_MARSHAL_TYPE {}
-impl ::core::clone::Clone for CRED_MARSHAL_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CRED_MARSHAL_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CRED_MARSHAL_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1425,19 +1359,8 @@ impl ::core::fmt::Debug for CRED_MARSHAL_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CRED_PACK_FLAGS(pub u32);
-impl ::core::marker::Copy for CRED_PACK_FLAGS {}
-impl ::core::clone::Clone for CRED_PACK_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CRED_PACK_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CRED_PACK_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1480,19 +1403,8 @@ impl ::core::ops::Not for CRED_PACK_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CRED_PERSIST(pub u32);
-impl ::core::marker::Copy for CRED_PERSIST {}
-impl ::core::clone::Clone for CRED_PERSIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CRED_PERSIST {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CRED_PERSIST {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1502,19 +1414,8 @@ impl ::core::fmt::Debug for CRED_PERSIST {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CRED_PROTECTION_TYPE(pub i32);
-impl ::core::marker::Copy for CRED_PROTECTION_TYPE {}
-impl ::core::clone::Clone for CRED_PROTECTION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CRED_PROTECTION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CRED_PROTECTION_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1524,19 +1425,8 @@ impl ::core::fmt::Debug for CRED_PROTECTION_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CRED_TYPE(pub u32);
-impl ::core::marker::Copy for CRED_TYPE {}
-impl ::core::clone::Clone for CRED_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CRED_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CRED_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1546,19 +1436,8 @@ impl ::core::fmt::Debug for CRED_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct KeyCredentialManagerOperationErrorStates(pub i32);
-impl ::core::marker::Copy for KeyCredentialManagerOperationErrorStates {}
-impl ::core::clone::Clone for KeyCredentialManagerOperationErrorStates {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KeyCredentialManagerOperationErrorStates {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for KeyCredentialManagerOperationErrorStates {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1601,19 +1480,8 @@ impl ::core::ops::Not for KeyCredentialManagerOperationErrorStates {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct KeyCredentialManagerOperationType(pub i32);
-impl ::core::marker::Copy for KeyCredentialManagerOperationType {}
-impl ::core::clone::Clone for KeyCredentialManagerOperationType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KeyCredentialManagerOperationType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for KeyCredentialManagerOperationType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1623,19 +1491,8 @@ impl ::core::fmt::Debug for KeyCredentialManagerOperationType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct READER_SEL_REQUEST_MATCH_TYPE(pub i32);
-impl ::core::marker::Copy for READER_SEL_REQUEST_MATCH_TYPE {}
-impl ::core::clone::Clone for READER_SEL_REQUEST_MATCH_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for READER_SEL_REQUEST_MATCH_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for READER_SEL_REQUEST_MATCH_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1645,19 +1502,8 @@ impl ::core::fmt::Debug for READER_SEL_REQUEST_MATCH_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SCARD_SCOPE(pub u32);
-impl ::core::marker::Copy for SCARD_SCOPE {}
-impl ::core::clone::Clone for SCARD_SCOPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SCARD_SCOPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SCARD_SCOPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1667,19 +1513,8 @@ impl ::core::fmt::Debug for SCARD_SCOPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SCARD_STATE(pub u32);
-impl ::core::marker::Copy for SCARD_STATE {}
-impl ::core::clone::Clone for SCARD_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SCARD_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SCARD_STATE {
     type TypeKind = ::windows_core::CopyType;
 }

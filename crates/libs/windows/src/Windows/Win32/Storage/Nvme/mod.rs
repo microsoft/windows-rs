@@ -515,19 +515,8 @@ pub const NVMeDeviceRecoveryVendorAnalysis: NVME_WCS_DEVICE_RECOVERY_ACTION1 = N
 pub const NVMeDeviceRecoveryVendorSpecificCommand: NVME_WCS_DEVICE_RECOVERY_ACTION1 = NVME_WCS_DEVICE_RECOVERY_ACTION1(2i32);
 pub const TCG_HISTORY_ENTRY_VERSION_1: u32 = 1u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NVME_ACCESS_FREQUENCIES(pub i32);
-impl ::core::marker::Copy for NVME_ACCESS_FREQUENCIES {}
-impl ::core::clone::Clone for NVME_ACCESS_FREQUENCIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NVME_ACCESS_FREQUENCIES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NVME_ACCESS_FREQUENCIES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -537,19 +526,8 @@ impl ::core::fmt::Debug for NVME_ACCESS_FREQUENCIES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NVME_ACCESS_LATENCIES(pub i32);
-impl ::core::marker::Copy for NVME_ACCESS_LATENCIES {}
-impl ::core::clone::Clone for NVME_ACCESS_LATENCIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NVME_ACCESS_LATENCIES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NVME_ACCESS_LATENCIES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -559,19 +537,8 @@ impl ::core::fmt::Debug for NVME_ACCESS_LATENCIES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NVME_ADMIN_COMMANDS(pub i32);
-impl ::core::marker::Copy for NVME_ADMIN_COMMANDS {}
-impl ::core::clone::Clone for NVME_ADMIN_COMMANDS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NVME_ADMIN_COMMANDS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NVME_ADMIN_COMMANDS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -581,19 +548,8 @@ impl ::core::fmt::Debug for NVME_ADMIN_COMMANDS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NVME_AMS_OPTION(pub i32);
-impl ::core::marker::Copy for NVME_AMS_OPTION {}
-impl ::core::clone::Clone for NVME_AMS_OPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NVME_AMS_OPTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NVME_AMS_OPTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -603,19 +559,8 @@ impl ::core::fmt::Debug for NVME_AMS_OPTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NVME_ASYNC_EVENT_ERROR_STATUS_CODES(pub i32);
-impl ::core::marker::Copy for NVME_ASYNC_EVENT_ERROR_STATUS_CODES {}
-impl ::core::clone::Clone for NVME_ASYNC_EVENT_ERROR_STATUS_CODES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NVME_ASYNC_EVENT_ERROR_STATUS_CODES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NVME_ASYNC_EVENT_ERROR_STATUS_CODES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -625,19 +570,8 @@ impl ::core::fmt::Debug for NVME_ASYNC_EVENT_ERROR_STATUS_CODES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NVME_ASYNC_EVENT_HEALTH_STATUS_CODES(pub i32);
-impl ::core::marker::Copy for NVME_ASYNC_EVENT_HEALTH_STATUS_CODES {}
-impl ::core::clone::Clone for NVME_ASYNC_EVENT_HEALTH_STATUS_CODES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NVME_ASYNC_EVENT_HEALTH_STATUS_CODES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NVME_ASYNC_EVENT_HEALTH_STATUS_CODES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -647,19 +581,8 @@ impl ::core::fmt::Debug for NVME_ASYNC_EVENT_HEALTH_STATUS_CODES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NVME_ASYNC_EVENT_IO_COMMAND_SET_STATUS_CODES(pub i32);
-impl ::core::marker::Copy for NVME_ASYNC_EVENT_IO_COMMAND_SET_STATUS_CODES {}
-impl ::core::clone::Clone for NVME_ASYNC_EVENT_IO_COMMAND_SET_STATUS_CODES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NVME_ASYNC_EVENT_IO_COMMAND_SET_STATUS_CODES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NVME_ASYNC_EVENT_IO_COMMAND_SET_STATUS_CODES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -669,19 +592,8 @@ impl ::core::fmt::Debug for NVME_ASYNC_EVENT_IO_COMMAND_SET_STATUS_CODES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NVME_ASYNC_EVENT_NOTICE_CODES(pub i32);
-impl ::core::marker::Copy for NVME_ASYNC_EVENT_NOTICE_CODES {}
-impl ::core::clone::Clone for NVME_ASYNC_EVENT_NOTICE_CODES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NVME_ASYNC_EVENT_NOTICE_CODES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NVME_ASYNC_EVENT_NOTICE_CODES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -691,19 +603,8 @@ impl ::core::fmt::Debug for NVME_ASYNC_EVENT_NOTICE_CODES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NVME_ASYNC_EVENT_TYPES(pub i32);
-impl ::core::marker::Copy for NVME_ASYNC_EVENT_TYPES {}
-impl ::core::clone::Clone for NVME_ASYNC_EVENT_TYPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NVME_ASYNC_EVENT_TYPES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NVME_ASYNC_EVENT_TYPES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -713,19 +614,8 @@ impl ::core::fmt::Debug for NVME_ASYNC_EVENT_TYPES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NVME_ASYNC_EVENT_TYPE_VENDOR_SPECIFIC_CODES(pub i32);
-impl ::core::marker::Copy for NVME_ASYNC_EVENT_TYPE_VENDOR_SPECIFIC_CODES {}
-impl ::core::clone::Clone for NVME_ASYNC_EVENT_TYPE_VENDOR_SPECIFIC_CODES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NVME_ASYNC_EVENT_TYPE_VENDOR_SPECIFIC_CODES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NVME_ASYNC_EVENT_TYPE_VENDOR_SPECIFIC_CODES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -735,19 +625,8 @@ impl ::core::fmt::Debug for NVME_ASYNC_EVENT_TYPE_VENDOR_SPECIFIC_CODES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NVME_CC_SHN_SHUTDOWN_NOTIFICATIONS(pub i32);
-impl ::core::marker::Copy for NVME_CC_SHN_SHUTDOWN_NOTIFICATIONS {}
-impl ::core::clone::Clone for NVME_CC_SHN_SHUTDOWN_NOTIFICATIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NVME_CC_SHN_SHUTDOWN_NOTIFICATIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NVME_CC_SHN_SHUTDOWN_NOTIFICATIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -757,19 +636,8 @@ impl ::core::fmt::Debug for NVME_CC_SHN_SHUTDOWN_NOTIFICATIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NVME_CMBSZ_SIZE_UNITS(pub i32);
-impl ::core::marker::Copy for NVME_CMBSZ_SIZE_UNITS {}
-impl ::core::clone::Clone for NVME_CMBSZ_SIZE_UNITS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NVME_CMBSZ_SIZE_UNITS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NVME_CMBSZ_SIZE_UNITS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -779,19 +647,8 @@ impl ::core::fmt::Debug for NVME_CMBSZ_SIZE_UNITS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NVME_COMMAND_EFFECT_SBUMISSION_EXECUTION_LIMITS(pub i32);
-impl ::core::marker::Copy for NVME_COMMAND_EFFECT_SBUMISSION_EXECUTION_LIMITS {}
-impl ::core::clone::Clone for NVME_COMMAND_EFFECT_SBUMISSION_EXECUTION_LIMITS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NVME_COMMAND_EFFECT_SBUMISSION_EXECUTION_LIMITS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NVME_COMMAND_EFFECT_SBUMISSION_EXECUTION_LIMITS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -801,19 +658,8 @@ impl ::core::fmt::Debug for NVME_COMMAND_EFFECT_SBUMISSION_EXECUTION_LIMITS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NVME_COMMAND_SET_IDENTIFIERS(pub i32);
-impl ::core::marker::Copy for NVME_COMMAND_SET_IDENTIFIERS {}
-impl ::core::clone::Clone for NVME_COMMAND_SET_IDENTIFIERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NVME_COMMAND_SET_IDENTIFIERS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NVME_COMMAND_SET_IDENTIFIERS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -823,19 +669,8 @@ impl ::core::fmt::Debug for NVME_COMMAND_SET_IDENTIFIERS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NVME_CONTROLLER_METADATA_ELEMENT_TYPES(pub i32);
-impl ::core::marker::Copy for NVME_CONTROLLER_METADATA_ELEMENT_TYPES {}
-impl ::core::clone::Clone for NVME_CONTROLLER_METADATA_ELEMENT_TYPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NVME_CONTROLLER_METADATA_ELEMENT_TYPES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NVME_CONTROLLER_METADATA_ELEMENT_TYPES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -845,19 +680,8 @@ impl ::core::fmt::Debug for NVME_CONTROLLER_METADATA_ELEMENT_TYPES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NVME_CSS_COMMAND_SETS(pub i32);
-impl ::core::marker::Copy for NVME_CSS_COMMAND_SETS {}
-impl ::core::clone::Clone for NVME_CSS_COMMAND_SETS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NVME_CSS_COMMAND_SETS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NVME_CSS_COMMAND_SETS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -867,19 +691,8 @@ impl ::core::fmt::Debug for NVME_CSS_COMMAND_SETS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NVME_CSTS_SHST_SHUTDOWN_STATUS(pub i32);
-impl ::core::marker::Copy for NVME_CSTS_SHST_SHUTDOWN_STATUS {}
-impl ::core::clone::Clone for NVME_CSTS_SHST_SHUTDOWN_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NVME_CSTS_SHST_SHUTDOWN_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NVME_CSTS_SHST_SHUTDOWN_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -889,19 +702,8 @@ impl ::core::fmt::Debug for NVME_CSTS_SHST_SHUTDOWN_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NVME_DIRECTIVE_RECEIVE_IDENTIFY_OPERATIONS(pub i32);
-impl ::core::marker::Copy for NVME_DIRECTIVE_RECEIVE_IDENTIFY_OPERATIONS {}
-impl ::core::clone::Clone for NVME_DIRECTIVE_RECEIVE_IDENTIFY_OPERATIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NVME_DIRECTIVE_RECEIVE_IDENTIFY_OPERATIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NVME_DIRECTIVE_RECEIVE_IDENTIFY_OPERATIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -911,19 +713,8 @@ impl ::core::fmt::Debug for NVME_DIRECTIVE_RECEIVE_IDENTIFY_OPERATIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NVME_DIRECTIVE_RECEIVE_STREAMS_OPERATIONS(pub i32);
-impl ::core::marker::Copy for NVME_DIRECTIVE_RECEIVE_STREAMS_OPERATIONS {}
-impl ::core::clone::Clone for NVME_DIRECTIVE_RECEIVE_STREAMS_OPERATIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NVME_DIRECTIVE_RECEIVE_STREAMS_OPERATIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NVME_DIRECTIVE_RECEIVE_STREAMS_OPERATIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -933,19 +724,8 @@ impl ::core::fmt::Debug for NVME_DIRECTIVE_RECEIVE_STREAMS_OPERATIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NVME_DIRECTIVE_SEND_IDENTIFY_OPERATIONS(pub i32);
-impl ::core::marker::Copy for NVME_DIRECTIVE_SEND_IDENTIFY_OPERATIONS {}
-impl ::core::clone::Clone for NVME_DIRECTIVE_SEND_IDENTIFY_OPERATIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NVME_DIRECTIVE_SEND_IDENTIFY_OPERATIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NVME_DIRECTIVE_SEND_IDENTIFY_OPERATIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -955,19 +735,8 @@ impl ::core::fmt::Debug for NVME_DIRECTIVE_SEND_IDENTIFY_OPERATIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NVME_DIRECTIVE_SEND_STREAMS_OPERATIONS(pub i32);
-impl ::core::marker::Copy for NVME_DIRECTIVE_SEND_STREAMS_OPERATIONS {}
-impl ::core::clone::Clone for NVME_DIRECTIVE_SEND_STREAMS_OPERATIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NVME_DIRECTIVE_SEND_STREAMS_OPERATIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NVME_DIRECTIVE_SEND_STREAMS_OPERATIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -977,19 +746,8 @@ impl ::core::fmt::Debug for NVME_DIRECTIVE_SEND_STREAMS_OPERATIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NVME_DIRECTIVE_TYPES(pub i32);
-impl ::core::marker::Copy for NVME_DIRECTIVE_TYPES {}
-impl ::core::clone::Clone for NVME_DIRECTIVE_TYPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NVME_DIRECTIVE_TYPES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NVME_DIRECTIVE_TYPES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -999,19 +757,8 @@ impl ::core::fmt::Debug for NVME_DIRECTIVE_TYPES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NVME_ERROR_INJECTION_TYPES(pub i32);
-impl ::core::marker::Copy for NVME_ERROR_INJECTION_TYPES {}
-impl ::core::clone::Clone for NVME_ERROR_INJECTION_TYPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NVME_ERROR_INJECTION_TYPES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NVME_ERROR_INJECTION_TYPES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1021,19 +768,8 @@ impl ::core::fmt::Debug for NVME_ERROR_INJECTION_TYPES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NVME_FEATURES(pub i32);
-impl ::core::marker::Copy for NVME_FEATURES {}
-impl ::core::clone::Clone for NVME_FEATURES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NVME_FEATURES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NVME_FEATURES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1043,19 +779,8 @@ impl ::core::fmt::Debug for NVME_FEATURES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NVME_FEATURE_VALUE_CODES(pub i32);
-impl ::core::marker::Copy for NVME_FEATURE_VALUE_CODES {}
-impl ::core::clone::Clone for NVME_FEATURE_VALUE_CODES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NVME_FEATURE_VALUE_CODES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NVME_FEATURE_VALUE_CODES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1065,19 +790,8 @@ impl ::core::fmt::Debug for NVME_FEATURE_VALUE_CODES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NVME_FIRMWARE_ACTIVATE_ACTIONS(pub i32);
-impl ::core::marker::Copy for NVME_FIRMWARE_ACTIVATE_ACTIONS {}
-impl ::core::clone::Clone for NVME_FIRMWARE_ACTIVATE_ACTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NVME_FIRMWARE_ACTIVATE_ACTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NVME_FIRMWARE_ACTIVATE_ACTIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1087,19 +801,8 @@ impl ::core::fmt::Debug for NVME_FIRMWARE_ACTIVATE_ACTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NVME_FUSED_OPERATION_CODES(pub i32);
-impl ::core::marker::Copy for NVME_FUSED_OPERATION_CODES {}
-impl ::core::clone::Clone for NVME_FUSED_OPERATION_CODES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NVME_FUSED_OPERATION_CODES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NVME_FUSED_OPERATION_CODES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1109,19 +812,8 @@ impl ::core::fmt::Debug for NVME_FUSED_OPERATION_CODES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NVME_HOST_METADATA_ELEMENT_ACTIONS(pub i32);
-impl ::core::marker::Copy for NVME_HOST_METADATA_ELEMENT_ACTIONS {}
-impl ::core::clone::Clone for NVME_HOST_METADATA_ELEMENT_ACTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NVME_HOST_METADATA_ELEMENT_ACTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NVME_HOST_METADATA_ELEMENT_ACTIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1131,19 +823,8 @@ impl ::core::fmt::Debug for NVME_HOST_METADATA_ELEMENT_ACTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NVME_IDENTIFIER_TYPE(pub i32);
-impl ::core::marker::Copy for NVME_IDENTIFIER_TYPE {}
-impl ::core::clone::Clone for NVME_IDENTIFIER_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NVME_IDENTIFIER_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NVME_IDENTIFIER_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1153,19 +834,8 @@ impl ::core::fmt::Debug for NVME_IDENTIFIER_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NVME_IDENTIFIER_TYPE_LENGTH(pub i32);
-impl ::core::marker::Copy for NVME_IDENTIFIER_TYPE_LENGTH {}
-impl ::core::clone::Clone for NVME_IDENTIFIER_TYPE_LENGTH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NVME_IDENTIFIER_TYPE_LENGTH {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NVME_IDENTIFIER_TYPE_LENGTH {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1175,19 +845,8 @@ impl ::core::fmt::Debug for NVME_IDENTIFIER_TYPE_LENGTH {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NVME_IDENTIFY_CNS_CODES(pub i32);
-impl ::core::marker::Copy for NVME_IDENTIFY_CNS_CODES {}
-impl ::core::clone::Clone for NVME_IDENTIFY_CNS_CODES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NVME_IDENTIFY_CNS_CODES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NVME_IDENTIFY_CNS_CODES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1197,19 +856,8 @@ impl ::core::fmt::Debug for NVME_IDENTIFY_CNS_CODES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NVME_LBA_RANGE_TYPES(pub i32);
-impl ::core::marker::Copy for NVME_LBA_RANGE_TYPES {}
-impl ::core::clone::Clone for NVME_LBA_RANGE_TYPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NVME_LBA_RANGE_TYPES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NVME_LBA_RANGE_TYPES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1219,19 +867,8 @@ impl ::core::fmt::Debug for NVME_LBA_RANGE_TYPES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NVME_LOG_PAGES(pub i32);
-impl ::core::marker::Copy for NVME_LOG_PAGES {}
-impl ::core::clone::Clone for NVME_LOG_PAGES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NVME_LOG_PAGES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NVME_LOG_PAGES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1241,19 +878,8 @@ impl ::core::fmt::Debug for NVME_LOG_PAGES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NVME_NAMESPACE_METADATA_ELEMENT_TYPES(pub i32);
-impl ::core::marker::Copy for NVME_NAMESPACE_METADATA_ELEMENT_TYPES {}
-impl ::core::clone::Clone for NVME_NAMESPACE_METADATA_ELEMENT_TYPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NVME_NAMESPACE_METADATA_ELEMENT_TYPES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NVME_NAMESPACE_METADATA_ELEMENT_TYPES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1263,19 +889,8 @@ impl ::core::fmt::Debug for NVME_NAMESPACE_METADATA_ELEMENT_TYPES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NVME_NO_DEALLOCATE_MODIFIES_MEDIA_AFTER_SANITIZE(pub i32);
-impl ::core::marker::Copy for NVME_NO_DEALLOCATE_MODIFIES_MEDIA_AFTER_SANITIZE {}
-impl ::core::clone::Clone for NVME_NO_DEALLOCATE_MODIFIES_MEDIA_AFTER_SANITIZE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NVME_NO_DEALLOCATE_MODIFIES_MEDIA_AFTER_SANITIZE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NVME_NO_DEALLOCATE_MODIFIES_MEDIA_AFTER_SANITIZE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1285,19 +900,8 @@ impl ::core::fmt::Debug for NVME_NO_DEALLOCATE_MODIFIES_MEDIA_AFTER_SANITIZE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NVME_NVM_COMMANDS(pub i32);
-impl ::core::marker::Copy for NVME_NVM_COMMANDS {}
-impl ::core::clone::Clone for NVME_NVM_COMMANDS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NVME_NVM_COMMANDS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NVME_NVM_COMMANDS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1307,19 +911,8 @@ impl ::core::fmt::Debug for NVME_NVM_COMMANDS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NVME_NVM_QUEUE_PRIORITIES(pub i32);
-impl ::core::marker::Copy for NVME_NVM_QUEUE_PRIORITIES {}
-impl ::core::clone::Clone for NVME_NVM_QUEUE_PRIORITIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NVME_NVM_QUEUE_PRIORITIES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NVME_NVM_QUEUE_PRIORITIES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1329,19 +922,8 @@ impl ::core::fmt::Debug for NVME_NVM_QUEUE_PRIORITIES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NVME_PERSISTENT_EVENT_LOG_EVENT_TYPES(pub i32);
-impl ::core::marker::Copy for NVME_PERSISTENT_EVENT_LOG_EVENT_TYPES {}
-impl ::core::clone::Clone for NVME_PERSISTENT_EVENT_LOG_EVENT_TYPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NVME_PERSISTENT_EVENT_LOG_EVENT_TYPES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NVME_PERSISTENT_EVENT_LOG_EVENT_TYPES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1351,19 +933,8 @@ impl ::core::fmt::Debug for NVME_PERSISTENT_EVENT_LOG_EVENT_TYPES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NVME_PROTECTION_INFORMATION_TYPES(pub i32);
-impl ::core::marker::Copy for NVME_PROTECTION_INFORMATION_TYPES {}
-impl ::core::clone::Clone for NVME_PROTECTION_INFORMATION_TYPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NVME_PROTECTION_INFORMATION_TYPES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NVME_PROTECTION_INFORMATION_TYPES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1373,19 +944,8 @@ impl ::core::fmt::Debug for NVME_PROTECTION_INFORMATION_TYPES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NVME_RESERVATION_ACQUIRE_ACTIONS(pub i32);
-impl ::core::marker::Copy for NVME_RESERVATION_ACQUIRE_ACTIONS {}
-impl ::core::clone::Clone for NVME_RESERVATION_ACQUIRE_ACTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NVME_RESERVATION_ACQUIRE_ACTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NVME_RESERVATION_ACQUIRE_ACTIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1395,19 +955,8 @@ impl ::core::fmt::Debug for NVME_RESERVATION_ACQUIRE_ACTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NVME_RESERVATION_NOTIFICATION_TYPES(pub i32);
-impl ::core::marker::Copy for NVME_RESERVATION_NOTIFICATION_TYPES {}
-impl ::core::clone::Clone for NVME_RESERVATION_NOTIFICATION_TYPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NVME_RESERVATION_NOTIFICATION_TYPES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NVME_RESERVATION_NOTIFICATION_TYPES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1417,19 +966,8 @@ impl ::core::fmt::Debug for NVME_RESERVATION_NOTIFICATION_TYPES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NVME_RESERVATION_REGISTER_ACTIONS(pub i32);
-impl ::core::marker::Copy for NVME_RESERVATION_REGISTER_ACTIONS {}
-impl ::core::clone::Clone for NVME_RESERVATION_REGISTER_ACTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NVME_RESERVATION_REGISTER_ACTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NVME_RESERVATION_REGISTER_ACTIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1439,19 +977,8 @@ impl ::core::fmt::Debug for NVME_RESERVATION_REGISTER_ACTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NVME_RESERVATION_REGISTER_PTPL_STATE_CHANGES(pub i32);
-impl ::core::marker::Copy for NVME_RESERVATION_REGISTER_PTPL_STATE_CHANGES {}
-impl ::core::clone::Clone for NVME_RESERVATION_REGISTER_PTPL_STATE_CHANGES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NVME_RESERVATION_REGISTER_PTPL_STATE_CHANGES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NVME_RESERVATION_REGISTER_PTPL_STATE_CHANGES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1461,19 +988,8 @@ impl ::core::fmt::Debug for NVME_RESERVATION_REGISTER_PTPL_STATE_CHANGES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NVME_RESERVATION_RELEASE_ACTIONS(pub i32);
-impl ::core::marker::Copy for NVME_RESERVATION_RELEASE_ACTIONS {}
-impl ::core::clone::Clone for NVME_RESERVATION_RELEASE_ACTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NVME_RESERVATION_RELEASE_ACTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NVME_RESERVATION_RELEASE_ACTIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1483,19 +999,8 @@ impl ::core::fmt::Debug for NVME_RESERVATION_RELEASE_ACTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NVME_RESERVATION_TYPES(pub i32);
-impl ::core::marker::Copy for NVME_RESERVATION_TYPES {}
-impl ::core::clone::Clone for NVME_RESERVATION_TYPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NVME_RESERVATION_TYPES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NVME_RESERVATION_TYPES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1505,19 +1010,8 @@ impl ::core::fmt::Debug for NVME_RESERVATION_TYPES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NVME_SANITIZE_ACTION(pub i32);
-impl ::core::marker::Copy for NVME_SANITIZE_ACTION {}
-impl ::core::clone::Clone for NVME_SANITIZE_ACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NVME_SANITIZE_ACTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NVME_SANITIZE_ACTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1527,19 +1021,8 @@ impl ::core::fmt::Debug for NVME_SANITIZE_ACTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NVME_SANITIZE_OPERATION_STATUS(pub i32);
-impl ::core::marker::Copy for NVME_SANITIZE_OPERATION_STATUS {}
-impl ::core::clone::Clone for NVME_SANITIZE_OPERATION_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NVME_SANITIZE_OPERATION_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NVME_SANITIZE_OPERATION_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1549,19 +1032,8 @@ impl ::core::fmt::Debug for NVME_SANITIZE_OPERATION_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NVME_SECURE_ERASE_SETTINGS(pub i32);
-impl ::core::marker::Copy for NVME_SECURE_ERASE_SETTINGS {}
-impl ::core::clone::Clone for NVME_SECURE_ERASE_SETTINGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NVME_SECURE_ERASE_SETTINGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NVME_SECURE_ERASE_SETTINGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1571,19 +1043,8 @@ impl ::core::fmt::Debug for NVME_SECURE_ERASE_SETTINGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NVME_STATUS_COMMAND_SPECIFIC_CODES(pub i32);
-impl ::core::marker::Copy for NVME_STATUS_COMMAND_SPECIFIC_CODES {}
-impl ::core::clone::Clone for NVME_STATUS_COMMAND_SPECIFIC_CODES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NVME_STATUS_COMMAND_SPECIFIC_CODES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NVME_STATUS_COMMAND_SPECIFIC_CODES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1593,19 +1054,8 @@ impl ::core::fmt::Debug for NVME_STATUS_COMMAND_SPECIFIC_CODES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NVME_STATUS_GENERIC_COMMAND_CODES(pub i32);
-impl ::core::marker::Copy for NVME_STATUS_GENERIC_COMMAND_CODES {}
-impl ::core::clone::Clone for NVME_STATUS_GENERIC_COMMAND_CODES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NVME_STATUS_GENERIC_COMMAND_CODES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NVME_STATUS_GENERIC_COMMAND_CODES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1615,19 +1065,8 @@ impl ::core::fmt::Debug for NVME_STATUS_GENERIC_COMMAND_CODES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NVME_STATUS_MEDIA_ERROR_CODES(pub i32);
-impl ::core::marker::Copy for NVME_STATUS_MEDIA_ERROR_CODES {}
-impl ::core::clone::Clone for NVME_STATUS_MEDIA_ERROR_CODES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NVME_STATUS_MEDIA_ERROR_CODES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NVME_STATUS_MEDIA_ERROR_CODES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1637,19 +1076,8 @@ impl ::core::fmt::Debug for NVME_STATUS_MEDIA_ERROR_CODES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NVME_STATUS_TYPES(pub i32);
-impl ::core::marker::Copy for NVME_STATUS_TYPES {}
-impl ::core::clone::Clone for NVME_STATUS_TYPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NVME_STATUS_TYPES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NVME_STATUS_TYPES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1659,19 +1087,8 @@ impl ::core::fmt::Debug for NVME_STATUS_TYPES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NVME_TEMPERATURE_THRESHOLD_TYPES(pub i32);
-impl ::core::marker::Copy for NVME_TEMPERATURE_THRESHOLD_TYPES {}
-impl ::core::clone::Clone for NVME_TEMPERATURE_THRESHOLD_TYPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NVME_TEMPERATURE_THRESHOLD_TYPES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NVME_TEMPERATURE_THRESHOLD_TYPES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1681,19 +1098,8 @@ impl ::core::fmt::Debug for NVME_TEMPERATURE_THRESHOLD_TYPES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NVME_VENDOR_LOG_PAGES(pub i32);
-impl ::core::marker::Copy for NVME_VENDOR_LOG_PAGES {}
-impl ::core::clone::Clone for NVME_VENDOR_LOG_PAGES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NVME_VENDOR_LOG_PAGES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NVME_VENDOR_LOG_PAGES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1703,19 +1109,8 @@ impl ::core::fmt::Debug for NVME_VENDOR_LOG_PAGES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NVME_WCS_DEVICE_RECOVERY_ACTION1(pub i32);
-impl ::core::marker::Copy for NVME_WCS_DEVICE_RECOVERY_ACTION1 {}
-impl ::core::clone::Clone for NVME_WCS_DEVICE_RECOVERY_ACTION1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NVME_WCS_DEVICE_RECOVERY_ACTION1 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NVME_WCS_DEVICE_RECOVERY_ACTION1 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1725,19 +1120,8 @@ impl ::core::fmt::Debug for NVME_WCS_DEVICE_RECOVERY_ACTION1 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NVME_WCS_DEVICE_RECOVERY_ACTION2(pub i32);
-impl ::core::marker::Copy for NVME_WCS_DEVICE_RECOVERY_ACTION2 {}
-impl ::core::clone::Clone for NVME_WCS_DEVICE_RECOVERY_ACTION2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NVME_WCS_DEVICE_RECOVERY_ACTION2 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NVME_WCS_DEVICE_RECOVERY_ACTION2 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1747,19 +1131,8 @@ impl ::core::fmt::Debug for NVME_WCS_DEVICE_RECOVERY_ACTION2 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NVME_ZONE_RECEIVE_ACTION(pub i32);
-impl ::core::marker::Copy for NVME_ZONE_RECEIVE_ACTION {}
-impl ::core::clone::Clone for NVME_ZONE_RECEIVE_ACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NVME_ZONE_RECEIVE_ACTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NVME_ZONE_RECEIVE_ACTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1769,19 +1142,8 @@ impl ::core::fmt::Debug for NVME_ZONE_RECEIVE_ACTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NVME_ZONE_RECEIVE_ACTION_SPECIFIC(pub i32);
-impl ::core::marker::Copy for NVME_ZONE_RECEIVE_ACTION_SPECIFIC {}
-impl ::core::clone::Clone for NVME_ZONE_RECEIVE_ACTION_SPECIFIC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NVME_ZONE_RECEIVE_ACTION_SPECIFIC {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NVME_ZONE_RECEIVE_ACTION_SPECIFIC {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1791,19 +1153,8 @@ impl ::core::fmt::Debug for NVME_ZONE_RECEIVE_ACTION_SPECIFIC {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NVME_ZONE_SEND_ACTION(pub i32);
-impl ::core::marker::Copy for NVME_ZONE_SEND_ACTION {}
-impl ::core::clone::Clone for NVME_ZONE_SEND_ACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NVME_ZONE_SEND_ACTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NVME_ZONE_SEND_ACTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1813,19 +1164,8 @@ impl ::core::fmt::Debug for NVME_ZONE_SEND_ACTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ZONE_STATE(pub i32);
-impl ::core::marker::Copy for ZONE_STATE {}
-impl ::core::clone::Clone for ZONE_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ZONE_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ZONE_STATE {
     type TypeKind = ::windows_core::CopyType;
 }

@@ -1958,19 +1958,8 @@ pub const WSManProxyIEConfig: WSManProxyAccessTypeFlags = WSManProxyAccessTypeFl
 pub const WSManProxyNoProxyServer: WSManProxyAccessTypeFlags = WSManProxyAccessTypeFlags(8i32);
 pub const WSManProxyWinHttpConfig: WSManProxyAccessTypeFlags = WSManProxyAccessTypeFlags(2i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WSManAuthenticationFlags(pub i32);
-impl ::core::marker::Copy for WSManAuthenticationFlags {}
-impl ::core::clone::Clone for WSManAuthenticationFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WSManAuthenticationFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WSManAuthenticationFlags {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1980,19 +1969,8 @@ impl ::core::fmt::Debug for WSManAuthenticationFlags {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WSManCallbackFlags(pub i32);
-impl ::core::marker::Copy for WSManCallbackFlags {}
-impl ::core::clone::Clone for WSManCallbackFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WSManCallbackFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WSManCallbackFlags {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2002,19 +1980,8 @@ impl ::core::fmt::Debug for WSManCallbackFlags {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WSManDataType(pub i32);
-impl ::core::marker::Copy for WSManDataType {}
-impl ::core::clone::Clone for WSManDataType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WSManDataType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WSManDataType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2024,19 +1991,8 @@ impl ::core::fmt::Debug for WSManDataType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WSManEnumFlags(pub i32);
-impl ::core::marker::Copy for WSManEnumFlags {}
-impl ::core::clone::Clone for WSManEnumFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WSManEnumFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WSManEnumFlags {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2046,19 +2002,8 @@ impl ::core::fmt::Debug for WSManEnumFlags {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WSManProxyAccessType(pub i32);
-impl ::core::marker::Copy for WSManProxyAccessType {}
-impl ::core::clone::Clone for WSManProxyAccessType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WSManProxyAccessType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WSManProxyAccessType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2068,19 +2013,8 @@ impl ::core::fmt::Debug for WSManProxyAccessType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WSManProxyAccessTypeFlags(pub i32);
-impl ::core::marker::Copy for WSManProxyAccessTypeFlags {}
-impl ::core::clone::Clone for WSManProxyAccessTypeFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WSManProxyAccessTypeFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WSManProxyAccessTypeFlags {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2090,19 +2024,8 @@ impl ::core::fmt::Debug for WSManProxyAccessTypeFlags {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WSManProxyAuthenticationFlags(pub i32);
-impl ::core::marker::Copy for WSManProxyAuthenticationFlags {}
-impl ::core::clone::Clone for WSManProxyAuthenticationFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WSManProxyAuthenticationFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WSManProxyAuthenticationFlags {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2112,19 +2035,8 @@ impl ::core::fmt::Debug for WSManProxyAuthenticationFlags {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WSManSessionFlags(pub i32);
-impl ::core::marker::Copy for WSManSessionFlags {}
-impl ::core::clone::Clone for WSManSessionFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WSManSessionFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WSManSessionFlags {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2134,19 +2046,8 @@ impl ::core::fmt::Debug for WSManSessionFlags {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WSManSessionOption(pub i32);
-impl ::core::marker::Copy for WSManSessionOption {}
-impl ::core::clone::Clone for WSManSessionOption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WSManSessionOption {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WSManSessionOption {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2156,19 +2057,8 @@ impl ::core::fmt::Debug for WSManSessionOption {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WSManShellFlag(pub i32);
-impl ::core::marker::Copy for WSManShellFlag {}
-impl ::core::clone::Clone for WSManShellFlag {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WSManShellFlag {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WSManShellFlag {
     type TypeKind = ::windows_core::CopyType;
 }

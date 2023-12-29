@@ -707,19 +707,8 @@ pub const VT_VECTOR: VARENUM = VARENUM(4096u16);
 pub const VT_VERSIONED_STREAM: VARENUM = VARENUM(73u16);
 pub const VT_VOID: VARENUM = VARENUM(24u16);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DRAWPROGRESSFLAGS(pub i32);
-impl ::core::marker::Copy for DRAWPROGRESSFLAGS {}
-impl ::core::clone::Clone for DRAWPROGRESSFLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DRAWPROGRESSFLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DRAWPROGRESSFLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -762,19 +751,8 @@ impl ::core::ops::Not for DRAWPROGRESSFLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PSTIME_FLAGS(pub i32);
-impl ::core::marker::Copy for PSTIME_FLAGS {}
-impl ::core::clone::Clone for PSTIME_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PSTIME_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PSTIME_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -817,19 +795,8 @@ impl ::core::ops::Not for PSTIME_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VARENUM(pub u16);
-impl ::core::marker::Copy for VARENUM {}
-impl ::core::clone::Clone for VARENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VARENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VARENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -839,19 +806,8 @@ impl ::core::fmt::Debug for VARENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VAR_CHANGE_FLAGS(pub u16);
-impl ::core::marker::Copy for VAR_CHANGE_FLAGS {}
-impl ::core::clone::Clone for VAR_CHANGE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VAR_CHANGE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VAR_CHANGE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }

@@ -1842,22 +1842,11 @@ impl ::windows_core::CanTryInto<INumberRounder> for SignificantDigitsNumberRound
 unsafe impl ::core::marker::Send for SignificantDigitsNumberRounder {}
 unsafe impl ::core::marker::Sync for SignificantDigitsNumberRounder {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CurrencyFormatterMode(pub i32);
 impl CurrencyFormatterMode {
     pub const UseSymbol: Self = Self(0i32);
     pub const UseCurrencyCode: Self = Self(1i32);
-}
-impl ::core::marker::Copy for CurrencyFormatterMode {}
-impl ::core::clone::Clone for CurrencyFormatterMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CurrencyFormatterMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CurrencyFormatterMode {
     type TypeKind = ::windows_core::CopyType;
@@ -1871,7 +1860,7 @@ impl ::windows_core::RuntimeType for CurrencyFormatterMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.NumberFormatting.CurrencyFormatterMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RoundingAlgorithm(pub i32);
 impl RoundingAlgorithm {
     pub const None: Self = Self(0i32);
@@ -1885,17 +1874,6 @@ impl RoundingAlgorithm {
     pub const RoundHalfAwayFromZero: Self = Self(8i32);
     pub const RoundHalfToEven: Self = Self(9i32);
     pub const RoundHalfToOdd: Self = Self(10i32);
-}
-impl ::core::marker::Copy for RoundingAlgorithm {}
-impl ::core::clone::Clone for RoundingAlgorithm {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RoundingAlgorithm {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for RoundingAlgorithm {
     type TypeKind = ::windows_core::CopyType;

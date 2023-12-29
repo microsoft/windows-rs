@@ -2874,19 +2874,8 @@ pub const WiaLog: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa1e75
 pub const WiaVideo: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3908c3cd_4478_4536_af2f_10c25d4ef89a);
 pub const g_dwDebugFlags: u32 = 0u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WIAVIDEO_STATE(pub i32);
-impl ::core::marker::Copy for WIAVIDEO_STATE {}
-impl ::core::clone::Clone for WIAVIDEO_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WIAVIDEO_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WIAVIDEO_STATE {
     type TypeKind = ::windows_core::CopyType;
 }

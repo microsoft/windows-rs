@@ -38,19 +38,8 @@ pub const UpdateImpactLevel_Medium: UpdateImpactLevel = UpdateImpactLevel(2i32);
 pub const UpdateImpactLevel_None: UpdateImpactLevel = UpdateImpactLevel(0i32);
 pub const WaaSAssessor: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x098ef871_fa9f_46af_8958_c083515d7c9c);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UpdateAssessmentStatus(pub i32);
-impl ::core::marker::Copy for UpdateAssessmentStatus {}
-impl ::core::clone::Clone for UpdateAssessmentStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UpdateAssessmentStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for UpdateAssessmentStatus {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -60,19 +49,8 @@ impl ::core::fmt::Debug for UpdateAssessmentStatus {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UpdateImpactLevel(pub i32);
-impl ::core::marker::Copy for UpdateImpactLevel {}
-impl ::core::clone::Clone for UpdateImpactLevel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UpdateImpactLevel {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for UpdateImpactLevel {
     type TypeKind = ::windows_core::CopyType;
 }

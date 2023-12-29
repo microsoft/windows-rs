@@ -366,7 +366,7 @@ impl ::windows_core::RuntimeName for UserConsentVerifier {
     const NAME: &'static str = "Windows.Security.Credentials.UI.UserConsentVerifier";
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AuthenticationProtocol(pub i32);
 impl AuthenticationProtocol {
     pub const Basic: Self = Self(0i32);
@@ -376,17 +376,6 @@ impl AuthenticationProtocol {
     pub const Negotiate: Self = Self(4i32);
     pub const CredSsp: Self = Self(5i32);
     pub const Custom: Self = Self(6i32);
-}
-impl ::core::marker::Copy for AuthenticationProtocol {}
-impl ::core::clone::Clone for AuthenticationProtocol {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AuthenticationProtocol {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AuthenticationProtocol {
     type TypeKind = ::windows_core::CopyType;
@@ -400,23 +389,12 @@ impl ::windows_core::RuntimeType for AuthenticationProtocol {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.UI.AuthenticationProtocol;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CredentialSaveOption(pub i32);
 impl CredentialSaveOption {
     pub const Unselected: Self = Self(0i32);
     pub const Selected: Self = Self(1i32);
     pub const Hidden: Self = Self(2i32);
-}
-impl ::core::marker::Copy for CredentialSaveOption {}
-impl ::core::clone::Clone for CredentialSaveOption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CredentialSaveOption {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CredentialSaveOption {
     type TypeKind = ::windows_core::CopyType;
@@ -430,7 +408,7 @@ impl ::windows_core::RuntimeType for CredentialSaveOption {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.UI.CredentialSaveOption;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UserConsentVerificationResult(pub i32);
 impl UserConsentVerificationResult {
     pub const Verified: Self = Self(0i32);
@@ -440,17 +418,6 @@ impl UserConsentVerificationResult {
     pub const DeviceBusy: Self = Self(4i32);
     pub const RetriesExhausted: Self = Self(5i32);
     pub const Canceled: Self = Self(6i32);
-}
-impl ::core::marker::Copy for UserConsentVerificationResult {}
-impl ::core::clone::Clone for UserConsentVerificationResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UserConsentVerificationResult {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for UserConsentVerificationResult {
     type TypeKind = ::windows_core::CopyType;
@@ -464,7 +431,7 @@ impl ::windows_core::RuntimeType for UserConsentVerificationResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.UI.UserConsentVerificationResult;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UserConsentVerifierAvailability(pub i32);
 impl UserConsentVerifierAvailability {
     pub const Available: Self = Self(0i32);
@@ -472,17 +439,6 @@ impl UserConsentVerifierAvailability {
     pub const NotConfiguredForUser: Self = Self(2i32);
     pub const DisabledByPolicy: Self = Self(3i32);
     pub const DeviceBusy: Self = Self(4i32);
-}
-impl ::core::marker::Copy for UserConsentVerifierAvailability {}
-impl ::core::clone::Clone for UserConsentVerifierAvailability {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UserConsentVerifierAvailability {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for UserConsentVerifierAvailability {
     type TypeKind = ::windows_core::CopyType;

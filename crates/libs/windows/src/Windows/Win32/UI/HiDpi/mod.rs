@@ -247,19 +247,8 @@ pub const PROCESS_DPI_UNAWARE: PROCESS_DPI_AWARENESS = PROCESS_DPI_AWARENESS(0i3
 pub const PROCESS_PER_MONITOR_DPI_AWARE: PROCESS_DPI_AWARENESS = PROCESS_DPI_AWARENESS(2i32);
 pub const PROCESS_SYSTEM_DPI_AWARE: PROCESS_DPI_AWARENESS = PROCESS_DPI_AWARENESS(1i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS(pub i32);
-impl ::core::marker::Copy for DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {}
-impl ::core::clone::Clone for DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -302,19 +291,8 @@ impl ::core::ops::Not for DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DIALOG_DPI_CHANGE_BEHAVIORS(pub i32);
-impl ::core::marker::Copy for DIALOG_DPI_CHANGE_BEHAVIORS {}
-impl ::core::clone::Clone for DIALOG_DPI_CHANGE_BEHAVIORS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DIALOG_DPI_CHANGE_BEHAVIORS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DIALOG_DPI_CHANGE_BEHAVIORS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -357,19 +335,8 @@ impl ::core::ops::Not for DIALOG_DPI_CHANGE_BEHAVIORS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DPI_AWARENESS(pub i32);
-impl ::core::marker::Copy for DPI_AWARENESS {}
-impl ::core::clone::Clone for DPI_AWARENESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DPI_AWARENESS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DPI_AWARENESS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -379,19 +346,8 @@ impl ::core::fmt::Debug for DPI_AWARENESS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DPI_HOSTING_BEHAVIOR(pub i32);
-impl ::core::marker::Copy for DPI_HOSTING_BEHAVIOR {}
-impl ::core::clone::Clone for DPI_HOSTING_BEHAVIOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DPI_HOSTING_BEHAVIOR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DPI_HOSTING_BEHAVIOR {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -401,19 +357,8 @@ impl ::core::fmt::Debug for DPI_HOSTING_BEHAVIOR {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MONITOR_DPI_TYPE(pub i32);
-impl ::core::marker::Copy for MONITOR_DPI_TYPE {}
-impl ::core::clone::Clone for MONITOR_DPI_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MONITOR_DPI_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MONITOR_DPI_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -423,19 +368,8 @@ impl ::core::fmt::Debug for MONITOR_DPI_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PROCESS_DPI_AWARENESS(pub i32);
-impl ::core::marker::Copy for PROCESS_DPI_AWARENESS {}
-impl ::core::clone::Clone for PROCESS_DPI_AWARENESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PROCESS_DPI_AWARENESS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PROCESS_DPI_AWARENESS {
     type TypeKind = ::windows_core::CopyType;
 }

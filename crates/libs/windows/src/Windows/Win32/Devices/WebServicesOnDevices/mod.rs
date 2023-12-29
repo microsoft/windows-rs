@@ -2031,19 +2031,8 @@ pub const WSD_SECURITY_SSL_NEGOTIATE_CLIENT_CERT: WSD_CONFIG_PARAM_TYPE = WSD_CO
 pub const WSD_SECURITY_SSL_SERVER_CERT_VALIDATION: WSD_CONFIG_PARAM_TYPE = WSD_CONFIG_PARAM_TYPE(4i32);
 pub const WSD_SECURITY_USE_HTTP_CLIENT_AUTH: WSD_CONFIG_PARAM_TYPE = WSD_CONFIG_PARAM_TYPE(13i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DeviceDiscoveryMechanism(pub i32);
-impl ::core::marker::Copy for DeviceDiscoveryMechanism {}
-impl ::core::clone::Clone for DeviceDiscoveryMechanism {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DeviceDiscoveryMechanism {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DeviceDiscoveryMechanism {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2053,19 +2042,8 @@ impl ::core::fmt::Debug for DeviceDiscoveryMechanism {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WSDEventType(pub i32);
-impl ::core::marker::Copy for WSDEventType {}
-impl ::core::clone::Clone for WSDEventType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WSDEventType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WSDEventType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2075,19 +2053,8 @@ impl ::core::fmt::Debug for WSDEventType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WSDUdpMessageType(pub i32);
-impl ::core::marker::Copy for WSDUdpMessageType {}
-impl ::core::clone::Clone for WSDUdpMessageType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WSDUdpMessageType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WSDUdpMessageType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2097,19 +2064,8 @@ impl ::core::fmt::Debug for WSDUdpMessageType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WSDXML_OP(pub i32);
-impl ::core::marker::Copy for WSDXML_OP {}
-impl ::core::clone::Clone for WSDXML_OP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WSDXML_OP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WSDXML_OP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2119,19 +2075,8 @@ impl ::core::fmt::Debug for WSDXML_OP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WSD_CONFIG_PARAM_TYPE(pub i32);
-impl ::core::marker::Copy for WSD_CONFIG_PARAM_TYPE {}
-impl ::core::clone::Clone for WSD_CONFIG_PARAM_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WSD_CONFIG_PARAM_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WSD_CONFIG_PARAM_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2141,19 +2086,8 @@ impl ::core::fmt::Debug for WSD_CONFIG_PARAM_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WSD_PROTOCOL_TYPE(pub i32);
-impl ::core::marker::Copy for WSD_PROTOCOL_TYPE {}
-impl ::core::clone::Clone for WSD_PROTOCOL_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WSD_PROTOCOL_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WSD_PROTOCOL_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }

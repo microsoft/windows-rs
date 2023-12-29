@@ -73,22 +73,11 @@ impl ::windows_core::RuntimeName for PowerManager {
     const NAME: &'static str = "Windows.Phone.System.Power.PowerManager";
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PowerSavingMode(pub i32);
 impl PowerSavingMode {
     pub const Off: Self = Self(0i32);
     pub const On: Self = Self(1i32);
-}
-impl ::core::marker::Copy for PowerSavingMode {}
-impl ::core::clone::Clone for PowerSavingMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PowerSavingMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PowerSavingMode {
     type TypeKind = ::windows_core::CopyType;

@@ -303,24 +303,13 @@ impl ::windows_core::RuntimeName for MdmSessionManager {
     const NAME: &'static str = "Windows.Management.MdmSessionManager";
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MdmAlertDataType(pub i32);
 impl MdmAlertDataType {
     pub const String: Self = Self(0i32);
     pub const Base64: Self = Self(1i32);
     pub const Boolean: Self = Self(2i32);
     pub const Integer: Self = Self(3i32);
-}
-impl ::core::marker::Copy for MdmAlertDataType {}
-impl ::core::clone::Clone for MdmAlertDataType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MdmAlertDataType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MdmAlertDataType {
     type TypeKind = ::windows_core::CopyType;
@@ -334,7 +323,7 @@ impl ::windows_core::RuntimeType for MdmAlertDataType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.MdmAlertDataType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MdmAlertMark(pub i32);
 impl MdmAlertMark {
     pub const None: Self = Self(0i32);
@@ -342,17 +331,6 @@ impl MdmAlertMark {
     pub const Critical: Self = Self(2i32);
     pub const Warning: Self = Self(3i32);
     pub const Informational: Self = Self(4i32);
-}
-impl ::core::marker::Copy for MdmAlertMark {}
-impl ::core::clone::Clone for MdmAlertMark {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MdmAlertMark {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MdmAlertMark {
     type TypeKind = ::windows_core::CopyType;
@@ -366,7 +344,7 @@ impl ::windows_core::RuntimeType for MdmAlertMark {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.MdmAlertMark;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MdmSessionState(pub i32);
 impl MdmSessionState {
     pub const NotStarted: Self = Self(0i32);
@@ -376,17 +354,6 @@ impl MdmSessionState {
     pub const AlertStatusAvailable: Self = Self(4i32);
     pub const Retrying: Self = Self(5i32);
     pub const Completed: Self = Self(6i32);
-}
-impl ::core::marker::Copy for MdmSessionState {}
-impl ::core::clone::Clone for MdmSessionState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MdmSessionState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MdmSessionState {
     type TypeKind = ::windows_core::CopyType;

@@ -123,22 +123,11 @@ pub struct IAdcProvider_Vtbl {
     GetControllers: usize,
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ProviderAdcChannelMode(pub i32);
 impl ProviderAdcChannelMode {
     pub const SingleEnded: Self = Self(0i32);
     pub const Differential: Self = Self(1i32);
-}
-impl ::core::marker::Copy for ProviderAdcChannelMode {}
-impl ::core::clone::Clone for ProviderAdcChannelMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ProviderAdcChannelMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ProviderAdcChannelMode {
     type TypeKind = ::windows_core::CopyType;

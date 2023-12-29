@@ -394,19 +394,8 @@ pub const UIT_INVALID: UI_INFO_TYPE = UI_INFO_TYPE(0i32);
 pub const UIT_NONE: UI_INFO_TYPE = UI_INFO_TYPE(1i32);
 pub const UIT_SHELL_COMMAND: UI_INFO_TYPE = UI_INFO_TYPE(2i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ATTRIBUTE_TYPE(pub i32);
-impl ::core::marker::Copy for ATTRIBUTE_TYPE {}
-impl ::core::clone::Clone for ATTRIBUTE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ATTRIBUTE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ATTRIBUTE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -416,19 +405,8 @@ impl ::core::fmt::Debug for ATTRIBUTE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DIAGNOSIS_STATUS(pub i32);
-impl ::core::marker::Copy for DIAGNOSIS_STATUS {}
-impl ::core::clone::Clone for DIAGNOSIS_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DIAGNOSIS_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DIAGNOSIS_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -438,19 +416,8 @@ impl ::core::fmt::Debug for DIAGNOSIS_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PROBLEM_TYPE(pub i32);
-impl ::core::marker::Copy for PROBLEM_TYPE {}
-impl ::core::clone::Clone for PROBLEM_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PROBLEM_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PROBLEM_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -460,19 +427,8 @@ impl ::core::fmt::Debug for PROBLEM_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct REPAIR_RISK(pub i32);
-impl ::core::marker::Copy for REPAIR_RISK {}
-impl ::core::clone::Clone for REPAIR_RISK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for REPAIR_RISK {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for REPAIR_RISK {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -482,19 +438,8 @@ impl ::core::fmt::Debug for REPAIR_RISK {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct REPAIR_SCOPE(pub i32);
-impl ::core::marker::Copy for REPAIR_SCOPE {}
-impl ::core::clone::Clone for REPAIR_SCOPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for REPAIR_SCOPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for REPAIR_SCOPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -504,19 +449,8 @@ impl ::core::fmt::Debug for REPAIR_SCOPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct REPAIR_STATUS(pub i32);
-impl ::core::marker::Copy for REPAIR_STATUS {}
-impl ::core::clone::Clone for REPAIR_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for REPAIR_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for REPAIR_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -526,19 +460,8 @@ impl ::core::fmt::Debug for REPAIR_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UI_INFO_TYPE(pub i32);
-impl ::core::marker::Copy for UI_INFO_TYPE {}
-impl ::core::clone::Clone for UI_INFO_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UI_INFO_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for UI_INFO_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }

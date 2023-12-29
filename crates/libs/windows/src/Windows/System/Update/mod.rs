@@ -352,7 +352,7 @@ impl ::windows_core::RuntimeName for SystemUpdateManager {
     const NAME: &'static str = "Windows.System.Update.SystemUpdateManager";
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SystemUpdateAttentionRequiredReason(pub i32);
 impl SystemUpdateAttentionRequiredReason {
     pub const None: Self = Self(0i32);
@@ -360,17 +360,6 @@ impl SystemUpdateAttentionRequiredReason {
     pub const InsufficientDiskSpace: Self = Self(2i32);
     pub const InsufficientBattery: Self = Self(3i32);
     pub const UpdateBlocked: Self = Self(4i32);
-}
-impl ::core::marker::Copy for SystemUpdateAttentionRequiredReason {}
-impl ::core::clone::Clone for SystemUpdateAttentionRequiredReason {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SystemUpdateAttentionRequiredReason {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SystemUpdateAttentionRequiredReason {
     type TypeKind = ::windows_core::CopyType;
@@ -384,7 +373,7 @@ impl ::windows_core::RuntimeType for SystemUpdateAttentionRequiredReason {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Update.SystemUpdateAttentionRequiredReason;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SystemUpdateItemState(pub i32);
 impl SystemUpdateItemState {
     pub const NotStarted: Self = Self(0i32);
@@ -396,17 +385,6 @@ impl SystemUpdateItemState {
     pub const Completed: Self = Self(6i32);
     pub const RebootRequired: Self = Self(7i32);
     pub const Error: Self = Self(8i32);
-}
-impl ::core::marker::Copy for SystemUpdateItemState {}
-impl ::core::clone::Clone for SystemUpdateItemState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SystemUpdateItemState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SystemUpdateItemState {
     type TypeKind = ::windows_core::CopyType;
@@ -420,7 +398,7 @@ impl ::windows_core::RuntimeType for SystemUpdateItemState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Update.SystemUpdateItemState;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SystemUpdateManagerState(pub i32);
 impl SystemUpdateManagerState {
     pub const Idle: Self = Self(0i32);
@@ -436,17 +414,6 @@ impl SystemUpdateManagerState {
     pub const AttentionRequired: Self = Self(10i32);
     pub const Error: Self = Self(11i32);
 }
-impl ::core::marker::Copy for SystemUpdateManagerState {}
-impl ::core::clone::Clone for SystemUpdateManagerState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SystemUpdateManagerState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SystemUpdateManagerState {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -459,22 +426,11 @@ impl ::windows_core::RuntimeType for SystemUpdateManagerState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Update.SystemUpdateManagerState;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SystemUpdateStartInstallAction(pub i32);
 impl SystemUpdateStartInstallAction {
     pub const UpToReboot: Self = Self(0i32);
     pub const AllowReboot: Self = Self(1i32);
-}
-impl ::core::marker::Copy for SystemUpdateStartInstallAction {}
-impl ::core::clone::Clone for SystemUpdateStartInstallAction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SystemUpdateStartInstallAction {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SystemUpdateStartInstallAction {
     type TypeKind = ::windows_core::CopyType;

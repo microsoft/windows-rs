@@ -90,19 +90,8 @@ pub const WaitDequeue: WAIT_TYPE = WAIT_TYPE(3i32);
 pub const WaitDpc: WAIT_TYPE = WAIT_TYPE(4i32);
 pub const WaitNotification: WAIT_TYPE = WAIT_TYPE(2i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct COMPARTMENT_ID(pub i32);
-impl ::core::marker::Copy for COMPARTMENT_ID {}
-impl ::core::clone::Clone for COMPARTMENT_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COMPARTMENT_ID {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for COMPARTMENT_ID {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -112,19 +101,8 @@ impl ::core::fmt::Debug for COMPARTMENT_ID {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EVENT_TYPE(pub i32);
-impl ::core::marker::Copy for EVENT_TYPE {}
-impl ::core::clone::Clone for EVENT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EVENT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EVENT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -134,19 +112,8 @@ impl ::core::fmt::Debug for EVENT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EXCEPTION_DISPOSITION(pub i32);
-impl ::core::marker::Copy for EXCEPTION_DISPOSITION {}
-impl ::core::clone::Clone for EXCEPTION_DISPOSITION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EXCEPTION_DISPOSITION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EXCEPTION_DISPOSITION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -156,19 +123,8 @@ impl ::core::fmt::Debug for EXCEPTION_DISPOSITION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NT_PRODUCT_TYPE(pub i32);
-impl ::core::marker::Copy for NT_PRODUCT_TYPE {}
-impl ::core::clone::Clone for NT_PRODUCT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NT_PRODUCT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NT_PRODUCT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -178,19 +134,8 @@ impl ::core::fmt::Debug for NT_PRODUCT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SUITE_TYPE(pub i32);
-impl ::core::marker::Copy for SUITE_TYPE {}
-impl ::core::clone::Clone for SUITE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SUITE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SUITE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -200,19 +145,8 @@ impl ::core::fmt::Debug for SUITE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TIMER_TYPE(pub i32);
-impl ::core::marker::Copy for TIMER_TYPE {}
-impl ::core::clone::Clone for TIMER_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TIMER_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TIMER_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -222,19 +156,8 @@ impl ::core::fmt::Debug for TIMER_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WAIT_TYPE(pub i32);
-impl ::core::marker::Copy for WAIT_TYPE {}
-impl ::core::clone::Clone for WAIT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WAIT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WAIT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }

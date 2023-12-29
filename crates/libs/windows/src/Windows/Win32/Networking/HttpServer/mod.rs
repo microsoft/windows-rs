@@ -706,19 +706,8 @@ pub const PerformanceParamMaxReceiveBufferSize: HTTP_PERFORMANCE_PARAM_TYPE = HT
 pub const PerformanceParamMaxSendBufferSize: HTTP_PERFORMANCE_PARAM_TYPE = HTTP_PERFORMANCE_PARAM_TYPE(2i32);
 pub const PerformanceParamSendBufferingFlags: HTTP_PERFORMANCE_PARAM_TYPE = HTTP_PERFORMANCE_PARAM_TYPE(0i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HTTP_503_RESPONSE_VERBOSITY(pub i32);
-impl ::core::marker::Copy for HTTP_503_RESPONSE_VERBOSITY {}
-impl ::core::clone::Clone for HTTP_503_RESPONSE_VERBOSITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HTTP_503_RESPONSE_VERBOSITY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HTTP_503_RESPONSE_VERBOSITY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -728,19 +717,8 @@ impl ::core::fmt::Debug for HTTP_503_RESPONSE_VERBOSITY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HTTP_AUTHENTICATION_HARDENING_LEVELS(pub i32);
-impl ::core::marker::Copy for HTTP_AUTHENTICATION_HARDENING_LEVELS {}
-impl ::core::clone::Clone for HTTP_AUTHENTICATION_HARDENING_LEVELS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HTTP_AUTHENTICATION_HARDENING_LEVELS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HTTP_AUTHENTICATION_HARDENING_LEVELS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -750,19 +728,8 @@ impl ::core::fmt::Debug for HTTP_AUTHENTICATION_HARDENING_LEVELS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HTTP_AUTH_STATUS(pub i32);
-impl ::core::marker::Copy for HTTP_AUTH_STATUS {}
-impl ::core::clone::Clone for HTTP_AUTH_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HTTP_AUTH_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HTTP_AUTH_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -772,19 +739,8 @@ impl ::core::fmt::Debug for HTTP_AUTH_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HTTP_CACHE_POLICY_TYPE(pub i32);
-impl ::core::marker::Copy for HTTP_CACHE_POLICY_TYPE {}
-impl ::core::clone::Clone for HTTP_CACHE_POLICY_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HTTP_CACHE_POLICY_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HTTP_CACHE_POLICY_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -794,19 +750,8 @@ impl ::core::fmt::Debug for HTTP_CACHE_POLICY_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID(pub i32);
-impl ::core::marker::Copy for HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID {}
-impl ::core::clone::Clone for HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -816,19 +761,8 @@ impl ::core::fmt::Debug for HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HTTP_DATA_CHUNK_TYPE(pub i32);
-impl ::core::marker::Copy for HTTP_DATA_CHUNK_TYPE {}
-impl ::core::clone::Clone for HTTP_DATA_CHUNK_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HTTP_DATA_CHUNK_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HTTP_DATA_CHUNK_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -838,19 +772,8 @@ impl ::core::fmt::Debug for HTTP_DATA_CHUNK_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HTTP_DELEGATE_REQUEST_PROPERTY_ID(pub i32);
-impl ::core::marker::Copy for HTTP_DELEGATE_REQUEST_PROPERTY_ID {}
-impl ::core::clone::Clone for HTTP_DELEGATE_REQUEST_PROPERTY_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HTTP_DELEGATE_REQUEST_PROPERTY_ID {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HTTP_DELEGATE_REQUEST_PROPERTY_ID {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -860,19 +783,8 @@ impl ::core::fmt::Debug for HTTP_DELEGATE_REQUEST_PROPERTY_ID {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HTTP_ENABLED_STATE(pub i32);
-impl ::core::marker::Copy for HTTP_ENABLED_STATE {}
-impl ::core::clone::Clone for HTTP_ENABLED_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HTTP_ENABLED_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HTTP_ENABLED_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -882,19 +794,8 @@ impl ::core::fmt::Debug for HTTP_ENABLED_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HTTP_FEATURE_ID(pub i32);
-impl ::core::marker::Copy for HTTP_FEATURE_ID {}
-impl ::core::clone::Clone for HTTP_FEATURE_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HTTP_FEATURE_ID {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HTTP_FEATURE_ID {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -904,19 +805,8 @@ impl ::core::fmt::Debug for HTTP_FEATURE_ID {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HTTP_HEADER_ID(pub i32);
-impl ::core::marker::Copy for HTTP_HEADER_ID {}
-impl ::core::clone::Clone for HTTP_HEADER_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HTTP_HEADER_ID {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HTTP_HEADER_ID {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -926,19 +816,8 @@ impl ::core::fmt::Debug for HTTP_HEADER_ID {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HTTP_INITIALIZE(pub u32);
-impl ::core::marker::Copy for HTTP_INITIALIZE {}
-impl ::core::clone::Clone for HTTP_INITIALIZE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HTTP_INITIALIZE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HTTP_INITIALIZE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -981,19 +860,8 @@ impl ::core::ops::Not for HTTP_INITIALIZE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HTTP_LOGGING_ROLLOVER_TYPE(pub i32);
-impl ::core::marker::Copy for HTTP_LOGGING_ROLLOVER_TYPE {}
-impl ::core::clone::Clone for HTTP_LOGGING_ROLLOVER_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HTTP_LOGGING_ROLLOVER_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HTTP_LOGGING_ROLLOVER_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1003,19 +871,8 @@ impl ::core::fmt::Debug for HTTP_LOGGING_ROLLOVER_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HTTP_LOGGING_TYPE(pub i32);
-impl ::core::marker::Copy for HTTP_LOGGING_TYPE {}
-impl ::core::clone::Clone for HTTP_LOGGING_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HTTP_LOGGING_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HTTP_LOGGING_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1025,19 +882,8 @@ impl ::core::fmt::Debug for HTTP_LOGGING_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HTTP_LOG_DATA_TYPE(pub i32);
-impl ::core::marker::Copy for HTTP_LOG_DATA_TYPE {}
-impl ::core::clone::Clone for HTTP_LOG_DATA_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HTTP_LOG_DATA_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HTTP_LOG_DATA_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1047,19 +893,8 @@ impl ::core::fmt::Debug for HTTP_LOG_DATA_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HTTP_PERFORMANCE_PARAM_TYPE(pub i32);
-impl ::core::marker::Copy for HTTP_PERFORMANCE_PARAM_TYPE {}
-impl ::core::clone::Clone for HTTP_PERFORMANCE_PARAM_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HTTP_PERFORMANCE_PARAM_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HTTP_PERFORMANCE_PARAM_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1069,19 +904,8 @@ impl ::core::fmt::Debug for HTTP_PERFORMANCE_PARAM_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HTTP_PROTECTION_LEVEL_TYPE(pub i32);
-impl ::core::marker::Copy for HTTP_PROTECTION_LEVEL_TYPE {}
-impl ::core::clone::Clone for HTTP_PROTECTION_LEVEL_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HTTP_PROTECTION_LEVEL_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HTTP_PROTECTION_LEVEL_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1091,19 +915,8 @@ impl ::core::fmt::Debug for HTTP_PROTECTION_LEVEL_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HTTP_QOS_SETTING_TYPE(pub i32);
-impl ::core::marker::Copy for HTTP_QOS_SETTING_TYPE {}
-impl ::core::clone::Clone for HTTP_QOS_SETTING_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HTTP_QOS_SETTING_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HTTP_QOS_SETTING_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1113,19 +926,8 @@ impl ::core::fmt::Debug for HTTP_QOS_SETTING_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HTTP_RECEIVE_HTTP_REQUEST_FLAGS(pub u32);
-impl ::core::marker::Copy for HTTP_RECEIVE_HTTP_REQUEST_FLAGS {}
-impl ::core::clone::Clone for HTTP_RECEIVE_HTTP_REQUEST_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HTTP_RECEIVE_HTTP_REQUEST_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HTTP_RECEIVE_HTTP_REQUEST_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1135,19 +937,8 @@ impl ::core::fmt::Debug for HTTP_RECEIVE_HTTP_REQUEST_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HTTP_REQUEST_AUTH_TYPE(pub i32);
-impl ::core::marker::Copy for HTTP_REQUEST_AUTH_TYPE {}
-impl ::core::clone::Clone for HTTP_REQUEST_AUTH_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HTTP_REQUEST_AUTH_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HTTP_REQUEST_AUTH_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1157,19 +948,8 @@ impl ::core::fmt::Debug for HTTP_REQUEST_AUTH_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HTTP_REQUEST_INFO_TYPE(pub i32);
-impl ::core::marker::Copy for HTTP_REQUEST_INFO_TYPE {}
-impl ::core::clone::Clone for HTTP_REQUEST_INFO_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HTTP_REQUEST_INFO_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HTTP_REQUEST_INFO_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1179,19 +959,8 @@ impl ::core::fmt::Debug for HTTP_REQUEST_INFO_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HTTP_REQUEST_PROPERTY(pub i32);
-impl ::core::marker::Copy for HTTP_REQUEST_PROPERTY {}
-impl ::core::clone::Clone for HTTP_REQUEST_PROPERTY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HTTP_REQUEST_PROPERTY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HTTP_REQUEST_PROPERTY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1201,19 +970,8 @@ impl ::core::fmt::Debug for HTTP_REQUEST_PROPERTY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HTTP_REQUEST_SIZING_TYPE(pub i32);
-impl ::core::marker::Copy for HTTP_REQUEST_SIZING_TYPE {}
-impl ::core::clone::Clone for HTTP_REQUEST_SIZING_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HTTP_REQUEST_SIZING_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HTTP_REQUEST_SIZING_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1223,19 +981,8 @@ impl ::core::fmt::Debug for HTTP_REQUEST_SIZING_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HTTP_REQUEST_TIMING_TYPE(pub i32);
-impl ::core::marker::Copy for HTTP_REQUEST_TIMING_TYPE {}
-impl ::core::clone::Clone for HTTP_REQUEST_TIMING_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HTTP_REQUEST_TIMING_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HTTP_REQUEST_TIMING_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1245,19 +992,8 @@ impl ::core::fmt::Debug for HTTP_REQUEST_TIMING_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HTTP_RESPONSE_INFO_TYPE(pub i32);
-impl ::core::marker::Copy for HTTP_RESPONSE_INFO_TYPE {}
-impl ::core::clone::Clone for HTTP_RESPONSE_INFO_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HTTP_RESPONSE_INFO_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HTTP_RESPONSE_INFO_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1267,19 +1003,8 @@ impl ::core::fmt::Debug for HTTP_RESPONSE_INFO_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HTTP_SCHEME(pub i32);
-impl ::core::marker::Copy for HTTP_SCHEME {}
-impl ::core::clone::Clone for HTTP_SCHEME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HTTP_SCHEME {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HTTP_SCHEME {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1289,19 +1014,8 @@ impl ::core::fmt::Debug for HTTP_SCHEME {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HTTP_SERVER_PROPERTY(pub i32);
-impl ::core::marker::Copy for HTTP_SERVER_PROPERTY {}
-impl ::core::clone::Clone for HTTP_SERVER_PROPERTY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HTTP_SERVER_PROPERTY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HTTP_SERVER_PROPERTY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1311,19 +1025,8 @@ impl ::core::fmt::Debug for HTTP_SERVER_PROPERTY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HTTP_SERVICE_BINDING_TYPE(pub i32);
-impl ::core::marker::Copy for HTTP_SERVICE_BINDING_TYPE {}
-impl ::core::clone::Clone for HTTP_SERVICE_BINDING_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HTTP_SERVICE_BINDING_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HTTP_SERVICE_BINDING_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1333,19 +1036,8 @@ impl ::core::fmt::Debug for HTTP_SERVICE_BINDING_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HTTP_SERVICE_CONFIG_CACHE_KEY(pub i32);
-impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_CACHE_KEY {}
-impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_CACHE_KEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HTTP_SERVICE_CONFIG_CACHE_KEY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HTTP_SERVICE_CONFIG_CACHE_KEY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1355,19 +1047,8 @@ impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_CACHE_KEY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HTTP_SERVICE_CONFIG_ID(pub i32);
-impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_ID {}
-impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HTTP_SERVICE_CONFIG_ID {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HTTP_SERVICE_CONFIG_ID {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1377,19 +1058,8 @@ impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_ID {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HTTP_SERVICE_CONFIG_QUERY_TYPE(pub i32);
-impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_QUERY_TYPE {}
-impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_QUERY_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HTTP_SERVICE_CONFIG_QUERY_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HTTP_SERVICE_CONFIG_QUERY_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1399,19 +1069,8 @@ impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_QUERY_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HTTP_SERVICE_CONFIG_SETTING_KEY(pub i32);
-impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_SETTING_KEY {}
-impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SETTING_KEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HTTP_SERVICE_CONFIG_SETTING_KEY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HTTP_SERVICE_CONFIG_SETTING_KEY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1421,19 +1080,8 @@ impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_SETTING_KEY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HTTP_SERVICE_CONFIG_TIMEOUT_KEY(pub i32);
-impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_TIMEOUT_KEY {}
-impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_TIMEOUT_KEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HTTP_SERVICE_CONFIG_TIMEOUT_KEY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HTTP_SERVICE_CONFIG_TIMEOUT_KEY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1443,19 +1091,8 @@ impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_TIMEOUT_KEY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE(pub i32);
-impl ::core::marker::Copy for HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE {}
-impl ::core::clone::Clone for HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1465,19 +1102,8 @@ impl ::core::fmt::Debug for HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HTTP_VERB(pub i32);
-impl ::core::marker::Copy for HTTP_VERB {}
-impl ::core::clone::Clone for HTTP_VERB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HTTP_VERB {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HTTP_VERB {
     type TypeKind = ::windows_core::CopyType;
 }

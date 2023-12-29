@@ -995,19 +995,8 @@ pub const XAUDIO2_VOICE_NOSAMPLESPLAYED: u32 = 256u32;
 pub const XAUDIO2_VOICE_NOSRC: u32 = 4u32;
 pub const XAUDIO2_VOICE_USEFILTER: u32 = 8u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HrtfDirectivityType(pub i32);
-impl ::core::marker::Copy for HrtfDirectivityType {}
-impl ::core::clone::Clone for HrtfDirectivityType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HrtfDirectivityType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HrtfDirectivityType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1017,19 +1006,8 @@ impl ::core::fmt::Debug for HrtfDirectivityType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HrtfDistanceDecayType(pub i32);
-impl ::core::marker::Copy for HrtfDistanceDecayType {}
-impl ::core::clone::Clone for HrtfDistanceDecayType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HrtfDistanceDecayType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HrtfDistanceDecayType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1039,19 +1017,8 @@ impl ::core::fmt::Debug for HrtfDistanceDecayType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HrtfEnvironment(pub i32);
-impl ::core::marker::Copy for HrtfEnvironment {}
-impl ::core::clone::Clone for HrtfEnvironment {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HrtfEnvironment {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HrtfEnvironment {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1061,19 +1028,8 @@ impl ::core::fmt::Debug for HrtfEnvironment {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XAPO_BUFFER_FLAGS(pub i32);
-impl ::core::marker::Copy for XAPO_BUFFER_FLAGS {}
-impl ::core::clone::Clone for XAPO_BUFFER_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XAPO_BUFFER_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XAPO_BUFFER_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1083,19 +1039,8 @@ impl ::core::fmt::Debug for XAPO_BUFFER_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XAUDIO2_FILTER_TYPE(pub i32);
-impl ::core::marker::Copy for XAUDIO2_FILTER_TYPE {}
-impl ::core::clone::Clone for XAUDIO2_FILTER_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XAUDIO2_FILTER_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XAUDIO2_FILTER_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }

@@ -1724,7 +1724,7 @@ impl ::windows_core::RuntimeName for AdaptiveMediaSourcePlaybackBitrateChangedEv
 unsafe impl ::core::marker::Send for AdaptiveMediaSourcePlaybackBitrateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for AdaptiveMediaSourcePlaybackBitrateChangedEventArgs {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AdaptiveMediaSourceCreationStatus(pub i32);
 impl AdaptiveMediaSourceCreationStatus {
     pub const Success: Self = Self(0i32);
@@ -1734,17 +1734,6 @@ impl AdaptiveMediaSourceCreationStatus {
     pub const UnsupportedManifestVersion: Self = Self(4i32);
     pub const UnsupportedManifestProfile: Self = Self(5i32);
     pub const UnknownFailure: Self = Self(6i32);
-}
-impl ::core::marker::Copy for AdaptiveMediaSourceCreationStatus {}
-impl ::core::clone::Clone for AdaptiveMediaSourceCreationStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AdaptiveMediaSourceCreationStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AdaptiveMediaSourceCreationStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -1758,7 +1747,7 @@ impl ::windows_core::RuntimeType for AdaptiveMediaSourceCreationStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceCreationStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AdaptiveMediaSourceDiagnosticType(pub i32);
 impl AdaptiveMediaSourceDiagnosticType {
     pub const ManifestUnchangedUponReload: Self = Self(0i32);
@@ -1770,17 +1759,6 @@ impl AdaptiveMediaSourceDiagnosticType {
     pub const ResourceParsingError: Self = Self(6i32);
     pub const BitrateDisabled: Self = Self(7i32);
     pub const FatalMediaSourceError: Self = Self(8i32);
-}
-impl ::core::marker::Copy for AdaptiveMediaSourceDiagnosticType {}
-impl ::core::clone::Clone for AdaptiveMediaSourceDiagnosticType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AdaptiveMediaSourceDiagnosticType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AdaptiveMediaSourceDiagnosticType {
     type TypeKind = ::windows_core::CopyType;
@@ -1794,7 +1772,7 @@ impl ::windows_core::RuntimeType for AdaptiveMediaSourceDiagnosticType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDiagnosticType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AdaptiveMediaSourceDownloadBitrateChangedReason(pub i32);
 impl AdaptiveMediaSourceDownloadBitrateChangedReason {
     pub const SufficientInboundBitsPerSecond: Self = Self(0i32);
@@ -1804,17 +1782,6 @@ impl AdaptiveMediaSourceDownloadBitrateChangedReason {
     pub const TrackSelectionChanged: Self = Self(4i32);
     pub const DesiredBitratesChanged: Self = Self(5i32);
     pub const ErrorInPreviousBitrate: Self = Self(6i32);
-}
-impl ::core::marker::Copy for AdaptiveMediaSourceDownloadBitrateChangedReason {}
-impl ::core::clone::Clone for AdaptiveMediaSourceDownloadBitrateChangedReason {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AdaptiveMediaSourceDownloadBitrateChangedReason {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AdaptiveMediaSourceDownloadBitrateChangedReason {
     type TypeKind = ::windows_core::CopyType;
@@ -1828,7 +1795,7 @@ impl ::windows_core::RuntimeType for AdaptiveMediaSourceDownloadBitrateChangedRe
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadBitrateChangedReason;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AdaptiveMediaSourceResourceType(pub i32);
 impl AdaptiveMediaSourceResourceType {
     pub const Manifest: Self = Self(0i32);
@@ -1837,17 +1804,6 @@ impl AdaptiveMediaSourceResourceType {
     pub const Key: Self = Self(3i32);
     pub const InitializationVector: Self = Self(4i32);
     pub const MediaSegmentIndex: Self = Self(5i32);
-}
-impl ::core::marker::Copy for AdaptiveMediaSourceResourceType {}
-impl ::core::clone::Clone for AdaptiveMediaSourceResourceType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AdaptiveMediaSourceResourceType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AdaptiveMediaSourceResourceType {
     type TypeKind = ::windows_core::CopyType;

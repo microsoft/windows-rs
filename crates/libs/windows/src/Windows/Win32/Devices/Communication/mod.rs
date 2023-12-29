@@ -396,19 +396,8 @@ pub const STOPBITS_15: COMMPROP_STOP_PARITY = COMMPROP_STOP_PARITY(2u16);
 pub const STOPBITS_20: COMMPROP_STOP_PARITY = COMMPROP_STOP_PARITY(4u16);
 pub const TWOSTOPBITS: DCB_STOP_BITS = DCB_STOP_BITS(2u8);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLEAR_COMM_ERROR_FLAGS(pub u32);
-impl ::core::marker::Copy for CLEAR_COMM_ERROR_FLAGS {}
-impl ::core::clone::Clone for CLEAR_COMM_ERROR_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLEAR_COMM_ERROR_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLEAR_COMM_ERROR_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -451,19 +440,8 @@ impl ::core::ops::Not for CLEAR_COMM_ERROR_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct COMMPROP_STOP_PARITY(pub u16);
-impl ::core::marker::Copy for COMMPROP_STOP_PARITY {}
-impl ::core::clone::Clone for COMMPROP_STOP_PARITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COMMPROP_STOP_PARITY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for COMMPROP_STOP_PARITY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -506,19 +484,8 @@ impl ::core::ops::Not for COMMPROP_STOP_PARITY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct COMM_EVENT_MASK(pub u32);
-impl ::core::marker::Copy for COMM_EVENT_MASK {}
-impl ::core::clone::Clone for COMM_EVENT_MASK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COMM_EVENT_MASK {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for COMM_EVENT_MASK {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -561,19 +528,8 @@ impl ::core::ops::Not for COMM_EVENT_MASK {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DCB_PARITY(pub u8);
-impl ::core::marker::Copy for DCB_PARITY {}
-impl ::core::clone::Clone for DCB_PARITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DCB_PARITY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DCB_PARITY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -583,19 +539,8 @@ impl ::core::fmt::Debug for DCB_PARITY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DCB_STOP_BITS(pub u8);
-impl ::core::marker::Copy for DCB_STOP_BITS {}
-impl ::core::clone::Clone for DCB_STOP_BITS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DCB_STOP_BITS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DCB_STOP_BITS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -605,19 +550,8 @@ impl ::core::fmt::Debug for DCB_STOP_BITS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ESCAPE_COMM_FUNCTION(pub u32);
-impl ::core::marker::Copy for ESCAPE_COMM_FUNCTION {}
-impl ::core::clone::Clone for ESCAPE_COMM_FUNCTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ESCAPE_COMM_FUNCTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ESCAPE_COMM_FUNCTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -627,19 +561,8 @@ impl ::core::fmt::Debug for ESCAPE_COMM_FUNCTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MODEMDEVCAPS_DIAL_OPTIONS(pub u32);
-impl ::core::marker::Copy for MODEMDEVCAPS_DIAL_OPTIONS {}
-impl ::core::clone::Clone for MODEMDEVCAPS_DIAL_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MODEMDEVCAPS_DIAL_OPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MODEMDEVCAPS_DIAL_OPTIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -682,19 +605,8 @@ impl ::core::ops::Not for MODEMDEVCAPS_DIAL_OPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MODEMDEVCAPS_SPEAKER_MODE(pub u32);
-impl ::core::marker::Copy for MODEMDEVCAPS_SPEAKER_MODE {}
-impl ::core::clone::Clone for MODEMDEVCAPS_SPEAKER_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MODEMDEVCAPS_SPEAKER_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MODEMDEVCAPS_SPEAKER_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -737,19 +649,8 @@ impl ::core::ops::Not for MODEMDEVCAPS_SPEAKER_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MODEMDEVCAPS_SPEAKER_VOLUME(pub u32);
-impl ::core::marker::Copy for MODEMDEVCAPS_SPEAKER_VOLUME {}
-impl ::core::clone::Clone for MODEMDEVCAPS_SPEAKER_VOLUME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MODEMDEVCAPS_SPEAKER_VOLUME {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MODEMDEVCAPS_SPEAKER_VOLUME {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -792,19 +693,8 @@ impl ::core::ops::Not for MODEMDEVCAPS_SPEAKER_VOLUME {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MODEMSETTINGS_SPEAKER_MODE(pub u32);
-impl ::core::marker::Copy for MODEMSETTINGS_SPEAKER_MODE {}
-impl ::core::clone::Clone for MODEMSETTINGS_SPEAKER_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MODEMSETTINGS_SPEAKER_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MODEMSETTINGS_SPEAKER_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -814,19 +704,8 @@ impl ::core::fmt::Debug for MODEMSETTINGS_SPEAKER_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MODEM_SPEAKER_VOLUME(pub u32);
-impl ::core::marker::Copy for MODEM_SPEAKER_VOLUME {}
-impl ::core::clone::Clone for MODEM_SPEAKER_VOLUME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MODEM_SPEAKER_VOLUME {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MODEM_SPEAKER_VOLUME {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -836,19 +715,8 @@ impl ::core::fmt::Debug for MODEM_SPEAKER_VOLUME {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MODEM_STATUS_FLAGS(pub u32);
-impl ::core::marker::Copy for MODEM_STATUS_FLAGS {}
-impl ::core::clone::Clone for MODEM_STATUS_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MODEM_STATUS_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MODEM_STATUS_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -891,19 +759,8 @@ impl ::core::ops::Not for MODEM_STATUS_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PURGE_COMM_FLAGS(pub u32);
-impl ::core::marker::Copy for PURGE_COMM_FLAGS {}
-impl ::core::clone::Clone for PURGE_COMM_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PURGE_COMM_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PURGE_COMM_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }

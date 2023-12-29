@@ -1233,19 +1233,8 @@ pub const DxcVersionInfoFlags_Debug: u32 = 1u32;
 pub const DxcVersionInfoFlags_Internal: u32 = 2u32;
 pub const DxcVersionInfoFlags_None: u32 = 0u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXC_CP(pub u32);
-impl ::core::marker::Copy for DXC_CP {}
-impl ::core::clone::Clone for DXC_CP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXC_CP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXC_CP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1255,19 +1244,8 @@ impl ::core::fmt::Debug for DXC_CP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXC_OUT_KIND(pub i32);
-impl ::core::marker::Copy for DXC_OUT_KIND {}
-impl ::core::clone::Clone for DXC_OUT_KIND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXC_OUT_KIND {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXC_OUT_KIND {
     type TypeKind = ::windows_core::CopyType;
 }

@@ -782,19 +782,8 @@ pub const TAG_DNS_CONNECTION_POLICY_TAG_CONNECTION_MANAGER: DNS_CONNECTION_POLIC
 pub const TAG_DNS_CONNECTION_POLICY_TAG_DEFAULT: DNS_CONNECTION_POLICY_TAG = DNS_CONNECTION_POLICY_TAG(0i32);
 pub const TAG_DNS_CONNECTION_POLICY_TAG_WWWPT: DNS_CONNECTION_POLICY_TAG = DNS_CONNECTION_POLICY_TAG(2i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DNS_CHARSET(pub i32);
-impl ::core::marker::Copy for DNS_CHARSET {}
-impl ::core::clone::Clone for DNS_CHARSET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DNS_CHARSET {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DNS_CHARSET {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -804,19 +793,8 @@ impl ::core::fmt::Debug for DNS_CHARSET {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DNS_CONFIG_TYPE(pub i32);
-impl ::core::marker::Copy for DNS_CONFIG_TYPE {}
-impl ::core::clone::Clone for DNS_CONFIG_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DNS_CONFIG_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DNS_CONFIG_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -826,19 +804,8 @@ impl ::core::fmt::Debug for DNS_CONFIG_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DNS_CONNECTION_POLICY_TAG(pub i32);
-impl ::core::marker::Copy for DNS_CONNECTION_POLICY_TAG {}
-impl ::core::clone::Clone for DNS_CONNECTION_POLICY_TAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DNS_CONNECTION_POLICY_TAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DNS_CONNECTION_POLICY_TAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -848,19 +815,8 @@ impl ::core::fmt::Debug for DNS_CONNECTION_POLICY_TAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DNS_CONNECTION_PROXY_INFO_SWITCH(pub i32);
-impl ::core::marker::Copy for DNS_CONNECTION_PROXY_INFO_SWITCH {}
-impl ::core::clone::Clone for DNS_CONNECTION_PROXY_INFO_SWITCH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DNS_CONNECTION_PROXY_INFO_SWITCH {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DNS_CONNECTION_PROXY_INFO_SWITCH {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -870,19 +826,8 @@ impl ::core::fmt::Debug for DNS_CONNECTION_PROXY_INFO_SWITCH {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DNS_CONNECTION_PROXY_TYPE(pub i32);
-impl ::core::marker::Copy for DNS_CONNECTION_PROXY_TYPE {}
-impl ::core::clone::Clone for DNS_CONNECTION_PROXY_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DNS_CONNECTION_PROXY_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DNS_CONNECTION_PROXY_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -892,19 +837,8 @@ impl ::core::fmt::Debug for DNS_CONNECTION_PROXY_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DNS_FREE_TYPE(pub i32);
-impl ::core::marker::Copy for DNS_FREE_TYPE {}
-impl ::core::clone::Clone for DNS_FREE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DNS_FREE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DNS_FREE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -914,19 +848,8 @@ impl ::core::fmt::Debug for DNS_FREE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DNS_NAME_FORMAT(pub i32);
-impl ::core::marker::Copy for DNS_NAME_FORMAT {}
-impl ::core::clone::Clone for DNS_NAME_FORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DNS_NAME_FORMAT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DNS_NAME_FORMAT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -936,19 +859,8 @@ impl ::core::fmt::Debug for DNS_NAME_FORMAT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DNS_PROXY_INFORMATION_TYPE(pub i32);
-impl ::core::marker::Copy for DNS_PROXY_INFORMATION_TYPE {}
-impl ::core::clone::Clone for DNS_PROXY_INFORMATION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DNS_PROXY_INFORMATION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DNS_PROXY_INFORMATION_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -958,19 +870,8 @@ impl ::core::fmt::Debug for DNS_PROXY_INFORMATION_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DNS_QUERY_OPTIONS(pub u32);
-impl ::core::marker::Copy for DNS_QUERY_OPTIONS {}
-impl ::core::clone::Clone for DNS_QUERY_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DNS_QUERY_OPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DNS_QUERY_OPTIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1013,19 +914,8 @@ impl ::core::ops::Not for DNS_QUERY_OPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DNS_SECTION(pub i32);
-impl ::core::marker::Copy for DNS_SECTION {}
-impl ::core::clone::Clone for DNS_SECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DNS_SECTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DNS_SECTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1035,19 +925,8 @@ impl ::core::fmt::Debug for DNS_SECTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DNS_SVCB_PARAM_TYPE(pub i32);
-impl ::core::marker::Copy for DNS_SVCB_PARAM_TYPE {}
-impl ::core::clone::Clone for DNS_SVCB_PARAM_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DNS_SVCB_PARAM_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DNS_SVCB_PARAM_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1057,19 +936,8 @@ impl ::core::fmt::Debug for DNS_SVCB_PARAM_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DNS_TYPE(pub u16);
-impl ::core::marker::Copy for DNS_TYPE {}
-impl ::core::clone::Clone for DNS_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DNS_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DNS_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }

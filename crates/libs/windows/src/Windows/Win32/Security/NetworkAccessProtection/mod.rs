@@ -39,19 +39,8 @@ pub const tracingLevelBasic: NapTracingLevel = NapTracingLevel(1i32);
 pub const tracingLevelDebug: NapTracingLevel = NapTracingLevel(3i32);
 pub const tracingLevelUndefined: NapTracingLevel = NapTracingLevel(0i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ExtendedIsolationState(pub i32);
-impl ::core::marker::Copy for ExtendedIsolationState {}
-impl ::core::clone::Clone for ExtendedIsolationState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ExtendedIsolationState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ExtendedIsolationState {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -61,19 +50,8 @@ impl ::core::fmt::Debug for ExtendedIsolationState {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FailureCategory(pub i32);
-impl ::core::marker::Copy for FailureCategory {}
-impl ::core::clone::Clone for FailureCategory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FailureCategory {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FailureCategory {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -83,19 +61,8 @@ impl ::core::fmt::Debug for FailureCategory {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FixupState(pub i32);
-impl ::core::marker::Copy for FixupState {}
-impl ::core::clone::Clone for FixupState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FixupState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FixupState {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -105,19 +72,8 @@ impl ::core::fmt::Debug for FixupState {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct IsolationState(pub i32);
-impl ::core::marker::Copy for IsolationState {}
-impl ::core::clone::Clone for IsolationState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for IsolationState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for IsolationState {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -127,19 +83,8 @@ impl ::core::fmt::Debug for IsolationState {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NapNotifyType(pub i32);
-impl ::core::marker::Copy for NapNotifyType {}
-impl ::core::clone::Clone for NapNotifyType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NapNotifyType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NapNotifyType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -149,19 +94,8 @@ impl ::core::fmt::Debug for NapNotifyType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NapTracingLevel(pub i32);
-impl ::core::marker::Copy for NapTracingLevel {}
-impl ::core::clone::Clone for NapTracingLevel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NapTracingLevel {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NapTracingLevel {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -171,19 +105,8 @@ impl ::core::fmt::Debug for NapTracingLevel {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RemoteConfigurationType(pub i32);
-impl ::core::marker::Copy for RemoteConfigurationType {}
-impl ::core::clone::Clone for RemoteConfigurationType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RemoteConfigurationType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RemoteConfigurationType {
     type TypeKind = ::windows_core::CopyType;
 }

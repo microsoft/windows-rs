@@ -4618,19 +4618,8 @@ pub const WPD_WHITE_BALANCE_TUNGSTEN: WPD_WHITE_BALANCE_SETTINGS = WPD_WHITE_BAL
 pub const WPD_WHITE_BALANCE_UNDEFINED: WPD_WHITE_BALANCE_SETTINGS = WPD_WHITE_BALANCE_SETTINGS(0i32);
 pub const WpdSerializer: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0b91a74b_ad7c_4a9d_b563_29eef9167172);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DELETE_OBJECT_OPTIONS(pub i32);
-impl ::core::marker::Copy for DELETE_OBJECT_OPTIONS {}
-impl ::core::clone::Clone for DELETE_OBJECT_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DELETE_OBJECT_OPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DELETE_OBJECT_OPTIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4640,19 +4629,8 @@ impl ::core::fmt::Debug for DELETE_OBJECT_OPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DEVICE_RADIO_STATE(pub i32);
-impl ::core::marker::Copy for DEVICE_RADIO_STATE {}
-impl ::core::clone::Clone for DEVICE_RADIO_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DEVICE_RADIO_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DEVICE_RADIO_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4662,19 +4640,8 @@ impl ::core::fmt::Debug for DEVICE_RADIO_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SMS_MESSAGE_TYPES(pub i32);
-impl ::core::marker::Copy for SMS_MESSAGE_TYPES {}
-impl ::core::clone::Clone for SMS_MESSAGE_TYPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SMS_MESSAGE_TYPES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SMS_MESSAGE_TYPES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4684,19 +4651,8 @@ impl ::core::fmt::Debug for SMS_MESSAGE_TYPES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SYSTEM_RADIO_STATE(pub i32);
-impl ::core::marker::Copy for SYSTEM_RADIO_STATE {}
-impl ::core::clone::Clone for SYSTEM_RADIO_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SYSTEM_RADIO_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SYSTEM_RADIO_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4706,19 +4662,8 @@ impl ::core::fmt::Debug for SYSTEM_RADIO_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPD_BITRATE_TYPES(pub i32);
-impl ::core::marker::Copy for WPD_BITRATE_TYPES {}
-impl ::core::clone::Clone for WPD_BITRATE_TYPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPD_BITRATE_TYPES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPD_BITRATE_TYPES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4728,19 +4673,8 @@ impl ::core::fmt::Debug for WPD_BITRATE_TYPES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPD_CAPTURE_MODES(pub i32);
-impl ::core::marker::Copy for WPD_CAPTURE_MODES {}
-impl ::core::clone::Clone for WPD_CAPTURE_MODES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPD_CAPTURE_MODES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPD_CAPTURE_MODES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4750,19 +4684,8 @@ impl ::core::fmt::Debug for WPD_CAPTURE_MODES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPD_COLOR_CORRECTED_STATUS_VALUES(pub i32);
-impl ::core::marker::Copy for WPD_COLOR_CORRECTED_STATUS_VALUES {}
-impl ::core::clone::Clone for WPD_COLOR_CORRECTED_STATUS_VALUES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPD_COLOR_CORRECTED_STATUS_VALUES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPD_COLOR_CORRECTED_STATUS_VALUES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4772,19 +4695,8 @@ impl ::core::fmt::Debug for WPD_COLOR_CORRECTED_STATUS_VALUES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPD_COMMAND_ACCESS_TYPES(pub i32);
-impl ::core::marker::Copy for WPD_COMMAND_ACCESS_TYPES {}
-impl ::core::clone::Clone for WPD_COMMAND_ACCESS_TYPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPD_COMMAND_ACCESS_TYPES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPD_COMMAND_ACCESS_TYPES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4794,19 +4706,8 @@ impl ::core::fmt::Debug for WPD_COMMAND_ACCESS_TYPES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPD_CROPPED_STATUS_VALUES(pub i32);
-impl ::core::marker::Copy for WPD_CROPPED_STATUS_VALUES {}
-impl ::core::clone::Clone for WPD_CROPPED_STATUS_VALUES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPD_CROPPED_STATUS_VALUES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPD_CROPPED_STATUS_VALUES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4816,19 +4717,8 @@ impl ::core::fmt::Debug for WPD_CROPPED_STATUS_VALUES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPD_DEVICE_TRANSPORTS(pub i32);
-impl ::core::marker::Copy for WPD_DEVICE_TRANSPORTS {}
-impl ::core::clone::Clone for WPD_DEVICE_TRANSPORTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPD_DEVICE_TRANSPORTS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPD_DEVICE_TRANSPORTS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4838,19 +4728,8 @@ impl ::core::fmt::Debug for WPD_DEVICE_TRANSPORTS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPD_DEVICE_TYPES(pub i32);
-impl ::core::marker::Copy for WPD_DEVICE_TYPES {}
-impl ::core::clone::Clone for WPD_DEVICE_TYPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPD_DEVICE_TYPES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPD_DEVICE_TYPES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4860,19 +4739,8 @@ impl ::core::fmt::Debug for WPD_DEVICE_TYPES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPD_EFFECT_MODES(pub i32);
-impl ::core::marker::Copy for WPD_EFFECT_MODES {}
-impl ::core::clone::Clone for WPD_EFFECT_MODES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPD_EFFECT_MODES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPD_EFFECT_MODES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4882,19 +4750,8 @@ impl ::core::fmt::Debug for WPD_EFFECT_MODES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPD_EXPOSURE_METERING_MODES(pub i32);
-impl ::core::marker::Copy for WPD_EXPOSURE_METERING_MODES {}
-impl ::core::clone::Clone for WPD_EXPOSURE_METERING_MODES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPD_EXPOSURE_METERING_MODES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPD_EXPOSURE_METERING_MODES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4904,19 +4761,8 @@ impl ::core::fmt::Debug for WPD_EXPOSURE_METERING_MODES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPD_EXPOSURE_PROGRAM_MODES(pub i32);
-impl ::core::marker::Copy for WPD_EXPOSURE_PROGRAM_MODES {}
-impl ::core::clone::Clone for WPD_EXPOSURE_PROGRAM_MODES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPD_EXPOSURE_PROGRAM_MODES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPD_EXPOSURE_PROGRAM_MODES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4926,19 +4772,8 @@ impl ::core::fmt::Debug for WPD_EXPOSURE_PROGRAM_MODES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPD_FLASH_MODES(pub i32);
-impl ::core::marker::Copy for WPD_FLASH_MODES {}
-impl ::core::clone::Clone for WPD_FLASH_MODES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPD_FLASH_MODES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPD_FLASH_MODES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4948,19 +4783,8 @@ impl ::core::fmt::Debug for WPD_FLASH_MODES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPD_FOCUS_METERING_MODES(pub i32);
-impl ::core::marker::Copy for WPD_FOCUS_METERING_MODES {}
-impl ::core::clone::Clone for WPD_FOCUS_METERING_MODES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPD_FOCUS_METERING_MODES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPD_FOCUS_METERING_MODES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4970,19 +4794,8 @@ impl ::core::fmt::Debug for WPD_FOCUS_METERING_MODES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPD_FOCUS_MODES(pub i32);
-impl ::core::marker::Copy for WPD_FOCUS_MODES {}
-impl ::core::clone::Clone for WPD_FOCUS_MODES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPD_FOCUS_MODES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPD_FOCUS_MODES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4992,19 +4805,8 @@ impl ::core::fmt::Debug for WPD_FOCUS_MODES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPD_META_GENRES(pub i32);
-impl ::core::marker::Copy for WPD_META_GENRES {}
-impl ::core::clone::Clone for WPD_META_GENRES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPD_META_GENRES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPD_META_GENRES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5014,19 +4816,8 @@ impl ::core::fmt::Debug for WPD_META_GENRES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPD_OPERATION_STATES(pub i32);
-impl ::core::marker::Copy for WPD_OPERATION_STATES {}
-impl ::core::clone::Clone for WPD_OPERATION_STATES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPD_OPERATION_STATES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPD_OPERATION_STATES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5036,19 +4827,8 @@ impl ::core::fmt::Debug for WPD_OPERATION_STATES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPD_PARAMETER_USAGE_TYPES(pub i32);
-impl ::core::marker::Copy for WPD_PARAMETER_USAGE_TYPES {}
-impl ::core::clone::Clone for WPD_PARAMETER_USAGE_TYPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPD_PARAMETER_USAGE_TYPES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPD_PARAMETER_USAGE_TYPES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5058,19 +4838,8 @@ impl ::core::fmt::Debug for WPD_PARAMETER_USAGE_TYPES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPD_POWER_SOURCES(pub i32);
-impl ::core::marker::Copy for WPD_POWER_SOURCES {}
-impl ::core::clone::Clone for WPD_POWER_SOURCES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPD_POWER_SOURCES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPD_POWER_SOURCES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5080,19 +4849,8 @@ impl ::core::fmt::Debug for WPD_POWER_SOURCES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPES(pub i32);
-impl ::core::marker::Copy for WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPES {}
-impl ::core::clone::Clone for WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5102,19 +4860,8 @@ impl ::core::fmt::Debug for WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPD_SECTION_DATA_UNITS_VALUES(pub i32);
-impl ::core::marker::Copy for WPD_SECTION_DATA_UNITS_VALUES {}
-impl ::core::clone::Clone for WPD_SECTION_DATA_UNITS_VALUES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPD_SECTION_DATA_UNITS_VALUES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPD_SECTION_DATA_UNITS_VALUES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5124,19 +4871,8 @@ impl ::core::fmt::Debug for WPD_SECTION_DATA_UNITS_VALUES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPD_SERVICE_INHERITANCE_TYPES(pub i32);
-impl ::core::marker::Copy for WPD_SERVICE_INHERITANCE_TYPES {}
-impl ::core::clone::Clone for WPD_SERVICE_INHERITANCE_TYPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPD_SERVICE_INHERITANCE_TYPES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPD_SERVICE_INHERITANCE_TYPES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5146,19 +4882,8 @@ impl ::core::fmt::Debug for WPD_SERVICE_INHERITANCE_TYPES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPD_SMS_ENCODING_TYPES(pub i32);
-impl ::core::marker::Copy for WPD_SMS_ENCODING_TYPES {}
-impl ::core::clone::Clone for WPD_SMS_ENCODING_TYPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPD_SMS_ENCODING_TYPES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPD_SMS_ENCODING_TYPES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5168,19 +4893,8 @@ impl ::core::fmt::Debug for WPD_SMS_ENCODING_TYPES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPD_STORAGE_ACCESS_CAPABILITY_VALUES(pub i32);
-impl ::core::marker::Copy for WPD_STORAGE_ACCESS_CAPABILITY_VALUES {}
-impl ::core::clone::Clone for WPD_STORAGE_ACCESS_CAPABILITY_VALUES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPD_STORAGE_ACCESS_CAPABILITY_VALUES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPD_STORAGE_ACCESS_CAPABILITY_VALUES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5190,19 +4904,8 @@ impl ::core::fmt::Debug for WPD_STORAGE_ACCESS_CAPABILITY_VALUES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPD_STORAGE_TYPE_VALUES(pub i32);
-impl ::core::marker::Copy for WPD_STORAGE_TYPE_VALUES {}
-impl ::core::clone::Clone for WPD_STORAGE_TYPE_VALUES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPD_STORAGE_TYPE_VALUES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPD_STORAGE_TYPE_VALUES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5212,19 +4915,8 @@ impl ::core::fmt::Debug for WPD_STORAGE_TYPE_VALUES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPD_STREAM_UNITS(pub i32);
-impl ::core::marker::Copy for WPD_STREAM_UNITS {}
-impl ::core::clone::Clone for WPD_STREAM_UNITS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPD_STREAM_UNITS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPD_STREAM_UNITS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5234,19 +4926,8 @@ impl ::core::fmt::Debug for WPD_STREAM_UNITS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPD_VIDEO_SCAN_TYPES(pub i32);
-impl ::core::marker::Copy for WPD_VIDEO_SCAN_TYPES {}
-impl ::core::clone::Clone for WPD_VIDEO_SCAN_TYPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPD_VIDEO_SCAN_TYPES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPD_VIDEO_SCAN_TYPES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5256,19 +4937,8 @@ impl ::core::fmt::Debug for WPD_VIDEO_SCAN_TYPES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPD_WHITE_BALANCE_SETTINGS(pub i32);
-impl ::core::marker::Copy for WPD_WHITE_BALANCE_SETTINGS {}
-impl ::core::clone::Clone for WPD_WHITE_BALANCE_SETTINGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPD_WHITE_BALANCE_SETTINGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPD_WHITE_BALANCE_SETTINGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5278,19 +4948,8 @@ impl ::core::fmt::Debug for WPD_WHITE_BALANCE_SETTINGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WpdAttributeForm(pub i32);
-impl ::core::marker::Copy for WpdAttributeForm {}
-impl ::core::clone::Clone for WpdAttributeForm {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WpdAttributeForm {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WpdAttributeForm {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5300,19 +4959,8 @@ impl ::core::fmt::Debug for WpdAttributeForm {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WpdParameterAttributeForm(pub i32);
-impl ::core::marker::Copy for WpdParameterAttributeForm {}
-impl ::core::clone::Clone for WpdParameterAttributeForm {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WpdParameterAttributeForm {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WpdParameterAttributeForm {
     type TypeKind = ::windows_core::CopyType;
 }

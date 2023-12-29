@@ -264,19 +264,8 @@ pub const SENSGUID_PUBLISHER: ::windows_core::GUID = ::windows_core::GUID::from_
 pub const SENSGUID_SUBSCRIBER_LCE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd3938ab0_5b9d_11d1_8dd2_00aa004abd5e);
 pub const SENSGUID_SUBSCRIBER_WININET: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd3938ab5_5b9d_11d1_8dd2_00aa004abd5e);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SENS_CONNECTION_TYPE(pub u32);
-impl ::core::marker::Copy for SENS_CONNECTION_TYPE {}
-impl ::core::clone::Clone for SENS_CONNECTION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SENS_CONNECTION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SENS_CONNECTION_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }

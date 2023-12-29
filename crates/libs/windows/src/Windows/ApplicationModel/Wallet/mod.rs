@@ -1741,7 +1741,7 @@ unsafe impl ::core::marker::Sync for WalletVerb {}
 #[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WalletActionKind(pub i32);
 #[cfg(feature = "deprecated")]
 impl WalletActionKind {
@@ -1750,20 +1750,6 @@ impl WalletActionKind {
     pub const MoreTransactions: Self = Self(2i32);
     pub const Message: Self = Self(3i32);
     pub const Verb: Self = Self(4i32);
-}
-#[cfg(feature = "deprecated")]
-impl ::core::marker::Copy for WalletActionKind {}
-#[cfg(feature = "deprecated")]
-impl ::core::clone::Clone for WalletActionKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::default::Default for WalletActionKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 #[cfg(feature = "deprecated")]
 impl ::windows_core::TypeKind for WalletActionKind {
@@ -1782,7 +1768,7 @@ impl ::windows_core::RuntimeType for WalletActionKind {
 #[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WalletBarcodeSymbology(pub i32);
 #[cfg(feature = "deprecated")]
 impl WalletBarcodeSymbology {
@@ -1798,20 +1784,6 @@ impl WalletBarcodeSymbology {
     pub const Pdf417: Self = Self(9i32);
     pub const Aztec: Self = Self(10i32);
     pub const Custom: Self = Self(100000i32);
-}
-#[cfg(feature = "deprecated")]
-impl ::core::marker::Copy for WalletBarcodeSymbology {}
-#[cfg(feature = "deprecated")]
-impl ::core::clone::Clone for WalletBarcodeSymbology {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::default::Default for WalletBarcodeSymbology {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 #[cfg(feature = "deprecated")]
 impl ::windows_core::TypeKind for WalletBarcodeSymbology {
@@ -1830,7 +1802,7 @@ impl ::windows_core::RuntimeType for WalletBarcodeSymbology {
 #[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WalletDetailViewPosition(pub i32);
 #[cfg(feature = "deprecated")]
 impl WalletDetailViewPosition {
@@ -1851,20 +1823,6 @@ impl WalletDetailViewPosition {
     pub const FooterField4: Self = Self(14i32);
 }
 #[cfg(feature = "deprecated")]
-impl ::core::marker::Copy for WalletDetailViewPosition {}
-#[cfg(feature = "deprecated")]
-impl ::core::clone::Clone for WalletDetailViewPosition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::default::Default for WalletDetailViewPosition {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-#[cfg(feature = "deprecated")]
 impl ::windows_core::TypeKind for WalletDetailViewPosition {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1881,7 +1839,7 @@ impl ::windows_core::RuntimeType for WalletDetailViewPosition {
 #[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WalletItemKind(pub i32);
 #[cfg(feature = "deprecated")]
 impl WalletItemKind {
@@ -1892,20 +1850,6 @@ impl WalletItemKind {
     pub const Ticket: Self = Self(4i32);
     pub const BoardingPass: Self = Self(5i32);
     pub const MembershipCard: Self = Self(6i32);
-}
-#[cfg(feature = "deprecated")]
-impl ::core::marker::Copy for WalletItemKind {}
-#[cfg(feature = "deprecated")]
-impl ::core::clone::Clone for WalletItemKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::default::Default for WalletItemKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 #[cfg(feature = "deprecated")]
 impl ::windows_core::TypeKind for WalletItemKind {
@@ -1924,27 +1868,13 @@ impl ::windows_core::RuntimeType for WalletItemKind {
 #[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WalletSummaryViewPosition(pub i32);
 #[cfg(feature = "deprecated")]
 impl WalletSummaryViewPosition {
     pub const Hidden: Self = Self(0i32);
     pub const Field1: Self = Self(1i32);
     pub const Field2: Self = Self(2i32);
-}
-#[cfg(feature = "deprecated")]
-impl ::core::marker::Copy for WalletSummaryViewPosition {}
-#[cfg(feature = "deprecated")]
-impl ::core::clone::Clone for WalletSummaryViewPosition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::default::Default for WalletSummaryViewPosition {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 #[cfg(feature = "deprecated")]
 impl ::windows_core::TypeKind for WalletSummaryViewPosition {

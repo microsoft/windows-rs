@@ -529,22 +529,11 @@ impl ::windows_core::RuntimeName for CoreDropOperationTargetRequestedEventArgs {
 unsafe impl ::core::marker::Send for CoreDropOperationTargetRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for CoreDropOperationTargetRequestedEventArgs {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CoreDragUIContentMode(pub u32);
 impl CoreDragUIContentMode {
     pub const Auto: Self = Self(0u32);
     pub const Deferred: Self = Self(1u32);
-}
-impl ::core::marker::Copy for CoreDragUIContentMode {}
-impl ::core::clone::Clone for CoreDragUIContentMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CoreDragUIContentMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CoreDragUIContentMode {
     type TypeKind = ::windows_core::CopyType;

@@ -1777,19 +1777,8 @@ pub const STGMOVE_MOVE: STGMOVE = STGMOVE(0i32);
 pub const STGMOVE_SHALLOWCOPY: STGMOVE = STGMOVE(2i32);
 pub const STGOPTIONS_VERSION: u32 = 1u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PIDMSI_STATUS_VALUE(pub i32);
-impl ::core::marker::Copy for PIDMSI_STATUS_VALUE {}
-impl ::core::clone::Clone for PIDMSI_STATUS_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PIDMSI_STATUS_VALUE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PIDMSI_STATUS_VALUE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1799,19 +1788,8 @@ impl ::core::fmt::Debug for PIDMSI_STATUS_VALUE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PROPSPEC_KIND(pub u32);
-impl ::core::marker::Copy for PROPSPEC_KIND {}
-impl ::core::clone::Clone for PROPSPEC_KIND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PROPSPEC_KIND {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PROPSPEC_KIND {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1821,19 +1799,8 @@ impl ::core::fmt::Debug for PROPSPEC_KIND {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PROPVAR_CHANGE_FLAGS(pub i32);
-impl ::core::marker::Copy for PROPVAR_CHANGE_FLAGS {}
-impl ::core::clone::Clone for PROPVAR_CHANGE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PROPVAR_CHANGE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PROPVAR_CHANGE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1876,19 +1843,8 @@ impl ::core::ops::Not for PROPVAR_CHANGE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PROPVAR_COMPARE_FLAGS(pub i32);
-impl ::core::marker::Copy for PROPVAR_COMPARE_FLAGS {}
-impl ::core::clone::Clone for PROPVAR_COMPARE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PROPVAR_COMPARE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PROPVAR_COMPARE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1931,19 +1887,8 @@ impl ::core::ops::Not for PROPVAR_COMPARE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PROPVAR_COMPARE_UNIT(pub i32);
-impl ::core::marker::Copy for PROPVAR_COMPARE_UNIT {}
-impl ::core::clone::Clone for PROPVAR_COMPARE_UNIT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PROPVAR_COMPARE_UNIT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PROPVAR_COMPARE_UNIT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1953,19 +1898,8 @@ impl ::core::fmt::Debug for PROPVAR_COMPARE_UNIT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct STGFMT(pub u32);
-impl ::core::marker::Copy for STGFMT {}
-impl ::core::clone::Clone for STGFMT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for STGFMT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for STGFMT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1975,19 +1909,8 @@ impl ::core::fmt::Debug for STGFMT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct STGMOVE(pub i32);
-impl ::core::marker::Copy for STGMOVE {}
-impl ::core::clone::Clone for STGMOVE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for STGMOVE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for STGMOVE {
     type TypeKind = ::windows_core::CopyType;
 }

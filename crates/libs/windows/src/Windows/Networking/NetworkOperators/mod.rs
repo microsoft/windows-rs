@@ -6954,7 +6954,7 @@ impl ::windows_core::RuntimeName for UssdSession {
 }
 ::windows_core::imp::interface_hierarchy!(UssdSession, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DataClasses(pub u32);
 impl DataClasses {
     pub const None: Self = Self(0u32);
@@ -6974,17 +6974,6 @@ impl DataClasses {
     pub const Cdma1xEvdoRevB: Self = Self(2097152u32);
     pub const CdmaUmb: Self = Self(4194304u32);
     pub const Custom: Self = Self(2147483648u32);
-}
-impl ::core::marker::Copy for DataClasses {}
-impl ::core::clone::Clone for DataClasses {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DataClasses {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DataClasses {
     type TypeKind = ::windows_core::CopyType;
@@ -7031,23 +7020,12 @@ impl ::windows_core::RuntimeType for DataClasses {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.DataClasses;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ESimAuthenticationPreference(pub i32);
 impl ESimAuthenticationPreference {
     pub const OnEntry: Self = Self(0i32);
     pub const OnAction: Self = Self(1i32);
     pub const Never: Self = Self(2i32);
-}
-impl ::core::marker::Copy for ESimAuthenticationPreference {}
-impl ::core::clone::Clone for ESimAuthenticationPreference {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ESimAuthenticationPreference {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ESimAuthenticationPreference {
     type TypeKind = ::windows_core::CopyType;
@@ -7061,23 +7039,12 @@ impl ::windows_core::RuntimeType for ESimAuthenticationPreference {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimAuthenticationPreference;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ESimDiscoverResultKind(pub i32);
 impl ESimDiscoverResultKind {
     pub const None: Self = Self(0i32);
     pub const Events: Self = Self(1i32);
     pub const ProfileMetadata: Self = Self(2i32);
-}
-impl ::core::marker::Copy for ESimDiscoverResultKind {}
-impl ::core::clone::Clone for ESimDiscoverResultKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ESimDiscoverResultKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ESimDiscoverResultKind {
     type TypeKind = ::windows_core::CopyType;
@@ -7091,7 +7058,7 @@ impl ::windows_core::RuntimeType for ESimDiscoverResultKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimDiscoverResultKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ESimOperationStatus(pub i32);
 impl ESimOperationStatus {
     pub const Success: Self = Self(0i32);
@@ -7124,17 +7091,6 @@ impl ESimOperationStatus {
     pub const ServerNotTrusted: Self = Self(27i32);
     pub const ProfileDownloadMaxRetriesExceeded: Self = Self(28i32);
 }
-impl ::core::marker::Copy for ESimOperationStatus {}
-impl ::core::clone::Clone for ESimOperationStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ESimOperationStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ESimOperationStatus {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7147,23 +7103,12 @@ impl ::windows_core::RuntimeType for ESimOperationStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimOperationStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ESimProfileClass(pub i32);
 impl ESimProfileClass {
     pub const Operational: Self = Self(0i32);
     pub const Test: Self = Self(1i32);
     pub const Provisioning: Self = Self(2i32);
-}
-impl ::core::marker::Copy for ESimProfileClass {}
-impl ::core::clone::Clone for ESimProfileClass {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ESimProfileClass {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ESimProfileClass {
     type TypeKind = ::windows_core::CopyType;
@@ -7177,7 +7122,7 @@ impl ::windows_core::RuntimeType for ESimProfileClass {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimProfileClass;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ESimProfileMetadataState(pub i32);
 impl ESimProfileMetadataState {
     pub const Unknown: Self = Self(0i32);
@@ -7188,17 +7133,6 @@ impl ESimProfileMetadataState {
     pub const RejectingDownload: Self = Self(5i32);
     pub const NoLongerAvailable: Self = Self(6i32);
     pub const DeniedByPolicy: Self = Self(7i32);
-}
-impl ::core::marker::Copy for ESimProfileMetadataState {}
-impl ::core::clone::Clone for ESimProfileMetadataState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ESimProfileMetadataState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ESimProfileMetadataState {
     type TypeKind = ::windows_core::CopyType;
@@ -7212,24 +7146,13 @@ impl ::windows_core::RuntimeType for ESimProfileMetadataState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimProfileMetadataState;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ESimProfileState(pub i32);
 impl ESimProfileState {
     pub const Unknown: Self = Self(0i32);
     pub const Disabled: Self = Self(1i32);
     pub const Enabled: Self = Self(2i32);
     pub const Deleted: Self = Self(3i32);
-}
-impl ::core::marker::Copy for ESimProfileState {}
-impl ::core::clone::Clone for ESimProfileState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ESimProfileState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ESimProfileState {
     type TypeKind = ::windows_core::CopyType;
@@ -7243,24 +7166,13 @@ impl ::windows_core::RuntimeType for ESimProfileState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimProfileState;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ESimState(pub i32);
 impl ESimState {
     pub const Unknown: Self = Self(0i32);
     pub const Idle: Self = Self(1i32);
     pub const Removed: Self = Self(2i32);
     pub const Busy: Self = Self(3i32);
-}
-impl ::core::marker::Copy for ESimState {}
-impl ::core::clone::Clone for ESimState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ESimState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ESimState {
     type TypeKind = ::windows_core::CopyType;
@@ -7274,7 +7186,7 @@ impl ::windows_core::RuntimeType for ESimState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimState;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ESimWatcherStatus(pub i32);
 impl ESimWatcherStatus {
     pub const Created: Self = Self(0i32);
@@ -7282,17 +7194,6 @@ impl ESimWatcherStatus {
     pub const EnumerationCompleted: Self = Self(2i32);
     pub const Stopping: Self = Self(3i32);
     pub const Stopped: Self = Self(4i32);
-}
-impl ::core::marker::Copy for ESimWatcherStatus {}
-impl ::core::clone::Clone for ESimWatcherStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ESimWatcherStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ESimWatcherStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -7306,7 +7207,7 @@ impl ::windows_core::RuntimeType for ESimWatcherStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimWatcherStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HotspotAuthenticationResponseCode(pub i32);
 impl HotspotAuthenticationResponseCode {
     pub const NoError: Self = Self(0i32);
@@ -7316,17 +7217,6 @@ impl HotspotAuthenticationResponseCode {
     pub const NetworkAdministratorError: Self = Self(105i32);
     pub const LoginAborted: Self = Self(151i32);
     pub const AccessGatewayInternalError: Self = Self(255i32);
-}
-impl ::core::marker::Copy for HotspotAuthenticationResponseCode {}
-impl ::core::clone::Clone for HotspotAuthenticationResponseCode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HotspotAuthenticationResponseCode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for HotspotAuthenticationResponseCode {
     type TypeKind = ::windows_core::CopyType;
@@ -7340,7 +7230,7 @@ impl ::windows_core::RuntimeType for HotspotAuthenticationResponseCode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.HotspotAuthenticationResponseCode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MobileBroadbandAccountWatcherStatus(pub i32);
 impl MobileBroadbandAccountWatcherStatus {
     pub const Created: Self = Self(0i32);
@@ -7348,17 +7238,6 @@ impl MobileBroadbandAccountWatcherStatus {
     pub const EnumerationCompleted: Self = Self(2i32);
     pub const Stopped: Self = Self(3i32);
     pub const Aborted: Self = Self(4i32);
-}
-impl ::core::marker::Copy for MobileBroadbandAccountWatcherStatus {}
-impl ::core::clone::Clone for MobileBroadbandAccountWatcherStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MobileBroadbandAccountWatcherStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MobileBroadbandAccountWatcherStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -7372,24 +7251,13 @@ impl ::windows_core::RuntimeType for MobileBroadbandAccountWatcherStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandAccountWatcherStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MobileBroadbandDeviceType(pub i32);
 impl MobileBroadbandDeviceType {
     pub const Unknown: Self = Self(0i32);
     pub const Embedded: Self = Self(1i32);
     pub const Removable: Self = Self(2i32);
     pub const Remote: Self = Self(3i32);
-}
-impl ::core::marker::Copy for MobileBroadbandDeviceType {}
-impl ::core::clone::Clone for MobileBroadbandDeviceType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MobileBroadbandDeviceType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MobileBroadbandDeviceType {
     type TypeKind = ::windows_core::CopyType;
@@ -7403,24 +7271,13 @@ impl ::windows_core::RuntimeType for MobileBroadbandDeviceType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandDeviceType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MobileBroadbandModemStatus(pub i32);
 impl MobileBroadbandModemStatus {
     pub const Success: Self = Self(0i32);
     pub const OtherFailure: Self = Self(1i32);
     pub const Busy: Self = Self(2i32);
     pub const NoDeviceSupport: Self = Self(3i32);
-}
-impl ::core::marker::Copy for MobileBroadbandModemStatus {}
-impl ::core::clone::Clone for MobileBroadbandModemStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MobileBroadbandModemStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MobileBroadbandModemStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -7434,23 +7291,12 @@ impl ::windows_core::RuntimeType for MobileBroadbandModemStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandModemStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MobileBroadbandPinFormat(pub i32);
 impl MobileBroadbandPinFormat {
     pub const Unknown: Self = Self(0i32);
     pub const Numeric: Self = Self(1i32);
     pub const Alphanumeric: Self = Self(2i32);
-}
-impl ::core::marker::Copy for MobileBroadbandPinFormat {}
-impl ::core::clone::Clone for MobileBroadbandPinFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MobileBroadbandPinFormat {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MobileBroadbandPinFormat {
     type TypeKind = ::windows_core::CopyType;
@@ -7464,24 +7310,13 @@ impl ::windows_core::RuntimeType for MobileBroadbandPinFormat {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandPinFormat;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MobileBroadbandPinLockState(pub i32);
 impl MobileBroadbandPinLockState {
     pub const Unknown: Self = Self(0i32);
     pub const Unlocked: Self = Self(1i32);
     pub const PinRequired: Self = Self(2i32);
     pub const PinUnblockKeyRequired: Self = Self(3i32);
-}
-impl ::core::marker::Copy for MobileBroadbandPinLockState {}
-impl ::core::clone::Clone for MobileBroadbandPinLockState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MobileBroadbandPinLockState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MobileBroadbandPinLockState {
     type TypeKind = ::windows_core::CopyType;
@@ -7495,7 +7330,7 @@ impl ::windows_core::RuntimeType for MobileBroadbandPinLockState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandPinLockState;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MobileBroadbandPinType(pub i32);
 impl MobileBroadbandPinType {
     pub const None: Self = Self(0i32);
@@ -7510,17 +7345,6 @@ impl MobileBroadbandPinType {
     pub const CorporatePin: Self = Self(9i32);
     pub const SubsidyLock: Self = Self(10i32);
 }
-impl ::core::marker::Copy for MobileBroadbandPinType {}
-impl ::core::clone::Clone for MobileBroadbandPinType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MobileBroadbandPinType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MobileBroadbandPinType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7533,22 +7357,11 @@ impl ::windows_core::RuntimeType for MobileBroadbandPinType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandPinType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MobileBroadbandRadioState(pub i32);
 impl MobileBroadbandRadioState {
     pub const Off: Self = Self(0i32);
     pub const On: Self = Self(1i32);
-}
-impl ::core::marker::Copy for MobileBroadbandRadioState {}
-impl ::core::clone::Clone for MobileBroadbandRadioState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MobileBroadbandRadioState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MobileBroadbandRadioState {
     type TypeKind = ::windows_core::CopyType;
@@ -7562,7 +7375,7 @@ impl ::windows_core::RuntimeType for MobileBroadbandRadioState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandRadioState;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MobileBroadbandSlotState(pub i32);
 impl MobileBroadbandSlotState {
     pub const Unmanaged: Self = Self(0i32);
@@ -7576,17 +7389,6 @@ impl MobileBroadbandSlotState {
     pub const ActiveEsim: Self = Self(8i32);
     pub const ActiveEsimNoProfile: Self = Self(9i32);
 }
-impl ::core::marker::Copy for MobileBroadbandSlotState {}
-impl ::core::clone::Clone for MobileBroadbandSlotState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MobileBroadbandSlotState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MobileBroadbandSlotState {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7599,24 +7401,13 @@ impl ::windows_core::RuntimeType for MobileBroadbandSlotState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandSlotState;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MobileBroadbandUiccAppOperationStatus(pub i32);
 impl MobileBroadbandUiccAppOperationStatus {
     pub const Success: Self = Self(0i32);
     pub const InvalidUiccFilePath: Self = Self(1i32);
     pub const AccessConditionNotHeld: Self = Self(2i32);
     pub const UiccBusy: Self = Self(3i32);
-}
-impl ::core::marker::Copy for MobileBroadbandUiccAppOperationStatus {}
-impl ::core::clone::Clone for MobileBroadbandUiccAppOperationStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MobileBroadbandUiccAppOperationStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MobileBroadbandUiccAppOperationStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -7630,7 +7421,7 @@ impl ::windows_core::RuntimeType for MobileBroadbandUiccAppOperationStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandUiccAppOperationStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NetworkDeviceStatus(pub i32);
 impl NetworkDeviceStatus {
     pub const DeviceNotReady: Self = Self(0i32);
@@ -7641,17 +7432,6 @@ impl NetworkDeviceStatus {
     pub const AccountNotActivated: Self = Self(5i32);
     pub const DeviceLocked: Self = Self(6i32);
     pub const DeviceBlocked: Self = Self(7i32);
-}
-impl ::core::marker::Copy for NetworkDeviceStatus {}
-impl ::core::clone::Clone for NetworkDeviceStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NetworkDeviceStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for NetworkDeviceStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -7665,21 +7445,10 @@ impl ::windows_core::RuntimeType for NetworkDeviceStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.NetworkDeviceStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NetworkOperatorDataUsageNotificationKind(pub i32);
 impl NetworkOperatorDataUsageNotificationKind {
     pub const DataUsageProgress: Self = Self(0i32);
-}
-impl ::core::marker::Copy for NetworkOperatorDataUsageNotificationKind {}
-impl ::core::clone::Clone for NetworkOperatorDataUsageNotificationKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NetworkOperatorDataUsageNotificationKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for NetworkOperatorDataUsageNotificationKind {
     type TypeKind = ::windows_core::CopyType;
@@ -7693,7 +7462,7 @@ impl ::windows_core::RuntimeType for NetworkOperatorDataUsageNotificationKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.NetworkOperatorDataUsageNotificationKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NetworkOperatorEventMessageType(pub i32);
 impl NetworkOperatorEventMessageType {
     pub const Gsm: Self = Self(0i32);
@@ -7710,17 +7479,6 @@ impl NetworkOperatorEventMessageType {
     pub const TetheringOperationalStateChanged: Self = Self(11i32);
     pub const TetheringNumberOfClientsChanged: Self = Self(12i32);
 }
-impl ::core::marker::Copy for NetworkOperatorEventMessageType {}
-impl ::core::clone::Clone for NetworkOperatorEventMessageType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NetworkOperatorEventMessageType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NetworkOperatorEventMessageType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7733,7 +7491,7 @@ impl ::windows_core::RuntimeType for NetworkOperatorEventMessageType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.NetworkOperatorEventMessageType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NetworkRegistrationState(pub i32);
 impl NetworkRegistrationState {
     pub const None: Self = Self(0i32);
@@ -7743,17 +7501,6 @@ impl NetworkRegistrationState {
     pub const Roaming: Self = Self(4i32);
     pub const Partner: Self = Self(5i32);
     pub const Denied: Self = Self(6i32);
-}
-impl ::core::marker::Copy for NetworkRegistrationState {}
-impl ::core::clone::Clone for NetworkRegistrationState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NetworkRegistrationState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for NetworkRegistrationState {
     type TypeKind = ::windows_core::CopyType;
@@ -7767,22 +7514,11 @@ impl ::windows_core::RuntimeType for NetworkRegistrationState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.NetworkRegistrationState;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ProfileMediaType(pub i32);
 impl ProfileMediaType {
     pub const Wlan: Self = Self(0i32);
     pub const Wwan: Self = Self(1i32);
-}
-impl ::core::marker::Copy for ProfileMediaType {}
-impl ::core::clone::Clone for ProfileMediaType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ProfileMediaType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ProfileMediaType {
     type TypeKind = ::windows_core::CopyType;
@@ -7796,7 +7532,7 @@ impl ::windows_core::RuntimeType for ProfileMediaType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ProfileMediaType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TetheringCapability(pub i32);
 impl TetheringCapability {
     pub const Enabled: Self = Self(0i32);
@@ -7807,17 +7543,6 @@ impl TetheringCapability {
     pub const DisabledByRequiredAppNotInstalled: Self = Self(5i32);
     pub const DisabledDueToUnknownCause: Self = Self(6i32);
     pub const DisabledBySystemCapability: Self = Self(7i32);
-}
-impl ::core::marker::Copy for TetheringCapability {}
-impl ::core::clone::Clone for TetheringCapability {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TetheringCapability {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for TetheringCapability {
     type TypeKind = ::windows_core::CopyType;
@@ -7831,7 +7556,7 @@ impl ::windows_core::RuntimeType for TetheringCapability {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.TetheringCapability;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TetheringOperationStatus(pub i32);
 impl TetheringOperationStatus {
     pub const Success: Self = Self(0i32);
@@ -7843,17 +7568,6 @@ impl TetheringOperationStatus {
     pub const OperationInProgress: Self = Self(6i32);
     pub const BluetoothDeviceOff: Self = Self(7i32);
     pub const NetworkLimitedConnectivity: Self = Self(8i32);
-}
-impl ::core::marker::Copy for TetheringOperationStatus {}
-impl ::core::clone::Clone for TetheringOperationStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TetheringOperationStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for TetheringOperationStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -7867,24 +7581,13 @@ impl ::windows_core::RuntimeType for TetheringOperationStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.TetheringOperationStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TetheringOperationalState(pub i32);
 impl TetheringOperationalState {
     pub const Unknown: Self = Self(0i32);
     pub const On: Self = Self(1i32);
     pub const Off: Self = Self(2i32);
     pub const InTransition: Self = Self(3i32);
-}
-impl ::core::marker::Copy for TetheringOperationalState {}
-impl ::core::clone::Clone for TetheringOperationalState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TetheringOperationalState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for TetheringOperationalState {
     type TypeKind = ::windows_core::CopyType;
@@ -7898,23 +7601,12 @@ impl ::windows_core::RuntimeType for TetheringOperationalState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.TetheringOperationalState;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TetheringWiFiBand(pub i32);
 impl TetheringWiFiBand {
     pub const Auto: Self = Self(0i32);
     pub const TwoPointFourGigahertz: Self = Self(1i32);
     pub const FiveGigahertz: Self = Self(2i32);
-}
-impl ::core::marker::Copy for TetheringWiFiBand {}
-impl ::core::clone::Clone for TetheringWiFiBand {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TetheringWiFiBand {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for TetheringWiFiBand {
     type TypeKind = ::windows_core::CopyType;
@@ -7928,7 +7620,7 @@ impl ::windows_core::RuntimeType for TetheringWiFiBand {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.TetheringWiFiBand;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UiccAccessCondition(pub i32);
 impl UiccAccessCondition {
     pub const AlwaysAllowed: Self = Self(0i32);
@@ -7939,17 +7631,6 @@ impl UiccAccessCondition {
     pub const Administrative5: Self = Self(5i32);
     pub const Administrative6: Self = Self(6i32);
     pub const NeverAllowed: Self = Self(7i32);
-}
-impl ::core::marker::Copy for UiccAccessCondition {}
-impl ::core::clone::Clone for UiccAccessCondition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UiccAccessCondition {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for UiccAccessCondition {
     type TypeKind = ::windows_core::CopyType;
@@ -7963,7 +7644,7 @@ impl ::windows_core::RuntimeType for UiccAccessCondition {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.UiccAccessCondition;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UiccAppKind(pub i32);
 impl UiccAppKind {
     pub const Unknown: Self = Self(0i32);
@@ -7973,17 +7654,6 @@ impl UiccAppKind {
     pub const USim: Self = Self(4i32);
     pub const CSim: Self = Self(5i32);
     pub const ISim: Self = Self(6i32);
-}
-impl ::core::marker::Copy for UiccAppKind {}
-impl ::core::clone::Clone for UiccAppKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UiccAppKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for UiccAppKind {
     type TypeKind = ::windows_core::CopyType;
@@ -7997,23 +7667,12 @@ impl ::windows_core::RuntimeType for UiccAppKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.UiccAppKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UiccAppRecordKind(pub i32);
 impl UiccAppRecordKind {
     pub const Unknown: Self = Self(0i32);
     pub const Transparent: Self = Self(1i32);
     pub const RecordOriented: Self = Self(2i32);
-}
-impl ::core::marker::Copy for UiccAppRecordKind {}
-impl ::core::clone::Clone for UiccAppRecordKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UiccAppRecordKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for UiccAppRecordKind {
     type TypeKind = ::windows_core::CopyType;
@@ -8027,7 +7686,7 @@ impl ::windows_core::RuntimeType for UiccAppRecordKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.UiccAppRecordKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UssdResultCode(pub i32);
 impl UssdResultCode {
     pub const NoActionRequired: Self = Self(0i32);
@@ -8036,17 +7695,6 @@ impl UssdResultCode {
     pub const OtherLocalClient: Self = Self(3i32);
     pub const OperationNotSupported: Self = Self(4i32);
     pub const NetworkTimeout: Self = Self(5i32);
-}
-impl ::core::marker::Copy for UssdResultCode {}
-impl ::core::clone::Clone for UssdResultCode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UssdResultCode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for UssdResultCode {
     type TypeKind = ::windows_core::CopyType;

@@ -196,7 +196,7 @@ impl ::windows_core::RuntimeName for NamedPolicyData {
 unsafe impl ::core::marker::Send for NamedPolicyData {}
 unsafe impl ::core::marker::Sync for NamedPolicyData {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NamedPolicyKind(pub i32);
 impl NamedPolicyKind {
     pub const Invalid: Self = Self(0i32);
@@ -205,17 +205,6 @@ impl NamedPolicyKind {
     pub const Int32: Self = Self(3i32);
     pub const Int64: Self = Self(4i32);
     pub const String: Self = Self(5i32);
-}
-impl ::core::marker::Copy for NamedPolicyKind {}
-impl ::core::clone::Clone for NamedPolicyKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NamedPolicyKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for NamedPolicyKind {
     type TypeKind = ::windows_core::CopyType;

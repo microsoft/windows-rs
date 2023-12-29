@@ -46,19 +46,8 @@ pub const MF_TRANSFER_VIDEO_FRAME_DEFAULT: MF_TRANSFER_VIDEO_FRAME_FLAGS = MF_TR
 pub const MF_TRANSFER_VIDEO_FRAME_IGNORE_PAR: MF_TRANSFER_VIDEO_FRAME_FLAGS = MF_TRANSFER_VIDEO_FRAME_FLAGS(2i32);
 pub const MF_TRANSFER_VIDEO_FRAME_STRETCH: MF_TRANSFER_VIDEO_FRAME_FLAGS = MF_TRANSFER_VIDEO_FRAME_FLAGS(1i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_MEDIASOURCE_STATUS_INFO(pub i32);
-impl ::core::marker::Copy for MF_MEDIASOURCE_STATUS_INFO {}
-impl ::core::clone::Clone for MF_MEDIASOURCE_STATUS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_MEDIASOURCE_STATUS_INFO {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_MEDIASOURCE_STATUS_INFO {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -68,19 +57,8 @@ impl ::core::fmt::Debug for MF_MEDIASOURCE_STATUS_INFO {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_TRANSFER_VIDEO_FRAME_FLAGS(pub i32);
-impl ::core::marker::Copy for MF_TRANSFER_VIDEO_FRAME_FLAGS {}
-impl ::core::clone::Clone for MF_TRANSFER_VIDEO_FRAME_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_TRANSFER_VIDEO_FRAME_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_TRANSFER_VIDEO_FRAME_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }

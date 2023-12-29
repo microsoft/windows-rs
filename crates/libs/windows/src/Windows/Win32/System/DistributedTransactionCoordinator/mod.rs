@@ -2527,19 +2527,8 @@ pub const XA_SWITCH_F_DTC: u32 = 1u32;
 pub const XIDDATASIZE: u32 = 128u32;
 pub const dwUSER_MS_SQLSERVER: XACT_DTC_CONSTANTS = XACT_DTC_CONSTANTS(65535i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct APPLICATIONTYPE(pub i32);
-impl ::core::marker::Copy for APPLICATIONTYPE {}
-impl ::core::clone::Clone for APPLICATIONTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for APPLICATIONTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for APPLICATIONTYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2549,19 +2538,8 @@ impl ::core::fmt::Debug for APPLICATIONTYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AUTHENTICATION_LEVEL(pub i32);
-impl ::core::marker::Copy for AUTHENTICATION_LEVEL {}
-impl ::core::clone::Clone for AUTHENTICATION_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AUTHENTICATION_LEVEL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AUTHENTICATION_LEVEL {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2571,19 +2549,8 @@ impl ::core::fmt::Debug for AUTHENTICATION_LEVEL {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DTCINITIATEDRECOVERYWORK(pub i32);
-impl ::core::marker::Copy for DTCINITIATEDRECOVERYWORK {}
-impl ::core::clone::Clone for DTCINITIATEDRECOVERYWORK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DTCINITIATEDRECOVERYWORK {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DTCINITIATEDRECOVERYWORK {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2593,19 +2560,8 @@ impl ::core::fmt::Debug for DTCINITIATEDRECOVERYWORK {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DTCLUCOMPARESTATE(pub i32);
-impl ::core::marker::Copy for DTCLUCOMPARESTATE {}
-impl ::core::clone::Clone for DTCLUCOMPARESTATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DTCLUCOMPARESTATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DTCLUCOMPARESTATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2615,19 +2571,8 @@ impl ::core::fmt::Debug for DTCLUCOMPARESTATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DTCLUCOMPARESTATESCONFIRMATION(pub i32);
-impl ::core::marker::Copy for DTCLUCOMPARESTATESCONFIRMATION {}
-impl ::core::clone::Clone for DTCLUCOMPARESTATESCONFIRMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DTCLUCOMPARESTATESCONFIRMATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DTCLUCOMPARESTATESCONFIRMATION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2637,19 +2582,8 @@ impl ::core::fmt::Debug for DTCLUCOMPARESTATESCONFIRMATION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DTCLUCOMPARESTATESERROR(pub i32);
-impl ::core::marker::Copy for DTCLUCOMPARESTATESERROR {}
-impl ::core::clone::Clone for DTCLUCOMPARESTATESERROR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DTCLUCOMPARESTATESERROR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DTCLUCOMPARESTATESERROR {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2659,19 +2593,8 @@ impl ::core::fmt::Debug for DTCLUCOMPARESTATESERROR {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DTCLUCOMPARESTATESRESPONSE(pub i32);
-impl ::core::marker::Copy for DTCLUCOMPARESTATESRESPONSE {}
-impl ::core::clone::Clone for DTCLUCOMPARESTATESRESPONSE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DTCLUCOMPARESTATESRESPONSE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DTCLUCOMPARESTATESRESPONSE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2681,19 +2604,8 @@ impl ::core::fmt::Debug for DTCLUCOMPARESTATESRESPONSE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DTCLUXLN(pub i32);
-impl ::core::marker::Copy for DTCLUXLN {}
-impl ::core::clone::Clone for DTCLUXLN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DTCLUXLN {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DTCLUXLN {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2703,19 +2615,8 @@ impl ::core::fmt::Debug for DTCLUXLN {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DTCLUXLNCONFIRMATION(pub i32);
-impl ::core::marker::Copy for DTCLUXLNCONFIRMATION {}
-impl ::core::clone::Clone for DTCLUXLNCONFIRMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DTCLUXLNCONFIRMATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DTCLUXLNCONFIRMATION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2725,19 +2626,8 @@ impl ::core::fmt::Debug for DTCLUXLNCONFIRMATION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DTCLUXLNERROR(pub i32);
-impl ::core::marker::Copy for DTCLUXLNERROR {}
-impl ::core::clone::Clone for DTCLUXLNERROR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DTCLUXLNERROR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DTCLUXLNERROR {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2747,19 +2637,8 @@ impl ::core::fmt::Debug for DTCLUXLNERROR {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DTCLUXLNRESPONSE(pub i32);
-impl ::core::marker::Copy for DTCLUXLNRESPONSE {}
-impl ::core::clone::Clone for DTCLUXLNRESPONSE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DTCLUXLNRESPONSE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DTCLUXLNRESPONSE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2769,19 +2648,8 @@ impl ::core::fmt::Debug for DTCLUXLNRESPONSE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DTC_STATUS_(pub i32);
-impl ::core::marker::Copy for DTC_STATUS_ {}
-impl ::core::clone::Clone for DTC_STATUS_ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DTC_STATUS_ {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DTC_STATUS_ {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2791,19 +2659,8 @@ impl ::core::fmt::Debug for DTC_STATUS_ {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ISOFLAG(pub i32);
-impl ::core::marker::Copy for ISOFLAG {}
-impl ::core::clone::Clone for ISOFLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ISOFLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ISOFLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2813,19 +2670,8 @@ impl ::core::fmt::Debug for ISOFLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ISOLATIONLEVEL(pub i32);
-impl ::core::marker::Copy for ISOLATIONLEVEL {}
-impl ::core::clone::Clone for ISOLATIONLEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ISOLATIONLEVEL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ISOLATIONLEVEL {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2835,19 +2681,8 @@ impl ::core::fmt::Debug for ISOLATIONLEVEL {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TX_MISC_CONSTANTS(pub i32);
-impl ::core::marker::Copy for TX_MISC_CONSTANTS {}
-impl ::core::clone::Clone for TX_MISC_CONSTANTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TX_MISC_CONSTANTS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TX_MISC_CONSTANTS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2857,19 +2692,8 @@ impl ::core::fmt::Debug for TX_MISC_CONSTANTS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XACTCONST(pub i32);
-impl ::core::marker::Copy for XACTCONST {}
-impl ::core::clone::Clone for XACTCONST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XACTCONST {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XACTCONST {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2879,19 +2703,8 @@ impl ::core::fmt::Debug for XACTCONST {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XACTHEURISTIC(pub i32);
-impl ::core::marker::Copy for XACTHEURISTIC {}
-impl ::core::clone::Clone for XACTHEURISTIC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XACTHEURISTIC {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XACTHEURISTIC {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2901,19 +2714,8 @@ impl ::core::fmt::Debug for XACTHEURISTIC {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XACTRM(pub i32);
-impl ::core::marker::Copy for XACTRM {}
-impl ::core::clone::Clone for XACTRM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XACTRM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XACTRM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2923,19 +2725,8 @@ impl ::core::fmt::Debug for XACTRM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XACTSTAT(pub i32);
-impl ::core::marker::Copy for XACTSTAT {}
-impl ::core::clone::Clone for XACTSTAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XACTSTAT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XACTSTAT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2945,19 +2736,8 @@ impl ::core::fmt::Debug for XACTSTAT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XACTTC(pub i32);
-impl ::core::marker::Copy for XACTTC {}
-impl ::core::clone::Clone for XACTTC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XACTTC {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XACTTC {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2967,19 +2747,8 @@ impl ::core::fmt::Debug for XACTTC {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XACT_DTC_CONSTANTS(pub i32);
-impl ::core::marker::Copy for XACT_DTC_CONSTANTS {}
-impl ::core::clone::Clone for XACT_DTC_CONSTANTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XACT_DTC_CONSTANTS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XACT_DTC_CONSTANTS {
     type TypeKind = ::windows_core::CopyType;
 }

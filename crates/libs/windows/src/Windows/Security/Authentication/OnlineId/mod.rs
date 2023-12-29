@@ -782,23 +782,12 @@ impl ::windows_core::RuntimeName for UserIdentity {
 unsafe impl ::core::marker::Send for UserIdentity {}
 unsafe impl ::core::marker::Sync for UserIdentity {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CredentialPromptType(pub i32);
 impl CredentialPromptType {
     pub const PromptIfNeeded: Self = Self(0i32);
     pub const RetypeCredentials: Self = Self(1i32);
     pub const DoNotPrompt: Self = Self(2i32);
-}
-impl ::core::marker::Copy for CredentialPromptType {}
-impl ::core::clone::Clone for CredentialPromptType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CredentialPromptType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CredentialPromptType {
     type TypeKind = ::windows_core::CopyType;
@@ -812,23 +801,12 @@ impl ::windows_core::RuntimeType for CredentialPromptType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.OnlineId.CredentialPromptType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OnlineIdSystemTicketStatus(pub i32);
 impl OnlineIdSystemTicketStatus {
     pub const Success: Self = Self(0i32);
     pub const Error: Self = Self(1i32);
     pub const ServiceConnectionError: Self = Self(2i32);
-}
-impl ::core::marker::Copy for OnlineIdSystemTicketStatus {}
-impl ::core::clone::Clone for OnlineIdSystemTicketStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OnlineIdSystemTicketStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for OnlineIdSystemTicketStatus {
     type TypeKind = ::windows_core::CopyType;

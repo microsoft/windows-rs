@@ -27,19 +27,8 @@ pub const WnvPolicyMismatchType: WNV_NOTIFICATION_TYPE = WNV_NOTIFICATION_TYPE(0
 pub const WnvProviderAddressType: WNV_OBJECT_TYPE = WNV_OBJECT_TYPE(0i32);
 pub const WnvRedirectType: WNV_NOTIFICATION_TYPE = WNV_NOTIFICATION_TYPE(1i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WNV_CA_NOTIFICATION_TYPE(pub i32);
-impl ::core::marker::Copy for WNV_CA_NOTIFICATION_TYPE {}
-impl ::core::clone::Clone for WNV_CA_NOTIFICATION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WNV_CA_NOTIFICATION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WNV_CA_NOTIFICATION_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -49,19 +38,8 @@ impl ::core::fmt::Debug for WNV_CA_NOTIFICATION_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WNV_NOTIFICATION_TYPE(pub i32);
-impl ::core::marker::Copy for WNV_NOTIFICATION_TYPE {}
-impl ::core::clone::Clone for WNV_NOTIFICATION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WNV_NOTIFICATION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WNV_NOTIFICATION_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -71,19 +49,8 @@ impl ::core::fmt::Debug for WNV_NOTIFICATION_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WNV_OBJECT_TYPE(pub i32);
-impl ::core::marker::Copy for WNV_OBJECT_TYPE {}
-impl ::core::clone::Clone for WNV_OBJECT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WNV_OBJECT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WNV_OBJECT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }

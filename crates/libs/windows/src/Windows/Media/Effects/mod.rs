@@ -1494,7 +1494,7 @@ impl ::windows_core::RuntimeName for VideoTransformSphericalProjection {
 unsafe impl ::core::marker::Send for VideoTransformSphericalProjection {}
 unsafe impl ::core::marker::Sync for VideoTransformSphericalProjection {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AudioEffectType(pub i32);
 impl AudioEffectType {
     pub const Other: Self = Self(0i32);
@@ -1518,17 +1518,6 @@ impl AudioEffectType {
     pub const FarFieldBeamForming: Self = Self(18i32);
     pub const DeepNoiseSuppression: Self = Self(19i32);
 }
-impl ::core::marker::Copy for AudioEffectType {}
-impl ::core::clone::Clone for AudioEffectType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AudioEffectType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AudioEffectType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1541,24 +1530,13 @@ impl ::windows_core::RuntimeType for AudioEffectType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Effects.AudioEffectType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MediaEffectClosedReason(pub i32);
 impl MediaEffectClosedReason {
     pub const Done: Self = Self(0i32);
     pub const UnknownError: Self = Self(1i32);
     pub const UnsupportedEncodingFormat: Self = Self(2i32);
     pub const EffectCurrentlyUnloaded: Self = Self(3i32);
-}
-impl ::core::marker::Copy for MediaEffectClosedReason {}
-impl ::core::clone::Clone for MediaEffectClosedReason {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MediaEffectClosedReason {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MediaEffectClosedReason {
     type TypeKind = ::windows_core::CopyType;
@@ -1572,23 +1550,12 @@ impl ::windows_core::RuntimeType for MediaEffectClosedReason {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Effects.MediaEffectClosedReason;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MediaMemoryTypes(pub i32);
 impl MediaMemoryTypes {
     pub const Gpu: Self = Self(0i32);
     pub const Cpu: Self = Self(1i32);
     pub const GpuAndCpu: Self = Self(2i32);
-}
-impl ::core::marker::Copy for MediaMemoryTypes {}
-impl ::core::clone::Clone for MediaMemoryTypes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MediaMemoryTypes {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MediaMemoryTypes {
     type TypeKind = ::windows_core::CopyType;

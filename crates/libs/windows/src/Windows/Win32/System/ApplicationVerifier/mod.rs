@@ -25,19 +25,8 @@ pub const OperationDbCLOSE: eHANDLE_TRACE_OPERATIONS = eHANDLE_TRACE_OPERATIONS(
 pub const OperationDbOPEN: eHANDLE_TRACE_OPERATIONS = eHANDLE_TRACE_OPERATIONS(1i32);
 pub const OperationDbUnused: eHANDLE_TRACE_OPERATIONS = eHANDLE_TRACE_OPERATIONS(0i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VERIFIER_ENUM_RESOURCE_FLAGS(pub u32);
-impl ::core::marker::Copy for VERIFIER_ENUM_RESOURCE_FLAGS {}
-impl ::core::clone::Clone for VERIFIER_ENUM_RESOURCE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VERIFIER_ENUM_RESOURCE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VERIFIER_ENUM_RESOURCE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -80,19 +69,8 @@ impl ::core::ops::Not for VERIFIER_ENUM_RESOURCE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAvrfResourceTypes(pub i32);
-impl ::core::marker::Copy for eAvrfResourceTypes {}
-impl ::core::clone::Clone for eAvrfResourceTypes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAvrfResourceTypes {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAvrfResourceTypes {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -102,19 +80,8 @@ impl ::core::fmt::Debug for eAvrfResourceTypes {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eHANDLE_TRACE_OPERATIONS(pub i32);
-impl ::core::marker::Copy for eHANDLE_TRACE_OPERATIONS {}
-impl ::core::clone::Clone for eHANDLE_TRACE_OPERATIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eHANDLE_TRACE_OPERATIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eHANDLE_TRACE_OPERATIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -124,19 +91,8 @@ impl ::core::fmt::Debug for eHANDLE_TRACE_OPERATIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eHeapAllocationState(pub i32);
-impl ::core::marker::Copy for eHeapAllocationState {}
-impl ::core::clone::Clone for eHeapAllocationState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eHeapAllocationState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eHeapAllocationState {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -146,19 +102,8 @@ impl ::core::fmt::Debug for eHeapAllocationState {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eHeapEnumerationLevel(pub i32);
-impl ::core::marker::Copy for eHeapEnumerationLevel {}
-impl ::core::clone::Clone for eHeapEnumerationLevel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eHeapEnumerationLevel {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eHeapEnumerationLevel {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -168,19 +113,8 @@ impl ::core::fmt::Debug for eHeapEnumerationLevel {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eUserAllocationState(pub i32);
-impl ::core::marker::Copy for eUserAllocationState {}
-impl ::core::clone::Clone for eUserAllocationState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eUserAllocationState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eUserAllocationState {
     type TypeKind = ::windows_core::CopyType;
 }

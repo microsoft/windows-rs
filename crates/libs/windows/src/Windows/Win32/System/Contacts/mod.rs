@@ -1214,19 +1214,8 @@ pub const CONTACTPROP_PUB_PROGID: ::windows_core::PCWSTR = ::windows_core::w!("P
 pub const Contact: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x61b68808_8eee_4fd1_acb8_3d804c8db056);
 pub const ContactManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7165c8ab_af88_42bd_86fd_5310b4285a02);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CONTACT_AGGREGATION_COLLECTION_OPTIONS(pub i32);
-impl ::core::marker::Copy for CONTACT_AGGREGATION_COLLECTION_OPTIONS {}
-impl ::core::clone::Clone for CONTACT_AGGREGATION_COLLECTION_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CONTACT_AGGREGATION_COLLECTION_OPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CONTACT_AGGREGATION_COLLECTION_OPTIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1236,19 +1225,8 @@ impl ::core::fmt::Debug for CONTACT_AGGREGATION_COLLECTION_OPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS(pub i32);
-impl ::core::marker::Copy for CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS {}
-impl ::core::clone::Clone for CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS {
     type TypeKind = ::windows_core::CopyType;
 }

@@ -275,22 +275,11 @@ impl ::windows_core::RuntimeName for PrepareTranscodeResult {
 unsafe impl ::core::marker::Send for PrepareTranscodeResult {}
 unsafe impl ::core::marker::Sync for PrepareTranscodeResult {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MediaVideoProcessingAlgorithm(pub i32);
 impl MediaVideoProcessingAlgorithm {
     pub const Default: Self = Self(0i32);
     pub const MrfCrf444: Self = Self(1i32);
-}
-impl ::core::marker::Copy for MediaVideoProcessingAlgorithm {}
-impl ::core::clone::Clone for MediaVideoProcessingAlgorithm {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MediaVideoProcessingAlgorithm {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MediaVideoProcessingAlgorithm {
     type TypeKind = ::windows_core::CopyType;
@@ -304,24 +293,13 @@ impl ::windows_core::RuntimeType for MediaVideoProcessingAlgorithm {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Transcoding.MediaVideoProcessingAlgorithm;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TranscodeFailureReason(pub i32);
 impl TranscodeFailureReason {
     pub const None: Self = Self(0i32);
     pub const Unknown: Self = Self(1i32);
     pub const InvalidProfile: Self = Self(2i32);
     pub const CodecNotFound: Self = Self(3i32);
-}
-impl ::core::marker::Copy for TranscodeFailureReason {}
-impl ::core::clone::Clone for TranscodeFailureReason {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TranscodeFailureReason {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for TranscodeFailureReason {
     type TypeKind = ::windows_core::CopyType;

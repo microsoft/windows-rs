@@ -142,19 +142,8 @@ pub const STRRET_CSTR: STRRET_TYPE = STRRET_TYPE(2i32);
 pub const STRRET_OFFSET: STRRET_TYPE = STRRET_TYPE(1i32);
 pub const STRRET_WSTR: STRRET_TYPE = STRRET_TYPE(0i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DEVICE_SCALE_FACTOR(pub i32);
-impl ::core::marker::Copy for DEVICE_SCALE_FACTOR {}
-impl ::core::clone::Clone for DEVICE_SCALE_FACTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DEVICE_SCALE_FACTOR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DEVICE_SCALE_FACTOR {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -164,19 +153,8 @@ impl ::core::fmt::Debug for DEVICE_SCALE_FACTOR {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PERCEIVED(pub i32);
-impl ::core::marker::Copy for PERCEIVED {}
-impl ::core::clone::Clone for PERCEIVED {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PERCEIVED {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PERCEIVED {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -186,19 +164,8 @@ impl ::core::fmt::Debug for PERCEIVED {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SHCOLSTATE(pub i32);
-impl ::core::marker::Copy for SHCOLSTATE {}
-impl ::core::clone::Clone for SHCOLSTATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SHCOLSTATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SHCOLSTATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -208,19 +175,8 @@ impl ::core::fmt::Debug for SHCOLSTATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct STRRET_TYPE(pub i32);
-impl ::core::marker::Copy for STRRET_TYPE {}
-impl ::core::clone::Clone for STRRET_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for STRRET_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for STRRET_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }

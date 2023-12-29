@@ -1132,22 +1132,11 @@ impl ::windows_core::RuntimeName for LampArrayUpdateRequestedEventArgs {
 unsafe impl ::core::marker::Send for LampArrayUpdateRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for LampArrayUpdateRequestedEventArgs {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct LampArrayEffectCompletionBehavior(pub i32);
 impl LampArrayEffectCompletionBehavior {
     pub const ClearState: Self = Self(0i32);
     pub const KeepState: Self = Self(1i32);
-}
-impl ::core::marker::Copy for LampArrayEffectCompletionBehavior {}
-impl ::core::clone::Clone for LampArrayEffectCompletionBehavior {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for LampArrayEffectCompletionBehavior {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for LampArrayEffectCompletionBehavior {
     type TypeKind = ::windows_core::CopyType;
@@ -1161,22 +1150,11 @@ impl ::windows_core::RuntimeType for LampArrayEffectCompletionBehavior {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Lights.Effects.LampArrayEffectCompletionBehavior;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct LampArrayEffectStartMode(pub i32);
 impl LampArrayEffectStartMode {
     pub const Sequential: Self = Self(0i32);
     pub const Simultaneous: Self = Self(1i32);
-}
-impl ::core::marker::Copy for LampArrayEffectStartMode {}
-impl ::core::clone::Clone for LampArrayEffectStartMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for LampArrayEffectStartMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for LampArrayEffectStartMode {
     type TypeKind = ::windows_core::CopyType;
@@ -1190,22 +1168,11 @@ impl ::windows_core::RuntimeType for LampArrayEffectStartMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Lights.Effects.LampArrayEffectStartMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct LampArrayRepetitionMode(pub i32);
 impl LampArrayRepetitionMode {
     pub const Occurrences: Self = Self(0i32);
     pub const Forever: Self = Self(1i32);
-}
-impl ::core::marker::Copy for LampArrayRepetitionMode {}
-impl ::core::clone::Clone for LampArrayRepetitionMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for LampArrayRepetitionMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for LampArrayRepetitionMode {
     type TypeKind = ::windows_core::CopyType;

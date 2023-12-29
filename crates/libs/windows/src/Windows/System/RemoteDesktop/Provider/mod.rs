@@ -359,24 +359,13 @@ impl ::windows_core::RuntimeName for RemoteDesktopRegistrar {
     const NAME: &'static str = "Windows.System.RemoteDesktop.Provider.RemoteDesktopRegistrar";
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RemoteDesktopConnectionStatus(pub i32);
 impl RemoteDesktopConnectionStatus {
     pub const Connecting: Self = Self(0i32);
     pub const Connected: Self = Self(1i32);
     pub const UserInputNeeded: Self = Self(2i32);
     pub const Disconnected: Self = Self(3i32);
-}
-impl ::core::marker::Copy for RemoteDesktopConnectionStatus {}
-impl ::core::clone::Clone for RemoteDesktopConnectionStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RemoteDesktopConnectionStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for RemoteDesktopConnectionStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -390,21 +379,10 @@ impl ::windows_core::RuntimeType for RemoteDesktopConnectionStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.RemoteDesktop.Provider.RemoteDesktopConnectionStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RemoteDesktopLocalAction(pub i32);
 impl RemoteDesktopLocalAction {
     pub const ShowBluetoothSettings: Self = Self(0i32);
-}
-impl ::core::marker::Copy for RemoteDesktopLocalAction {}
-impl ::core::clone::Clone for RemoteDesktopLocalAction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RemoteDesktopLocalAction {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for RemoteDesktopLocalAction {
     type TypeKind = ::windows_core::CopyType;

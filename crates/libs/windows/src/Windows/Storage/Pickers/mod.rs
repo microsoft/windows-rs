@@ -1148,7 +1148,7 @@ impl ::windows_core::RuntimeName for FolderPicker {
 unsafe impl ::core::marker::Send for FolderPicker {}
 unsafe impl ::core::marker::Sync for FolderPicker {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PickerLocationId(pub i32);
 impl PickerLocationId {
     pub const DocumentsLibrary: Self = Self(0i32);
@@ -1162,17 +1162,6 @@ impl PickerLocationId {
     pub const Objects3D: Self = Self(8i32);
     pub const Unspecified: Self = Self(9i32);
 }
-impl ::core::marker::Copy for PickerLocationId {}
-impl ::core::clone::Clone for PickerLocationId {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PickerLocationId {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PickerLocationId {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1185,22 +1174,11 @@ impl ::windows_core::RuntimeType for PickerLocationId {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Pickers.PickerLocationId;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PickerViewMode(pub i32);
 impl PickerViewMode {
     pub const List: Self = Self(0i32);
     pub const Thumbnail: Self = Self(1i32);
-}
-impl ::core::marker::Copy for PickerViewMode {}
-impl ::core::clone::Clone for PickerViewMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PickerViewMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PickerViewMode {
     type TypeKind = ::windows_core::CopyType;

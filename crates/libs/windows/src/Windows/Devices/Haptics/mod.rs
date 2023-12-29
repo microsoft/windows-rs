@@ -437,24 +437,13 @@ impl ::windows_core::RuntimeName for VibrationDevice {
 unsafe impl ::core::marker::Send for VibrationDevice {}
 unsafe impl ::core::marker::Sync for VibrationDevice {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VibrationAccessStatus(pub i32);
 impl VibrationAccessStatus {
     pub const Allowed: Self = Self(0i32);
     pub const DeniedByUser: Self = Self(1i32);
     pub const DeniedBySystem: Self = Self(2i32);
     pub const DeniedByEnergySaver: Self = Self(3i32);
-}
-impl ::core::marker::Copy for VibrationAccessStatus {}
-impl ::core::clone::Clone for VibrationAccessStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VibrationAccessStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for VibrationAccessStatus {
     type TypeKind = ::windows_core::CopyType;

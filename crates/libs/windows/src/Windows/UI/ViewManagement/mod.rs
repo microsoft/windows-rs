@@ -2607,22 +2607,11 @@ impl ::windows_core::RuntimeName for ViewModePreferences {
 }
 ::windows_core::imp::interface_hierarchy!(ViewModePreferences, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ApplicationViewBoundsMode(pub i32);
 impl ApplicationViewBoundsMode {
     pub const UseVisible: Self = Self(0i32);
     pub const UseCoreWindow: Self = Self(1i32);
-}
-impl ::core::marker::Copy for ApplicationViewBoundsMode {}
-impl ::core::clone::Clone for ApplicationViewBoundsMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ApplicationViewBoundsMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ApplicationViewBoundsMode {
     type TypeKind = ::windows_core::CopyType;
@@ -2636,22 +2625,11 @@ impl ::windows_core::RuntimeType for ApplicationViewBoundsMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.ApplicationViewBoundsMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ApplicationViewMode(pub i32);
 impl ApplicationViewMode {
     pub const Default: Self = Self(0i32);
     pub const CompactOverlay: Self = Self(1i32);
-}
-impl ::core::marker::Copy for ApplicationViewMode {}
-impl ::core::clone::Clone for ApplicationViewMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ApplicationViewMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ApplicationViewMode {
     type TypeKind = ::windows_core::CopyType;
@@ -2665,22 +2643,11 @@ impl ::windows_core::RuntimeType for ApplicationViewMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.ApplicationViewMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ApplicationViewOrientation(pub i32);
 impl ApplicationViewOrientation {
     pub const Landscape: Self = Self(0i32);
     pub const Portrait: Self = Self(1i32);
-}
-impl ::core::marker::Copy for ApplicationViewOrientation {}
-impl ::core::clone::Clone for ApplicationViewOrientation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ApplicationViewOrientation {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ApplicationViewOrientation {
     type TypeKind = ::windows_core::CopyType;
@@ -2696,7 +2663,7 @@ impl ::windows_core::RuntimeType for ApplicationViewOrientation {
 #[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ApplicationViewState(pub i32);
 #[cfg(feature = "deprecated")]
 impl ApplicationViewState {
@@ -2704,20 +2671,6 @@ impl ApplicationViewState {
     pub const Filled: Self = Self(1i32);
     pub const Snapped: Self = Self(2i32);
     pub const FullScreenPortrait: Self = Self(3i32);
-}
-#[cfg(feature = "deprecated")]
-impl ::core::marker::Copy for ApplicationViewState {}
-#[cfg(feature = "deprecated")]
-impl ::core::clone::Clone for ApplicationViewState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::default::Default for ApplicationViewState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 #[cfg(feature = "deprecated")]
 impl ::windows_core::TypeKind for ApplicationViewState {
@@ -2734,23 +2687,12 @@ impl ::windows_core::RuntimeType for ApplicationViewState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.ApplicationViewState;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ApplicationViewSwitchingOptions(pub u32);
 impl ApplicationViewSwitchingOptions {
     pub const Default: Self = Self(0u32);
     pub const SkipAnimation: Self = Self(1u32);
     pub const ConsolidateViews: Self = Self(2u32);
-}
-impl ::core::marker::Copy for ApplicationViewSwitchingOptions {}
-impl ::core::clone::Clone for ApplicationViewSwitchingOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ApplicationViewSwitchingOptions {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ApplicationViewSwitchingOptions {
     type TypeKind = ::windows_core::CopyType;
@@ -2797,7 +2739,7 @@ impl ::windows_core::RuntimeType for ApplicationViewSwitchingOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.ApplicationViewSwitchingOptions;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ApplicationViewWindowingMode(pub i32);
 impl ApplicationViewWindowingMode {
     pub const Auto: Self = Self(0i32);
@@ -2805,17 +2747,6 @@ impl ApplicationViewWindowingMode {
     pub const FullScreen: Self = Self(2i32);
     pub const CompactOverlay: Self = Self(3i32);
     pub const Maximized: Self = Self(4i32);
-}
-impl ::core::marker::Copy for ApplicationViewWindowingMode {}
-impl ::core::clone::Clone for ApplicationViewWindowingMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ApplicationViewWindowingMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ApplicationViewWindowingMode {
     type TypeKind = ::windows_core::CopyType;
@@ -2829,22 +2760,11 @@ impl ::windows_core::RuntimeType for ApplicationViewWindowingMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.ApplicationViewWindowingMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FullScreenSystemOverlayMode(pub i32);
 impl FullScreenSystemOverlayMode {
     pub const Standard: Self = Self(0i32);
     pub const Minimal: Self = Self(1i32);
-}
-impl ::core::marker::Copy for FullScreenSystemOverlayMode {}
-impl ::core::clone::Clone for FullScreenSystemOverlayMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FullScreenSystemOverlayMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for FullScreenSystemOverlayMode {
     type TypeKind = ::windows_core::CopyType;
@@ -2858,22 +2778,11 @@ impl ::windows_core::RuntimeType for FullScreenSystemOverlayMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.FullScreenSystemOverlayMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HandPreference(pub i32);
 impl HandPreference {
     pub const LeftHanded: Self = Self(0i32);
     pub const RightHanded: Self = Self(1i32);
-}
-impl ::core::marker::Copy for HandPreference {}
-impl ::core::clone::Clone for HandPreference {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HandPreference {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for HandPreference {
     type TypeKind = ::windows_core::CopyType;
@@ -2887,22 +2796,11 @@ impl ::windows_core::RuntimeType for HandPreference {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.HandPreference;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ScreenCaptureDisabledBehavior(pub i32);
 impl ScreenCaptureDisabledBehavior {
     pub const DrawAsBlack: Self = Self(0i32);
     pub const ExcludeFromCapture: Self = Self(1i32);
-}
-impl ::core::marker::Copy for ScreenCaptureDisabledBehavior {}
-impl ::core::clone::Clone for ScreenCaptureDisabledBehavior {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ScreenCaptureDisabledBehavior {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ScreenCaptureDisabledBehavior {
     type TypeKind = ::windows_core::CopyType;
@@ -2916,7 +2814,7 @@ impl ::windows_core::RuntimeType for ScreenCaptureDisabledBehavior {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.ScreenCaptureDisabledBehavior;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UIColorType(pub i32);
 impl UIColorType {
     pub const Background: Self = Self(0i32);
@@ -2930,17 +2828,6 @@ impl UIColorType {
     pub const AccentLight3: Self = Self(8i32);
     pub const Complement: Self = Self(9i32);
 }
-impl ::core::marker::Copy for UIColorType {}
-impl ::core::clone::Clone for UIColorType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UIColorType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for UIColorType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2953,7 +2840,7 @@ impl ::windows_core::RuntimeType for UIColorType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.UIColorType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UIElementType(pub i32);
 impl UIElementType {
     pub const ActiveCaption: Self = Self(0i32);
@@ -2983,17 +2870,6 @@ impl UIElementType {
     pub const PopupBackground: Self = Self(1011i32);
     pub const OverlayOutsidePopup: Self = Self(1012i32);
 }
-impl ::core::marker::Copy for UIElementType {}
-impl ::core::clone::Clone for UIElementType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UIElementType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for UIElementType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3006,22 +2882,11 @@ impl ::windows_core::RuntimeType for UIElementType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.UIElementType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UserInteractionMode(pub i32);
 impl UserInteractionMode {
     pub const Mouse: Self = Self(0i32);
     pub const Touch: Self = Self(1i32);
-}
-impl ::core::marker::Copy for UserInteractionMode {}
-impl ::core::clone::Clone for UserInteractionMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UserInteractionMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for UserInteractionMode {
     type TypeKind = ::windows_core::CopyType;
@@ -3035,7 +2900,7 @@ impl ::windows_core::RuntimeType for UserInteractionMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.UserInteractionMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ViewSizePreference(pub i32);
 impl ViewSizePreference {
     pub const Default: Self = Self(0i32);
@@ -3045,17 +2910,6 @@ impl ViewSizePreference {
     pub const UseMinimum: Self = Self(4i32);
     pub const UseNone: Self = Self(5i32);
     pub const Custom: Self = Self(6i32);
-}
-impl ::core::marker::Copy for ViewSizePreference {}
-impl ::core::clone::Clone for ViewSizePreference {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ViewSizePreference {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ViewSizePreference {
     type TypeKind = ::windows_core::CopyType;

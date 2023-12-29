@@ -388,19 +388,8 @@ pub const PresentStatus_Canceled: PresentStatus = PresentStatus(2i32);
 pub const PresentStatus_Queued: PresentStatus = PresentStatus(0i32);
 pub const PresentStatus_Skipped: PresentStatus = PresentStatus(1i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CompositionFrameInstanceKind(pub i32);
-impl ::core::marker::Copy for CompositionFrameInstanceKind {}
-impl ::core::clone::Clone for CompositionFrameInstanceKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CompositionFrameInstanceKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CompositionFrameInstanceKind {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -410,19 +399,8 @@ impl ::core::fmt::Debug for CompositionFrameInstanceKind {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PresentStatisticsKind(pub i32);
-impl ::core::marker::Copy for PresentStatisticsKind {}
-impl ::core::clone::Clone for PresentStatisticsKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PresentStatisticsKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PresentStatisticsKind {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -432,19 +410,8 @@ impl ::core::fmt::Debug for PresentStatisticsKind {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PresentStatus(pub i32);
-impl ::core::marker::Copy for PresentStatus {}
-impl ::core::clone::Clone for PresentStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PresentStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PresentStatus {
     type TypeKind = ::windows_core::CopyType;
 }

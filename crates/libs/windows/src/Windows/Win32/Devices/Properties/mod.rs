@@ -234,19 +234,8 @@ pub const DEVPROP_TYPE_UINT64: DEVPROPTYPE = DEVPROPTYPE(9u32);
 pub const MAX_DEVPROP_TYPE: u32 = 25u32;
 pub const MAX_DEVPROP_TYPEMOD: u32 = 8192u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DEVPROPSTORE(pub i32);
-impl ::core::marker::Copy for DEVPROPSTORE {}
-impl ::core::clone::Clone for DEVPROPSTORE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DEVPROPSTORE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DEVPROPSTORE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -256,19 +245,8 @@ impl ::core::fmt::Debug for DEVPROPSTORE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DEVPROPTYPE(pub u32);
-impl ::core::marker::Copy for DEVPROPTYPE {}
-impl ::core::clone::Clone for DEVPROPTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DEVPROPTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DEVPROPTYPE {
     type TypeKind = ::windows_core::CopyType;
 }

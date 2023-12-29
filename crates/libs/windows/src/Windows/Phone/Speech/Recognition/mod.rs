@@ -1,5 +1,5 @@
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SpeechRecognitionUIStatus(pub i32);
 impl SpeechRecognitionUIStatus {
     pub const Succeeded: Self = Self(0i32);
@@ -7,17 +7,6 @@ impl SpeechRecognitionUIStatus {
     pub const Cancelled: Self = Self(2i32);
     pub const Preempted: Self = Self(3i32);
     pub const PrivacyPolicyDeclined: Self = Self(4i32);
-}
-impl ::core::marker::Copy for SpeechRecognitionUIStatus {}
-impl ::core::clone::Clone for SpeechRecognitionUIStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpeechRecognitionUIStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SpeechRecognitionUIStatus {
     type TypeKind = ::windows_core::CopyType;

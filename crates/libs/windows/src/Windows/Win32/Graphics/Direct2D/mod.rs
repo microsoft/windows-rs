@@ -15933,19 +15933,8 @@ pub const D2D1_YCBCR_PROP_INTERPOLATION_MODE: D2D1_YCBCR_PROP = D2D1_YCBCR_PROP(
 pub const D2D1_YCBCR_PROP_TRANSFORM_MATRIX: D2D1_YCBCR_PROP = D2D1_YCBCR_PROP(1i32);
 pub const FACILITY_D2D: u32 = 2201u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_2DAFFINETRANSFORM_PROP(pub i32);
-impl ::core::marker::Copy for D2D1_2DAFFINETRANSFORM_PROP {}
-impl ::core::clone::Clone for D2D1_2DAFFINETRANSFORM_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_2DAFFINETRANSFORM_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_2DAFFINETRANSFORM_PROP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15955,19 +15944,8 @@ impl ::core::fmt::Debug for D2D1_2DAFFINETRANSFORM_PROP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE(pub i32);
-impl ::core::marker::Copy for D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE {}
-impl ::core::clone::Clone for D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15977,19 +15955,8 @@ impl ::core::fmt::Debug for D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_3DPERSPECTIVETRANSFORM_PROP(pub i32);
-impl ::core::marker::Copy for D2D1_3DPERSPECTIVETRANSFORM_PROP {}
-impl ::core::clone::Clone for D2D1_3DPERSPECTIVETRANSFORM_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_3DPERSPECTIVETRANSFORM_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_3DPERSPECTIVETRANSFORM_PROP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15999,19 +15966,8 @@ impl ::core::fmt::Debug for D2D1_3DPERSPECTIVETRANSFORM_PROP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_3DTRANSFORM_INTERPOLATION_MODE(pub i32);
-impl ::core::marker::Copy for D2D1_3DTRANSFORM_INTERPOLATION_MODE {}
-impl ::core::clone::Clone for D2D1_3DTRANSFORM_INTERPOLATION_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_3DTRANSFORM_INTERPOLATION_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_3DTRANSFORM_INTERPOLATION_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16021,19 +15977,8 @@ impl ::core::fmt::Debug for D2D1_3DTRANSFORM_INTERPOLATION_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_3DTRANSFORM_PROP(pub i32);
-impl ::core::marker::Copy for D2D1_3DTRANSFORM_PROP {}
-impl ::core::clone::Clone for D2D1_3DTRANSFORM_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_3DTRANSFORM_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_3DTRANSFORM_PROP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16043,19 +15988,8 @@ impl ::core::fmt::Debug for D2D1_3DTRANSFORM_PROP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_ANTIALIAS_MODE(pub i32);
-impl ::core::marker::Copy for D2D1_ANTIALIAS_MODE {}
-impl ::core::clone::Clone for D2D1_ANTIALIAS_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_ANTIALIAS_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_ANTIALIAS_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16065,19 +15999,8 @@ impl ::core::fmt::Debug for D2D1_ANTIALIAS_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_ARC_SIZE(pub i32);
-impl ::core::marker::Copy for D2D1_ARC_SIZE {}
-impl ::core::clone::Clone for D2D1_ARC_SIZE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_ARC_SIZE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_ARC_SIZE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16087,19 +16010,8 @@ impl ::core::fmt::Debug for D2D1_ARC_SIZE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_ARITHMETICCOMPOSITE_PROP(pub i32);
-impl ::core::marker::Copy for D2D1_ARITHMETICCOMPOSITE_PROP {}
-impl ::core::clone::Clone for D2D1_ARITHMETICCOMPOSITE_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_ARITHMETICCOMPOSITE_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_ARITHMETICCOMPOSITE_PROP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16109,19 +16021,8 @@ impl ::core::fmt::Debug for D2D1_ARITHMETICCOMPOSITE_PROP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_ATLAS_PROP(pub i32);
-impl ::core::marker::Copy for D2D1_ATLAS_PROP {}
-impl ::core::clone::Clone for D2D1_ATLAS_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_ATLAS_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_ATLAS_PROP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16131,19 +16032,8 @@ impl ::core::fmt::Debug for D2D1_ATLAS_PROP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_BITMAPSOURCE_ALPHA_MODE(pub i32);
-impl ::core::marker::Copy for D2D1_BITMAPSOURCE_ALPHA_MODE {}
-impl ::core::clone::Clone for D2D1_BITMAPSOURCE_ALPHA_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_BITMAPSOURCE_ALPHA_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_BITMAPSOURCE_ALPHA_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16153,19 +16043,8 @@ impl ::core::fmt::Debug for D2D1_BITMAPSOURCE_ALPHA_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_BITMAPSOURCE_INTERPOLATION_MODE(pub i32);
-impl ::core::marker::Copy for D2D1_BITMAPSOURCE_INTERPOLATION_MODE {}
-impl ::core::clone::Clone for D2D1_BITMAPSOURCE_INTERPOLATION_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_BITMAPSOURCE_INTERPOLATION_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_BITMAPSOURCE_INTERPOLATION_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16175,19 +16054,8 @@ impl ::core::fmt::Debug for D2D1_BITMAPSOURCE_INTERPOLATION_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_BITMAPSOURCE_ORIENTATION(pub i32);
-impl ::core::marker::Copy for D2D1_BITMAPSOURCE_ORIENTATION {}
-impl ::core::clone::Clone for D2D1_BITMAPSOURCE_ORIENTATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_BITMAPSOURCE_ORIENTATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_BITMAPSOURCE_ORIENTATION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16197,19 +16065,8 @@ impl ::core::fmt::Debug for D2D1_BITMAPSOURCE_ORIENTATION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_BITMAPSOURCE_PROP(pub i32);
-impl ::core::marker::Copy for D2D1_BITMAPSOURCE_PROP {}
-impl ::core::clone::Clone for D2D1_BITMAPSOURCE_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_BITMAPSOURCE_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_BITMAPSOURCE_PROP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16219,19 +16076,8 @@ impl ::core::fmt::Debug for D2D1_BITMAPSOURCE_PROP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_BITMAP_INTERPOLATION_MODE(pub i32);
-impl ::core::marker::Copy for D2D1_BITMAP_INTERPOLATION_MODE {}
-impl ::core::clone::Clone for D2D1_BITMAP_INTERPOLATION_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_BITMAP_INTERPOLATION_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_BITMAP_INTERPOLATION_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16241,19 +16087,8 @@ impl ::core::fmt::Debug for D2D1_BITMAP_INTERPOLATION_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_BITMAP_OPTIONS(pub i32);
-impl ::core::marker::Copy for D2D1_BITMAP_OPTIONS {}
-impl ::core::clone::Clone for D2D1_BITMAP_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_BITMAP_OPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_BITMAP_OPTIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16296,19 +16131,8 @@ impl ::core::ops::Not for D2D1_BITMAP_OPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_BLEND(pub i32);
-impl ::core::marker::Copy for D2D1_BLEND {}
-impl ::core::clone::Clone for D2D1_BLEND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_BLEND {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_BLEND {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16318,19 +16142,8 @@ impl ::core::fmt::Debug for D2D1_BLEND {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_BLEND_OPERATION(pub i32);
-impl ::core::marker::Copy for D2D1_BLEND_OPERATION {}
-impl ::core::clone::Clone for D2D1_BLEND_OPERATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_BLEND_OPERATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_BLEND_OPERATION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16340,19 +16153,8 @@ impl ::core::fmt::Debug for D2D1_BLEND_OPERATION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_BLEND_PROP(pub i32);
-impl ::core::marker::Copy for D2D1_BLEND_PROP {}
-impl ::core::clone::Clone for D2D1_BLEND_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_BLEND_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_BLEND_PROP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16362,19 +16164,8 @@ impl ::core::fmt::Debug for D2D1_BLEND_PROP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_BORDER_EDGE_MODE(pub i32);
-impl ::core::marker::Copy for D2D1_BORDER_EDGE_MODE {}
-impl ::core::clone::Clone for D2D1_BORDER_EDGE_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_BORDER_EDGE_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_BORDER_EDGE_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16384,19 +16175,8 @@ impl ::core::fmt::Debug for D2D1_BORDER_EDGE_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_BORDER_PROP(pub i32);
-impl ::core::marker::Copy for D2D1_BORDER_PROP {}
-impl ::core::clone::Clone for D2D1_BORDER_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_BORDER_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_BORDER_PROP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16406,19 +16186,8 @@ impl ::core::fmt::Debug for D2D1_BORDER_PROP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_BRIGHTNESS_PROP(pub i32);
-impl ::core::marker::Copy for D2D1_BRIGHTNESS_PROP {}
-impl ::core::clone::Clone for D2D1_BRIGHTNESS_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_BRIGHTNESS_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_BRIGHTNESS_PROP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16428,19 +16197,8 @@ impl ::core::fmt::Debug for D2D1_BRIGHTNESS_PROP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_BUFFER_PRECISION(pub i32);
-impl ::core::marker::Copy for D2D1_BUFFER_PRECISION {}
-impl ::core::clone::Clone for D2D1_BUFFER_PRECISION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_BUFFER_PRECISION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_BUFFER_PRECISION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16450,19 +16208,8 @@ impl ::core::fmt::Debug for D2D1_BUFFER_PRECISION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_CAP_STYLE(pub i32);
-impl ::core::marker::Copy for D2D1_CAP_STYLE {}
-impl ::core::clone::Clone for D2D1_CAP_STYLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_CAP_STYLE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_CAP_STYLE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16472,19 +16219,8 @@ impl ::core::fmt::Debug for D2D1_CAP_STYLE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_CHANGE_TYPE(pub i32);
-impl ::core::marker::Copy for D2D1_CHANGE_TYPE {}
-impl ::core::clone::Clone for D2D1_CHANGE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_CHANGE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_CHANGE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16527,19 +16263,8 @@ impl ::core::ops::Not for D2D1_CHANGE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_CHANNEL_DEPTH(pub i32);
-impl ::core::marker::Copy for D2D1_CHANNEL_DEPTH {}
-impl ::core::clone::Clone for D2D1_CHANNEL_DEPTH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_CHANNEL_DEPTH {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_CHANNEL_DEPTH {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16549,19 +16274,8 @@ impl ::core::fmt::Debug for D2D1_CHANNEL_DEPTH {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_CHANNEL_SELECTOR(pub i32);
-impl ::core::marker::Copy for D2D1_CHANNEL_SELECTOR {}
-impl ::core::clone::Clone for D2D1_CHANNEL_SELECTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_CHANNEL_SELECTOR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_CHANNEL_SELECTOR {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16571,19 +16285,8 @@ impl ::core::fmt::Debug for D2D1_CHANNEL_SELECTOR {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_CHROMAKEY_PROP(pub i32);
-impl ::core::marker::Copy for D2D1_CHROMAKEY_PROP {}
-impl ::core::clone::Clone for D2D1_CHROMAKEY_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_CHROMAKEY_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_CHROMAKEY_PROP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16593,19 +16296,8 @@ impl ::core::fmt::Debug for D2D1_CHROMAKEY_PROP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_COLORMANAGEMENT_ALPHA_MODE(pub i32);
-impl ::core::marker::Copy for D2D1_COLORMANAGEMENT_ALPHA_MODE {}
-impl ::core::clone::Clone for D2D1_COLORMANAGEMENT_ALPHA_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_COLORMANAGEMENT_ALPHA_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_COLORMANAGEMENT_ALPHA_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16615,19 +16307,8 @@ impl ::core::fmt::Debug for D2D1_COLORMANAGEMENT_ALPHA_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_COLORMANAGEMENT_PROP(pub i32);
-impl ::core::marker::Copy for D2D1_COLORMANAGEMENT_PROP {}
-impl ::core::clone::Clone for D2D1_COLORMANAGEMENT_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_COLORMANAGEMENT_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_COLORMANAGEMENT_PROP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16637,19 +16318,8 @@ impl ::core::fmt::Debug for D2D1_COLORMANAGEMENT_PROP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_COLORMANAGEMENT_QUALITY(pub i32);
-impl ::core::marker::Copy for D2D1_COLORMANAGEMENT_QUALITY {}
-impl ::core::clone::Clone for D2D1_COLORMANAGEMENT_QUALITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_COLORMANAGEMENT_QUALITY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_COLORMANAGEMENT_QUALITY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16659,19 +16329,8 @@ impl ::core::fmt::Debug for D2D1_COLORMANAGEMENT_QUALITY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_COLORMANAGEMENT_RENDERING_INTENT(pub i32);
-impl ::core::marker::Copy for D2D1_COLORMANAGEMENT_RENDERING_INTENT {}
-impl ::core::clone::Clone for D2D1_COLORMANAGEMENT_RENDERING_INTENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_COLORMANAGEMENT_RENDERING_INTENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_COLORMANAGEMENT_RENDERING_INTENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16681,19 +16340,8 @@ impl ::core::fmt::Debug for D2D1_COLORMANAGEMENT_RENDERING_INTENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_COLORMATRIX_PROP(pub i32);
-impl ::core::marker::Copy for D2D1_COLORMATRIX_PROP {}
-impl ::core::clone::Clone for D2D1_COLORMATRIX_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_COLORMATRIX_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_COLORMATRIX_PROP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16703,19 +16351,8 @@ impl ::core::fmt::Debug for D2D1_COLORMATRIX_PROP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION(pub i32);
-impl ::core::marker::Copy for D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION {}
-impl ::core::clone::Clone for D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16725,19 +16362,8 @@ impl ::core::fmt::Debug for D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_COLOR_CONTEXT_TYPE(pub i32);
-impl ::core::marker::Copy for D2D1_COLOR_CONTEXT_TYPE {}
-impl ::core::clone::Clone for D2D1_COLOR_CONTEXT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_COLOR_CONTEXT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_COLOR_CONTEXT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16747,19 +16373,8 @@ impl ::core::fmt::Debug for D2D1_COLOR_CONTEXT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_COLOR_INTERPOLATION_MODE(pub i32);
-impl ::core::marker::Copy for D2D1_COLOR_INTERPOLATION_MODE {}
-impl ::core::clone::Clone for D2D1_COLOR_INTERPOLATION_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_COLOR_INTERPOLATION_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_COLOR_INTERPOLATION_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16769,19 +16384,8 @@ impl ::core::fmt::Debug for D2D1_COLOR_INTERPOLATION_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_COLOR_SPACE(pub i32);
-impl ::core::marker::Copy for D2D1_COLOR_SPACE {}
-impl ::core::clone::Clone for D2D1_COLOR_SPACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_COLOR_SPACE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_COLOR_SPACE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16791,19 +16395,8 @@ impl ::core::fmt::Debug for D2D1_COLOR_SPACE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_COMBINE_MODE(pub i32);
-impl ::core::marker::Copy for D2D1_COMBINE_MODE {}
-impl ::core::clone::Clone for D2D1_COMBINE_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_COMBINE_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_COMBINE_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16813,19 +16406,8 @@ impl ::core::fmt::Debug for D2D1_COMBINE_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS(pub i32);
-impl ::core::marker::Copy for D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS {}
-impl ::core::clone::Clone for D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16868,19 +16450,8 @@ impl ::core::ops::Not for D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_COMPOSITE_PROP(pub i32);
-impl ::core::marker::Copy for D2D1_COMPOSITE_PROP {}
-impl ::core::clone::Clone for D2D1_COMPOSITE_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_COMPOSITE_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_COMPOSITE_PROP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16890,19 +16461,8 @@ impl ::core::fmt::Debug for D2D1_COMPOSITE_PROP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_CONTRAST_PROP(pub i32);
-impl ::core::marker::Copy for D2D1_CONTRAST_PROP {}
-impl ::core::clone::Clone for D2D1_CONTRAST_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_CONTRAST_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_CONTRAST_PROP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16912,19 +16472,8 @@ impl ::core::fmt::Debug for D2D1_CONTRAST_PROP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_CONVOLVEMATRIX_PROP(pub i32);
-impl ::core::marker::Copy for D2D1_CONVOLVEMATRIX_PROP {}
-impl ::core::clone::Clone for D2D1_CONVOLVEMATRIX_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_CONVOLVEMATRIX_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_CONVOLVEMATRIX_PROP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16934,19 +16483,8 @@ impl ::core::fmt::Debug for D2D1_CONVOLVEMATRIX_PROP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_CONVOLVEMATRIX_SCALE_MODE(pub i32);
-impl ::core::marker::Copy for D2D1_CONVOLVEMATRIX_SCALE_MODE {}
-impl ::core::clone::Clone for D2D1_CONVOLVEMATRIX_SCALE_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_CONVOLVEMATRIX_SCALE_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_CONVOLVEMATRIX_SCALE_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16956,19 +16494,8 @@ impl ::core::fmt::Debug for D2D1_CONVOLVEMATRIX_SCALE_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_CROP_PROP(pub i32);
-impl ::core::marker::Copy for D2D1_CROP_PROP {}
-impl ::core::clone::Clone for D2D1_CROP_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_CROP_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_CROP_PROP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16978,19 +16505,8 @@ impl ::core::fmt::Debug for D2D1_CROP_PROP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_CROSSFADE_PROP(pub i32);
-impl ::core::marker::Copy for D2D1_CROSSFADE_PROP {}
-impl ::core::clone::Clone for D2D1_CROSSFADE_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_CROSSFADE_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_CROSSFADE_PROP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -17000,19 +16516,8 @@ impl ::core::fmt::Debug for D2D1_CROSSFADE_PROP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_DASH_STYLE(pub i32);
-impl ::core::marker::Copy for D2D1_DASH_STYLE {}
-impl ::core::clone::Clone for D2D1_DASH_STYLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_DASH_STYLE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_DASH_STYLE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -17022,19 +16527,8 @@ impl ::core::fmt::Debug for D2D1_DASH_STYLE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_DC_INITIALIZE_MODE(pub i32);
-impl ::core::marker::Copy for D2D1_DC_INITIALIZE_MODE {}
-impl ::core::clone::Clone for D2D1_DC_INITIALIZE_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_DC_INITIALIZE_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_DC_INITIALIZE_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -17044,19 +16538,8 @@ impl ::core::fmt::Debug for D2D1_DC_INITIALIZE_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_DEBUG_LEVEL(pub i32);
-impl ::core::marker::Copy for D2D1_DEBUG_LEVEL {}
-impl ::core::clone::Clone for D2D1_DEBUG_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_DEBUG_LEVEL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_DEBUG_LEVEL {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -17066,19 +16549,8 @@ impl ::core::fmt::Debug for D2D1_DEBUG_LEVEL {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_DEVICE_CONTEXT_OPTIONS(pub i32);
-impl ::core::marker::Copy for D2D1_DEVICE_CONTEXT_OPTIONS {}
-impl ::core::clone::Clone for D2D1_DEVICE_CONTEXT_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_DEVICE_CONTEXT_OPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_DEVICE_CONTEXT_OPTIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -17121,19 +16593,8 @@ impl ::core::ops::Not for D2D1_DEVICE_CONTEXT_OPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_DIRECTIONALBLUR_OPTIMIZATION(pub i32);
-impl ::core::marker::Copy for D2D1_DIRECTIONALBLUR_OPTIMIZATION {}
-impl ::core::clone::Clone for D2D1_DIRECTIONALBLUR_OPTIMIZATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_DIRECTIONALBLUR_OPTIMIZATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_DIRECTIONALBLUR_OPTIMIZATION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -17143,19 +16604,8 @@ impl ::core::fmt::Debug for D2D1_DIRECTIONALBLUR_OPTIMIZATION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_DIRECTIONALBLUR_PROP(pub i32);
-impl ::core::marker::Copy for D2D1_DIRECTIONALBLUR_PROP {}
-impl ::core::clone::Clone for D2D1_DIRECTIONALBLUR_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_DIRECTIONALBLUR_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_DIRECTIONALBLUR_PROP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -17165,19 +16615,8 @@ impl ::core::fmt::Debug for D2D1_DIRECTIONALBLUR_PROP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_DISCRETETRANSFER_PROP(pub i32);
-impl ::core::marker::Copy for D2D1_DISCRETETRANSFER_PROP {}
-impl ::core::clone::Clone for D2D1_DISCRETETRANSFER_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_DISCRETETRANSFER_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_DISCRETETRANSFER_PROP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -17187,19 +16626,8 @@ impl ::core::fmt::Debug for D2D1_DISCRETETRANSFER_PROP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_DISPLACEMENTMAP_PROP(pub i32);
-impl ::core::marker::Copy for D2D1_DISPLACEMENTMAP_PROP {}
-impl ::core::clone::Clone for D2D1_DISPLACEMENTMAP_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_DISPLACEMENTMAP_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_DISPLACEMENTMAP_PROP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -17209,19 +16637,8 @@ impl ::core::fmt::Debug for D2D1_DISPLACEMENTMAP_PROP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_DISTANTDIFFUSE_PROP(pub i32);
-impl ::core::marker::Copy for D2D1_DISTANTDIFFUSE_PROP {}
-impl ::core::clone::Clone for D2D1_DISTANTDIFFUSE_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_DISTANTDIFFUSE_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_DISTANTDIFFUSE_PROP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -17231,19 +16648,8 @@ impl ::core::fmt::Debug for D2D1_DISTANTDIFFUSE_PROP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_DISTANTDIFFUSE_SCALE_MODE(pub i32);
-impl ::core::marker::Copy for D2D1_DISTANTDIFFUSE_SCALE_MODE {}
-impl ::core::clone::Clone for D2D1_DISTANTDIFFUSE_SCALE_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_DISTANTDIFFUSE_SCALE_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_DISTANTDIFFUSE_SCALE_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -17253,19 +16659,8 @@ impl ::core::fmt::Debug for D2D1_DISTANTDIFFUSE_SCALE_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_DISTANTSPECULAR_PROP(pub i32);
-impl ::core::marker::Copy for D2D1_DISTANTSPECULAR_PROP {}
-impl ::core::clone::Clone for D2D1_DISTANTSPECULAR_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_DISTANTSPECULAR_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_DISTANTSPECULAR_PROP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -17275,19 +16670,8 @@ impl ::core::fmt::Debug for D2D1_DISTANTSPECULAR_PROP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_DISTANTSPECULAR_SCALE_MODE(pub i32);
-impl ::core::marker::Copy for D2D1_DISTANTSPECULAR_SCALE_MODE {}
-impl ::core::clone::Clone for D2D1_DISTANTSPECULAR_SCALE_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_DISTANTSPECULAR_SCALE_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_DISTANTSPECULAR_SCALE_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -17297,19 +16681,8 @@ impl ::core::fmt::Debug for D2D1_DISTANTSPECULAR_SCALE_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_DPICOMPENSATION_INTERPOLATION_MODE(pub i32);
-impl ::core::marker::Copy for D2D1_DPICOMPENSATION_INTERPOLATION_MODE {}
-impl ::core::clone::Clone for D2D1_DPICOMPENSATION_INTERPOLATION_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_DPICOMPENSATION_INTERPOLATION_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_DPICOMPENSATION_INTERPOLATION_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -17319,19 +16692,8 @@ impl ::core::fmt::Debug for D2D1_DPICOMPENSATION_INTERPOLATION_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_DPICOMPENSATION_PROP(pub i32);
-impl ::core::marker::Copy for D2D1_DPICOMPENSATION_PROP {}
-impl ::core::clone::Clone for D2D1_DPICOMPENSATION_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_DPICOMPENSATION_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_DPICOMPENSATION_PROP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -17341,19 +16703,8 @@ impl ::core::fmt::Debug for D2D1_DPICOMPENSATION_PROP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_DRAW_TEXT_OPTIONS(pub i32);
-impl ::core::marker::Copy for D2D1_DRAW_TEXT_OPTIONS {}
-impl ::core::clone::Clone for D2D1_DRAW_TEXT_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_DRAW_TEXT_OPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_DRAW_TEXT_OPTIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -17396,19 +16747,8 @@ impl ::core::ops::Not for D2D1_DRAW_TEXT_OPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_EDGEDETECTION_MODE(pub i32);
-impl ::core::marker::Copy for D2D1_EDGEDETECTION_MODE {}
-impl ::core::clone::Clone for D2D1_EDGEDETECTION_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_EDGEDETECTION_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_EDGEDETECTION_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -17418,19 +16758,8 @@ impl ::core::fmt::Debug for D2D1_EDGEDETECTION_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_EDGEDETECTION_PROP(pub i32);
-impl ::core::marker::Copy for D2D1_EDGEDETECTION_PROP {}
-impl ::core::clone::Clone for D2D1_EDGEDETECTION_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_EDGEDETECTION_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_EDGEDETECTION_PROP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -17440,19 +16769,8 @@ impl ::core::fmt::Debug for D2D1_EDGEDETECTION_PROP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_EMBOSS_PROP(pub i32);
-impl ::core::marker::Copy for D2D1_EMBOSS_PROP {}
-impl ::core::clone::Clone for D2D1_EMBOSS_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_EMBOSS_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_EMBOSS_PROP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -17462,19 +16780,8 @@ impl ::core::fmt::Debug for D2D1_EMBOSS_PROP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_EXPOSURE_PROP(pub i32);
-impl ::core::marker::Copy for D2D1_EXPOSURE_PROP {}
-impl ::core::clone::Clone for D2D1_EXPOSURE_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_EXPOSURE_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_EXPOSURE_PROP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -17484,19 +16791,8 @@ impl ::core::fmt::Debug for D2D1_EXPOSURE_PROP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_EXTEND_MODE(pub i32);
-impl ::core::marker::Copy for D2D1_EXTEND_MODE {}
-impl ::core::clone::Clone for D2D1_EXTEND_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_EXTEND_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_EXTEND_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -17506,19 +16802,8 @@ impl ::core::fmt::Debug for D2D1_EXTEND_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_FACTORY_TYPE(pub i32);
-impl ::core::marker::Copy for D2D1_FACTORY_TYPE {}
-impl ::core::clone::Clone for D2D1_FACTORY_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_FACTORY_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_FACTORY_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -17528,19 +16813,8 @@ impl ::core::fmt::Debug for D2D1_FACTORY_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_FEATURE(pub i32);
-impl ::core::marker::Copy for D2D1_FEATURE {}
-impl ::core::clone::Clone for D2D1_FEATURE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_FEATURE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_FEATURE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -17550,19 +16824,8 @@ impl ::core::fmt::Debug for D2D1_FEATURE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_FEATURE_LEVEL(pub i32);
-impl ::core::marker::Copy for D2D1_FEATURE_LEVEL {}
-impl ::core::clone::Clone for D2D1_FEATURE_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_FEATURE_LEVEL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_FEATURE_LEVEL {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -17572,19 +16835,8 @@ impl ::core::fmt::Debug for D2D1_FEATURE_LEVEL {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_FILTER(pub i32);
-impl ::core::marker::Copy for D2D1_FILTER {}
-impl ::core::clone::Clone for D2D1_FILTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_FILTER {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_FILTER {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -17594,19 +16846,8 @@ impl ::core::fmt::Debug for D2D1_FILTER {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_FLOOD_PROP(pub i32);
-impl ::core::marker::Copy for D2D1_FLOOD_PROP {}
-impl ::core::clone::Clone for D2D1_FLOOD_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_FLOOD_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_FLOOD_PROP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -17616,19 +16857,8 @@ impl ::core::fmt::Debug for D2D1_FLOOD_PROP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_GAMMA(pub i32);
-impl ::core::marker::Copy for D2D1_GAMMA {}
-impl ::core::clone::Clone for D2D1_GAMMA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_GAMMA {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_GAMMA {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -17638,19 +16868,8 @@ impl ::core::fmt::Debug for D2D1_GAMMA {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_GAMMA1(pub i32);
-impl ::core::marker::Copy for D2D1_GAMMA1 {}
-impl ::core::clone::Clone for D2D1_GAMMA1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_GAMMA1 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_GAMMA1 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -17660,19 +16879,8 @@ impl ::core::fmt::Debug for D2D1_GAMMA1 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_GAMMATRANSFER_PROP(pub i32);
-impl ::core::marker::Copy for D2D1_GAMMATRANSFER_PROP {}
-impl ::core::clone::Clone for D2D1_GAMMATRANSFER_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_GAMMATRANSFER_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_GAMMATRANSFER_PROP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -17682,19 +16890,8 @@ impl ::core::fmt::Debug for D2D1_GAMMATRANSFER_PROP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_GAUSSIANBLUR_OPTIMIZATION(pub i32);
-impl ::core::marker::Copy for D2D1_GAUSSIANBLUR_OPTIMIZATION {}
-impl ::core::clone::Clone for D2D1_GAUSSIANBLUR_OPTIMIZATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_GAUSSIANBLUR_OPTIMIZATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_GAUSSIANBLUR_OPTIMIZATION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -17704,19 +16901,8 @@ impl ::core::fmt::Debug for D2D1_GAUSSIANBLUR_OPTIMIZATION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_GAUSSIANBLUR_PROP(pub i32);
-impl ::core::marker::Copy for D2D1_GAUSSIANBLUR_PROP {}
-impl ::core::clone::Clone for D2D1_GAUSSIANBLUR_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_GAUSSIANBLUR_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_GAUSSIANBLUR_PROP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -17726,19 +16912,8 @@ impl ::core::fmt::Debug for D2D1_GAUSSIANBLUR_PROP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_GEOMETRY_RELATION(pub i32);
-impl ::core::marker::Copy for D2D1_GEOMETRY_RELATION {}
-impl ::core::clone::Clone for D2D1_GEOMETRY_RELATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_GEOMETRY_RELATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_GEOMETRY_RELATION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -17748,19 +16923,8 @@ impl ::core::fmt::Debug for D2D1_GEOMETRY_RELATION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_GEOMETRY_SIMPLIFICATION_OPTION(pub i32);
-impl ::core::marker::Copy for D2D1_GEOMETRY_SIMPLIFICATION_OPTION {}
-impl ::core::clone::Clone for D2D1_GEOMETRY_SIMPLIFICATION_OPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_GEOMETRY_SIMPLIFICATION_OPTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_GEOMETRY_SIMPLIFICATION_OPTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -17770,19 +16934,8 @@ impl ::core::fmt::Debug for D2D1_GEOMETRY_SIMPLIFICATION_OPTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_HDRTONEMAP_DISPLAY_MODE(pub i32);
-impl ::core::marker::Copy for D2D1_HDRTONEMAP_DISPLAY_MODE {}
-impl ::core::clone::Clone for D2D1_HDRTONEMAP_DISPLAY_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_HDRTONEMAP_DISPLAY_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_HDRTONEMAP_DISPLAY_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -17792,19 +16945,8 @@ impl ::core::fmt::Debug for D2D1_HDRTONEMAP_DISPLAY_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_HDRTONEMAP_PROP(pub i32);
-impl ::core::marker::Copy for D2D1_HDRTONEMAP_PROP {}
-impl ::core::clone::Clone for D2D1_HDRTONEMAP_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_HDRTONEMAP_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_HDRTONEMAP_PROP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -17814,19 +16956,8 @@ impl ::core::fmt::Debug for D2D1_HDRTONEMAP_PROP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA(pub i32);
-impl ::core::marker::Copy for D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA {}
-impl ::core::clone::Clone for D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -17836,19 +16967,8 @@ impl ::core::fmt::Debug for D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_HIGHLIGHTSANDSHADOWS_PROP(pub i32);
-impl ::core::marker::Copy for D2D1_HIGHLIGHTSANDSHADOWS_PROP {}
-impl ::core::clone::Clone for D2D1_HIGHLIGHTSANDSHADOWS_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_HIGHLIGHTSANDSHADOWS_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_HIGHLIGHTSANDSHADOWS_PROP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -17858,19 +16978,8 @@ impl ::core::fmt::Debug for D2D1_HIGHLIGHTSANDSHADOWS_PROP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_HISTOGRAM_PROP(pub i32);
-impl ::core::marker::Copy for D2D1_HISTOGRAM_PROP {}
-impl ::core::clone::Clone for D2D1_HISTOGRAM_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_HISTOGRAM_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_HISTOGRAM_PROP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -17880,19 +16989,8 @@ impl ::core::fmt::Debug for D2D1_HISTOGRAM_PROP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_HUEROTATION_PROP(pub i32);
-impl ::core::marker::Copy for D2D1_HUEROTATION_PROP {}
-impl ::core::clone::Clone for D2D1_HUEROTATION_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_HUEROTATION_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_HUEROTATION_PROP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -17902,19 +17000,8 @@ impl ::core::fmt::Debug for D2D1_HUEROTATION_PROP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_HUETORGB_INPUT_COLOR_SPACE(pub i32);
-impl ::core::marker::Copy for D2D1_HUETORGB_INPUT_COLOR_SPACE {}
-impl ::core::clone::Clone for D2D1_HUETORGB_INPUT_COLOR_SPACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_HUETORGB_INPUT_COLOR_SPACE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_HUETORGB_INPUT_COLOR_SPACE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -17924,19 +17011,8 @@ impl ::core::fmt::Debug for D2D1_HUETORGB_INPUT_COLOR_SPACE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_HUETORGB_PROP(pub i32);
-impl ::core::marker::Copy for D2D1_HUETORGB_PROP {}
-impl ::core::clone::Clone for D2D1_HUETORGB_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_HUETORGB_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_HUETORGB_PROP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -17946,19 +17022,8 @@ impl ::core::fmt::Debug for D2D1_HUETORGB_PROP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS(pub i32);
-impl ::core::marker::Copy for D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS {}
-impl ::core::clone::Clone for D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -18001,19 +17066,8 @@ impl ::core::ops::Not for D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_IMAGE_SOURCE_LOADING_OPTIONS(pub i32);
-impl ::core::marker::Copy for D2D1_IMAGE_SOURCE_LOADING_OPTIONS {}
-impl ::core::clone::Clone for D2D1_IMAGE_SOURCE_LOADING_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_IMAGE_SOURCE_LOADING_OPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_IMAGE_SOURCE_LOADING_OPTIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -18056,19 +17110,8 @@ impl ::core::ops::Not for D2D1_IMAGE_SOURCE_LOADING_OPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_INK_NIB_SHAPE(pub i32);
-impl ::core::marker::Copy for D2D1_INK_NIB_SHAPE {}
-impl ::core::clone::Clone for D2D1_INK_NIB_SHAPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_INK_NIB_SHAPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_INK_NIB_SHAPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -18078,19 +17121,8 @@ impl ::core::fmt::Debug for D2D1_INK_NIB_SHAPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_INTERPOLATION_MODE(pub i32);
-impl ::core::marker::Copy for D2D1_INTERPOLATION_MODE {}
-impl ::core::clone::Clone for D2D1_INTERPOLATION_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_INTERPOLATION_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_INTERPOLATION_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -18100,19 +17132,8 @@ impl ::core::fmt::Debug for D2D1_INTERPOLATION_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_INTERPOLATION_MODE_DEFINITION(pub i32);
-impl ::core::marker::Copy for D2D1_INTERPOLATION_MODE_DEFINITION {}
-impl ::core::clone::Clone for D2D1_INTERPOLATION_MODE_DEFINITION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_INTERPOLATION_MODE_DEFINITION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_INTERPOLATION_MODE_DEFINITION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -18122,19 +17143,8 @@ impl ::core::fmt::Debug for D2D1_INTERPOLATION_MODE_DEFINITION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_LAYER_OPTIONS(pub i32);
-impl ::core::marker::Copy for D2D1_LAYER_OPTIONS {}
-impl ::core::clone::Clone for D2D1_LAYER_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_LAYER_OPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_LAYER_OPTIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -18177,19 +17187,8 @@ impl ::core::ops::Not for D2D1_LAYER_OPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_LAYER_OPTIONS1(pub i32);
-impl ::core::marker::Copy for D2D1_LAYER_OPTIONS1 {}
-impl ::core::clone::Clone for D2D1_LAYER_OPTIONS1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_LAYER_OPTIONS1 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_LAYER_OPTIONS1 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -18232,19 +17231,8 @@ impl ::core::ops::Not for D2D1_LAYER_OPTIONS1 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_LINEARTRANSFER_PROP(pub i32);
-impl ::core::marker::Copy for D2D1_LINEARTRANSFER_PROP {}
-impl ::core::clone::Clone for D2D1_LINEARTRANSFER_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_LINEARTRANSFER_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_LINEARTRANSFER_PROP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -18254,19 +17242,8 @@ impl ::core::fmt::Debug for D2D1_LINEARTRANSFER_PROP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_LINE_JOIN(pub i32);
-impl ::core::marker::Copy for D2D1_LINE_JOIN {}
-impl ::core::clone::Clone for D2D1_LINE_JOIN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_LINE_JOIN {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_LINE_JOIN {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -18276,19 +17253,8 @@ impl ::core::fmt::Debug for D2D1_LINE_JOIN {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_LOOKUPTABLE3D_PROP(pub i32);
-impl ::core::marker::Copy for D2D1_LOOKUPTABLE3D_PROP {}
-impl ::core::clone::Clone for D2D1_LOOKUPTABLE3D_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_LOOKUPTABLE3D_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_LOOKUPTABLE3D_PROP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -18298,19 +17264,8 @@ impl ::core::fmt::Debug for D2D1_LOOKUPTABLE3D_PROP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_MAP_OPTIONS(pub i32);
-impl ::core::marker::Copy for D2D1_MAP_OPTIONS {}
-impl ::core::clone::Clone for D2D1_MAP_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_MAP_OPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_MAP_OPTIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -18353,19 +17308,8 @@ impl ::core::ops::Not for D2D1_MAP_OPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_MORPHOLOGY_MODE(pub i32);
-impl ::core::marker::Copy for D2D1_MORPHOLOGY_MODE {}
-impl ::core::clone::Clone for D2D1_MORPHOLOGY_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_MORPHOLOGY_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_MORPHOLOGY_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -18375,19 +17319,8 @@ impl ::core::fmt::Debug for D2D1_MORPHOLOGY_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_MORPHOLOGY_PROP(pub i32);
-impl ::core::marker::Copy for D2D1_MORPHOLOGY_PROP {}
-impl ::core::clone::Clone for D2D1_MORPHOLOGY_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_MORPHOLOGY_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_MORPHOLOGY_PROP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -18397,19 +17330,8 @@ impl ::core::fmt::Debug for D2D1_MORPHOLOGY_PROP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_OPACITYMETADATA_PROP(pub i32);
-impl ::core::marker::Copy for D2D1_OPACITYMETADATA_PROP {}
-impl ::core::clone::Clone for D2D1_OPACITYMETADATA_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_OPACITYMETADATA_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_OPACITYMETADATA_PROP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -18419,19 +17341,8 @@ impl ::core::fmt::Debug for D2D1_OPACITYMETADATA_PROP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_OPACITY_MASK_CONTENT(pub i32);
-impl ::core::marker::Copy for D2D1_OPACITY_MASK_CONTENT {}
-impl ::core::clone::Clone for D2D1_OPACITY_MASK_CONTENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_OPACITY_MASK_CONTENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_OPACITY_MASK_CONTENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -18441,19 +17352,8 @@ impl ::core::fmt::Debug for D2D1_OPACITY_MASK_CONTENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_OPACITY_PROP(pub i32);
-impl ::core::marker::Copy for D2D1_OPACITY_PROP {}
-impl ::core::clone::Clone for D2D1_OPACITY_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_OPACITY_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_OPACITY_PROP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -18463,19 +17363,8 @@ impl ::core::fmt::Debug for D2D1_OPACITY_PROP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_ORIENTATION(pub i32);
-impl ::core::marker::Copy for D2D1_ORIENTATION {}
-impl ::core::clone::Clone for D2D1_ORIENTATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_ORIENTATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_ORIENTATION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -18485,19 +17374,8 @@ impl ::core::fmt::Debug for D2D1_ORIENTATION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_PATCH_EDGE_MODE(pub i32);
-impl ::core::marker::Copy for D2D1_PATCH_EDGE_MODE {}
-impl ::core::clone::Clone for D2D1_PATCH_EDGE_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_PATCH_EDGE_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_PATCH_EDGE_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -18507,19 +17385,8 @@ impl ::core::fmt::Debug for D2D1_PATCH_EDGE_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_PIXEL_OPTIONS(pub i32);
-impl ::core::marker::Copy for D2D1_PIXEL_OPTIONS {}
-impl ::core::clone::Clone for D2D1_PIXEL_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_PIXEL_OPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_PIXEL_OPTIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -18562,19 +17429,8 @@ impl ::core::ops::Not for D2D1_PIXEL_OPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_POINTDIFFUSE_PROP(pub i32);
-impl ::core::marker::Copy for D2D1_POINTDIFFUSE_PROP {}
-impl ::core::clone::Clone for D2D1_POINTDIFFUSE_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_POINTDIFFUSE_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_POINTDIFFUSE_PROP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -18584,19 +17440,8 @@ impl ::core::fmt::Debug for D2D1_POINTDIFFUSE_PROP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_POINTDIFFUSE_SCALE_MODE(pub i32);
-impl ::core::marker::Copy for D2D1_POINTDIFFUSE_SCALE_MODE {}
-impl ::core::clone::Clone for D2D1_POINTDIFFUSE_SCALE_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_POINTDIFFUSE_SCALE_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_POINTDIFFUSE_SCALE_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -18606,19 +17451,8 @@ impl ::core::fmt::Debug for D2D1_POINTDIFFUSE_SCALE_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_POINTSPECULAR_PROP(pub i32);
-impl ::core::marker::Copy for D2D1_POINTSPECULAR_PROP {}
-impl ::core::clone::Clone for D2D1_POINTSPECULAR_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_POINTSPECULAR_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_POINTSPECULAR_PROP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -18628,19 +17462,8 @@ impl ::core::fmt::Debug for D2D1_POINTSPECULAR_PROP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_POINTSPECULAR_SCALE_MODE(pub i32);
-impl ::core::marker::Copy for D2D1_POINTSPECULAR_SCALE_MODE {}
-impl ::core::clone::Clone for D2D1_POINTSPECULAR_SCALE_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_POINTSPECULAR_SCALE_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_POINTSPECULAR_SCALE_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -18650,19 +17473,8 @@ impl ::core::fmt::Debug for D2D1_POINTSPECULAR_SCALE_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_POSTERIZE_PROP(pub i32);
-impl ::core::marker::Copy for D2D1_POSTERIZE_PROP {}
-impl ::core::clone::Clone for D2D1_POSTERIZE_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_POSTERIZE_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_POSTERIZE_PROP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -18672,19 +17484,8 @@ impl ::core::fmt::Debug for D2D1_POSTERIZE_PROP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_PRESENT_OPTIONS(pub i32);
-impl ::core::marker::Copy for D2D1_PRESENT_OPTIONS {}
-impl ::core::clone::Clone for D2D1_PRESENT_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_PRESENT_OPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_PRESENT_OPTIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -18727,19 +17528,8 @@ impl ::core::ops::Not for D2D1_PRESENT_OPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_PRIMITIVE_BLEND(pub i32);
-impl ::core::marker::Copy for D2D1_PRIMITIVE_BLEND {}
-impl ::core::clone::Clone for D2D1_PRIMITIVE_BLEND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_PRIMITIVE_BLEND {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_PRIMITIVE_BLEND {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -18749,19 +17539,8 @@ impl ::core::fmt::Debug for D2D1_PRIMITIVE_BLEND {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_PRINT_FONT_SUBSET_MODE(pub i32);
-impl ::core::marker::Copy for D2D1_PRINT_FONT_SUBSET_MODE {}
-impl ::core::clone::Clone for D2D1_PRINT_FONT_SUBSET_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_PRINT_FONT_SUBSET_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_PRINT_FONT_SUBSET_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -18771,19 +17550,8 @@ impl ::core::fmt::Debug for D2D1_PRINT_FONT_SUBSET_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_PROPERTY(pub i32);
-impl ::core::marker::Copy for D2D1_PROPERTY {}
-impl ::core::clone::Clone for D2D1_PROPERTY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_PROPERTY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_PROPERTY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -18793,19 +17561,8 @@ impl ::core::fmt::Debug for D2D1_PROPERTY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_PROPERTY_TYPE(pub i32);
-impl ::core::marker::Copy for D2D1_PROPERTY_TYPE {}
-impl ::core::clone::Clone for D2D1_PROPERTY_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_PROPERTY_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_PROPERTY_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -18815,19 +17572,8 @@ impl ::core::fmt::Debug for D2D1_PROPERTY_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_RENDERING_PRIORITY(pub i32);
-impl ::core::marker::Copy for D2D1_RENDERING_PRIORITY {}
-impl ::core::clone::Clone for D2D1_RENDERING_PRIORITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_RENDERING_PRIORITY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_RENDERING_PRIORITY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -18837,19 +17583,8 @@ impl ::core::fmt::Debug for D2D1_RENDERING_PRIORITY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_RENDER_TARGET_TYPE(pub i32);
-impl ::core::marker::Copy for D2D1_RENDER_TARGET_TYPE {}
-impl ::core::clone::Clone for D2D1_RENDER_TARGET_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_RENDER_TARGET_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_RENDER_TARGET_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -18859,19 +17594,8 @@ impl ::core::fmt::Debug for D2D1_RENDER_TARGET_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_RENDER_TARGET_USAGE(pub i32);
-impl ::core::marker::Copy for D2D1_RENDER_TARGET_USAGE {}
-impl ::core::clone::Clone for D2D1_RENDER_TARGET_USAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_RENDER_TARGET_USAGE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_RENDER_TARGET_USAGE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -18914,19 +17638,8 @@ impl ::core::ops::Not for D2D1_RENDER_TARGET_USAGE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE(pub i32);
-impl ::core::marker::Copy for D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE {}
-impl ::core::clone::Clone for D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -18936,19 +17649,8 @@ impl ::core::fmt::Debug for D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_RGBTOHUE_PROP(pub i32);
-impl ::core::marker::Copy for D2D1_RGBTOHUE_PROP {}
-impl ::core::clone::Clone for D2D1_RGBTOHUE_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_RGBTOHUE_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_RGBTOHUE_PROP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -18958,19 +17660,8 @@ impl ::core::fmt::Debug for D2D1_RGBTOHUE_PROP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_SATURATION_PROP(pub i32);
-impl ::core::marker::Copy for D2D1_SATURATION_PROP {}
-impl ::core::clone::Clone for D2D1_SATURATION_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_SATURATION_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_SATURATION_PROP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -18980,19 +17671,8 @@ impl ::core::fmt::Debug for D2D1_SATURATION_PROP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_SCALE_INTERPOLATION_MODE(pub i32);
-impl ::core::marker::Copy for D2D1_SCALE_INTERPOLATION_MODE {}
-impl ::core::clone::Clone for D2D1_SCALE_INTERPOLATION_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_SCALE_INTERPOLATION_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_SCALE_INTERPOLATION_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -19002,19 +17682,8 @@ impl ::core::fmt::Debug for D2D1_SCALE_INTERPOLATION_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_SCALE_PROP(pub i32);
-impl ::core::marker::Copy for D2D1_SCALE_PROP {}
-impl ::core::clone::Clone for D2D1_SCALE_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_SCALE_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_SCALE_PROP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -19024,19 +17693,8 @@ impl ::core::fmt::Debug for D2D1_SCALE_PROP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_SEPIA_PROP(pub i32);
-impl ::core::marker::Copy for D2D1_SEPIA_PROP {}
-impl ::core::clone::Clone for D2D1_SEPIA_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_SEPIA_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_SEPIA_PROP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -19046,19 +17704,8 @@ impl ::core::fmt::Debug for D2D1_SEPIA_PROP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_SHADOW_OPTIMIZATION(pub i32);
-impl ::core::marker::Copy for D2D1_SHADOW_OPTIMIZATION {}
-impl ::core::clone::Clone for D2D1_SHADOW_OPTIMIZATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_SHADOW_OPTIMIZATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_SHADOW_OPTIMIZATION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -19068,19 +17715,8 @@ impl ::core::fmt::Debug for D2D1_SHADOW_OPTIMIZATION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_SHADOW_PROP(pub i32);
-impl ::core::marker::Copy for D2D1_SHADOW_PROP {}
-impl ::core::clone::Clone for D2D1_SHADOW_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_SHADOW_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_SHADOW_PROP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -19090,19 +17726,8 @@ impl ::core::fmt::Debug for D2D1_SHADOW_PROP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_SHARPEN_PROP(pub i32);
-impl ::core::marker::Copy for D2D1_SHARPEN_PROP {}
-impl ::core::clone::Clone for D2D1_SHARPEN_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_SHARPEN_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_SHARPEN_PROP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -19112,19 +17737,8 @@ impl ::core::fmt::Debug for D2D1_SHARPEN_PROP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_SPOTDIFFUSE_PROP(pub i32);
-impl ::core::marker::Copy for D2D1_SPOTDIFFUSE_PROP {}
-impl ::core::clone::Clone for D2D1_SPOTDIFFUSE_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_SPOTDIFFUSE_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_SPOTDIFFUSE_PROP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -19134,19 +17748,8 @@ impl ::core::fmt::Debug for D2D1_SPOTDIFFUSE_PROP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_SPOTDIFFUSE_SCALE_MODE(pub i32);
-impl ::core::marker::Copy for D2D1_SPOTDIFFUSE_SCALE_MODE {}
-impl ::core::clone::Clone for D2D1_SPOTDIFFUSE_SCALE_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_SPOTDIFFUSE_SCALE_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_SPOTDIFFUSE_SCALE_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -19156,19 +17759,8 @@ impl ::core::fmt::Debug for D2D1_SPOTDIFFUSE_SCALE_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_SPOTSPECULAR_PROP(pub i32);
-impl ::core::marker::Copy for D2D1_SPOTSPECULAR_PROP {}
-impl ::core::clone::Clone for D2D1_SPOTSPECULAR_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_SPOTSPECULAR_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_SPOTSPECULAR_PROP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -19178,19 +17770,8 @@ impl ::core::fmt::Debug for D2D1_SPOTSPECULAR_PROP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_SPOTSPECULAR_SCALE_MODE(pub i32);
-impl ::core::marker::Copy for D2D1_SPOTSPECULAR_SCALE_MODE {}
-impl ::core::clone::Clone for D2D1_SPOTSPECULAR_SCALE_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_SPOTSPECULAR_SCALE_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_SPOTSPECULAR_SCALE_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -19200,19 +17781,8 @@ impl ::core::fmt::Debug for D2D1_SPOTSPECULAR_SCALE_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_SPRITE_OPTIONS(pub i32);
-impl ::core::marker::Copy for D2D1_SPRITE_OPTIONS {}
-impl ::core::clone::Clone for D2D1_SPRITE_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_SPRITE_OPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_SPRITE_OPTIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -19255,19 +17825,8 @@ impl ::core::ops::Not for D2D1_SPRITE_OPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_STRAIGHTEN_PROP(pub i32);
-impl ::core::marker::Copy for D2D1_STRAIGHTEN_PROP {}
-impl ::core::clone::Clone for D2D1_STRAIGHTEN_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_STRAIGHTEN_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_STRAIGHTEN_PROP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -19277,19 +17836,8 @@ impl ::core::fmt::Debug for D2D1_STRAIGHTEN_PROP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_STRAIGHTEN_SCALE_MODE(pub i32);
-impl ::core::marker::Copy for D2D1_STRAIGHTEN_SCALE_MODE {}
-impl ::core::clone::Clone for D2D1_STRAIGHTEN_SCALE_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_STRAIGHTEN_SCALE_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_STRAIGHTEN_SCALE_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -19299,19 +17847,8 @@ impl ::core::fmt::Debug for D2D1_STRAIGHTEN_SCALE_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_STROKE_TRANSFORM_TYPE(pub i32);
-impl ::core::marker::Copy for D2D1_STROKE_TRANSFORM_TYPE {}
-impl ::core::clone::Clone for D2D1_STROKE_TRANSFORM_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_STROKE_TRANSFORM_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_STROKE_TRANSFORM_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -19321,19 +17858,8 @@ impl ::core::fmt::Debug for D2D1_STROKE_TRANSFORM_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_SUBPROPERTY(pub i32);
-impl ::core::marker::Copy for D2D1_SUBPROPERTY {}
-impl ::core::clone::Clone for D2D1_SUBPROPERTY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_SUBPROPERTY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_SUBPROPERTY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -19343,19 +17869,8 @@ impl ::core::fmt::Debug for D2D1_SUBPROPERTY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_SVG_ASPECT_ALIGN(pub i32);
-impl ::core::marker::Copy for D2D1_SVG_ASPECT_ALIGN {}
-impl ::core::clone::Clone for D2D1_SVG_ASPECT_ALIGN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_SVG_ASPECT_ALIGN {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_SVG_ASPECT_ALIGN {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -19365,19 +17880,8 @@ impl ::core::fmt::Debug for D2D1_SVG_ASPECT_ALIGN {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_SVG_ASPECT_SCALING(pub i32);
-impl ::core::marker::Copy for D2D1_SVG_ASPECT_SCALING {}
-impl ::core::clone::Clone for D2D1_SVG_ASPECT_SCALING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_SVG_ASPECT_SCALING {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_SVG_ASPECT_SCALING {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -19387,19 +17891,8 @@ impl ::core::fmt::Debug for D2D1_SVG_ASPECT_SCALING {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_SVG_ATTRIBUTE_POD_TYPE(pub i32);
-impl ::core::marker::Copy for D2D1_SVG_ATTRIBUTE_POD_TYPE {}
-impl ::core::clone::Clone for D2D1_SVG_ATTRIBUTE_POD_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_SVG_ATTRIBUTE_POD_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_SVG_ATTRIBUTE_POD_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -19409,19 +17902,8 @@ impl ::core::fmt::Debug for D2D1_SVG_ATTRIBUTE_POD_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_SVG_ATTRIBUTE_STRING_TYPE(pub i32);
-impl ::core::marker::Copy for D2D1_SVG_ATTRIBUTE_STRING_TYPE {}
-impl ::core::clone::Clone for D2D1_SVG_ATTRIBUTE_STRING_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_SVG_ATTRIBUTE_STRING_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_SVG_ATTRIBUTE_STRING_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -19431,19 +17913,8 @@ impl ::core::fmt::Debug for D2D1_SVG_ATTRIBUTE_STRING_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_SVG_DISPLAY(pub i32);
-impl ::core::marker::Copy for D2D1_SVG_DISPLAY {}
-impl ::core::clone::Clone for D2D1_SVG_DISPLAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_SVG_DISPLAY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_SVG_DISPLAY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -19453,19 +17924,8 @@ impl ::core::fmt::Debug for D2D1_SVG_DISPLAY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_SVG_LENGTH_UNITS(pub i32);
-impl ::core::marker::Copy for D2D1_SVG_LENGTH_UNITS {}
-impl ::core::clone::Clone for D2D1_SVG_LENGTH_UNITS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_SVG_LENGTH_UNITS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_SVG_LENGTH_UNITS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -19475,19 +17935,8 @@ impl ::core::fmt::Debug for D2D1_SVG_LENGTH_UNITS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_SVG_LINE_CAP(pub i32);
-impl ::core::marker::Copy for D2D1_SVG_LINE_CAP {}
-impl ::core::clone::Clone for D2D1_SVG_LINE_CAP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_SVG_LINE_CAP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_SVG_LINE_CAP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -19497,19 +17946,8 @@ impl ::core::fmt::Debug for D2D1_SVG_LINE_CAP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_SVG_LINE_JOIN(pub i32);
-impl ::core::marker::Copy for D2D1_SVG_LINE_JOIN {}
-impl ::core::clone::Clone for D2D1_SVG_LINE_JOIN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_SVG_LINE_JOIN {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_SVG_LINE_JOIN {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -19519,19 +17957,8 @@ impl ::core::fmt::Debug for D2D1_SVG_LINE_JOIN {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_SVG_OVERFLOW(pub i32);
-impl ::core::marker::Copy for D2D1_SVG_OVERFLOW {}
-impl ::core::clone::Clone for D2D1_SVG_OVERFLOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_SVG_OVERFLOW {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_SVG_OVERFLOW {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -19541,19 +17968,8 @@ impl ::core::fmt::Debug for D2D1_SVG_OVERFLOW {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_SVG_PAINT_TYPE(pub i32);
-impl ::core::marker::Copy for D2D1_SVG_PAINT_TYPE {}
-impl ::core::clone::Clone for D2D1_SVG_PAINT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_SVG_PAINT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_SVG_PAINT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -19563,19 +17979,8 @@ impl ::core::fmt::Debug for D2D1_SVG_PAINT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_SVG_PATH_COMMAND(pub i32);
-impl ::core::marker::Copy for D2D1_SVG_PATH_COMMAND {}
-impl ::core::clone::Clone for D2D1_SVG_PATH_COMMAND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_SVG_PATH_COMMAND {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_SVG_PATH_COMMAND {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -19585,19 +17990,8 @@ impl ::core::fmt::Debug for D2D1_SVG_PATH_COMMAND {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_SVG_UNIT_TYPE(pub i32);
-impl ::core::marker::Copy for D2D1_SVG_UNIT_TYPE {}
-impl ::core::clone::Clone for D2D1_SVG_UNIT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_SVG_UNIT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_SVG_UNIT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -19607,19 +18001,8 @@ impl ::core::fmt::Debug for D2D1_SVG_UNIT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_SVG_VISIBILITY(pub i32);
-impl ::core::marker::Copy for D2D1_SVG_VISIBILITY {}
-impl ::core::clone::Clone for D2D1_SVG_VISIBILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_SVG_VISIBILITY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_SVG_VISIBILITY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -19629,19 +18012,8 @@ impl ::core::fmt::Debug for D2D1_SVG_VISIBILITY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_SWEEP_DIRECTION(pub i32);
-impl ::core::marker::Copy for D2D1_SWEEP_DIRECTION {}
-impl ::core::clone::Clone for D2D1_SWEEP_DIRECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_SWEEP_DIRECTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_SWEEP_DIRECTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -19651,19 +18023,8 @@ impl ::core::fmt::Debug for D2D1_SWEEP_DIRECTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_TABLETRANSFER_PROP(pub i32);
-impl ::core::marker::Copy for D2D1_TABLETRANSFER_PROP {}
-impl ::core::clone::Clone for D2D1_TABLETRANSFER_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_TABLETRANSFER_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_TABLETRANSFER_PROP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -19673,19 +18034,8 @@ impl ::core::fmt::Debug for D2D1_TABLETRANSFER_PROP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_TEMPERATUREANDTINT_PROP(pub i32);
-impl ::core::marker::Copy for D2D1_TEMPERATUREANDTINT_PROP {}
-impl ::core::clone::Clone for D2D1_TEMPERATUREANDTINT_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_TEMPERATUREANDTINT_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_TEMPERATUREANDTINT_PROP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -19695,19 +18045,8 @@ impl ::core::fmt::Debug for D2D1_TEMPERATUREANDTINT_PROP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_TEXT_ANTIALIAS_MODE(pub i32);
-impl ::core::marker::Copy for D2D1_TEXT_ANTIALIAS_MODE {}
-impl ::core::clone::Clone for D2D1_TEXT_ANTIALIAS_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_TEXT_ANTIALIAS_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_TEXT_ANTIALIAS_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -19717,19 +18056,8 @@ impl ::core::fmt::Debug for D2D1_TEXT_ANTIALIAS_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_THREADING_MODE(pub i32);
-impl ::core::marker::Copy for D2D1_THREADING_MODE {}
-impl ::core::clone::Clone for D2D1_THREADING_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_THREADING_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_THREADING_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -19739,19 +18067,8 @@ impl ::core::fmt::Debug for D2D1_THREADING_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_TILE_PROP(pub i32);
-impl ::core::marker::Copy for D2D1_TILE_PROP {}
-impl ::core::clone::Clone for D2D1_TILE_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_TILE_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_TILE_PROP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -19761,19 +18078,8 @@ impl ::core::fmt::Debug for D2D1_TILE_PROP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_TINT_PROP(pub i32);
-impl ::core::marker::Copy for D2D1_TINT_PROP {}
-impl ::core::clone::Clone for D2D1_TINT_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_TINT_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_TINT_PROP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -19783,19 +18089,8 @@ impl ::core::fmt::Debug for D2D1_TINT_PROP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS(pub i32);
-impl ::core::marker::Copy for D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS {}
-impl ::core::clone::Clone for D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -19838,19 +18133,8 @@ impl ::core::ops::Not for D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_TURBULENCE_PROP(pub i32);
-impl ::core::marker::Copy for D2D1_TURBULENCE_PROP {}
-impl ::core::clone::Clone for D2D1_TURBULENCE_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_TURBULENCE_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_TURBULENCE_PROP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -19860,19 +18144,8 @@ impl ::core::fmt::Debug for D2D1_TURBULENCE_PROP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_UNIT_MODE(pub i32);
-impl ::core::marker::Copy for D2D1_UNIT_MODE {}
-impl ::core::clone::Clone for D2D1_UNIT_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_UNIT_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_UNIT_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -19882,19 +18155,8 @@ impl ::core::fmt::Debug for D2D1_UNIT_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_VERTEX_OPTIONS(pub i32);
-impl ::core::marker::Copy for D2D1_VERTEX_OPTIONS {}
-impl ::core::clone::Clone for D2D1_VERTEX_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_VERTEX_OPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_VERTEX_OPTIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -19937,19 +18199,8 @@ impl ::core::ops::Not for D2D1_VERTEX_OPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_VERTEX_USAGE(pub i32);
-impl ::core::marker::Copy for D2D1_VERTEX_USAGE {}
-impl ::core::clone::Clone for D2D1_VERTEX_USAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_VERTEX_USAGE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_VERTEX_USAGE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -19959,19 +18210,8 @@ impl ::core::fmt::Debug for D2D1_VERTEX_USAGE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_VIGNETTE_PROP(pub i32);
-impl ::core::marker::Copy for D2D1_VIGNETTE_PROP {}
-impl ::core::clone::Clone for D2D1_VIGNETTE_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_VIGNETTE_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_VIGNETTE_PROP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -19981,19 +18221,8 @@ impl ::core::fmt::Debug for D2D1_VIGNETTE_PROP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_WHITELEVELADJUSTMENT_PROP(pub i32);
-impl ::core::marker::Copy for D2D1_WHITELEVELADJUSTMENT_PROP {}
-impl ::core::clone::Clone for D2D1_WHITELEVELADJUSTMENT_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_WHITELEVELADJUSTMENT_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_WHITELEVELADJUSTMENT_PROP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -20003,19 +18232,8 @@ impl ::core::fmt::Debug for D2D1_WHITELEVELADJUSTMENT_PROP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_WINDOW_STATE(pub i32);
-impl ::core::marker::Copy for D2D1_WINDOW_STATE {}
-impl ::core::clone::Clone for D2D1_WINDOW_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_WINDOW_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_WINDOW_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -20058,19 +18276,8 @@ impl ::core::ops::Not for D2D1_WINDOW_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_YCBCR_CHROMA_SUBSAMPLING(pub i32);
-impl ::core::marker::Copy for D2D1_YCBCR_CHROMA_SUBSAMPLING {}
-impl ::core::clone::Clone for D2D1_YCBCR_CHROMA_SUBSAMPLING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_YCBCR_CHROMA_SUBSAMPLING {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_YCBCR_CHROMA_SUBSAMPLING {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -20080,19 +18287,8 @@ impl ::core::fmt::Debug for D2D1_YCBCR_CHROMA_SUBSAMPLING {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_YCBCR_INTERPOLATION_MODE(pub i32);
-impl ::core::marker::Copy for D2D1_YCBCR_INTERPOLATION_MODE {}
-impl ::core::clone::Clone for D2D1_YCBCR_INTERPOLATION_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_YCBCR_INTERPOLATION_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_YCBCR_INTERPOLATION_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -20102,19 +18298,8 @@ impl ::core::fmt::Debug for D2D1_YCBCR_INTERPOLATION_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D2D1_YCBCR_PROP(pub i32);
-impl ::core::marker::Copy for D2D1_YCBCR_PROP {}
-impl ::core::clone::Clone for D2D1_YCBCR_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_YCBCR_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D2D1_YCBCR_PROP {
     type TypeKind = ::windows_core::CopyType;
 }

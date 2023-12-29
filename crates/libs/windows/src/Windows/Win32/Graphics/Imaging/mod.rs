@@ -3903,19 +3903,8 @@ pub const WINCODEC_SDK_VERSION: u32 = 567u32;
 pub const WINCODEC_SDK_VERSION1: u32 = 566u32;
 pub const WINCODEC_SDK_VERSION2: u32 = 567u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WIC8BIMIptcDigestProperties(pub i32);
-impl ::core::marker::Copy for WIC8BIMIptcDigestProperties {}
-impl ::core::clone::Clone for WIC8BIMIptcDigestProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WIC8BIMIptcDigestProperties {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WIC8BIMIptcDigestProperties {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3925,19 +3914,8 @@ impl ::core::fmt::Debug for WIC8BIMIptcDigestProperties {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WIC8BIMIptcProperties(pub i32);
-impl ::core::marker::Copy for WIC8BIMIptcProperties {}
-impl ::core::clone::Clone for WIC8BIMIptcProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WIC8BIMIptcProperties {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WIC8BIMIptcProperties {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3947,19 +3925,8 @@ impl ::core::fmt::Debug for WIC8BIMIptcProperties {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WIC8BIMResolutionInfoProperties(pub i32);
-impl ::core::marker::Copy for WIC8BIMResolutionInfoProperties {}
-impl ::core::clone::Clone for WIC8BIMResolutionInfoProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WIC8BIMResolutionInfoProperties {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WIC8BIMResolutionInfoProperties {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3969,19 +3936,8 @@ impl ::core::fmt::Debug for WIC8BIMResolutionInfoProperties {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WICBitmapAlphaChannelOption(pub i32);
-impl ::core::marker::Copy for WICBitmapAlphaChannelOption {}
-impl ::core::clone::Clone for WICBitmapAlphaChannelOption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WICBitmapAlphaChannelOption {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WICBitmapAlphaChannelOption {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3991,19 +3947,8 @@ impl ::core::fmt::Debug for WICBitmapAlphaChannelOption {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WICBitmapCreateCacheOption(pub i32);
-impl ::core::marker::Copy for WICBitmapCreateCacheOption {}
-impl ::core::clone::Clone for WICBitmapCreateCacheOption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WICBitmapCreateCacheOption {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WICBitmapCreateCacheOption {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4013,19 +3958,8 @@ impl ::core::fmt::Debug for WICBitmapCreateCacheOption {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WICBitmapDecoderCapabilities(pub i32);
-impl ::core::marker::Copy for WICBitmapDecoderCapabilities {}
-impl ::core::clone::Clone for WICBitmapDecoderCapabilities {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WICBitmapDecoderCapabilities {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WICBitmapDecoderCapabilities {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4035,19 +3969,8 @@ impl ::core::fmt::Debug for WICBitmapDecoderCapabilities {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WICBitmapDitherType(pub i32);
-impl ::core::marker::Copy for WICBitmapDitherType {}
-impl ::core::clone::Clone for WICBitmapDitherType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WICBitmapDitherType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WICBitmapDitherType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4057,19 +3980,8 @@ impl ::core::fmt::Debug for WICBitmapDitherType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WICBitmapEncoderCacheOption(pub i32);
-impl ::core::marker::Copy for WICBitmapEncoderCacheOption {}
-impl ::core::clone::Clone for WICBitmapEncoderCacheOption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WICBitmapEncoderCacheOption {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WICBitmapEncoderCacheOption {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4079,19 +3991,8 @@ impl ::core::fmt::Debug for WICBitmapEncoderCacheOption {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WICBitmapInterpolationMode(pub i32);
-impl ::core::marker::Copy for WICBitmapInterpolationMode {}
-impl ::core::clone::Clone for WICBitmapInterpolationMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WICBitmapInterpolationMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WICBitmapInterpolationMode {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4101,19 +4002,8 @@ impl ::core::fmt::Debug for WICBitmapInterpolationMode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WICBitmapLockFlags(pub i32);
-impl ::core::marker::Copy for WICBitmapLockFlags {}
-impl ::core::clone::Clone for WICBitmapLockFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WICBitmapLockFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WICBitmapLockFlags {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4123,19 +4013,8 @@ impl ::core::fmt::Debug for WICBitmapLockFlags {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WICBitmapPaletteType(pub i32);
-impl ::core::marker::Copy for WICBitmapPaletteType {}
-impl ::core::clone::Clone for WICBitmapPaletteType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WICBitmapPaletteType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WICBitmapPaletteType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4145,19 +4024,8 @@ impl ::core::fmt::Debug for WICBitmapPaletteType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WICBitmapTransformOptions(pub i32);
-impl ::core::marker::Copy for WICBitmapTransformOptions {}
-impl ::core::clone::Clone for WICBitmapTransformOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WICBitmapTransformOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WICBitmapTransformOptions {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4167,19 +4035,8 @@ impl ::core::fmt::Debug for WICBitmapTransformOptions {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WICColorContextType(pub i32);
-impl ::core::marker::Copy for WICColorContextType {}
-impl ::core::clone::Clone for WICColorContextType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WICColorContextType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WICColorContextType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4189,19 +4046,8 @@ impl ::core::fmt::Debug for WICColorContextType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WICComponentEnumerateOptions(pub i32);
-impl ::core::marker::Copy for WICComponentEnumerateOptions {}
-impl ::core::clone::Clone for WICComponentEnumerateOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WICComponentEnumerateOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WICComponentEnumerateOptions {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4211,19 +4057,8 @@ impl ::core::fmt::Debug for WICComponentEnumerateOptions {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WICComponentSigning(pub i32);
-impl ::core::marker::Copy for WICComponentSigning {}
-impl ::core::clone::Clone for WICComponentSigning {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WICComponentSigning {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WICComponentSigning {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4233,19 +4068,8 @@ impl ::core::fmt::Debug for WICComponentSigning {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WICComponentType(pub i32);
-impl ::core::marker::Copy for WICComponentType {}
-impl ::core::clone::Clone for WICComponentType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WICComponentType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WICComponentType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4255,19 +4079,8 @@ impl ::core::fmt::Debug for WICComponentType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WICDdsAlphaMode(pub i32);
-impl ::core::marker::Copy for WICDdsAlphaMode {}
-impl ::core::clone::Clone for WICDdsAlphaMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WICDdsAlphaMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WICDdsAlphaMode {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4277,19 +4090,8 @@ impl ::core::fmt::Debug for WICDdsAlphaMode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WICDdsDimension(pub i32);
-impl ::core::marker::Copy for WICDdsDimension {}
-impl ::core::clone::Clone for WICDdsDimension {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WICDdsDimension {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WICDdsDimension {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4299,19 +4101,8 @@ impl ::core::fmt::Debug for WICDdsDimension {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WICDecodeOptions(pub i32);
-impl ::core::marker::Copy for WICDecodeOptions {}
-impl ::core::clone::Clone for WICDecodeOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WICDecodeOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WICDecodeOptions {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4321,19 +4112,8 @@ impl ::core::fmt::Debug for WICDecodeOptions {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WICGifApplicationExtensionProperties(pub i32);
-impl ::core::marker::Copy for WICGifApplicationExtensionProperties {}
-impl ::core::clone::Clone for WICGifApplicationExtensionProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WICGifApplicationExtensionProperties {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WICGifApplicationExtensionProperties {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4343,19 +4123,8 @@ impl ::core::fmt::Debug for WICGifApplicationExtensionProperties {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WICGifCommentExtensionProperties(pub i32);
-impl ::core::marker::Copy for WICGifCommentExtensionProperties {}
-impl ::core::clone::Clone for WICGifCommentExtensionProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WICGifCommentExtensionProperties {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WICGifCommentExtensionProperties {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4365,19 +4134,8 @@ impl ::core::fmt::Debug for WICGifCommentExtensionProperties {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WICGifGraphicControlExtensionProperties(pub i32);
-impl ::core::marker::Copy for WICGifGraphicControlExtensionProperties {}
-impl ::core::clone::Clone for WICGifGraphicControlExtensionProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WICGifGraphicControlExtensionProperties {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WICGifGraphicControlExtensionProperties {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4387,19 +4145,8 @@ impl ::core::fmt::Debug for WICGifGraphicControlExtensionProperties {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WICGifImageDescriptorProperties(pub i32);
-impl ::core::marker::Copy for WICGifImageDescriptorProperties {}
-impl ::core::clone::Clone for WICGifImageDescriptorProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WICGifImageDescriptorProperties {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WICGifImageDescriptorProperties {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4409,19 +4156,8 @@ impl ::core::fmt::Debug for WICGifImageDescriptorProperties {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WICGifLogicalScreenDescriptorProperties(pub i32);
-impl ::core::marker::Copy for WICGifLogicalScreenDescriptorProperties {}
-impl ::core::clone::Clone for WICGifLogicalScreenDescriptorProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WICGifLogicalScreenDescriptorProperties {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WICGifLogicalScreenDescriptorProperties {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4431,19 +4167,8 @@ impl ::core::fmt::Debug for WICGifLogicalScreenDescriptorProperties {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WICHeifHdrProperties(pub i32);
-impl ::core::marker::Copy for WICHeifHdrProperties {}
-impl ::core::clone::Clone for WICHeifHdrProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WICHeifHdrProperties {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WICHeifHdrProperties {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4453,19 +4178,8 @@ impl ::core::fmt::Debug for WICHeifHdrProperties {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WICHeifProperties(pub i32);
-impl ::core::marker::Copy for WICHeifProperties {}
-impl ::core::clone::Clone for WICHeifProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WICHeifProperties {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WICHeifProperties {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4475,19 +4189,8 @@ impl ::core::fmt::Debug for WICHeifProperties {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WICJpegChrominanceProperties(pub i32);
-impl ::core::marker::Copy for WICJpegChrominanceProperties {}
-impl ::core::clone::Clone for WICJpegChrominanceProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WICJpegChrominanceProperties {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WICJpegChrominanceProperties {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4497,19 +4200,8 @@ impl ::core::fmt::Debug for WICJpegChrominanceProperties {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WICJpegCommentProperties(pub i32);
-impl ::core::marker::Copy for WICJpegCommentProperties {}
-impl ::core::clone::Clone for WICJpegCommentProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WICJpegCommentProperties {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WICJpegCommentProperties {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4519,19 +4211,8 @@ impl ::core::fmt::Debug for WICJpegCommentProperties {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WICJpegIndexingOptions(pub i32);
-impl ::core::marker::Copy for WICJpegIndexingOptions {}
-impl ::core::clone::Clone for WICJpegIndexingOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WICJpegIndexingOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WICJpegIndexingOptions {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4541,19 +4222,8 @@ impl ::core::fmt::Debug for WICJpegIndexingOptions {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WICJpegLuminanceProperties(pub i32);
-impl ::core::marker::Copy for WICJpegLuminanceProperties {}
-impl ::core::clone::Clone for WICJpegLuminanceProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WICJpegLuminanceProperties {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WICJpegLuminanceProperties {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4563,19 +4233,8 @@ impl ::core::fmt::Debug for WICJpegLuminanceProperties {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WICJpegScanType(pub i32);
-impl ::core::marker::Copy for WICJpegScanType {}
-impl ::core::clone::Clone for WICJpegScanType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WICJpegScanType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WICJpegScanType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4585,19 +4244,8 @@ impl ::core::fmt::Debug for WICJpegScanType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WICJpegTransferMatrix(pub i32);
-impl ::core::marker::Copy for WICJpegTransferMatrix {}
-impl ::core::clone::Clone for WICJpegTransferMatrix {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WICJpegTransferMatrix {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WICJpegTransferMatrix {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4607,19 +4255,8 @@ impl ::core::fmt::Debug for WICJpegTransferMatrix {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WICJpegYCrCbSubsamplingOption(pub i32);
-impl ::core::marker::Copy for WICJpegYCrCbSubsamplingOption {}
-impl ::core::clone::Clone for WICJpegYCrCbSubsamplingOption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WICJpegYCrCbSubsamplingOption {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WICJpegYCrCbSubsamplingOption {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4629,19 +4266,8 @@ impl ::core::fmt::Debug for WICJpegYCrCbSubsamplingOption {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WICMetadataCreationOptions(pub i32);
-impl ::core::marker::Copy for WICMetadataCreationOptions {}
-impl ::core::clone::Clone for WICMetadataCreationOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WICMetadataCreationOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WICMetadataCreationOptions {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4651,19 +4277,8 @@ impl ::core::fmt::Debug for WICMetadataCreationOptions {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WICNamedWhitePoint(pub i32);
-impl ::core::marker::Copy for WICNamedWhitePoint {}
-impl ::core::clone::Clone for WICNamedWhitePoint {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WICNamedWhitePoint {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WICNamedWhitePoint {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4673,19 +4288,8 @@ impl ::core::fmt::Debug for WICNamedWhitePoint {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WICPersistOptions(pub i32);
-impl ::core::marker::Copy for WICPersistOptions {}
-impl ::core::clone::Clone for WICPersistOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WICPersistOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WICPersistOptions {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4695,19 +4299,8 @@ impl ::core::fmt::Debug for WICPersistOptions {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WICPixelFormatNumericRepresentation(pub i32);
-impl ::core::marker::Copy for WICPixelFormatNumericRepresentation {}
-impl ::core::clone::Clone for WICPixelFormatNumericRepresentation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WICPixelFormatNumericRepresentation {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WICPixelFormatNumericRepresentation {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4717,19 +4310,8 @@ impl ::core::fmt::Debug for WICPixelFormatNumericRepresentation {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WICPlanarOptions(pub i32);
-impl ::core::marker::Copy for WICPlanarOptions {}
-impl ::core::clone::Clone for WICPlanarOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WICPlanarOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WICPlanarOptions {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4739,19 +4321,8 @@ impl ::core::fmt::Debug for WICPlanarOptions {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WICPngBkgdProperties(pub i32);
-impl ::core::marker::Copy for WICPngBkgdProperties {}
-impl ::core::clone::Clone for WICPngBkgdProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WICPngBkgdProperties {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WICPngBkgdProperties {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4761,19 +4332,8 @@ impl ::core::fmt::Debug for WICPngBkgdProperties {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WICPngChrmProperties(pub i32);
-impl ::core::marker::Copy for WICPngChrmProperties {}
-impl ::core::clone::Clone for WICPngChrmProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WICPngChrmProperties {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WICPngChrmProperties {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4783,19 +4343,8 @@ impl ::core::fmt::Debug for WICPngChrmProperties {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WICPngFilterOption(pub i32);
-impl ::core::marker::Copy for WICPngFilterOption {}
-impl ::core::clone::Clone for WICPngFilterOption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WICPngFilterOption {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WICPngFilterOption {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4805,19 +4354,8 @@ impl ::core::fmt::Debug for WICPngFilterOption {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WICPngGamaProperties(pub i32);
-impl ::core::marker::Copy for WICPngGamaProperties {}
-impl ::core::clone::Clone for WICPngGamaProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WICPngGamaProperties {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WICPngGamaProperties {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4827,19 +4365,8 @@ impl ::core::fmt::Debug for WICPngGamaProperties {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WICPngHistProperties(pub i32);
-impl ::core::marker::Copy for WICPngHistProperties {}
-impl ::core::clone::Clone for WICPngHistProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WICPngHistProperties {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WICPngHistProperties {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4849,19 +4376,8 @@ impl ::core::fmt::Debug for WICPngHistProperties {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WICPngIccpProperties(pub i32);
-impl ::core::marker::Copy for WICPngIccpProperties {}
-impl ::core::clone::Clone for WICPngIccpProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WICPngIccpProperties {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WICPngIccpProperties {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4871,19 +4387,8 @@ impl ::core::fmt::Debug for WICPngIccpProperties {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WICPngItxtProperties(pub i32);
-impl ::core::marker::Copy for WICPngItxtProperties {}
-impl ::core::clone::Clone for WICPngItxtProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WICPngItxtProperties {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WICPngItxtProperties {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4893,19 +4398,8 @@ impl ::core::fmt::Debug for WICPngItxtProperties {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WICPngSrgbProperties(pub i32);
-impl ::core::marker::Copy for WICPngSrgbProperties {}
-impl ::core::clone::Clone for WICPngSrgbProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WICPngSrgbProperties {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WICPngSrgbProperties {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4915,19 +4409,8 @@ impl ::core::fmt::Debug for WICPngSrgbProperties {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WICPngTimeProperties(pub i32);
-impl ::core::marker::Copy for WICPngTimeProperties {}
-impl ::core::clone::Clone for WICPngTimeProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WICPngTimeProperties {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WICPngTimeProperties {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4937,19 +4420,8 @@ impl ::core::fmt::Debug for WICPngTimeProperties {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WICProgressNotification(pub i32);
-impl ::core::marker::Copy for WICProgressNotification {}
-impl ::core::clone::Clone for WICProgressNotification {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WICProgressNotification {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WICProgressNotification {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4959,19 +4431,8 @@ impl ::core::fmt::Debug for WICProgressNotification {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WICProgressOperation(pub i32);
-impl ::core::marker::Copy for WICProgressOperation {}
-impl ::core::clone::Clone for WICProgressOperation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WICProgressOperation {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WICProgressOperation {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4981,19 +4442,8 @@ impl ::core::fmt::Debug for WICProgressOperation {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WICRawCapabilities(pub i32);
-impl ::core::marker::Copy for WICRawCapabilities {}
-impl ::core::clone::Clone for WICRawCapabilities {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WICRawCapabilities {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WICRawCapabilities {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5003,19 +4453,8 @@ impl ::core::fmt::Debug for WICRawCapabilities {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WICRawParameterSet(pub i32);
-impl ::core::marker::Copy for WICRawParameterSet {}
-impl ::core::clone::Clone for WICRawParameterSet {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WICRawParameterSet {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WICRawParameterSet {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5025,19 +4464,8 @@ impl ::core::fmt::Debug for WICRawParameterSet {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WICRawRenderMode(pub i32);
-impl ::core::marker::Copy for WICRawRenderMode {}
-impl ::core::clone::Clone for WICRawRenderMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WICRawRenderMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WICRawRenderMode {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5047,19 +4475,8 @@ impl ::core::fmt::Debug for WICRawRenderMode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WICRawRotationCapabilities(pub i32);
-impl ::core::marker::Copy for WICRawRotationCapabilities {}
-impl ::core::clone::Clone for WICRawRotationCapabilities {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WICRawRotationCapabilities {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WICRawRotationCapabilities {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5069,19 +4486,8 @@ impl ::core::fmt::Debug for WICRawRotationCapabilities {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WICSectionAccessLevel(pub i32);
-impl ::core::marker::Copy for WICSectionAccessLevel {}
-impl ::core::clone::Clone for WICSectionAccessLevel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WICSectionAccessLevel {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WICSectionAccessLevel {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5091,19 +4497,8 @@ impl ::core::fmt::Debug for WICSectionAccessLevel {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WICTiffCompressionOption(pub i32);
-impl ::core::marker::Copy for WICTiffCompressionOption {}
-impl ::core::clone::Clone for WICTiffCompressionOption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WICTiffCompressionOption {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WICTiffCompressionOption {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5113,19 +4508,8 @@ impl ::core::fmt::Debug for WICTiffCompressionOption {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WICWebpAnimProperties(pub i32);
-impl ::core::marker::Copy for WICWebpAnimProperties {}
-impl ::core::clone::Clone for WICWebpAnimProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WICWebpAnimProperties {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WICWebpAnimProperties {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5135,19 +4519,8 @@ impl ::core::fmt::Debug for WICWebpAnimProperties {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WICWebpAnmfProperties(pub i32);
-impl ::core::marker::Copy for WICWebpAnmfProperties {}
-impl ::core::clone::Clone for WICWebpAnmfProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WICWebpAnmfProperties {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WICWebpAnmfProperties {
     type TypeKind = ::windows_core::CopyType;
 }

@@ -346,19 +346,8 @@ pub const REC_S_NOTCOMPLETE: ::windows_core::HRESULT = ::windows_core::HRESULT(2
 pub const REC_S_NOTCOMPLETEBUTPROPAGATE: ::windows_core::HRESULT = ::windows_core::HRESULT(266242i32);
 pub const STATEBITS_FLAT: u32 = 1u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EMPTY_VOLUME_CACHE_FLAGS(pub u32);
-impl ::core::marker::Copy for EMPTY_VOLUME_CACHE_FLAGS {}
-impl ::core::clone::Clone for EMPTY_VOLUME_CACHE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EMPTY_VOLUME_CACHE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EMPTY_VOLUME_CACHE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -368,19 +357,8 @@ impl ::core::fmt::Debug for EMPTY_VOLUME_CACHE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RECONCILEF(pub i32);
-impl ::core::marker::Copy for RECONCILEF {}
-impl ::core::clone::Clone for RECONCILEF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RECONCILEF {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RECONCILEF {
     type TypeKind = ::windows_core::CopyType;
 }

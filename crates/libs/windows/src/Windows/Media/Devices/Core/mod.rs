@@ -1279,23 +1279,12 @@ impl ::windows_core::RuntimeName for VariablePhotoSequenceController {
 }
 ::windows_core::imp::interface_hierarchy!(VariablePhotoSequenceController, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FrameFlashMode(pub i32);
 impl FrameFlashMode {
     pub const Disable: Self = Self(0i32);
     pub const Enable: Self = Self(1i32);
     pub const Global: Self = Self(2i32);
-}
-impl ::core::marker::Copy for FrameFlashMode {}
-impl ::core::clone::Clone for FrameFlashMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FrameFlashMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for FrameFlashMode {
     type TypeKind = ::windows_core::CopyType;

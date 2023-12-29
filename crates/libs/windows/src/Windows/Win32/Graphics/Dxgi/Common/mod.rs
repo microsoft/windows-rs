@@ -172,19 +172,8 @@ pub const DXGI_MODE_SCANLINE_ORDER_UPPER_FIELD_FIRST: DXGI_MODE_SCANLINE_ORDER =
 pub const DXGI_STANDARD_MULTISAMPLE_QUALITY_PATTERN: u32 = 4294967295u32;
 pub const _FACDXGI: u32 = 2170u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXGI_ALPHA_MODE(pub i32);
-impl ::core::marker::Copy for DXGI_ALPHA_MODE {}
-impl ::core::clone::Clone for DXGI_ALPHA_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXGI_ALPHA_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXGI_ALPHA_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -194,19 +183,8 @@ impl ::core::fmt::Debug for DXGI_ALPHA_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXGI_COLOR_SPACE_TYPE(pub i32);
-impl ::core::marker::Copy for DXGI_COLOR_SPACE_TYPE {}
-impl ::core::clone::Clone for DXGI_COLOR_SPACE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXGI_COLOR_SPACE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXGI_COLOR_SPACE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -216,19 +194,8 @@ impl ::core::fmt::Debug for DXGI_COLOR_SPACE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXGI_FORMAT(pub i32);
-impl ::core::marker::Copy for DXGI_FORMAT {}
-impl ::core::clone::Clone for DXGI_FORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXGI_FORMAT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXGI_FORMAT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -238,19 +205,8 @@ impl ::core::fmt::Debug for DXGI_FORMAT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXGI_MODE_ROTATION(pub i32);
-impl ::core::marker::Copy for DXGI_MODE_ROTATION {}
-impl ::core::clone::Clone for DXGI_MODE_ROTATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXGI_MODE_ROTATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXGI_MODE_ROTATION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -260,19 +216,8 @@ impl ::core::fmt::Debug for DXGI_MODE_ROTATION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXGI_MODE_SCALING(pub i32);
-impl ::core::marker::Copy for DXGI_MODE_SCALING {}
-impl ::core::clone::Clone for DXGI_MODE_SCALING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXGI_MODE_SCALING {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXGI_MODE_SCALING {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -282,19 +227,8 @@ impl ::core::fmt::Debug for DXGI_MODE_SCALING {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXGI_MODE_SCANLINE_ORDER(pub i32);
-impl ::core::marker::Copy for DXGI_MODE_SCANLINE_ORDER {}
-impl ::core::clone::Clone for DXGI_MODE_SCANLINE_ORDER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXGI_MODE_SCANLINE_ORDER {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXGI_MODE_SCANLINE_ORDER {
     type TypeKind = ::windows_core::CopyType;
 }

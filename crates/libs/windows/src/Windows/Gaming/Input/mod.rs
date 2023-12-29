@@ -1680,7 +1680,7 @@ impl ::windows_core::CanTryInto<IGameControllerBatteryInfo> for UINavigationCont
 unsafe impl ::core::marker::Send for UINavigationController {}
 unsafe impl ::core::marker::Sync for UINavigationController {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ArcadeStickButtons(pub u32);
 impl ArcadeStickButtons {
     pub const None: Self = Self(0u32);
@@ -1696,17 +1696,6 @@ impl ArcadeStickButtons {
     pub const Action6: Self = Self(512u32);
     pub const Special1: Self = Self(1024u32);
     pub const Special2: Self = Self(2048u32);
-}
-impl ::core::marker::Copy for ArcadeStickButtons {}
-impl ::core::clone::Clone for ArcadeStickButtons {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ArcadeStickButtons {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ArcadeStickButtons {
     type TypeKind = ::windows_core::CopyType;
@@ -1753,23 +1742,12 @@ impl ::windows_core::RuntimeType for ArcadeStickButtons {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.ArcadeStickButtons;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FlightStickButtons(pub u32);
 impl FlightStickButtons {
     pub const None: Self = Self(0u32);
     pub const FirePrimary: Self = Self(1u32);
     pub const FireSecondary: Self = Self(2u32);
-}
-impl ::core::marker::Copy for FlightStickButtons {}
-impl ::core::clone::Clone for FlightStickButtons {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FlightStickButtons {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for FlightStickButtons {
     type TypeKind = ::windows_core::CopyType;
@@ -1816,7 +1794,7 @@ impl ::windows_core::RuntimeType for FlightStickButtons {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.FlightStickButtons;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GameControllerButtonLabel(pub i32);
 impl GameControllerButtonLabel {
     pub const None: Self = Self(0i32);
@@ -1889,17 +1867,6 @@ impl GameControllerButtonLabel {
     pub const DialRight: Self = Self(67i32);
     pub const Suspension: Self = Self(68i32);
 }
-impl ::core::marker::Copy for GameControllerButtonLabel {}
-impl ::core::clone::Clone for GameControllerButtonLabel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GameControllerButtonLabel {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for GameControllerButtonLabel {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1912,23 +1879,12 @@ impl ::windows_core::RuntimeType for GameControllerButtonLabel {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.GameControllerButtonLabel;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GameControllerSwitchKind(pub i32);
 impl GameControllerSwitchKind {
     pub const TwoWay: Self = Self(0i32);
     pub const FourWay: Self = Self(1i32);
     pub const EightWay: Self = Self(2i32);
-}
-impl ::core::marker::Copy for GameControllerSwitchKind {}
-impl ::core::clone::Clone for GameControllerSwitchKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GameControllerSwitchKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for GameControllerSwitchKind {
     type TypeKind = ::windows_core::CopyType;
@@ -1942,7 +1898,7 @@ impl ::windows_core::RuntimeType for GameControllerSwitchKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.GameControllerSwitchKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GameControllerSwitchPosition(pub i32);
 impl GameControllerSwitchPosition {
     pub const Center: Self = Self(0i32);
@@ -1954,17 +1910,6 @@ impl GameControllerSwitchPosition {
     pub const DownLeft: Self = Self(6i32);
     pub const Left: Self = Self(7i32);
     pub const UpLeft: Self = Self(8i32);
-}
-impl ::core::marker::Copy for GameControllerSwitchPosition {}
-impl ::core::clone::Clone for GameControllerSwitchPosition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GameControllerSwitchPosition {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for GameControllerSwitchPosition {
     type TypeKind = ::windows_core::CopyType;
@@ -1978,7 +1923,7 @@ impl ::windows_core::RuntimeType for GameControllerSwitchPosition {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.GameControllerSwitchPosition;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GamepadButtons(pub u32);
 impl GamepadButtons {
     pub const None: Self = Self(0u32);
@@ -2000,17 +1945,6 @@ impl GamepadButtons {
     pub const Paddle2: Self = Self(32768u32);
     pub const Paddle3: Self = Self(65536u32);
     pub const Paddle4: Self = Self(131072u32);
-}
-impl ::core::marker::Copy for GamepadButtons {}
-impl ::core::clone::Clone for GamepadButtons {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GamepadButtons {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for GamepadButtons {
     type TypeKind = ::windows_core::CopyType;
@@ -2057,7 +1991,7 @@ impl ::windows_core::RuntimeType for GamepadButtons {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.GamepadButtons;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OptionalUINavigationButtons(pub u32);
 impl OptionalUINavigationButtons {
     pub const None: Self = Self(0u32);
@@ -2073,17 +2007,6 @@ impl OptionalUINavigationButtons {
     pub const ScrollDown: Self = Self(512u32);
     pub const ScrollLeft: Self = Self(1024u32);
     pub const ScrollRight: Self = Self(2048u32);
-}
-impl ::core::marker::Copy for OptionalUINavigationButtons {}
-impl ::core::clone::Clone for OptionalUINavigationButtons {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OptionalUINavigationButtons {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for OptionalUINavigationButtons {
     type TypeKind = ::windows_core::CopyType;
@@ -2130,7 +2053,7 @@ impl ::windows_core::RuntimeType for OptionalUINavigationButtons {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.OptionalUINavigationButtons;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RacingWheelButtons(pub u32);
 impl RacingWheelButtons {
     pub const None: Self = Self(0u32);
@@ -2156,17 +2079,6 @@ impl RacingWheelButtons {
     pub const Button14: Self = Self(524288u32);
     pub const Button15: Self = Self(1048576u32);
     pub const Button16: Self = Self(2097152u32);
-}
-impl ::core::marker::Copy for RacingWheelButtons {}
-impl ::core::clone::Clone for RacingWheelButtons {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RacingWheelButtons {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for RacingWheelButtons {
     type TypeKind = ::windows_core::CopyType;
@@ -2213,7 +2125,7 @@ impl ::windows_core::RuntimeType for RacingWheelButtons {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.RacingWheelButtons;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RequiredUINavigationButtons(pub u32);
 impl RequiredUINavigationButtons {
     pub const None: Self = Self(0u32);
@@ -2225,17 +2137,6 @@ impl RequiredUINavigationButtons {
     pub const Down: Self = Self(32u32);
     pub const Left: Self = Self(64u32);
     pub const Right: Self = Self(128u32);
-}
-impl ::core::marker::Copy for RequiredUINavigationButtons {}
-impl ::core::clone::Clone for RequiredUINavigationButtons {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RequiredUINavigationButtons {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for RequiredUINavigationButtons {
     type TypeKind = ::windows_core::CopyType;

@@ -143,19 +143,8 @@ pub const SerenumFirstHalf: SERENUM_PORTION = SERENUM_PORTION(0i32);
 pub const SerenumSecondHalf: SERENUM_PORTION = SERENUM_PORTION(1i32);
 pub const SerenumWhole: SERENUM_PORTION = SERENUM_PORTION(2i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SERENUM_PORTION(pub i32);
-impl ::core::marker::Copy for SERENUM_PORTION {}
-impl ::core::clone::Clone for SERENUM_PORTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SERENUM_PORTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SERENUM_PORTION {
     type TypeKind = ::windows_core::CopyType;
 }

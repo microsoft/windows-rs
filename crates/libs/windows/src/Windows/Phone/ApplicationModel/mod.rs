@@ -32,22 +32,11 @@ impl ::windows_core::RuntimeName for ApplicationProfile {
     const NAME: &'static str = "Windows.Phone.ApplicationModel.ApplicationProfile";
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ApplicationProfileModes(pub u32);
 impl ApplicationProfileModes {
     pub const Default: Self = Self(0u32);
     pub const Alternate: Self = Self(1u32);
-}
-impl ::core::marker::Copy for ApplicationProfileModes {}
-impl ::core::clone::Clone for ApplicationProfileModes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ApplicationProfileModes {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ApplicationProfileModes {
     type TypeKind = ::windows_core::CopyType;

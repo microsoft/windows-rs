@@ -492,22 +492,11 @@ impl ::windows_core::RuntimeName for AppRecordingStatusDetails {
 unsafe impl ::core::marker::Send for AppRecordingStatusDetails {}
 unsafe impl ::core::marker::Sync for AppRecordingStatusDetails {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AppRecordingSaveScreenshotOption(pub i32);
 impl AppRecordingSaveScreenshotOption {
     pub const None: Self = Self(0i32);
     pub const HdrContentVisible: Self = Self(1i32);
-}
-impl ::core::marker::Copy for AppRecordingSaveScreenshotOption {}
-impl ::core::clone::Clone for AppRecordingSaveScreenshotOption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AppRecordingSaveScreenshotOption {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AppRecordingSaveScreenshotOption {
     type TypeKind = ::windows_core::CopyType;

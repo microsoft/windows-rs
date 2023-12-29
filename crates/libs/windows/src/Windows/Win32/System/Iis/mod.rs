@@ -2192,19 +2192,8 @@ pub const WEB_CORE_DLL_NAME: ::windows_core::PCWSTR = ::windows_core::w!("hwebco
 pub const WEB_CORE_SET_METADATA_DLL_ENTRY: ::windows_core::PCSTR = ::windows_core::s!("WebCoreSetMetadata");
 pub const WEB_CORE_SHUTDOWN_DLL_ENTRY: ::windows_core::PCSTR = ::windows_core::s!("WebCoreShutdown");
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FTP_ACCESS(pub i32);
-impl ::core::marker::Copy for FTP_ACCESS {}
-impl ::core::clone::Clone for FTP_ACCESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FTP_ACCESS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FTP_ACCESS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2214,19 +2203,8 @@ impl ::core::fmt::Debug for FTP_ACCESS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FTP_PROCESS_STATUS(pub i32);
-impl ::core::marker::Copy for FTP_PROCESS_STATUS {}
-impl ::core::clone::Clone for FTP_PROCESS_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FTP_PROCESS_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FTP_PROCESS_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2236,19 +2214,8 @@ impl ::core::fmt::Debug for FTP_PROCESS_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HTTP_TRACE_TYPE(pub i32);
-impl ::core::marker::Copy for HTTP_TRACE_TYPE {}
-impl ::core::clone::Clone for HTTP_TRACE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HTTP_TRACE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HTTP_TRACE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2258,19 +2225,8 @@ impl ::core::fmt::Debug for HTTP_TRACE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct METADATATYPES(pub i32);
-impl ::core::marker::Copy for METADATATYPES {}
-impl ::core::clone::Clone for METADATATYPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for METADATATYPES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for METADATATYPES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2280,19 +2236,8 @@ impl ::core::fmt::Debug for METADATATYPES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SF_PROPERTY_IIS(pub i32);
-impl ::core::marker::Copy for SF_PROPERTY_IIS {}
-impl ::core::clone::Clone for SF_PROPERTY_IIS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SF_PROPERTY_IIS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SF_PROPERTY_IIS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2302,19 +2247,8 @@ impl ::core::fmt::Debug for SF_PROPERTY_IIS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SF_REQ_TYPE(pub i32);
-impl ::core::marker::Copy for SF_REQ_TYPE {}
-impl ::core::clone::Clone for SF_REQ_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SF_REQ_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SF_REQ_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2324,19 +2258,8 @@ impl ::core::fmt::Debug for SF_REQ_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SF_STATUS_TYPE(pub i32);
-impl ::core::marker::Copy for SF_STATUS_TYPE {}
-impl ::core::clone::Clone for SF_STATUS_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SF_STATUS_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SF_STATUS_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }

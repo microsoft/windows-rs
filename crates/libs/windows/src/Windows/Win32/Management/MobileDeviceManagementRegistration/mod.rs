@@ -199,19 +199,8 @@ pub const MREGISTER_E_DISCOVERY_REDIRECTED: ::windows_core::HRESULT = ::windows_
 pub const MREGISTER_E_REGISTRATION_IN_PROGRESS: ::windows_core::HRESULT = ::windows_core::HRESULT(-2145845239i32);
 pub const MaxDeviceInfoClass: REGISTRATION_INFORMATION_CLASS = REGISTRATION_INFORMATION_CLASS(2i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct REGISTRATION_INFORMATION_CLASS(pub i32);
-impl ::core::marker::Copy for REGISTRATION_INFORMATION_CLASS {}
-impl ::core::clone::Clone for REGISTRATION_INFORMATION_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for REGISTRATION_INFORMATION_CLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for REGISTRATION_INFORMATION_CLASS {
     type TypeKind = ::windows_core::CopyType;
 }

@@ -2603,7 +2603,7 @@ impl ::windows_core::RuntimeName for SpatialTappedEventArgs {
 unsafe impl ::core::marker::Send for SpatialTappedEventArgs {}
 unsafe impl ::core::marker::Sync for SpatialTappedEventArgs {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SpatialGestureSettings(pub u32);
 impl SpatialGestureSettings {
     pub const None: Self = Self(0u32);
@@ -2617,17 +2617,6 @@ impl SpatialGestureSettings {
     pub const NavigationRailsX: Self = Self(128u32);
     pub const NavigationRailsY: Self = Self(256u32);
     pub const NavigationRailsZ: Self = Self(512u32);
-}
-impl ::core::marker::Copy for SpatialGestureSettings {}
-impl ::core::clone::Clone for SpatialGestureSettings {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpatialGestureSettings {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SpatialGestureSettings {
     type TypeKind = ::windows_core::CopyType;
@@ -2674,7 +2663,7 @@ impl ::windows_core::RuntimeType for SpatialGestureSettings {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Spatial.SpatialGestureSettings;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SpatialInteractionPressKind(pub i32);
 impl SpatialInteractionPressKind {
     pub const None: Self = Self(0i32);
@@ -2683,17 +2672,6 @@ impl SpatialInteractionPressKind {
     pub const Grasp: Self = Self(3i32);
     pub const Touchpad: Self = Self(4i32);
     pub const Thumbstick: Self = Self(5i32);
-}
-impl ::core::marker::Copy for SpatialInteractionPressKind {}
-impl ::core::clone::Clone for SpatialInteractionPressKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpatialInteractionPressKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SpatialInteractionPressKind {
     type TypeKind = ::windows_core::CopyType;
@@ -2707,23 +2685,12 @@ impl ::windows_core::RuntimeType for SpatialInteractionPressKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Spatial.SpatialInteractionPressKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SpatialInteractionSourceHandedness(pub i32);
 impl SpatialInteractionSourceHandedness {
     pub const Unspecified: Self = Self(0i32);
     pub const Left: Self = Self(1i32);
     pub const Right: Self = Self(2i32);
-}
-impl ::core::marker::Copy for SpatialInteractionSourceHandedness {}
-impl ::core::clone::Clone for SpatialInteractionSourceHandedness {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpatialInteractionSourceHandedness {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SpatialInteractionSourceHandedness {
     type TypeKind = ::windows_core::CopyType;
@@ -2737,24 +2704,13 @@ impl ::windows_core::RuntimeType for SpatialInteractionSourceHandedness {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Spatial.SpatialInteractionSourceHandedness;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SpatialInteractionSourceKind(pub i32);
 impl SpatialInteractionSourceKind {
     pub const Other: Self = Self(0i32);
     pub const Hand: Self = Self(1i32);
     pub const Voice: Self = Self(2i32);
     pub const Controller: Self = Self(3i32);
-}
-impl ::core::marker::Copy for SpatialInteractionSourceKind {}
-impl ::core::clone::Clone for SpatialInteractionSourceKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpatialInteractionSourceKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SpatialInteractionSourceKind {
     type TypeKind = ::windows_core::CopyType;
@@ -2768,22 +2724,11 @@ impl ::windows_core::RuntimeType for SpatialInteractionSourceKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Spatial.SpatialInteractionSourceKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SpatialInteractionSourcePositionAccuracy(pub i32);
 impl SpatialInteractionSourcePositionAccuracy {
     pub const High: Self = Self(0i32);
     pub const Approximate: Self = Self(1i32);
-}
-impl ::core::marker::Copy for SpatialInteractionSourcePositionAccuracy {}
-impl ::core::clone::Clone for SpatialInteractionSourcePositionAccuracy {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpatialInteractionSourcePositionAccuracy {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SpatialInteractionSourcePositionAccuracy {
     type TypeKind = ::windows_core::CopyType;

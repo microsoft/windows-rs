@@ -1765,19 +1765,8 @@ pub const VPDF_FORCEAPM10MODE: u32 = 2u32;
 pub const VPDF_SHOWMULTIBATT: u32 = 32u32;
 pub const VPDF_SKIPINTELSLCHECK: u32 = 4u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct REG_CREATE_KEY_DISPOSITION(pub u32);
-impl ::core::marker::Copy for REG_CREATE_KEY_DISPOSITION {}
-impl ::core::clone::Clone for REG_CREATE_KEY_DISPOSITION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for REG_CREATE_KEY_DISPOSITION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for REG_CREATE_KEY_DISPOSITION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1787,19 +1776,8 @@ impl ::core::fmt::Debug for REG_CREATE_KEY_DISPOSITION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct REG_NOTIFY_FILTER(pub u32);
-impl ::core::marker::Copy for REG_NOTIFY_FILTER {}
-impl ::core::clone::Clone for REG_NOTIFY_FILTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for REG_NOTIFY_FILTER {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for REG_NOTIFY_FILTER {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1842,19 +1820,8 @@ impl ::core::ops::Not for REG_NOTIFY_FILTER {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct REG_OPEN_CREATE_OPTIONS(pub u32);
-impl ::core::marker::Copy for REG_OPEN_CREATE_OPTIONS {}
-impl ::core::clone::Clone for REG_OPEN_CREATE_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for REG_OPEN_CREATE_OPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for REG_OPEN_CREATE_OPTIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1897,19 +1864,8 @@ impl ::core::ops::Not for REG_OPEN_CREATE_OPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct REG_RESTORE_KEY_FLAGS(pub i32);
-impl ::core::marker::Copy for REG_RESTORE_KEY_FLAGS {}
-impl ::core::clone::Clone for REG_RESTORE_KEY_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for REG_RESTORE_KEY_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for REG_RESTORE_KEY_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1919,19 +1875,8 @@ impl ::core::fmt::Debug for REG_RESTORE_KEY_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct REG_ROUTINE_FLAGS(pub u32);
-impl ::core::marker::Copy for REG_ROUTINE_FLAGS {}
-impl ::core::clone::Clone for REG_ROUTINE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for REG_ROUTINE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for REG_ROUTINE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1974,19 +1919,8 @@ impl ::core::ops::Not for REG_ROUTINE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct REG_SAM_FLAGS(pub u32);
-impl ::core::marker::Copy for REG_SAM_FLAGS {}
-impl ::core::clone::Clone for REG_SAM_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for REG_SAM_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for REG_SAM_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2029,19 +1963,8 @@ impl ::core::ops::Not for REG_SAM_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct REG_SAVE_FORMAT(pub u32);
-impl ::core::marker::Copy for REG_SAVE_FORMAT {}
-impl ::core::clone::Clone for REG_SAVE_FORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for REG_SAVE_FORMAT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for REG_SAVE_FORMAT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2051,19 +1974,8 @@ impl ::core::fmt::Debug for REG_SAVE_FORMAT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct REG_VALUE_TYPE(pub u32);
-impl ::core::marker::Copy for REG_VALUE_TYPE {}
-impl ::core::clone::Clone for REG_VALUE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for REG_VALUE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for REG_VALUE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }

@@ -375,22 +375,11 @@ impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IAct
 unsafe impl ::core::marker::Send for GameUIProviderActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for GameUIProviderActivatedEventArgs {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GameChatMessageOrigin(pub i32);
 impl GameChatMessageOrigin {
     pub const Voice: Self = Self(0i32);
     pub const Text: Self = Self(1i32);
-}
-impl ::core::marker::Copy for GameChatMessageOrigin {}
-impl ::core::clone::Clone for GameChatMessageOrigin {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GameChatMessageOrigin {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for GameChatMessageOrigin {
     type TypeKind = ::windows_core::CopyType;
@@ -404,7 +393,7 @@ impl ::windows_core::RuntimeType for GameChatMessageOrigin {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.UI.GameChatMessageOrigin;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GameChatOverlayPosition(pub i32);
 impl GameChatOverlayPosition {
     pub const BottomCenter: Self = Self(0i32);
@@ -415,17 +404,6 @@ impl GameChatOverlayPosition {
     pub const TopCenter: Self = Self(5i32);
     pub const TopLeft: Self = Self(6i32);
     pub const TopRight: Self = Self(7i32);
-}
-impl ::core::marker::Copy for GameChatOverlayPosition {}
-impl ::core::clone::Clone for GameChatOverlayPosition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GameChatOverlayPosition {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for GameChatOverlayPosition {
     type TypeKind = ::windows_core::CopyType;

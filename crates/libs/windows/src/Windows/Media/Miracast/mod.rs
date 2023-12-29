@@ -1511,7 +1511,7 @@ impl ::windows_core::RuntimeName for MiracastTransmitter {
 unsafe impl ::core::marker::Send for MiracastTransmitter {}
 unsafe impl ::core::marker::Sync for MiracastTransmitter {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MiracastReceiverApplySettingsStatus(pub i32);
 impl MiracastReceiverApplySettingsStatus {
     pub const Success: Self = Self(0i32);
@@ -1522,17 +1522,6 @@ impl MiracastReceiverApplySettingsStatus {
     pub const ModelNameTooLong: Self = Self(5i32);
     pub const ModelNumberTooLong: Self = Self(6i32);
     pub const InvalidSettings: Self = Self(7i32);
-}
-impl ::core::marker::Copy for MiracastReceiverApplySettingsStatus {}
-impl ::core::clone::Clone for MiracastReceiverApplySettingsStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MiracastReceiverApplySettingsStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MiracastReceiverApplySettingsStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -1546,24 +1535,13 @@ impl ::windows_core::RuntimeType for MiracastReceiverApplySettingsStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverApplySettingsStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MiracastReceiverAuthorizationMethod(pub i32);
 impl MiracastReceiverAuthorizationMethod {
     pub const None: Self = Self(0i32);
     pub const ConfirmConnection: Self = Self(1i32);
     pub const PinDisplayIfRequested: Self = Self(2i32);
     pub const PinDisplayRequired: Self = Self(3i32);
-}
-impl ::core::marker::Copy for MiracastReceiverAuthorizationMethod {}
-impl ::core::clone::Clone for MiracastReceiverAuthorizationMethod {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MiracastReceiverAuthorizationMethod {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MiracastReceiverAuthorizationMethod {
     type TypeKind = ::windows_core::CopyType;
@@ -1577,7 +1555,7 @@ impl ::windows_core::RuntimeType for MiracastReceiverAuthorizationMethod {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverAuthorizationMethod;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MiracastReceiverDisconnectReason(pub i32);
 impl MiracastReceiverDisconnectReason {
     pub const Finished: Self = Self(0i32);
@@ -1588,17 +1566,6 @@ impl MiracastReceiverDisconnectReason {
     pub const MediaDecodingError: Self = Self(5i32);
     pub const MediaStreamingError: Self = Self(6i32);
     pub const MediaDecryptionError: Self = Self(7i32);
-}
-impl ::core::marker::Copy for MiracastReceiverDisconnectReason {}
-impl ::core::clone::Clone for MiracastReceiverDisconnectReason {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MiracastReceiverDisconnectReason {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MiracastReceiverDisconnectReason {
     type TypeKind = ::windows_core::CopyType;
@@ -1612,22 +1579,11 @@ impl ::windows_core::RuntimeType for MiracastReceiverDisconnectReason {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverDisconnectReason;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MiracastReceiverGameControllerDeviceUsageMode(pub i32);
 impl MiracastReceiverGameControllerDeviceUsageMode {
     pub const AsGameController: Self = Self(0i32);
     pub const AsMouseAndKeyboard: Self = Self(1i32);
-}
-impl ::core::marker::Copy for MiracastReceiverGameControllerDeviceUsageMode {}
-impl ::core::clone::Clone for MiracastReceiverGameControllerDeviceUsageMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MiracastReceiverGameControllerDeviceUsageMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MiracastReceiverGameControllerDeviceUsageMode {
     type TypeKind = ::windows_core::CopyType;
@@ -1641,7 +1597,7 @@ impl ::windows_core::RuntimeType for MiracastReceiverGameControllerDeviceUsageMo
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverGameControllerDeviceUsageMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MiracastReceiverListeningStatus(pub i32);
 impl MiracastReceiverListeningStatus {
     pub const NotListening: Self = Self(0i32);
@@ -1650,17 +1606,6 @@ impl MiracastReceiverListeningStatus {
     pub const Connected: Self = Self(3i32);
     pub const DisabledByPolicy: Self = Self(4i32);
     pub const TemporarilyDisabled: Self = Self(5i32);
-}
-impl ::core::marker::Copy for MiracastReceiverListeningStatus {}
-impl ::core::clone::Clone for MiracastReceiverListeningStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MiracastReceiverListeningStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MiracastReceiverListeningStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -1674,24 +1619,13 @@ impl ::windows_core::RuntimeType for MiracastReceiverListeningStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverListeningStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MiracastReceiverSessionStartStatus(pub i32);
 impl MiracastReceiverSessionStartStatus {
     pub const Success: Self = Self(0i32);
     pub const UnknownFailure: Self = Self(1i32);
     pub const MiracastNotSupported: Self = Self(2i32);
     pub const AccessDenied: Self = Self(3i32);
-}
-impl ::core::marker::Copy for MiracastReceiverSessionStartStatus {}
-impl ::core::clone::Clone for MiracastReceiverSessionStartStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MiracastReceiverSessionStartStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MiracastReceiverSessionStartStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -1705,24 +1639,13 @@ impl ::windows_core::RuntimeType for MiracastReceiverSessionStartStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverSessionStartStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MiracastReceiverWiFiStatus(pub i32);
 impl MiracastReceiverWiFiStatus {
     pub const MiracastSupportUndetermined: Self = Self(0i32);
     pub const MiracastNotSupported: Self = Self(1i32);
     pub const MiracastSupportNotOptimized: Self = Self(2i32);
     pub const MiracastSupported: Self = Self(3i32);
-}
-impl ::core::marker::Copy for MiracastReceiverWiFiStatus {}
-impl ::core::clone::Clone for MiracastReceiverWiFiStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MiracastReceiverWiFiStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MiracastReceiverWiFiStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -1736,24 +1659,13 @@ impl ::windows_core::RuntimeType for MiracastReceiverWiFiStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverWiFiStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MiracastTransmitterAuthorizationStatus(pub i32);
 impl MiracastTransmitterAuthorizationStatus {
     pub const Undecided: Self = Self(0i32);
     pub const Allowed: Self = Self(1i32);
     pub const AlwaysPrompt: Self = Self(2i32);
     pub const Blocked: Self = Self(3i32);
-}
-impl ::core::marker::Copy for MiracastTransmitterAuthorizationStatus {}
-impl ::core::clone::Clone for MiracastTransmitterAuthorizationStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MiracastTransmitterAuthorizationStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MiracastTransmitterAuthorizationStatus {
     type TypeKind = ::windows_core::CopyType;

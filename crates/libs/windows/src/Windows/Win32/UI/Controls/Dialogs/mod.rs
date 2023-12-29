@@ -470,19 +470,8 @@ pub const WM_PSD_MARGINRECT: u32 = 1027u32;
 pub const WM_PSD_MINMARGINRECT: u32 = 1026u32;
 pub const WM_PSD_YAFULLPAGERECT: u32 = 1030u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CHOOSECOLOR_FLAGS(pub u32);
-impl ::core::marker::Copy for CHOOSECOLOR_FLAGS {}
-impl ::core::clone::Clone for CHOOSECOLOR_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CHOOSECOLOR_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CHOOSECOLOR_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -525,19 +514,8 @@ impl ::core::ops::Not for CHOOSECOLOR_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CHOOSEFONT_FLAGS(pub u32);
-impl ::core::marker::Copy for CHOOSEFONT_FLAGS {}
-impl ::core::clone::Clone for CHOOSEFONT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CHOOSEFONT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CHOOSEFONT_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -580,19 +558,8 @@ impl ::core::ops::Not for CHOOSEFONT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CHOOSEFONT_FONT_TYPE(pub u16);
-impl ::core::marker::Copy for CHOOSEFONT_FONT_TYPE {}
-impl ::core::clone::Clone for CHOOSEFONT_FONT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CHOOSEFONT_FONT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CHOOSEFONT_FONT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -635,19 +602,8 @@ impl ::core::ops::Not for CHOOSEFONT_FONT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct COMMON_DLG_ERRORS(pub u32);
-impl ::core::marker::Copy for COMMON_DLG_ERRORS {}
-impl ::core::clone::Clone for COMMON_DLG_ERRORS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COMMON_DLG_ERRORS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for COMMON_DLG_ERRORS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -657,19 +613,8 @@ impl ::core::fmt::Debug for COMMON_DLG_ERRORS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FINDREPLACE_FLAGS(pub u32);
-impl ::core::marker::Copy for FINDREPLACE_FLAGS {}
-impl ::core::clone::Clone for FINDREPLACE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FINDREPLACE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FINDREPLACE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -712,19 +657,8 @@ impl ::core::ops::Not for FINDREPLACE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OPEN_FILENAME_FLAGS(pub u32);
-impl ::core::marker::Copy for OPEN_FILENAME_FLAGS {}
-impl ::core::clone::Clone for OPEN_FILENAME_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OPEN_FILENAME_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OPEN_FILENAME_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -767,19 +701,8 @@ impl ::core::ops::Not for OPEN_FILENAME_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OPEN_FILENAME_FLAGS_EX(pub u32);
-impl ::core::marker::Copy for OPEN_FILENAME_FLAGS_EX {}
-impl ::core::clone::Clone for OPEN_FILENAME_FLAGS_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OPEN_FILENAME_FLAGS_EX {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OPEN_FILENAME_FLAGS_EX {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -822,19 +745,8 @@ impl ::core::ops::Not for OPEN_FILENAME_FLAGS_EX {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PAGESETUPDLG_FLAGS(pub u32);
-impl ::core::marker::Copy for PAGESETUPDLG_FLAGS {}
-impl ::core::clone::Clone for PAGESETUPDLG_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PAGESETUPDLG_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PAGESETUPDLG_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -877,19 +789,8 @@ impl ::core::ops::Not for PAGESETUPDLG_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PRINTDLGEX_FLAGS(pub u32);
-impl ::core::marker::Copy for PRINTDLGEX_FLAGS {}
-impl ::core::clone::Clone for PRINTDLGEX_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PRINTDLGEX_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PRINTDLGEX_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }

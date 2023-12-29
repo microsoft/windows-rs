@@ -3504,19 +3504,8 @@ pub const NetSharingManager: ::windows_core::GUID = ::windows_core::GUID::from_u
 pub const S_OBJECT_NO_LONGER_VALID: ::windows_core::HRESULT = ::windows_core::HRESULT(2i32);
 pub const UPnPNAT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xae1e00aa_3fd5_403c_8a27_2bbdc30cd0e1);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS(pub i32);
-impl ::core::marker::Copy for FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS {}
-impl ::core::clone::Clone for FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3559,19 +3548,8 @@ impl ::core::ops::Not for FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS(pub i32);
-impl ::core::marker::Copy for FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS {}
-impl ::core::clone::Clone for FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3614,19 +3592,8 @@ impl ::core::ops::Not for FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FW_DYNAMIC_KEYWORD_ORIGIN_TYPE(pub i32);
-impl ::core::marker::Copy for FW_DYNAMIC_KEYWORD_ORIGIN_TYPE {}
-impl ::core::clone::Clone for FW_DYNAMIC_KEYWORD_ORIGIN_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FW_DYNAMIC_KEYWORD_ORIGIN_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FW_DYNAMIC_KEYWORD_ORIGIN_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3636,19 +3603,8 @@ impl ::core::fmt::Debug for FW_DYNAMIC_KEYWORD_ORIGIN_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ICS_TARGETTYPE(pub i32);
-impl ::core::marker::Copy for ICS_TARGETTYPE {}
-impl ::core::clone::Clone for ICS_TARGETTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ICS_TARGETTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ICS_TARGETTYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3658,19 +3614,8 @@ impl ::core::fmt::Debug for ICS_TARGETTYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct INET_FIREWALL_AC_CHANGE_TYPE(pub i32);
-impl ::core::marker::Copy for INET_FIREWALL_AC_CHANGE_TYPE {}
-impl ::core::clone::Clone for INET_FIREWALL_AC_CHANGE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for INET_FIREWALL_AC_CHANGE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for INET_FIREWALL_AC_CHANGE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3680,19 +3625,8 @@ impl ::core::fmt::Debug for INET_FIREWALL_AC_CHANGE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct INET_FIREWALL_AC_CREATION_TYPE(pub i32);
-impl ::core::marker::Copy for INET_FIREWALL_AC_CREATION_TYPE {}
-impl ::core::clone::Clone for INET_FIREWALL_AC_CREATION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for INET_FIREWALL_AC_CREATION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for INET_FIREWALL_AC_CREATION_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3702,19 +3636,8 @@ impl ::core::fmt::Debug for INET_FIREWALL_AC_CREATION_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NETCONMGR_ENUM_FLAGS(pub i32);
-impl ::core::marker::Copy for NETCONMGR_ENUM_FLAGS {}
-impl ::core::clone::Clone for NETCONMGR_ENUM_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NETCONMGR_ENUM_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NETCONMGR_ENUM_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3724,19 +3647,8 @@ impl ::core::fmt::Debug for NETCONMGR_ENUM_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NETCONUI_CONNECT_FLAGS(pub i32);
-impl ::core::marker::Copy for NETCONUI_CONNECT_FLAGS {}
-impl ::core::clone::Clone for NETCONUI_CONNECT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NETCONUI_CONNECT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NETCONUI_CONNECT_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3746,19 +3658,8 @@ impl ::core::fmt::Debug for NETCONUI_CONNECT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NETCON_CHARACTERISTIC_FLAGS(pub i32);
-impl ::core::marker::Copy for NETCON_CHARACTERISTIC_FLAGS {}
-impl ::core::clone::Clone for NETCON_CHARACTERISTIC_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NETCON_CHARACTERISTIC_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NETCON_CHARACTERISTIC_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3768,19 +3669,8 @@ impl ::core::fmt::Debug for NETCON_CHARACTERISTIC_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NETCON_MEDIATYPE(pub i32);
-impl ::core::marker::Copy for NETCON_MEDIATYPE {}
-impl ::core::clone::Clone for NETCON_MEDIATYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NETCON_MEDIATYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NETCON_MEDIATYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3790,19 +3680,8 @@ impl ::core::fmt::Debug for NETCON_MEDIATYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NETCON_STATUS(pub i32);
-impl ::core::marker::Copy for NETCON_STATUS {}
-impl ::core::clone::Clone for NETCON_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NETCON_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NETCON_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3812,19 +3691,8 @@ impl ::core::fmt::Debug for NETCON_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NETCON_TYPE(pub i32);
-impl ::core::marker::Copy for NETCON_TYPE {}
-impl ::core::clone::Clone for NETCON_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NETCON_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NETCON_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3834,19 +3702,8 @@ impl ::core::fmt::Debug for NETCON_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NETISO_ERROR_TYPE(pub i32);
-impl ::core::marker::Copy for NETISO_ERROR_TYPE {}
-impl ::core::clone::Clone for NETISO_ERROR_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NETISO_ERROR_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NETISO_ERROR_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3856,19 +3713,8 @@ impl ::core::fmt::Debug for NETISO_ERROR_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NETISO_FLAG(pub i32);
-impl ::core::marker::Copy for NETISO_FLAG {}
-impl ::core::clone::Clone for NETISO_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NETISO_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NETISO_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3878,19 +3724,8 @@ impl ::core::fmt::Debug for NETISO_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NET_FW_ACTION(pub i32);
-impl ::core::marker::Copy for NET_FW_ACTION {}
-impl ::core::clone::Clone for NET_FW_ACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NET_FW_ACTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NET_FW_ACTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3900,19 +3735,8 @@ impl ::core::fmt::Debug for NET_FW_ACTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NET_FW_AUTHENTICATE_TYPE(pub i32);
-impl ::core::marker::Copy for NET_FW_AUTHENTICATE_TYPE {}
-impl ::core::clone::Clone for NET_FW_AUTHENTICATE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NET_FW_AUTHENTICATE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NET_FW_AUTHENTICATE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3922,19 +3746,8 @@ impl ::core::fmt::Debug for NET_FW_AUTHENTICATE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NET_FW_EDGE_TRAVERSAL_TYPE(pub i32);
-impl ::core::marker::Copy for NET_FW_EDGE_TRAVERSAL_TYPE {}
-impl ::core::clone::Clone for NET_FW_EDGE_TRAVERSAL_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NET_FW_EDGE_TRAVERSAL_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NET_FW_EDGE_TRAVERSAL_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3944,19 +3757,8 @@ impl ::core::fmt::Debug for NET_FW_EDGE_TRAVERSAL_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NET_FW_IP_PROTOCOL(pub i32);
-impl ::core::marker::Copy for NET_FW_IP_PROTOCOL {}
-impl ::core::clone::Clone for NET_FW_IP_PROTOCOL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NET_FW_IP_PROTOCOL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NET_FW_IP_PROTOCOL {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3966,19 +3768,8 @@ impl ::core::fmt::Debug for NET_FW_IP_PROTOCOL {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NET_FW_IP_VERSION(pub i32);
-impl ::core::marker::Copy for NET_FW_IP_VERSION {}
-impl ::core::clone::Clone for NET_FW_IP_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NET_FW_IP_VERSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NET_FW_IP_VERSION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3988,19 +3779,8 @@ impl ::core::fmt::Debug for NET_FW_IP_VERSION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NET_FW_MODIFY_STATE(pub i32);
-impl ::core::marker::Copy for NET_FW_MODIFY_STATE {}
-impl ::core::clone::Clone for NET_FW_MODIFY_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NET_FW_MODIFY_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NET_FW_MODIFY_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4010,19 +3790,8 @@ impl ::core::fmt::Debug for NET_FW_MODIFY_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NET_FW_POLICY_TYPE(pub i32);
-impl ::core::marker::Copy for NET_FW_POLICY_TYPE {}
-impl ::core::clone::Clone for NET_FW_POLICY_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NET_FW_POLICY_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NET_FW_POLICY_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4032,19 +3801,8 @@ impl ::core::fmt::Debug for NET_FW_POLICY_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NET_FW_PROFILE_TYPE(pub i32);
-impl ::core::marker::Copy for NET_FW_PROFILE_TYPE {}
-impl ::core::clone::Clone for NET_FW_PROFILE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NET_FW_PROFILE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NET_FW_PROFILE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4054,19 +3812,8 @@ impl ::core::fmt::Debug for NET_FW_PROFILE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NET_FW_PROFILE_TYPE2(pub i32);
-impl ::core::marker::Copy for NET_FW_PROFILE_TYPE2 {}
-impl ::core::clone::Clone for NET_FW_PROFILE_TYPE2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NET_FW_PROFILE_TYPE2 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NET_FW_PROFILE_TYPE2 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4076,19 +3823,8 @@ impl ::core::fmt::Debug for NET_FW_PROFILE_TYPE2 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NET_FW_RULE_CATEGORY(pub i32);
-impl ::core::marker::Copy for NET_FW_RULE_CATEGORY {}
-impl ::core::clone::Clone for NET_FW_RULE_CATEGORY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NET_FW_RULE_CATEGORY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NET_FW_RULE_CATEGORY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4098,19 +3834,8 @@ impl ::core::fmt::Debug for NET_FW_RULE_CATEGORY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NET_FW_RULE_DIRECTION(pub i32);
-impl ::core::marker::Copy for NET_FW_RULE_DIRECTION {}
-impl ::core::clone::Clone for NET_FW_RULE_DIRECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NET_FW_RULE_DIRECTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NET_FW_RULE_DIRECTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4120,19 +3845,8 @@ impl ::core::fmt::Debug for NET_FW_RULE_DIRECTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NET_FW_SCOPE(pub i32);
-impl ::core::marker::Copy for NET_FW_SCOPE {}
-impl ::core::clone::Clone for NET_FW_SCOPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NET_FW_SCOPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NET_FW_SCOPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4142,19 +3856,8 @@ impl ::core::fmt::Debug for NET_FW_SCOPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NET_FW_SERVICE_TYPE(pub i32);
-impl ::core::marker::Copy for NET_FW_SERVICE_TYPE {}
-impl ::core::clone::Clone for NET_FW_SERVICE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NET_FW_SERVICE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NET_FW_SERVICE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4164,19 +3867,8 @@ impl ::core::fmt::Debug for NET_FW_SERVICE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SHARINGCONNECTIONTYPE(pub i32);
-impl ::core::marker::Copy for SHARINGCONNECTIONTYPE {}
-impl ::core::clone::Clone for SHARINGCONNECTIONTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SHARINGCONNECTIONTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SHARINGCONNECTIONTYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4186,19 +3878,8 @@ impl ::core::fmt::Debug for SHARINGCONNECTIONTYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SHARINGCONNECTION_ENUM_FLAGS(pub i32);
-impl ::core::marker::Copy for SHARINGCONNECTION_ENUM_FLAGS {}
-impl ::core::clone::Clone for SHARINGCONNECTION_ENUM_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SHARINGCONNECTION_ENUM_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SHARINGCONNECTION_ENUM_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }

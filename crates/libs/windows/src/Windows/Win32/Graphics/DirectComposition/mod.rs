@@ -3211,19 +3211,8 @@ pub const DCOMPOSITION_OPACITY_MODE_INHERIT: DCOMPOSITION_OPACITY_MODE = DCOMPOS
 pub const DCOMPOSITION_OPACITY_MODE_LAYER: DCOMPOSITION_OPACITY_MODE = DCOMPOSITION_OPACITY_MODE(0i32);
 pub const DCOMPOSITION_OPACITY_MODE_MULTIPLY: DCOMPOSITION_OPACITY_MODE = DCOMPOSITION_OPACITY_MODE(1i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct COMPOSITION_FRAME_ID_TYPE(pub i32);
-impl ::core::marker::Copy for COMPOSITION_FRAME_ID_TYPE {}
-impl ::core::clone::Clone for COMPOSITION_FRAME_ID_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COMPOSITION_FRAME_ID_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for COMPOSITION_FRAME_ID_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3233,19 +3222,8 @@ impl ::core::fmt::Debug for COMPOSITION_FRAME_ID_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DCOMPOSITION_BACKFACE_VISIBILITY(pub i32);
-impl ::core::marker::Copy for DCOMPOSITION_BACKFACE_VISIBILITY {}
-impl ::core::clone::Clone for DCOMPOSITION_BACKFACE_VISIBILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DCOMPOSITION_BACKFACE_VISIBILITY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DCOMPOSITION_BACKFACE_VISIBILITY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3255,19 +3233,8 @@ impl ::core::fmt::Debug for DCOMPOSITION_BACKFACE_VISIBILITY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DCOMPOSITION_BITMAP_INTERPOLATION_MODE(pub i32);
-impl ::core::marker::Copy for DCOMPOSITION_BITMAP_INTERPOLATION_MODE {}
-impl ::core::clone::Clone for DCOMPOSITION_BITMAP_INTERPOLATION_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DCOMPOSITION_BITMAP_INTERPOLATION_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DCOMPOSITION_BITMAP_INTERPOLATION_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3277,19 +3244,8 @@ impl ::core::fmt::Debug for DCOMPOSITION_BITMAP_INTERPOLATION_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DCOMPOSITION_BORDER_MODE(pub i32);
-impl ::core::marker::Copy for DCOMPOSITION_BORDER_MODE {}
-impl ::core::clone::Clone for DCOMPOSITION_BORDER_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DCOMPOSITION_BORDER_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DCOMPOSITION_BORDER_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3299,19 +3255,8 @@ impl ::core::fmt::Debug for DCOMPOSITION_BORDER_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DCOMPOSITION_COMPOSITE_MODE(pub i32);
-impl ::core::marker::Copy for DCOMPOSITION_COMPOSITE_MODE {}
-impl ::core::clone::Clone for DCOMPOSITION_COMPOSITE_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DCOMPOSITION_COMPOSITE_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DCOMPOSITION_COMPOSITE_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3321,19 +3266,8 @@ impl ::core::fmt::Debug for DCOMPOSITION_COMPOSITE_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DCOMPOSITION_DEPTH_MODE(pub i32);
-impl ::core::marker::Copy for DCOMPOSITION_DEPTH_MODE {}
-impl ::core::clone::Clone for DCOMPOSITION_DEPTH_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DCOMPOSITION_DEPTH_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DCOMPOSITION_DEPTH_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3343,19 +3277,8 @@ impl ::core::fmt::Debug for DCOMPOSITION_DEPTH_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DCOMPOSITION_OPACITY_MODE(pub i32);
-impl ::core::marker::Copy for DCOMPOSITION_OPACITY_MODE {}
-impl ::core::clone::Clone for DCOMPOSITION_OPACITY_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DCOMPOSITION_OPACITY_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DCOMPOSITION_OPACITY_MODE {
     type TypeKind = ::windows_core::CopyType;
 }

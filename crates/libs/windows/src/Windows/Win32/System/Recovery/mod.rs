@@ -60,19 +60,8 @@ pub const RESTART_NO_HANG: REGISTER_APPLICATION_RESTART_FLAGS = REGISTER_APPLICA
 pub const RESTART_NO_PATCH: REGISTER_APPLICATION_RESTART_FLAGS = REGISTER_APPLICATION_RESTART_FLAGS(4u32);
 pub const RESTART_NO_REBOOT: REGISTER_APPLICATION_RESTART_FLAGS = REGISTER_APPLICATION_RESTART_FLAGS(8u32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct REGISTER_APPLICATION_RESTART_FLAGS(pub u32);
-impl ::core::marker::Copy for REGISTER_APPLICATION_RESTART_FLAGS {}
-impl ::core::clone::Clone for REGISTER_APPLICATION_RESTART_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for REGISTER_APPLICATION_RESTART_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for REGISTER_APPLICATION_RESTART_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }

@@ -84,7 +84,7 @@ impl ::windows_core::RuntimeName for StorageDevice {
     const NAME: &'static str = "Windows.Devices.Portable.StorageDevice";
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ServiceDeviceType(pub i32);
 impl ServiceDeviceType {
     pub const CalendarService: Self = Self(0i32);
@@ -94,17 +94,6 @@ impl ServiceDeviceType {
     pub const RingtonesService: Self = Self(4i32);
     pub const SmsService: Self = Self(5i32);
     pub const TasksService: Self = Self(6i32);
-}
-impl ::core::marker::Copy for ServiceDeviceType {}
-impl ::core::clone::Clone for ServiceDeviceType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ServiceDeviceType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ServiceDeviceType {
     type TypeKind = ::windows_core::CopyType;

@@ -303,24 +303,13 @@ impl ::windows_core::CanTryInto<super::super::Foundation::IStringable> for Phone
 unsafe impl ::core::marker::Send for PhoneNumberInfo {}
 unsafe impl ::core::marker::Sync for PhoneNumberInfo {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PhoneNumberFormat(pub i32);
 impl PhoneNumberFormat {
     pub const E164: Self = Self(0i32);
     pub const International: Self = Self(1i32);
     pub const National: Self = Self(2i32);
     pub const Rfc3966: Self = Self(3i32);
-}
-impl ::core::marker::Copy for PhoneNumberFormat {}
-impl ::core::clone::Clone for PhoneNumberFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhoneNumberFormat {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PhoneNumberFormat {
     type TypeKind = ::windows_core::CopyType;
@@ -334,24 +323,13 @@ impl ::windows_core::RuntimeType for PhoneNumberFormat {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.PhoneNumberFormatting.PhoneNumberFormat;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PhoneNumberMatchResult(pub i32);
 impl PhoneNumberMatchResult {
     pub const NoMatch: Self = Self(0i32);
     pub const ShortNationalSignificantNumberMatch: Self = Self(1i32);
     pub const NationalSignificantNumberMatch: Self = Self(2i32);
     pub const ExactMatch: Self = Self(3i32);
-}
-impl ::core::marker::Copy for PhoneNumberMatchResult {}
-impl ::core::clone::Clone for PhoneNumberMatchResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhoneNumberMatchResult {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PhoneNumberMatchResult {
     type TypeKind = ::windows_core::CopyType;
@@ -365,7 +343,7 @@ impl ::windows_core::RuntimeType for PhoneNumberMatchResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.PhoneNumberFormatting.PhoneNumberMatchResult;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PhoneNumberParseResult(pub i32);
 impl PhoneNumberParseResult {
     pub const Valid: Self = Self(0i32);
@@ -373,17 +351,6 @@ impl PhoneNumberParseResult {
     pub const InvalidCountryCode: Self = Self(2i32);
     pub const TooShort: Self = Self(3i32);
     pub const TooLong: Self = Self(4i32);
-}
-impl ::core::marker::Copy for PhoneNumberParseResult {}
-impl ::core::clone::Clone for PhoneNumberParseResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhoneNumberParseResult {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PhoneNumberParseResult {
     type TypeKind = ::windows_core::CopyType;
@@ -397,7 +364,7 @@ impl ::windows_core::RuntimeType for PhoneNumberParseResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.PhoneNumberFormatting.PhoneNumberParseResult;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PredictedPhoneNumberKind(pub i32);
 impl PredictedPhoneNumberKind {
     pub const FixedLine: Self = Self(0i32);
@@ -412,17 +379,6 @@ impl PredictedPhoneNumberKind {
     pub const UniversalAccountNumber: Self = Self(9i32);
     pub const Voicemail: Self = Self(10i32);
     pub const Unknown: Self = Self(11i32);
-}
-impl ::core::marker::Copy for PredictedPhoneNumberKind {}
-impl ::core::clone::Clone for PredictedPhoneNumberKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PredictedPhoneNumberKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PredictedPhoneNumberKind {
     type TypeKind = ::windows_core::CopyType;

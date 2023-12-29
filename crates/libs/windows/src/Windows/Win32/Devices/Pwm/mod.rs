@@ -23,19 +23,8 @@ pub const PWM_IOCTL_ID_PIN_SET_POLARITY: i32 = 103i32;
 pub const PWM_IOCTL_ID_PIN_START: i32 = 104i32;
 pub const PWM_IOCTL_ID_PIN_STOP: i32 = 105i32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PWM_POLARITY(pub i32);
-impl ::core::marker::Copy for PWM_POLARITY {}
-impl ::core::clone::Clone for PWM_POLARITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PWM_POLARITY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PWM_POLARITY {
     type TypeKind = ::windows_core::CopyType;
 }

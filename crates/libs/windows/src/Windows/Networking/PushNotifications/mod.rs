@@ -577,7 +577,7 @@ impl ::windows_core::RuntimeName for RawNotification {
 unsafe impl ::core::marker::Send for RawNotification {}
 unsafe impl ::core::marker::Sync for RawNotification {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PushNotificationType(pub i32);
 impl PushNotificationType {
     pub const Toast: Self = Self(0i32);
@@ -585,17 +585,6 @@ impl PushNotificationType {
     pub const Badge: Self = Self(2i32);
     pub const Raw: Self = Self(3i32);
     pub const TileFlyout: Self = Self(4i32);
-}
-impl ::core::marker::Copy for PushNotificationType {}
-impl ::core::clone::Clone for PushNotificationType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PushNotificationType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PushNotificationType {
     type TypeKind = ::windows_core::CopyType;

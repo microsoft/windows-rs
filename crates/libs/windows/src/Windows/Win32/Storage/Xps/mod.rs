@@ -6584,19 +6584,8 @@ pub const XpsOMObjectFactory: ::windows_core::GUID = ::windows_core::GUID::from_
 pub const XpsOMThumbnailGenerator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7e4a23e2_b969_4761_be35_1a8ced58e323);
 pub const XpsSignatureManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb0c43320_2315_44a2_b70a_0943a140a8ee);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PRINTER_DEVICE_CAPABILITIES(pub u16);
-impl ::core::marker::Copy for PRINTER_DEVICE_CAPABILITIES {}
-impl ::core::clone::Clone for PRINTER_DEVICE_CAPABILITIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PRINTER_DEVICE_CAPABILITIES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PRINTER_DEVICE_CAPABILITIES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6606,19 +6595,8 @@ impl ::core::fmt::Debug for PRINTER_DEVICE_CAPABILITIES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PRINT_WINDOW_FLAGS(pub u32);
-impl ::core::marker::Copy for PRINT_WINDOW_FLAGS {}
-impl ::core::clone::Clone for PRINT_WINDOW_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PRINT_WINDOW_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PRINT_WINDOW_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6628,19 +6606,8 @@ impl ::core::fmt::Debug for PRINT_WINDOW_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PSINJECT_POINT(pub u16);
-impl ::core::marker::Copy for PSINJECT_POINT {}
-impl ::core::clone::Clone for PSINJECT_POINT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PSINJECT_POINT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PSINJECT_POINT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6683,19 +6650,8 @@ impl ::core::ops::Not for PSINJECT_POINT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XPS_COLOR_INTERPOLATION(pub i32);
-impl ::core::marker::Copy for XPS_COLOR_INTERPOLATION {}
-impl ::core::clone::Clone for XPS_COLOR_INTERPOLATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XPS_COLOR_INTERPOLATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XPS_COLOR_INTERPOLATION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6705,19 +6661,8 @@ impl ::core::fmt::Debug for XPS_COLOR_INTERPOLATION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XPS_COLOR_TYPE(pub i32);
-impl ::core::marker::Copy for XPS_COLOR_TYPE {}
-impl ::core::clone::Clone for XPS_COLOR_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XPS_COLOR_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XPS_COLOR_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6727,19 +6672,8 @@ impl ::core::fmt::Debug for XPS_COLOR_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XPS_DASH_CAP(pub i32);
-impl ::core::marker::Copy for XPS_DASH_CAP {}
-impl ::core::clone::Clone for XPS_DASH_CAP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XPS_DASH_CAP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XPS_DASH_CAP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6749,19 +6683,8 @@ impl ::core::fmt::Debug for XPS_DASH_CAP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XPS_DOCUMENT_TYPE(pub i32);
-impl ::core::marker::Copy for XPS_DOCUMENT_TYPE {}
-impl ::core::clone::Clone for XPS_DOCUMENT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XPS_DOCUMENT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XPS_DOCUMENT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6771,19 +6694,8 @@ impl ::core::fmt::Debug for XPS_DOCUMENT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XPS_FILL_RULE(pub i32);
-impl ::core::marker::Copy for XPS_FILL_RULE {}
-impl ::core::clone::Clone for XPS_FILL_RULE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XPS_FILL_RULE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XPS_FILL_RULE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6793,19 +6705,8 @@ impl ::core::fmt::Debug for XPS_FILL_RULE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XPS_FONT_EMBEDDING(pub i32);
-impl ::core::marker::Copy for XPS_FONT_EMBEDDING {}
-impl ::core::clone::Clone for XPS_FONT_EMBEDDING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XPS_FONT_EMBEDDING {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XPS_FONT_EMBEDDING {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6815,19 +6716,8 @@ impl ::core::fmt::Debug for XPS_FONT_EMBEDDING {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XPS_IMAGE_TYPE(pub i32);
-impl ::core::marker::Copy for XPS_IMAGE_TYPE {}
-impl ::core::clone::Clone for XPS_IMAGE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XPS_IMAGE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XPS_IMAGE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6837,19 +6727,8 @@ impl ::core::fmt::Debug for XPS_IMAGE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XPS_INTERLEAVING(pub i32);
-impl ::core::marker::Copy for XPS_INTERLEAVING {}
-impl ::core::clone::Clone for XPS_INTERLEAVING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XPS_INTERLEAVING {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XPS_INTERLEAVING {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6859,19 +6738,8 @@ impl ::core::fmt::Debug for XPS_INTERLEAVING {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XPS_LINE_CAP(pub i32);
-impl ::core::marker::Copy for XPS_LINE_CAP {}
-impl ::core::clone::Clone for XPS_LINE_CAP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XPS_LINE_CAP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XPS_LINE_CAP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6881,19 +6749,8 @@ impl ::core::fmt::Debug for XPS_LINE_CAP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XPS_LINE_JOIN(pub i32);
-impl ::core::marker::Copy for XPS_LINE_JOIN {}
-impl ::core::clone::Clone for XPS_LINE_JOIN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XPS_LINE_JOIN {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XPS_LINE_JOIN {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6903,19 +6760,8 @@ impl ::core::fmt::Debug for XPS_LINE_JOIN {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XPS_OBJECT_TYPE(pub i32);
-impl ::core::marker::Copy for XPS_OBJECT_TYPE {}
-impl ::core::clone::Clone for XPS_OBJECT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XPS_OBJECT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XPS_OBJECT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6925,19 +6771,8 @@ impl ::core::fmt::Debug for XPS_OBJECT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XPS_SEGMENT_STROKE_PATTERN(pub i32);
-impl ::core::marker::Copy for XPS_SEGMENT_STROKE_PATTERN {}
-impl ::core::clone::Clone for XPS_SEGMENT_STROKE_PATTERN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XPS_SEGMENT_STROKE_PATTERN {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XPS_SEGMENT_STROKE_PATTERN {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6947,19 +6782,8 @@ impl ::core::fmt::Debug for XPS_SEGMENT_STROKE_PATTERN {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XPS_SEGMENT_TYPE(pub i32);
-impl ::core::marker::Copy for XPS_SEGMENT_TYPE {}
-impl ::core::clone::Clone for XPS_SEGMENT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XPS_SEGMENT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XPS_SEGMENT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6969,19 +6793,8 @@ impl ::core::fmt::Debug for XPS_SEGMENT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XPS_SIGNATURE_STATUS(pub i32);
-impl ::core::marker::Copy for XPS_SIGNATURE_STATUS {}
-impl ::core::clone::Clone for XPS_SIGNATURE_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XPS_SIGNATURE_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XPS_SIGNATURE_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6991,19 +6804,8 @@ impl ::core::fmt::Debug for XPS_SIGNATURE_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XPS_SIGN_FLAGS(pub i32);
-impl ::core::marker::Copy for XPS_SIGN_FLAGS {}
-impl ::core::clone::Clone for XPS_SIGN_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XPS_SIGN_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XPS_SIGN_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7046,19 +6848,8 @@ impl ::core::ops::Not for XPS_SIGN_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XPS_SIGN_POLICY(pub i32);
-impl ::core::marker::Copy for XPS_SIGN_POLICY {}
-impl ::core::clone::Clone for XPS_SIGN_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XPS_SIGN_POLICY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XPS_SIGN_POLICY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7101,19 +6892,8 @@ impl ::core::ops::Not for XPS_SIGN_POLICY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XPS_SPREAD_METHOD(pub i32);
-impl ::core::marker::Copy for XPS_SPREAD_METHOD {}
-impl ::core::clone::Clone for XPS_SPREAD_METHOD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XPS_SPREAD_METHOD {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XPS_SPREAD_METHOD {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7123,19 +6903,8 @@ impl ::core::fmt::Debug for XPS_SPREAD_METHOD {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XPS_STYLE_SIMULATION(pub i32);
-impl ::core::marker::Copy for XPS_STYLE_SIMULATION {}
-impl ::core::clone::Clone for XPS_STYLE_SIMULATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XPS_STYLE_SIMULATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XPS_STYLE_SIMULATION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7145,19 +6914,8 @@ impl ::core::fmt::Debug for XPS_STYLE_SIMULATION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XPS_THUMBNAIL_SIZE(pub i32);
-impl ::core::marker::Copy for XPS_THUMBNAIL_SIZE {}
-impl ::core::clone::Clone for XPS_THUMBNAIL_SIZE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XPS_THUMBNAIL_SIZE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XPS_THUMBNAIL_SIZE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7167,19 +6925,8 @@ impl ::core::fmt::Debug for XPS_THUMBNAIL_SIZE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XPS_TILE_MODE(pub i32);
-impl ::core::marker::Copy for XPS_TILE_MODE {}
-impl ::core::clone::Clone for XPS_TILE_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XPS_TILE_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XPS_TILE_MODE {
     type TypeKind = ::windows_core::CopyType;
 }

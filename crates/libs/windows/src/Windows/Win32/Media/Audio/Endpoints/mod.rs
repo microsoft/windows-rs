@@ -495,19 +495,8 @@ pub const eKeywordDetectorConnector: EndpointConnectorType = EndpointConnectorTy
 pub const eLoopbackConnector: EndpointConnectorType = EndpointConnectorType(2i32);
 pub const eOffloadConnector: EndpointConnectorType = EndpointConnectorType(1i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EndpointConnectorType(pub i32);
-impl ::core::marker::Copy for EndpointConnectorType {}
-impl ::core::clone::Clone for EndpointConnectorType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EndpointConnectorType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EndpointConnectorType {
     type TypeKind = ::windows_core::CopyType;
 }

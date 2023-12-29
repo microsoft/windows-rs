@@ -254,19 +254,8 @@ pub const D3D_DISASM_INSTRUCTION_ONLY: u32 = 64u32;
 pub const D3D_DISASM_PRINT_HEX_LITERALS: u32 = 128u32;
 pub const D3D_GET_INST_OFFSETS_INCLUDE_NON_EXECUTABLE: u32 = 1u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3DCOMPILER_STRIP_FLAGS(pub i32);
-impl ::core::marker::Copy for D3DCOMPILER_STRIP_FLAGS {}
-impl ::core::clone::Clone for D3DCOMPILER_STRIP_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3DCOMPILER_STRIP_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3DCOMPILER_STRIP_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -276,19 +265,8 @@ impl ::core::fmt::Debug for D3DCOMPILER_STRIP_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D_BLOB_PART(pub i32);
-impl ::core::marker::Copy for D3D_BLOB_PART {}
-impl ::core::clone::Clone for D3D_BLOB_PART {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D_BLOB_PART {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D_BLOB_PART {
     type TypeKind = ::windows_core::CopyType;
 }

@@ -14161,19 +14161,8 @@ pub const eAUTH_TYPE_ANONYMOUS: AUTH_TYPE = AUTH_TYPE(0i32);
 pub const eAUTH_TYPE_BASIC: AUTH_TYPE = AUTH_TYPE(2i32);
 pub const eAUTH_TYPE_NTLM: AUTH_TYPE = AUTH_TYPE(1i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ACCESS_MASKENUM(pub i32);
-impl ::core::marker::Copy for ACCESS_MASKENUM {}
-impl ::core::clone::Clone for ACCESS_MASKENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ACCESS_MASKENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ACCESS_MASKENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14183,19 +14172,8 @@ impl ::core::fmt::Debug for ACCESS_MASKENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AUTH_TYPE(pub i32);
-impl ::core::marker::Copy for AUTH_TYPE {}
-impl ::core::clone::Clone for AUTH_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AUTH_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AUTH_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14205,19 +14183,8 @@ impl ::core::fmt::Debug for AUTH_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CASE_REQUIREMENT(pub i32);
-impl ::core::marker::Copy for CASE_REQUIREMENT {}
-impl ::core::clone::Clone for CASE_REQUIREMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CASE_REQUIREMENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CASE_REQUIREMENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14227,19 +14194,8 @@ impl ::core::fmt::Debug for CASE_REQUIREMENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CHANNEL_AGENT_FLAGS(pub i32);
-impl ::core::marker::Copy for CHANNEL_AGENT_FLAGS {}
-impl ::core::clone::Clone for CHANNEL_AGENT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CHANNEL_AGENT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CHANNEL_AGENT_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14249,19 +14205,8 @@ impl ::core::fmt::Debug for CHANNEL_AGENT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSION_REASON(pub i32);
-impl ::core::marker::Copy for CLUSION_REASON {}
-impl ::core::clone::Clone for CLUSION_REASON {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSION_REASON {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSION_REASON {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14271,19 +14216,8 @@ impl ::core::fmt::Debug for CLUSION_REASON {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CONDITION_CREATION_OPTIONS(pub i32);
-impl ::core::marker::Copy for CONDITION_CREATION_OPTIONS {}
-impl ::core::clone::Clone for CONDITION_CREATION_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CONDITION_CREATION_OPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CONDITION_CREATION_OPTIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14326,19 +14260,8 @@ impl ::core::ops::Not for CONDITION_CREATION_OPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CREATESUBSCRIPTIONFLAGS(pub i32);
-impl ::core::marker::Copy for CREATESUBSCRIPTIONFLAGS {}
-impl ::core::clone::Clone for CREATESUBSCRIPTIONFLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CREATESUBSCRIPTIONFLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CREATESUBSCRIPTIONFLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14348,19 +14271,8 @@ impl ::core::fmt::Debug for CREATESUBSCRIPTIONFLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CatalogPausedReason(pub i32);
-impl ::core::marker::Copy for CatalogPausedReason {}
-impl ::core::clone::Clone for CatalogPausedReason {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CatalogPausedReason {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CatalogPausedReason {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14370,19 +14282,8 @@ impl ::core::fmt::Debug for CatalogPausedReason {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CatalogStatus(pub i32);
-impl ::core::marker::Copy for CatalogStatus {}
-impl ::core::clone::Clone for CatalogStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CatalogStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CatalogStatus {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14392,19 +14293,8 @@ impl ::core::fmt::Debug for CatalogStatus {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBACCESSORFLAGSENUM(pub i32);
-impl ::core::marker::Copy for DBACCESSORFLAGSENUM {}
-impl ::core::clone::Clone for DBACCESSORFLAGSENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBACCESSORFLAGSENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBACCESSORFLAGSENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14414,19 +14304,8 @@ impl ::core::fmt::Debug for DBACCESSORFLAGSENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBASYNCHOPENUM(pub i32);
-impl ::core::marker::Copy for DBASYNCHOPENUM {}
-impl ::core::clone::Clone for DBASYNCHOPENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBASYNCHOPENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBASYNCHOPENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14436,19 +14315,8 @@ impl ::core::fmt::Debug for DBASYNCHOPENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBASYNCHPHASEENUM(pub i32);
-impl ::core::marker::Copy for DBASYNCHPHASEENUM {}
-impl ::core::clone::Clone for DBASYNCHPHASEENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBASYNCHPHASEENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBASYNCHPHASEENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14458,19 +14326,8 @@ impl ::core::fmt::Debug for DBASYNCHPHASEENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBBINDFLAGENUM(pub i32);
-impl ::core::marker::Copy for DBBINDFLAGENUM {}
-impl ::core::clone::Clone for DBBINDFLAGENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBBINDFLAGENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBBINDFLAGENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14480,19 +14337,8 @@ impl ::core::fmt::Debug for DBBINDFLAGENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBBINDSTATUSENUM(pub i32);
-impl ::core::marker::Copy for DBBINDSTATUSENUM {}
-impl ::core::clone::Clone for DBBINDSTATUSENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBBINDSTATUSENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBBINDSTATUSENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14502,19 +14348,8 @@ impl ::core::fmt::Debug for DBBINDSTATUSENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBBINDURLFLAGENUM(pub i32);
-impl ::core::marker::Copy for DBBINDURLFLAGENUM {}
-impl ::core::clone::Clone for DBBINDURLFLAGENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBBINDURLFLAGENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBBINDURLFLAGENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14524,19 +14359,8 @@ impl ::core::fmt::Debug for DBBINDURLFLAGENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBBINDURLSTATUSENUM(pub i32);
-impl ::core::marker::Copy for DBBINDURLSTATUSENUM {}
-impl ::core::clone::Clone for DBBINDURLSTATUSENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBBINDURLSTATUSENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBBINDURLSTATUSENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14546,19 +14370,8 @@ impl ::core::fmt::Debug for DBBINDURLSTATUSENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBBOOKMARK(pub i32);
-impl ::core::marker::Copy for DBBOOKMARK {}
-impl ::core::clone::Clone for DBBOOKMARK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBBOOKMARK {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBBOOKMARK {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14568,19 +14381,8 @@ impl ::core::fmt::Debug for DBBOOKMARK {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBCOLUMNDESCFLAGSENUM(pub i32);
-impl ::core::marker::Copy for DBCOLUMNDESCFLAGSENUM {}
-impl ::core::clone::Clone for DBCOLUMNDESCFLAGSENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBCOLUMNDESCFLAGSENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBCOLUMNDESCFLAGSENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14590,19 +14392,8 @@ impl ::core::fmt::Debug for DBCOLUMNDESCFLAGSENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBCOLUMNFLAGS15ENUM(pub i32);
-impl ::core::marker::Copy for DBCOLUMNFLAGS15ENUM {}
-impl ::core::clone::Clone for DBCOLUMNFLAGS15ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBCOLUMNFLAGS15ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBCOLUMNFLAGS15ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14612,19 +14403,8 @@ impl ::core::fmt::Debug for DBCOLUMNFLAGS15ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBCOLUMNFLAGSDEPRECATED(pub i32);
-impl ::core::marker::Copy for DBCOLUMNFLAGSDEPRECATED {}
-impl ::core::clone::Clone for DBCOLUMNFLAGSDEPRECATED {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBCOLUMNFLAGSDEPRECATED {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBCOLUMNFLAGSDEPRECATED {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14634,19 +14414,8 @@ impl ::core::fmt::Debug for DBCOLUMNFLAGSDEPRECATED {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBCOLUMNFLAGSENUM(pub i32);
-impl ::core::marker::Copy for DBCOLUMNFLAGSENUM {}
-impl ::core::clone::Clone for DBCOLUMNFLAGSENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBCOLUMNFLAGSENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBCOLUMNFLAGSENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14656,19 +14425,8 @@ impl ::core::fmt::Debug for DBCOLUMNFLAGSENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBCOLUMNFLAGSENUM20(pub i32);
-impl ::core::marker::Copy for DBCOLUMNFLAGSENUM20 {}
-impl ::core::clone::Clone for DBCOLUMNFLAGSENUM20 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBCOLUMNFLAGSENUM20 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBCOLUMNFLAGSENUM20 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14678,19 +14436,8 @@ impl ::core::fmt::Debug for DBCOLUMNFLAGSENUM20 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBCOLUMNFLAGSENUM21(pub i32);
-impl ::core::marker::Copy for DBCOLUMNFLAGSENUM21 {}
-impl ::core::clone::Clone for DBCOLUMNFLAGSENUM21 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBCOLUMNFLAGSENUM21 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBCOLUMNFLAGSENUM21 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14700,19 +14447,8 @@ impl ::core::fmt::Debug for DBCOLUMNFLAGSENUM21 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBCOLUMNFLAGSENUM26(pub i32);
-impl ::core::marker::Copy for DBCOLUMNFLAGSENUM26 {}
-impl ::core::clone::Clone for DBCOLUMNFLAGSENUM26 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBCOLUMNFLAGSENUM26 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBCOLUMNFLAGSENUM26 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14722,19 +14458,8 @@ impl ::core::fmt::Debug for DBCOLUMNFLAGSENUM26 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBCOMMANDPERSISTFLAGENUM(pub i32);
-impl ::core::marker::Copy for DBCOMMANDPERSISTFLAGENUM {}
-impl ::core::clone::Clone for DBCOMMANDPERSISTFLAGENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBCOMMANDPERSISTFLAGENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBCOMMANDPERSISTFLAGENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14744,19 +14469,8 @@ impl ::core::fmt::Debug for DBCOMMANDPERSISTFLAGENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBCOMMANDPERSISTFLAGENUM21(pub i32);
-impl ::core::marker::Copy for DBCOMMANDPERSISTFLAGENUM21 {}
-impl ::core::clone::Clone for DBCOMMANDPERSISTFLAGENUM21 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBCOMMANDPERSISTFLAGENUM21 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBCOMMANDPERSISTFLAGENUM21 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14766,19 +14480,8 @@ impl ::core::fmt::Debug for DBCOMMANDPERSISTFLAGENUM21 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBCOMPAREENUM(pub i32);
-impl ::core::marker::Copy for DBCOMPAREENUM {}
-impl ::core::clone::Clone for DBCOMPAREENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBCOMPAREENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBCOMPAREENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14788,19 +14491,8 @@ impl ::core::fmt::Debug for DBCOMPAREENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBCOMPAREOPSENUM(pub i32);
-impl ::core::marker::Copy for DBCOMPAREOPSENUM {}
-impl ::core::clone::Clone for DBCOMPAREOPSENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBCOMPAREOPSENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBCOMPAREOPSENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14810,19 +14502,8 @@ impl ::core::fmt::Debug for DBCOMPAREOPSENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBCOMPAREOPSENUM20(pub i32);
-impl ::core::marker::Copy for DBCOMPAREOPSENUM20 {}
-impl ::core::clone::Clone for DBCOMPAREOPSENUM20 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBCOMPAREOPSENUM20 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBCOMPAREOPSENUM20 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14832,19 +14513,8 @@ impl ::core::fmt::Debug for DBCOMPAREOPSENUM20 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBCONSTRAINTTYPEENUM(pub i32);
-impl ::core::marker::Copy for DBCONSTRAINTTYPEENUM {}
-impl ::core::clone::Clone for DBCONSTRAINTTYPEENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBCONSTRAINTTYPEENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBCONSTRAINTTYPEENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14854,19 +14524,8 @@ impl ::core::fmt::Debug for DBCONSTRAINTTYPEENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBCONVERTFLAGSENUM(pub i32);
-impl ::core::marker::Copy for DBCONVERTFLAGSENUM {}
-impl ::core::clone::Clone for DBCONVERTFLAGSENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBCONVERTFLAGSENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBCONVERTFLAGSENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14876,19 +14535,8 @@ impl ::core::fmt::Debug for DBCONVERTFLAGSENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBCONVERTFLAGSENUM20(pub i32);
-impl ::core::marker::Copy for DBCONVERTFLAGSENUM20 {}
-impl ::core::clone::Clone for DBCONVERTFLAGSENUM20 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBCONVERTFLAGSENUM20 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBCONVERTFLAGSENUM20 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14898,19 +14546,8 @@ impl ::core::fmt::Debug for DBCONVERTFLAGSENUM20 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBCOPYFLAGSENUM(pub i32);
-impl ::core::marker::Copy for DBCOPYFLAGSENUM {}
-impl ::core::clone::Clone for DBCOPYFLAGSENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBCOPYFLAGSENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBCOPYFLAGSENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14920,19 +14557,8 @@ impl ::core::fmt::Debug for DBCOPYFLAGSENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBCOSTUNITENUM(pub i32);
-impl ::core::marker::Copy for DBCOSTUNITENUM {}
-impl ::core::clone::Clone for DBCOSTUNITENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBCOSTUNITENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBCOSTUNITENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14942,19 +14568,8 @@ impl ::core::fmt::Debug for DBCOSTUNITENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBDATACONVERTENUM(pub i32);
-impl ::core::marker::Copy for DBDATACONVERTENUM {}
-impl ::core::clone::Clone for DBDATACONVERTENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBDATACONVERTENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBDATACONVERTENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14964,19 +14579,8 @@ impl ::core::fmt::Debug for DBDATACONVERTENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBDEFERRABILITYENUM(pub i32);
-impl ::core::marker::Copy for DBDEFERRABILITYENUM {}
-impl ::core::clone::Clone for DBDEFERRABILITYENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBDEFERRABILITYENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBDEFERRABILITYENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14986,19 +14590,8 @@ impl ::core::fmt::Debug for DBDEFERRABILITYENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBDELETEFLAGSENUM(pub i32);
-impl ::core::marker::Copy for DBDELETEFLAGSENUM {}
-impl ::core::clone::Clone for DBDELETEFLAGSENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBDELETEFLAGSENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBDELETEFLAGSENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15008,19 +14601,8 @@ impl ::core::fmt::Debug for DBDELETEFLAGSENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBEVENTPHASEENUM(pub i32);
-impl ::core::marker::Copy for DBEVENTPHASEENUM {}
-impl ::core::clone::Clone for DBEVENTPHASEENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBEVENTPHASEENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBEVENTPHASEENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15030,19 +14612,8 @@ impl ::core::fmt::Debug for DBEVENTPHASEENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBEXECLIMITSENUM(pub i32);
-impl ::core::marker::Copy for DBEXECLIMITSENUM {}
-impl ::core::clone::Clone for DBEXECLIMITSENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBEXECLIMITSENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBEXECLIMITSENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15052,19 +14623,8 @@ impl ::core::fmt::Debug for DBEXECLIMITSENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBINDEX_COL_ORDERENUM(pub i32);
-impl ::core::marker::Copy for DBINDEX_COL_ORDERENUM {}
-impl ::core::clone::Clone for DBINDEX_COL_ORDERENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBINDEX_COL_ORDERENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBINDEX_COL_ORDERENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15074,19 +14634,8 @@ impl ::core::fmt::Debug for DBINDEX_COL_ORDERENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBLITERALENUM(pub i32);
-impl ::core::marker::Copy for DBLITERALENUM {}
-impl ::core::clone::Clone for DBLITERALENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBLITERALENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBLITERALENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15096,19 +14645,8 @@ impl ::core::fmt::Debug for DBLITERALENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBLITERALENUM20(pub i32);
-impl ::core::marker::Copy for DBLITERALENUM20 {}
-impl ::core::clone::Clone for DBLITERALENUM20 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBLITERALENUM20 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBLITERALENUM20 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15118,19 +14656,8 @@ impl ::core::fmt::Debug for DBLITERALENUM20 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBLITERALENUM21(pub i32);
-impl ::core::marker::Copy for DBLITERALENUM21 {}
-impl ::core::clone::Clone for DBLITERALENUM21 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBLITERALENUM21 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBLITERALENUM21 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15140,19 +14667,8 @@ impl ::core::fmt::Debug for DBLITERALENUM21 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBMATCHTYPEENUM(pub i32);
-impl ::core::marker::Copy for DBMATCHTYPEENUM {}
-impl ::core::clone::Clone for DBMATCHTYPEENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBMATCHTYPEENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBMATCHTYPEENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15162,19 +14678,8 @@ impl ::core::fmt::Debug for DBMATCHTYPEENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBMEMOWNERENUM(pub i32);
-impl ::core::marker::Copy for DBMEMOWNERENUM {}
-impl ::core::clone::Clone for DBMEMOWNERENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBMEMOWNERENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBMEMOWNERENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15184,19 +14689,8 @@ impl ::core::fmt::Debug for DBMEMOWNERENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBMOVEFLAGSENUM(pub i32);
-impl ::core::marker::Copy for DBMOVEFLAGSENUM {}
-impl ::core::clone::Clone for DBMOVEFLAGSENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBMOVEFLAGSENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBMOVEFLAGSENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15206,19 +14700,8 @@ impl ::core::fmt::Debug for DBMOVEFLAGSENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBPARAMFLAGSENUM(pub i32);
-impl ::core::marker::Copy for DBPARAMFLAGSENUM {}
-impl ::core::clone::Clone for DBPARAMFLAGSENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBPARAMFLAGSENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBPARAMFLAGSENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15228,19 +14711,8 @@ impl ::core::fmt::Debug for DBPARAMFLAGSENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBPARAMFLAGSENUM20(pub i32);
-impl ::core::marker::Copy for DBPARAMFLAGSENUM20 {}
-impl ::core::clone::Clone for DBPARAMFLAGSENUM20 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBPARAMFLAGSENUM20 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBPARAMFLAGSENUM20 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15250,19 +14722,8 @@ impl ::core::fmt::Debug for DBPARAMFLAGSENUM20 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBPARAMIOENUM(pub i32);
-impl ::core::marker::Copy for DBPARAMIOENUM {}
-impl ::core::clone::Clone for DBPARAMIOENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBPARAMIOENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBPARAMIOENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15272,19 +14733,8 @@ impl ::core::fmt::Debug for DBPARAMIOENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBPARTENUM(pub i32);
-impl ::core::marker::Copy for DBPARTENUM {}
-impl ::core::clone::Clone for DBPARTENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBPARTENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBPARTENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15294,19 +14744,8 @@ impl ::core::fmt::Debug for DBPARTENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBPENDINGSTATUSENUM(pub i32);
-impl ::core::marker::Copy for DBPENDINGSTATUSENUM {}
-impl ::core::clone::Clone for DBPENDINGSTATUSENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBPENDINGSTATUSENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBPENDINGSTATUSENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15316,19 +14755,8 @@ impl ::core::fmt::Debug for DBPENDINGSTATUSENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBPOSITIONFLAGSENUM(pub i32);
-impl ::core::marker::Copy for DBPOSITIONFLAGSENUM {}
-impl ::core::clone::Clone for DBPOSITIONFLAGSENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBPOSITIONFLAGSENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBPOSITIONFLAGSENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15338,19 +14766,8 @@ impl ::core::fmt::Debug for DBPOSITIONFLAGSENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBPROMPTOPTIONSENUM(pub i32);
-impl ::core::marker::Copy for DBPROMPTOPTIONSENUM {}
-impl ::core::clone::Clone for DBPROMPTOPTIONSENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBPROMPTOPTIONSENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBPROMPTOPTIONSENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15360,19 +14777,8 @@ impl ::core::fmt::Debug for DBPROMPTOPTIONSENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBPROPENUM(pub i32);
-impl ::core::marker::Copy for DBPROPENUM {}
-impl ::core::clone::Clone for DBPROPENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBPROPENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBPROPENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15382,19 +14788,8 @@ impl ::core::fmt::Debug for DBPROPENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBPROPENUM15(pub i32);
-impl ::core::marker::Copy for DBPROPENUM15 {}
-impl ::core::clone::Clone for DBPROPENUM15 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBPROPENUM15 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBPROPENUM15 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15404,19 +14799,8 @@ impl ::core::fmt::Debug for DBPROPENUM15 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBPROPENUM20(pub i32);
-impl ::core::marker::Copy for DBPROPENUM20 {}
-impl ::core::clone::Clone for DBPROPENUM20 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBPROPENUM20 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBPROPENUM20 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15426,19 +14810,8 @@ impl ::core::fmt::Debug for DBPROPENUM20 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBPROPENUM21(pub i32);
-impl ::core::marker::Copy for DBPROPENUM21 {}
-impl ::core::clone::Clone for DBPROPENUM21 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBPROPENUM21 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBPROPENUM21 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15448,19 +14821,8 @@ impl ::core::fmt::Debug for DBPROPENUM21 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBPROPENUM25(pub i32);
-impl ::core::marker::Copy for DBPROPENUM25 {}
-impl ::core::clone::Clone for DBPROPENUM25 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBPROPENUM25 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBPROPENUM25 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15470,19 +14832,8 @@ impl ::core::fmt::Debug for DBPROPENUM25 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBPROPENUM25_DEPRECATED(pub i32);
-impl ::core::marker::Copy for DBPROPENUM25_DEPRECATED {}
-impl ::core::clone::Clone for DBPROPENUM25_DEPRECATED {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBPROPENUM25_DEPRECATED {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBPROPENUM25_DEPRECATED {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15492,19 +14843,8 @@ impl ::core::fmt::Debug for DBPROPENUM25_DEPRECATED {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBPROPENUM26(pub i32);
-impl ::core::marker::Copy for DBPROPENUM26 {}
-impl ::core::clone::Clone for DBPROPENUM26 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBPROPENUM26 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBPROPENUM26 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15514,19 +14854,8 @@ impl ::core::fmt::Debug for DBPROPENUM26 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBPROPENUMDEPRECATED(pub i32);
-impl ::core::marker::Copy for DBPROPENUMDEPRECATED {}
-impl ::core::clone::Clone for DBPROPENUMDEPRECATED {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBPROPENUMDEPRECATED {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBPROPENUMDEPRECATED {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15536,19 +14865,8 @@ impl ::core::fmt::Debug for DBPROPENUMDEPRECATED {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBPROPFLAGSENUM(pub i32);
-impl ::core::marker::Copy for DBPROPFLAGSENUM {}
-impl ::core::clone::Clone for DBPROPFLAGSENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBPROPFLAGSENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBPROPFLAGSENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15558,19 +14876,8 @@ impl ::core::fmt::Debug for DBPROPFLAGSENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBPROPFLAGSENUM21(pub i32);
-impl ::core::marker::Copy for DBPROPFLAGSENUM21 {}
-impl ::core::clone::Clone for DBPROPFLAGSENUM21 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBPROPFLAGSENUM21 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBPROPFLAGSENUM21 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15580,19 +14887,8 @@ impl ::core::fmt::Debug for DBPROPFLAGSENUM21 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBPROPFLAGSENUM25(pub i32);
-impl ::core::marker::Copy for DBPROPFLAGSENUM25 {}
-impl ::core::clone::Clone for DBPROPFLAGSENUM25 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBPROPFLAGSENUM25 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBPROPFLAGSENUM25 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15602,19 +14898,8 @@ impl ::core::fmt::Debug for DBPROPFLAGSENUM25 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBPROPFLAGSENUM26(pub i32);
-impl ::core::marker::Copy for DBPROPFLAGSENUM26 {}
-impl ::core::clone::Clone for DBPROPFLAGSENUM26 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBPROPFLAGSENUM26 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBPROPFLAGSENUM26 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15624,19 +14909,8 @@ impl ::core::fmt::Debug for DBPROPFLAGSENUM26 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBPROPOPTIONSENUM(pub i32);
-impl ::core::marker::Copy for DBPROPOPTIONSENUM {}
-impl ::core::clone::Clone for DBPROPOPTIONSENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBPROPOPTIONSENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBPROPOPTIONSENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15646,19 +14920,8 @@ impl ::core::fmt::Debug for DBPROPOPTIONSENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBPROPSTATUSENUM(pub i32);
-impl ::core::marker::Copy for DBPROPSTATUSENUM {}
-impl ::core::clone::Clone for DBPROPSTATUSENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBPROPSTATUSENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBPROPSTATUSENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15668,19 +14931,8 @@ impl ::core::fmt::Debug for DBPROPSTATUSENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBPROPSTATUSENUM21(pub i32);
-impl ::core::marker::Copy for DBPROPSTATUSENUM21 {}
-impl ::core::clone::Clone for DBPROPSTATUSENUM21 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBPROPSTATUSENUM21 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBPROPSTATUSENUM21 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15690,19 +14942,8 @@ impl ::core::fmt::Debug for DBPROPSTATUSENUM21 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBRANGEENUM(pub i32);
-impl ::core::marker::Copy for DBRANGEENUM {}
-impl ::core::clone::Clone for DBRANGEENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBRANGEENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBRANGEENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15712,19 +14953,8 @@ impl ::core::fmt::Debug for DBRANGEENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBRANGEENUM20(pub i32);
-impl ::core::marker::Copy for DBRANGEENUM20 {}
-impl ::core::clone::Clone for DBRANGEENUM20 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBRANGEENUM20 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBRANGEENUM20 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15734,19 +14964,8 @@ impl ::core::fmt::Debug for DBRANGEENUM20 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBREASONENUM(pub i32);
-impl ::core::marker::Copy for DBREASONENUM {}
-impl ::core::clone::Clone for DBREASONENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBREASONENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBREASONENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15756,19 +14975,8 @@ impl ::core::fmt::Debug for DBREASONENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBREASONENUM15(pub i32);
-impl ::core::marker::Copy for DBREASONENUM15 {}
-impl ::core::clone::Clone for DBREASONENUM15 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBREASONENUM15 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBREASONENUM15 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15778,19 +14986,8 @@ impl ::core::fmt::Debug for DBREASONENUM15 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBREASONENUM25(pub i32);
-impl ::core::marker::Copy for DBREASONENUM25 {}
-impl ::core::clone::Clone for DBREASONENUM25 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBREASONENUM25 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBREASONENUM25 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15800,19 +14997,8 @@ impl ::core::fmt::Debug for DBREASONENUM25 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBRESOURCEKINDENUM(pub i32);
-impl ::core::marker::Copy for DBRESOURCEKINDENUM {}
-impl ::core::clone::Clone for DBRESOURCEKINDENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBRESOURCEKINDENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBRESOURCEKINDENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15822,19 +15008,8 @@ impl ::core::fmt::Debug for DBRESOURCEKINDENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBRESULTFLAGENUM(pub i32);
-impl ::core::marker::Copy for DBRESULTFLAGENUM {}
-impl ::core::clone::Clone for DBRESULTFLAGENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBRESULTFLAGENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBRESULTFLAGENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15844,19 +15019,8 @@ impl ::core::fmt::Debug for DBRESULTFLAGENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBROWCHANGEKINDENUM(pub i32);
-impl ::core::marker::Copy for DBROWCHANGEKINDENUM {}
-impl ::core::clone::Clone for DBROWCHANGEKINDENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBROWCHANGEKINDENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBROWCHANGEKINDENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15866,19 +15030,8 @@ impl ::core::fmt::Debug for DBROWCHANGEKINDENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBROWSTATUSENUM(pub i32);
-impl ::core::marker::Copy for DBROWSTATUSENUM {}
-impl ::core::clone::Clone for DBROWSTATUSENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBROWSTATUSENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBROWSTATUSENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15888,19 +15041,8 @@ impl ::core::fmt::Debug for DBROWSTATUSENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBROWSTATUSENUM20(pub i32);
-impl ::core::marker::Copy for DBROWSTATUSENUM20 {}
-impl ::core::clone::Clone for DBROWSTATUSENUM20 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBROWSTATUSENUM20 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBROWSTATUSENUM20 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15910,19 +15052,8 @@ impl ::core::fmt::Debug for DBROWSTATUSENUM20 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBSEEKENUM(pub i32);
-impl ::core::marker::Copy for DBSEEKENUM {}
-impl ::core::clone::Clone for DBSEEKENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBSEEKENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBSEEKENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15932,19 +15063,8 @@ impl ::core::fmt::Debug for DBSEEKENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBSORTENUM(pub i32);
-impl ::core::marker::Copy for DBSORTENUM {}
-impl ::core::clone::Clone for DBSORTENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBSORTENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBSORTENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15954,19 +15074,8 @@ impl ::core::fmt::Debug for DBSORTENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBSOURCETYPEENUM(pub i32);
-impl ::core::marker::Copy for DBSOURCETYPEENUM {}
-impl ::core::clone::Clone for DBSOURCETYPEENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBSOURCETYPEENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBSOURCETYPEENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15976,19 +15085,8 @@ impl ::core::fmt::Debug for DBSOURCETYPEENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBSOURCETYPEENUM20(pub i32);
-impl ::core::marker::Copy for DBSOURCETYPEENUM20 {}
-impl ::core::clone::Clone for DBSOURCETYPEENUM20 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBSOURCETYPEENUM20 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBSOURCETYPEENUM20 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15998,19 +15096,8 @@ impl ::core::fmt::Debug for DBSOURCETYPEENUM20 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBSOURCETYPEENUM25(pub i32);
-impl ::core::marker::Copy for DBSOURCETYPEENUM25 {}
-impl ::core::clone::Clone for DBSOURCETYPEENUM25 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBSOURCETYPEENUM25 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBSOURCETYPEENUM25 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16020,19 +15107,8 @@ impl ::core::fmt::Debug for DBSOURCETYPEENUM25 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBSTATUSENUM(pub i32);
-impl ::core::marker::Copy for DBSTATUSENUM {}
-impl ::core::clone::Clone for DBSTATUSENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBSTATUSENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBSTATUSENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16042,19 +15118,8 @@ impl ::core::fmt::Debug for DBSTATUSENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBSTATUSENUM20(pub i32);
-impl ::core::marker::Copy for DBSTATUSENUM20 {}
-impl ::core::clone::Clone for DBSTATUSENUM20 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBSTATUSENUM20 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBSTATUSENUM20 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16064,19 +15129,8 @@ impl ::core::fmt::Debug for DBSTATUSENUM20 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBSTATUSENUM21(pub i32);
-impl ::core::marker::Copy for DBSTATUSENUM21 {}
-impl ::core::clone::Clone for DBSTATUSENUM21 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBSTATUSENUM21 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBSTATUSENUM21 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16086,19 +15140,8 @@ impl ::core::fmt::Debug for DBSTATUSENUM21 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBSTATUSENUM25(pub i32);
-impl ::core::marker::Copy for DBSTATUSENUM25 {}
-impl ::core::clone::Clone for DBSTATUSENUM25 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBSTATUSENUM25 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBSTATUSENUM25 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16108,19 +15151,8 @@ impl ::core::fmt::Debug for DBSTATUSENUM25 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBSTATUSENUM26(pub i32);
-impl ::core::marker::Copy for DBSTATUSENUM26 {}
-impl ::core::clone::Clone for DBSTATUSENUM26 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBSTATUSENUM26 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBSTATUSENUM26 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16130,19 +15162,8 @@ impl ::core::fmt::Debug for DBSTATUSENUM26 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBTABLESTATISTICSTYPE26(pub i32);
-impl ::core::marker::Copy for DBTABLESTATISTICSTYPE26 {}
-impl ::core::clone::Clone for DBTABLESTATISTICSTYPE26 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBTABLESTATISTICSTYPE26 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBTABLESTATISTICSTYPE26 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16152,19 +15173,8 @@ impl ::core::fmt::Debug for DBTABLESTATISTICSTYPE26 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBTYPEENUM(pub i32);
-impl ::core::marker::Copy for DBTYPEENUM {}
-impl ::core::clone::Clone for DBTYPEENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBTYPEENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBTYPEENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16174,19 +15184,8 @@ impl ::core::fmt::Debug for DBTYPEENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBTYPEENUM15(pub i32);
-impl ::core::marker::Copy for DBTYPEENUM15 {}
-impl ::core::clone::Clone for DBTYPEENUM15 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBTYPEENUM15 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBTYPEENUM15 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16196,19 +15195,8 @@ impl ::core::fmt::Debug for DBTYPEENUM15 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBTYPEENUM20(pub i32);
-impl ::core::marker::Copy for DBTYPEENUM20 {}
-impl ::core::clone::Clone for DBTYPEENUM20 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBTYPEENUM20 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBTYPEENUM20 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16218,19 +15206,8 @@ impl ::core::fmt::Debug for DBTYPEENUM20 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBUPDELRULEENUM(pub i32);
-impl ::core::marker::Copy for DBUPDELRULEENUM {}
-impl ::core::clone::Clone for DBUPDELRULEENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBUPDELRULEENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBUPDELRULEENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16240,19 +15217,8 @@ impl ::core::fmt::Debug for DBUPDELRULEENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBWATCHMODEENUM(pub i32);
-impl ::core::marker::Copy for DBWATCHMODEENUM {}
-impl ::core::clone::Clone for DBWATCHMODEENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBWATCHMODEENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBWATCHMODEENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16262,19 +15228,8 @@ impl ::core::fmt::Debug for DBWATCHMODEENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBWATCHNOTIFYENUM(pub i32);
-impl ::core::marker::Copy for DBWATCHNOTIFYENUM {}
-impl ::core::clone::Clone for DBWATCHNOTIFYENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBWATCHNOTIFYENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBWATCHNOTIFYENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16284,19 +15239,8 @@ impl ::core::fmt::Debug for DBWATCHNOTIFYENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DCINFOTYPEENUM(pub i32);
-impl ::core::marker::Copy for DCINFOTYPEENUM {}
-impl ::core::clone::Clone for DCINFOTYPEENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DCINFOTYPEENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DCINFOTYPEENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16306,19 +15250,8 @@ impl ::core::fmt::Debug for DCINFOTYPEENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DELIVERY_AGENT_FLAGS(pub i32);
-impl ::core::marker::Copy for DELIVERY_AGENT_FLAGS {}
-impl ::core::clone::Clone for DELIVERY_AGENT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DELIVERY_AGENT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DELIVERY_AGENT_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16328,19 +15261,8 @@ impl ::core::fmt::Debug for DELIVERY_AGENT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EBindInfoOptions(pub i32);
-impl ::core::marker::Copy for EBindInfoOptions {}
-impl ::core::clone::Clone for EBindInfoOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EBindInfoOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EBindInfoOptions {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16350,19 +15272,8 @@ impl ::core::fmt::Debug for EBindInfoOptions {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FOLLOW_FLAGS(pub i32);
-impl ::core::marker::Copy for FOLLOW_FLAGS {}
-impl ::core::clone::Clone for FOLLOW_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FOLLOW_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FOLLOW_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16372,19 +15283,8 @@ impl ::core::fmt::Debug for FOLLOW_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct INTERVAL_LIMIT_KIND(pub i32);
-impl ::core::marker::Copy for INTERVAL_LIMIT_KIND {}
-impl ::core::clone::Clone for INTERVAL_LIMIT_KIND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for INTERVAL_LIMIT_KIND {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for INTERVAL_LIMIT_KIND {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16394,19 +15294,8 @@ impl ::core::fmt::Debug for INTERVAL_LIMIT_KIND {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct KAGREQDIAGFLAGSENUM(pub i32);
-impl ::core::marker::Copy for KAGREQDIAGFLAGSENUM {}
-impl ::core::clone::Clone for KAGREQDIAGFLAGSENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KAGREQDIAGFLAGSENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for KAGREQDIAGFLAGSENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16416,19 +15305,8 @@ impl ::core::fmt::Debug for KAGREQDIAGFLAGSENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct LOCKMODEENUM(pub i32);
-impl ::core::marker::Copy for LOCKMODEENUM {}
-impl ::core::clone::Clone for LOCKMODEENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for LOCKMODEENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for LOCKMODEENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16438,19 +15316,8 @@ impl ::core::fmt::Debug for LOCKMODEENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MSDSDBINITPROPENUM(pub i32);
-impl ::core::marker::Copy for MSDSDBINITPROPENUM {}
-impl ::core::clone::Clone for MSDSDBINITPROPENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MSDSDBINITPROPENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MSDSDBINITPROPENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16460,19 +15327,8 @@ impl ::core::fmt::Debug for MSDSDBINITPROPENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MSDSSESSIONPROPENUM(pub i32);
-impl ::core::marker::Copy for MSDSSESSIONPROPENUM {}
-impl ::core::clone::Clone for MSDSSESSIONPROPENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MSDSSESSIONPROPENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MSDSSESSIONPROPENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16482,19 +15338,8 @@ impl ::core::fmt::Debug for MSDSSESSIONPROPENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NAMED_ENTITY_CERTAINTY(pub i32);
-impl ::core::marker::Copy for NAMED_ENTITY_CERTAINTY {}
-impl ::core::clone::Clone for NAMED_ENTITY_CERTAINTY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NAMED_ENTITY_CERTAINTY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NAMED_ENTITY_CERTAINTY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16504,19 +15349,8 @@ impl ::core::fmt::Debug for NAMED_ENTITY_CERTAINTY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OSPCOMP(pub i32);
-impl ::core::marker::Copy for OSPCOMP {}
-impl ::core::clone::Clone for OSPCOMP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OSPCOMP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OSPCOMP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16526,19 +15360,8 @@ impl ::core::fmt::Debug for OSPCOMP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OSPFIND(pub i32);
-impl ::core::marker::Copy for OSPFIND {}
-impl ::core::clone::Clone for OSPFIND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OSPFIND {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OSPFIND {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16548,19 +15371,8 @@ impl ::core::fmt::Debug for OSPFIND {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OSPFORMAT(pub i32);
-impl ::core::marker::Copy for OSPFORMAT {}
-impl ::core::clone::Clone for OSPFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OSPFORMAT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OSPFORMAT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16570,19 +15382,8 @@ impl ::core::fmt::Debug for OSPFORMAT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OSPRW(pub i32);
-impl ::core::marker::Copy for OSPRW {}
-impl ::core::clone::Clone for OSPRW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OSPRW {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OSPRW {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16592,19 +15393,8 @@ impl ::core::fmt::Debug for OSPRW {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OSPXFER(pub i32);
-impl ::core::marker::Copy for OSPXFER {}
-impl ::core::clone::Clone for OSPXFER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OSPXFER {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OSPXFER {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16614,19 +15404,8 @@ impl ::core::fmt::Debug for OSPXFER {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PRIORITIZE_FLAGS(pub i32);
-impl ::core::marker::Copy for PRIORITIZE_FLAGS {}
-impl ::core::clone::Clone for PRIORITIZE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PRIORITIZE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PRIORITIZE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16636,19 +15415,8 @@ impl ::core::fmt::Debug for PRIORITIZE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PRIORITY_LEVEL(pub i32);
-impl ::core::marker::Copy for PRIORITY_LEVEL {}
-impl ::core::clone::Clone for PRIORITY_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PRIORITY_LEVEL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PRIORITY_LEVEL {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16658,19 +15426,8 @@ impl ::core::fmt::Debug for PRIORITY_LEVEL {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PROXY_ACCESS(pub i32);
-impl ::core::marker::Copy for PROXY_ACCESS {}
-impl ::core::clone::Clone for PROXY_ACCESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PROXY_ACCESS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PROXY_ACCESS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16680,19 +15437,8 @@ impl ::core::fmt::Debug for PROXY_ACCESS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct QUERY_PARSER_MANAGER_OPTION(pub i32);
-impl ::core::marker::Copy for QUERY_PARSER_MANAGER_OPTION {}
-impl ::core::clone::Clone for QUERY_PARSER_MANAGER_OPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for QUERY_PARSER_MANAGER_OPTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for QUERY_PARSER_MANAGER_OPTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16702,19 +15448,8 @@ impl ::core::fmt::Debug for QUERY_PARSER_MANAGER_OPTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ROWSETEVENT_ITEMSTATE(pub i32);
-impl ::core::marker::Copy for ROWSETEVENT_ITEMSTATE {}
-impl ::core::clone::Clone for ROWSETEVENT_ITEMSTATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ROWSETEVENT_ITEMSTATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ROWSETEVENT_ITEMSTATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16724,19 +15459,8 @@ impl ::core::fmt::Debug for ROWSETEVENT_ITEMSTATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ROWSETEVENT_TYPE(pub i32);
-impl ::core::marker::Copy for ROWSETEVENT_TYPE {}
-impl ::core::clone::Clone for ROWSETEVENT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ROWSETEVENT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ROWSETEVENT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16746,19 +15470,8 @@ impl ::core::fmt::Debug for ROWSETEVENT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SEARCH_INDEXING_PHASE(pub i32);
-impl ::core::marker::Copy for SEARCH_INDEXING_PHASE {}
-impl ::core::clone::Clone for SEARCH_INDEXING_PHASE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SEARCH_INDEXING_PHASE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SEARCH_INDEXING_PHASE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16768,19 +15481,8 @@ impl ::core::fmt::Debug for SEARCH_INDEXING_PHASE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SEARCH_KIND_OF_CHANGE(pub i32);
-impl ::core::marker::Copy for SEARCH_KIND_OF_CHANGE {}
-impl ::core::clone::Clone for SEARCH_KIND_OF_CHANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SEARCH_KIND_OF_CHANGE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SEARCH_KIND_OF_CHANGE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16790,19 +15492,8 @@ impl ::core::fmt::Debug for SEARCH_KIND_OF_CHANGE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SEARCH_NOTIFICATION_PRIORITY(pub i32);
-impl ::core::marker::Copy for SEARCH_NOTIFICATION_PRIORITY {}
-impl ::core::clone::Clone for SEARCH_NOTIFICATION_PRIORITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SEARCH_NOTIFICATION_PRIORITY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SEARCH_NOTIFICATION_PRIORITY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16812,19 +15503,8 @@ impl ::core::fmt::Debug for SEARCH_NOTIFICATION_PRIORITY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SEARCH_QUERY_SYNTAX(pub i32);
-impl ::core::marker::Copy for SEARCH_QUERY_SYNTAX {}
-impl ::core::clone::Clone for SEARCH_QUERY_SYNTAX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SEARCH_QUERY_SYNTAX {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SEARCH_QUERY_SYNTAX {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16834,19 +15514,8 @@ impl ::core::fmt::Debug for SEARCH_QUERY_SYNTAX {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SEARCH_TERM_EXPANSION(pub i32);
-impl ::core::marker::Copy for SEARCH_TERM_EXPANSION {}
-impl ::core::clone::Clone for SEARCH_TERM_EXPANSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SEARCH_TERM_EXPANSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SEARCH_TERM_EXPANSION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16856,19 +15525,8 @@ impl ::core::fmt::Debug for SEARCH_TERM_EXPANSION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SQLINTERVAL(pub i32);
-impl ::core::marker::Copy for SQLINTERVAL {}
-impl ::core::clone::Clone for SQLINTERVAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SQLINTERVAL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SQLINTERVAL {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16878,19 +15536,8 @@ impl ::core::fmt::Debug for SQLINTERVAL {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SQLVARENUM(pub i32);
-impl ::core::marker::Copy for SQLVARENUM {}
-impl ::core::clone::Clone for SQLVARENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SQLVARENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SQLVARENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16900,19 +15547,8 @@ impl ::core::fmt::Debug for SQLVARENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct STRUCTURED_QUERY_MULTIOPTION(pub i32);
-impl ::core::marker::Copy for STRUCTURED_QUERY_MULTIOPTION {}
-impl ::core::clone::Clone for STRUCTURED_QUERY_MULTIOPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for STRUCTURED_QUERY_MULTIOPTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for STRUCTURED_QUERY_MULTIOPTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16922,19 +15558,8 @@ impl ::core::fmt::Debug for STRUCTURED_QUERY_MULTIOPTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct STRUCTURED_QUERY_PARSE_ERROR(pub i32);
-impl ::core::marker::Copy for STRUCTURED_QUERY_PARSE_ERROR {}
-impl ::core::clone::Clone for STRUCTURED_QUERY_PARSE_ERROR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for STRUCTURED_QUERY_PARSE_ERROR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for STRUCTURED_QUERY_PARSE_ERROR {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16944,19 +15569,8 @@ impl ::core::fmt::Debug for STRUCTURED_QUERY_PARSE_ERROR {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct STRUCTURED_QUERY_RESOLVE_OPTION(pub i32);
-impl ::core::marker::Copy for STRUCTURED_QUERY_RESOLVE_OPTION {}
-impl ::core::clone::Clone for STRUCTURED_QUERY_RESOLVE_OPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for STRUCTURED_QUERY_RESOLVE_OPTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for STRUCTURED_QUERY_RESOLVE_OPTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16999,19 +15613,8 @@ impl ::core::ops::Not for STRUCTURED_QUERY_RESOLVE_OPTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct STRUCTURED_QUERY_SINGLE_OPTION(pub i32);
-impl ::core::marker::Copy for STRUCTURED_QUERY_SINGLE_OPTION {}
-impl ::core::clone::Clone for STRUCTURED_QUERY_SINGLE_OPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for STRUCTURED_QUERY_SINGLE_OPTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for STRUCTURED_QUERY_SINGLE_OPTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -17021,19 +15624,8 @@ impl ::core::fmt::Debug for STRUCTURED_QUERY_SINGLE_OPTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct STRUCTURED_QUERY_SYNTAX(pub i32);
-impl ::core::marker::Copy for STRUCTURED_QUERY_SYNTAX {}
-impl ::core::clone::Clone for STRUCTURED_QUERY_SYNTAX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for STRUCTURED_QUERY_SYNTAX {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for STRUCTURED_QUERY_SYNTAX {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -17043,19 +15635,8 @@ impl ::core::fmt::Debug for STRUCTURED_QUERY_SYNTAX {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SUBSCRIPTIONINFOFLAGS(pub i32);
-impl ::core::marker::Copy for SUBSCRIPTIONINFOFLAGS {}
-impl ::core::clone::Clone for SUBSCRIPTIONINFOFLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SUBSCRIPTIONINFOFLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SUBSCRIPTIONINFOFLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -17065,19 +15646,8 @@ impl ::core::fmt::Debug for SUBSCRIPTIONINFOFLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SUBSCRIPTIONSCHEDULE(pub i32);
-impl ::core::marker::Copy for SUBSCRIPTIONSCHEDULE {}
-impl ::core::clone::Clone for SUBSCRIPTIONSCHEDULE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SUBSCRIPTIONSCHEDULE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SUBSCRIPTIONSCHEDULE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -17087,19 +15657,8 @@ impl ::core::fmt::Debug for SUBSCRIPTIONSCHEDULE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SUBSCRIPTIONTYPE(pub i32);
-impl ::core::marker::Copy for SUBSCRIPTIONTYPE {}
-impl ::core::clone::Clone for SUBSCRIPTIONTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SUBSCRIPTIONTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SUBSCRIPTIONTYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -17109,19 +15668,8 @@ impl ::core::fmt::Debug for SUBSCRIPTIONTYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WEBCRAWL_RECURSEFLAGS(pub i32);
-impl ::core::marker::Copy for WEBCRAWL_RECURSEFLAGS {}
-impl ::core::clone::Clone for WEBCRAWL_RECURSEFLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WEBCRAWL_RECURSEFLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WEBCRAWL_RECURSEFLAGS {
     type TypeKind = ::windows_core::CopyType;
 }

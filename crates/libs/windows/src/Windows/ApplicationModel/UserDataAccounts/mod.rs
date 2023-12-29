@@ -650,23 +650,12 @@ impl ::windows_core::RuntimeName for UserDataAccountStoreChangedEventArgs {
 unsafe impl ::core::marker::Send for UserDataAccountStoreChangedEventArgs {}
 unsafe impl ::core::marker::Sync for UserDataAccountStoreChangedEventArgs {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UserDataAccountContentKinds(pub u32);
 impl UserDataAccountContentKinds {
     pub const Email: Self = Self(1u32);
     pub const Contact: Self = Self(2u32);
     pub const Appointment: Self = Self(4u32);
-}
-impl ::core::marker::Copy for UserDataAccountContentKinds {}
-impl ::core::clone::Clone for UserDataAccountContentKinds {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UserDataAccountContentKinds {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for UserDataAccountContentKinds {
     type TypeKind = ::windows_core::CopyType;
@@ -713,23 +702,12 @@ impl ::windows_core::RuntimeType for UserDataAccountContentKinds {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.UserDataAccountContentKinds;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UserDataAccountOtherAppReadAccess(pub i32);
 impl UserDataAccountOtherAppReadAccess {
     pub const SystemOnly: Self = Self(0i32);
     pub const Full: Self = Self(1i32);
     pub const None: Self = Self(2i32);
-}
-impl ::core::marker::Copy for UserDataAccountOtherAppReadAccess {}
-impl ::core::clone::Clone for UserDataAccountOtherAppReadAccess {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UserDataAccountOtherAppReadAccess {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for UserDataAccountOtherAppReadAccess {
     type TypeKind = ::windows_core::CopyType;
@@ -743,22 +721,11 @@ impl ::windows_core::RuntimeType for UserDataAccountOtherAppReadAccess {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.UserDataAccountOtherAppReadAccess;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UserDataAccountStoreAccessType(pub i32);
 impl UserDataAccountStoreAccessType {
     pub const AllAccountsReadOnly: Self = Self(0i32);
     pub const AppAccountsReadWrite: Self = Self(1i32);
-}
-impl ::core::marker::Copy for UserDataAccountStoreAccessType {}
-impl ::core::clone::Clone for UserDataAccountStoreAccessType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UserDataAccountStoreAccessType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for UserDataAccountStoreAccessType {
     type TypeKind = ::windows_core::CopyType;

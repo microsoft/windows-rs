@@ -158,7 +158,7 @@ impl ::windows_core::RuntimeName for ClosedCaptionProperties {
     const NAME: &'static str = "Windows.Media.ClosedCaptioning.ClosedCaptionProperties";
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ClosedCaptionColor(pub i32);
 impl ClosedCaptionColor {
     pub const Default: Self = Self(0i32);
@@ -170,17 +170,6 @@ impl ClosedCaptionColor {
     pub const Yellow: Self = Self(6i32);
     pub const Magenta: Self = Self(7i32);
     pub const Cyan: Self = Self(8i32);
-}
-impl ::core::marker::Copy for ClosedCaptionColor {}
-impl ::core::clone::Clone for ClosedCaptionColor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ClosedCaptionColor {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ClosedCaptionColor {
     type TypeKind = ::windows_core::CopyType;
@@ -194,7 +183,7 @@ impl ::windows_core::RuntimeType for ClosedCaptionColor {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.ClosedCaptioning.ClosedCaptionColor;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ClosedCaptionEdgeEffect(pub i32);
 impl ClosedCaptionEdgeEffect {
     pub const Default: Self = Self(0i32);
@@ -203,17 +192,6 @@ impl ClosedCaptionEdgeEffect {
     pub const Depressed: Self = Self(3i32);
     pub const Uniform: Self = Self(4i32);
     pub const DropShadow: Self = Self(5i32);
-}
-impl ::core::marker::Copy for ClosedCaptionEdgeEffect {}
-impl ::core::clone::Clone for ClosedCaptionEdgeEffect {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ClosedCaptionEdgeEffect {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ClosedCaptionEdgeEffect {
     type TypeKind = ::windows_core::CopyType;
@@ -227,7 +205,7 @@ impl ::windows_core::RuntimeType for ClosedCaptionEdgeEffect {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.ClosedCaptioning.ClosedCaptionEdgeEffect;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ClosedCaptionOpacity(pub i32);
 impl ClosedCaptionOpacity {
     pub const Default: Self = Self(0i32);
@@ -235,17 +213,6 @@ impl ClosedCaptionOpacity {
     pub const SeventyFivePercent: Self = Self(2i32);
     pub const TwentyFivePercent: Self = Self(3i32);
     pub const ZeroPercent: Self = Self(4i32);
-}
-impl ::core::marker::Copy for ClosedCaptionOpacity {}
-impl ::core::clone::Clone for ClosedCaptionOpacity {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ClosedCaptionOpacity {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ClosedCaptionOpacity {
     type TypeKind = ::windows_core::CopyType;
@@ -259,7 +226,7 @@ impl ::windows_core::RuntimeType for ClosedCaptionOpacity {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.ClosedCaptioning.ClosedCaptionOpacity;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ClosedCaptionSize(pub i32);
 impl ClosedCaptionSize {
     pub const Default: Self = Self(0i32);
@@ -267,17 +234,6 @@ impl ClosedCaptionSize {
     pub const OneHundredPercent: Self = Self(2i32);
     pub const OneHundredFiftyPercent: Self = Self(3i32);
     pub const TwoHundredPercent: Self = Self(4i32);
-}
-impl ::core::marker::Copy for ClosedCaptionSize {}
-impl ::core::clone::Clone for ClosedCaptionSize {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ClosedCaptionSize {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ClosedCaptionSize {
     type TypeKind = ::windows_core::CopyType;
@@ -291,7 +247,7 @@ impl ::windows_core::RuntimeType for ClosedCaptionSize {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.ClosedCaptioning.ClosedCaptionSize;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ClosedCaptionStyle(pub i32);
 impl ClosedCaptionStyle {
     pub const Default: Self = Self(0i32);
@@ -302,17 +258,6 @@ impl ClosedCaptionStyle {
     pub const Casual: Self = Self(5i32);
     pub const Cursive: Self = Self(6i32);
     pub const SmallCapitals: Self = Self(7i32);
-}
-impl ::core::marker::Copy for ClosedCaptionStyle {}
-impl ::core::clone::Clone for ClosedCaptionStyle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ClosedCaptionStyle {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ClosedCaptionStyle {
     type TypeKind = ::windows_core::CopyType;

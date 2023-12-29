@@ -128,19 +128,8 @@ pub const kPTPageScope: EPrintTicketScope = EPrintTicketScope(0i32);
 pub const kPrinterDefaultDevmode: EDefaultDevmodeType = EDefaultDevmodeType(1i32);
 pub const kUserDefaultDevmode: EDefaultDevmodeType = EDefaultDevmodeType(0i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EDefaultDevmodeType(pub i32);
-impl ::core::marker::Copy for EDefaultDevmodeType {}
-impl ::core::clone::Clone for EDefaultDevmodeType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EDefaultDevmodeType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EDefaultDevmodeType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -150,19 +139,8 @@ impl ::core::fmt::Debug for EDefaultDevmodeType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EPrintTicketScope(pub i32);
-impl ::core::marker::Copy for EPrintTicketScope {}
-impl ::core::clone::Clone for EPrintTicketScope {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EPrintTicketScope {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EPrintTicketScope {
     type TypeKind = ::windows_core::CopyType;
 }

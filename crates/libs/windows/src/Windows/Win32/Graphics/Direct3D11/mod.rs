@@ -14026,19 +14026,8 @@ pub const D3D_SHADER_REQUIRES_UAVS_AT_EVERY_STAGE: u32 = 4u32;
 pub const DXGI_DEBUG_D3D11: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4b99317b_ac39_4aa6_bb0b_baa04784798f);
 pub const _FACD3D11: u32 = 2172u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_1_CREATE_DEVICE_CONTEXT_STATE_FLAG(pub i32);
-impl ::core::marker::Copy for D3D11_1_CREATE_DEVICE_CONTEXT_STATE_FLAG {}
-impl ::core::clone::Clone for D3D11_1_CREATE_DEVICE_CONTEXT_STATE_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_1_CREATE_DEVICE_CONTEXT_STATE_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_1_CREATE_DEVICE_CONTEXT_STATE_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14048,19 +14037,8 @@ impl ::core::fmt::Debug for D3D11_1_CREATE_DEVICE_CONTEXT_STATE_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_ASYNC_GETDATA_FLAG(pub i32);
-impl ::core::marker::Copy for D3D11_ASYNC_GETDATA_FLAG {}
-impl ::core::clone::Clone for D3D11_ASYNC_GETDATA_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_ASYNC_GETDATA_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_ASYNC_GETDATA_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14070,19 +14048,8 @@ impl ::core::fmt::Debug for D3D11_ASYNC_GETDATA_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_AUTHENTICATED_CHANNEL_TYPE(pub i32);
-impl ::core::marker::Copy for D3D11_AUTHENTICATED_CHANNEL_TYPE {}
-impl ::core::clone::Clone for D3D11_AUTHENTICATED_CHANNEL_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_AUTHENTICATED_CHANNEL_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_AUTHENTICATED_CHANNEL_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14092,19 +14059,8 @@ impl ::core::fmt::Debug for D3D11_AUTHENTICATED_CHANNEL_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_AUTHENTICATED_PROCESS_IDENTIFIER_TYPE(pub i32);
-impl ::core::marker::Copy for D3D11_AUTHENTICATED_PROCESS_IDENTIFIER_TYPE {}
-impl ::core::clone::Clone for D3D11_AUTHENTICATED_PROCESS_IDENTIFIER_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_AUTHENTICATED_PROCESS_IDENTIFIER_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_AUTHENTICATED_PROCESS_IDENTIFIER_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14114,19 +14070,8 @@ impl ::core::fmt::Debug for D3D11_AUTHENTICATED_PROCESS_IDENTIFIER_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_BIND_FLAG(pub i32);
-impl ::core::marker::Copy for D3D11_BIND_FLAG {}
-impl ::core::clone::Clone for D3D11_BIND_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_BIND_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_BIND_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14169,19 +14114,8 @@ impl ::core::ops::Not for D3D11_BIND_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_BLEND(pub i32);
-impl ::core::marker::Copy for D3D11_BLEND {}
-impl ::core::clone::Clone for D3D11_BLEND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_BLEND {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_BLEND {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14191,19 +14125,8 @@ impl ::core::fmt::Debug for D3D11_BLEND {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_BLEND_OP(pub i32);
-impl ::core::marker::Copy for D3D11_BLEND_OP {}
-impl ::core::clone::Clone for D3D11_BLEND_OP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_BLEND_OP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_BLEND_OP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14213,19 +14136,8 @@ impl ::core::fmt::Debug for D3D11_BLEND_OP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_BUFFEREX_SRV_FLAG(pub i32);
-impl ::core::marker::Copy for D3D11_BUFFEREX_SRV_FLAG {}
-impl ::core::clone::Clone for D3D11_BUFFEREX_SRV_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_BUFFEREX_SRV_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_BUFFEREX_SRV_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14235,19 +14147,8 @@ impl ::core::fmt::Debug for D3D11_BUFFEREX_SRV_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_BUFFER_UAV_FLAG(pub i32);
-impl ::core::marker::Copy for D3D11_BUFFER_UAV_FLAG {}
-impl ::core::clone::Clone for D3D11_BUFFER_UAV_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_BUFFER_UAV_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_BUFFER_UAV_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14257,19 +14158,8 @@ impl ::core::fmt::Debug for D3D11_BUFFER_UAV_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_BUS_TYPE(pub i32);
-impl ::core::marker::Copy for D3D11_BUS_TYPE {}
-impl ::core::clone::Clone for D3D11_BUS_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_BUS_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_BUS_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14279,19 +14169,8 @@ impl ::core::fmt::Debug for D3D11_BUS_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_CHECK_MULTISAMPLE_QUALITY_LEVELS_FLAG(pub i32);
-impl ::core::marker::Copy for D3D11_CHECK_MULTISAMPLE_QUALITY_LEVELS_FLAG {}
-impl ::core::clone::Clone for D3D11_CHECK_MULTISAMPLE_QUALITY_LEVELS_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_CHECK_MULTISAMPLE_QUALITY_LEVELS_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_CHECK_MULTISAMPLE_QUALITY_LEVELS_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14301,19 +14180,8 @@ impl ::core::fmt::Debug for D3D11_CHECK_MULTISAMPLE_QUALITY_LEVELS_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_CLEAR_FLAG(pub u32);
-impl ::core::marker::Copy for D3D11_CLEAR_FLAG {}
-impl ::core::clone::Clone for D3D11_CLEAR_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_CLEAR_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_CLEAR_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14356,19 +14224,8 @@ impl ::core::ops::Not for D3D11_CLEAR_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_COLOR_WRITE_ENABLE(pub i32);
-impl ::core::marker::Copy for D3D11_COLOR_WRITE_ENABLE {}
-impl ::core::clone::Clone for D3D11_COLOR_WRITE_ENABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_COLOR_WRITE_ENABLE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_COLOR_WRITE_ENABLE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14378,19 +14235,8 @@ impl ::core::fmt::Debug for D3D11_COLOR_WRITE_ENABLE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_COMPARISON_FUNC(pub i32);
-impl ::core::marker::Copy for D3D11_COMPARISON_FUNC {}
-impl ::core::clone::Clone for D3D11_COMPARISON_FUNC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_COMPARISON_FUNC {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_COMPARISON_FUNC {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14400,19 +14246,8 @@ impl ::core::fmt::Debug for D3D11_COMPARISON_FUNC {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_CONSERVATIVE_RASTERIZATION_MODE(pub i32);
-impl ::core::marker::Copy for D3D11_CONSERVATIVE_RASTERIZATION_MODE {}
-impl ::core::clone::Clone for D3D11_CONSERVATIVE_RASTERIZATION_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_CONSERVATIVE_RASTERIZATION_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_CONSERVATIVE_RASTERIZATION_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14422,19 +14257,8 @@ impl ::core::fmt::Debug for D3D11_CONSERVATIVE_RASTERIZATION_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_CONSERVATIVE_RASTERIZATION_TIER(pub i32);
-impl ::core::marker::Copy for D3D11_CONSERVATIVE_RASTERIZATION_TIER {}
-impl ::core::clone::Clone for D3D11_CONSERVATIVE_RASTERIZATION_TIER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_CONSERVATIVE_RASTERIZATION_TIER {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_CONSERVATIVE_RASTERIZATION_TIER {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14444,19 +14268,8 @@ impl ::core::fmt::Debug for D3D11_CONSERVATIVE_RASTERIZATION_TIER {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_CONTENT_PROTECTION_CAPS(pub i32);
-impl ::core::marker::Copy for D3D11_CONTENT_PROTECTION_CAPS {}
-impl ::core::clone::Clone for D3D11_CONTENT_PROTECTION_CAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_CONTENT_PROTECTION_CAPS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_CONTENT_PROTECTION_CAPS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14466,19 +14279,8 @@ impl ::core::fmt::Debug for D3D11_CONTENT_PROTECTION_CAPS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_CONTEXT_TYPE(pub i32);
-impl ::core::marker::Copy for D3D11_CONTEXT_TYPE {}
-impl ::core::clone::Clone for D3D11_CONTEXT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_CONTEXT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_CONTEXT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14488,19 +14290,8 @@ impl ::core::fmt::Debug for D3D11_CONTEXT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_COPY_FLAGS(pub i32);
-impl ::core::marker::Copy for D3D11_COPY_FLAGS {}
-impl ::core::clone::Clone for D3D11_COPY_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_COPY_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_COPY_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14510,19 +14301,8 @@ impl ::core::fmt::Debug for D3D11_COPY_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_COUNTER(pub i32);
-impl ::core::marker::Copy for D3D11_COUNTER {}
-impl ::core::clone::Clone for D3D11_COUNTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_COUNTER {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_COUNTER {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14532,19 +14312,8 @@ impl ::core::fmt::Debug for D3D11_COUNTER {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_COUNTER_TYPE(pub i32);
-impl ::core::marker::Copy for D3D11_COUNTER_TYPE {}
-impl ::core::clone::Clone for D3D11_COUNTER_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_COUNTER_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_COUNTER_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14554,19 +14323,8 @@ impl ::core::fmt::Debug for D3D11_COUNTER_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_CPU_ACCESS_FLAG(pub i32);
-impl ::core::marker::Copy for D3D11_CPU_ACCESS_FLAG {}
-impl ::core::clone::Clone for D3D11_CPU_ACCESS_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_CPU_ACCESS_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_CPU_ACCESS_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14609,19 +14367,8 @@ impl ::core::ops::Not for D3D11_CPU_ACCESS_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_CREATE_DEVICE_FLAG(pub u32);
-impl ::core::marker::Copy for D3D11_CREATE_DEVICE_FLAG {}
-impl ::core::clone::Clone for D3D11_CREATE_DEVICE_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_CREATE_DEVICE_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_CREATE_DEVICE_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14664,19 +14411,8 @@ impl ::core::ops::Not for D3D11_CREATE_DEVICE_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAGS(pub i32);
-impl ::core::marker::Copy for D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAGS {}
-impl ::core::clone::Clone for D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14719,19 +14455,8 @@ impl ::core::ops::Not for D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_CRYPTO_SESSION_STATUS(pub i32);
-impl ::core::marker::Copy for D3D11_CRYPTO_SESSION_STATUS {}
-impl ::core::clone::Clone for D3D11_CRYPTO_SESSION_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_CRYPTO_SESSION_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_CRYPTO_SESSION_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14741,19 +14466,8 @@ impl ::core::fmt::Debug for D3D11_CRYPTO_SESSION_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_CULL_MODE(pub i32);
-impl ::core::marker::Copy for D3D11_CULL_MODE {}
-impl ::core::clone::Clone for D3D11_CULL_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_CULL_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_CULL_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14763,19 +14477,8 @@ impl ::core::fmt::Debug for D3D11_CULL_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_DEPTH_WRITE_MASK(pub i32);
-impl ::core::marker::Copy for D3D11_DEPTH_WRITE_MASK {}
-impl ::core::clone::Clone for D3D11_DEPTH_WRITE_MASK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_DEPTH_WRITE_MASK {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_DEPTH_WRITE_MASK {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14785,19 +14488,8 @@ impl ::core::fmt::Debug for D3D11_DEPTH_WRITE_MASK {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_DEVICE_CONTEXT_TYPE(pub i32);
-impl ::core::marker::Copy for D3D11_DEVICE_CONTEXT_TYPE {}
-impl ::core::clone::Clone for D3D11_DEVICE_CONTEXT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_DEVICE_CONTEXT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_DEVICE_CONTEXT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14807,19 +14499,8 @@ impl ::core::fmt::Debug for D3D11_DEVICE_CONTEXT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_DSV_DIMENSION(pub i32);
-impl ::core::marker::Copy for D3D11_DSV_DIMENSION {}
-impl ::core::clone::Clone for D3D11_DSV_DIMENSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_DSV_DIMENSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_DSV_DIMENSION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14829,19 +14510,8 @@ impl ::core::fmt::Debug for D3D11_DSV_DIMENSION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_DSV_FLAG(pub i32);
-impl ::core::marker::Copy for D3D11_DSV_FLAG {}
-impl ::core::clone::Clone for D3D11_DSV_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_DSV_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_DSV_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14851,19 +14521,8 @@ impl ::core::fmt::Debug for D3D11_DSV_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_FEATURE(pub i32);
-impl ::core::marker::Copy for D3D11_FEATURE {}
-impl ::core::clone::Clone for D3D11_FEATURE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_FEATURE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_FEATURE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14873,19 +14532,8 @@ impl ::core::fmt::Debug for D3D11_FEATURE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_FEATURE_VIDEO(pub i32);
-impl ::core::marker::Copy for D3D11_FEATURE_VIDEO {}
-impl ::core::clone::Clone for D3D11_FEATURE_VIDEO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_FEATURE_VIDEO {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_FEATURE_VIDEO {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14895,19 +14543,8 @@ impl ::core::fmt::Debug for D3D11_FEATURE_VIDEO {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_FENCE_FLAG(pub i32);
-impl ::core::marker::Copy for D3D11_FENCE_FLAG {}
-impl ::core::clone::Clone for D3D11_FENCE_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_FENCE_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_FENCE_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14950,19 +14587,8 @@ impl ::core::ops::Not for D3D11_FENCE_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_FILL_MODE(pub i32);
-impl ::core::marker::Copy for D3D11_FILL_MODE {}
-impl ::core::clone::Clone for D3D11_FILL_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_FILL_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_FILL_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14972,19 +14598,8 @@ impl ::core::fmt::Debug for D3D11_FILL_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_FILTER(pub i32);
-impl ::core::marker::Copy for D3D11_FILTER {}
-impl ::core::clone::Clone for D3D11_FILTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_FILTER {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_FILTER {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -14994,19 +14609,8 @@ impl ::core::fmt::Debug for D3D11_FILTER {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_FILTER_REDUCTION_TYPE(pub i32);
-impl ::core::marker::Copy for D3D11_FILTER_REDUCTION_TYPE {}
-impl ::core::clone::Clone for D3D11_FILTER_REDUCTION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_FILTER_REDUCTION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_FILTER_REDUCTION_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15016,19 +14620,8 @@ impl ::core::fmt::Debug for D3D11_FILTER_REDUCTION_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_FILTER_TYPE(pub i32);
-impl ::core::marker::Copy for D3D11_FILTER_TYPE {}
-impl ::core::clone::Clone for D3D11_FILTER_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_FILTER_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_FILTER_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15038,19 +14631,8 @@ impl ::core::fmt::Debug for D3D11_FILTER_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_FORMAT_SUPPORT(pub i32);
-impl ::core::marker::Copy for D3D11_FORMAT_SUPPORT {}
-impl ::core::clone::Clone for D3D11_FORMAT_SUPPORT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_FORMAT_SUPPORT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_FORMAT_SUPPORT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15060,19 +14642,8 @@ impl ::core::fmt::Debug for D3D11_FORMAT_SUPPORT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_FORMAT_SUPPORT2(pub i32);
-impl ::core::marker::Copy for D3D11_FORMAT_SUPPORT2 {}
-impl ::core::clone::Clone for D3D11_FORMAT_SUPPORT2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_FORMAT_SUPPORT2 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_FORMAT_SUPPORT2 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15082,19 +14653,8 @@ impl ::core::fmt::Debug for D3D11_FORMAT_SUPPORT2 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_INPUT_CLASSIFICATION(pub i32);
-impl ::core::marker::Copy for D3D11_INPUT_CLASSIFICATION {}
-impl ::core::clone::Clone for D3D11_INPUT_CLASSIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_INPUT_CLASSIFICATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_INPUT_CLASSIFICATION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15104,19 +14664,8 @@ impl ::core::fmt::Debug for D3D11_INPUT_CLASSIFICATION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_LOGIC_OP(pub i32);
-impl ::core::marker::Copy for D3D11_LOGIC_OP {}
-impl ::core::clone::Clone for D3D11_LOGIC_OP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_LOGIC_OP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_LOGIC_OP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15126,19 +14675,8 @@ impl ::core::fmt::Debug for D3D11_LOGIC_OP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_MAP(pub i32);
-impl ::core::marker::Copy for D3D11_MAP {}
-impl ::core::clone::Clone for D3D11_MAP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_MAP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_MAP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15148,19 +14686,8 @@ impl ::core::fmt::Debug for D3D11_MAP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_MAP_FLAG(pub i32);
-impl ::core::marker::Copy for D3D11_MAP_FLAG {}
-impl ::core::clone::Clone for D3D11_MAP_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_MAP_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_MAP_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15170,19 +14697,8 @@ impl ::core::fmt::Debug for D3D11_MAP_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_MESSAGE_CATEGORY(pub i32);
-impl ::core::marker::Copy for D3D11_MESSAGE_CATEGORY {}
-impl ::core::clone::Clone for D3D11_MESSAGE_CATEGORY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_MESSAGE_CATEGORY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_MESSAGE_CATEGORY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15192,19 +14708,8 @@ impl ::core::fmt::Debug for D3D11_MESSAGE_CATEGORY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_MESSAGE_ID(pub i32);
-impl ::core::marker::Copy for D3D11_MESSAGE_ID {}
-impl ::core::clone::Clone for D3D11_MESSAGE_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_MESSAGE_ID {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_MESSAGE_ID {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15214,19 +14719,8 @@ impl ::core::fmt::Debug for D3D11_MESSAGE_ID {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_MESSAGE_SEVERITY(pub i32);
-impl ::core::marker::Copy for D3D11_MESSAGE_SEVERITY {}
-impl ::core::clone::Clone for D3D11_MESSAGE_SEVERITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_MESSAGE_SEVERITY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_MESSAGE_SEVERITY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15236,19 +14730,8 @@ impl ::core::fmt::Debug for D3D11_MESSAGE_SEVERITY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_QUERY(pub i32);
-impl ::core::marker::Copy for D3D11_QUERY {}
-impl ::core::clone::Clone for D3D11_QUERY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_QUERY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_QUERY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15258,19 +14741,8 @@ impl ::core::fmt::Debug for D3D11_QUERY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_QUERY_MISC_FLAG(pub i32);
-impl ::core::marker::Copy for D3D11_QUERY_MISC_FLAG {}
-impl ::core::clone::Clone for D3D11_QUERY_MISC_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_QUERY_MISC_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_QUERY_MISC_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15280,19 +14752,8 @@ impl ::core::fmt::Debug for D3D11_QUERY_MISC_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_RAISE_FLAG(pub i32);
-impl ::core::marker::Copy for D3D11_RAISE_FLAG {}
-impl ::core::clone::Clone for D3D11_RAISE_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_RAISE_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_RAISE_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15302,19 +14763,8 @@ impl ::core::fmt::Debug for D3D11_RAISE_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_RESOURCE_DIMENSION(pub i32);
-impl ::core::marker::Copy for D3D11_RESOURCE_DIMENSION {}
-impl ::core::clone::Clone for D3D11_RESOURCE_DIMENSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_RESOURCE_DIMENSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_RESOURCE_DIMENSION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15324,19 +14774,8 @@ impl ::core::fmt::Debug for D3D11_RESOURCE_DIMENSION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_RESOURCE_MISC_FLAG(pub i32);
-impl ::core::marker::Copy for D3D11_RESOURCE_MISC_FLAG {}
-impl ::core::clone::Clone for D3D11_RESOURCE_MISC_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_RESOURCE_MISC_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_RESOURCE_MISC_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15379,19 +14818,8 @@ impl ::core::ops::Not for D3D11_RESOURCE_MISC_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_RLDO_FLAGS(pub i32);
-impl ::core::marker::Copy for D3D11_RLDO_FLAGS {}
-impl ::core::clone::Clone for D3D11_RLDO_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_RLDO_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_RLDO_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15434,19 +14862,8 @@ impl ::core::ops::Not for D3D11_RLDO_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_RTV_DIMENSION(pub i32);
-impl ::core::marker::Copy for D3D11_RTV_DIMENSION {}
-impl ::core::clone::Clone for D3D11_RTV_DIMENSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_RTV_DIMENSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_RTV_DIMENSION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15456,19 +14873,8 @@ impl ::core::fmt::Debug for D3D11_RTV_DIMENSION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_SHADER_CACHE_SUPPORT_FLAGS(pub i32);
-impl ::core::marker::Copy for D3D11_SHADER_CACHE_SUPPORT_FLAGS {}
-impl ::core::clone::Clone for D3D11_SHADER_CACHE_SUPPORT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_SHADER_CACHE_SUPPORT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_SHADER_CACHE_SUPPORT_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15478,19 +14884,8 @@ impl ::core::fmt::Debug for D3D11_SHADER_CACHE_SUPPORT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_SHADER_MIN_PRECISION_SUPPORT(pub i32);
-impl ::core::marker::Copy for D3D11_SHADER_MIN_PRECISION_SUPPORT {}
-impl ::core::clone::Clone for D3D11_SHADER_MIN_PRECISION_SUPPORT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_SHADER_MIN_PRECISION_SUPPORT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_SHADER_MIN_PRECISION_SUPPORT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15500,19 +14895,8 @@ impl ::core::fmt::Debug for D3D11_SHADER_MIN_PRECISION_SUPPORT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_SHADER_TRACKING_OPTIONS(pub i32);
-impl ::core::marker::Copy for D3D11_SHADER_TRACKING_OPTIONS {}
-impl ::core::clone::Clone for D3D11_SHADER_TRACKING_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_SHADER_TRACKING_OPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_SHADER_TRACKING_OPTIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15522,19 +14906,8 @@ impl ::core::fmt::Debug for D3D11_SHADER_TRACKING_OPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_SHADER_TRACKING_RESOURCE_TYPE(pub i32);
-impl ::core::marker::Copy for D3D11_SHADER_TRACKING_RESOURCE_TYPE {}
-impl ::core::clone::Clone for D3D11_SHADER_TRACKING_RESOURCE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_SHADER_TRACKING_RESOURCE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_SHADER_TRACKING_RESOURCE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15544,19 +14917,8 @@ impl ::core::fmt::Debug for D3D11_SHADER_TRACKING_RESOURCE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_SHADER_TYPE(pub i32);
-impl ::core::marker::Copy for D3D11_SHADER_TYPE {}
-impl ::core::clone::Clone for D3D11_SHADER_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_SHADER_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_SHADER_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15566,19 +14928,8 @@ impl ::core::fmt::Debug for D3D11_SHADER_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_SHADER_VERSION_TYPE(pub i32);
-impl ::core::marker::Copy for D3D11_SHADER_VERSION_TYPE {}
-impl ::core::clone::Clone for D3D11_SHADER_VERSION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_SHADER_VERSION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_SHADER_VERSION_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15588,19 +14939,8 @@ impl ::core::fmt::Debug for D3D11_SHADER_VERSION_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_SHARED_RESOURCE_TIER(pub i32);
-impl ::core::marker::Copy for D3D11_SHARED_RESOURCE_TIER {}
-impl ::core::clone::Clone for D3D11_SHARED_RESOURCE_TIER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_SHARED_RESOURCE_TIER {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_SHARED_RESOURCE_TIER {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15610,19 +14950,8 @@ impl ::core::fmt::Debug for D3D11_SHARED_RESOURCE_TIER {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_STANDARD_MULTISAMPLE_QUALITY_LEVELS(pub i32);
-impl ::core::marker::Copy for D3D11_STANDARD_MULTISAMPLE_QUALITY_LEVELS {}
-impl ::core::clone::Clone for D3D11_STANDARD_MULTISAMPLE_QUALITY_LEVELS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_STANDARD_MULTISAMPLE_QUALITY_LEVELS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_STANDARD_MULTISAMPLE_QUALITY_LEVELS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15632,19 +14961,8 @@ impl ::core::fmt::Debug for D3D11_STANDARD_MULTISAMPLE_QUALITY_LEVELS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_STENCIL_OP(pub i32);
-impl ::core::marker::Copy for D3D11_STENCIL_OP {}
-impl ::core::clone::Clone for D3D11_STENCIL_OP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_STENCIL_OP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_STENCIL_OP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15654,19 +14972,8 @@ impl ::core::fmt::Debug for D3D11_STENCIL_OP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_TEXTURECUBE_FACE(pub i32);
-impl ::core::marker::Copy for D3D11_TEXTURECUBE_FACE {}
-impl ::core::clone::Clone for D3D11_TEXTURECUBE_FACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_TEXTURECUBE_FACE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_TEXTURECUBE_FACE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15676,19 +14983,8 @@ impl ::core::fmt::Debug for D3D11_TEXTURECUBE_FACE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_TEXTURE_ADDRESS_MODE(pub i32);
-impl ::core::marker::Copy for D3D11_TEXTURE_ADDRESS_MODE {}
-impl ::core::clone::Clone for D3D11_TEXTURE_ADDRESS_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_TEXTURE_ADDRESS_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_TEXTURE_ADDRESS_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15698,19 +14994,8 @@ impl ::core::fmt::Debug for D3D11_TEXTURE_ADDRESS_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_TEXTURE_LAYOUT(pub i32);
-impl ::core::marker::Copy for D3D11_TEXTURE_LAYOUT {}
-impl ::core::clone::Clone for D3D11_TEXTURE_LAYOUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_TEXTURE_LAYOUT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_TEXTURE_LAYOUT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15720,19 +15005,8 @@ impl ::core::fmt::Debug for D3D11_TEXTURE_LAYOUT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_TILED_RESOURCES_TIER(pub i32);
-impl ::core::marker::Copy for D3D11_TILED_RESOURCES_TIER {}
-impl ::core::clone::Clone for D3D11_TILED_RESOURCES_TIER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_TILED_RESOURCES_TIER {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_TILED_RESOURCES_TIER {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15742,19 +15016,8 @@ impl ::core::fmt::Debug for D3D11_TILED_RESOURCES_TIER {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_TILE_COPY_FLAG(pub i32);
-impl ::core::marker::Copy for D3D11_TILE_COPY_FLAG {}
-impl ::core::clone::Clone for D3D11_TILE_COPY_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_TILE_COPY_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_TILE_COPY_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15764,19 +15027,8 @@ impl ::core::fmt::Debug for D3D11_TILE_COPY_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_TILE_MAPPING_FLAG(pub i32);
-impl ::core::marker::Copy for D3D11_TILE_MAPPING_FLAG {}
-impl ::core::clone::Clone for D3D11_TILE_MAPPING_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_TILE_MAPPING_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_TILE_MAPPING_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15786,19 +15038,8 @@ impl ::core::fmt::Debug for D3D11_TILE_MAPPING_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_TILE_RANGE_FLAG(pub i32);
-impl ::core::marker::Copy for D3D11_TILE_RANGE_FLAG {}
-impl ::core::clone::Clone for D3D11_TILE_RANGE_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_TILE_RANGE_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_TILE_RANGE_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15808,19 +15049,8 @@ impl ::core::fmt::Debug for D3D11_TILE_RANGE_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_TRACE_GS_INPUT_PRIMITIVE(pub i32);
-impl ::core::marker::Copy for D3D11_TRACE_GS_INPUT_PRIMITIVE {}
-impl ::core::clone::Clone for D3D11_TRACE_GS_INPUT_PRIMITIVE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_TRACE_GS_INPUT_PRIMITIVE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_TRACE_GS_INPUT_PRIMITIVE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15830,19 +15060,8 @@ impl ::core::fmt::Debug for D3D11_TRACE_GS_INPUT_PRIMITIVE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_TRACE_REGISTER_TYPE(pub i32);
-impl ::core::marker::Copy for D3D11_TRACE_REGISTER_TYPE {}
-impl ::core::clone::Clone for D3D11_TRACE_REGISTER_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_TRACE_REGISTER_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_TRACE_REGISTER_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15852,19 +15071,8 @@ impl ::core::fmt::Debug for D3D11_TRACE_REGISTER_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_UAV_DIMENSION(pub i32);
-impl ::core::marker::Copy for D3D11_UAV_DIMENSION {}
-impl ::core::clone::Clone for D3D11_UAV_DIMENSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_UAV_DIMENSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_UAV_DIMENSION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15874,19 +15082,8 @@ impl ::core::fmt::Debug for D3D11_UAV_DIMENSION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_USAGE(pub i32);
-impl ::core::marker::Copy for D3D11_USAGE {}
-impl ::core::clone::Clone for D3D11_USAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_USAGE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_USAGE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15896,19 +15093,8 @@ impl ::core::fmt::Debug for D3D11_USAGE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_VDOV_DIMENSION(pub i32);
-impl ::core::marker::Copy for D3D11_VDOV_DIMENSION {}
-impl ::core::clone::Clone for D3D11_VDOV_DIMENSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_VDOV_DIMENSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_VDOV_DIMENSION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15918,19 +15104,8 @@ impl ::core::fmt::Debug for D3D11_VDOV_DIMENSION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_VIDEO_DECODER_BUFFER_TYPE(pub i32);
-impl ::core::marker::Copy for D3D11_VIDEO_DECODER_BUFFER_TYPE {}
-impl ::core::clone::Clone for D3D11_VIDEO_DECODER_BUFFER_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_VIDEO_DECODER_BUFFER_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_VIDEO_DECODER_BUFFER_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15940,19 +15115,8 @@ impl ::core::fmt::Debug for D3D11_VIDEO_DECODER_BUFFER_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_VIDEO_DECODER_CAPS(pub i32);
-impl ::core::marker::Copy for D3D11_VIDEO_DECODER_CAPS {}
-impl ::core::clone::Clone for D3D11_VIDEO_DECODER_CAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_VIDEO_DECODER_CAPS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_VIDEO_DECODER_CAPS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15962,19 +15126,8 @@ impl ::core::fmt::Debug for D3D11_VIDEO_DECODER_CAPS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT(pub i32);
-impl ::core::marker::Copy for D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT {}
-impl ::core::clone::Clone for D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -15984,19 +15137,8 @@ impl ::core::fmt::Debug for D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAGS(pub i32);
-impl ::core::marker::Copy for D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAGS {}
-impl ::core::clone::Clone for D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16039,19 +15181,8 @@ impl ::core::ops::Not for D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_VIDEO_FRAME_FORMAT(pub i32);
-impl ::core::marker::Copy for D3D11_VIDEO_FRAME_FORMAT {}
-impl ::core::clone::Clone for D3D11_VIDEO_FRAME_FORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_VIDEO_FRAME_FORMAT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_VIDEO_FRAME_FORMAT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16061,19 +15192,8 @@ impl ::core::fmt::Debug for D3D11_VIDEO_FRAME_FORMAT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE(pub i32);
-impl ::core::marker::Copy for D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE {}
-impl ::core::clone::Clone for D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16083,19 +15203,8 @@ impl ::core::fmt::Debug for D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_VIDEO_PROCESSOR_AUTO_STREAM_CAPS(pub i32);
-impl ::core::marker::Copy for D3D11_VIDEO_PROCESSOR_AUTO_STREAM_CAPS {}
-impl ::core::clone::Clone for D3D11_VIDEO_PROCESSOR_AUTO_STREAM_CAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_AUTO_STREAM_CAPS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_VIDEO_PROCESSOR_AUTO_STREAM_CAPS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16105,19 +15214,8 @@ impl ::core::fmt::Debug for D3D11_VIDEO_PROCESSOR_AUTO_STREAM_CAPS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_VIDEO_PROCESSOR_BEHAVIOR_HINTS(pub i32);
-impl ::core::marker::Copy for D3D11_VIDEO_PROCESSOR_BEHAVIOR_HINTS {}
-impl ::core::clone::Clone for D3D11_VIDEO_PROCESSOR_BEHAVIOR_HINTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_BEHAVIOR_HINTS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_VIDEO_PROCESSOR_BEHAVIOR_HINTS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16127,19 +15225,8 @@ impl ::core::fmt::Debug for D3D11_VIDEO_PROCESSOR_BEHAVIOR_HINTS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_VIDEO_PROCESSOR_DEVICE_CAPS(pub i32);
-impl ::core::marker::Copy for D3D11_VIDEO_PROCESSOR_DEVICE_CAPS {}
-impl ::core::clone::Clone for D3D11_VIDEO_PROCESSOR_DEVICE_CAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_DEVICE_CAPS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_VIDEO_PROCESSOR_DEVICE_CAPS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16149,19 +15236,8 @@ impl ::core::fmt::Debug for D3D11_VIDEO_PROCESSOR_DEVICE_CAPS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_VIDEO_PROCESSOR_FEATURE_CAPS(pub i32);
-impl ::core::marker::Copy for D3D11_VIDEO_PROCESSOR_FEATURE_CAPS {}
-impl ::core::clone::Clone for D3D11_VIDEO_PROCESSOR_FEATURE_CAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_FEATURE_CAPS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_VIDEO_PROCESSOR_FEATURE_CAPS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16171,19 +15247,8 @@ impl ::core::fmt::Debug for D3D11_VIDEO_PROCESSOR_FEATURE_CAPS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_VIDEO_PROCESSOR_FILTER(pub i32);
-impl ::core::marker::Copy for D3D11_VIDEO_PROCESSOR_FILTER {}
-impl ::core::clone::Clone for D3D11_VIDEO_PROCESSOR_FILTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_FILTER {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_VIDEO_PROCESSOR_FILTER {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16193,19 +15258,8 @@ impl ::core::fmt::Debug for D3D11_VIDEO_PROCESSOR_FILTER {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_VIDEO_PROCESSOR_FILTER_CAPS(pub i32);
-impl ::core::marker::Copy for D3D11_VIDEO_PROCESSOR_FILTER_CAPS {}
-impl ::core::clone::Clone for D3D11_VIDEO_PROCESSOR_FILTER_CAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_FILTER_CAPS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_VIDEO_PROCESSOR_FILTER_CAPS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16215,19 +15269,8 @@ impl ::core::fmt::Debug for D3D11_VIDEO_PROCESSOR_FILTER_CAPS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_VIDEO_PROCESSOR_FORMAT_CAPS(pub i32);
-impl ::core::marker::Copy for D3D11_VIDEO_PROCESSOR_FORMAT_CAPS {}
-impl ::core::clone::Clone for D3D11_VIDEO_PROCESSOR_FORMAT_CAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_FORMAT_CAPS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_VIDEO_PROCESSOR_FORMAT_CAPS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16237,19 +15280,8 @@ impl ::core::fmt::Debug for D3D11_VIDEO_PROCESSOR_FORMAT_CAPS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_VIDEO_PROCESSOR_FORMAT_SUPPORT(pub i32);
-impl ::core::marker::Copy for D3D11_VIDEO_PROCESSOR_FORMAT_SUPPORT {}
-impl ::core::clone::Clone for D3D11_VIDEO_PROCESSOR_FORMAT_SUPPORT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_FORMAT_SUPPORT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_VIDEO_PROCESSOR_FORMAT_SUPPORT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16259,19 +15291,8 @@ impl ::core::fmt::Debug for D3D11_VIDEO_PROCESSOR_FORMAT_SUPPORT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_VIDEO_PROCESSOR_ITELECINE_CAPS(pub i32);
-impl ::core::marker::Copy for D3D11_VIDEO_PROCESSOR_ITELECINE_CAPS {}
-impl ::core::clone::Clone for D3D11_VIDEO_PROCESSOR_ITELECINE_CAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_ITELECINE_CAPS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_VIDEO_PROCESSOR_ITELECINE_CAPS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16281,19 +15302,8 @@ impl ::core::fmt::Debug for D3D11_VIDEO_PROCESSOR_ITELECINE_CAPS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_VIDEO_PROCESSOR_NOMINAL_RANGE(pub i32);
-impl ::core::marker::Copy for D3D11_VIDEO_PROCESSOR_NOMINAL_RANGE {}
-impl ::core::clone::Clone for D3D11_VIDEO_PROCESSOR_NOMINAL_RANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_NOMINAL_RANGE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_VIDEO_PROCESSOR_NOMINAL_RANGE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16303,19 +15313,8 @@ impl ::core::fmt::Debug for D3D11_VIDEO_PROCESSOR_NOMINAL_RANGE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_VIDEO_PROCESSOR_OUTPUT_RATE(pub i32);
-impl ::core::marker::Copy for D3D11_VIDEO_PROCESSOR_OUTPUT_RATE {}
-impl ::core::clone::Clone for D3D11_VIDEO_PROCESSOR_OUTPUT_RATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_OUTPUT_RATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_VIDEO_PROCESSOR_OUTPUT_RATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16325,19 +15324,8 @@ impl ::core::fmt::Debug for D3D11_VIDEO_PROCESSOR_OUTPUT_RATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_VIDEO_PROCESSOR_PROCESSOR_CAPS(pub i32);
-impl ::core::marker::Copy for D3D11_VIDEO_PROCESSOR_PROCESSOR_CAPS {}
-impl ::core::clone::Clone for D3D11_VIDEO_PROCESSOR_PROCESSOR_CAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_PROCESSOR_CAPS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_VIDEO_PROCESSOR_PROCESSOR_CAPS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16347,19 +15335,8 @@ impl ::core::fmt::Debug for D3D11_VIDEO_PROCESSOR_PROCESSOR_CAPS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_VIDEO_PROCESSOR_ROTATION(pub i32);
-impl ::core::marker::Copy for D3D11_VIDEO_PROCESSOR_ROTATION {}
-impl ::core::clone::Clone for D3D11_VIDEO_PROCESSOR_ROTATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_ROTATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_VIDEO_PROCESSOR_ROTATION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16369,19 +15346,8 @@ impl ::core::fmt::Debug for D3D11_VIDEO_PROCESSOR_ROTATION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_VIDEO_PROCESSOR_STEREO_CAPS(pub i32);
-impl ::core::marker::Copy for D3D11_VIDEO_PROCESSOR_STEREO_CAPS {}
-impl ::core::clone::Clone for D3D11_VIDEO_PROCESSOR_STEREO_CAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_STEREO_CAPS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_VIDEO_PROCESSOR_STEREO_CAPS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16391,19 +15357,8 @@ impl ::core::fmt::Debug for D3D11_VIDEO_PROCESSOR_STEREO_CAPS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_VIDEO_PROCESSOR_STEREO_FLIP_MODE(pub i32);
-impl ::core::marker::Copy for D3D11_VIDEO_PROCESSOR_STEREO_FLIP_MODE {}
-impl ::core::clone::Clone for D3D11_VIDEO_PROCESSOR_STEREO_FLIP_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_STEREO_FLIP_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_VIDEO_PROCESSOR_STEREO_FLIP_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16413,19 +15368,8 @@ impl ::core::fmt::Debug for D3D11_VIDEO_PROCESSOR_STEREO_FLIP_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_VIDEO_PROCESSOR_STEREO_FORMAT(pub i32);
-impl ::core::marker::Copy for D3D11_VIDEO_PROCESSOR_STEREO_FORMAT {}
-impl ::core::clone::Clone for D3D11_VIDEO_PROCESSOR_STEREO_FORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_VIDEO_PROCESSOR_STEREO_FORMAT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_VIDEO_PROCESSOR_STEREO_FORMAT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16435,19 +15379,8 @@ impl ::core::fmt::Debug for D3D11_VIDEO_PROCESSOR_STEREO_FORMAT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_VIDEO_USAGE(pub i32);
-impl ::core::marker::Copy for D3D11_VIDEO_USAGE {}
-impl ::core::clone::Clone for D3D11_VIDEO_USAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_VIDEO_USAGE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_VIDEO_USAGE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16457,19 +15390,8 @@ impl ::core::fmt::Debug for D3D11_VIDEO_USAGE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_VPIV_DIMENSION(pub i32);
-impl ::core::marker::Copy for D3D11_VPIV_DIMENSION {}
-impl ::core::clone::Clone for D3D11_VPIV_DIMENSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_VPIV_DIMENSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_VPIV_DIMENSION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16479,19 +15401,8 @@ impl ::core::fmt::Debug for D3D11_VPIV_DIMENSION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D11_VPOV_DIMENSION(pub i32);
-impl ::core::marker::Copy for D3D11_VPOV_DIMENSION {}
-impl ::core::clone::Clone for D3D11_VPOV_DIMENSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D11_VPOV_DIMENSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D11_VPOV_DIMENSION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16501,19 +15412,8 @@ impl ::core::fmt::Debug for D3D11_VPOV_DIMENSION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3DX11_FFT_CREATE_FLAG(pub i32);
-impl ::core::marker::Copy for D3DX11_FFT_CREATE_FLAG {}
-impl ::core::clone::Clone for D3DX11_FFT_CREATE_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3DX11_FFT_CREATE_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3DX11_FFT_CREATE_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16523,19 +15423,8 @@ impl ::core::fmt::Debug for D3DX11_FFT_CREATE_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3DX11_FFT_DATA_TYPE(pub i32);
-impl ::core::marker::Copy for D3DX11_FFT_DATA_TYPE {}
-impl ::core::clone::Clone for D3DX11_FFT_DATA_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3DX11_FFT_DATA_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3DX11_FFT_DATA_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16545,19 +15434,8 @@ impl ::core::fmt::Debug for D3DX11_FFT_DATA_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3DX11_FFT_DIM_MASK(pub i32);
-impl ::core::marker::Copy for D3DX11_FFT_DIM_MASK {}
-impl ::core::clone::Clone for D3DX11_FFT_DIM_MASK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3DX11_FFT_DIM_MASK {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3DX11_FFT_DIM_MASK {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16567,19 +15445,8 @@ impl ::core::fmt::Debug for D3DX11_FFT_DIM_MASK {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3DX11_SCAN_DATA_TYPE(pub i32);
-impl ::core::marker::Copy for D3DX11_SCAN_DATA_TYPE {}
-impl ::core::clone::Clone for D3DX11_SCAN_DATA_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3DX11_SCAN_DATA_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3DX11_SCAN_DATA_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16589,19 +15456,8 @@ impl ::core::fmt::Debug for D3DX11_SCAN_DATA_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3DX11_SCAN_DIRECTION(pub i32);
-impl ::core::marker::Copy for D3DX11_SCAN_DIRECTION {}
-impl ::core::clone::Clone for D3DX11_SCAN_DIRECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3DX11_SCAN_DIRECTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3DX11_SCAN_DIRECTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -16611,19 +15467,8 @@ impl ::core::fmt::Debug for D3DX11_SCAN_DIRECTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3DX11_SCAN_OPCODE(pub i32);
-impl ::core::marker::Copy for D3DX11_SCAN_OPCODE {}
-impl ::core::clone::Clone for D3DX11_SCAN_OPCODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3DX11_SCAN_OPCODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3DX11_SCAN_OPCODE {
     type TypeKind = ::windows_core::CopyType;
 }

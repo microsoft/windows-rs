@@ -1642,23 +1642,12 @@ unsafe impl ::core::marker::Send for ResourceQualifierVectorView {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for ResourceQualifierVectorView {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ResourceCandidateKind(pub i32);
 impl ResourceCandidateKind {
     pub const String: Self = Self(0i32);
     pub const File: Self = Self(1i32);
     pub const EmbeddedData: Self = Self(2i32);
-}
-impl ::core::marker::Copy for ResourceCandidateKind {}
-impl ::core::clone::Clone for ResourceCandidateKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ResourceCandidateKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ResourceCandidateKind {
     type TypeKind = ::windows_core::CopyType;
@@ -1672,22 +1661,11 @@ impl ::windows_core::RuntimeType for ResourceCandidateKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Resources.Core.ResourceCandidateKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ResourceQualifierPersistence(pub i32);
 impl ResourceQualifierPersistence {
     pub const None: Self = Self(0i32);
     pub const LocalMachine: Self = Self(1i32);
-}
-impl ::core::marker::Copy for ResourceQualifierPersistence {}
-impl ::core::clone::Clone for ResourceQualifierPersistence {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ResourceQualifierPersistence {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ResourceQualifierPersistence {
     type TypeKind = ::windows_core::CopyType;

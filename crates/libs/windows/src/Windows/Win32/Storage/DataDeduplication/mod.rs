@@ -290,19 +290,8 @@ pub const DedupDataPortVolumeStatus_Unknown: DedupDataPortVolumeStatus = DedupDa
 pub const DedupHashingAlgorithm_Unknonwn: DedupHashingAlgorithm = DedupHashingAlgorithm(0i32);
 pub const DedupHashingAlgorithm_V1: DedupHashingAlgorithm = DedupHashingAlgorithm(1i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DEDUP_BACKUP_SUPPORT_PARAM_TYPE(pub i32);
-impl ::core::marker::Copy for DEDUP_BACKUP_SUPPORT_PARAM_TYPE {}
-impl ::core::clone::Clone for DEDUP_BACKUP_SUPPORT_PARAM_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DEDUP_BACKUP_SUPPORT_PARAM_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DEDUP_BACKUP_SUPPORT_PARAM_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -312,19 +301,8 @@ impl ::core::fmt::Debug for DEDUP_BACKUP_SUPPORT_PARAM_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DEDUP_SET_PARAM_TYPE(pub i32);
-impl ::core::marker::Copy for DEDUP_SET_PARAM_TYPE {}
-impl ::core::clone::Clone for DEDUP_SET_PARAM_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DEDUP_SET_PARAM_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DEDUP_SET_PARAM_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -334,19 +312,8 @@ impl ::core::fmt::Debug for DEDUP_SET_PARAM_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DedupChunkFlags(pub i32);
-impl ::core::marker::Copy for DedupChunkFlags {}
-impl ::core::clone::Clone for DedupChunkFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DedupChunkFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DedupChunkFlags {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -356,19 +323,8 @@ impl ::core::fmt::Debug for DedupChunkFlags {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DedupChunkingAlgorithm(pub i32);
-impl ::core::marker::Copy for DedupChunkingAlgorithm {}
-impl ::core::clone::Clone for DedupChunkingAlgorithm {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DedupChunkingAlgorithm {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DedupChunkingAlgorithm {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -378,19 +334,8 @@ impl ::core::fmt::Debug for DedupChunkingAlgorithm {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DedupCompressionAlgorithm(pub i32);
-impl ::core::marker::Copy for DedupCompressionAlgorithm {}
-impl ::core::clone::Clone for DedupCompressionAlgorithm {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DedupCompressionAlgorithm {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DedupCompressionAlgorithm {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -400,19 +345,8 @@ impl ::core::fmt::Debug for DedupCompressionAlgorithm {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DedupDataPortManagerOption(pub i32);
-impl ::core::marker::Copy for DedupDataPortManagerOption {}
-impl ::core::clone::Clone for DedupDataPortManagerOption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DedupDataPortManagerOption {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DedupDataPortManagerOption {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -422,19 +356,8 @@ impl ::core::fmt::Debug for DedupDataPortManagerOption {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DedupDataPortRequestStatus(pub i32);
-impl ::core::marker::Copy for DedupDataPortRequestStatus {}
-impl ::core::clone::Clone for DedupDataPortRequestStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DedupDataPortRequestStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DedupDataPortRequestStatus {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -444,19 +367,8 @@ impl ::core::fmt::Debug for DedupDataPortRequestStatus {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DedupDataPortVolumeStatus(pub i32);
-impl ::core::marker::Copy for DedupDataPortVolumeStatus {}
-impl ::core::clone::Clone for DedupDataPortVolumeStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DedupDataPortVolumeStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DedupDataPortVolumeStatus {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -466,19 +378,8 @@ impl ::core::fmt::Debug for DedupDataPortVolumeStatus {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DedupHashingAlgorithm(pub i32);
-impl ::core::marker::Copy for DedupHashingAlgorithm {}
-impl ::core::clone::Clone for DedupHashingAlgorithm {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DedupHashingAlgorithm {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DedupHashingAlgorithm {
     type TypeKind = ::windows_core::CopyType;
 }

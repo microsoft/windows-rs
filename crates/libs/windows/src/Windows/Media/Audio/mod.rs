@@ -5460,7 +5460,7 @@ impl ::windows_core::RuntimeName for SpatialAudioFormatSubtype {
     const NAME: &'static str = "Windows.Media.Audio.SpatialAudioFormatSubtype";
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AudioDeviceNodeCreationStatus(pub i32);
 impl AudioDeviceNodeCreationStatus {
     pub const Success: Self = Self(0i32);
@@ -5468,17 +5468,6 @@ impl AudioDeviceNodeCreationStatus {
     pub const FormatNotSupported: Self = Self(2i32);
     pub const UnknownFailure: Self = Self(3i32);
     pub const AccessDenied: Self = Self(4i32);
-}
-impl ::core::marker::Copy for AudioDeviceNodeCreationStatus {}
-impl ::core::clone::Clone for AudioDeviceNodeCreationStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AudioDeviceNodeCreationStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AudioDeviceNodeCreationStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -5492,7 +5481,7 @@ impl ::windows_core::RuntimeType for AudioDeviceNodeCreationStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioDeviceNodeCreationStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AudioFileNodeCreationStatus(pub i32);
 impl AudioFileNodeCreationStatus {
     pub const Success: Self = Self(0i32);
@@ -5500,17 +5489,6 @@ impl AudioFileNodeCreationStatus {
     pub const InvalidFileType: Self = Self(2i32);
     pub const FormatNotSupported: Self = Self(3i32);
     pub const UnknownFailure: Self = Self(4i32);
-}
-impl ::core::marker::Copy for AudioFileNodeCreationStatus {}
-impl ::core::clone::Clone for AudioFileNodeCreationStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AudioFileNodeCreationStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AudioFileNodeCreationStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -5524,24 +5502,13 @@ impl ::windows_core::RuntimeType for AudioFileNodeCreationStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioFileNodeCreationStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AudioGraphCreationStatus(pub i32);
 impl AudioGraphCreationStatus {
     pub const Success: Self = Self(0i32);
     pub const DeviceNotAvailable: Self = Self(1i32);
     pub const FormatNotSupported: Self = Self(2i32);
     pub const UnknownFailure: Self = Self(3i32);
-}
-impl ::core::marker::Copy for AudioGraphCreationStatus {}
-impl ::core::clone::Clone for AudioGraphCreationStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AudioGraphCreationStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AudioGraphCreationStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -5555,24 +5522,13 @@ impl ::windows_core::RuntimeType for AudioGraphCreationStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioGraphCreationStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AudioGraphUnrecoverableError(pub i32);
 impl AudioGraphUnrecoverableError {
     pub const None: Self = Self(0i32);
     pub const AudioDeviceLost: Self = Self(1i32);
     pub const AudioSessionDisconnected: Self = Self(2i32);
     pub const UnknownFailure: Self = Self(3i32);
-}
-impl ::core::marker::Copy for AudioGraphUnrecoverableError {}
-impl ::core::clone::Clone for AudioGraphUnrecoverableError {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AudioGraphUnrecoverableError {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AudioGraphUnrecoverableError {
     type TypeKind = ::windows_core::CopyType;
@@ -5586,22 +5542,11 @@ impl ::windows_core::RuntimeType for AudioGraphUnrecoverableError {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioGraphUnrecoverableError;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AudioNodeEmitterDecayKind(pub i32);
 impl AudioNodeEmitterDecayKind {
     pub const Natural: Self = Self(0i32);
     pub const Custom: Self = Self(1i32);
-}
-impl ::core::marker::Copy for AudioNodeEmitterDecayKind {}
-impl ::core::clone::Clone for AudioNodeEmitterDecayKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AudioNodeEmitterDecayKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AudioNodeEmitterDecayKind {
     type TypeKind = ::windows_core::CopyType;
@@ -5615,22 +5560,11 @@ impl ::windows_core::RuntimeType for AudioNodeEmitterDecayKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioNodeEmitterDecayKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AudioNodeEmitterSettings(pub u32);
 impl AudioNodeEmitterSettings {
     pub const None: Self = Self(0u32);
     pub const DisableDoppler: Self = Self(1u32);
-}
-impl ::core::marker::Copy for AudioNodeEmitterSettings {}
-impl ::core::clone::Clone for AudioNodeEmitterSettings {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AudioNodeEmitterSettings {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AudioNodeEmitterSettings {
     type TypeKind = ::windows_core::CopyType;
@@ -5677,22 +5611,11 @@ impl ::windows_core::RuntimeType for AudioNodeEmitterSettings {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioNodeEmitterSettings;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AudioNodeEmitterShapeKind(pub i32);
 impl AudioNodeEmitterShapeKind {
     pub const Omnidirectional: Self = Self(0i32);
     pub const Cone: Self = Self(1i32);
-}
-impl ::core::marker::Copy for AudioNodeEmitterShapeKind {}
-impl ::core::clone::Clone for AudioNodeEmitterShapeKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AudioNodeEmitterShapeKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AudioNodeEmitterShapeKind {
     type TypeKind = ::windows_core::CopyType;
@@ -5706,24 +5629,13 @@ impl ::windows_core::RuntimeType for AudioNodeEmitterShapeKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioNodeEmitterShapeKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AudioPlaybackConnectionOpenResultStatus(pub i32);
 impl AudioPlaybackConnectionOpenResultStatus {
     pub const Success: Self = Self(0i32);
     pub const RequestTimedOut: Self = Self(1i32);
     pub const DeniedBySystem: Self = Self(2i32);
     pub const UnknownFailure: Self = Self(3i32);
-}
-impl ::core::marker::Copy for AudioPlaybackConnectionOpenResultStatus {}
-impl ::core::clone::Clone for AudioPlaybackConnectionOpenResultStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AudioPlaybackConnectionOpenResultStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AudioPlaybackConnectionOpenResultStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -5737,22 +5649,11 @@ impl ::windows_core::RuntimeType for AudioPlaybackConnectionOpenResultStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioPlaybackConnectionOpenResultStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AudioPlaybackConnectionState(pub i32);
 impl AudioPlaybackConnectionState {
     pub const Closed: Self = Self(0i32);
     pub const Opened: Self = Self(1i32);
-}
-impl ::core::marker::Copy for AudioPlaybackConnectionState {}
-impl ::core::clone::Clone for AudioPlaybackConnectionState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AudioPlaybackConnectionState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AudioPlaybackConnectionState {
     type TypeKind = ::windows_core::CopyType;
@@ -5766,24 +5667,13 @@ impl ::windows_core::RuntimeType for AudioPlaybackConnectionState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioPlaybackConnectionState;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MediaSourceAudioInputNodeCreationStatus(pub i32);
 impl MediaSourceAudioInputNodeCreationStatus {
     pub const Success: Self = Self(0i32);
     pub const FormatNotSupported: Self = Self(1i32);
     pub const NetworkError: Self = Self(2i32);
     pub const UnknownFailure: Self = Self(3i32);
-}
-impl ::core::marker::Copy for MediaSourceAudioInputNodeCreationStatus {}
-impl ::core::clone::Clone for MediaSourceAudioInputNodeCreationStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MediaSourceAudioInputNodeCreationStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MediaSourceAudioInputNodeCreationStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -5797,22 +5687,11 @@ impl ::windows_core::RuntimeType for MediaSourceAudioInputNodeCreationStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.MediaSourceAudioInputNodeCreationStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MixedRealitySpatialAudioFormatPolicy(pub i32);
 impl MixedRealitySpatialAudioFormatPolicy {
     pub const UseMixedRealityDefaultSpatialAudioFormat: Self = Self(0i32);
     pub const UseDeviceConfigurationDefaultSpatialAudioFormat: Self = Self(1i32);
-}
-impl ::core::marker::Copy for MixedRealitySpatialAudioFormatPolicy {}
-impl ::core::clone::Clone for MixedRealitySpatialAudioFormatPolicy {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MixedRealitySpatialAudioFormatPolicy {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MixedRealitySpatialAudioFormatPolicy {
     type TypeKind = ::windows_core::CopyType;
@@ -5826,23 +5705,12 @@ impl ::windows_core::RuntimeType for MixedRealitySpatialAudioFormatPolicy {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.MixedRealitySpatialAudioFormatPolicy;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct QuantumSizeSelectionMode(pub i32);
 impl QuantumSizeSelectionMode {
     pub const SystemDefault: Self = Self(0i32);
     pub const LowestLatency: Self = Self(1i32);
     pub const ClosestToDesired: Self = Self(2i32);
-}
-impl ::core::marker::Copy for QuantumSizeSelectionMode {}
-impl ::core::clone::Clone for QuantumSizeSelectionMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for QuantumSizeSelectionMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for QuantumSizeSelectionMode {
     type TypeKind = ::windows_core::CopyType;
@@ -5856,7 +5724,7 @@ impl ::windows_core::RuntimeType for QuantumSizeSelectionMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.QuantumSizeSelectionMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SetDefaultSpatialAudioFormatStatus(pub i32);
 impl SetDefaultSpatialAudioFormatStatus {
     pub const Succeeded: Self = Self(0i32);
@@ -5865,17 +5733,6 @@ impl SetDefaultSpatialAudioFormatStatus {
     pub const LicenseNotValidForAudioEndpoint: Self = Self(3i32);
     pub const NotSupportedOnAudioEndpoint: Self = Self(4i32);
     pub const UnknownError: Self = Self(5i32);
-}
-impl ::core::marker::Copy for SetDefaultSpatialAudioFormatStatus {}
-impl ::core::clone::Clone for SetDefaultSpatialAudioFormatStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SetDefaultSpatialAudioFormatStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SetDefaultSpatialAudioFormatStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -5889,22 +5746,11 @@ impl ::windows_core::RuntimeType for SetDefaultSpatialAudioFormatStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.SetDefaultSpatialAudioFormatStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SpatialAudioModel(pub i32);
 impl SpatialAudioModel {
     pub const ObjectBased: Self = Self(0i32);
     pub const FoldDown: Self = Self(1i32);
-}
-impl ::core::marker::Copy for SpatialAudioModel {}
-impl ::core::clone::Clone for SpatialAudioModel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpatialAudioModel {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SpatialAudioModel {
     type TypeKind = ::windows_core::CopyType;

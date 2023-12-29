@@ -102,19 +102,8 @@ pub const wcm_media_mbn: WCM_MEDIA_TYPE = WCM_MEDIA_TYPE(3i32);
 pub const wcm_media_unknown: WCM_MEDIA_TYPE = WCM_MEDIA_TYPE(0i32);
 pub const wcm_media_wlan: WCM_MEDIA_TYPE = WCM_MEDIA_TYPE(2i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WCM_CONNECTION_COST(pub i32);
-impl ::core::marker::Copy for WCM_CONNECTION_COST {}
-impl ::core::clone::Clone for WCM_CONNECTION_COST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WCM_CONNECTION_COST {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WCM_CONNECTION_COST {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -124,19 +113,8 @@ impl ::core::fmt::Debug for WCM_CONNECTION_COST {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WCM_CONNECTION_COST_SOURCE(pub i32);
-impl ::core::marker::Copy for WCM_CONNECTION_COST_SOURCE {}
-impl ::core::clone::Clone for WCM_CONNECTION_COST_SOURCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WCM_CONNECTION_COST_SOURCE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WCM_CONNECTION_COST_SOURCE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -146,19 +124,8 @@ impl ::core::fmt::Debug for WCM_CONNECTION_COST_SOURCE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WCM_MEDIA_TYPE(pub i32);
-impl ::core::marker::Copy for WCM_MEDIA_TYPE {}
-impl ::core::clone::Clone for WCM_MEDIA_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WCM_MEDIA_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WCM_MEDIA_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -168,19 +135,8 @@ impl ::core::fmt::Debug for WCM_MEDIA_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WCM_PROPERTY(pub i32);
-impl ::core::marker::Copy for WCM_PROPERTY {}
-impl ::core::clone::Clone for WCM_PROPERTY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WCM_PROPERTY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WCM_PROPERTY {
     type TypeKind = ::windows_core::CopyType;
 }

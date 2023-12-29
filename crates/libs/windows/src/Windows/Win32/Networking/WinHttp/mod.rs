@@ -1235,19 +1235,8 @@ pub const WinHttpTlsHandshakeClientLeg3Start: WINHTTP_REQUEST_TIME_ENTRY = WINHT
 pub const WinHttpTlsHandshakeServerLeg1Size: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(3i32);
 pub const WinHttpTlsHandshakeServerLeg2Size: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(5i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WINHTTP_ACCESS_TYPE(pub u32);
-impl ::core::marker::Copy for WINHTTP_ACCESS_TYPE {}
-impl ::core::clone::Clone for WINHTTP_ACCESS_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WINHTTP_ACCESS_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WINHTTP_ACCESS_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1257,19 +1246,8 @@ impl ::core::fmt::Debug for WINHTTP_ACCESS_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WINHTTP_CREDS_AUTHSCHEME(pub u32);
-impl ::core::marker::Copy for WINHTTP_CREDS_AUTHSCHEME {}
-impl ::core::clone::Clone for WINHTTP_CREDS_AUTHSCHEME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WINHTTP_CREDS_AUTHSCHEME {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WINHTTP_CREDS_AUTHSCHEME {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1279,19 +1257,8 @@ impl ::core::fmt::Debug for WINHTTP_CREDS_AUTHSCHEME {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WINHTTP_INTERNET_SCHEME(pub i32);
-impl ::core::marker::Copy for WINHTTP_INTERNET_SCHEME {}
-impl ::core::clone::Clone for WINHTTP_INTERNET_SCHEME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WINHTTP_INTERNET_SCHEME {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WINHTTP_INTERNET_SCHEME {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1301,19 +1268,8 @@ impl ::core::fmt::Debug for WINHTTP_INTERNET_SCHEME {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WINHTTP_OPEN_REQUEST_FLAGS(pub u32);
-impl ::core::marker::Copy for WINHTTP_OPEN_REQUEST_FLAGS {}
-impl ::core::clone::Clone for WINHTTP_OPEN_REQUEST_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WINHTTP_OPEN_REQUEST_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WINHTTP_OPEN_REQUEST_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1356,19 +1312,8 @@ impl ::core::ops::Not for WINHTTP_OPEN_REQUEST_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WINHTTP_PROXY_SETTINGS_TYPE(pub i32);
-impl ::core::marker::Copy for WINHTTP_PROXY_SETTINGS_TYPE {}
-impl ::core::clone::Clone for WINHTTP_PROXY_SETTINGS_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WINHTTP_PROXY_SETTINGS_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WINHTTP_PROXY_SETTINGS_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1378,19 +1323,8 @@ impl ::core::fmt::Debug for WINHTTP_PROXY_SETTINGS_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WINHTTP_REQUEST_STAT_ENTRY(pub i32);
-impl ::core::marker::Copy for WINHTTP_REQUEST_STAT_ENTRY {}
-impl ::core::clone::Clone for WINHTTP_REQUEST_STAT_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WINHTTP_REQUEST_STAT_ENTRY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WINHTTP_REQUEST_STAT_ENTRY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1400,19 +1334,8 @@ impl ::core::fmt::Debug for WINHTTP_REQUEST_STAT_ENTRY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WINHTTP_REQUEST_TIME_ENTRY(pub i32);
-impl ::core::marker::Copy for WINHTTP_REQUEST_TIME_ENTRY {}
-impl ::core::clone::Clone for WINHTTP_REQUEST_TIME_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WINHTTP_REQUEST_TIME_ENTRY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WINHTTP_REQUEST_TIME_ENTRY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1422,19 +1345,8 @@ impl ::core::fmt::Debug for WINHTTP_REQUEST_TIME_ENTRY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WINHTTP_SECURE_DNS_SETTING(pub i32);
-impl ::core::marker::Copy for WINHTTP_SECURE_DNS_SETTING {}
-impl ::core::clone::Clone for WINHTTP_SECURE_DNS_SETTING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WINHTTP_SECURE_DNS_SETTING {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WINHTTP_SECURE_DNS_SETTING {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1444,19 +1356,8 @@ impl ::core::fmt::Debug for WINHTTP_SECURE_DNS_SETTING {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WINHTTP_WEB_SOCKET_BUFFER_TYPE(pub i32);
-impl ::core::marker::Copy for WINHTTP_WEB_SOCKET_BUFFER_TYPE {}
-impl ::core::clone::Clone for WINHTTP_WEB_SOCKET_BUFFER_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WINHTTP_WEB_SOCKET_BUFFER_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WINHTTP_WEB_SOCKET_BUFFER_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1466,19 +1367,8 @@ impl ::core::fmt::Debug for WINHTTP_WEB_SOCKET_BUFFER_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WINHTTP_WEB_SOCKET_CLOSE_STATUS(pub i32);
-impl ::core::marker::Copy for WINHTTP_WEB_SOCKET_CLOSE_STATUS {}
-impl ::core::clone::Clone for WINHTTP_WEB_SOCKET_CLOSE_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WINHTTP_WEB_SOCKET_CLOSE_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WINHTTP_WEB_SOCKET_CLOSE_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1488,19 +1378,8 @@ impl ::core::fmt::Debug for WINHTTP_WEB_SOCKET_CLOSE_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WINHTTP_WEB_SOCKET_OPERATION(pub i32);
-impl ::core::marker::Copy for WINHTTP_WEB_SOCKET_OPERATION {}
-impl ::core::clone::Clone for WINHTTP_WEB_SOCKET_OPERATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WINHTTP_WEB_SOCKET_OPERATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WINHTTP_WEB_SOCKET_OPERATION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1510,19 +1389,8 @@ impl ::core::fmt::Debug for WINHTTP_WEB_SOCKET_OPERATION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WIN_HTTP_CREATE_URL_FLAGS(pub u32);
-impl ::core::marker::Copy for WIN_HTTP_CREATE_URL_FLAGS {}
-impl ::core::clone::Clone for WIN_HTTP_CREATE_URL_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WIN_HTTP_CREATE_URL_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WIN_HTTP_CREATE_URL_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1532,19 +1400,8 @@ impl ::core::fmt::Debug for WIN_HTTP_CREATE_URL_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WinHttpRequestAutoLogonPolicy(pub i32);
-impl ::core::marker::Copy for WinHttpRequestAutoLogonPolicy {}
-impl ::core::clone::Clone for WinHttpRequestAutoLogonPolicy {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WinHttpRequestAutoLogonPolicy {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WinHttpRequestAutoLogonPolicy {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1554,19 +1411,8 @@ impl ::core::fmt::Debug for WinHttpRequestAutoLogonPolicy {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WinHttpRequestOption(pub i32);
-impl ::core::marker::Copy for WinHttpRequestOption {}
-impl ::core::clone::Clone for WinHttpRequestOption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WinHttpRequestOption {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WinHttpRequestOption {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1576,19 +1422,8 @@ impl ::core::fmt::Debug for WinHttpRequestOption {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WinHttpRequestSecureProtocols(pub i32);
-impl ::core::marker::Copy for WinHttpRequestSecureProtocols {}
-impl ::core::clone::Clone for WinHttpRequestSecureProtocols {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WinHttpRequestSecureProtocols {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WinHttpRequestSecureProtocols {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1598,19 +1433,8 @@ impl ::core::fmt::Debug for WinHttpRequestSecureProtocols {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WinHttpRequestSslErrorFlags(pub i32);
-impl ::core::marker::Copy for WinHttpRequestSslErrorFlags {}
-impl ::core::clone::Clone for WinHttpRequestSslErrorFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WinHttpRequestSslErrorFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WinHttpRequestSslErrorFlags {
     type TypeKind = ::windows_core::CopyType;
 }

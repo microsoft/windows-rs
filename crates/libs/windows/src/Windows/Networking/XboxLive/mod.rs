@@ -1116,22 +1116,11 @@ impl ::windows_core::RuntimeName for XboxLiveQualityOfServicePrivatePayloadResul
 unsafe impl ::core::marker::Send for XboxLiveQualityOfServicePrivatePayloadResult {}
 unsafe impl ::core::marker::Sync for XboxLiveQualityOfServicePrivatePayloadResult {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XboxLiveEndpointPairCreationBehaviors(pub u32);
 impl XboxLiveEndpointPairCreationBehaviors {
     pub const None: Self = Self(0u32);
     pub const ReevaluatePath: Self = Self(1u32);
-}
-impl ::core::marker::Copy for XboxLiveEndpointPairCreationBehaviors {}
-impl ::core::clone::Clone for XboxLiveEndpointPairCreationBehaviors {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XboxLiveEndpointPairCreationBehaviors {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for XboxLiveEndpointPairCreationBehaviors {
     type TypeKind = ::windows_core::CopyType;
@@ -1178,7 +1167,7 @@ impl ::windows_core::RuntimeType for XboxLiveEndpointPairCreationBehaviors {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.XboxLive.XboxLiveEndpointPairCreationBehaviors;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XboxLiveEndpointPairCreationStatus(pub i32);
 impl XboxLiveEndpointPairCreationStatus {
     pub const Succeeded: Self = Self(0i32);
@@ -1190,17 +1179,6 @@ impl XboxLiveEndpointPairCreationStatus {
     pub const RemoteSystemNotAuthorized: Self = Self(6i32);
     pub const RefusedDueToConfiguration: Self = Self(7i32);
     pub const UnexpectedInternalError: Self = Self(8i32);
-}
-impl ::core::marker::Copy for XboxLiveEndpointPairCreationStatus {}
-impl ::core::clone::Clone for XboxLiveEndpointPairCreationStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XboxLiveEndpointPairCreationStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for XboxLiveEndpointPairCreationStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -1214,7 +1192,7 @@ impl ::windows_core::RuntimeType for XboxLiveEndpointPairCreationStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.XboxLive.XboxLiveEndpointPairCreationStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XboxLiveEndpointPairState(pub i32);
 impl XboxLiveEndpointPairState {
     pub const Invalid: Self = Self(0i32);
@@ -1224,17 +1202,6 @@ impl XboxLiveEndpointPairState {
     pub const DeletingLocally: Self = Self(4i32);
     pub const RemoteEndpointTerminating: Self = Self(5i32);
     pub const Deleted: Self = Self(6i32);
-}
-impl ::core::marker::Copy for XboxLiveEndpointPairState {}
-impl ::core::clone::Clone for XboxLiveEndpointPairState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XboxLiveEndpointPairState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for XboxLiveEndpointPairState {
     type TypeKind = ::windows_core::CopyType;
@@ -1248,23 +1215,12 @@ impl ::windows_core::RuntimeType for XboxLiveEndpointPairState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.XboxLive.XboxLiveEndpointPairState;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XboxLiveNetworkAccessKind(pub i32);
 impl XboxLiveNetworkAccessKind {
     pub const Open: Self = Self(0i32);
     pub const Moderate: Self = Self(1i32);
     pub const Strict: Self = Self(2i32);
-}
-impl ::core::marker::Copy for XboxLiveNetworkAccessKind {}
-impl ::core::clone::Clone for XboxLiveNetworkAccessKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XboxLiveNetworkAccessKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for XboxLiveNetworkAccessKind {
     type TypeKind = ::windows_core::CopyType;
@@ -1278,7 +1234,7 @@ impl ::windows_core::RuntimeType for XboxLiveNetworkAccessKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.XboxLive.XboxLiveNetworkAccessKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XboxLiveQualityOfServiceMeasurementStatus(pub i32);
 impl XboxLiveQualityOfServiceMeasurementStatus {
     pub const NotStarted: Self = Self(0i32);
@@ -1294,17 +1250,6 @@ impl XboxLiveQualityOfServiceMeasurementStatus {
     pub const RefusedDueToConfiguration: Self = Self(10i32);
     pub const UnexpectedInternalError: Self = Self(11i32);
 }
-impl ::core::marker::Copy for XboxLiveQualityOfServiceMeasurementStatus {}
-impl ::core::clone::Clone for XboxLiveQualityOfServiceMeasurementStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XboxLiveQualityOfServiceMeasurementStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XboxLiveQualityOfServiceMeasurementStatus {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1317,7 +1262,7 @@ impl ::windows_core::RuntimeType for XboxLiveQualityOfServiceMeasurementStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.XboxLive.XboxLiveQualityOfServiceMeasurementStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XboxLiveQualityOfServiceMetric(pub i32);
 impl XboxLiveQualityOfServiceMetric {
     pub const AverageLatencyInMilliseconds: Self = Self(0i32);
@@ -1329,17 +1274,6 @@ impl XboxLiveQualityOfServiceMetric {
     pub const AverageInboundBitsPerSecond: Self = Self(6i32);
     pub const MinInboundBitsPerSecond: Self = Self(7i32);
     pub const MaxInboundBitsPerSecond: Self = Self(8i32);
-}
-impl ::core::marker::Copy for XboxLiveQualityOfServiceMetric {}
-impl ::core::clone::Clone for XboxLiveQualityOfServiceMetric {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XboxLiveQualityOfServiceMetric {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for XboxLiveQualityOfServiceMetric {
     type TypeKind = ::windows_core::CopyType;
@@ -1353,23 +1287,12 @@ impl ::windows_core::RuntimeType for XboxLiveQualityOfServiceMetric {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.XboxLive.XboxLiveQualityOfServiceMetric;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XboxLiveSocketKind(pub i32);
 impl XboxLiveSocketKind {
     pub const None: Self = Self(0i32);
     pub const Datagram: Self = Self(1i32);
     pub const Stream: Self = Self(2i32);
-}
-impl ::core::marker::Copy for XboxLiveSocketKind {}
-impl ::core::clone::Clone for XboxLiveSocketKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XboxLiveSocketKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for XboxLiveSocketKind {
     type TypeKind = ::windows_core::CopyType;

@@ -756,19 +756,8 @@ pub const NLM_NETWORK_UNIDENTIFIED: NLM_NETWORK_CLASS = NLM_NETWORK_CLASS(3i32);
 pub const NLM_UNKNOWN_DATAPLAN_STATUS: u32 = 4294967295u32;
 pub const NetworkListManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdcb00c01_570f_4a9b_8d69_199fdba5723b);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NLM_CONNECTION_COST(pub i32);
-impl ::core::marker::Copy for NLM_CONNECTION_COST {}
-impl ::core::clone::Clone for NLM_CONNECTION_COST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NLM_CONNECTION_COST {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NLM_CONNECTION_COST {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -778,19 +767,8 @@ impl ::core::fmt::Debug for NLM_CONNECTION_COST {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NLM_CONNECTION_PROPERTY_CHANGE(pub i32);
-impl ::core::marker::Copy for NLM_CONNECTION_PROPERTY_CHANGE {}
-impl ::core::clone::Clone for NLM_CONNECTION_PROPERTY_CHANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NLM_CONNECTION_PROPERTY_CHANGE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NLM_CONNECTION_PROPERTY_CHANGE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -800,19 +778,8 @@ impl ::core::fmt::Debug for NLM_CONNECTION_PROPERTY_CHANGE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NLM_CONNECTIVITY(pub i32);
-impl ::core::marker::Copy for NLM_CONNECTIVITY {}
-impl ::core::clone::Clone for NLM_CONNECTIVITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NLM_CONNECTIVITY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NLM_CONNECTIVITY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -822,19 +789,8 @@ impl ::core::fmt::Debug for NLM_CONNECTIVITY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NLM_DOMAIN_AUTHENTICATION_KIND(pub i32);
-impl ::core::marker::Copy for NLM_DOMAIN_AUTHENTICATION_KIND {}
-impl ::core::clone::Clone for NLM_DOMAIN_AUTHENTICATION_KIND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NLM_DOMAIN_AUTHENTICATION_KIND {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NLM_DOMAIN_AUTHENTICATION_KIND {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -844,19 +800,8 @@ impl ::core::fmt::Debug for NLM_DOMAIN_AUTHENTICATION_KIND {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NLM_DOMAIN_TYPE(pub i32);
-impl ::core::marker::Copy for NLM_DOMAIN_TYPE {}
-impl ::core::clone::Clone for NLM_DOMAIN_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NLM_DOMAIN_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NLM_DOMAIN_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -866,19 +811,8 @@ impl ::core::fmt::Debug for NLM_DOMAIN_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NLM_ENUM_NETWORK(pub i32);
-impl ::core::marker::Copy for NLM_ENUM_NETWORK {}
-impl ::core::clone::Clone for NLM_ENUM_NETWORK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NLM_ENUM_NETWORK {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NLM_ENUM_NETWORK {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -888,19 +822,8 @@ impl ::core::fmt::Debug for NLM_ENUM_NETWORK {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NLM_INTERNET_CONNECTIVITY(pub i32);
-impl ::core::marker::Copy for NLM_INTERNET_CONNECTIVITY {}
-impl ::core::clone::Clone for NLM_INTERNET_CONNECTIVITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NLM_INTERNET_CONNECTIVITY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NLM_INTERNET_CONNECTIVITY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -910,19 +833,8 @@ impl ::core::fmt::Debug for NLM_INTERNET_CONNECTIVITY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NLM_NETWORK_CATEGORY(pub i32);
-impl ::core::marker::Copy for NLM_NETWORK_CATEGORY {}
-impl ::core::clone::Clone for NLM_NETWORK_CATEGORY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NLM_NETWORK_CATEGORY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NLM_NETWORK_CATEGORY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -932,19 +844,8 @@ impl ::core::fmt::Debug for NLM_NETWORK_CATEGORY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NLM_NETWORK_CLASS(pub i32);
-impl ::core::marker::Copy for NLM_NETWORK_CLASS {}
-impl ::core::clone::Clone for NLM_NETWORK_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NLM_NETWORK_CLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NLM_NETWORK_CLASS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -954,19 +855,8 @@ impl ::core::fmt::Debug for NLM_NETWORK_CLASS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NLM_NETWORK_PROPERTY_CHANGE(pub i32);
-impl ::core::marker::Copy for NLM_NETWORK_PROPERTY_CHANGE {}
-impl ::core::clone::Clone for NLM_NETWORK_PROPERTY_CHANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NLM_NETWORK_PROPERTY_CHANGE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NLM_NETWORK_PROPERTY_CHANGE {
     type TypeKind = ::windows_core::CopyType;
 }

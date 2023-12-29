@@ -1402,24 +1402,13 @@ impl ::windows_core::CanTryInto<IPropertySet> for ValueSet {}
 unsafe impl ::core::marker::Send for ValueSet {}
 unsafe impl ::core::marker::Sync for ValueSet {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CollectionChange(pub i32);
 impl CollectionChange {
     pub const Reset: Self = Self(0i32);
     pub const ItemInserted: Self = Self(1i32);
     pub const ItemRemoved: Self = Self(2i32);
     pub const ItemChanged: Self = Self(3i32);
-}
-impl ::core::marker::Copy for CollectionChange {}
-impl ::core::clone::Clone for CollectionChange {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CollectionChange {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CollectionChange {
     type TypeKind = ::windows_core::CopyType;

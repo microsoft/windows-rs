@@ -11,19 +11,8 @@ pub unsafe fn OperationStart(operationstartparams: *const OPERATION_START_PARAME
 pub const OPERATION_END_DISCARD: OPERATION_END_PARAMETERS_FLAGS = OPERATION_END_PARAMETERS_FLAGS(1u32);
 pub const OPERATION_START_TRACE_CURRENT_THREAD: OPERATION_START_FLAGS = OPERATION_START_FLAGS(1u32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OPERATION_END_PARAMETERS_FLAGS(pub u32);
-impl ::core::marker::Copy for OPERATION_END_PARAMETERS_FLAGS {}
-impl ::core::clone::Clone for OPERATION_END_PARAMETERS_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OPERATION_END_PARAMETERS_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OPERATION_END_PARAMETERS_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -66,19 +55,8 @@ impl ::core::ops::Not for OPERATION_END_PARAMETERS_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OPERATION_START_FLAGS(pub u32);
-impl ::core::marker::Copy for OPERATION_START_FLAGS {}
-impl ::core::clone::Clone for OPERATION_START_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OPERATION_START_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OPERATION_START_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }

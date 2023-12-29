@@ -235,7 +235,7 @@ impl ::windows_core::CanTryInto<super::Streams::IInputStream> for Decompressor {
 unsafe impl ::core::marker::Send for Decompressor {}
 unsafe impl ::core::marker::Sync for Decompressor {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CompressAlgorithm(pub i32);
 impl CompressAlgorithm {
     pub const InvalidAlgorithm: Self = Self(0i32);
@@ -244,17 +244,6 @@ impl CompressAlgorithm {
     pub const Xpress: Self = Self(3i32);
     pub const XpressHuff: Self = Self(4i32);
     pub const Lzms: Self = Self(5i32);
-}
-impl ::core::marker::Copy for CompressAlgorithm {}
-impl ::core::clone::Clone for CompressAlgorithm {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CompressAlgorithm {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CompressAlgorithm {
     type TypeKind = ::windows_core::CopyType;

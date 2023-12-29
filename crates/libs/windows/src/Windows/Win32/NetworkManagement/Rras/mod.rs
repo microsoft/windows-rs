@@ -2882,19 +2882,8 @@ pub const VS_SstpOnly: u32 = 5u32;
 pub const WARNING_MSG_ALIAS_NOT_ADDED: u32 = 644u32;
 pub const WM_RASDIALEVENT: u32 = 52429u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct IKEV2_ID_PAYLOAD_TYPE(pub i32);
-impl ::core::marker::Copy for IKEV2_ID_PAYLOAD_TYPE {}
-impl ::core::clone::Clone for IKEV2_ID_PAYLOAD_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for IKEV2_ID_PAYLOAD_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for IKEV2_ID_PAYLOAD_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2904,19 +2893,8 @@ impl ::core::fmt::Debug for IKEV2_ID_PAYLOAD_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MGM_ENUM_TYPES(pub i32);
-impl ::core::marker::Copy for MGM_ENUM_TYPES {}
-impl ::core::clone::Clone for MGM_ENUM_TYPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MGM_ENUM_TYPES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MGM_ENUM_TYPES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2926,19 +2904,8 @@ impl ::core::fmt::Debug for MGM_ENUM_TYPES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MPRAPI_OBJECT_TYPE(pub i32);
-impl ::core::marker::Copy for MPRAPI_OBJECT_TYPE {}
-impl ::core::clone::Clone for MPRAPI_OBJECT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MPRAPI_OBJECT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MPRAPI_OBJECT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2948,19 +2915,8 @@ impl ::core::fmt::Debug for MPRAPI_OBJECT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MPR_ET(pub u32);
-impl ::core::marker::Copy for MPR_ET {}
-impl ::core::clone::Clone for MPR_ET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MPR_ET {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MPR_ET {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2970,19 +2926,8 @@ impl ::core::fmt::Debug for MPR_ET {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MPR_INTERFACE_DIAL_MODE(pub u32);
-impl ::core::marker::Copy for MPR_INTERFACE_DIAL_MODE {}
-impl ::core::clone::Clone for MPR_INTERFACE_DIAL_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MPR_INTERFACE_DIAL_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MPR_INTERFACE_DIAL_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2992,19 +2937,8 @@ impl ::core::fmt::Debug for MPR_INTERFACE_DIAL_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MPR_VPN_TS_TYPE(pub i32);
-impl ::core::marker::Copy for MPR_VPN_TS_TYPE {}
-impl ::core::clone::Clone for MPR_VPN_TS_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MPR_VPN_TS_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MPR_VPN_TS_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3014,19 +2948,8 @@ impl ::core::fmt::Debug for MPR_VPN_TS_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MPR_VS(pub u32);
-impl ::core::marker::Copy for MPR_VS {}
-impl ::core::clone::Clone for MPR_VS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MPR_VS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MPR_VS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3036,19 +2959,8 @@ impl ::core::fmt::Debug for MPR_VS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PPP_LCP(pub u32);
-impl ::core::marker::Copy for PPP_LCP {}
-impl ::core::clone::Clone for PPP_LCP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PPP_LCP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PPP_LCP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3058,19 +2970,8 @@ impl ::core::fmt::Debug for PPP_LCP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PPP_LCP_INFO_AUTH_DATA(pub u32);
-impl ::core::marker::Copy for PPP_LCP_INFO_AUTH_DATA {}
-impl ::core::clone::Clone for PPP_LCP_INFO_AUTH_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PPP_LCP_INFO_AUTH_DATA {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PPP_LCP_INFO_AUTH_DATA {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3080,19 +2981,8 @@ impl ::core::fmt::Debug for PPP_LCP_INFO_AUTH_DATA {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RASAPIVERSION(pub i32);
-impl ::core::marker::Copy for RASAPIVERSION {}
-impl ::core::clone::Clone for RASAPIVERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RASAPIVERSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RASAPIVERSION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3102,19 +2992,8 @@ impl ::core::fmt::Debug for RASAPIVERSION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RASCONNSTATE(pub i32);
-impl ::core::marker::Copy for RASCONNSTATE {}
-impl ::core::clone::Clone for RASCONNSTATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RASCONNSTATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RASCONNSTATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3124,19 +3003,8 @@ impl ::core::fmt::Debug for RASCONNSTATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RASCONNSUBSTATE(pub i32);
-impl ::core::marker::Copy for RASCONNSUBSTATE {}
-impl ::core::clone::Clone for RASCONNSUBSTATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RASCONNSUBSTATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RASCONNSUBSTATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3146,19 +3014,8 @@ impl ::core::fmt::Debug for RASCONNSUBSTATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RASENTRY_DIAL_MODE(pub u32);
-impl ::core::marker::Copy for RASENTRY_DIAL_MODE {}
-impl ::core::clone::Clone for RASENTRY_DIAL_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RASENTRY_DIAL_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RASENTRY_DIAL_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3168,19 +3025,8 @@ impl ::core::fmt::Debug for RASENTRY_DIAL_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RASIKEV_PROJECTION_INFO_FLAGS(pub u32);
-impl ::core::marker::Copy for RASIKEV_PROJECTION_INFO_FLAGS {}
-impl ::core::clone::Clone for RASIKEV_PROJECTION_INFO_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RASIKEV_PROJECTION_INFO_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RASIKEV_PROJECTION_INFO_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3223,19 +3069,8 @@ impl ::core::ops::Not for RASIKEV_PROJECTION_INFO_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA(pub u32);
-impl ::core::marker::Copy for RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA {}
-impl ::core::clone::Clone for RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3245,19 +3080,8 @@ impl ::core::fmt::Debug for RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL(pub u32);
-impl ::core::marker::Copy for RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL {}
-impl ::core::clone::Clone for RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3267,19 +3091,8 @@ impl ::core::fmt::Debug for RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RASPROJECTION(pub i32);
-impl ::core::marker::Copy for RASPROJECTION {}
-impl ::core::clone::Clone for RASPROJECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RASPROJECTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RASPROJECTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3289,19 +3102,8 @@ impl ::core::fmt::Debug for RASPROJECTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RASPROJECTION_INFO_TYPE(pub i32);
-impl ::core::marker::Copy for RASPROJECTION_INFO_TYPE {}
-impl ::core::clone::Clone for RASPROJECTION_INFO_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RASPROJECTION_INFO_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RASPROJECTION_INFO_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3311,19 +3113,8 @@ impl ::core::fmt::Debug for RASPROJECTION_INFO_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RAS_FLAGS(pub u32);
-impl ::core::marker::Copy for RAS_FLAGS {}
-impl ::core::clone::Clone for RAS_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RAS_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RAS_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3333,19 +3124,8 @@ impl ::core::fmt::Debug for RAS_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RAS_HARDWARE_CONDITION(pub i32);
-impl ::core::marker::Copy for RAS_HARDWARE_CONDITION {}
-impl ::core::clone::Clone for RAS_HARDWARE_CONDITION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RAS_HARDWARE_CONDITION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RAS_HARDWARE_CONDITION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3355,19 +3135,8 @@ impl ::core::fmt::Debug for RAS_HARDWARE_CONDITION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RAS_PORT_CONDITION(pub i32);
-impl ::core::marker::Copy for RAS_PORT_CONDITION {}
-impl ::core::clone::Clone for RAS_PORT_CONDITION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RAS_PORT_CONDITION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RAS_PORT_CONDITION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3377,19 +3146,8 @@ impl ::core::fmt::Debug for RAS_PORT_CONDITION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RAS_QUARANTINE_STATE(pub i32);
-impl ::core::marker::Copy for RAS_QUARANTINE_STATE {}
-impl ::core::clone::Clone for RAS_QUARANTINE_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RAS_QUARANTINE_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RAS_QUARANTINE_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3399,19 +3157,8 @@ impl ::core::fmt::Debug for RAS_QUARANTINE_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ROUTER_CONNECTION_STATE(pub i32);
-impl ::core::marker::Copy for ROUTER_CONNECTION_STATE {}
-impl ::core::clone::Clone for ROUTER_CONNECTION_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ROUTER_CONNECTION_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ROUTER_CONNECTION_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3421,19 +3168,8 @@ impl ::core::fmt::Debug for ROUTER_CONNECTION_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ROUTER_INTERFACE_TYPE(pub i32);
-impl ::core::marker::Copy for ROUTER_INTERFACE_TYPE {}
-impl ::core::clone::Clone for ROUTER_INTERFACE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ROUTER_INTERFACE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ROUTER_INTERFACE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3443,19 +3179,8 @@ impl ::core::fmt::Debug for ROUTER_INTERFACE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RTM_EVENT_TYPE(pub i32);
-impl ::core::marker::Copy for RTM_EVENT_TYPE {}
-impl ::core::clone::Clone for RTM_EVENT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RTM_EVENT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RTM_EVENT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3465,19 +3190,8 @@ impl ::core::fmt::Debug for RTM_EVENT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SECURITY_MESSAGE_MSG_ID(pub u32);
-impl ::core::marker::Copy for SECURITY_MESSAGE_MSG_ID {}
-impl ::core::clone::Clone for SECURITY_MESSAGE_MSG_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SECURITY_MESSAGE_MSG_ID {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SECURITY_MESSAGE_MSG_ID {
     type TypeKind = ::windows_core::CopyType;
 }

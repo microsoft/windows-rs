@@ -698,24 +698,13 @@ impl ::windows_core::RuntimeName for StatelessAppServiceResponse {
 unsafe impl ::core::marker::Send for StatelessAppServiceResponse {}
 unsafe impl ::core::marker::Sync for StatelessAppServiceResponse {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AppServiceClosedStatus(pub i32);
 impl AppServiceClosedStatus {
     pub const Completed: Self = Self(0i32);
     pub const Canceled: Self = Self(1i32);
     pub const ResourceLimitsExceeded: Self = Self(2i32);
     pub const Unknown: Self = Self(3i32);
-}
-impl ::core::marker::Copy for AppServiceClosedStatus {}
-impl ::core::clone::Clone for AppServiceClosedStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AppServiceClosedStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AppServiceClosedStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -729,7 +718,7 @@ impl ::windows_core::RuntimeType for AppServiceClosedStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppService.AppServiceClosedStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AppServiceConnectionStatus(pub i32);
 impl AppServiceConnectionStatus {
     pub const Success: Self = Self(0i32);
@@ -745,17 +734,6 @@ impl AppServiceConnectionStatus {
     pub const DisabledByPolicy: Self = Self(10i32);
     pub const WebServiceUnavailable: Self = Self(11i32);
 }
-impl ::core::marker::Copy for AppServiceConnectionStatus {}
-impl ::core::clone::Clone for AppServiceConnectionStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AppServiceConnectionStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AppServiceConnectionStatus {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -768,7 +746,7 @@ impl ::windows_core::RuntimeType for AppServiceConnectionStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppService.AppServiceConnectionStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AppServiceResponseStatus(pub i32);
 impl AppServiceResponseStatus {
     pub const Success: Self = Self(0i32);
@@ -783,17 +761,6 @@ impl AppServiceResponseStatus {
     pub const DisabledByPolicy: Self = Self(9i32);
     pub const WebServiceUnavailable: Self = Self(10i32);
 }
-impl ::core::marker::Copy for AppServiceResponseStatus {}
-impl ::core::clone::Clone for AppServiceResponseStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AppServiceResponseStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AppServiceResponseStatus {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -806,7 +773,7 @@ impl ::windows_core::RuntimeType for AppServiceResponseStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppService.AppServiceResponseStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct StatelessAppServiceResponseStatus(pub i32);
 impl StatelessAppServiceResponseStatus {
     pub const Success: Self = Self(0i32);
@@ -824,17 +791,6 @@ impl StatelessAppServiceResponseStatus {
     pub const NetworkNotAvailable: Self = Self(12i32);
     pub const DisabledByPolicy: Self = Self(13i32);
     pub const WebServiceUnavailable: Self = Self(14i32);
-}
-impl ::core::marker::Copy for StatelessAppServiceResponseStatus {}
-impl ::core::clone::Clone for StatelessAppServiceResponseStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for StatelessAppServiceResponseStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for StatelessAppServiceResponseStatus {
     type TypeKind = ::windows_core::CopyType;

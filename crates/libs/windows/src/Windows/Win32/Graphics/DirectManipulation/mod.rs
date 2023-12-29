@@ -1070,19 +1070,8 @@ pub const DirectManipulationSharedManager: ::windows_core::GUID = ::windows_core
 pub const DirectManipulationUpdateManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9fc1bfd5_1835_441a_b3b1_b6cc74b727d0);
 pub const DirectManipulationViewport: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x34e211b6_3650_4f75_8334_fa359598e1c5);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION(pub i32);
-impl ::core::marker::Copy for DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION {}
-impl ::core::clone::Clone for DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1092,19 +1081,8 @@ impl ::core::fmt::Debug for DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DIRECTMANIPULATION_CONFIGURATION(pub i32);
-impl ::core::marker::Copy for DIRECTMANIPULATION_CONFIGURATION {}
-impl ::core::clone::Clone for DIRECTMANIPULATION_CONFIGURATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DIRECTMANIPULATION_CONFIGURATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DIRECTMANIPULATION_CONFIGURATION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1147,19 +1125,8 @@ impl ::core::ops::Not for DIRECTMANIPULATION_CONFIGURATION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION(pub i32);
-impl ::core::marker::Copy for DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION {}
-impl ::core::clone::Clone for DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1202,19 +1169,8 @@ impl ::core::ops::Not for DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DIRECTMANIPULATION_DRAG_DROP_STATUS(pub i32);
-impl ::core::marker::Copy for DIRECTMANIPULATION_DRAG_DROP_STATUS {}
-impl ::core::clone::Clone for DIRECTMANIPULATION_DRAG_DROP_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DIRECTMANIPULATION_DRAG_DROP_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DIRECTMANIPULATION_DRAG_DROP_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1224,19 +1180,8 @@ impl ::core::fmt::Debug for DIRECTMANIPULATION_DRAG_DROP_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DIRECTMANIPULATION_GESTURE_CONFIGURATION(pub i32);
-impl ::core::marker::Copy for DIRECTMANIPULATION_GESTURE_CONFIGURATION {}
-impl ::core::clone::Clone for DIRECTMANIPULATION_GESTURE_CONFIGURATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DIRECTMANIPULATION_GESTURE_CONFIGURATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DIRECTMANIPULATION_GESTURE_CONFIGURATION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1279,19 +1224,8 @@ impl ::core::ops::Not for DIRECTMANIPULATION_GESTURE_CONFIGURATION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DIRECTMANIPULATION_HITTEST_TYPE(pub i32);
-impl ::core::marker::Copy for DIRECTMANIPULATION_HITTEST_TYPE {}
-impl ::core::clone::Clone for DIRECTMANIPULATION_HITTEST_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DIRECTMANIPULATION_HITTEST_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DIRECTMANIPULATION_HITTEST_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1334,19 +1268,8 @@ impl ::core::ops::Not for DIRECTMANIPULATION_HITTEST_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DIRECTMANIPULATION_HORIZONTALALIGNMENT(pub i32);
-impl ::core::marker::Copy for DIRECTMANIPULATION_HORIZONTALALIGNMENT {}
-impl ::core::clone::Clone for DIRECTMANIPULATION_HORIZONTALALIGNMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DIRECTMANIPULATION_HORIZONTALALIGNMENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DIRECTMANIPULATION_HORIZONTALALIGNMENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1389,19 +1312,8 @@ impl ::core::ops::Not for DIRECTMANIPULATION_HORIZONTALALIGNMENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DIRECTMANIPULATION_INPUT_MODE(pub i32);
-impl ::core::marker::Copy for DIRECTMANIPULATION_INPUT_MODE {}
-impl ::core::clone::Clone for DIRECTMANIPULATION_INPUT_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DIRECTMANIPULATION_INPUT_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DIRECTMANIPULATION_INPUT_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1411,19 +1323,8 @@ impl ::core::fmt::Debug for DIRECTMANIPULATION_INPUT_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DIRECTMANIPULATION_INTERACTION_TYPE(pub i32);
-impl ::core::marker::Copy for DIRECTMANIPULATION_INTERACTION_TYPE {}
-impl ::core::clone::Clone for DIRECTMANIPULATION_INTERACTION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DIRECTMANIPULATION_INTERACTION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DIRECTMANIPULATION_INTERACTION_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1433,19 +1334,8 @@ impl ::core::fmt::Debug for DIRECTMANIPULATION_INTERACTION_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DIRECTMANIPULATION_MOTION_TYPES(pub i32);
-impl ::core::marker::Copy for DIRECTMANIPULATION_MOTION_TYPES {}
-impl ::core::clone::Clone for DIRECTMANIPULATION_MOTION_TYPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DIRECTMANIPULATION_MOTION_TYPES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DIRECTMANIPULATION_MOTION_TYPES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1488,19 +1378,8 @@ impl ::core::ops::Not for DIRECTMANIPULATION_MOTION_TYPES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DIRECTMANIPULATION_SNAPPOINT_COORDINATE(pub i32);
-impl ::core::marker::Copy for DIRECTMANIPULATION_SNAPPOINT_COORDINATE {}
-impl ::core::clone::Clone for DIRECTMANIPULATION_SNAPPOINT_COORDINATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DIRECTMANIPULATION_SNAPPOINT_COORDINATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DIRECTMANIPULATION_SNAPPOINT_COORDINATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1543,19 +1422,8 @@ impl ::core::ops::Not for DIRECTMANIPULATION_SNAPPOINT_COORDINATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DIRECTMANIPULATION_SNAPPOINT_TYPE(pub i32);
-impl ::core::marker::Copy for DIRECTMANIPULATION_SNAPPOINT_TYPE {}
-impl ::core::clone::Clone for DIRECTMANIPULATION_SNAPPOINT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DIRECTMANIPULATION_SNAPPOINT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DIRECTMANIPULATION_SNAPPOINT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1565,19 +1433,8 @@ impl ::core::fmt::Debug for DIRECTMANIPULATION_SNAPPOINT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DIRECTMANIPULATION_STATUS(pub i32);
-impl ::core::marker::Copy for DIRECTMANIPULATION_STATUS {}
-impl ::core::clone::Clone for DIRECTMANIPULATION_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DIRECTMANIPULATION_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DIRECTMANIPULATION_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1587,19 +1444,8 @@ impl ::core::fmt::Debug for DIRECTMANIPULATION_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DIRECTMANIPULATION_VERTICALALIGNMENT(pub i32);
-impl ::core::marker::Copy for DIRECTMANIPULATION_VERTICALALIGNMENT {}
-impl ::core::clone::Clone for DIRECTMANIPULATION_VERTICALALIGNMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DIRECTMANIPULATION_VERTICALALIGNMENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DIRECTMANIPULATION_VERTICALALIGNMENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1642,19 +1488,8 @@ impl ::core::ops::Not for DIRECTMANIPULATION_VERTICALALIGNMENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DIRECTMANIPULATION_VIEWPORT_OPTIONS(pub i32);
-impl ::core::marker::Copy for DIRECTMANIPULATION_VIEWPORT_OPTIONS {}
-impl ::core::clone::Clone for DIRECTMANIPULATION_VIEWPORT_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DIRECTMANIPULATION_VIEWPORT_OPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DIRECTMANIPULATION_VIEWPORT_OPTIONS {
     type TypeKind = ::windows_core::CopyType;
 }

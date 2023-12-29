@@ -267,23 +267,12 @@ impl ::windows_core::CanTryInto<IUserDataAccountProviderOperation> for UserDataA
 unsafe impl ::core::marker::Send for UserDataAccountProviderSettingsOperation {}
 unsafe impl ::core::marker::Sync for UserDataAccountProviderSettingsOperation {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UserDataAccountProviderOperationKind(pub i32);
 impl UserDataAccountProviderOperationKind {
     pub const AddAccount: Self = Self(0i32);
     pub const Settings: Self = Self(1i32);
     pub const ResolveErrors: Self = Self(2i32);
-}
-impl ::core::marker::Copy for UserDataAccountProviderOperationKind {}
-impl ::core::clone::Clone for UserDataAccountProviderOperationKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UserDataAccountProviderOperationKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for UserDataAccountProviderOperationKind {
     type TypeKind = ::windows_core::CopyType;
@@ -297,22 +286,11 @@ impl ::windows_core::RuntimeType for UserDataAccountProviderOperationKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountProviderOperationKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UserDataAccountProviderPartnerAccountKind(pub i32);
 impl UserDataAccountProviderPartnerAccountKind {
     pub const Exchange: Self = Self(0i32);
     pub const PopOrImap: Self = Self(1i32);
-}
-impl ::core::marker::Copy for UserDataAccountProviderPartnerAccountKind {}
-impl ::core::clone::Clone for UserDataAccountProviderPartnerAccountKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UserDataAccountProviderPartnerAccountKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for UserDataAccountProviderPartnerAccountKind {
     type TypeKind = ::windows_core::CopyType;
