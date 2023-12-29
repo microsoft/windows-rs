@@ -237,7 +237,7 @@ impl ::windows_core::RuntimeName for GpioPinProviderValueChangedEventArgs {
 unsafe impl ::core::marker::Send for GpioPinProviderValueChangedEventArgs {}
 unsafe impl ::core::marker::Sync for GpioPinProviderValueChangedEventArgs {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ProviderGpioPinDriveMode(pub i32);
 impl ProviderGpioPinDriveMode {
     pub const Input: Self = Self(0i32);
@@ -248,17 +248,6 @@ impl ProviderGpioPinDriveMode {
     pub const OutputOpenDrainPullUp: Self = Self(5i32);
     pub const OutputOpenSource: Self = Self(6i32);
     pub const OutputOpenSourcePullDown: Self = Self(7i32);
-}
-impl ::core::marker::Copy for ProviderGpioPinDriveMode {}
-impl ::core::clone::Clone for ProviderGpioPinDriveMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ProviderGpioPinDriveMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ProviderGpioPinDriveMode {
     type TypeKind = ::windows_core::CopyType;
@@ -272,22 +261,11 @@ impl ::windows_core::RuntimeType for ProviderGpioPinDriveMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.Provider.ProviderGpioPinDriveMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ProviderGpioPinEdge(pub i32);
 impl ProviderGpioPinEdge {
     pub const FallingEdge: Self = Self(0i32);
     pub const RisingEdge: Self = Self(1i32);
-}
-impl ::core::marker::Copy for ProviderGpioPinEdge {}
-impl ::core::clone::Clone for ProviderGpioPinEdge {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ProviderGpioPinEdge {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ProviderGpioPinEdge {
     type TypeKind = ::windows_core::CopyType;
@@ -301,22 +279,11 @@ impl ::windows_core::RuntimeType for ProviderGpioPinEdge {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.Provider.ProviderGpioPinEdge;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ProviderGpioPinValue(pub i32);
 impl ProviderGpioPinValue {
     pub const Low: Self = Self(0i32);
     pub const High: Self = Self(1i32);
-}
-impl ::core::marker::Copy for ProviderGpioPinValue {}
-impl ::core::clone::Clone for ProviderGpioPinValue {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ProviderGpioPinValue {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ProviderGpioPinValue {
     type TypeKind = ::windows_core::CopyType;
@@ -330,22 +297,11 @@ impl ::windows_core::RuntimeType for ProviderGpioPinValue {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.Provider.ProviderGpioPinValue;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ProviderGpioSharingMode(pub i32);
 impl ProviderGpioSharingMode {
     pub const Exclusive: Self = Self(0i32);
     pub const SharedReadOnly: Self = Self(1i32);
-}
-impl ::core::marker::Copy for ProviderGpioSharingMode {}
-impl ::core::clone::Clone for ProviderGpioSharingMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ProviderGpioSharingMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ProviderGpioSharingMode {
     type TypeKind = ::windows_core::CopyType;

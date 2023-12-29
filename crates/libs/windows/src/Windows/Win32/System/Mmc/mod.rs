@@ -4118,19 +4118,8 @@ pub const ViewOption_NoToolBars: _ViewOptions = _ViewOptions(2i32);
 pub const ViewOption_NotPersistable: _ViewOptions = _ViewOptions(4i32);
 pub const ViewOption_ScopeTreeHidden: _ViewOptions = _ViewOptions(1i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CCM_COMMANDID_MASK_CONSTANTS(pub u32);
-impl ::core::marker::Copy for CCM_COMMANDID_MASK_CONSTANTS {}
-impl ::core::clone::Clone for CCM_COMMANDID_MASK_CONSTANTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CCM_COMMANDID_MASK_CONSTANTS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CCM_COMMANDID_MASK_CONSTANTS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4140,19 +4129,8 @@ impl ::core::fmt::Debug for CCM_COMMANDID_MASK_CONSTANTS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CCM_INSERTIONALLOWED(pub i32);
-impl ::core::marker::Copy for CCM_INSERTIONALLOWED {}
-impl ::core::clone::Clone for CCM_INSERTIONALLOWED {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CCM_INSERTIONALLOWED {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CCM_INSERTIONALLOWED {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4162,19 +4140,8 @@ impl ::core::fmt::Debug for CCM_INSERTIONALLOWED {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CCM_INSERTIONPOINTID(pub i32);
-impl ::core::marker::Copy for CCM_INSERTIONPOINTID {}
-impl ::core::clone::Clone for CCM_INSERTIONPOINTID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CCM_INSERTIONPOINTID {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CCM_INSERTIONPOINTID {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4184,19 +4151,8 @@ impl ::core::fmt::Debug for CCM_INSERTIONPOINTID {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CCM_SPECIAL(pub i32);
-impl ::core::marker::Copy for CCM_SPECIAL {}
-impl ::core::clone::Clone for CCM_SPECIAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CCM_SPECIAL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CCM_SPECIAL {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4206,19 +4162,8 @@ impl ::core::fmt::Debug for CCM_SPECIAL {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DATA_OBJECT_TYPES(pub i32);
-impl ::core::marker::Copy for DATA_OBJECT_TYPES {}
-impl ::core::clone::Clone for DATA_OBJECT_TYPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DATA_OBJECT_TYPES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DATA_OBJECT_TYPES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4228,19 +4173,8 @@ impl ::core::fmt::Debug for DATA_OBJECT_TYPES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct IconIdentifier(pub i32);
-impl ::core::marker::Copy for IconIdentifier {}
-impl ::core::clone::Clone for IconIdentifier {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for IconIdentifier {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for IconIdentifier {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4250,19 +4184,8 @@ impl ::core::fmt::Debug for IconIdentifier {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MMC_ACTION_TYPE(pub i32);
-impl ::core::marker::Copy for MMC_ACTION_TYPE {}
-impl ::core::clone::Clone for MMC_ACTION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MMC_ACTION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MMC_ACTION_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4272,19 +4195,8 @@ impl ::core::fmt::Debug for MMC_ACTION_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MMC_BUTTON_STATE(pub i32);
-impl ::core::marker::Copy for MMC_BUTTON_STATE {}
-impl ::core::clone::Clone for MMC_BUTTON_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MMC_BUTTON_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MMC_BUTTON_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4294,19 +4206,8 @@ impl ::core::fmt::Debug for MMC_BUTTON_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MMC_CONSOLE_VERB(pub i32);
-impl ::core::marker::Copy for MMC_CONSOLE_VERB {}
-impl ::core::clone::Clone for MMC_CONSOLE_VERB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MMC_CONSOLE_VERB {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MMC_CONSOLE_VERB {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4316,19 +4217,8 @@ impl ::core::fmt::Debug for MMC_CONSOLE_VERB {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MMC_CONTROL_TYPE(pub i32);
-impl ::core::marker::Copy for MMC_CONTROL_TYPE {}
-impl ::core::clone::Clone for MMC_CONTROL_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MMC_CONTROL_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MMC_CONTROL_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4338,19 +4228,8 @@ impl ::core::fmt::Debug for MMC_CONTROL_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MMC_FILTER_CHANGE_CODE(pub i32);
-impl ::core::marker::Copy for MMC_FILTER_CHANGE_CODE {}
-impl ::core::clone::Clone for MMC_FILTER_CHANGE_CODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MMC_FILTER_CHANGE_CODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MMC_FILTER_CHANGE_CODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4360,19 +4239,8 @@ impl ::core::fmt::Debug for MMC_FILTER_CHANGE_CODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MMC_FILTER_TYPE(pub i32);
-impl ::core::marker::Copy for MMC_FILTER_TYPE {}
-impl ::core::clone::Clone for MMC_FILTER_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MMC_FILTER_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MMC_FILTER_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4382,19 +4250,8 @@ impl ::core::fmt::Debug for MMC_FILTER_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MMC_MENU_COMMAND_IDS(pub i32);
-impl ::core::marker::Copy for MMC_MENU_COMMAND_IDS {}
-impl ::core::clone::Clone for MMC_MENU_COMMAND_IDS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MMC_MENU_COMMAND_IDS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MMC_MENU_COMMAND_IDS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4404,19 +4261,8 @@ impl ::core::fmt::Debug for MMC_MENU_COMMAND_IDS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MMC_NOTIFY_TYPE(pub i32);
-impl ::core::marker::Copy for MMC_NOTIFY_TYPE {}
-impl ::core::clone::Clone for MMC_NOTIFY_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MMC_NOTIFY_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MMC_NOTIFY_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4426,19 +4272,8 @@ impl ::core::fmt::Debug for MMC_NOTIFY_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MMC_PROPERTY_ACTION(pub i32);
-impl ::core::marker::Copy for MMC_PROPERTY_ACTION {}
-impl ::core::clone::Clone for MMC_PROPERTY_ACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MMC_PROPERTY_ACTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MMC_PROPERTY_ACTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4448,19 +4283,8 @@ impl ::core::fmt::Debug for MMC_PROPERTY_ACTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MMC_RESULT_VIEW_STYLE(pub i32);
-impl ::core::marker::Copy for MMC_RESULT_VIEW_STYLE {}
-impl ::core::clone::Clone for MMC_RESULT_VIEW_STYLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MMC_RESULT_VIEW_STYLE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MMC_RESULT_VIEW_STYLE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4470,19 +4294,8 @@ impl ::core::fmt::Debug for MMC_RESULT_VIEW_STYLE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MMC_SCOPE_ITEM_STATE(pub i32);
-impl ::core::marker::Copy for MMC_SCOPE_ITEM_STATE {}
-impl ::core::clone::Clone for MMC_SCOPE_ITEM_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MMC_SCOPE_ITEM_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MMC_SCOPE_ITEM_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4492,19 +4305,8 @@ impl ::core::fmt::Debug for MMC_SCOPE_ITEM_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MMC_TASK_DISPLAY_TYPE(pub i32);
-impl ::core::marker::Copy for MMC_TASK_DISPLAY_TYPE {}
-impl ::core::clone::Clone for MMC_TASK_DISPLAY_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MMC_TASK_DISPLAY_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MMC_TASK_DISPLAY_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4514,19 +4316,8 @@ impl ::core::fmt::Debug for MMC_TASK_DISPLAY_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MMC_VIEW_TYPE(pub i32);
-impl ::core::marker::Copy for MMC_VIEW_TYPE {}
-impl ::core::clone::Clone for MMC_VIEW_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MMC_VIEW_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MMC_VIEW_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4536,19 +4327,8 @@ impl ::core::fmt::Debug for MMC_VIEW_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct _ColumnSortOrder(pub i32);
-impl ::core::marker::Copy for _ColumnSortOrder {}
-impl ::core::clone::Clone for _ColumnSortOrder {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for _ColumnSortOrder {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for _ColumnSortOrder {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4558,19 +4338,8 @@ impl ::core::fmt::Debug for _ColumnSortOrder {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct _DocumentMode(pub i32);
-impl ::core::marker::Copy for _DocumentMode {}
-impl ::core::clone::Clone for _DocumentMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for _DocumentMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for _DocumentMode {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4580,19 +4349,8 @@ impl ::core::fmt::Debug for _DocumentMode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct _ExportListOptions(pub i32);
-impl ::core::marker::Copy for _ExportListOptions {}
-impl ::core::clone::Clone for _ExportListOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for _ExportListOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for _ExportListOptions {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4602,19 +4360,8 @@ impl ::core::fmt::Debug for _ExportListOptions {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct _ListViewMode(pub i32);
-impl ::core::marker::Copy for _ListViewMode {}
-impl ::core::clone::Clone for _ListViewMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for _ListViewMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for _ListViewMode {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4624,19 +4371,8 @@ impl ::core::fmt::Debug for _ListViewMode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct _ViewOptions(pub i32);
-impl ::core::marker::Copy for _ViewOptions {}
-impl ::core::clone::Clone for _ViewOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for _ViewOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for _ViewOptions {
     type TypeKind = ::windows_core::CopyType;
 }

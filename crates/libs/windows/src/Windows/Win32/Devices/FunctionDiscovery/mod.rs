@@ -1780,19 +1780,8 @@ pub const WSD_CONSTRAINTVALUE_NO_TRUST_VERIFICATION: ::windows_core::PCWSTR = ::
 pub const WSD_CONSTRAINTVALUE_REQUIRE_SECURECHANNEL: ::windows_core::PCWSTR = ::windows_core::w!("1");
 pub const WSD_CONSTRAINTVALUE_REQUIRE_SECURECHANNEL_AND_COMPACTSIGNATURE: ::windows_core::PCWSTR = ::windows_core::w!("2");
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PropertyConstraint(pub i32);
-impl ::core::marker::Copy for PropertyConstraint {}
-impl ::core::clone::Clone for PropertyConstraint {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PropertyConstraint {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PropertyConstraint {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1802,19 +1791,8 @@ impl ::core::fmt::Debug for PropertyConstraint {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct QueryCategoryType(pub i32);
-impl ::core::marker::Copy for QueryCategoryType {}
-impl ::core::clone::Clone for QueryCategoryType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for QueryCategoryType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for QueryCategoryType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1824,19 +1802,8 @@ impl ::core::fmt::Debug for QueryCategoryType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct QueryUpdateAction(pub i32);
-impl ::core::marker::Copy for QueryUpdateAction {}
-impl ::core::clone::Clone for QueryUpdateAction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for QueryUpdateAction {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for QueryUpdateAction {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1846,19 +1813,8 @@ impl ::core::fmt::Debug for QueryUpdateAction {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SystemVisibilityFlags(pub i32);
-impl ::core::marker::Copy for SystemVisibilityFlags {}
-impl ::core::clone::Clone for SystemVisibilityFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SystemVisibilityFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SystemVisibilityFlags {
     type TypeKind = ::windows_core::CopyType;
 }

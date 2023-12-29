@@ -501,7 +501,7 @@ impl ::windows_core::RuntimeName for PrintTaskConfigurationSaveRequestedEventArg
 }
 ::windows_core::imp::interface_hierarchy!(PrintTaskConfigurationSaveRequestedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct Print3DWorkflowDetail(pub i32);
 impl Print3DWorkflowDetail {
     pub const Unknown: Self = Self(0i32);
@@ -511,17 +511,6 @@ impl Print3DWorkflowDetail {
     pub const InvalidModel: Self = Self(4i32);
     pub const ModelNotManifold: Self = Self(5i32);
     pub const InvalidPrintTicket: Self = Self(6i32);
-}
-impl ::core::marker::Copy for Print3DWorkflowDetail {}
-impl ::core::clone::Clone for Print3DWorkflowDetail {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for Print3DWorkflowDetail {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for Print3DWorkflowDetail {
     type TypeKind = ::windows_core::CopyType;
@@ -535,7 +524,7 @@ impl ::windows_core::RuntimeType for Print3DWorkflowDetail {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.Extensions.Print3DWorkflowDetail;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct Print3DWorkflowStatus(pub i32);
 impl Print3DWorkflowStatus {
     pub const Abandoned: Self = Self(0i32);
@@ -543,17 +532,6 @@ impl Print3DWorkflowStatus {
     pub const Failed: Self = Self(2i32);
     pub const Slicing: Self = Self(3i32);
     pub const Submitted: Self = Self(4i32);
-}
-impl ::core::marker::Copy for Print3DWorkflowStatus {}
-impl ::core::clone::Clone for Print3DWorkflowStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for Print3DWorkflowStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for Print3DWorkflowStatus {
     type TypeKind = ::windows_core::CopyType;

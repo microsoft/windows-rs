@@ -318,19 +318,8 @@ pub const UOI_NAME: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDE
 pub const UOI_TYPE: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(3i32);
 pub const UOI_USER_SID: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(4i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BROADCAST_SYSTEM_MESSAGE_FLAGS(pub u32);
-impl ::core::marker::Copy for BROADCAST_SYSTEM_MESSAGE_FLAGS {}
-impl ::core::clone::Clone for BROADCAST_SYSTEM_MESSAGE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BROADCAST_SYSTEM_MESSAGE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for BROADCAST_SYSTEM_MESSAGE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -373,19 +362,8 @@ impl ::core::ops::Not for BROADCAST_SYSTEM_MESSAGE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BROADCAST_SYSTEM_MESSAGE_INFO(pub u32);
-impl ::core::marker::Copy for BROADCAST_SYSTEM_MESSAGE_INFO {}
-impl ::core::clone::Clone for BROADCAST_SYSTEM_MESSAGE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BROADCAST_SYSTEM_MESSAGE_INFO {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for BROADCAST_SYSTEM_MESSAGE_INFO {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -428,19 +406,8 @@ impl ::core::ops::Not for BROADCAST_SYSTEM_MESSAGE_INFO {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DESKTOP_ACCESS_FLAGS(pub u32);
-impl ::core::marker::Copy for DESKTOP_ACCESS_FLAGS {}
-impl ::core::clone::Clone for DESKTOP_ACCESS_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DESKTOP_ACCESS_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DESKTOP_ACCESS_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -450,19 +417,8 @@ impl ::core::fmt::Debug for DESKTOP_ACCESS_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DESKTOP_CONTROL_FLAGS(pub u32);
-impl ::core::marker::Copy for DESKTOP_CONTROL_FLAGS {}
-impl ::core::clone::Clone for DESKTOP_CONTROL_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DESKTOP_CONTROL_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DESKTOP_CONTROL_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -472,19 +428,8 @@ impl ::core::fmt::Debug for DESKTOP_CONTROL_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct USER_OBJECT_INFORMATION_INDEX(pub i32);
-impl ::core::marker::Copy for USER_OBJECT_INFORMATION_INDEX {}
-impl ::core::clone::Clone for USER_OBJECT_INFORMATION_INDEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for USER_OBJECT_INFORMATION_INDEX {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for USER_OBJECT_INFORMATION_INDEX {
     type TypeKind = ::windows_core::CopyType;
 }

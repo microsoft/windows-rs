@@ -839,19 +839,8 @@ pub const mIOC_IN: u32 = 2147483648u32;
 pub const mIOC_OUT: u32 = 1073741824u32;
 pub const mIOC_VENDOR: u32 = 67108864u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FilterType(pub i32);
-impl ::core::marker::Copy for FilterType {}
-impl ::core::clone::Clone for FilterType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FilterType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FilterType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -861,19 +850,8 @@ impl ::core::fmt::Debug for FilterType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct QOS_FLOWRATE_REASON(pub i32);
-impl ::core::marker::Copy for QOS_FLOWRATE_REASON {}
-impl ::core::clone::Clone for QOS_FLOWRATE_REASON {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for QOS_FLOWRATE_REASON {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for QOS_FLOWRATE_REASON {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -883,19 +861,8 @@ impl ::core::fmt::Debug for QOS_FLOWRATE_REASON {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct QOS_NOTIFY_FLOW(pub i32);
-impl ::core::marker::Copy for QOS_NOTIFY_FLOW {}
-impl ::core::clone::Clone for QOS_NOTIFY_FLOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for QOS_NOTIFY_FLOW {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for QOS_NOTIFY_FLOW {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -905,19 +872,8 @@ impl ::core::fmt::Debug for QOS_NOTIFY_FLOW {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct QOS_QUERY_FLOW(pub i32);
-impl ::core::marker::Copy for QOS_QUERY_FLOW {}
-impl ::core::clone::Clone for QOS_QUERY_FLOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for QOS_QUERY_FLOW {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for QOS_QUERY_FLOW {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -927,19 +883,8 @@ impl ::core::fmt::Debug for QOS_QUERY_FLOW {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct QOS_SET_FLOW(pub i32);
-impl ::core::marker::Copy for QOS_SET_FLOW {}
-impl ::core::clone::Clone for QOS_SET_FLOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for QOS_SET_FLOW {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for QOS_SET_FLOW {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -949,19 +894,8 @@ impl ::core::fmt::Debug for QOS_SET_FLOW {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct QOS_SHAPING(pub i32);
-impl ::core::marker::Copy for QOS_SHAPING {}
-impl ::core::clone::Clone for QOS_SHAPING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for QOS_SHAPING {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for QOS_SHAPING {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -971,19 +905,8 @@ impl ::core::fmt::Debug for QOS_SHAPING {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct QOS_TRAFFIC_TYPE(pub i32);
-impl ::core::marker::Copy for QOS_TRAFFIC_TYPE {}
-impl ::core::clone::Clone for QOS_TRAFFIC_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for QOS_TRAFFIC_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for QOS_TRAFFIC_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -993,19 +916,8 @@ impl ::core::fmt::Debug for QOS_TRAFFIC_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct int_serv_wkp(pub i32);
-impl ::core::marker::Copy for int_serv_wkp {}
-impl ::core::clone::Clone for int_serv_wkp {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for int_serv_wkp {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for int_serv_wkp {
     type TypeKind = ::windows_core::CopyType;
 }

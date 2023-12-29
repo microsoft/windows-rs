@@ -850,7 +850,7 @@ impl ::windows_core::RuntimeName for WebAuthenticationCoreManagerHelper {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.WebAuthenticationCoreManagerHelper";
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DeliveryOptimizationDownloadMode(pub i32);
 impl DeliveryOptimizationDownloadMode {
     pub const Simple: Self = Self(0i32);
@@ -859,17 +859,6 @@ impl DeliveryOptimizationDownloadMode {
     pub const Group: Self = Self(3i32);
     pub const Internet: Self = Self(4i32);
     pub const Bypass: Self = Self(5i32);
-}
-impl ::core::marker::Copy for DeliveryOptimizationDownloadMode {}
-impl ::core::clone::Clone for DeliveryOptimizationDownloadMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DeliveryOptimizationDownloadMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DeliveryOptimizationDownloadMode {
     type TypeKind = ::windows_core::CopyType;
@@ -883,22 +872,11 @@ impl ::windows_core::RuntimeType for DeliveryOptimizationDownloadMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.DeliveryOptimizationDownloadMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DeliveryOptimizationDownloadModeSource(pub i32);
 impl DeliveryOptimizationDownloadModeSource {
     pub const Default: Self = Self(0i32);
     pub const Policy: Self = Self(1i32);
-}
-impl ::core::marker::Copy for DeliveryOptimizationDownloadModeSource {}
-impl ::core::clone::Clone for DeliveryOptimizationDownloadModeSource {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DeliveryOptimizationDownloadModeSource {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DeliveryOptimizationDownloadModeSource {
     type TypeKind = ::windows_core::CopyType;
@@ -912,22 +890,11 @@ impl ::windows_core::RuntimeType for DeliveryOptimizationDownloadModeSource {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.DeliveryOptimizationDownloadModeSource;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct StoreLogOptions(pub u32);
 impl StoreLogOptions {
     pub const None: Self = Self(0u32);
     pub const TryElevate: Self = Self(1u32);
-}
-impl ::core::marker::Copy for StoreLogOptions {}
-impl ::core::clone::Clone for StoreLogOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for StoreLogOptions {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for StoreLogOptions {
     type TypeKind = ::windows_core::CopyType;
@@ -974,24 +941,13 @@ impl ::windows_core::RuntimeType for StoreLogOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.StoreLogOptions;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct StorePreviewProductPurchaseStatus(pub i32);
 impl StorePreviewProductPurchaseStatus {
     pub const Succeeded: Self = Self(0i32);
     pub const AlreadyPurchased: Self = Self(1i32);
     pub const NotFulfilled: Self = Self(2i32);
     pub const NotPurchased: Self = Self(3i32);
-}
-impl ::core::marker::Copy for StorePreviewProductPurchaseStatus {}
-impl ::core::clone::Clone for StorePreviewProductPurchaseStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for StorePreviewProductPurchaseStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for StorePreviewProductPurchaseStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -1005,7 +961,7 @@ impl ::windows_core::RuntimeType for StorePreviewProductPurchaseStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.StorePreviewProductPurchaseStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct StoreSystemFeature(pub i32);
 impl StoreSystemFeature {
     pub const ArchitectureX86: Self = Self(0i32);
@@ -1043,17 +999,6 @@ impl StoreSystemFeature {
     pub const VideoMemory6GB: Self = Self(32i32);
     pub const VideoMemory1GB: Self = Self(33i32);
     pub const ArchitectureArm64: Self = Self(34i32);
-}
-impl ::core::marker::Copy for StoreSystemFeature {}
-impl ::core::clone::Clone for StoreSystemFeature {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for StoreSystemFeature {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for StoreSystemFeature {
     type TypeKind = ::windows_core::CopyType;

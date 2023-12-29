@@ -326,19 +326,8 @@ pub const c_DwmMaxAdapters: u32 = 16u32;
 pub const c_DwmMaxMonitors: u32 = 16u32;
 pub const c_DwmMaxQueuedBuffers: u32 = 8u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWMFLIP3DWINDOWPOLICY(pub i32);
-impl ::core::marker::Copy for DWMFLIP3DWINDOWPOLICY {}
-impl ::core::clone::Clone for DWMFLIP3DWINDOWPOLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWMFLIP3DWINDOWPOLICY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWMFLIP3DWINDOWPOLICY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -348,19 +337,8 @@ impl ::core::fmt::Debug for DWMFLIP3DWINDOWPOLICY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWMNCRENDERINGPOLICY(pub i32);
-impl ::core::marker::Copy for DWMNCRENDERINGPOLICY {}
-impl ::core::clone::Clone for DWMNCRENDERINGPOLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWMNCRENDERINGPOLICY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWMNCRENDERINGPOLICY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -370,19 +348,8 @@ impl ::core::fmt::Debug for DWMNCRENDERINGPOLICY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWMTRANSITION_OWNEDWINDOW_TARGET(pub i32);
-impl ::core::marker::Copy for DWMTRANSITION_OWNEDWINDOW_TARGET {}
-impl ::core::clone::Clone for DWMTRANSITION_OWNEDWINDOW_TARGET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWMTRANSITION_OWNEDWINDOW_TARGET {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWMTRANSITION_OWNEDWINDOW_TARGET {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -392,19 +359,8 @@ impl ::core::fmt::Debug for DWMTRANSITION_OWNEDWINDOW_TARGET {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWMWINDOWATTRIBUTE(pub i32);
-impl ::core::marker::Copy for DWMWINDOWATTRIBUTE {}
-impl ::core::clone::Clone for DWMWINDOWATTRIBUTE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWMWINDOWATTRIBUTE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWMWINDOWATTRIBUTE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -414,19 +370,8 @@ impl ::core::fmt::Debug for DWMWINDOWATTRIBUTE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWM_SHOWCONTACT(pub u32);
-impl ::core::marker::Copy for DWM_SHOWCONTACT {}
-impl ::core::clone::Clone for DWM_SHOWCONTACT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWM_SHOWCONTACT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWM_SHOWCONTACT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -469,19 +414,8 @@ impl ::core::ops::Not for DWM_SHOWCONTACT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWM_SOURCE_FRAME_SAMPLING(pub i32);
-impl ::core::marker::Copy for DWM_SOURCE_FRAME_SAMPLING {}
-impl ::core::clone::Clone for DWM_SOURCE_FRAME_SAMPLING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWM_SOURCE_FRAME_SAMPLING {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWM_SOURCE_FRAME_SAMPLING {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -491,19 +425,8 @@ impl ::core::fmt::Debug for DWM_SOURCE_FRAME_SAMPLING {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWM_SYSTEMBACKDROP_TYPE(pub i32);
-impl ::core::marker::Copy for DWM_SYSTEMBACKDROP_TYPE {}
-impl ::core::clone::Clone for DWM_SYSTEMBACKDROP_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWM_SYSTEMBACKDROP_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWM_SYSTEMBACKDROP_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -513,19 +436,8 @@ impl ::core::fmt::Debug for DWM_SYSTEMBACKDROP_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWM_TAB_WINDOW_REQUIREMENTS(pub i32);
-impl ::core::marker::Copy for DWM_TAB_WINDOW_REQUIREMENTS {}
-impl ::core::clone::Clone for DWM_TAB_WINDOW_REQUIREMENTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWM_TAB_WINDOW_REQUIREMENTS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWM_TAB_WINDOW_REQUIREMENTS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -568,19 +480,8 @@ impl ::core::ops::Not for DWM_TAB_WINDOW_REQUIREMENTS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWM_WINDOW_CORNER_PREFERENCE(pub i32);
-impl ::core::marker::Copy for DWM_WINDOW_CORNER_PREFERENCE {}
-impl ::core::clone::Clone for DWM_WINDOW_CORNER_PREFERENCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWM_WINDOW_CORNER_PREFERENCE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWM_WINDOW_CORNER_PREFERENCE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -590,19 +491,8 @@ impl ::core::fmt::Debug for DWM_WINDOW_CORNER_PREFERENCE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GESTURE_TYPE(pub i32);
-impl ::core::marker::Copy for GESTURE_TYPE {}
-impl ::core::clone::Clone for GESTURE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GESTURE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for GESTURE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }

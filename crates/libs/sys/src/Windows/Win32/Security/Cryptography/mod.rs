@@ -3953,6 +3953,7 @@ pub type ECC_CURVE_TYPE_ENUM = i32;
 pub type HASHALGORITHM_ENUM = i32;
 pub type HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE = u32;
 #[repr(transparent)]
+#[derive(::core::marker::Copy, ::core::clone::Clone)]
 pub struct HandleType(pub i32);
 impl HandleType {
     pub const Asymmetric: Self = Self(1i32);
@@ -3960,17 +3961,12 @@ impl HandleType {
     pub const Transform: Self = Self(3i32);
     pub const Hash: Self = Self(4i32);
 }
-impl ::core::marker::Copy for HandleType {}
-impl ::core::clone::Clone for HandleType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type MSCEPSetupProperty = i32;
 pub type NCRYPT_ALGORITHM_NAME_CLASS = u32;
 pub type NCRYPT_FLAGS = u32;
 pub type NCRYPT_OPERATION = u32;
 #[repr(transparent)]
+#[derive(::core::marker::Copy, ::core::clone::Clone)]
 pub struct PaddingMode(pub i32);
 impl PaddingMode {
     pub const None: Self = Self(1i32);
@@ -3978,12 +3974,6 @@ impl PaddingMode {
     pub const Zeros: Self = Self(3i32);
     pub const ANSIX923: Self = Self(4i32);
     pub const ISO10126: Self = Self(5i32);
-}
-impl ::core::marker::Copy for PaddingMode {}
-impl ::core::clone::Clone for PaddingMode {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type SIGNER_CERT_CHOICE = u32;
 pub type SIGNER_CERT_POLICY = u32;

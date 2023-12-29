@@ -1036,19 +1036,8 @@ pub const raatUserName: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(1i32);
 pub const raatUserPassword: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(2i32);
 pub const raatVendorSpecific: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(26i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EAPHOST_AUTH_STATUS(pub i32);
-impl ::core::marker::Copy for EAPHOST_AUTH_STATUS {}
-impl ::core::clone::Clone for EAPHOST_AUTH_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EAPHOST_AUTH_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EAPHOST_AUTH_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1058,19 +1047,8 @@ impl ::core::fmt::Debug for EAPHOST_AUTH_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EAP_ATTRIBUTE_TYPE(pub i32);
-impl ::core::marker::Copy for EAP_ATTRIBUTE_TYPE {}
-impl ::core::clone::Clone for EAP_ATTRIBUTE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EAP_ATTRIBUTE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EAP_ATTRIBUTE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1080,19 +1058,8 @@ impl ::core::fmt::Debug for EAP_ATTRIBUTE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EAP_AUTHENTICATOR_SEND_TIMEOUT(pub i32);
-impl ::core::marker::Copy for EAP_AUTHENTICATOR_SEND_TIMEOUT {}
-impl ::core::clone::Clone for EAP_AUTHENTICATOR_SEND_TIMEOUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EAP_AUTHENTICATOR_SEND_TIMEOUT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EAP_AUTHENTICATOR_SEND_TIMEOUT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1102,19 +1069,8 @@ impl ::core::fmt::Debug for EAP_AUTHENTICATOR_SEND_TIMEOUT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EAP_CONFIG_INPUT_FIELD_TYPE(pub i32);
-impl ::core::marker::Copy for EAP_CONFIG_INPUT_FIELD_TYPE {}
-impl ::core::clone::Clone for EAP_CONFIG_INPUT_FIELD_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EAP_CONFIG_INPUT_FIELD_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EAP_CONFIG_INPUT_FIELD_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1124,19 +1080,8 @@ impl ::core::fmt::Debug for EAP_CONFIG_INPUT_FIELD_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EAP_INTERACTIVE_UI_DATA_TYPE(pub i32);
-impl ::core::marker::Copy for EAP_INTERACTIVE_UI_DATA_TYPE {}
-impl ::core::clone::Clone for EAP_INTERACTIVE_UI_DATA_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EAP_INTERACTIVE_UI_DATA_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EAP_INTERACTIVE_UI_DATA_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1146,19 +1091,8 @@ impl ::core::fmt::Debug for EAP_INTERACTIVE_UI_DATA_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EAP_METHOD_AUTHENTICATOR_RESPONSE_ACTION(pub i32);
-impl ::core::marker::Copy for EAP_METHOD_AUTHENTICATOR_RESPONSE_ACTION {}
-impl ::core::clone::Clone for EAP_METHOD_AUTHENTICATOR_RESPONSE_ACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EAP_METHOD_AUTHENTICATOR_RESPONSE_ACTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EAP_METHOD_AUTHENTICATOR_RESPONSE_ACTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1168,19 +1102,8 @@ impl ::core::fmt::Debug for EAP_METHOD_AUTHENTICATOR_RESPONSE_ACTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EAP_METHOD_PROPERTY_TYPE(pub i32);
-impl ::core::marker::Copy for EAP_METHOD_PROPERTY_TYPE {}
-impl ::core::clone::Clone for EAP_METHOD_PROPERTY_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EAP_METHOD_PROPERTY_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EAP_METHOD_PROPERTY_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1190,19 +1113,8 @@ impl ::core::fmt::Debug for EAP_METHOD_PROPERTY_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EAP_METHOD_PROPERTY_VALUE_TYPE(pub i32);
-impl ::core::marker::Copy for EAP_METHOD_PROPERTY_VALUE_TYPE {}
-impl ::core::clone::Clone for EAP_METHOD_PROPERTY_VALUE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EAP_METHOD_PROPERTY_VALUE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EAP_METHOD_PROPERTY_VALUE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1212,19 +1124,8 @@ impl ::core::fmt::Debug for EAP_METHOD_PROPERTY_VALUE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EapCode(pub i32);
-impl ::core::marker::Copy for EapCode {}
-impl ::core::clone::Clone for EapCode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EapCode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EapCode {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1234,19 +1135,8 @@ impl ::core::fmt::Debug for EapCode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EapCredentialType(pub i32);
-impl ::core::marker::Copy for EapCredentialType {}
-impl ::core::clone::Clone for EapCredentialType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EapCredentialType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EapCredentialType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1256,19 +1146,8 @@ impl ::core::fmt::Debug for EapCredentialType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EapHostPeerAuthParams(pub i32);
-impl ::core::marker::Copy for EapHostPeerAuthParams {}
-impl ::core::clone::Clone for EapHostPeerAuthParams {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EapHostPeerAuthParams {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EapHostPeerAuthParams {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1278,19 +1157,8 @@ impl ::core::fmt::Debug for EapHostPeerAuthParams {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EapHostPeerMethodResultReason(pub i32);
-impl ::core::marker::Copy for EapHostPeerMethodResultReason {}
-impl ::core::clone::Clone for EapHostPeerMethodResultReason {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EapHostPeerMethodResultReason {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EapHostPeerMethodResultReason {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1300,19 +1168,8 @@ impl ::core::fmt::Debug for EapHostPeerMethodResultReason {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EapHostPeerResponseAction(pub i32);
-impl ::core::marker::Copy for EapHostPeerResponseAction {}
-impl ::core::clone::Clone for EapHostPeerResponseAction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EapHostPeerResponseAction {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EapHostPeerResponseAction {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1322,19 +1179,8 @@ impl ::core::fmt::Debug for EapHostPeerResponseAction {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EapPeerMethodResponseAction(pub i32);
-impl ::core::marker::Copy for EapPeerMethodResponseAction {}
-impl ::core::clone::Clone for EapPeerMethodResponseAction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EapPeerMethodResponseAction {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EapPeerMethodResponseAction {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1344,19 +1190,8 @@ impl ::core::fmt::Debug for EapPeerMethodResponseAction {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EapPeerMethodResultReason(pub i32);
-impl ::core::marker::Copy for EapPeerMethodResultReason {}
-impl ::core::clone::Clone for EapPeerMethodResultReason {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EapPeerMethodResultReason {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EapPeerMethodResultReason {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1366,19 +1201,8 @@ impl ::core::fmt::Debug for EapPeerMethodResultReason {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ISOLATION_STATE(pub i32);
-impl ::core::marker::Copy for ISOLATION_STATE {}
-impl ::core::clone::Clone for ISOLATION_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ISOLATION_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ISOLATION_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1388,19 +1212,8 @@ impl ::core::fmt::Debug for ISOLATION_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PPP_EAP_ACTION(pub i32);
-impl ::core::marker::Copy for PPP_EAP_ACTION {}
-impl ::core::clone::Clone for PPP_EAP_ACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PPP_EAP_ACTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PPP_EAP_ACTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1410,19 +1223,8 @@ impl ::core::fmt::Debug for PPP_EAP_ACTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RAS_AUTH_ATTRIBUTE_TYPE(pub i32);
-impl ::core::marker::Copy for RAS_AUTH_ATTRIBUTE_TYPE {}
-impl ::core::clone::Clone for RAS_AUTH_ATTRIBUTE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RAS_AUTH_ATTRIBUTE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RAS_AUTH_ATTRIBUTE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }

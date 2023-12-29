@@ -1061,7 +1061,7 @@ impl ::windows_core::RuntimeName for WordsSegmenter {
 unsafe impl ::core::marker::Send for WordsSegmenter {}
 unsafe impl ::core::marker::Sync for WordsSegmenter {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AlternateNormalizationFormat(pub i32);
 impl AlternateNormalizationFormat {
     pub const NotNormalized: Self = Self(0i32);
@@ -1069,17 +1069,6 @@ impl AlternateNormalizationFormat {
     pub const Currency: Self = Self(3i32);
     pub const Date: Self = Self(4i32);
     pub const Time: Self = Self(5i32);
-}
-impl ::core::marker::Copy for AlternateNormalizationFormat {}
-impl ::core::clone::Clone for AlternateNormalizationFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AlternateNormalizationFormat {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AlternateNormalizationFormat {
     type TypeKind = ::windows_core::CopyType;
@@ -1093,23 +1082,12 @@ impl ::windows_core::RuntimeType for AlternateNormalizationFormat {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Data.Text.AlternateNormalizationFormat;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TextPredictionOptions(pub u32);
 impl TextPredictionOptions {
     pub const None: Self = Self(0u32);
     pub const Predictions: Self = Self(1u32);
     pub const Corrections: Self = Self(2u32);
-}
-impl ::core::marker::Copy for TextPredictionOptions {}
-impl ::core::clone::Clone for TextPredictionOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TextPredictionOptions {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for TextPredictionOptions {
     type TypeKind = ::windows_core::CopyType;
@@ -1156,7 +1134,7 @@ impl ::windows_core::RuntimeType for TextPredictionOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Data.Text.TextPredictionOptions;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UnicodeGeneralCategory(pub i32);
 impl UnicodeGeneralCategory {
     pub const UppercaseLetter: Self = Self(0i32);
@@ -1190,17 +1168,6 @@ impl UnicodeGeneralCategory {
     pub const OtherSymbol: Self = Self(28i32);
     pub const NotAssigned: Self = Self(29i32);
 }
-impl ::core::marker::Copy for UnicodeGeneralCategory {}
-impl ::core::clone::Clone for UnicodeGeneralCategory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UnicodeGeneralCategory {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for UnicodeGeneralCategory {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1213,24 +1180,13 @@ impl ::windows_core::RuntimeType for UnicodeGeneralCategory {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Data.Text.UnicodeGeneralCategory;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UnicodeNumericType(pub i32);
 impl UnicodeNumericType {
     pub const None: Self = Self(0i32);
     pub const Decimal: Self = Self(1i32);
     pub const Digit: Self = Self(2i32);
     pub const Numeric: Self = Self(3i32);
-}
-impl ::core::marker::Copy for UnicodeNumericType {}
-impl ::core::clone::Clone for UnicodeNumericType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UnicodeNumericType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for UnicodeNumericType {
     type TypeKind = ::windows_core::CopyType;

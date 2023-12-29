@@ -3746,19 +3746,8 @@ pub const VDS_VT_STRIPE: VDS_VOLUME_TYPE = VDS_VOLUME_TYPE(12i32);
 pub const VDS_VT_UNKNOWN: VDS_VOLUME_TYPE = VDS_VOLUME_TYPE(0i32);
 pub const VER_VDS_LUN_INFORMATION: u32 = 1u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_ASYNC_OUTPUT_TYPE(pub i32);
-impl ::core::marker::Copy for VDS_ASYNC_OUTPUT_TYPE {}
-impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_ASYNC_OUTPUT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_ASYNC_OUTPUT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3768,19 +3757,8 @@ impl ::core::fmt::Debug for VDS_ASYNC_OUTPUT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_CONTROLLER_STATUS(pub i32);
-impl ::core::marker::Copy for VDS_CONTROLLER_STATUS {}
-impl ::core::clone::Clone for VDS_CONTROLLER_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_CONTROLLER_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_CONTROLLER_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3790,19 +3768,8 @@ impl ::core::fmt::Debug for VDS_CONTROLLER_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_DISK_EXTENT_TYPE(pub i32);
-impl ::core::marker::Copy for VDS_DISK_EXTENT_TYPE {}
-impl ::core::clone::Clone for VDS_DISK_EXTENT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_DISK_EXTENT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_DISK_EXTENT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3812,19 +3779,8 @@ impl ::core::fmt::Debug for VDS_DISK_EXTENT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_DISK_FLAG(pub i32);
-impl ::core::marker::Copy for VDS_DISK_FLAG {}
-impl ::core::clone::Clone for VDS_DISK_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_DISK_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_DISK_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3834,19 +3790,8 @@ impl ::core::fmt::Debug for VDS_DISK_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_DISK_OFFLINE_REASON(pub i32);
-impl ::core::marker::Copy for VDS_DISK_OFFLINE_REASON {}
-impl ::core::clone::Clone for VDS_DISK_OFFLINE_REASON {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_DISK_OFFLINE_REASON {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_DISK_OFFLINE_REASON {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3856,19 +3801,8 @@ impl ::core::fmt::Debug for VDS_DISK_OFFLINE_REASON {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_DISK_STATUS(pub i32);
-impl ::core::marker::Copy for VDS_DISK_STATUS {}
-impl ::core::clone::Clone for VDS_DISK_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_DISK_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_DISK_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3878,19 +3812,8 @@ impl ::core::fmt::Debug for VDS_DISK_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_DRIVE_FLAG(pub i32);
-impl ::core::marker::Copy for VDS_DRIVE_FLAG {}
-impl ::core::clone::Clone for VDS_DRIVE_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_DRIVE_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_DRIVE_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3900,19 +3823,8 @@ impl ::core::fmt::Debug for VDS_DRIVE_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_DRIVE_LETTER_FLAG(pub i32);
-impl ::core::marker::Copy for VDS_DRIVE_LETTER_FLAG {}
-impl ::core::clone::Clone for VDS_DRIVE_LETTER_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_DRIVE_LETTER_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_DRIVE_LETTER_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3922,19 +3834,8 @@ impl ::core::fmt::Debug for VDS_DRIVE_LETTER_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_DRIVE_STATUS(pub i32);
-impl ::core::marker::Copy for VDS_DRIVE_STATUS {}
-impl ::core::clone::Clone for VDS_DRIVE_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_DRIVE_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_DRIVE_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3944,19 +3845,8 @@ impl ::core::fmt::Debug for VDS_DRIVE_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_FILE_SYSTEM_FLAG(pub i32);
-impl ::core::marker::Copy for VDS_FILE_SYSTEM_FLAG {}
-impl ::core::clone::Clone for VDS_FILE_SYSTEM_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_FILE_SYSTEM_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_FILE_SYSTEM_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3966,19 +3856,8 @@ impl ::core::fmt::Debug for VDS_FILE_SYSTEM_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_FILE_SYSTEM_FORMAT_SUPPORT_FLAG(pub i32);
-impl ::core::marker::Copy for VDS_FILE_SYSTEM_FORMAT_SUPPORT_FLAG {}
-impl ::core::clone::Clone for VDS_FILE_SYSTEM_FORMAT_SUPPORT_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_FILE_SYSTEM_FORMAT_SUPPORT_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_FILE_SYSTEM_FORMAT_SUPPORT_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3988,19 +3867,8 @@ impl ::core::fmt::Debug for VDS_FILE_SYSTEM_FORMAT_SUPPORT_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_FILE_SYSTEM_PROP_FLAG(pub i32);
-impl ::core::marker::Copy for VDS_FILE_SYSTEM_PROP_FLAG {}
-impl ::core::clone::Clone for VDS_FILE_SYSTEM_PROP_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_FILE_SYSTEM_PROP_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_FILE_SYSTEM_PROP_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4010,19 +3878,8 @@ impl ::core::fmt::Debug for VDS_FILE_SYSTEM_PROP_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_FILE_SYSTEM_TYPE(pub i32);
-impl ::core::marker::Copy for VDS_FILE_SYSTEM_TYPE {}
-impl ::core::clone::Clone for VDS_FILE_SYSTEM_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_FILE_SYSTEM_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_FILE_SYSTEM_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4032,19 +3889,8 @@ impl ::core::fmt::Debug for VDS_FILE_SYSTEM_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_FORMAT_OPTION_FLAGS(pub i32);
-impl ::core::marker::Copy for VDS_FORMAT_OPTION_FLAGS {}
-impl ::core::clone::Clone for VDS_FORMAT_OPTION_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_FORMAT_OPTION_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_FORMAT_OPTION_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4054,19 +3900,8 @@ impl ::core::fmt::Debug for VDS_FORMAT_OPTION_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_HBAPORT_SPEED_FLAG(pub i32);
-impl ::core::marker::Copy for VDS_HBAPORT_SPEED_FLAG {}
-impl ::core::clone::Clone for VDS_HBAPORT_SPEED_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_HBAPORT_SPEED_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_HBAPORT_SPEED_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4076,19 +3911,8 @@ impl ::core::fmt::Debug for VDS_HBAPORT_SPEED_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_HBAPORT_STATUS(pub i32);
-impl ::core::marker::Copy for VDS_HBAPORT_STATUS {}
-impl ::core::clone::Clone for VDS_HBAPORT_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_HBAPORT_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_HBAPORT_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4098,19 +3922,8 @@ impl ::core::fmt::Debug for VDS_HBAPORT_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_HBAPORT_TYPE(pub i32);
-impl ::core::marker::Copy for VDS_HBAPORT_TYPE {}
-impl ::core::clone::Clone for VDS_HBAPORT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_HBAPORT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_HBAPORT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4120,19 +3933,8 @@ impl ::core::fmt::Debug for VDS_HBAPORT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_HEALTH(pub i32);
-impl ::core::marker::Copy for VDS_HEALTH {}
-impl ::core::clone::Clone for VDS_HEALTH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_HEALTH {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_HEALTH {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4142,19 +3944,8 @@ impl ::core::fmt::Debug for VDS_HEALTH {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_HWPROVIDER_TYPE(pub i32);
-impl ::core::marker::Copy for VDS_HWPROVIDER_TYPE {}
-impl ::core::clone::Clone for VDS_HWPROVIDER_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_HWPROVIDER_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_HWPROVIDER_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4164,19 +3955,8 @@ impl ::core::fmt::Debug for VDS_HWPROVIDER_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_INTERCONNECT_ADDRESS_TYPE(pub i32);
-impl ::core::marker::Copy for VDS_INTERCONNECT_ADDRESS_TYPE {}
-impl ::core::clone::Clone for VDS_INTERCONNECT_ADDRESS_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_INTERCONNECT_ADDRESS_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_INTERCONNECT_ADDRESS_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4186,19 +3966,8 @@ impl ::core::fmt::Debug for VDS_INTERCONNECT_ADDRESS_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_INTERCONNECT_FLAG(pub i32);
-impl ::core::marker::Copy for VDS_INTERCONNECT_FLAG {}
-impl ::core::clone::Clone for VDS_INTERCONNECT_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_INTERCONNECT_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_INTERCONNECT_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4208,19 +3977,8 @@ impl ::core::fmt::Debug for VDS_INTERCONNECT_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_IPADDRESS_TYPE(pub i32);
-impl ::core::marker::Copy for VDS_IPADDRESS_TYPE {}
-impl ::core::clone::Clone for VDS_IPADDRESS_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_IPADDRESS_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_IPADDRESS_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4230,19 +3988,8 @@ impl ::core::fmt::Debug for VDS_IPADDRESS_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_ISCSI_AUTH_TYPE(pub i32);
-impl ::core::marker::Copy for VDS_ISCSI_AUTH_TYPE {}
-impl ::core::clone::Clone for VDS_ISCSI_AUTH_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_ISCSI_AUTH_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_ISCSI_AUTH_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4252,19 +3999,8 @@ impl ::core::fmt::Debug for VDS_ISCSI_AUTH_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_ISCSI_IPSEC_FLAG(pub i32);
-impl ::core::marker::Copy for VDS_ISCSI_IPSEC_FLAG {}
-impl ::core::clone::Clone for VDS_ISCSI_IPSEC_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_ISCSI_IPSEC_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_ISCSI_IPSEC_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4274,19 +4010,8 @@ impl ::core::fmt::Debug for VDS_ISCSI_IPSEC_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_ISCSI_LOGIN_FLAG(pub i32);
-impl ::core::marker::Copy for VDS_ISCSI_LOGIN_FLAG {}
-impl ::core::clone::Clone for VDS_ISCSI_LOGIN_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_ISCSI_LOGIN_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_ISCSI_LOGIN_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4296,19 +4021,8 @@ impl ::core::fmt::Debug for VDS_ISCSI_LOGIN_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_ISCSI_LOGIN_TYPE(pub i32);
-impl ::core::marker::Copy for VDS_ISCSI_LOGIN_TYPE {}
-impl ::core::clone::Clone for VDS_ISCSI_LOGIN_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_ISCSI_LOGIN_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_ISCSI_LOGIN_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4318,19 +4032,8 @@ impl ::core::fmt::Debug for VDS_ISCSI_LOGIN_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_ISCSI_PORTAL_STATUS(pub i32);
-impl ::core::marker::Copy for VDS_ISCSI_PORTAL_STATUS {}
-impl ::core::clone::Clone for VDS_ISCSI_PORTAL_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_ISCSI_PORTAL_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_ISCSI_PORTAL_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4340,19 +4043,8 @@ impl ::core::fmt::Debug for VDS_ISCSI_PORTAL_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_LOADBALANCE_POLICY_ENUM(pub i32);
-impl ::core::marker::Copy for VDS_LOADBALANCE_POLICY_ENUM {}
-impl ::core::clone::Clone for VDS_LOADBALANCE_POLICY_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_LOADBALANCE_POLICY_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_LOADBALANCE_POLICY_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4362,19 +4054,8 @@ impl ::core::fmt::Debug for VDS_LOADBALANCE_POLICY_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_LUN_FLAG(pub i32);
-impl ::core::marker::Copy for VDS_LUN_FLAG {}
-impl ::core::clone::Clone for VDS_LUN_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_LUN_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_LUN_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4384,19 +4065,8 @@ impl ::core::fmt::Debug for VDS_LUN_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_LUN_PLEX_FLAG(pub i32);
-impl ::core::marker::Copy for VDS_LUN_PLEX_FLAG {}
-impl ::core::clone::Clone for VDS_LUN_PLEX_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_LUN_PLEX_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_LUN_PLEX_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4406,19 +4076,8 @@ impl ::core::fmt::Debug for VDS_LUN_PLEX_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_LUN_PLEX_STATUS(pub i32);
-impl ::core::marker::Copy for VDS_LUN_PLEX_STATUS {}
-impl ::core::clone::Clone for VDS_LUN_PLEX_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_LUN_PLEX_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_LUN_PLEX_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4428,19 +4087,8 @@ impl ::core::fmt::Debug for VDS_LUN_PLEX_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_LUN_PLEX_TYPE(pub i32);
-impl ::core::marker::Copy for VDS_LUN_PLEX_TYPE {}
-impl ::core::clone::Clone for VDS_LUN_PLEX_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_LUN_PLEX_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_LUN_PLEX_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4450,19 +4098,8 @@ impl ::core::fmt::Debug for VDS_LUN_PLEX_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_LUN_RESERVE_MODE(pub i32);
-impl ::core::marker::Copy for VDS_LUN_RESERVE_MODE {}
-impl ::core::clone::Clone for VDS_LUN_RESERVE_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_LUN_RESERVE_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_LUN_RESERVE_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4472,19 +4109,8 @@ impl ::core::fmt::Debug for VDS_LUN_RESERVE_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_LUN_STATUS(pub i32);
-impl ::core::marker::Copy for VDS_LUN_STATUS {}
-impl ::core::clone::Clone for VDS_LUN_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_LUN_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_LUN_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4494,19 +4120,8 @@ impl ::core::fmt::Debug for VDS_LUN_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_LUN_TYPE(pub i32);
-impl ::core::marker::Copy for VDS_LUN_TYPE {}
-impl ::core::clone::Clone for VDS_LUN_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_LUN_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_LUN_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4516,19 +4131,8 @@ impl ::core::fmt::Debug for VDS_LUN_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_MAINTENANCE_OPERATION(pub i32);
-impl ::core::marker::Copy for VDS_MAINTENANCE_OPERATION {}
-impl ::core::clone::Clone for VDS_MAINTENANCE_OPERATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_MAINTENANCE_OPERATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_MAINTENANCE_OPERATION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4538,19 +4142,8 @@ impl ::core::fmt::Debug for VDS_MAINTENANCE_OPERATION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_NF_CONTROLLER(pub u32);
-impl ::core::marker::Copy for VDS_NF_CONTROLLER {}
-impl ::core::clone::Clone for VDS_NF_CONTROLLER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_NF_CONTROLLER {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_NF_CONTROLLER {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4560,19 +4153,8 @@ impl ::core::fmt::Debug for VDS_NF_CONTROLLER {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_NF_DISK(pub u32);
-impl ::core::marker::Copy for VDS_NF_DISK {}
-impl ::core::clone::Clone for VDS_NF_DISK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_NF_DISK {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_NF_DISK {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4582,19 +4164,8 @@ impl ::core::fmt::Debug for VDS_NF_DISK {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_NF_DRIVE(pub u32);
-impl ::core::marker::Copy for VDS_NF_DRIVE {}
-impl ::core::clone::Clone for VDS_NF_DRIVE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_NF_DRIVE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_NF_DRIVE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4604,19 +4175,8 @@ impl ::core::fmt::Debug for VDS_NF_DRIVE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_NF_FILE_SYSTEM(pub u32);
-impl ::core::marker::Copy for VDS_NF_FILE_SYSTEM {}
-impl ::core::clone::Clone for VDS_NF_FILE_SYSTEM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_NF_FILE_SYSTEM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_NF_FILE_SYSTEM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4626,19 +4186,8 @@ impl ::core::fmt::Debug for VDS_NF_FILE_SYSTEM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_NF_LUN(pub u32);
-impl ::core::marker::Copy for VDS_NF_LUN {}
-impl ::core::clone::Clone for VDS_NF_LUN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_NF_LUN {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_NF_LUN {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4648,19 +4197,8 @@ impl ::core::fmt::Debug for VDS_NF_LUN {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_NF_PACK(pub u32);
-impl ::core::marker::Copy for VDS_NF_PACK {}
-impl ::core::clone::Clone for VDS_NF_PACK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_NF_PACK {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_NF_PACK {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4670,19 +4208,8 @@ impl ::core::fmt::Debug for VDS_NF_PACK {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_NF_PORT(pub u32);
-impl ::core::marker::Copy for VDS_NF_PORT {}
-impl ::core::clone::Clone for VDS_NF_PORT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_NF_PORT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_NF_PORT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4692,19 +4219,8 @@ impl ::core::fmt::Debug for VDS_NF_PORT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_NOTIFICATION_TARGET_TYPE(pub i32);
-impl ::core::marker::Copy for VDS_NOTIFICATION_TARGET_TYPE {}
-impl ::core::clone::Clone for VDS_NOTIFICATION_TARGET_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_NOTIFICATION_TARGET_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_NOTIFICATION_TARGET_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4714,19 +4230,8 @@ impl ::core::fmt::Debug for VDS_NOTIFICATION_TARGET_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_OBJECT_TYPE(pub i32);
-impl ::core::marker::Copy for VDS_OBJECT_TYPE {}
-impl ::core::clone::Clone for VDS_OBJECT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_OBJECT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_OBJECT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4736,19 +4241,8 @@ impl ::core::fmt::Debug for VDS_OBJECT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_PACK_FLAG(pub i32);
-impl ::core::marker::Copy for VDS_PACK_FLAG {}
-impl ::core::clone::Clone for VDS_PACK_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_PACK_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_PACK_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4758,19 +4252,8 @@ impl ::core::fmt::Debug for VDS_PACK_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_PACK_STATUS(pub i32);
-impl ::core::marker::Copy for VDS_PACK_STATUS {}
-impl ::core::clone::Clone for VDS_PACK_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_PACK_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_PACK_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4780,19 +4263,8 @@ impl ::core::fmt::Debug for VDS_PACK_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_PARTITION_FLAG(pub i32);
-impl ::core::marker::Copy for VDS_PARTITION_FLAG {}
-impl ::core::clone::Clone for VDS_PARTITION_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_PARTITION_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_PARTITION_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4802,19 +4274,8 @@ impl ::core::fmt::Debug for VDS_PARTITION_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_PARTITION_STYLE(pub i32);
-impl ::core::marker::Copy for VDS_PARTITION_STYLE {}
-impl ::core::clone::Clone for VDS_PARTITION_STYLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_PARTITION_STYLE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_PARTITION_STYLE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4824,19 +4285,8 @@ impl ::core::fmt::Debug for VDS_PARTITION_STYLE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_PATH_STATUS(pub i32);
-impl ::core::marker::Copy for VDS_PATH_STATUS {}
-impl ::core::clone::Clone for VDS_PATH_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_PATH_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_PATH_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4846,19 +4296,8 @@ impl ::core::fmt::Debug for VDS_PATH_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_PORT_STATUS(pub i32);
-impl ::core::marker::Copy for VDS_PORT_STATUS {}
-impl ::core::clone::Clone for VDS_PORT_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_PORT_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_PORT_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4868,19 +4307,8 @@ impl ::core::fmt::Debug for VDS_PORT_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_PROVIDER_FLAG(pub i32);
-impl ::core::marker::Copy for VDS_PROVIDER_FLAG {}
-impl ::core::clone::Clone for VDS_PROVIDER_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_PROVIDER_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_PROVIDER_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4890,19 +4318,8 @@ impl ::core::fmt::Debug for VDS_PROVIDER_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_PROVIDER_LBSUPPORT_FLAG(pub i32);
-impl ::core::marker::Copy for VDS_PROVIDER_LBSUPPORT_FLAG {}
-impl ::core::clone::Clone for VDS_PROVIDER_LBSUPPORT_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_PROVIDER_LBSUPPORT_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_PROVIDER_LBSUPPORT_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4912,19 +4329,8 @@ impl ::core::fmt::Debug for VDS_PROVIDER_LBSUPPORT_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_PROVIDER_TYPE(pub i32);
-impl ::core::marker::Copy for VDS_PROVIDER_TYPE {}
-impl ::core::clone::Clone for VDS_PROVIDER_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_PROVIDER_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_PROVIDER_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4934,19 +4340,8 @@ impl ::core::fmt::Debug for VDS_PROVIDER_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_QUERY_PROVIDER_FLAG(pub i32);
-impl ::core::marker::Copy for VDS_QUERY_PROVIDER_FLAG {}
-impl ::core::clone::Clone for VDS_QUERY_PROVIDER_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_QUERY_PROVIDER_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_QUERY_PROVIDER_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4956,19 +4351,8 @@ impl ::core::fmt::Debug for VDS_QUERY_PROVIDER_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_RAID_TYPE(pub i32);
-impl ::core::marker::Copy for VDS_RAID_TYPE {}
-impl ::core::clone::Clone for VDS_RAID_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_RAID_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_RAID_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4978,19 +4362,8 @@ impl ::core::fmt::Debug for VDS_RAID_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_RECOVER_ACTION(pub i32);
-impl ::core::marker::Copy for VDS_RECOVER_ACTION {}
-impl ::core::clone::Clone for VDS_RECOVER_ACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_RECOVER_ACTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_RECOVER_ACTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5000,19 +4373,8 @@ impl ::core::fmt::Debug for VDS_RECOVER_ACTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_SAN_POLICY(pub i32);
-impl ::core::marker::Copy for VDS_SAN_POLICY {}
-impl ::core::clone::Clone for VDS_SAN_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_SAN_POLICY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_SAN_POLICY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5022,19 +4384,8 @@ impl ::core::fmt::Debug for VDS_SAN_POLICY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_SERVICE_FLAG(pub i32);
-impl ::core::marker::Copy for VDS_SERVICE_FLAG {}
-impl ::core::clone::Clone for VDS_SERVICE_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_SERVICE_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_SERVICE_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5044,19 +4395,8 @@ impl ::core::fmt::Debug for VDS_SERVICE_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_STORAGE_BUS_TYPE(pub i32);
-impl ::core::marker::Copy for VDS_STORAGE_BUS_TYPE {}
-impl ::core::clone::Clone for VDS_STORAGE_BUS_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_STORAGE_BUS_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_STORAGE_BUS_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5066,19 +4406,8 @@ impl ::core::fmt::Debug for VDS_STORAGE_BUS_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_STORAGE_IDENTIFIER_CODE_SET(pub i32);
-impl ::core::marker::Copy for VDS_STORAGE_IDENTIFIER_CODE_SET {}
-impl ::core::clone::Clone for VDS_STORAGE_IDENTIFIER_CODE_SET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_STORAGE_IDENTIFIER_CODE_SET {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_STORAGE_IDENTIFIER_CODE_SET {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5088,19 +4417,8 @@ impl ::core::fmt::Debug for VDS_STORAGE_IDENTIFIER_CODE_SET {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_STORAGE_IDENTIFIER_TYPE(pub i32);
-impl ::core::marker::Copy for VDS_STORAGE_IDENTIFIER_TYPE {}
-impl ::core::clone::Clone for VDS_STORAGE_IDENTIFIER_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_STORAGE_IDENTIFIER_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_STORAGE_IDENTIFIER_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5110,19 +4428,8 @@ impl ::core::fmt::Debug for VDS_STORAGE_IDENTIFIER_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_STORAGE_POOL_STATUS(pub i32);
-impl ::core::marker::Copy for VDS_STORAGE_POOL_STATUS {}
-impl ::core::clone::Clone for VDS_STORAGE_POOL_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_STORAGE_POOL_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_STORAGE_POOL_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5132,19 +4439,8 @@ impl ::core::fmt::Debug for VDS_STORAGE_POOL_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_STORAGE_POOL_TYPE(pub i32);
-impl ::core::marker::Copy for VDS_STORAGE_POOL_TYPE {}
-impl ::core::clone::Clone for VDS_STORAGE_POOL_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_STORAGE_POOL_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_STORAGE_POOL_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5154,19 +4450,8 @@ impl ::core::fmt::Debug for VDS_STORAGE_POOL_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_SUB_SYSTEM_FLAG(pub i32);
-impl ::core::marker::Copy for VDS_SUB_SYSTEM_FLAG {}
-impl ::core::clone::Clone for VDS_SUB_SYSTEM_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_SUB_SYSTEM_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_SUB_SYSTEM_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5176,19 +4461,8 @@ impl ::core::fmt::Debug for VDS_SUB_SYSTEM_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_SUB_SYSTEM_STATUS(pub i32);
-impl ::core::marker::Copy for VDS_SUB_SYSTEM_STATUS {}
-impl ::core::clone::Clone for VDS_SUB_SYSTEM_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_SUB_SYSTEM_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_SUB_SYSTEM_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5198,19 +4472,8 @@ impl ::core::fmt::Debug for VDS_SUB_SYSTEM_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_SUB_SYSTEM_SUPPORTED_RAID_TYPE_FLAG(pub i32);
-impl ::core::marker::Copy for VDS_SUB_SYSTEM_SUPPORTED_RAID_TYPE_FLAG {}
-impl ::core::clone::Clone for VDS_SUB_SYSTEM_SUPPORTED_RAID_TYPE_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_SUB_SYSTEM_SUPPORTED_RAID_TYPE_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_SUB_SYSTEM_SUPPORTED_RAID_TYPE_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5220,19 +4483,8 @@ impl ::core::fmt::Debug for VDS_SUB_SYSTEM_SUPPORTED_RAID_TYPE_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_TRANSITION_STATE(pub i32);
-impl ::core::marker::Copy for VDS_TRANSITION_STATE {}
-impl ::core::clone::Clone for VDS_TRANSITION_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_TRANSITION_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_TRANSITION_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5242,19 +4494,8 @@ impl ::core::fmt::Debug for VDS_TRANSITION_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_VDISK_STATE(pub i32);
-impl ::core::marker::Copy for VDS_VDISK_STATE {}
-impl ::core::clone::Clone for VDS_VDISK_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_VDISK_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_VDISK_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5264,19 +4505,8 @@ impl ::core::fmt::Debug for VDS_VDISK_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_VERSION_SUPPORT_FLAG(pub i32);
-impl ::core::marker::Copy for VDS_VERSION_SUPPORT_FLAG {}
-impl ::core::clone::Clone for VDS_VERSION_SUPPORT_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_VERSION_SUPPORT_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_VERSION_SUPPORT_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5286,19 +4516,8 @@ impl ::core::fmt::Debug for VDS_VERSION_SUPPORT_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_VOLUME_FLAG(pub i32);
-impl ::core::marker::Copy for VDS_VOLUME_FLAG {}
-impl ::core::clone::Clone for VDS_VOLUME_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_VOLUME_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_VOLUME_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5308,19 +4527,8 @@ impl ::core::fmt::Debug for VDS_VOLUME_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_VOLUME_PLEX_STATUS(pub i32);
-impl ::core::marker::Copy for VDS_VOLUME_PLEX_STATUS {}
-impl ::core::clone::Clone for VDS_VOLUME_PLEX_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_VOLUME_PLEX_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_VOLUME_PLEX_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5330,19 +4538,8 @@ impl ::core::fmt::Debug for VDS_VOLUME_PLEX_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_VOLUME_PLEX_TYPE(pub i32);
-impl ::core::marker::Copy for VDS_VOLUME_PLEX_TYPE {}
-impl ::core::clone::Clone for VDS_VOLUME_PLEX_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_VOLUME_PLEX_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_VOLUME_PLEX_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5352,19 +4549,8 @@ impl ::core::fmt::Debug for VDS_VOLUME_PLEX_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_VOLUME_STATUS(pub i32);
-impl ::core::marker::Copy for VDS_VOLUME_STATUS {}
-impl ::core::clone::Clone for VDS_VOLUME_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_VOLUME_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_VOLUME_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5374,19 +4560,8 @@ impl ::core::fmt::Debug for VDS_VOLUME_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VDS_VOLUME_TYPE(pub i32);
-impl ::core::marker::Copy for VDS_VOLUME_TYPE {}
-impl ::core::clone::Clone for VDS_VOLUME_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VDS_VOLUME_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VDS_VOLUME_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5396,19 +4571,8 @@ impl ::core::fmt::Debug for VDS_VOLUME_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct __VDS_PARTITION_STYLE(pub i32);
-impl ::core::marker::Copy for __VDS_PARTITION_STYLE {}
-impl ::core::clone::Clone for __VDS_PARTITION_STYLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for __VDS_PARTITION_STYLE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for __VDS_PARTITION_STYLE {
     type TypeKind = ::windows_core::CopyType;
 }

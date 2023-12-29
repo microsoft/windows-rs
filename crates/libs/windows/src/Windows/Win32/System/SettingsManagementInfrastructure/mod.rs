@@ -802,19 +802,8 @@ pub const settingTypeComplex: WcmSettingType = WcmSettingType(2i32);
 pub const settingTypeList: WcmSettingType = WcmSettingType(3i32);
 pub const settingTypeScalar: WcmSettingType = WcmSettingType(1i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WcmDataType(pub i32);
-impl ::core::marker::Copy for WcmDataType {}
-impl ::core::clone::Clone for WcmDataType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WcmDataType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WcmDataType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -824,19 +813,8 @@ impl ::core::fmt::Debug for WcmDataType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WcmNamespaceAccess(pub i32);
-impl ::core::marker::Copy for WcmNamespaceAccess {}
-impl ::core::clone::Clone for WcmNamespaceAccess {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WcmNamespaceAccess {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WcmNamespaceAccess {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -846,19 +824,8 @@ impl ::core::fmt::Debug for WcmNamespaceAccess {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WcmNamespaceEnumerationFlags(pub i32);
-impl ::core::marker::Copy for WcmNamespaceEnumerationFlags {}
-impl ::core::clone::Clone for WcmNamespaceEnumerationFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WcmNamespaceEnumerationFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WcmNamespaceEnumerationFlags {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -868,19 +835,8 @@ impl ::core::fmt::Debug for WcmNamespaceEnumerationFlags {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WcmRestrictionFacets(pub i32);
-impl ::core::marker::Copy for WcmRestrictionFacets {}
-impl ::core::clone::Clone for WcmRestrictionFacets {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WcmRestrictionFacets {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WcmRestrictionFacets {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -890,19 +846,8 @@ impl ::core::fmt::Debug for WcmRestrictionFacets {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WcmSettingType(pub i32);
-impl ::core::marker::Copy for WcmSettingType {}
-impl ::core::clone::Clone for WcmSettingType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WcmSettingType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WcmSettingType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -912,19 +857,8 @@ impl ::core::fmt::Debug for WcmSettingType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WcmTargetMode(pub i32);
-impl ::core::marker::Copy for WcmTargetMode {}
-impl ::core::clone::Clone for WcmTargetMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WcmTargetMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WcmTargetMode {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -934,19 +868,8 @@ impl ::core::fmt::Debug for WcmTargetMode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WcmUserStatus(pub i32);
-impl ::core::marker::Copy for WcmUserStatus {}
-impl ::core::clone::Clone for WcmUserStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WcmUserStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WcmUserStatus {
     type TypeKind = ::windows_core::CopyType;
 }

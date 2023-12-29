@@ -498,19 +498,8 @@ pub const UI_VIEWVERB_DESTROY: UI_VIEWVERB = UI_VIEWVERB(1i32);
 pub const UI_VIEWVERB_ERROR: UI_VIEWVERB = UI_VIEWVERB(3i32);
 pub const UI_VIEWVERB_SIZE: UI_VIEWVERB = UI_VIEWVERB(2i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UI_COLLECTIONCHANGE(pub i32);
-impl ::core::marker::Copy for UI_COLLECTIONCHANGE {}
-impl ::core::clone::Clone for UI_COLLECTIONCHANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UI_COLLECTIONCHANGE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for UI_COLLECTIONCHANGE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -520,19 +509,8 @@ impl ::core::fmt::Debug for UI_COLLECTIONCHANGE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UI_COMMANDTYPE(pub i32);
-impl ::core::marker::Copy for UI_COMMANDTYPE {}
-impl ::core::clone::Clone for UI_COMMANDTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UI_COMMANDTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for UI_COMMANDTYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -542,19 +520,8 @@ impl ::core::fmt::Debug for UI_COMMANDTYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UI_CONTEXTAVAILABILITY(pub i32);
-impl ::core::marker::Copy for UI_CONTEXTAVAILABILITY {}
-impl ::core::clone::Clone for UI_CONTEXTAVAILABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UI_CONTEXTAVAILABILITY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for UI_CONTEXTAVAILABILITY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -564,19 +531,8 @@ impl ::core::fmt::Debug for UI_CONTEXTAVAILABILITY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UI_CONTROLDOCK(pub i32);
-impl ::core::marker::Copy for UI_CONTROLDOCK {}
-impl ::core::clone::Clone for UI_CONTROLDOCK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UI_CONTROLDOCK {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for UI_CONTROLDOCK {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -586,19 +542,8 @@ impl ::core::fmt::Debug for UI_CONTROLDOCK {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UI_EVENTLOCATION(pub i32);
-impl ::core::marker::Copy for UI_EVENTLOCATION {}
-impl ::core::clone::Clone for UI_EVENTLOCATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UI_EVENTLOCATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for UI_EVENTLOCATION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -608,19 +553,8 @@ impl ::core::fmt::Debug for UI_EVENTLOCATION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UI_EVENTTYPE(pub i32);
-impl ::core::marker::Copy for UI_EVENTTYPE {}
-impl ::core::clone::Clone for UI_EVENTTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UI_EVENTTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for UI_EVENTTYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -630,19 +564,8 @@ impl ::core::fmt::Debug for UI_EVENTTYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UI_EXECUTIONVERB(pub i32);
-impl ::core::marker::Copy for UI_EXECUTIONVERB {}
-impl ::core::clone::Clone for UI_EXECUTIONVERB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UI_EXECUTIONVERB {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for UI_EXECUTIONVERB {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -652,19 +575,8 @@ impl ::core::fmt::Debug for UI_EXECUTIONVERB {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UI_FONTDELTASIZE(pub i32);
-impl ::core::marker::Copy for UI_FONTDELTASIZE {}
-impl ::core::clone::Clone for UI_FONTDELTASIZE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UI_FONTDELTASIZE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for UI_FONTDELTASIZE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -674,19 +586,8 @@ impl ::core::fmt::Debug for UI_FONTDELTASIZE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UI_FONTPROPERTIES(pub i32);
-impl ::core::marker::Copy for UI_FONTPROPERTIES {}
-impl ::core::clone::Clone for UI_FONTPROPERTIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UI_FONTPROPERTIES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for UI_FONTPROPERTIES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -696,19 +597,8 @@ impl ::core::fmt::Debug for UI_FONTPROPERTIES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UI_FONTUNDERLINE(pub i32);
-impl ::core::marker::Copy for UI_FONTUNDERLINE {}
-impl ::core::clone::Clone for UI_FONTUNDERLINE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UI_FONTUNDERLINE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for UI_FONTUNDERLINE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -718,19 +608,8 @@ impl ::core::fmt::Debug for UI_FONTUNDERLINE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UI_FONTVERTICALPOSITION(pub i32);
-impl ::core::marker::Copy for UI_FONTVERTICALPOSITION {}
-impl ::core::clone::Clone for UI_FONTVERTICALPOSITION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UI_FONTVERTICALPOSITION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for UI_FONTVERTICALPOSITION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -740,19 +619,8 @@ impl ::core::fmt::Debug for UI_FONTVERTICALPOSITION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UI_INVALIDATIONS(pub i32);
-impl ::core::marker::Copy for UI_INVALIDATIONS {}
-impl ::core::clone::Clone for UI_INVALIDATIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UI_INVALIDATIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for UI_INVALIDATIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -795,19 +663,8 @@ impl ::core::ops::Not for UI_INVALIDATIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UI_OWNERSHIP(pub i32);
-impl ::core::marker::Copy for UI_OWNERSHIP {}
-impl ::core::clone::Clone for UI_OWNERSHIP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UI_OWNERSHIP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for UI_OWNERSHIP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -817,19 +674,8 @@ impl ::core::fmt::Debug for UI_OWNERSHIP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UI_SWATCHCOLORMODE(pub i32);
-impl ::core::marker::Copy for UI_SWATCHCOLORMODE {}
-impl ::core::clone::Clone for UI_SWATCHCOLORMODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UI_SWATCHCOLORMODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for UI_SWATCHCOLORMODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -839,19 +685,8 @@ impl ::core::fmt::Debug for UI_SWATCHCOLORMODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UI_SWATCHCOLORTYPE(pub i32);
-impl ::core::marker::Copy for UI_SWATCHCOLORTYPE {}
-impl ::core::clone::Clone for UI_SWATCHCOLORTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UI_SWATCHCOLORTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for UI_SWATCHCOLORTYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -861,19 +696,8 @@ impl ::core::fmt::Debug for UI_SWATCHCOLORTYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UI_VIEWTYPE(pub i32);
-impl ::core::marker::Copy for UI_VIEWTYPE {}
-impl ::core::clone::Clone for UI_VIEWTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UI_VIEWTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for UI_VIEWTYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -883,19 +707,8 @@ impl ::core::fmt::Debug for UI_VIEWTYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UI_VIEWVERB(pub i32);
-impl ::core::marker::Copy for UI_VIEWVERB {}
-impl ::core::clone::Clone for UI_VIEWVERB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UI_VIEWVERB {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for UI_VIEWVERB {
     type TypeKind = ::windows_core::CopyType;
 }

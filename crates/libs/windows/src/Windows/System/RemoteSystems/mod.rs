@@ -3169,24 +3169,13 @@ impl ::windows_core::CanTryInto<IRemoteSystemFilter> for RemoteSystemWebAccountF
 unsafe impl ::core::marker::Send for RemoteSystemWebAccountFilter {}
 unsafe impl ::core::marker::Sync for RemoteSystemWebAccountFilter {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RemoteSystemAccessStatus(pub i32);
 impl RemoteSystemAccessStatus {
     pub const Unspecified: Self = Self(0i32);
     pub const Allowed: Self = Self(1i32);
     pub const DeniedByUser: Self = Self(2i32);
     pub const DeniedBySystem: Self = Self(3i32);
-}
-impl ::core::marker::Copy for RemoteSystemAccessStatus {}
-impl ::core::clone::Clone for RemoteSystemAccessStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RemoteSystemAccessStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for RemoteSystemAccessStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -3200,22 +3189,11 @@ impl ::windows_core::RuntimeType for RemoteSystemAccessStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemAccessStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RemoteSystemAuthorizationKind(pub i32);
 impl RemoteSystemAuthorizationKind {
     pub const SameUser: Self = Self(0i32);
     pub const Anonymous: Self = Self(1i32);
-}
-impl ::core::marker::Copy for RemoteSystemAuthorizationKind {}
-impl ::core::clone::Clone for RemoteSystemAuthorizationKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RemoteSystemAuthorizationKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for RemoteSystemAuthorizationKind {
     type TypeKind = ::windows_core::CopyType;
@@ -3229,24 +3207,13 @@ impl ::windows_core::RuntimeType for RemoteSystemAuthorizationKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemAuthorizationKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RemoteSystemDiscoveryType(pub i32);
 impl RemoteSystemDiscoveryType {
     pub const Any: Self = Self(0i32);
     pub const Proximal: Self = Self(1i32);
     pub const Cloud: Self = Self(2i32);
     pub const SpatiallyProximal: Self = Self(3i32);
-}
-impl ::core::marker::Copy for RemoteSystemDiscoveryType {}
-impl ::core::clone::Clone for RemoteSystemDiscoveryType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RemoteSystemDiscoveryType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for RemoteSystemDiscoveryType {
     type TypeKind = ::windows_core::CopyType;
@@ -3260,7 +3227,7 @@ impl ::windows_core::RuntimeType for RemoteSystemDiscoveryType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemDiscoveryType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RemoteSystemPlatform(pub i32);
 impl RemoteSystemPlatform {
     pub const Unknown: Self = Self(0i32);
@@ -3268,17 +3235,6 @@ impl RemoteSystemPlatform {
     pub const Android: Self = Self(2i32);
     pub const Ios: Self = Self(3i32);
     pub const Linux: Self = Self(4i32);
-}
-impl ::core::marker::Copy for RemoteSystemPlatform {}
-impl ::core::clone::Clone for RemoteSystemPlatform {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RemoteSystemPlatform {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for RemoteSystemPlatform {
     type TypeKind = ::windows_core::CopyType;
@@ -3292,23 +3248,12 @@ impl ::windows_core::RuntimeType for RemoteSystemPlatform {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemPlatform;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RemoteSystemSessionCreationStatus(pub i32);
 impl RemoteSystemSessionCreationStatus {
     pub const Success: Self = Self(0i32);
     pub const SessionLimitsExceeded: Self = Self(1i32);
     pub const OperationAborted: Self = Self(2i32);
-}
-impl ::core::marker::Copy for RemoteSystemSessionCreationStatus {}
-impl ::core::clone::Clone for RemoteSystemSessionCreationStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RemoteSystemSessionCreationStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for RemoteSystemSessionCreationStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -3322,23 +3267,12 @@ impl ::windows_core::RuntimeType for RemoteSystemSessionCreationStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemSessionCreationStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RemoteSystemSessionDisconnectedReason(pub i32);
 impl RemoteSystemSessionDisconnectedReason {
     pub const SessionUnavailable: Self = Self(0i32);
     pub const RemovedByController: Self = Self(1i32);
     pub const SessionClosed: Self = Self(2i32);
-}
-impl ::core::marker::Copy for RemoteSystemSessionDisconnectedReason {}
-impl ::core::clone::Clone for RemoteSystemSessionDisconnectedReason {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RemoteSystemSessionDisconnectedReason {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for RemoteSystemSessionDisconnectedReason {
     type TypeKind = ::windows_core::CopyType;
@@ -3352,7 +3286,7 @@ impl ::windows_core::RuntimeType for RemoteSystemSessionDisconnectedReason {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemSessionDisconnectedReason;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RemoteSystemSessionJoinStatus(pub i32);
 impl RemoteSystemSessionJoinStatus {
     pub const Success: Self = Self(0i32);
@@ -3360,17 +3294,6 @@ impl RemoteSystemSessionJoinStatus {
     pub const OperationAborted: Self = Self(2i32);
     pub const SessionUnavailable: Self = Self(3i32);
     pub const RejectedByController: Self = Self(4i32);
-}
-impl ::core::marker::Copy for RemoteSystemSessionJoinStatus {}
-impl ::core::clone::Clone for RemoteSystemSessionJoinStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RemoteSystemSessionJoinStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for RemoteSystemSessionJoinStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -3384,22 +3307,11 @@ impl ::windows_core::RuntimeType for RemoteSystemSessionJoinStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemSessionJoinStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RemoteSystemSessionMessageChannelReliability(pub i32);
 impl RemoteSystemSessionMessageChannelReliability {
     pub const Reliable: Self = Self(0i32);
     pub const Unreliable: Self = Self(1i32);
-}
-impl ::core::marker::Copy for RemoteSystemSessionMessageChannelReliability {}
-impl ::core::clone::Clone for RemoteSystemSessionMessageChannelReliability {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RemoteSystemSessionMessageChannelReliability {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for RemoteSystemSessionMessageChannelReliability {
     type TypeKind = ::windows_core::CopyType;
@@ -3413,7 +3325,7 @@ impl ::windows_core::RuntimeType for RemoteSystemSessionMessageChannelReliabilit
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemSessionMessageChannelReliability;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RemoteSystemSessionParticipantWatcherStatus(pub i32);
 impl RemoteSystemSessionParticipantWatcherStatus {
     pub const Created: Self = Self(0i32);
@@ -3422,17 +3334,6 @@ impl RemoteSystemSessionParticipantWatcherStatus {
     pub const Stopping: Self = Self(3i32);
     pub const Stopped: Self = Self(4i32);
     pub const Aborted: Self = Self(5i32);
-}
-impl ::core::marker::Copy for RemoteSystemSessionParticipantWatcherStatus {}
-impl ::core::clone::Clone for RemoteSystemSessionParticipantWatcherStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RemoteSystemSessionParticipantWatcherStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for RemoteSystemSessionParticipantWatcherStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -3446,7 +3347,7 @@ impl ::windows_core::RuntimeType for RemoteSystemSessionParticipantWatcherStatus
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemSessionParticipantWatcherStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RemoteSystemSessionWatcherStatus(pub i32);
 impl RemoteSystemSessionWatcherStatus {
     pub const Created: Self = Self(0i32);
@@ -3455,17 +3356,6 @@ impl RemoteSystemSessionWatcherStatus {
     pub const Stopping: Self = Self(3i32);
     pub const Stopped: Self = Self(4i32);
     pub const Aborted: Self = Self(5i32);
-}
-impl ::core::marker::Copy for RemoteSystemSessionWatcherStatus {}
-impl ::core::clone::Clone for RemoteSystemSessionWatcherStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RemoteSystemSessionWatcherStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for RemoteSystemSessionWatcherStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -3479,24 +3369,13 @@ impl ::windows_core::RuntimeType for RemoteSystemSessionWatcherStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemSessionWatcherStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RemoteSystemStatus(pub i32);
 impl RemoteSystemStatus {
     pub const Unavailable: Self = Self(0i32);
     pub const DiscoveringAvailability: Self = Self(1i32);
     pub const Available: Self = Self(2i32);
     pub const Unknown: Self = Self(3i32);
-}
-impl ::core::marker::Copy for RemoteSystemStatus {}
-impl ::core::clone::Clone for RemoteSystemStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RemoteSystemStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for RemoteSystemStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -3510,22 +3389,11 @@ impl ::windows_core::RuntimeType for RemoteSystemStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RemoteSystemStatusType(pub i32);
 impl RemoteSystemStatusType {
     pub const Any: Self = Self(0i32);
     pub const Available: Self = Self(1i32);
-}
-impl ::core::marker::Copy for RemoteSystemStatusType {}
-impl ::core::clone::Clone for RemoteSystemStatusType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RemoteSystemStatusType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for RemoteSystemStatusType {
     type TypeKind = ::windows_core::CopyType;
@@ -3539,23 +3407,12 @@ impl ::windows_core::RuntimeType for RemoteSystemStatusType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemStatusType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RemoteSystemWatcherError(pub i32);
 impl RemoteSystemWatcherError {
     pub const Unknown: Self = Self(0i32);
     pub const InternetNotAvailable: Self = Self(1i32);
     pub const AuthenticationError: Self = Self(2i32);
-}
-impl ::core::marker::Copy for RemoteSystemWatcherError {}
-impl ::core::clone::Clone for RemoteSystemWatcherError {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RemoteSystemWatcherError {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for RemoteSystemWatcherError {
     type TypeKind = ::windows_core::CopyType;

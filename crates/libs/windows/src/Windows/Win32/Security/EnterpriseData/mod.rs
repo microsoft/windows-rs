@@ -285,19 +285,8 @@ pub const SRPHOSTING_TYPE_WINHTTP: SRPHOSTING_TYPE = SRPHOSTING_TYPE(1i32);
 pub const SRPHOSTING_TYPE_WININET: SRPHOSTING_TYPE = SRPHOSTING_TYPE(2i32);
 pub const SRPHOSTING_VERSION1: SRPHOSTING_VERSION = SRPHOSTING_VERSION(1i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ENTERPRISE_DATA_POLICIES(pub i32);
-impl ::core::marker::Copy for ENTERPRISE_DATA_POLICIES {}
-impl ::core::clone::Clone for ENTERPRISE_DATA_POLICIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ENTERPRISE_DATA_POLICIES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ENTERPRISE_DATA_POLICIES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -340,19 +329,8 @@ impl ::core::ops::Not for ENTERPRISE_DATA_POLICIES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SRPHOSTING_TYPE(pub i32);
-impl ::core::marker::Copy for SRPHOSTING_TYPE {}
-impl ::core::clone::Clone for SRPHOSTING_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SRPHOSTING_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SRPHOSTING_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -362,19 +340,8 @@ impl ::core::fmt::Debug for SRPHOSTING_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SRPHOSTING_VERSION(pub i32);
-impl ::core::marker::Copy for SRPHOSTING_VERSION {}
-impl ::core::clone::Clone for SRPHOSTING_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SRPHOSTING_VERSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SRPHOSTING_VERSION {
     type TypeKind = ::windows_core::CopyType;
 }

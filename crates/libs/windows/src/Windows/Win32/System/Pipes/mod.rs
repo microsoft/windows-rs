@@ -214,19 +214,8 @@ pub const PIPE_TYPE_MESSAGE: NAMED_PIPE_MODE = NAMED_PIPE_MODE(4u32);
 pub const PIPE_UNLIMITED_INSTANCES: u32 = 255u32;
 pub const PIPE_WAIT: NAMED_PIPE_MODE = NAMED_PIPE_MODE(0u32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NAMED_PIPE_MODE(pub u32);
-impl ::core::marker::Copy for NAMED_PIPE_MODE {}
-impl ::core::clone::Clone for NAMED_PIPE_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NAMED_PIPE_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NAMED_PIPE_MODE {
     type TypeKind = ::windows_core::CopyType;
 }

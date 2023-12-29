@@ -656,19 +656,8 @@ pub const HcsResourceTypeFile: HCS_RESOURCE_TYPE = HCS_RESOURCE_TYPE(1i32);
 pub const HcsResourceTypeJob: HCS_RESOURCE_TYPE = HCS_RESOURCE_TYPE(2i32);
 pub const HcsResourceTypeNone: HCS_RESOURCE_TYPE = HCS_RESOURCE_TYPE(0i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HCS_CREATE_OPTIONS(pub i32);
-impl ::core::marker::Copy for HCS_CREATE_OPTIONS {}
-impl ::core::clone::Clone for HCS_CREATE_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HCS_CREATE_OPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HCS_CREATE_OPTIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -678,19 +667,8 @@ impl ::core::fmt::Debug for HCS_CREATE_OPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HCS_EVENT_OPTIONS(pub i32);
-impl ::core::marker::Copy for HCS_EVENT_OPTIONS {}
-impl ::core::clone::Clone for HCS_EVENT_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HCS_EVENT_OPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HCS_EVENT_OPTIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -733,19 +711,8 @@ impl ::core::ops::Not for HCS_EVENT_OPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HCS_EVENT_TYPE(pub i32);
-impl ::core::marker::Copy for HCS_EVENT_TYPE {}
-impl ::core::clone::Clone for HCS_EVENT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HCS_EVENT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HCS_EVENT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -755,19 +722,8 @@ impl ::core::fmt::Debug for HCS_EVENT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HCS_NOTIFICATIONS(pub i32);
-impl ::core::marker::Copy for HCS_NOTIFICATIONS {}
-impl ::core::clone::Clone for HCS_NOTIFICATIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HCS_NOTIFICATIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HCS_NOTIFICATIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -777,19 +733,8 @@ impl ::core::fmt::Debug for HCS_NOTIFICATIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HCS_NOTIFICATION_FLAGS(pub i32);
-impl ::core::marker::Copy for HCS_NOTIFICATION_FLAGS {}
-impl ::core::clone::Clone for HCS_NOTIFICATION_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HCS_NOTIFICATION_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HCS_NOTIFICATION_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -799,19 +744,8 @@ impl ::core::fmt::Debug for HCS_NOTIFICATION_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HCS_OPERATION_OPTIONS(pub i32);
-impl ::core::marker::Copy for HCS_OPERATION_OPTIONS {}
-impl ::core::clone::Clone for HCS_OPERATION_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HCS_OPERATION_OPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HCS_OPERATION_OPTIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -854,19 +788,8 @@ impl ::core::ops::Not for HCS_OPERATION_OPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HCS_OPERATION_TYPE(pub i32);
-impl ::core::marker::Copy for HCS_OPERATION_TYPE {}
-impl ::core::clone::Clone for HCS_OPERATION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HCS_OPERATION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HCS_OPERATION_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -876,19 +799,8 @@ impl ::core::fmt::Debug for HCS_OPERATION_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HCS_RESOURCE_TYPE(pub i32);
-impl ::core::marker::Copy for HCS_RESOURCE_TYPE {}
-impl ::core::clone::Clone for HCS_RESOURCE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HCS_RESOURCE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HCS_RESOURCE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }

@@ -1563,19 +1563,8 @@ pub const RO_ERROR_REPORTING_USESETERRORINFO: RO_ERROR_REPORTING_FLAGS = RO_ERRO
 pub const RO_INIT_MULTITHREADED: RO_INIT_TYPE = RO_INIT_TYPE(1i32);
 pub const RO_INIT_SINGLETHREADED: RO_INIT_TYPE = RO_INIT_TYPE(0i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ACTIVATIONTYPE(pub i32);
-impl ::core::marker::Copy for ACTIVATIONTYPE {}
-impl ::core::clone::Clone for ACTIVATIONTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ACTIVATIONTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ACTIVATIONTYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1585,19 +1574,8 @@ impl ::core::fmt::Debug for ACTIVATIONTYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AgileReferenceOptions(pub i32);
-impl ::core::marker::Copy for AgileReferenceOptions {}
-impl ::core::clone::Clone for AgileReferenceOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AgileReferenceOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AgileReferenceOptions {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1607,19 +1585,8 @@ impl ::core::fmt::Debug for AgileReferenceOptions {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BSOS_OPTIONS(pub i32);
-impl ::core::marker::Copy for BSOS_OPTIONS {}
-impl ::core::clone::Clone for BSOS_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BSOS_OPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for BSOS_OPTIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1629,19 +1596,8 @@ impl ::core::fmt::Debug for BSOS_OPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CASTING_CONNECTION_ERROR_STATUS(pub i32);
-impl ::core::marker::Copy for CASTING_CONNECTION_ERROR_STATUS {}
-impl ::core::clone::Clone for CASTING_CONNECTION_ERROR_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CASTING_CONNECTION_ERROR_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CASTING_CONNECTION_ERROR_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1651,19 +1607,8 @@ impl ::core::fmt::Debug for CASTING_CONNECTION_ERROR_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CASTING_CONNECTION_STATE(pub i32);
-impl ::core::marker::Copy for CASTING_CONNECTION_STATE {}
-impl ::core::clone::Clone for CASTING_CONNECTION_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CASTING_CONNECTION_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CASTING_CONNECTION_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1673,19 +1618,8 @@ impl ::core::fmt::Debug for CASTING_CONNECTION_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPATCHERQUEUE_THREAD_APARTMENTTYPE(pub i32);
-impl ::core::marker::Copy for DISPATCHERQUEUE_THREAD_APARTMENTTYPE {}
-impl ::core::clone::Clone for DISPATCHERQUEUE_THREAD_APARTMENTTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPATCHERQUEUE_THREAD_APARTMENTTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPATCHERQUEUE_THREAD_APARTMENTTYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1695,19 +1629,8 @@ impl ::core::fmt::Debug for DISPATCHERQUEUE_THREAD_APARTMENTTYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPATCHERQUEUE_THREAD_TYPE(pub i32);
-impl ::core::marker::Copy for DISPATCHERQUEUE_THREAD_TYPE {}
-impl ::core::clone::Clone for DISPATCHERQUEUE_THREAD_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPATCHERQUEUE_THREAD_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPATCHERQUEUE_THREAD_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1717,19 +1640,8 @@ impl ::core::fmt::Debug for DISPATCHERQUEUE_THREAD_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RO_ERROR_REPORTING_FLAGS(pub i32);
-impl ::core::marker::Copy for RO_ERROR_REPORTING_FLAGS {}
-impl ::core::clone::Clone for RO_ERROR_REPORTING_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RO_ERROR_REPORTING_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RO_ERROR_REPORTING_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1772,19 +1684,8 @@ impl ::core::ops::Not for RO_ERROR_REPORTING_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RO_INIT_TYPE(pub i32);
-impl ::core::marker::Copy for RO_INIT_TYPE {}
-impl ::core::clone::Clone for RO_INIT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RO_INIT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RO_INIT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1794,19 +1695,8 @@ impl ::core::fmt::Debug for RO_INIT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TrustLevel(pub i32);
-impl ::core::marker::Copy for TrustLevel {}
-impl ::core::clone::Clone for TrustLevel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TrustLevel {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TrustLevel {
     type TypeKind = ::windows_core::CopyType;
 }

@@ -2136,19 +2136,8 @@ pub const fNDIS_GUID_TO_OID: u32 = 1u32;
 pub const fNDIS_GUID_TO_STATUS: u32 = 2u32;
 pub const fNDIS_GUID_UNICODE_STRING: u32 = 8u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct IF_ADMINISTRATIVE_STATE(pub i32);
-impl ::core::marker::Copy for IF_ADMINISTRATIVE_STATE {}
-impl ::core::clone::Clone for IF_ADMINISTRATIVE_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for IF_ADMINISTRATIVE_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for IF_ADMINISTRATIVE_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2158,19 +2147,8 @@ impl ::core::fmt::Debug for IF_ADMINISTRATIVE_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct IF_OPER_STATUS(pub i32);
-impl ::core::marker::Copy for IF_OPER_STATUS {}
-impl ::core::clone::Clone for IF_OPER_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for IF_OPER_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for IF_OPER_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2180,19 +2158,8 @@ impl ::core::fmt::Debug for IF_OPER_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NDIS_802_11_AUTHENTICATION_MODE(pub i32);
-impl ::core::marker::Copy for NDIS_802_11_AUTHENTICATION_MODE {}
-impl ::core::clone::Clone for NDIS_802_11_AUTHENTICATION_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_802_11_AUTHENTICATION_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NDIS_802_11_AUTHENTICATION_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2202,19 +2169,8 @@ impl ::core::fmt::Debug for NDIS_802_11_AUTHENTICATION_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NDIS_802_11_MEDIA_STREAM_MODE(pub i32);
-impl ::core::marker::Copy for NDIS_802_11_MEDIA_STREAM_MODE {}
-impl ::core::clone::Clone for NDIS_802_11_MEDIA_STREAM_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_802_11_MEDIA_STREAM_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NDIS_802_11_MEDIA_STREAM_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2224,19 +2180,8 @@ impl ::core::fmt::Debug for NDIS_802_11_MEDIA_STREAM_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NDIS_802_11_NETWORK_INFRASTRUCTURE(pub i32);
-impl ::core::marker::Copy for NDIS_802_11_NETWORK_INFRASTRUCTURE {}
-impl ::core::clone::Clone for NDIS_802_11_NETWORK_INFRASTRUCTURE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_802_11_NETWORK_INFRASTRUCTURE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NDIS_802_11_NETWORK_INFRASTRUCTURE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2246,19 +2191,8 @@ impl ::core::fmt::Debug for NDIS_802_11_NETWORK_INFRASTRUCTURE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NDIS_802_11_NETWORK_TYPE(pub i32);
-impl ::core::marker::Copy for NDIS_802_11_NETWORK_TYPE {}
-impl ::core::clone::Clone for NDIS_802_11_NETWORK_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_802_11_NETWORK_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NDIS_802_11_NETWORK_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2268,19 +2202,8 @@ impl ::core::fmt::Debug for NDIS_802_11_NETWORK_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NDIS_802_11_POWER_MODE(pub i32);
-impl ::core::marker::Copy for NDIS_802_11_POWER_MODE {}
-impl ::core::clone::Clone for NDIS_802_11_POWER_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_802_11_POWER_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NDIS_802_11_POWER_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2290,19 +2213,8 @@ impl ::core::fmt::Debug for NDIS_802_11_POWER_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NDIS_802_11_PRIVACY_FILTER(pub i32);
-impl ::core::marker::Copy for NDIS_802_11_PRIVACY_FILTER {}
-impl ::core::clone::Clone for NDIS_802_11_PRIVACY_FILTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_802_11_PRIVACY_FILTER {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NDIS_802_11_PRIVACY_FILTER {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2312,19 +2224,8 @@ impl ::core::fmt::Debug for NDIS_802_11_PRIVACY_FILTER {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NDIS_802_11_RADIO_STATUS(pub i32);
-impl ::core::marker::Copy for NDIS_802_11_RADIO_STATUS {}
-impl ::core::clone::Clone for NDIS_802_11_RADIO_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_802_11_RADIO_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NDIS_802_11_RADIO_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2334,19 +2235,8 @@ impl ::core::fmt::Debug for NDIS_802_11_RADIO_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NDIS_802_11_RELOAD_DEFAULTS(pub i32);
-impl ::core::marker::Copy for NDIS_802_11_RELOAD_DEFAULTS {}
-impl ::core::clone::Clone for NDIS_802_11_RELOAD_DEFAULTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_802_11_RELOAD_DEFAULTS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NDIS_802_11_RELOAD_DEFAULTS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2356,19 +2246,8 @@ impl ::core::fmt::Debug for NDIS_802_11_RELOAD_DEFAULTS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NDIS_802_11_STATUS_TYPE(pub i32);
-impl ::core::marker::Copy for NDIS_802_11_STATUS_TYPE {}
-impl ::core::clone::Clone for NDIS_802_11_STATUS_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_802_11_STATUS_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NDIS_802_11_STATUS_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2378,19 +2257,8 @@ impl ::core::fmt::Debug for NDIS_802_11_STATUS_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NDIS_802_11_WEP_STATUS(pub i32);
-impl ::core::marker::Copy for NDIS_802_11_WEP_STATUS {}
-impl ::core::clone::Clone for NDIS_802_11_WEP_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_802_11_WEP_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NDIS_802_11_WEP_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2400,19 +2268,8 @@ impl ::core::fmt::Debug for NDIS_802_11_WEP_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NDIS_802_5_RING_STATE(pub i32);
-impl ::core::marker::Copy for NDIS_802_5_RING_STATE {}
-impl ::core::clone::Clone for NDIS_802_5_RING_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_802_5_RING_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NDIS_802_5_RING_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2422,19 +2279,8 @@ impl ::core::fmt::Debug for NDIS_802_5_RING_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NDIS_DEVICE_POWER_STATE(pub i32);
-impl ::core::marker::Copy for NDIS_DEVICE_POWER_STATE {}
-impl ::core::clone::Clone for NDIS_DEVICE_POWER_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_DEVICE_POWER_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NDIS_DEVICE_POWER_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2444,19 +2290,8 @@ impl ::core::fmt::Debug for NDIS_DEVICE_POWER_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NDIS_FDDI_ATTACHMENT_TYPE(pub i32);
-impl ::core::marker::Copy for NDIS_FDDI_ATTACHMENT_TYPE {}
-impl ::core::clone::Clone for NDIS_FDDI_ATTACHMENT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_FDDI_ATTACHMENT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NDIS_FDDI_ATTACHMENT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2466,19 +2301,8 @@ impl ::core::fmt::Debug for NDIS_FDDI_ATTACHMENT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NDIS_FDDI_LCONNECTION_STATE(pub i32);
-impl ::core::marker::Copy for NDIS_FDDI_LCONNECTION_STATE {}
-impl ::core::clone::Clone for NDIS_FDDI_LCONNECTION_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_FDDI_LCONNECTION_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NDIS_FDDI_LCONNECTION_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2488,19 +2312,8 @@ impl ::core::fmt::Debug for NDIS_FDDI_LCONNECTION_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NDIS_FDDI_RING_MGT_STATE(pub i32);
-impl ::core::marker::Copy for NDIS_FDDI_RING_MGT_STATE {}
-impl ::core::clone::Clone for NDIS_FDDI_RING_MGT_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_FDDI_RING_MGT_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NDIS_FDDI_RING_MGT_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2510,19 +2323,8 @@ impl ::core::fmt::Debug for NDIS_FDDI_RING_MGT_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NDIS_HARDWARE_STATUS(pub i32);
-impl ::core::marker::Copy for NDIS_HARDWARE_STATUS {}
-impl ::core::clone::Clone for NDIS_HARDWARE_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_HARDWARE_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NDIS_HARDWARE_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2532,19 +2334,8 @@ impl ::core::fmt::Debug for NDIS_HARDWARE_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NDIS_INTERRUPT_MODERATION(pub i32);
-impl ::core::marker::Copy for NDIS_INTERRUPT_MODERATION {}
-impl ::core::clone::Clone for NDIS_INTERRUPT_MODERATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_INTERRUPT_MODERATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NDIS_INTERRUPT_MODERATION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2554,19 +2345,8 @@ impl ::core::fmt::Debug for NDIS_INTERRUPT_MODERATION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NDIS_MEDIA_STATE(pub i32);
-impl ::core::marker::Copy for NDIS_MEDIA_STATE {}
-impl ::core::clone::Clone for NDIS_MEDIA_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_MEDIA_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NDIS_MEDIA_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2576,19 +2356,8 @@ impl ::core::fmt::Debug for NDIS_MEDIA_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NDIS_MEDIUM(pub i32);
-impl ::core::marker::Copy for NDIS_MEDIUM {}
-impl ::core::clone::Clone for NDIS_MEDIUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_MEDIUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NDIS_MEDIUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2598,19 +2367,8 @@ impl ::core::fmt::Debug for NDIS_MEDIUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NDIS_NETWORK_CHANGE_TYPE(pub i32);
-impl ::core::marker::Copy for NDIS_NETWORK_CHANGE_TYPE {}
-impl ::core::clone::Clone for NDIS_NETWORK_CHANGE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_NETWORK_CHANGE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NDIS_NETWORK_CHANGE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2620,19 +2378,8 @@ impl ::core::fmt::Debug for NDIS_NETWORK_CHANGE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NDIS_PHYSICAL_MEDIUM(pub i32);
-impl ::core::marker::Copy for NDIS_PHYSICAL_MEDIUM {}
-impl ::core::clone::Clone for NDIS_PHYSICAL_MEDIUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_PHYSICAL_MEDIUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NDIS_PHYSICAL_MEDIUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2642,19 +2389,8 @@ impl ::core::fmt::Debug for NDIS_PHYSICAL_MEDIUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NDIS_PORT_AUTHORIZATION_STATE(pub i32);
-impl ::core::marker::Copy for NDIS_PORT_AUTHORIZATION_STATE {}
-impl ::core::clone::Clone for NDIS_PORT_AUTHORIZATION_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_PORT_AUTHORIZATION_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NDIS_PORT_AUTHORIZATION_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2664,19 +2400,8 @@ impl ::core::fmt::Debug for NDIS_PORT_AUTHORIZATION_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NDIS_PORT_CONTROL_STATE(pub i32);
-impl ::core::marker::Copy for NDIS_PORT_CONTROL_STATE {}
-impl ::core::clone::Clone for NDIS_PORT_CONTROL_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_PORT_CONTROL_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NDIS_PORT_CONTROL_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2686,19 +2411,8 @@ impl ::core::fmt::Debug for NDIS_PORT_CONTROL_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NDIS_PORT_TYPE(pub i32);
-impl ::core::marker::Copy for NDIS_PORT_TYPE {}
-impl ::core::clone::Clone for NDIS_PORT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_PORT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NDIS_PORT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2708,19 +2422,8 @@ impl ::core::fmt::Debug for NDIS_PORT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NDIS_PROCESSOR_VENDOR(pub i32);
-impl ::core::marker::Copy for NDIS_PROCESSOR_VENDOR {}
-impl ::core::clone::Clone for NDIS_PROCESSOR_VENDOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_PROCESSOR_VENDOR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NDIS_PROCESSOR_VENDOR {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2730,19 +2433,8 @@ impl ::core::fmt::Debug for NDIS_PROCESSOR_VENDOR {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NDIS_REQUEST_TYPE(pub i32);
-impl ::core::marker::Copy for NDIS_REQUEST_TYPE {}
-impl ::core::clone::Clone for NDIS_REQUEST_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_REQUEST_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NDIS_REQUEST_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2752,19 +2444,8 @@ impl ::core::fmt::Debug for NDIS_REQUEST_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NDIS_SUPPORTED_PAUSE_FUNCTIONS(pub i32);
-impl ::core::marker::Copy for NDIS_SUPPORTED_PAUSE_FUNCTIONS {}
-impl ::core::clone::Clone for NDIS_SUPPORTED_PAUSE_FUNCTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_SUPPORTED_PAUSE_FUNCTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NDIS_SUPPORTED_PAUSE_FUNCTIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2774,19 +2455,8 @@ impl ::core::fmt::Debug for NDIS_SUPPORTED_PAUSE_FUNCTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NDIS_WAN_HEADER_FORMAT(pub i32);
-impl ::core::marker::Copy for NDIS_WAN_HEADER_FORMAT {}
-impl ::core::clone::Clone for NDIS_WAN_HEADER_FORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_WAN_HEADER_FORMAT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NDIS_WAN_HEADER_FORMAT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2796,19 +2466,8 @@ impl ::core::fmt::Debug for NDIS_WAN_HEADER_FORMAT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NDIS_WAN_MEDIUM_SUBTYPE(pub i32);
-impl ::core::marker::Copy for NDIS_WAN_MEDIUM_SUBTYPE {}
-impl ::core::clone::Clone for NDIS_WAN_MEDIUM_SUBTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_WAN_MEDIUM_SUBTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NDIS_WAN_MEDIUM_SUBTYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2818,19 +2477,8 @@ impl ::core::fmt::Debug for NDIS_WAN_MEDIUM_SUBTYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NDIS_WAN_QUALITY(pub i32);
-impl ::core::marker::Copy for NDIS_WAN_QUALITY {}
-impl ::core::clone::Clone for NDIS_WAN_QUALITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_WAN_QUALITY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NDIS_WAN_QUALITY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2840,19 +2488,8 @@ impl ::core::fmt::Debug for NDIS_WAN_QUALITY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NDK_RDMA_TECHNOLOGY(pub i32);
-impl ::core::marker::Copy for NDK_RDMA_TECHNOLOGY {}
-impl ::core::clone::Clone for NDK_RDMA_TECHNOLOGY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDK_RDMA_TECHNOLOGY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NDK_RDMA_TECHNOLOGY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2862,19 +2499,8 @@ impl ::core::fmt::Debug for NDK_RDMA_TECHNOLOGY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NET_IF_ACCESS_TYPE(pub i32);
-impl ::core::marker::Copy for NET_IF_ACCESS_TYPE {}
-impl ::core::clone::Clone for NET_IF_ACCESS_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NET_IF_ACCESS_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NET_IF_ACCESS_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2884,19 +2510,8 @@ impl ::core::fmt::Debug for NET_IF_ACCESS_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NET_IF_ADMIN_STATUS(pub i32);
-impl ::core::marker::Copy for NET_IF_ADMIN_STATUS {}
-impl ::core::clone::Clone for NET_IF_ADMIN_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NET_IF_ADMIN_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NET_IF_ADMIN_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2906,19 +2521,8 @@ impl ::core::fmt::Debug for NET_IF_ADMIN_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NET_IF_CONNECTION_TYPE(pub i32);
-impl ::core::marker::Copy for NET_IF_CONNECTION_TYPE {}
-impl ::core::clone::Clone for NET_IF_CONNECTION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NET_IF_CONNECTION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NET_IF_CONNECTION_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2928,19 +2532,8 @@ impl ::core::fmt::Debug for NET_IF_CONNECTION_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NET_IF_DIRECTION_TYPE(pub i32);
-impl ::core::marker::Copy for NET_IF_DIRECTION_TYPE {}
-impl ::core::clone::Clone for NET_IF_DIRECTION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NET_IF_DIRECTION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NET_IF_DIRECTION_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2950,19 +2543,8 @@ impl ::core::fmt::Debug for NET_IF_DIRECTION_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NET_IF_MEDIA_CONNECT_STATE(pub i32);
-impl ::core::marker::Copy for NET_IF_MEDIA_CONNECT_STATE {}
-impl ::core::clone::Clone for NET_IF_MEDIA_CONNECT_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NET_IF_MEDIA_CONNECT_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NET_IF_MEDIA_CONNECT_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2972,19 +2554,8 @@ impl ::core::fmt::Debug for NET_IF_MEDIA_CONNECT_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NET_IF_MEDIA_DUPLEX_STATE(pub i32);
-impl ::core::marker::Copy for NET_IF_MEDIA_DUPLEX_STATE {}
-impl ::core::clone::Clone for NET_IF_MEDIA_DUPLEX_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NET_IF_MEDIA_DUPLEX_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NET_IF_MEDIA_DUPLEX_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2994,19 +2565,8 @@ impl ::core::fmt::Debug for NET_IF_MEDIA_DUPLEX_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NET_IF_OPER_STATUS(pub i32);
-impl ::core::marker::Copy for NET_IF_OPER_STATUS {}
-impl ::core::clone::Clone for NET_IF_OPER_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NET_IF_OPER_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NET_IF_OPER_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3016,19 +2576,8 @@ impl ::core::fmt::Debug for NET_IF_OPER_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NET_IF_RCV_ADDRESS_TYPE(pub i32);
-impl ::core::marker::Copy for NET_IF_RCV_ADDRESS_TYPE {}
-impl ::core::clone::Clone for NET_IF_RCV_ADDRESS_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NET_IF_RCV_ADDRESS_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NET_IF_RCV_ADDRESS_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3038,19 +2587,8 @@ impl ::core::fmt::Debug for NET_IF_RCV_ADDRESS_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OFFLOAD_CONF_ALGO(pub i32);
-impl ::core::marker::Copy for OFFLOAD_CONF_ALGO {}
-impl ::core::clone::Clone for OFFLOAD_CONF_ALGO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OFFLOAD_CONF_ALGO {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OFFLOAD_CONF_ALGO {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3060,19 +2598,8 @@ impl ::core::fmt::Debug for OFFLOAD_CONF_ALGO {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OFFLOAD_INTEGRITY_ALGO(pub i32);
-impl ::core::marker::Copy for OFFLOAD_INTEGRITY_ALGO {}
-impl ::core::clone::Clone for OFFLOAD_INTEGRITY_ALGO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OFFLOAD_INTEGRITY_ALGO {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OFFLOAD_INTEGRITY_ALGO {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3082,19 +2609,8 @@ impl ::core::fmt::Debug for OFFLOAD_INTEGRITY_ALGO {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OFFLOAD_OPERATION_E(pub i32);
-impl ::core::marker::Copy for OFFLOAD_OPERATION_E {}
-impl ::core::clone::Clone for OFFLOAD_OPERATION_E {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OFFLOAD_OPERATION_E {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OFFLOAD_OPERATION_E {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3104,19 +2620,8 @@ impl ::core::fmt::Debug for OFFLOAD_OPERATION_E {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TUNNEL_TYPE(pub i32);
-impl ::core::marker::Copy for TUNNEL_TYPE {}
-impl ::core::clone::Clone for TUNNEL_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TUNNEL_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TUNNEL_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3126,19 +2631,8 @@ impl ::core::fmt::Debug for TUNNEL_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UDP_ENCAP_TYPE(pub i32);
-impl ::core::marker::Copy for UDP_ENCAP_TYPE {}
-impl ::core::clone::Clone for UDP_ENCAP_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UDP_ENCAP_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for UDP_ENCAP_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }

@@ -1318,19 +1318,8 @@ pub const SimpleDeviceOrientation_Rotated180DegreesCounterclockwise: SIMPLE_DEVI
 pub const SimpleDeviceOrientation_Rotated270DegreesCounterclockwise: SIMPLE_DEVICE_ORIENTATION = SIMPLE_DEVICE_ORIENTATION(3i32);
 pub const SimpleDeviceOrientation_Rotated90DegreesCounterclockwise: SIMPLE_DEVICE_ORIENTATION = SIMPLE_DEVICE_ORIENTATION(1i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ACTIVITY_STATE(pub i32);
-impl ::core::marker::Copy for ACTIVITY_STATE {}
-impl ::core::clone::Clone for ACTIVITY_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ACTIVITY_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ACTIVITY_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1340,19 +1329,8 @@ impl ::core::fmt::Debug for ACTIVITY_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ACTIVITY_STATE_COUNT(pub i32);
-impl ::core::marker::Copy for ACTIVITY_STATE_COUNT {}
-impl ::core::clone::Clone for ACTIVITY_STATE_COUNT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ACTIVITY_STATE_COUNT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ACTIVITY_STATE_COUNT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1362,19 +1340,8 @@ impl ::core::fmt::Debug for ACTIVITY_STATE_COUNT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AXIS(pub i32);
-impl ::core::marker::Copy for AXIS {}
-impl ::core::clone::Clone for AXIS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AXIS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AXIS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1384,19 +1351,8 @@ impl ::core::fmt::Debug for AXIS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ELEVATION_CHANGE_MODE(pub i32);
-impl ::core::marker::Copy for ELEVATION_CHANGE_MODE {}
-impl ::core::clone::Clone for ELEVATION_CHANGE_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ELEVATION_CHANGE_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ELEVATION_CHANGE_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1406,19 +1362,8 @@ impl ::core::fmt::Debug for ELEVATION_CHANGE_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HUMAN_PRESENCE_DETECTION_TYPE(pub i32);
-impl ::core::marker::Copy for HUMAN_PRESENCE_DETECTION_TYPE {}
-impl ::core::clone::Clone for HUMAN_PRESENCE_DETECTION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HUMAN_PRESENCE_DETECTION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HUMAN_PRESENCE_DETECTION_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1428,19 +1373,8 @@ impl ::core::fmt::Debug for HUMAN_PRESENCE_DETECTION_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HUMAN_PRESENCE_DETECTION_TYPE_COUNT(pub i32);
-impl ::core::marker::Copy for HUMAN_PRESENCE_DETECTION_TYPE_COUNT {}
-impl ::core::clone::Clone for HUMAN_PRESENCE_DETECTION_TYPE_COUNT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HUMAN_PRESENCE_DETECTION_TYPE_COUNT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HUMAN_PRESENCE_DETECTION_TYPE_COUNT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1450,19 +1384,8 @@ impl ::core::fmt::Debug for HUMAN_PRESENCE_DETECTION_TYPE_COUNT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct LOCATION_DESIRED_ACCURACY(pub i32);
-impl ::core::marker::Copy for LOCATION_DESIRED_ACCURACY {}
-impl ::core::clone::Clone for LOCATION_DESIRED_ACCURACY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for LOCATION_DESIRED_ACCURACY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for LOCATION_DESIRED_ACCURACY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1472,19 +1395,8 @@ impl ::core::fmt::Debug for LOCATION_DESIRED_ACCURACY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct LOCATION_POSITION_SOURCE(pub i32);
-impl ::core::marker::Copy for LOCATION_POSITION_SOURCE {}
-impl ::core::clone::Clone for LOCATION_POSITION_SOURCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for LOCATION_POSITION_SOURCE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for LOCATION_POSITION_SOURCE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1494,19 +1406,8 @@ impl ::core::fmt::Debug for LOCATION_POSITION_SOURCE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MAGNETOMETER_ACCURACY(pub i32);
-impl ::core::marker::Copy for MAGNETOMETER_ACCURACY {}
-impl ::core::clone::Clone for MAGNETOMETER_ACCURACY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MAGNETOMETER_ACCURACY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MAGNETOMETER_ACCURACY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1516,19 +1417,8 @@ impl ::core::fmt::Debug for MAGNETOMETER_ACCURACY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MagnetometerAccuracy(pub i32);
-impl ::core::marker::Copy for MagnetometerAccuracy {}
-impl ::core::clone::Clone for MagnetometerAccuracy {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MagnetometerAccuracy {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MagnetometerAccuracy {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1538,19 +1428,8 @@ impl ::core::fmt::Debug for MagnetometerAccuracy {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PEDOMETER_STEP_TYPE(pub i32);
-impl ::core::marker::Copy for PEDOMETER_STEP_TYPE {}
-impl ::core::clone::Clone for PEDOMETER_STEP_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PEDOMETER_STEP_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PEDOMETER_STEP_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1560,19 +1439,8 @@ impl ::core::fmt::Debug for PEDOMETER_STEP_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PEDOMETER_STEP_TYPE_COUNT(pub i32);
-impl ::core::marker::Copy for PEDOMETER_STEP_TYPE_COUNT {}
-impl ::core::clone::Clone for PEDOMETER_STEP_TYPE_COUNT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PEDOMETER_STEP_TYPE_COUNT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PEDOMETER_STEP_TYPE_COUNT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1582,19 +1450,8 @@ impl ::core::fmt::Debug for PEDOMETER_STEP_TYPE_COUNT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PROXIMITY_SENSOR_CAPABILITIES(pub i32);
-impl ::core::marker::Copy for PROXIMITY_SENSOR_CAPABILITIES {}
-impl ::core::clone::Clone for PROXIMITY_SENSOR_CAPABILITIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PROXIMITY_SENSOR_CAPABILITIES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PROXIMITY_SENSOR_CAPABILITIES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1604,19 +1461,8 @@ impl ::core::fmt::Debug for PROXIMITY_SENSOR_CAPABILITIES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PROXIMITY_TYPE(pub i32);
-impl ::core::marker::Copy for PROXIMITY_TYPE {}
-impl ::core::clone::Clone for PROXIMITY_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PROXIMITY_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PROXIMITY_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1626,19 +1472,8 @@ impl ::core::fmt::Debug for PROXIMITY_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SENSOR_CONNECTION_TYPES(pub i32);
-impl ::core::marker::Copy for SENSOR_CONNECTION_TYPES {}
-impl ::core::clone::Clone for SENSOR_CONNECTION_TYPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SENSOR_CONNECTION_TYPES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SENSOR_CONNECTION_TYPES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1648,19 +1483,8 @@ impl ::core::fmt::Debug for SENSOR_CONNECTION_TYPES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SENSOR_STATE(pub i32);
-impl ::core::marker::Copy for SENSOR_STATE {}
-impl ::core::clone::Clone for SENSOR_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SENSOR_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SENSOR_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1670,19 +1494,8 @@ impl ::core::fmt::Debug for SENSOR_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SIMPLE_DEVICE_ORIENTATION(pub i32);
-impl ::core::marker::Copy for SIMPLE_DEVICE_ORIENTATION {}
-impl ::core::clone::Clone for SIMPLE_DEVICE_ORIENTATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SIMPLE_DEVICE_ORIENTATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SIMPLE_DEVICE_ORIENTATION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1692,19 +1505,8 @@ impl ::core::fmt::Debug for SIMPLE_DEVICE_ORIENTATION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SensorConnectionType(pub i32);
-impl ::core::marker::Copy for SensorConnectionType {}
-impl ::core::clone::Clone for SensorConnectionType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SensorConnectionType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SensorConnectionType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1714,19 +1516,8 @@ impl ::core::fmt::Debug for SensorConnectionType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SensorState(pub i32);
-impl ::core::marker::Copy for SensorState {}
-impl ::core::clone::Clone for SensorState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SensorState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SensorState {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1736,19 +1527,8 @@ impl ::core::fmt::Debug for SensorState {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SimpleDeviceOrientation(pub i32);
-impl ::core::marker::Copy for SimpleDeviceOrientation {}
-impl ::core::clone::Clone for SimpleDeviceOrientation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SimpleDeviceOrientation {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SimpleDeviceOrientation {
     type TypeKind = ::windows_core::CopyType;
 }

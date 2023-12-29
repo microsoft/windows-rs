@@ -95,7 +95,7 @@ impl ::windows_core::RuntimeName for ApiInformation {
     const NAME: &'static str = "Windows.Foundation.Metadata.ApiInformation";
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AttributeTargets(pub u32);
 impl AttributeTargets {
     pub const All: Self = Self(4294967295u32);
@@ -111,17 +111,6 @@ impl AttributeTargets {
     pub const Struct: Self = Self(1024u32);
     pub const InterfaceImpl: Self = Self(2048u32);
     pub const ApiContract: Self = Self(8192u32);
-}
-impl ::core::marker::Copy for AttributeTargets {}
-impl ::core::clone::Clone for AttributeTargets {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AttributeTargets {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AttributeTargets {
     type TypeKind = ::windows_core::CopyType;
@@ -168,22 +157,11 @@ impl ::windows_core::RuntimeType for AttributeTargets {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.AttributeTargets;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CompositionType(pub i32);
 impl CompositionType {
     pub const Protected: Self = Self(1i32);
     pub const Public: Self = Self(2i32);
-}
-impl ::core::marker::Copy for CompositionType {}
-impl ::core::clone::Clone for CompositionType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CompositionType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CompositionType {
     type TypeKind = ::windows_core::CopyType;
@@ -197,22 +175,11 @@ impl ::windows_core::RuntimeType for CompositionType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.CompositionType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DeprecationType(pub i32);
 impl DeprecationType {
     pub const Deprecate: Self = Self(0i32);
     pub const Remove: Self = Self(1i32);
-}
-impl ::core::marker::Copy for DeprecationType {}
-impl ::core::clone::Clone for DeprecationType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DeprecationType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DeprecationType {
     type TypeKind = ::windows_core::CopyType;
@@ -226,24 +193,13 @@ impl ::windows_core::RuntimeType for DeprecationType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.DeprecationType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FeatureStage(pub i32);
 impl FeatureStage {
     pub const AlwaysDisabled: Self = Self(0i32);
     pub const DisabledByDefault: Self = Self(1i32);
     pub const EnabledByDefault: Self = Self(2i32);
     pub const AlwaysEnabled: Self = Self(3i32);
-}
-impl ::core::marker::Copy for FeatureStage {}
-impl ::core::clone::Clone for FeatureStage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FeatureStage {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for FeatureStage {
     type TypeKind = ::windows_core::CopyType;
@@ -257,23 +213,12 @@ impl ::windows_core::RuntimeType for FeatureStage {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.FeatureStage;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GCPressureAmount(pub i32);
 impl GCPressureAmount {
     pub const Low: Self = Self(0i32);
     pub const Medium: Self = Self(1i32);
     pub const High: Self = Self(2i32);
-}
-impl ::core::marker::Copy for GCPressureAmount {}
-impl ::core::clone::Clone for GCPressureAmount {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GCPressureAmount {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for GCPressureAmount {
     type TypeKind = ::windows_core::CopyType;
@@ -287,24 +232,13 @@ impl ::windows_core::RuntimeType for GCPressureAmount {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.GCPressureAmount;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MarshalingType(pub i32);
 impl MarshalingType {
     pub const None: Self = Self(1i32);
     pub const Agile: Self = Self(2i32);
     pub const Standard: Self = Self(3i32);
     pub const InvalidMarshaling: Self = Self(0i32);
-}
-impl ::core::marker::Copy for MarshalingType {}
-impl ::core::clone::Clone for MarshalingType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MarshalingType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MarshalingType {
     type TypeKind = ::windows_core::CopyType;
@@ -318,22 +252,11 @@ impl ::windows_core::RuntimeType for MarshalingType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.MarshalingType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct Platform(pub i32);
 impl Platform {
     pub const Windows: Self = Self(0i32);
     pub const WindowsPhone: Self = Self(1i32);
-}
-impl ::core::marker::Copy for Platform {}
-impl ::core::clone::Clone for Platform {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for Platform {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for Platform {
     type TypeKind = ::windows_core::CopyType;
@@ -347,24 +270,13 @@ impl ::windows_core::RuntimeType for Platform {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.Platform;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ThreadingModel(pub i32);
 impl ThreadingModel {
     pub const STA: Self = Self(1i32);
     pub const MTA: Self = Self(2i32);
     pub const Both: Self = Self(3i32);
     pub const InvalidThreading: Self = Self(0i32);
-}
-impl ::core::marker::Copy for ThreadingModel {}
-impl ::core::clone::Clone for ThreadingModel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ThreadingModel {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ThreadingModel {
     type TypeKind = ::windows_core::CopyType;

@@ -2886,24 +2886,13 @@ impl ::windows_core::RuntimeName for UserCertificateStore {
 unsafe impl ::core::marker::Send for UserCertificateStore {}
 unsafe impl ::core::marker::Sync for UserCertificateStore {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CertificateChainPolicy(pub i32);
 impl CertificateChainPolicy {
     pub const Base: Self = Self(0i32);
     pub const Ssl: Self = Self(1i32);
     pub const NTAuthentication: Self = Self(2i32);
     pub const MicrosoftRoot: Self = Self(3i32);
-}
-impl ::core::marker::Copy for CertificateChainPolicy {}
-impl ::core::clone::Clone for CertificateChainPolicy {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CertificateChainPolicy {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CertificateChainPolicy {
     type TypeKind = ::windows_core::CopyType;
@@ -2917,7 +2906,7 @@ impl ::windows_core::RuntimeType for CertificateChainPolicy {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.CertificateChainPolicy;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ChainValidationResult(pub i32);
 impl ChainValidationResult {
     pub const Success: Self = Self(0i32);
@@ -2935,17 +2924,6 @@ impl ChainValidationResult {
     pub const RevocationFailure: Self = Self(12i32);
     pub const OtherErrors: Self = Self(13i32);
 }
-impl ::core::marker::Copy for ChainValidationResult {}
-impl ::core::clone::Clone for ChainValidationResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ChainValidationResult {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ChainValidationResult {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2958,7 +2936,7 @@ impl ::windows_core::RuntimeType for ChainValidationResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.ChainValidationResult;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EnrollKeyUsages(pub u32);
 impl EnrollKeyUsages {
     pub const None: Self = Self(0u32);
@@ -2966,17 +2944,6 @@ impl EnrollKeyUsages {
     pub const Signing: Self = Self(2u32);
     pub const KeyAgreement: Self = Self(4u32);
     pub const All: Self = Self(16777215u32);
-}
-impl ::core::marker::Copy for EnrollKeyUsages {}
-impl ::core::clone::Clone for EnrollKeyUsages {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EnrollKeyUsages {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for EnrollKeyUsages {
     type TypeKind = ::windows_core::CopyType;
@@ -3023,22 +2990,11 @@ impl ::windows_core::RuntimeType for EnrollKeyUsages {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.EnrollKeyUsages;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ExportOption(pub i32);
 impl ExportOption {
     pub const NotExportable: Self = Self(0i32);
     pub const Exportable: Self = Self(1i32);
-}
-impl ::core::marker::Copy for ExportOption {}
-impl ::core::clone::Clone for ExportOption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ExportOption {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ExportOption {
     type TypeKind = ::windows_core::CopyType;
@@ -3052,22 +3008,11 @@ impl ::windows_core::RuntimeType for ExportOption {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.ExportOption;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InstallOptions(pub u32);
 impl InstallOptions {
     pub const None: Self = Self(0u32);
     pub const DeleteExpired: Self = Self(1u32);
-}
-impl ::core::marker::Copy for InstallOptions {}
-impl ::core::clone::Clone for InstallOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InstallOptions {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for InstallOptions {
     type TypeKind = ::windows_core::CopyType;
@@ -3114,24 +3059,13 @@ impl ::windows_core::RuntimeType for InstallOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.InstallOptions;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct KeyProtectionLevel(pub i32);
 impl KeyProtectionLevel {
     pub const NoConsent: Self = Self(0i32);
     pub const ConsentOnly: Self = Self(1i32);
     pub const ConsentWithPassword: Self = Self(2i32);
     pub const ConsentWithFingerprint: Self = Self(3i32);
-}
-impl ::core::marker::Copy for KeyProtectionLevel {}
-impl ::core::clone::Clone for KeyProtectionLevel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KeyProtectionLevel {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for KeyProtectionLevel {
     type TypeKind = ::windows_core::CopyType;
@@ -3145,23 +3079,12 @@ impl ::windows_core::RuntimeType for KeyProtectionLevel {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.KeyProtectionLevel;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct KeySize(pub i32);
 impl KeySize {
     pub const Invalid: Self = Self(0i32);
     pub const Rsa2048: Self = Self(2048i32);
     pub const Rsa4096: Self = Self(4096i32);
-}
-impl ::core::marker::Copy for KeySize {}
-impl ::core::clone::Clone for KeySize {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KeySize {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for KeySize {
     type TypeKind = ::windows_core::CopyType;
@@ -3175,7 +3098,7 @@ impl ::windows_core::RuntimeType for KeySize {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.KeySize;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SignatureValidationResult(pub i32);
 impl SignatureValidationResult {
     pub const Success: Self = Self(0i32);
@@ -3183,17 +3106,6 @@ impl SignatureValidationResult {
     pub const BadMessage: Self = Self(2i32);
     pub const InvalidSignature: Self = Self(3i32);
     pub const OtherErrors: Self = Self(4i32);
-}
-impl ::core::marker::Copy for SignatureValidationResult {}
-impl ::core::clone::Clone for SignatureValidationResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SignatureValidationResult {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SignatureValidationResult {
     type TypeKind = ::windows_core::CopyType;

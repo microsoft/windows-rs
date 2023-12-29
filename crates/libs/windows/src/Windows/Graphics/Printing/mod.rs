@@ -1600,7 +1600,7 @@ impl ::windows_core::RuntimeName for StandardPrintTaskOptions {
     const NAME: &'static str = "Windows.Graphics.Printing.StandardPrintTaskOptions";
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PrintBinding(pub i32);
 impl PrintBinding {
     pub const Default: Self = Self(0i32);
@@ -1621,17 +1621,6 @@ impl PrintBinding {
     pub const JogOffset: Self = Self(15i32);
     pub const Trim: Self = Self(16i32);
 }
-impl ::core::marker::Copy for PrintBinding {}
-impl ::core::clone::Clone for PrintBinding {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PrintBinding {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PrintBinding {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1644,7 +1633,7 @@ impl ::windows_core::RuntimeType for PrintBinding {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintBinding;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PrintBordering(pub i32);
 impl PrintBordering {
     pub const Default: Self = Self(0i32);
@@ -1652,17 +1641,6 @@ impl PrintBordering {
     pub const PrinterCustom: Self = Self(2i32);
     pub const Bordered: Self = Self(3i32);
     pub const Borderless: Self = Self(4i32);
-}
-impl ::core::marker::Copy for PrintBordering {}
-impl ::core::clone::Clone for PrintBordering {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PrintBordering {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PrintBordering {
     type TypeKind = ::windows_core::CopyType;
@@ -1676,7 +1654,7 @@ impl ::windows_core::RuntimeType for PrintBordering {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintBordering;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PrintCollation(pub i32);
 impl PrintCollation {
     pub const Default: Self = Self(0i32);
@@ -1684,17 +1662,6 @@ impl PrintCollation {
     pub const PrinterCustom: Self = Self(2i32);
     pub const Collated: Self = Self(3i32);
     pub const Uncollated: Self = Self(4i32);
-}
-impl ::core::marker::Copy for PrintCollation {}
-impl ::core::clone::Clone for PrintCollation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PrintCollation {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PrintCollation {
     type TypeKind = ::windows_core::CopyType;
@@ -1708,7 +1675,7 @@ impl ::windows_core::RuntimeType for PrintCollation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintCollation;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PrintColorMode(pub i32);
 impl PrintColorMode {
     pub const Default: Self = Self(0i32);
@@ -1717,17 +1684,6 @@ impl PrintColorMode {
     pub const Color: Self = Self(3i32);
     pub const Grayscale: Self = Self(4i32);
     pub const Monochrome: Self = Self(5i32);
-}
-impl ::core::marker::Copy for PrintColorMode {}
-impl ::core::clone::Clone for PrintColorMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PrintColorMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PrintColorMode {
     type TypeKind = ::windows_core::CopyType;
@@ -1741,7 +1697,7 @@ impl ::windows_core::RuntimeType for PrintColorMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintColorMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PrintDuplex(pub i32);
 impl PrintDuplex {
     pub const Default: Self = Self(0i32);
@@ -1750,17 +1706,6 @@ impl PrintDuplex {
     pub const OneSided: Self = Self(3i32);
     pub const TwoSidedShortEdge: Self = Self(4i32);
     pub const TwoSidedLongEdge: Self = Self(5i32);
-}
-impl ::core::marker::Copy for PrintDuplex {}
-impl ::core::clone::Clone for PrintDuplex {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PrintDuplex {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PrintDuplex {
     type TypeKind = ::windows_core::CopyType;
@@ -1774,7 +1719,7 @@ impl ::windows_core::RuntimeType for PrintDuplex {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintDuplex;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PrintHolePunch(pub i32);
 impl PrintHolePunch {
     pub const Default: Self = Self(0i32);
@@ -1785,17 +1730,6 @@ impl PrintHolePunch {
     pub const RightEdge: Self = Self(5i32);
     pub const TopEdge: Self = Self(6i32);
     pub const BottomEdge: Self = Self(7i32);
-}
-impl ::core::marker::Copy for PrintHolePunch {}
-impl ::core::clone::Clone for PrintHolePunch {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PrintHolePunch {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PrintHolePunch {
     type TypeKind = ::windows_core::CopyType;
@@ -1809,7 +1743,7 @@ impl ::windows_core::RuntimeType for PrintHolePunch {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintHolePunch;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PrintMediaSize(pub i32);
 impl PrintMediaSize {
     pub const Default: Self = Self(0i32);
@@ -1986,17 +1920,6 @@ impl PrintMediaSize {
     pub const Roll36Inch: Self = Self(171i32);
     pub const Roll54Inch: Self = Self(172i32);
 }
-impl ::core::marker::Copy for PrintMediaSize {}
-impl ::core::clone::Clone for PrintMediaSize {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PrintMediaSize {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PrintMediaSize {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2009,7 +1932,7 @@ impl ::windows_core::RuntimeType for PrintMediaSize {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintMediaSize;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PrintMediaType(pub i32);
 impl PrintMediaType {
     pub const Default: Self = Self(0i32);
@@ -2045,17 +1968,6 @@ impl PrintMediaType {
     pub const TShirtTransfer: Self = Self(30i32);
     pub const None: Self = Self(31i32);
 }
-impl ::core::marker::Copy for PrintMediaType {}
-impl ::core::clone::Clone for PrintMediaType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PrintMediaType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PrintMediaType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2068,7 +1980,7 @@ impl ::windows_core::RuntimeType for PrintMediaType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintMediaType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PrintOrientation(pub i32);
 impl PrintOrientation {
     pub const Default: Self = Self(0i32);
@@ -2078,17 +1990,6 @@ impl PrintOrientation {
     pub const PortraitFlipped: Self = Self(4i32);
     pub const Landscape: Self = Self(5i32);
     pub const LandscapeFlipped: Self = Self(6i32);
-}
-impl ::core::marker::Copy for PrintOrientation {}
-impl ::core::clone::Clone for PrintOrientation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PrintOrientation {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PrintOrientation {
     type TypeKind = ::windows_core::CopyType;
@@ -2102,7 +2003,7 @@ impl ::windows_core::RuntimeType for PrintOrientation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintOrientation;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PrintQuality(pub i32);
 impl PrintQuality {
     pub const Default: Self = Self(0i32);
@@ -2116,17 +2017,6 @@ impl PrintQuality {
     pub const Photographic: Self = Self(8i32);
     pub const Text: Self = Self(9i32);
 }
-impl ::core::marker::Copy for PrintQuality {}
-impl ::core::clone::Clone for PrintQuality {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PrintQuality {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PrintQuality {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2139,7 +2029,7 @@ impl ::windows_core::RuntimeType for PrintQuality {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintQuality;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PrintStaple(pub i32);
 impl PrintStaple {
     pub const Default: Self = Self(0i32);
@@ -2156,17 +2046,6 @@ impl PrintStaple {
     pub const StapleDualBottom: Self = Self(11i32);
     pub const SaddleStitch: Self = Self(12i32);
 }
-impl ::core::marker::Copy for PrintStaple {}
-impl ::core::clone::Clone for PrintStaple {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PrintStaple {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PrintStaple {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2179,24 +2058,13 @@ impl ::windows_core::RuntimeType for PrintStaple {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintStaple;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PrintTaskCompletion(pub i32);
 impl PrintTaskCompletion {
     pub const Abandoned: Self = Self(0i32);
     pub const Canceled: Self = Self(1i32);
     pub const Failed: Self = Self(2i32);
     pub const Submitted: Self = Self(3i32);
-}
-impl ::core::marker::Copy for PrintTaskCompletion {}
-impl ::core::clone::Clone for PrintTaskCompletion {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PrintTaskCompletion {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PrintTaskCompletion {
     type TypeKind = ::windows_core::CopyType;

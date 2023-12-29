@@ -359,19 +359,8 @@ pub const WNNC_NET_VMWARE: u32 = 4128768u32;
 pub const WNNC_NET_YAHOO: u32 = 2883584u32;
 pub const WNNC_NET_ZENWORKS: u32 = 3997696u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FILTER_INFORMATION_CLASS(pub i32);
-impl ::core::marker::Copy for FILTER_INFORMATION_CLASS {}
-impl ::core::clone::Clone for FILTER_INFORMATION_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FILTER_INFORMATION_CLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FILTER_INFORMATION_CLASS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -381,19 +370,8 @@ impl ::core::fmt::Debug for FILTER_INFORMATION_CLASS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FILTER_VOLUME_INFORMATION_CLASS(pub i32);
-impl ::core::marker::Copy for FILTER_VOLUME_INFORMATION_CLASS {}
-impl ::core::clone::Clone for FILTER_VOLUME_INFORMATION_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FILTER_VOLUME_INFORMATION_CLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FILTER_VOLUME_INFORMATION_CLASS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -403,19 +381,8 @@ impl ::core::fmt::Debug for FILTER_VOLUME_INFORMATION_CLASS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FLT_FILESYSTEM_TYPE(pub i32);
-impl ::core::marker::Copy for FLT_FILESYSTEM_TYPE {}
-impl ::core::clone::Clone for FLT_FILESYSTEM_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FLT_FILESYSTEM_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FLT_FILESYSTEM_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -425,19 +392,8 @@ impl ::core::fmt::Debug for FLT_FILESYSTEM_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct INSTANCE_INFORMATION_CLASS(pub i32);
-impl ::core::marker::Copy for INSTANCE_INFORMATION_CLASS {}
-impl ::core::clone::Clone for INSTANCE_INFORMATION_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for INSTANCE_INFORMATION_CLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for INSTANCE_INFORMATION_CLASS {
     type TypeKind = ::windows_core::CopyType;
 }

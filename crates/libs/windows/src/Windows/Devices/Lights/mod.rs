@@ -684,7 +684,7 @@ impl ::windows_core::RuntimeName for LampInfo {
 unsafe impl ::core::marker::Send for LampInfo {}
 unsafe impl ::core::marker::Sync for LampInfo {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct LampArrayKind(pub i32);
 impl LampArrayKind {
     pub const Undefined: Self = Self(0i32);
@@ -700,17 +700,6 @@ impl LampArrayKind {
     pub const Art: Self = Self(10i32);
     pub const Headset: Self = Self(11i32);
 }
-impl ::core::marker::Copy for LampArrayKind {}
-impl ::core::clone::Clone for LampArrayKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for LampArrayKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for LampArrayKind {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -723,7 +712,7 @@ impl ::windows_core::RuntimeType for LampArrayKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Lights.LampArrayKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct LampPurposes(pub u32);
 impl LampPurposes {
     pub const Undefined: Self = Self(0u32);
@@ -733,17 +722,6 @@ impl LampPurposes {
     pub const Status: Self = Self(8u32);
     pub const Illumination: Self = Self(16u32);
     pub const Presentation: Self = Self(32u32);
-}
-impl ::core::marker::Copy for LampPurposes {}
-impl ::core::clone::Clone for LampPurposes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for LampPurposes {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for LampPurposes {
     type TypeKind = ::windows_core::CopyType;

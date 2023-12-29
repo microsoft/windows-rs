@@ -484,19 +484,8 @@ pub const WINSAT_OEM_DATA_NON_SYS_CONFIG_MATCH: WINSAT_OEM_CUSTOMIZATION_STATE =
 pub const WINSAT_OEM_DATA_VALID: WINSAT_OEM_CUSTOMIZATION_STATE = WINSAT_OEM_CUSTOMIZATION_STATE(0i32);
 pub const WINSAT_OEM_NO_DATA_SUPPLIED: WINSAT_OEM_CUSTOMIZATION_STATE = WINSAT_OEM_CUSTOMIZATION_STATE(3i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WINSAT_ASSESSMENT_STATE(pub i32);
-impl ::core::marker::Copy for WINSAT_ASSESSMENT_STATE {}
-impl ::core::clone::Clone for WINSAT_ASSESSMENT_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WINSAT_ASSESSMENT_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WINSAT_ASSESSMENT_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -506,19 +495,8 @@ impl ::core::fmt::Debug for WINSAT_ASSESSMENT_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WINSAT_ASSESSMENT_TYPE(pub i32);
-impl ::core::marker::Copy for WINSAT_ASSESSMENT_TYPE {}
-impl ::core::clone::Clone for WINSAT_ASSESSMENT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WINSAT_ASSESSMENT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WINSAT_ASSESSMENT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -528,19 +506,8 @@ impl ::core::fmt::Debug for WINSAT_ASSESSMENT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WINSAT_BITMAP_SIZE(pub i32);
-impl ::core::marker::Copy for WINSAT_BITMAP_SIZE {}
-impl ::core::clone::Clone for WINSAT_BITMAP_SIZE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WINSAT_BITMAP_SIZE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WINSAT_BITMAP_SIZE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -550,19 +517,8 @@ impl ::core::fmt::Debug for WINSAT_BITMAP_SIZE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WINSAT_OEM_CUSTOMIZATION_STATE(pub i32);
-impl ::core::marker::Copy for WINSAT_OEM_CUSTOMIZATION_STATE {}
-impl ::core::clone::Clone for WINSAT_OEM_CUSTOMIZATION_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WINSAT_OEM_CUSTOMIZATION_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WINSAT_OEM_CUSTOMIZATION_STATE {
     type TypeKind = ::windows_core::CopyType;
 }

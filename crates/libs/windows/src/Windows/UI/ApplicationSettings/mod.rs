@@ -1063,26 +1063,12 @@ impl ::windows_core::RuntimeName for WebAccountProviderCommand {
 #[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SettingsEdgeLocation(pub i32);
 #[cfg(feature = "deprecated")]
 impl SettingsEdgeLocation {
     pub const Right: Self = Self(0i32);
     pub const Left: Self = Self(1i32);
-}
-#[cfg(feature = "deprecated")]
-impl ::core::marker::Copy for SettingsEdgeLocation {}
-#[cfg(feature = "deprecated")]
-impl ::core::clone::Clone for SettingsEdgeLocation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::default::Default for SettingsEdgeLocation {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 #[cfg(feature = "deprecated")]
 impl ::windows_core::TypeKind for SettingsEdgeLocation {
@@ -1099,7 +1085,7 @@ impl ::windows_core::RuntimeType for SettingsEdgeLocation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.ApplicationSettings.SettingsEdgeLocation;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SupportedWebAccountActions(pub u32);
 impl SupportedWebAccountActions {
     pub const None: Self = Self(0u32);
@@ -1108,17 +1094,6 @@ impl SupportedWebAccountActions {
     pub const ViewDetails: Self = Self(4u32);
     pub const Manage: Self = Self(8u32);
     pub const More: Self = Self(16u32);
-}
-impl ::core::marker::Copy for SupportedWebAccountActions {}
-impl ::core::clone::Clone for SupportedWebAccountActions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SupportedWebAccountActions {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SupportedWebAccountActions {
     type TypeKind = ::windows_core::CopyType;
@@ -1165,7 +1140,7 @@ impl ::windows_core::RuntimeType for SupportedWebAccountActions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.ApplicationSettings.SupportedWebAccountActions;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WebAccountAction(pub i32);
 impl WebAccountAction {
     pub const Reconnect: Self = Self(0i32);
@@ -1173,17 +1148,6 @@ impl WebAccountAction {
     pub const ViewDetails: Self = Self(2i32);
     pub const Manage: Self = Self(3i32);
     pub const More: Self = Self(4i32);
-}
-impl ::core::marker::Copy for WebAccountAction {}
-impl ::core::clone::Clone for WebAccountAction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WebAccountAction {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for WebAccountAction {
     type TypeKind = ::windows_core::CopyType;

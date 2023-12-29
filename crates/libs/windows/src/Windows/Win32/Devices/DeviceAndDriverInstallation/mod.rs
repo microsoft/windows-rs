@@ -5919,19 +5919,8 @@ pub const mPCD_MEM_A_C: PCD_FLAGS = PCD_FLAGS(12u32);
 pub const mPCD_MEM_WS: PCD_FLAGS = PCD_FLAGS(768u32);
 pub const mPMF_AUDIO_ENABLE: u32 = 8u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CM_CDFLAGS(pub u32);
-impl ::core::marker::Copy for CM_CDFLAGS {}
-impl ::core::clone::Clone for CM_CDFLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CM_CDFLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CM_CDFLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5974,19 +5963,8 @@ impl ::core::ops::Not for CM_CDFLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CM_CDMASK(pub u32);
-impl ::core::marker::Copy for CM_CDMASK {}
-impl ::core::clone::Clone for CM_CDMASK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CM_CDMASK {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CM_CDMASK {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6029,19 +6007,8 @@ impl ::core::ops::Not for CM_CDMASK {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CM_DEVCAP(pub u32);
-impl ::core::marker::Copy for CM_DEVCAP {}
-impl ::core::clone::Clone for CM_DEVCAP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CM_DEVCAP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CM_DEVCAP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6084,19 +6051,8 @@ impl ::core::ops::Not for CM_DEVCAP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CM_DEVNODE_STATUS_FLAGS(pub u32);
-impl ::core::marker::Copy for CM_DEVNODE_STATUS_FLAGS {}
-impl ::core::clone::Clone for CM_DEVNODE_STATUS_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CM_DEVNODE_STATUS_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CM_DEVNODE_STATUS_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6139,19 +6095,8 @@ impl ::core::ops::Not for CM_DEVNODE_STATUS_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CM_ENUMERATE_FLAGS(pub u32);
-impl ::core::marker::Copy for CM_ENUMERATE_FLAGS {}
-impl ::core::clone::Clone for CM_ENUMERATE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CM_ENUMERATE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CM_ENUMERATE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6194,19 +6139,8 @@ impl ::core::ops::Not for CM_ENUMERATE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CM_GET_DEVICE_INTERFACE_LIST_FLAGS(pub u32);
-impl ::core::marker::Copy for CM_GET_DEVICE_INTERFACE_LIST_FLAGS {}
-impl ::core::clone::Clone for CM_GET_DEVICE_INTERFACE_LIST_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CM_GET_DEVICE_INTERFACE_LIST_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CM_GET_DEVICE_INTERFACE_LIST_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6216,19 +6150,8 @@ impl ::core::fmt::Debug for CM_GET_DEVICE_INTERFACE_LIST_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CM_INSTALL_STATE(pub u32);
-impl ::core::marker::Copy for CM_INSTALL_STATE {}
-impl ::core::clone::Clone for CM_INSTALL_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CM_INSTALL_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CM_INSTALL_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6238,19 +6161,8 @@ impl ::core::fmt::Debug for CM_INSTALL_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CM_LOCATE_DEVNODE_FLAGS(pub u32);
-impl ::core::marker::Copy for CM_LOCATE_DEVNODE_FLAGS {}
-impl ::core::clone::Clone for CM_LOCATE_DEVNODE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CM_LOCATE_DEVNODE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CM_LOCATE_DEVNODE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6260,19 +6172,8 @@ impl ::core::fmt::Debug for CM_LOCATE_DEVNODE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CM_LOG_CONF(pub u32);
-impl ::core::marker::Copy for CM_LOG_CONF {}
-impl ::core::clone::Clone for CM_LOG_CONF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CM_LOG_CONF {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CM_LOG_CONF {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6282,19 +6183,8 @@ impl ::core::fmt::Debug for CM_LOG_CONF {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CM_NOTIFY_ACTION(pub i32);
-impl ::core::marker::Copy for CM_NOTIFY_ACTION {}
-impl ::core::clone::Clone for CM_NOTIFY_ACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CM_NOTIFY_ACTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CM_NOTIFY_ACTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6304,19 +6194,8 @@ impl ::core::fmt::Debug for CM_NOTIFY_ACTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CM_NOTIFY_FILTER_TYPE(pub i32);
-impl ::core::marker::Copy for CM_NOTIFY_FILTER_TYPE {}
-impl ::core::clone::Clone for CM_NOTIFY_FILTER_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CM_NOTIFY_FILTER_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CM_NOTIFY_FILTER_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6326,19 +6205,8 @@ impl ::core::fmt::Debug for CM_NOTIFY_FILTER_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CM_PROB(pub u32);
-impl ::core::marker::Copy for CM_PROB {}
-impl ::core::clone::Clone for CM_PROB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CM_PROB {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CM_PROB {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6348,19 +6216,8 @@ impl ::core::fmt::Debug for CM_PROB {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CM_REENUMERATE_FLAGS(pub u32);
-impl ::core::marker::Copy for CM_REENUMERATE_FLAGS {}
-impl ::core::clone::Clone for CM_REENUMERATE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CM_REENUMERATE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CM_REENUMERATE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6403,19 +6260,8 @@ impl ::core::ops::Not for CM_REENUMERATE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CM_REMOVAL_POLICY(pub u32);
-impl ::core::marker::Copy for CM_REMOVAL_POLICY {}
-impl ::core::clone::Clone for CM_REMOVAL_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CM_REMOVAL_POLICY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CM_REMOVAL_POLICY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6425,19 +6271,8 @@ impl ::core::fmt::Debug for CM_REMOVAL_POLICY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CM_RESTYPE(pub u32);
-impl ::core::marker::Copy for CM_RESTYPE {}
-impl ::core::clone::Clone for CM_RESTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CM_RESTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CM_RESTYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6447,19 +6282,8 @@ impl ::core::fmt::Debug for CM_RESTYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CONFIGRET(pub u32);
-impl ::core::marker::Copy for CONFIGRET {}
-impl ::core::clone::Clone for CONFIGRET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CONFIGRET {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CONFIGRET {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6469,19 +6293,8 @@ impl ::core::fmt::Debug for CONFIGRET {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DD_FLAGS(pub u32);
-impl ::core::marker::Copy for DD_FLAGS {}
-impl ::core::clone::Clone for DD_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DD_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DD_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6524,19 +6337,8 @@ impl ::core::ops::Not for DD_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DIINSTALLDEVICE_FLAGS(pub u32);
-impl ::core::marker::Copy for DIINSTALLDEVICE_FLAGS {}
-impl ::core::clone::Clone for DIINSTALLDEVICE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DIINSTALLDEVICE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DIINSTALLDEVICE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6579,19 +6381,8 @@ impl ::core::ops::Not for DIINSTALLDEVICE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DIINSTALLDRIVER_FLAGS(pub u32);
-impl ::core::marker::Copy for DIINSTALLDRIVER_FLAGS {}
-impl ::core::clone::Clone for DIINSTALLDRIVER_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DIINSTALLDRIVER_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DIINSTALLDRIVER_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6634,19 +6425,8 @@ impl ::core::ops::Not for DIINSTALLDRIVER_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DIROLLBACKDRIVER_FLAGS(pub u32);
-impl ::core::marker::Copy for DIROLLBACKDRIVER_FLAGS {}
-impl ::core::clone::Clone for DIROLLBACKDRIVER_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DIROLLBACKDRIVER_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DIROLLBACKDRIVER_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6689,19 +6469,8 @@ impl ::core::ops::Not for DIROLLBACKDRIVER_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DIUNINSTALLDRIVER_FLAGS(pub u32);
-impl ::core::marker::Copy for DIUNINSTALLDRIVER_FLAGS {}
-impl ::core::clone::Clone for DIUNINSTALLDRIVER_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DIUNINSTALLDRIVER_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DIUNINSTALLDRIVER_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6744,19 +6513,8 @@ impl ::core::ops::Not for DIUNINSTALLDRIVER_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct INF_STYLE(pub u32);
-impl ::core::marker::Copy for INF_STYLE {}
-impl ::core::clone::Clone for INF_STYLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for INF_STYLE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for INF_STYLE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6799,19 +6557,8 @@ impl ::core::ops::Not for INF_STYLE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct IOD_DESFLAGS(pub u32);
-impl ::core::marker::Copy for IOD_DESFLAGS {}
-impl ::core::clone::Clone for IOD_DESFLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for IOD_DESFLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for IOD_DESFLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6854,19 +6601,8 @@ impl ::core::ops::Not for IOD_DESFLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct IRQD_FLAGS(pub u32);
-impl ::core::marker::Copy for IRQD_FLAGS {}
-impl ::core::clone::Clone for IRQD_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for IRQD_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for IRQD_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6909,19 +6645,8 @@ impl ::core::ops::Not for IRQD_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MD_FLAGS(pub u32);
-impl ::core::marker::Copy for MD_FLAGS {}
-impl ::core::clone::Clone for MD_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MD_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MD_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6964,19 +6689,8 @@ impl ::core::ops::Not for MD_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OEM_SOURCE_MEDIA_TYPE(pub u32);
-impl ::core::marker::Copy for OEM_SOURCE_MEDIA_TYPE {}
-impl ::core::clone::Clone for OEM_SOURCE_MEDIA_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OEM_SOURCE_MEDIA_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OEM_SOURCE_MEDIA_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6986,19 +6700,8 @@ impl ::core::fmt::Debug for OEM_SOURCE_MEDIA_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PCD_FLAGS(pub u32);
-impl ::core::marker::Copy for PCD_FLAGS {}
-impl ::core::clone::Clone for PCD_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PCD_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PCD_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7041,19 +6744,8 @@ impl ::core::ops::Not for PCD_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PMF_FLAGS(pub u32);
-impl ::core::marker::Copy for PMF_FLAGS {}
-impl ::core::clone::Clone for PMF_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PMF_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PMF_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7096,19 +6788,8 @@ impl ::core::ops::Not for PMF_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PNP_VETO_TYPE(pub i32);
-impl ::core::marker::Copy for PNP_VETO_TYPE {}
-impl ::core::clone::Clone for PNP_VETO_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PNP_VETO_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PNP_VETO_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7118,19 +6799,8 @@ impl ::core::fmt::Debug for PNP_VETO_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SETUPSCANFILEQUEUE_FLAGS(pub u32);
-impl ::core::marker::Copy for SETUPSCANFILEQUEUE_FLAGS {}
-impl ::core::clone::Clone for SETUPSCANFILEQUEUE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SETUPSCANFILEQUEUE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SETUPSCANFILEQUEUE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7173,19 +6843,8 @@ impl ::core::ops::Not for SETUPSCANFILEQUEUE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SETUP_DI_BUILD_DRIVER_DRIVER_TYPE(pub u32);
-impl ::core::marker::Copy for SETUP_DI_BUILD_DRIVER_DRIVER_TYPE {}
-impl ::core::clone::Clone for SETUP_DI_BUILD_DRIVER_DRIVER_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SETUP_DI_BUILD_DRIVER_DRIVER_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SETUP_DI_BUILD_DRIVER_DRIVER_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7195,19 +6854,8 @@ impl ::core::fmt::Debug for SETUP_DI_BUILD_DRIVER_DRIVER_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SETUP_FILE_OPERATION(pub u32);
-impl ::core::marker::Copy for SETUP_FILE_OPERATION {}
-impl ::core::clone::Clone for SETUP_FILE_OPERATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SETUP_FILE_OPERATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SETUP_FILE_OPERATION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7217,19 +6865,8 @@ impl ::core::fmt::Debug for SETUP_FILE_OPERATION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SPSVCINST_FLAGS(pub u32);
-impl ::core::marker::Copy for SPSVCINST_FLAGS {}
-impl ::core::clone::Clone for SPSVCINST_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SPSVCINST_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SPSVCINST_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7272,19 +6909,8 @@ impl ::core::ops::Not for SPSVCINST_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SP_COPY_STYLE(pub u32);
-impl ::core::marker::Copy for SP_COPY_STYLE {}
-impl ::core::clone::Clone for SP_COPY_STYLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SP_COPY_STYLE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SP_COPY_STYLE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7327,19 +6953,8 @@ impl ::core::ops::Not for SP_COPY_STYLE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SetupFileLogInfo(pub i32);
-impl ::core::marker::Copy for SetupFileLogInfo {}
-impl ::core::clone::Clone for SetupFileLogInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SetupFileLogInfo {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SetupFileLogInfo {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7349,19 +6964,8 @@ impl ::core::fmt::Debug for SetupFileLogInfo {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS(pub u32);
-impl ::core::marker::Copy for UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS {}
-impl ::core::clone::Clone for UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }

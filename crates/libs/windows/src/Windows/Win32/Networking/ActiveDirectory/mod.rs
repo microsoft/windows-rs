@@ -10151,19 +10151,8 @@ pub const hrWriteConflict: ::windows_core::HRESULT = ::windows_core::HRESULT(-93
 pub const hrerrDataHasChanged: ::windows_core::HRESULT = ::windows_core::HRESULT(-939522485i32);
 pub const hrwrnDataHasChanged: ::windows_core::HRESULT = ::windows_core::HRESULT(-2013264310i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ADSI_DIALECT_ENUM(pub i32);
-impl ::core::marker::Copy for ADSI_DIALECT_ENUM {}
-impl ::core::clone::Clone for ADSI_DIALECT_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADSI_DIALECT_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ADSI_DIALECT_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10173,19 +10162,8 @@ impl ::core::fmt::Debug for ADSI_DIALECT_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ADSTYPE(pub i32);
-impl ::core::marker::Copy for ADSTYPE {}
-impl ::core::clone::Clone for ADSTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADSTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ADSTYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10195,19 +10173,8 @@ impl ::core::fmt::Debug for ADSTYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ADS_ACEFLAG_ENUM(pub i32);
-impl ::core::marker::Copy for ADS_ACEFLAG_ENUM {}
-impl ::core::clone::Clone for ADS_ACEFLAG_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADS_ACEFLAG_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ADS_ACEFLAG_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10217,19 +10184,8 @@ impl ::core::fmt::Debug for ADS_ACEFLAG_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ADS_ACETYPE_ENUM(pub i32);
-impl ::core::marker::Copy for ADS_ACETYPE_ENUM {}
-impl ::core::clone::Clone for ADS_ACETYPE_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADS_ACETYPE_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ADS_ACETYPE_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10239,19 +10195,8 @@ impl ::core::fmt::Debug for ADS_ACETYPE_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ADS_AUTHENTICATION_ENUM(pub u32);
-impl ::core::marker::Copy for ADS_AUTHENTICATION_ENUM {}
-impl ::core::clone::Clone for ADS_AUTHENTICATION_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADS_AUTHENTICATION_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ADS_AUTHENTICATION_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10261,19 +10206,8 @@ impl ::core::fmt::Debug for ADS_AUTHENTICATION_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ADS_CHASE_REFERRALS_ENUM(pub i32);
-impl ::core::marker::Copy for ADS_CHASE_REFERRALS_ENUM {}
-impl ::core::clone::Clone for ADS_CHASE_REFERRALS_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADS_CHASE_REFERRALS_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ADS_CHASE_REFERRALS_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10283,19 +10217,8 @@ impl ::core::fmt::Debug for ADS_CHASE_REFERRALS_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ADS_DEREFENUM(pub i32);
-impl ::core::marker::Copy for ADS_DEREFENUM {}
-impl ::core::clone::Clone for ADS_DEREFENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADS_DEREFENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ADS_DEREFENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10305,19 +10228,8 @@ impl ::core::fmt::Debug for ADS_DEREFENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ADS_DISPLAY_ENUM(pub i32);
-impl ::core::marker::Copy for ADS_DISPLAY_ENUM {}
-impl ::core::clone::Clone for ADS_DISPLAY_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADS_DISPLAY_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ADS_DISPLAY_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10327,19 +10239,8 @@ impl ::core::fmt::Debug for ADS_DISPLAY_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ADS_ESCAPE_MODE_ENUM(pub i32);
-impl ::core::marker::Copy for ADS_ESCAPE_MODE_ENUM {}
-impl ::core::clone::Clone for ADS_ESCAPE_MODE_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADS_ESCAPE_MODE_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ADS_ESCAPE_MODE_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10349,19 +10250,8 @@ impl ::core::fmt::Debug for ADS_ESCAPE_MODE_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ADS_FLAGTYPE_ENUM(pub i32);
-impl ::core::marker::Copy for ADS_FLAGTYPE_ENUM {}
-impl ::core::clone::Clone for ADS_FLAGTYPE_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADS_FLAGTYPE_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ADS_FLAGTYPE_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10371,19 +10261,8 @@ impl ::core::fmt::Debug for ADS_FLAGTYPE_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ADS_FORMAT_ENUM(pub i32);
-impl ::core::marker::Copy for ADS_FORMAT_ENUM {}
-impl ::core::clone::Clone for ADS_FORMAT_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADS_FORMAT_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ADS_FORMAT_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10393,19 +10272,8 @@ impl ::core::fmt::Debug for ADS_FORMAT_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ADS_GROUP_TYPE_ENUM(pub i32);
-impl ::core::marker::Copy for ADS_GROUP_TYPE_ENUM {}
-impl ::core::clone::Clone for ADS_GROUP_TYPE_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADS_GROUP_TYPE_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ADS_GROUP_TYPE_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10415,19 +10283,8 @@ impl ::core::fmt::Debug for ADS_GROUP_TYPE_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ADS_NAME_INITTYPE_ENUM(pub i32);
-impl ::core::marker::Copy for ADS_NAME_INITTYPE_ENUM {}
-impl ::core::clone::Clone for ADS_NAME_INITTYPE_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADS_NAME_INITTYPE_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ADS_NAME_INITTYPE_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10437,19 +10294,8 @@ impl ::core::fmt::Debug for ADS_NAME_INITTYPE_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ADS_NAME_TYPE_ENUM(pub i32);
-impl ::core::marker::Copy for ADS_NAME_TYPE_ENUM {}
-impl ::core::clone::Clone for ADS_NAME_TYPE_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADS_NAME_TYPE_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ADS_NAME_TYPE_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10459,19 +10305,8 @@ impl ::core::fmt::Debug for ADS_NAME_TYPE_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ADS_OPTION_ENUM(pub i32);
-impl ::core::marker::Copy for ADS_OPTION_ENUM {}
-impl ::core::clone::Clone for ADS_OPTION_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADS_OPTION_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ADS_OPTION_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10481,19 +10316,8 @@ impl ::core::fmt::Debug for ADS_OPTION_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ADS_PASSWORD_ENCODING_ENUM(pub i32);
-impl ::core::marker::Copy for ADS_PASSWORD_ENCODING_ENUM {}
-impl ::core::clone::Clone for ADS_PASSWORD_ENCODING_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADS_PASSWORD_ENCODING_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ADS_PASSWORD_ENCODING_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10503,19 +10327,8 @@ impl ::core::fmt::Debug for ADS_PASSWORD_ENCODING_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ADS_PATHTYPE_ENUM(pub i32);
-impl ::core::marker::Copy for ADS_PATHTYPE_ENUM {}
-impl ::core::clone::Clone for ADS_PATHTYPE_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADS_PATHTYPE_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ADS_PATHTYPE_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10525,19 +10338,8 @@ impl ::core::fmt::Debug for ADS_PATHTYPE_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ADS_PREFERENCES_ENUM(pub i32);
-impl ::core::marker::Copy for ADS_PREFERENCES_ENUM {}
-impl ::core::clone::Clone for ADS_PREFERENCES_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADS_PREFERENCES_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ADS_PREFERENCES_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10547,19 +10349,8 @@ impl ::core::fmt::Debug for ADS_PREFERENCES_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ADS_PROPERTY_OPERATION_ENUM(pub i32);
-impl ::core::marker::Copy for ADS_PROPERTY_OPERATION_ENUM {}
-impl ::core::clone::Clone for ADS_PROPERTY_OPERATION_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADS_PROPERTY_OPERATION_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ADS_PROPERTY_OPERATION_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10569,19 +10360,8 @@ impl ::core::fmt::Debug for ADS_PROPERTY_OPERATION_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ADS_RIGHTS_ENUM(pub i32);
-impl ::core::marker::Copy for ADS_RIGHTS_ENUM {}
-impl ::core::clone::Clone for ADS_RIGHTS_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADS_RIGHTS_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ADS_RIGHTS_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10591,19 +10371,8 @@ impl ::core::fmt::Debug for ADS_RIGHTS_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ADS_SCOPEENUM(pub i32);
-impl ::core::marker::Copy for ADS_SCOPEENUM {}
-impl ::core::clone::Clone for ADS_SCOPEENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADS_SCOPEENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ADS_SCOPEENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10613,19 +10382,8 @@ impl ::core::fmt::Debug for ADS_SCOPEENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ADS_SD_CONTROL_ENUM(pub i32);
-impl ::core::marker::Copy for ADS_SD_CONTROL_ENUM {}
-impl ::core::clone::Clone for ADS_SD_CONTROL_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADS_SD_CONTROL_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ADS_SD_CONTROL_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10635,19 +10393,8 @@ impl ::core::fmt::Debug for ADS_SD_CONTROL_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ADS_SD_FORMAT_ENUM(pub i32);
-impl ::core::marker::Copy for ADS_SD_FORMAT_ENUM {}
-impl ::core::clone::Clone for ADS_SD_FORMAT_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADS_SD_FORMAT_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ADS_SD_FORMAT_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10657,19 +10404,8 @@ impl ::core::fmt::Debug for ADS_SD_FORMAT_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ADS_SD_REVISION_ENUM(pub i32);
-impl ::core::marker::Copy for ADS_SD_REVISION_ENUM {}
-impl ::core::clone::Clone for ADS_SD_REVISION_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADS_SD_REVISION_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ADS_SD_REVISION_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10679,19 +10415,8 @@ impl ::core::fmt::Debug for ADS_SD_REVISION_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ADS_SEARCHPREF_ENUM(pub i32);
-impl ::core::marker::Copy for ADS_SEARCHPREF_ENUM {}
-impl ::core::clone::Clone for ADS_SEARCHPREF_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADS_SEARCHPREF_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ADS_SEARCHPREF_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10701,19 +10426,8 @@ impl ::core::fmt::Debug for ADS_SEARCHPREF_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ADS_SECURITY_INFO_ENUM(pub i32);
-impl ::core::marker::Copy for ADS_SECURITY_INFO_ENUM {}
-impl ::core::clone::Clone for ADS_SECURITY_INFO_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADS_SECURITY_INFO_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ADS_SECURITY_INFO_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10723,19 +10437,8 @@ impl ::core::fmt::Debug for ADS_SECURITY_INFO_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ADS_SETTYPE_ENUM(pub i32);
-impl ::core::marker::Copy for ADS_SETTYPE_ENUM {}
-impl ::core::clone::Clone for ADS_SETTYPE_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADS_SETTYPE_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ADS_SETTYPE_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10745,19 +10448,8 @@ impl ::core::fmt::Debug for ADS_SETTYPE_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ADS_STATUSENUM(pub i32);
-impl ::core::marker::Copy for ADS_STATUSENUM {}
-impl ::core::clone::Clone for ADS_STATUSENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADS_STATUSENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ADS_STATUSENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10767,19 +10459,8 @@ impl ::core::fmt::Debug for ADS_STATUSENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ADS_SYSTEMFLAG_ENUM(pub i32);
-impl ::core::marker::Copy for ADS_SYSTEMFLAG_ENUM {}
-impl ::core::clone::Clone for ADS_SYSTEMFLAG_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADS_SYSTEMFLAG_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ADS_SYSTEMFLAG_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10789,19 +10470,8 @@ impl ::core::fmt::Debug for ADS_SYSTEMFLAG_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ADS_USER_FLAG_ENUM(pub i32);
-impl ::core::marker::Copy for ADS_USER_FLAG_ENUM {}
-impl ::core::clone::Clone for ADS_USER_FLAG_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADS_USER_FLAG_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ADS_USER_FLAG_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10811,19 +10481,8 @@ impl ::core::fmt::Debug for ADS_USER_FLAG_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DSROLE_MACHINE_ROLE(pub i32);
-impl ::core::marker::Copy for DSROLE_MACHINE_ROLE {}
-impl ::core::clone::Clone for DSROLE_MACHINE_ROLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DSROLE_MACHINE_ROLE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DSROLE_MACHINE_ROLE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10833,19 +10492,8 @@ impl ::core::fmt::Debug for DSROLE_MACHINE_ROLE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DSROLE_OPERATION_STATE(pub i32);
-impl ::core::marker::Copy for DSROLE_OPERATION_STATE {}
-impl ::core::clone::Clone for DSROLE_OPERATION_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DSROLE_OPERATION_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DSROLE_OPERATION_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10855,19 +10503,8 @@ impl ::core::fmt::Debug for DSROLE_OPERATION_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DSROLE_PRIMARY_DOMAIN_INFO_LEVEL(pub i32);
-impl ::core::marker::Copy for DSROLE_PRIMARY_DOMAIN_INFO_LEVEL {}
-impl ::core::clone::Clone for DSROLE_PRIMARY_DOMAIN_INFO_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DSROLE_PRIMARY_DOMAIN_INFO_LEVEL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DSROLE_PRIMARY_DOMAIN_INFO_LEVEL {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10877,19 +10514,8 @@ impl ::core::fmt::Debug for DSROLE_PRIMARY_DOMAIN_INFO_LEVEL {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DSROLE_SERVER_STATE(pub i32);
-impl ::core::marker::Copy for DSROLE_SERVER_STATE {}
-impl ::core::clone::Clone for DSROLE_SERVER_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DSROLE_SERVER_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DSROLE_SERVER_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10899,19 +10525,8 @@ impl ::core::fmt::Debug for DSROLE_SERVER_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DS_KCC_TASKID(pub i32);
-impl ::core::marker::Copy for DS_KCC_TASKID {}
-impl ::core::clone::Clone for DS_KCC_TASKID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DS_KCC_TASKID {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DS_KCC_TASKID {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10921,19 +10536,8 @@ impl ::core::fmt::Debug for DS_KCC_TASKID {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DS_MANGLE_FOR(pub i32);
-impl ::core::marker::Copy for DS_MANGLE_FOR {}
-impl ::core::clone::Clone for DS_MANGLE_FOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DS_MANGLE_FOR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DS_MANGLE_FOR {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10943,19 +10547,8 @@ impl ::core::fmt::Debug for DS_MANGLE_FOR {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DS_NAME_ERROR(pub i32);
-impl ::core::marker::Copy for DS_NAME_ERROR {}
-impl ::core::clone::Clone for DS_NAME_ERROR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DS_NAME_ERROR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DS_NAME_ERROR {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10965,19 +10558,8 @@ impl ::core::fmt::Debug for DS_NAME_ERROR {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DS_NAME_FLAGS(pub i32);
-impl ::core::marker::Copy for DS_NAME_FLAGS {}
-impl ::core::clone::Clone for DS_NAME_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DS_NAME_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DS_NAME_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10987,19 +10569,8 @@ impl ::core::fmt::Debug for DS_NAME_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DS_NAME_FORMAT(pub i32);
-impl ::core::marker::Copy for DS_NAME_FORMAT {}
-impl ::core::clone::Clone for DS_NAME_FORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DS_NAME_FORMAT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DS_NAME_FORMAT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11009,19 +10580,8 @@ impl ::core::fmt::Debug for DS_NAME_FORMAT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DS_REPL_INFO_TYPE(pub i32);
-impl ::core::marker::Copy for DS_REPL_INFO_TYPE {}
-impl ::core::clone::Clone for DS_REPL_INFO_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DS_REPL_INFO_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DS_REPL_INFO_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11031,19 +10591,8 @@ impl ::core::fmt::Debug for DS_REPL_INFO_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DS_REPL_OP_TYPE(pub i32);
-impl ::core::marker::Copy for DS_REPL_OP_TYPE {}
-impl ::core::clone::Clone for DS_REPL_OP_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DS_REPL_OP_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DS_REPL_OP_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11053,19 +10602,8 @@ impl ::core::fmt::Debug for DS_REPL_OP_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DS_REPSYNCALL_ERROR(pub i32);
-impl ::core::marker::Copy for DS_REPSYNCALL_ERROR {}
-impl ::core::clone::Clone for DS_REPSYNCALL_ERROR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DS_REPSYNCALL_ERROR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DS_REPSYNCALL_ERROR {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11075,19 +10613,8 @@ impl ::core::fmt::Debug for DS_REPSYNCALL_ERROR {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DS_REPSYNCALL_EVENT(pub i32);
-impl ::core::marker::Copy for DS_REPSYNCALL_EVENT {}
-impl ::core::clone::Clone for DS_REPSYNCALL_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DS_REPSYNCALL_EVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DS_REPSYNCALL_EVENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11097,19 +10624,8 @@ impl ::core::fmt::Debug for DS_REPSYNCALL_EVENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DS_SPN_NAME_TYPE(pub i32);
-impl ::core::marker::Copy for DS_SPN_NAME_TYPE {}
-impl ::core::clone::Clone for DS_SPN_NAME_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DS_SPN_NAME_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DS_SPN_NAME_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11119,19 +10635,8 @@ impl ::core::fmt::Debug for DS_SPN_NAME_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DS_SPN_WRITE_OP(pub i32);
-impl ::core::marker::Copy for DS_SPN_WRITE_OP {}
-impl ::core::clone::Clone for DS_SPN_WRITE_OP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DS_SPN_WRITE_OP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DS_SPN_WRITE_OP {
     type TypeKind = ::windows_core::CopyType;
 }

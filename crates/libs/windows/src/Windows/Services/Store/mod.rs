@@ -3140,7 +3140,7 @@ impl ::windows_core::RuntimeName for StoreVideo {
 unsafe impl ::core::marker::Send for StoreVideo {}
 unsafe impl ::core::marker::Sync for StoreVideo {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct StoreCanLicenseStatus(pub i32);
 impl StoreCanLicenseStatus {
     pub const NotLicensableToUser: Self = Self(0i32);
@@ -3148,17 +3148,6 @@ impl StoreCanLicenseStatus {
     pub const LicenseActionNotApplicableToProduct: Self = Self(2i32);
     pub const NetworkError: Self = Self(3i32);
     pub const ServerError: Self = Self(4i32);
-}
-impl ::core::marker::Copy for StoreCanLicenseStatus {}
-impl ::core::clone::Clone for StoreCanLicenseStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for StoreCanLicenseStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for StoreCanLicenseStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -3172,24 +3161,13 @@ impl ::windows_core::RuntimeType for StoreCanLicenseStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreCanLicenseStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct StoreConsumableStatus(pub i32);
 impl StoreConsumableStatus {
     pub const Succeeded: Self = Self(0i32);
     pub const InsufficentQuantity: Self = Self(1i32);
     pub const NetworkError: Self = Self(2i32);
     pub const ServerError: Self = Self(3i32);
-}
-impl ::core::marker::Copy for StoreConsumableStatus {}
-impl ::core::clone::Clone for StoreConsumableStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for StoreConsumableStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for StoreConsumableStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -3203,7 +3181,7 @@ impl ::windows_core::RuntimeType for StoreConsumableStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreConsumableStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct StoreDurationUnit(pub i32);
 impl StoreDurationUnit {
     pub const Minute: Self = Self(0i32);
@@ -3212,17 +3190,6 @@ impl StoreDurationUnit {
     pub const Week: Self = Self(3i32);
     pub const Month: Self = Self(4i32);
     pub const Year: Self = Self(5i32);
-}
-impl ::core::marker::Copy for StoreDurationUnit {}
-impl ::core::clone::Clone for StoreDurationUnit {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for StoreDurationUnit {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for StoreDurationUnit {
     type TypeKind = ::windows_core::CopyType;
@@ -3236,7 +3203,7 @@ impl ::windows_core::RuntimeType for StoreDurationUnit {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreDurationUnit;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct StorePackageUpdateState(pub i32);
 impl StorePackageUpdateState {
     pub const Pending: Self = Self(0i32);
@@ -3248,17 +3215,6 @@ impl StorePackageUpdateState {
     pub const ErrorLowBattery: Self = Self(6i32);
     pub const ErrorWiFiRecommended: Self = Self(7i32);
     pub const ErrorWiFiRequired: Self = Self(8i32);
-}
-impl ::core::marker::Copy for StorePackageUpdateState {}
-impl ::core::clone::Clone for StorePackageUpdateState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for StorePackageUpdateState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for StorePackageUpdateState {
     type TypeKind = ::windows_core::CopyType;
@@ -3272,7 +3228,7 @@ impl ::windows_core::RuntimeType for StorePackageUpdateState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StorePackageUpdateState;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct StorePurchaseStatus(pub i32);
 impl StorePurchaseStatus {
     pub const Succeeded: Self = Self(0i32);
@@ -3280,17 +3236,6 @@ impl StorePurchaseStatus {
     pub const NotPurchased: Self = Self(2i32);
     pub const NetworkError: Self = Self(3i32);
     pub const ServerError: Self = Self(4i32);
-}
-impl ::core::marker::Copy for StorePurchaseStatus {}
-impl ::core::clone::Clone for StorePurchaseStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for StorePurchaseStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for StorePurchaseStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -3304,7 +3249,7 @@ impl ::windows_core::RuntimeType for StorePurchaseStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StorePurchaseStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct StoreQueueItemExtendedState(pub i32);
 impl StoreQueueItemExtendedState {
     pub const ActivePending: Self = Self(0i32);
@@ -3323,17 +3268,6 @@ impl StoreQueueItemExtendedState {
     pub const PausedWiFiRequired: Self = Self(13i32);
     pub const PausedReadyToInstall: Self = Self(14i32);
 }
-impl ::core::marker::Copy for StoreQueueItemExtendedState {}
-impl ::core::clone::Clone for StoreQueueItemExtendedState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for StoreQueueItemExtendedState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for StoreQueueItemExtendedState {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3346,23 +3280,12 @@ impl ::windows_core::RuntimeType for StoreQueueItemExtendedState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreQueueItemExtendedState;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct StoreQueueItemKind(pub i32);
 impl StoreQueueItemKind {
     pub const Install: Self = Self(0i32);
     pub const Update: Self = Self(1i32);
     pub const Repair: Self = Self(2i32);
-}
-impl ::core::marker::Copy for StoreQueueItemKind {}
-impl ::core::clone::Clone for StoreQueueItemKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for StoreQueueItemKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for StoreQueueItemKind {
     type TypeKind = ::windows_core::CopyType;
@@ -3376,7 +3299,7 @@ impl ::windows_core::RuntimeType for StoreQueueItemKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreQueueItemKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct StoreQueueItemState(pub i32);
 impl StoreQueueItemState {
     pub const Active: Self = Self(0i32);
@@ -3384,17 +3307,6 @@ impl StoreQueueItemState {
     pub const Canceled: Self = Self(2i32);
     pub const Error: Self = Self(3i32);
     pub const Paused: Self = Self(4i32);
-}
-impl ::core::marker::Copy for StoreQueueItemState {}
-impl ::core::clone::Clone for StoreQueueItemState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for StoreQueueItemState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for StoreQueueItemState {
     type TypeKind = ::windows_core::CopyType;
@@ -3408,24 +3320,13 @@ impl ::windows_core::RuntimeType for StoreQueueItemState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreQueueItemState;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct StoreRateAndReviewStatus(pub i32);
 impl StoreRateAndReviewStatus {
     pub const Succeeded: Self = Self(0i32);
     pub const CanceledByUser: Self = Self(1i32);
     pub const NetworkError: Self = Self(2i32);
     pub const Error: Self = Self(3i32);
-}
-impl ::core::marker::Copy for StoreRateAndReviewStatus {}
-impl ::core::clone::Clone for StoreRateAndReviewStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for StoreRateAndReviewStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for StoreRateAndReviewStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -3439,7 +3340,7 @@ impl ::windows_core::RuntimeType for StoreRateAndReviewStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Store.StoreRateAndReviewStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct StoreUninstallStorePackageStatus(pub i32);
 impl StoreUninstallStorePackageStatus {
     pub const Succeeded: Self = Self(0i32);
@@ -3447,17 +3348,6 @@ impl StoreUninstallStorePackageStatus {
     pub const NetworkError: Self = Self(2i32);
     pub const UninstallNotApplicable: Self = Self(3i32);
     pub const Error: Self = Self(4i32);
-}
-impl ::core::marker::Copy for StoreUninstallStorePackageStatus {}
-impl ::core::clone::Clone for StoreUninstallStorePackageStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for StoreUninstallStorePackageStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for StoreUninstallStorePackageStatus {
     type TypeKind = ::windows_core::CopyType;

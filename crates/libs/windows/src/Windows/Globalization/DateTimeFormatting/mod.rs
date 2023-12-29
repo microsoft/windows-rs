@@ -357,22 +357,11 @@ impl ::windows_core::RuntimeName for DateTimeFormatter {
 unsafe impl ::core::marker::Send for DateTimeFormatter {}
 unsafe impl ::core::marker::Sync for DateTimeFormatter {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DayFormat(pub i32);
 impl DayFormat {
     pub const None: Self = Self(0i32);
     pub const Default: Self = Self(1i32);
-}
-impl ::core::marker::Copy for DayFormat {}
-impl ::core::clone::Clone for DayFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DayFormat {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DayFormat {
     type TypeKind = ::windows_core::CopyType;
@@ -386,24 +375,13 @@ impl ::windows_core::RuntimeType for DayFormat {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.DayFormat;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DayOfWeekFormat(pub i32);
 impl DayOfWeekFormat {
     pub const None: Self = Self(0i32);
     pub const Default: Self = Self(1i32);
     pub const Abbreviated: Self = Self(2i32);
     pub const Full: Self = Self(3i32);
-}
-impl ::core::marker::Copy for DayOfWeekFormat {}
-impl ::core::clone::Clone for DayOfWeekFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DayOfWeekFormat {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DayOfWeekFormat {
     type TypeKind = ::windows_core::CopyType;
@@ -417,22 +395,11 @@ impl ::windows_core::RuntimeType for DayOfWeekFormat {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.DayOfWeekFormat;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HourFormat(pub i32);
 impl HourFormat {
     pub const None: Self = Self(0i32);
     pub const Default: Self = Self(1i32);
-}
-impl ::core::marker::Copy for HourFormat {}
-impl ::core::clone::Clone for HourFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HourFormat {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for HourFormat {
     type TypeKind = ::windows_core::CopyType;
@@ -446,22 +413,11 @@ impl ::windows_core::RuntimeType for HourFormat {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.HourFormat;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MinuteFormat(pub i32);
 impl MinuteFormat {
     pub const None: Self = Self(0i32);
     pub const Default: Self = Self(1i32);
-}
-impl ::core::marker::Copy for MinuteFormat {}
-impl ::core::clone::Clone for MinuteFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MinuteFormat {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MinuteFormat {
     type TypeKind = ::windows_core::CopyType;
@@ -475,7 +431,7 @@ impl ::windows_core::RuntimeType for MinuteFormat {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.MinuteFormat;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MonthFormat(pub i32);
 impl MonthFormat {
     pub const None: Self = Self(0i32);
@@ -483,17 +439,6 @@ impl MonthFormat {
     pub const Abbreviated: Self = Self(2i32);
     pub const Full: Self = Self(3i32);
     pub const Numeric: Self = Self(4i32);
-}
-impl ::core::marker::Copy for MonthFormat {}
-impl ::core::clone::Clone for MonthFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MonthFormat {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MonthFormat {
     type TypeKind = ::windows_core::CopyType;
@@ -507,22 +452,11 @@ impl ::windows_core::RuntimeType for MonthFormat {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.MonthFormat;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SecondFormat(pub i32);
 impl SecondFormat {
     pub const None: Self = Self(0i32);
     pub const Default: Self = Self(1i32);
-}
-impl ::core::marker::Copy for SecondFormat {}
-impl ::core::clone::Clone for SecondFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SecondFormat {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SecondFormat {
     type TypeKind = ::windows_core::CopyType;
@@ -536,24 +470,13 @@ impl ::windows_core::RuntimeType for SecondFormat {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.SecondFormat;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct YearFormat(pub i32);
 impl YearFormat {
     pub const None: Self = Self(0i32);
     pub const Default: Self = Self(1i32);
     pub const Abbreviated: Self = Self(2i32);
     pub const Full: Self = Self(3i32);
-}
-impl ::core::marker::Copy for YearFormat {}
-impl ::core::clone::Clone for YearFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for YearFormat {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for YearFormat {
     type TypeKind = ::windows_core::CopyType;

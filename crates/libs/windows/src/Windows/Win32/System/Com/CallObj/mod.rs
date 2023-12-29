@@ -334,19 +334,8 @@ pub const CALLFRAME_WALK_IN: CALLFRAME_WALK = CALLFRAME_WALK(1i32);
 pub const CALLFRAME_WALK_INOUT: CALLFRAME_WALK = CALLFRAME_WALK(2i32);
 pub const CALLFRAME_WALK_OUT: CALLFRAME_WALK = CALLFRAME_WALK(4i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CALLFRAME_COPY(pub i32);
-impl ::core::marker::Copy for CALLFRAME_COPY {}
-impl ::core::clone::Clone for CALLFRAME_COPY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CALLFRAME_COPY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CALLFRAME_COPY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -356,19 +345,8 @@ impl ::core::fmt::Debug for CALLFRAME_COPY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CALLFRAME_FREE(pub i32);
-impl ::core::marker::Copy for CALLFRAME_FREE {}
-impl ::core::clone::Clone for CALLFRAME_FREE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CALLFRAME_FREE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CALLFRAME_FREE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -378,19 +356,8 @@ impl ::core::fmt::Debug for CALLFRAME_FREE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CALLFRAME_NULL(pub i32);
-impl ::core::marker::Copy for CALLFRAME_NULL {}
-impl ::core::clone::Clone for CALLFRAME_NULL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CALLFRAME_NULL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CALLFRAME_NULL {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -400,19 +367,8 @@ impl ::core::fmt::Debug for CALLFRAME_NULL {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CALLFRAME_WALK(pub i32);
-impl ::core::marker::Copy for CALLFRAME_WALK {}
-impl ::core::clone::Clone for CALLFRAME_WALK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CALLFRAME_WALK {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CALLFRAME_WALK {
     type TypeKind = ::windows_core::CopyType;
 }

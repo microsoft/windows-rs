@@ -106,19 +106,8 @@ pub const TPM_WNF_INFO_CLEAR_SUCCESSFUL: u32 = 1u32;
 pub const TPM_WNF_INFO_NO_REBOOT_REQUIRED: u32 = 1u32;
 pub const TPM_WNF_INFO_OWNERSHIP_SUCCESSFUL: u32 = 2u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TBS_COMMAND_LOCALITY(pub u32);
-impl ::core::marker::Copy for TBS_COMMAND_LOCALITY {}
-impl ::core::clone::Clone for TBS_COMMAND_LOCALITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TBS_COMMAND_LOCALITY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TBS_COMMAND_LOCALITY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -128,19 +117,8 @@ impl ::core::fmt::Debug for TBS_COMMAND_LOCALITY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TBS_COMMAND_PRIORITY(pub u32);
-impl ::core::marker::Copy for TBS_COMMAND_PRIORITY {}
-impl ::core::clone::Clone for TBS_COMMAND_PRIORITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TBS_COMMAND_PRIORITY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TBS_COMMAND_PRIORITY {
     type TypeKind = ::windows_core::CopyType;
 }

@@ -359,19 +359,8 @@ pub const szOID_TRUSTED_CLIENT_AUTH_CA_LIST: ::windows_core::PCSTR = ::windows_c
 pub const szOID_TRUSTED_CODESIGNING_CA_LIST: ::windows_core::PCSTR = ::windows_core::s!("1.3.6.1.4.1.311.2.2.1");
 pub const szOID_TRUSTED_SERVER_AUTH_CA_LIST: ::windows_core::PCSTR = ::windows_core::s!("1.3.6.1.4.1.311.2.2.3");
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WINTRUST_DATA_PROVIDER_FLAGS(pub u32);
-impl ::core::marker::Copy for WINTRUST_DATA_PROVIDER_FLAGS {}
-impl ::core::clone::Clone for WINTRUST_DATA_PROVIDER_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WINTRUST_DATA_PROVIDER_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WINTRUST_DATA_PROVIDER_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -414,19 +403,8 @@ impl ::core::ops::Not for WINTRUST_DATA_PROVIDER_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WINTRUST_DATA_REVOCATION_CHECKS(pub u32);
-impl ::core::marker::Copy for WINTRUST_DATA_REVOCATION_CHECKS {}
-impl ::core::clone::Clone for WINTRUST_DATA_REVOCATION_CHECKS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WINTRUST_DATA_REVOCATION_CHECKS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WINTRUST_DATA_REVOCATION_CHECKS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -436,19 +414,8 @@ impl ::core::fmt::Debug for WINTRUST_DATA_REVOCATION_CHECKS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WINTRUST_DATA_STATE_ACTION(pub u32);
-impl ::core::marker::Copy for WINTRUST_DATA_STATE_ACTION {}
-impl ::core::clone::Clone for WINTRUST_DATA_STATE_ACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WINTRUST_DATA_STATE_ACTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WINTRUST_DATA_STATE_ACTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -458,19 +425,8 @@ impl ::core::fmt::Debug for WINTRUST_DATA_STATE_ACTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WINTRUST_DATA_UICHOICE(pub u32);
-impl ::core::marker::Copy for WINTRUST_DATA_UICHOICE {}
-impl ::core::clone::Clone for WINTRUST_DATA_UICHOICE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WINTRUST_DATA_UICHOICE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WINTRUST_DATA_UICHOICE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -480,19 +436,8 @@ impl ::core::fmt::Debug for WINTRUST_DATA_UICHOICE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WINTRUST_DATA_UICONTEXT(pub u32);
-impl ::core::marker::Copy for WINTRUST_DATA_UICONTEXT {}
-impl ::core::clone::Clone for WINTRUST_DATA_UICONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WINTRUST_DATA_UICONTEXT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WINTRUST_DATA_UICONTEXT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -502,19 +447,8 @@ impl ::core::fmt::Debug for WINTRUST_DATA_UICONTEXT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WINTRUST_DATA_UNION_CHOICE(pub u32);
-impl ::core::marker::Copy for WINTRUST_DATA_UNION_CHOICE {}
-impl ::core::clone::Clone for WINTRUST_DATA_UNION_CHOICE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WINTRUST_DATA_UNION_CHOICE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WINTRUST_DATA_UNION_CHOICE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -524,19 +458,8 @@ impl ::core::fmt::Debug for WINTRUST_DATA_UNION_CHOICE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION(pub u32);
-impl ::core::marker::Copy for WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION {}
-impl ::core::clone::Clone for WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -546,19 +469,8 @@ impl ::core::fmt::Debug for WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WINTRUST_POLICY_FLAGS(pub u32);
-impl ::core::marker::Copy for WINTRUST_POLICY_FLAGS {}
-impl ::core::clone::Clone for WINTRUST_POLICY_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WINTRUST_POLICY_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WINTRUST_POLICY_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -601,19 +513,8 @@ impl ::core::ops::Not for WINTRUST_POLICY_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WINTRUST_SIGNATURE_SETTINGS_FLAGS(pub u32);
-impl ::core::marker::Copy for WINTRUST_SIGNATURE_SETTINGS_FLAGS {}
-impl ::core::clone::Clone for WINTRUST_SIGNATURE_SETTINGS_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WINTRUST_SIGNATURE_SETTINGS_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WINTRUST_SIGNATURE_SETTINGS_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }

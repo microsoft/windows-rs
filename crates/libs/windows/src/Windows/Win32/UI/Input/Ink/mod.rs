@@ -182,19 +182,8 @@ pub const USE_ORIGINAL_COLORS: INK_HIGH_CONTRAST_ADJUSTMENT = INK_HIGH_CONTRAST_
 pub const USE_SYSTEM_COLORS: INK_HIGH_CONTRAST_ADJUSTMENT = INK_HIGH_CONTRAST_ADJUSTMENT(1i32);
 pub const USE_SYSTEM_COLORS_WHEN_NECESSARY: INK_HIGH_CONTRAST_ADJUSTMENT = INK_HIGH_CONTRAST_ADJUSTMENT(0i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct INK_HIGH_CONTRAST_ADJUSTMENT(pub i32);
-impl ::core::marker::Copy for INK_HIGH_CONTRAST_ADJUSTMENT {}
-impl ::core::clone::Clone for INK_HIGH_CONTRAST_ADJUSTMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for INK_HIGH_CONTRAST_ADJUSTMENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for INK_HIGH_CONTRAST_ADJUSTMENT {
     type TypeKind = ::windows_core::CopyType;
 }

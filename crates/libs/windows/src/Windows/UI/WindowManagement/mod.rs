@@ -1628,23 +1628,12 @@ impl ::windows_core::RuntimeName for WindowingEnvironmentRemovedEventArgs {
 unsafe impl ::core::marker::Send for WindowingEnvironmentRemovedEventArgs {}
 unsafe impl ::core::marker::Sync for WindowingEnvironmentRemovedEventArgs {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AppWindowClosedReason(pub i32);
 impl AppWindowClosedReason {
     pub const Other: Self = Self(0i32);
     pub const AppInitiated: Self = Self(1i32);
     pub const UserInitiated: Self = Self(2i32);
-}
-impl ::core::marker::Copy for AppWindowClosedReason {}
-impl ::core::clone::Clone for AppWindowClosedReason {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AppWindowClosedReason {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AppWindowClosedReason {
     type TypeKind = ::windows_core::CopyType;
@@ -1658,22 +1647,11 @@ impl ::windows_core::RuntimeType for AppWindowClosedReason {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.WindowManagement.AppWindowClosedReason;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AppWindowFrameStyle(pub i32);
 impl AppWindowFrameStyle {
     pub const Default: Self = Self(0i32);
     pub const NoFrame: Self = Self(1i32);
-}
-impl ::core::marker::Copy for AppWindowFrameStyle {}
-impl ::core::clone::Clone for AppWindowFrameStyle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AppWindowFrameStyle {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AppWindowFrameStyle {
     type TypeKind = ::windows_core::CopyType;
@@ -1687,23 +1665,12 @@ impl ::windows_core::RuntimeType for AppWindowFrameStyle {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.WindowManagement.AppWindowFrameStyle;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AppWindowPresentationKind(pub i32);
 impl AppWindowPresentationKind {
     pub const Default: Self = Self(0i32);
     pub const CompactOverlay: Self = Self(1i32);
     pub const FullScreen: Self = Self(2i32);
-}
-impl ::core::marker::Copy for AppWindowPresentationKind {}
-impl ::core::clone::Clone for AppWindowPresentationKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AppWindowPresentationKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AppWindowPresentationKind {
     type TypeKind = ::windows_core::CopyType;
@@ -1717,22 +1684,11 @@ impl ::windows_core::RuntimeType for AppWindowPresentationKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.WindowManagement.AppWindowPresentationKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AppWindowTitleBarVisibility(pub i32);
 impl AppWindowTitleBarVisibility {
     pub const Default: Self = Self(0i32);
     pub const AlwaysHidden: Self = Self(1i32);
-}
-impl ::core::marker::Copy for AppWindowTitleBarVisibility {}
-impl ::core::clone::Clone for AppWindowTitleBarVisibility {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AppWindowTitleBarVisibility {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AppWindowTitleBarVisibility {
     type TypeKind = ::windows_core::CopyType;
@@ -1746,23 +1702,12 @@ impl ::windows_core::RuntimeType for AppWindowTitleBarVisibility {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.WindowManagement.AppWindowTitleBarVisibility;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WindowingEnvironmentKind(pub i32);
 impl WindowingEnvironmentKind {
     pub const Unknown: Self = Self(0i32);
     pub const Overlapped: Self = Self(1i32);
     pub const Tiled: Self = Self(2i32);
-}
-impl ::core::marker::Copy for WindowingEnvironmentKind {}
-impl ::core::clone::Clone for WindowingEnvironmentKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WindowingEnvironmentKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for WindowingEnvironmentKind {
     type TypeKind = ::windows_core::CopyType;

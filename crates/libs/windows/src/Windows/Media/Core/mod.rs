@@ -7926,24 +7926,13 @@ impl ::windows_core::RuntimeName for VideoTrackSupportInfo {
 unsafe impl ::core::marker::Send for VideoTrackSupportInfo {}
 unsafe impl ::core::marker::Sync for VideoTrackSupportInfo {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AudioDecoderDegradation(pub i32);
 impl AudioDecoderDegradation {
     pub const None: Self = Self(0i32);
     pub const DownmixTo2Channels: Self = Self(1i32);
     pub const DownmixTo6Channels: Self = Self(2i32);
     pub const DownmixTo8Channels: Self = Self(3i32);
-}
-impl ::core::marker::Copy for AudioDecoderDegradation {}
-impl ::core::clone::Clone for AudioDecoderDegradation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AudioDecoderDegradation {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AudioDecoderDegradation {
     type TypeKind = ::windows_core::CopyType;
@@ -7957,23 +7946,12 @@ impl ::windows_core::RuntimeType for AudioDecoderDegradation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Core.AudioDecoderDegradation;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AudioDecoderDegradationReason(pub i32);
 impl AudioDecoderDegradationReason {
     pub const None: Self = Self(0i32);
     pub const LicensingRequirement: Self = Self(1i32);
     pub const SpatialAudioNotSupported: Self = Self(2i32);
-}
-impl ::core::marker::Copy for AudioDecoderDegradationReason {}
-impl ::core::clone::Clone for AudioDecoderDegradationReason {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AudioDecoderDegradationReason {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AudioDecoderDegradationReason {
     type TypeKind = ::windows_core::CopyType;
@@ -7987,22 +7965,11 @@ impl ::windows_core::RuntimeType for AudioDecoderDegradationReason {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Core.AudioDecoderDegradationReason;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CodecCategory(pub i32);
 impl CodecCategory {
     pub const Encoder: Self = Self(0i32);
     pub const Decoder: Self = Self(1i32);
-}
-impl ::core::marker::Copy for CodecCategory {}
-impl ::core::clone::Clone for CodecCategory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CodecCategory {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CodecCategory {
     type TypeKind = ::windows_core::CopyType;
@@ -8016,22 +7983,11 @@ impl ::windows_core::RuntimeType for CodecCategory {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Core.CodecCategory;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CodecKind(pub i32);
 impl CodecKind {
     pub const Audio: Self = Self(0i32);
     pub const Video: Self = Self(1i32);
-}
-impl ::core::marker::Copy for CodecKind {}
-impl ::core::clone::Clone for CodecKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CodecKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CodecKind {
     type TypeKind = ::windows_core::CopyType;
@@ -8045,23 +8001,12 @@ impl ::windows_core::RuntimeType for CodecKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Core.CodecKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FaceDetectionMode(pub i32);
 impl FaceDetectionMode {
     pub const HighPerformance: Self = Self(0i32);
     pub const Balanced: Self = Self(1i32);
     pub const HighQuality: Self = Self(2i32);
-}
-impl ::core::marker::Copy for FaceDetectionMode {}
-impl ::core::clone::Clone for FaceDetectionMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FaceDetectionMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for FaceDetectionMode {
     type TypeKind = ::windows_core::CopyType;
@@ -8075,24 +8020,13 @@ impl ::windows_core::RuntimeType for FaceDetectionMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Core.FaceDetectionMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MediaDecoderStatus(pub i32);
 impl MediaDecoderStatus {
     pub const FullySupported: Self = Self(0i32);
     pub const UnsupportedSubtype: Self = Self(1i32);
     pub const UnsupportedEncoderProperties: Self = Self(2i32);
     pub const Degraded: Self = Self(3i32);
-}
-impl ::core::marker::Copy for MediaDecoderStatus {}
-impl ::core::clone::Clone for MediaDecoderStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MediaDecoderStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MediaDecoderStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -8106,7 +8040,7 @@ impl ::windows_core::RuntimeType for MediaDecoderStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Core.MediaDecoderStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MediaSourceState(pub i32);
 impl MediaSourceState {
     pub const Initial: Self = Self(0i32);
@@ -8114,17 +8048,6 @@ impl MediaSourceState {
     pub const Opened: Self = Self(2i32);
     pub const Failed: Self = Self(3i32);
     pub const Closed: Self = Self(4i32);
-}
-impl ::core::marker::Copy for MediaSourceState {}
-impl ::core::clone::Clone for MediaSourceState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MediaSourceState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MediaSourceState {
     type TypeKind = ::windows_core::CopyType;
@@ -8138,22 +8061,11 @@ impl ::windows_core::RuntimeType for MediaSourceState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Core.MediaSourceState;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MediaSourceStatus(pub i32);
 impl MediaSourceStatus {
     pub const FullySupported: Self = Self(0i32);
     pub const Unknown: Self = Self(1i32);
-}
-impl ::core::marker::Copy for MediaSourceStatus {}
-impl ::core::clone::Clone for MediaSourceStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MediaSourceStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MediaSourceStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -8167,7 +8079,7 @@ impl ::windows_core::RuntimeType for MediaSourceStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Core.MediaSourceStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MediaStreamSourceClosedReason(pub i32);
 impl MediaStreamSourceClosedReason {
     pub const Done: Self = Self(0i32);
@@ -8177,17 +8089,6 @@ impl MediaStreamSourceClosedReason {
     pub const ProtectionSystemFailure: Self = Self(4i32);
     pub const UnsupportedEncodingFormat: Self = Self(5i32);
     pub const MissingSampleRequestedEventHandler: Self = Self(6i32);
-}
-impl ::core::marker::Copy for MediaStreamSourceClosedReason {}
-impl ::core::clone::Clone for MediaStreamSourceClosedReason {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MediaStreamSourceClosedReason {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MediaStreamSourceClosedReason {
     type TypeKind = ::windows_core::CopyType;
@@ -8201,7 +8102,7 @@ impl ::windows_core::RuntimeType for MediaStreamSourceClosedReason {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Core.MediaStreamSourceClosedReason;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MediaStreamSourceErrorStatus(pub i32);
 impl MediaStreamSourceErrorStatus {
     pub const Other: Self = Self(0i32);
@@ -8212,17 +8113,6 @@ impl MediaStreamSourceErrorStatus {
     pub const UnspecifiedNetworkError: Self = Self(5i32);
     pub const DecodeError: Self = Self(6i32);
     pub const UnsupportedMediaFormat: Self = Self(7i32);
-}
-impl ::core::marker::Copy for MediaStreamSourceErrorStatus {}
-impl ::core::clone::Clone for MediaStreamSourceErrorStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MediaStreamSourceErrorStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MediaStreamSourceErrorStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -8236,23 +8126,12 @@ impl ::windows_core::RuntimeType for MediaStreamSourceErrorStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Core.MediaStreamSourceErrorStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MediaTrackKind(pub i32);
 impl MediaTrackKind {
     pub const Audio: Self = Self(0i32);
     pub const Video: Self = Self(1i32);
     pub const TimedMetadata: Self = Self(2i32);
-}
-impl ::core::marker::Copy for MediaTrackKind {}
-impl ::core::clone::Clone for MediaTrackKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MediaTrackKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MediaTrackKind {
     type TypeKind = ::windows_core::CopyType;
@@ -8266,22 +8145,11 @@ impl ::windows_core::RuntimeType for MediaTrackKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Core.MediaTrackKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MseAppendMode(pub i32);
 impl MseAppendMode {
     pub const Segments: Self = Self(0i32);
     pub const Sequence: Self = Self(1i32);
-}
-impl ::core::marker::Copy for MseAppendMode {}
-impl ::core::clone::Clone for MseAppendMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MseAppendMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MseAppendMode {
     type TypeKind = ::windows_core::CopyType;
@@ -8295,24 +8163,13 @@ impl ::windows_core::RuntimeType for MseAppendMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Core.MseAppendMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MseEndOfStreamStatus(pub i32);
 impl MseEndOfStreamStatus {
     pub const Success: Self = Self(0i32);
     pub const NetworkError: Self = Self(1i32);
     pub const DecodeError: Self = Self(2i32);
     pub const UnknownError: Self = Self(3i32);
-}
-impl ::core::marker::Copy for MseEndOfStreamStatus {}
-impl ::core::clone::Clone for MseEndOfStreamStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MseEndOfStreamStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MseEndOfStreamStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -8326,23 +8183,12 @@ impl ::windows_core::RuntimeType for MseEndOfStreamStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Core.MseEndOfStreamStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MseReadyState(pub i32);
 impl MseReadyState {
     pub const Closed: Self = Self(0i32);
     pub const Open: Self = Self(1i32);
     pub const Ended: Self = Self(2i32);
-}
-impl ::core::marker::Copy for MseReadyState {}
-impl ::core::clone::Clone for MseReadyState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MseReadyState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MseReadyState {
     type TypeKind = ::windows_core::CopyType;
@@ -8356,23 +8202,12 @@ impl ::windows_core::RuntimeType for MseReadyState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Core.MseReadyState;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SceneAnalysisRecommendation(pub i32);
 impl SceneAnalysisRecommendation {
     pub const Standard: Self = Self(0i32);
     pub const Hdr: Self = Self(1i32);
     pub const LowLight: Self = Self(2i32);
-}
-impl ::core::marker::Copy for SceneAnalysisRecommendation {}
-impl ::core::clone::Clone for SceneAnalysisRecommendation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SceneAnalysisRecommendation {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SceneAnalysisRecommendation {
     type TypeKind = ::windows_core::CopyType;
@@ -8386,7 +8221,7 @@ impl ::windows_core::RuntimeType for SceneAnalysisRecommendation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Core.SceneAnalysisRecommendation;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TimedMetadataKind(pub i32);
 impl TimedMetadataKind {
     pub const Caption: Self = Self(0i32);
@@ -8397,17 +8232,6 @@ impl TimedMetadataKind {
     pub const Subtitle: Self = Self(5i32);
     pub const ImageSubtitle: Self = Self(6i32);
     pub const Speech: Self = Self(7i32);
-}
-impl ::core::marker::Copy for TimedMetadataKind {}
-impl ::core::clone::Clone for TimedMetadataKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TimedMetadataKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for TimedMetadataKind {
     type TypeKind = ::windows_core::CopyType;
@@ -8421,24 +8245,13 @@ impl ::windows_core::RuntimeType for TimedMetadataKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Core.TimedMetadataKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TimedMetadataTrackErrorCode(pub i32);
 impl TimedMetadataTrackErrorCode {
     pub const None: Self = Self(0i32);
     pub const DataFormatError: Self = Self(1i32);
     pub const NetworkError: Self = Self(2i32);
     pub const InternalError: Self = Self(3i32);
-}
-impl ::core::marker::Copy for TimedMetadataTrackErrorCode {}
-impl ::core::clone::Clone for TimedMetadataTrackErrorCode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TimedMetadataTrackErrorCode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for TimedMetadataTrackErrorCode {
     type TypeKind = ::windows_core::CopyType;
@@ -8452,23 +8265,12 @@ impl ::windows_core::RuntimeType for TimedMetadataTrackErrorCode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Core.TimedMetadataTrackErrorCode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TimedTextBoutenPosition(pub i32);
 impl TimedTextBoutenPosition {
     pub const Before: Self = Self(0i32);
     pub const After: Self = Self(1i32);
     pub const Outside: Self = Self(2i32);
-}
-impl ::core::marker::Copy for TimedTextBoutenPosition {}
-impl ::core::clone::Clone for TimedTextBoutenPosition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TimedTextBoutenPosition {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for TimedTextBoutenPosition {
     type TypeKind = ::windows_core::CopyType;
@@ -8482,7 +8284,7 @@ impl ::windows_core::RuntimeType for TimedTextBoutenPosition {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Core.TimedTextBoutenPosition;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TimedTextBoutenType(pub i32);
 impl TimedTextBoutenType {
     pub const None: Self = Self(0i32);
@@ -8493,17 +8295,6 @@ impl TimedTextBoutenType {
     pub const OpenDot: Self = Self(5i32);
     pub const FilledSesame: Self = Self(6i32);
     pub const OpenSesame: Self = Self(7i32);
-}
-impl ::core::marker::Copy for TimedTextBoutenType {}
-impl ::core::clone::Clone for TimedTextBoutenType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TimedTextBoutenType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for TimedTextBoutenType {
     type TypeKind = ::windows_core::CopyType;
@@ -8517,23 +8308,12 @@ impl ::windows_core::RuntimeType for TimedTextBoutenType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Core.TimedTextBoutenType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TimedTextDisplayAlignment(pub i32);
 impl TimedTextDisplayAlignment {
     pub const Before: Self = Self(0i32);
     pub const After: Self = Self(1i32);
     pub const Center: Self = Self(2i32);
-}
-impl ::core::marker::Copy for TimedTextDisplayAlignment {}
-impl ::core::clone::Clone for TimedTextDisplayAlignment {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TimedTextDisplayAlignment {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for TimedTextDisplayAlignment {
     type TypeKind = ::windows_core::CopyType;
@@ -8547,22 +8327,11 @@ impl ::windows_core::RuntimeType for TimedTextDisplayAlignment {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Core.TimedTextDisplayAlignment;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TimedTextFlowDirection(pub i32);
 impl TimedTextFlowDirection {
     pub const LeftToRight: Self = Self(0i32);
     pub const RightToLeft: Self = Self(1i32);
-}
-impl ::core::marker::Copy for TimedTextFlowDirection {}
-impl ::core::clone::Clone for TimedTextFlowDirection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TimedTextFlowDirection {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for TimedTextFlowDirection {
     type TypeKind = ::windows_core::CopyType;
@@ -8576,23 +8345,12 @@ impl ::windows_core::RuntimeType for TimedTextFlowDirection {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Core.TimedTextFlowDirection;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TimedTextFontStyle(pub i32);
 impl TimedTextFontStyle {
     pub const Normal: Self = Self(0i32);
     pub const Oblique: Self = Self(1i32);
     pub const Italic: Self = Self(2i32);
-}
-impl ::core::marker::Copy for TimedTextFontStyle {}
-impl ::core::clone::Clone for TimedTextFontStyle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TimedTextFontStyle {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for TimedTextFontStyle {
     type TypeKind = ::windows_core::CopyType;
@@ -8606,23 +8364,12 @@ impl ::windows_core::RuntimeType for TimedTextFontStyle {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Core.TimedTextFontStyle;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TimedTextLineAlignment(pub i32);
 impl TimedTextLineAlignment {
     pub const Start: Self = Self(0i32);
     pub const End: Self = Self(1i32);
     pub const Center: Self = Self(2i32);
-}
-impl ::core::marker::Copy for TimedTextLineAlignment {}
-impl ::core::clone::Clone for TimedTextLineAlignment {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TimedTextLineAlignment {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for TimedTextLineAlignment {
     type TypeKind = ::windows_core::CopyType;
@@ -8636,7 +8383,7 @@ impl ::windows_core::RuntimeType for TimedTextLineAlignment {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Core.TimedTextLineAlignment;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TimedTextRubyAlign(pub i32);
 impl TimedTextRubyAlign {
     pub const Center: Self = Self(0i32);
@@ -8645,17 +8392,6 @@ impl TimedTextRubyAlign {
     pub const SpaceAround: Self = Self(3i32);
     pub const SpaceBetween: Self = Self(4i32);
     pub const WithBase: Self = Self(5i32);
-}
-impl ::core::marker::Copy for TimedTextRubyAlign {}
-impl ::core::clone::Clone for TimedTextRubyAlign {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TimedTextRubyAlign {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for TimedTextRubyAlign {
     type TypeKind = ::windows_core::CopyType;
@@ -8669,23 +8405,12 @@ impl ::windows_core::RuntimeType for TimedTextRubyAlign {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Core.TimedTextRubyAlign;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TimedTextRubyPosition(pub i32);
 impl TimedTextRubyPosition {
     pub const Before: Self = Self(0i32);
     pub const After: Self = Self(1i32);
     pub const Outside: Self = Self(2i32);
-}
-impl ::core::marker::Copy for TimedTextRubyPosition {}
-impl ::core::clone::Clone for TimedTextRubyPosition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TimedTextRubyPosition {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for TimedTextRubyPosition {
     type TypeKind = ::windows_core::CopyType;
@@ -8699,7 +8424,7 @@ impl ::windows_core::RuntimeType for TimedTextRubyPosition {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Core.TimedTextRubyPosition;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TimedTextRubyReserve(pub i32);
 impl TimedTextRubyReserve {
     pub const None: Self = Self(0i32);
@@ -8707,17 +8432,6 @@ impl TimedTextRubyReserve {
     pub const After: Self = Self(2i32);
     pub const Both: Self = Self(3i32);
     pub const Outside: Self = Self(4i32);
-}
-impl ::core::marker::Copy for TimedTextRubyReserve {}
-impl ::core::clone::Clone for TimedTextRubyReserve {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TimedTextRubyReserve {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for TimedTextRubyReserve {
     type TypeKind = ::windows_core::CopyType;
@@ -8731,22 +8445,11 @@ impl ::windows_core::RuntimeType for TimedTextRubyReserve {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Core.TimedTextRubyReserve;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TimedTextScrollMode(pub i32);
 impl TimedTextScrollMode {
     pub const Popon: Self = Self(0i32);
     pub const Rollup: Self = Self(1i32);
-}
-impl ::core::marker::Copy for TimedTextScrollMode {}
-impl ::core::clone::Clone for TimedTextScrollMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TimedTextScrollMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for TimedTextScrollMode {
     type TypeKind = ::windows_core::CopyType;
@@ -8760,22 +8463,11 @@ impl ::windows_core::RuntimeType for TimedTextScrollMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Core.TimedTextScrollMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TimedTextUnit(pub i32);
 impl TimedTextUnit {
     pub const Pixels: Self = Self(0i32);
     pub const Percentage: Self = Self(1i32);
-}
-impl ::core::marker::Copy for TimedTextUnit {}
-impl ::core::clone::Clone for TimedTextUnit {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TimedTextUnit {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for TimedTextUnit {
     type TypeKind = ::windows_core::CopyType;
@@ -8789,22 +8481,11 @@ impl ::windows_core::RuntimeType for TimedTextUnit {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Core.TimedTextUnit;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TimedTextWeight(pub i32);
 impl TimedTextWeight {
     pub const Normal: Self = Self(400i32);
     pub const Bold: Self = Self(700i32);
-}
-impl ::core::marker::Copy for TimedTextWeight {}
-impl ::core::clone::Clone for TimedTextWeight {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TimedTextWeight {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for TimedTextWeight {
     type TypeKind = ::windows_core::CopyType;
@@ -8818,22 +8499,11 @@ impl ::windows_core::RuntimeType for TimedTextWeight {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Core.TimedTextWeight;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TimedTextWrapping(pub i32);
 impl TimedTextWrapping {
     pub const NoWrap: Self = Self(0i32);
     pub const Wrap: Self = Self(1i32);
-}
-impl ::core::marker::Copy for TimedTextWrapping {}
-impl ::core::clone::Clone for TimedTextWrapping {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TimedTextWrapping {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for TimedTextWrapping {
     type TypeKind = ::windows_core::CopyType;
@@ -8847,7 +8517,7 @@ impl ::windows_core::RuntimeType for TimedTextWrapping {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Core.TimedTextWrapping;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TimedTextWritingMode(pub i32);
 impl TimedTextWritingMode {
     pub const LeftRightTopBottom: Self = Self(0i32);
@@ -8857,17 +8527,6 @@ impl TimedTextWritingMode {
     pub const LeftRight: Self = Self(4i32);
     pub const RightLeft: Self = Self(5i32);
     pub const TopBottom: Self = Self(6i32);
-}
-impl ::core::marker::Copy for TimedTextWritingMode {}
-impl ::core::clone::Clone for TimedTextWritingMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TimedTextWritingMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for TimedTextWritingMode {
     type TypeKind = ::windows_core::CopyType;
@@ -8881,23 +8540,12 @@ impl ::windows_core::RuntimeType for TimedTextWritingMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Core.TimedTextWritingMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VideoStabilizationEffectEnabledChangedReason(pub i32);
 impl VideoStabilizationEffectEnabledChangedReason {
     pub const Programmatic: Self = Self(0i32);
     pub const PixelRateTooHigh: Self = Self(1i32);
     pub const RunningSlowly: Self = Self(2i32);
-}
-impl ::core::marker::Copy for VideoStabilizationEffectEnabledChangedReason {}
-impl ::core::clone::Clone for VideoStabilizationEffectEnabledChangedReason {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VideoStabilizationEffectEnabledChangedReason {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for VideoStabilizationEffectEnabledChangedReason {
     type TypeKind = ::windows_core::CopyType;

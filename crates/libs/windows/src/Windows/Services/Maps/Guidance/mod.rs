@@ -1350,23 +1350,12 @@ impl ::windows_core::RuntimeName for GuidanceUpdatedEventArgs {
 unsafe impl ::core::marker::Send for GuidanceUpdatedEventArgs {}
 unsafe impl ::core::marker::Sync for GuidanceUpdatedEventArgs {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GuidanceAudioMeasurementSystem(pub i32);
 impl GuidanceAudioMeasurementSystem {
     pub const Meters: Self = Self(0i32);
     pub const MilesAndYards: Self = Self(1i32);
     pub const MilesAndFeet: Self = Self(2i32);
-}
-impl ::core::marker::Copy for GuidanceAudioMeasurementSystem {}
-impl ::core::clone::Clone for GuidanceAudioMeasurementSystem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GuidanceAudioMeasurementSystem {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for GuidanceAudioMeasurementSystem {
     type TypeKind = ::windows_core::CopyType;
@@ -1380,7 +1369,7 @@ impl ::windows_core::RuntimeType for GuidanceAudioMeasurementSystem {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceAudioMeasurementSystem;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GuidanceAudioNotificationKind(pub i32);
 impl GuidanceAudioNotificationKind {
     pub const Maneuver: Self = Self(0i32);
@@ -1389,17 +1378,6 @@ impl GuidanceAudioNotificationKind {
     pub const SpeedLimit: Self = Self(3i32);
     pub const Traffic: Self = Self(4i32);
     pub const TrafficCamera: Self = Self(5i32);
-}
-impl ::core::marker::Copy for GuidanceAudioNotificationKind {}
-impl ::core::clone::Clone for GuidanceAudioNotificationKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GuidanceAudioNotificationKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for GuidanceAudioNotificationKind {
     type TypeKind = ::windows_core::CopyType;
@@ -1413,7 +1391,7 @@ impl ::windows_core::RuntimeType for GuidanceAudioNotificationKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceAudioNotificationKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GuidanceAudioNotifications(pub u32);
 impl GuidanceAudioNotifications {
     pub const None: Self = Self(0u32);
@@ -1423,17 +1401,6 @@ impl GuidanceAudioNotifications {
     pub const SpeedLimit: Self = Self(8u32);
     pub const Traffic: Self = Self(16u32);
     pub const TrafficCamera: Self = Self(32u32);
-}
-impl ::core::marker::Copy for GuidanceAudioNotifications {}
-impl ::core::clone::Clone for GuidanceAudioNotifications {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GuidanceAudioNotifications {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for GuidanceAudioNotifications {
     type TypeKind = ::windows_core::CopyType;
@@ -1480,7 +1447,7 @@ impl ::windows_core::RuntimeType for GuidanceAudioNotifications {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceAudioNotifications;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GuidanceLaneMarkers(pub u32);
 impl GuidanceLaneMarkers {
     pub const None: Self = Self(0u32);
@@ -1494,17 +1461,6 @@ impl GuidanceLaneMarkers {
     pub const LightLeft: Self = Self(128u32);
     pub const UTurnRight: Self = Self(256u32);
     pub const Unknown: Self = Self(4294967295u32);
-}
-impl ::core::marker::Copy for GuidanceLaneMarkers {}
-impl ::core::clone::Clone for GuidanceLaneMarkers {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GuidanceLaneMarkers {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for GuidanceLaneMarkers {
     type TypeKind = ::windows_core::CopyType;
@@ -1551,7 +1507,7 @@ impl ::windows_core::RuntimeType for GuidanceLaneMarkers {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceLaneMarkers;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GuidanceManeuverKind(pub i32);
 impl GuidanceManeuverKind {
     pub const None: Self = Self(0i32);
@@ -1603,17 +1559,6 @@ impl GuidanceManeuverKind {
     pub const PassTransitStation: Self = Self(46i32);
     pub const LeaveTransitStation: Self = Self(47i32);
 }
-impl ::core::marker::Copy for GuidanceManeuverKind {}
-impl ::core::clone::Clone for GuidanceManeuverKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GuidanceManeuverKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for GuidanceManeuverKind {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1626,24 +1571,13 @@ impl ::windows_core::RuntimeType for GuidanceManeuverKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceManeuverKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GuidanceMode(pub i32);
 impl GuidanceMode {
     pub const None: Self = Self(0i32);
     pub const Simulation: Self = Self(1i32);
     pub const Navigation: Self = Self(2i32);
     pub const Tracking: Self = Self(3i32);
-}
-impl ::core::marker::Copy for GuidanceMode {}
-impl ::core::clone::Clone for GuidanceMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GuidanceMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for GuidanceMode {
     type TypeKind = ::windows_core::CopyType;

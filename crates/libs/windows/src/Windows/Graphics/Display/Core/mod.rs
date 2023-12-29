@@ -288,24 +288,13 @@ impl ::windows_core::RuntimeName for HdmiDisplayMode {
 unsafe impl ::core::marker::Send for HdmiDisplayMode {}
 unsafe impl ::core::marker::Sync for HdmiDisplayMode {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HdmiDisplayColorSpace(pub i32);
 impl HdmiDisplayColorSpace {
     pub const RgbLimited: Self = Self(0i32);
     pub const RgbFull: Self = Self(1i32);
     pub const BT2020: Self = Self(2i32);
     pub const BT709: Self = Self(3i32);
-}
-impl ::core::marker::Copy for HdmiDisplayColorSpace {}
-impl ::core::clone::Clone for HdmiDisplayColorSpace {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HdmiDisplayColorSpace {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for HdmiDisplayColorSpace {
     type TypeKind = ::windows_core::CopyType;
@@ -319,24 +308,13 @@ impl ::windows_core::RuntimeType for HdmiDisplayColorSpace {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.Core.HdmiDisplayColorSpace;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HdmiDisplayHdrOption(pub i32);
 impl HdmiDisplayHdrOption {
     pub const None: Self = Self(0i32);
     pub const EotfSdr: Self = Self(1i32);
     pub const Eotf2084: Self = Self(2i32);
     pub const DolbyVisionLowLatency: Self = Self(3i32);
-}
-impl ::core::marker::Copy for HdmiDisplayHdrOption {}
-impl ::core::clone::Clone for HdmiDisplayHdrOption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HdmiDisplayHdrOption {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for HdmiDisplayHdrOption {
     type TypeKind = ::windows_core::CopyType;
@@ -350,24 +328,13 @@ impl ::windows_core::RuntimeType for HdmiDisplayHdrOption {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.Core.HdmiDisplayHdrOption;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HdmiDisplayPixelEncoding(pub i32);
 impl HdmiDisplayPixelEncoding {
     pub const Rgb444: Self = Self(0i32);
     pub const Ycc444: Self = Self(1i32);
     pub const Ycc422: Self = Self(2i32);
     pub const Ycc420: Self = Self(3i32);
-}
-impl ::core::marker::Copy for HdmiDisplayPixelEncoding {}
-impl ::core::clone::Clone for HdmiDisplayPixelEncoding {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HdmiDisplayPixelEncoding {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for HdmiDisplayPixelEncoding {
     type TypeKind = ::windows_core::CopyType;

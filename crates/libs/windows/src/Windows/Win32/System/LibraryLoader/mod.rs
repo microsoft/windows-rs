@@ -444,19 +444,8 @@ pub const RESOURCE_ENUM_MUI_SYSTEM: u32 = 4u32;
 pub const RESOURCE_ENUM_VALIDATE: u32 = 8u32;
 pub const SUPPORT_LANG_NUMBER: u32 = 32u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct LOAD_LIBRARY_FLAGS(pub u32);
-impl ::core::marker::Copy for LOAD_LIBRARY_FLAGS {}
-impl ::core::clone::Clone for LOAD_LIBRARY_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for LOAD_LIBRARY_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for LOAD_LIBRARY_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }

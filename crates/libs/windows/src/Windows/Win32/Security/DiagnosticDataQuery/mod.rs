@@ -302,19 +302,8 @@ pub const AllUserData: DdqAccessLevel = DdqAccessLevel(2i32);
 pub const CurrentUserData: DdqAccessLevel = DdqAccessLevel(1i32);
 pub const NoData: DdqAccessLevel = DdqAccessLevel(0i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DdqAccessLevel(pub i32);
-impl ::core::marker::Copy for DdqAccessLevel {}
-impl ::core::clone::Clone for DdqAccessLevel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DdqAccessLevel {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DdqAccessLevel {
     type TypeKind = ::windows_core::CopyType;
 }

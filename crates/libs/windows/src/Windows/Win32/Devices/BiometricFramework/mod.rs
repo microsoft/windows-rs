@@ -448,19 +448,8 @@ pub const WINBIO_SETTING_SOURCE_POLICY: WINBIO_SETTING_SOURCE = WINBIO_SETTING_S
 pub const WINBIO_WBDI_MAJOR_VERSION: u32 = 1u32;
 pub const WINBIO_WBDI_MINOR_VERSION: u32 = 0u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WINBIO_ANTI_SPOOF_POLICY_ACTION(pub i32);
-impl ::core::marker::Copy for WINBIO_ANTI_SPOOF_POLICY_ACTION {}
-impl ::core::clone::Clone for WINBIO_ANTI_SPOOF_POLICY_ACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WINBIO_ANTI_SPOOF_POLICY_ACTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WINBIO_ANTI_SPOOF_POLICY_ACTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -470,19 +459,8 @@ impl ::core::fmt::Debug for WINBIO_ANTI_SPOOF_POLICY_ACTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WINBIO_ASYNC_NOTIFICATION_METHOD(pub i32);
-impl ::core::marker::Copy for WINBIO_ASYNC_NOTIFICATION_METHOD {}
-impl ::core::clone::Clone for WINBIO_ASYNC_NOTIFICATION_METHOD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WINBIO_ASYNC_NOTIFICATION_METHOD {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WINBIO_ASYNC_NOTIFICATION_METHOD {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -492,19 +470,8 @@ impl ::core::fmt::Debug for WINBIO_ASYNC_NOTIFICATION_METHOD {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WINBIO_COMPONENT(pub u32);
-impl ::core::marker::Copy for WINBIO_COMPONENT {}
-impl ::core::clone::Clone for WINBIO_COMPONENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WINBIO_COMPONENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WINBIO_COMPONENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -514,19 +481,8 @@ impl ::core::fmt::Debug for WINBIO_COMPONENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WINBIO_CREDENTIAL_FORMAT(pub i32);
-impl ::core::marker::Copy for WINBIO_CREDENTIAL_FORMAT {}
-impl ::core::clone::Clone for WINBIO_CREDENTIAL_FORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WINBIO_CREDENTIAL_FORMAT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WINBIO_CREDENTIAL_FORMAT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -536,19 +492,8 @@ impl ::core::fmt::Debug for WINBIO_CREDENTIAL_FORMAT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WINBIO_CREDENTIAL_STATE(pub i32);
-impl ::core::marker::Copy for WINBIO_CREDENTIAL_STATE {}
-impl ::core::clone::Clone for WINBIO_CREDENTIAL_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WINBIO_CREDENTIAL_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WINBIO_CREDENTIAL_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -558,19 +503,8 @@ impl ::core::fmt::Debug for WINBIO_CREDENTIAL_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WINBIO_CREDENTIAL_TYPE(pub i32);
-impl ::core::marker::Copy for WINBIO_CREDENTIAL_TYPE {}
-impl ::core::clone::Clone for WINBIO_CREDENTIAL_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WINBIO_CREDENTIAL_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WINBIO_CREDENTIAL_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -580,19 +514,8 @@ impl ::core::fmt::Debug for WINBIO_CREDENTIAL_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WINBIO_POLICY_SOURCE(pub i32);
-impl ::core::marker::Copy for WINBIO_POLICY_SOURCE {}
-impl ::core::clone::Clone for WINBIO_POLICY_SOURCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WINBIO_POLICY_SOURCE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WINBIO_POLICY_SOURCE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -602,19 +525,8 @@ impl ::core::fmt::Debug for WINBIO_POLICY_SOURCE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WINBIO_POOL(pub u32);
-impl ::core::marker::Copy for WINBIO_POOL {}
-impl ::core::clone::Clone for WINBIO_POOL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WINBIO_POOL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WINBIO_POOL {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -624,19 +536,8 @@ impl ::core::fmt::Debug for WINBIO_POOL {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WINBIO_SETTING_SOURCE(pub u32);
-impl ::core::marker::Copy for WINBIO_SETTING_SOURCE {}
-impl ::core::clone::Clone for WINBIO_SETTING_SOURCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WINBIO_SETTING_SOURCE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WINBIO_SETTING_SOURCE {
     type TypeKind = ::windows_core::CopyType;
 }

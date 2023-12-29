@@ -94,19 +94,8 @@ pub const DAV_AUTHN_SCHEME_PASSPORT: u32 = 4u32;
 pub const DefaultBehavior: AUTHNEXTSTEP = AUTHNEXTSTEP(0i32);
 pub const RetryRequest: AUTHNEXTSTEP = AUTHNEXTSTEP(1i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AUTHNEXTSTEP(pub i32);
-impl ::core::marker::Copy for AUTHNEXTSTEP {}
-impl ::core::clone::Clone for AUTHNEXTSTEP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AUTHNEXTSTEP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AUTHNEXTSTEP {
     type TypeKind = ::windows_core::CopyType;
 }

@@ -1146,19 +1146,8 @@ pub const WCS_ICCONLY: i32 = 65536i32;
 pub const WCS_PROFILE_MANAGEMENT_SCOPE_CURRENT_USER: WCS_PROFILE_MANAGEMENT_SCOPE = WCS_PROFILE_MANAGEMENT_SCOPE(1i32);
 pub const WCS_PROFILE_MANAGEMENT_SCOPE_SYSTEM_WIDE: WCS_PROFILE_MANAGEMENT_SCOPE = WCS_PROFILE_MANAGEMENT_SCOPE(0i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BMFORMAT(pub i32);
-impl ::core::marker::Copy for BMFORMAT {}
-impl ::core::clone::Clone for BMFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BMFORMAT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for BMFORMAT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1168,19 +1157,8 @@ impl ::core::fmt::Debug for BMFORMAT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct COLORDATATYPE(pub i32);
-impl ::core::marker::Copy for COLORDATATYPE {}
-impl ::core::clone::Clone for COLORDATATYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COLORDATATYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for COLORDATATYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1190,19 +1168,8 @@ impl ::core::fmt::Debug for COLORDATATYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct COLORPROFILESUBTYPE(pub i32);
-impl ::core::marker::Copy for COLORPROFILESUBTYPE {}
-impl ::core::clone::Clone for COLORPROFILESUBTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COLORPROFILESUBTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for COLORPROFILESUBTYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1212,19 +1179,8 @@ impl ::core::fmt::Debug for COLORPROFILESUBTYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct COLORPROFILETYPE(pub i32);
-impl ::core::marker::Copy for COLORPROFILETYPE {}
-impl ::core::clone::Clone for COLORPROFILETYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COLORPROFILETYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for COLORPROFILETYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1234,19 +1190,8 @@ impl ::core::fmt::Debug for COLORPROFILETYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct COLORTYPE(pub i32);
-impl ::core::marker::Copy for COLORTYPE {}
-impl ::core::clone::Clone for COLORTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COLORTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for COLORTYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1256,19 +1201,8 @@ impl ::core::fmt::Debug for COLORTYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct COLOR_MATCH_TO_TARGET_ACTION(pub u32);
-impl ::core::marker::Copy for COLOR_MATCH_TO_TARGET_ACTION {}
-impl ::core::clone::Clone for COLOR_MATCH_TO_TARGET_ACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COLOR_MATCH_TO_TARGET_ACTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for COLOR_MATCH_TO_TARGET_ACTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1278,19 +1212,8 @@ impl ::core::fmt::Debug for COLOR_MATCH_TO_TARGET_ACTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ICM_COMMAND(pub u32);
-impl ::core::marker::Copy for ICM_COMMAND {}
-impl ::core::clone::Clone for ICM_COMMAND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ICM_COMMAND {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ICM_COMMAND {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1300,19 +1223,8 @@ impl ::core::fmt::Debug for ICM_COMMAND {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ICM_MODE(pub i32);
-impl ::core::marker::Copy for ICM_MODE {}
-impl ::core::clone::Clone for ICM_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ICM_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ICM_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1322,19 +1234,8 @@ impl ::core::fmt::Debug for ICM_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WCS_DEVICE_CAPABILITIES_TYPE(pub i32);
-impl ::core::marker::Copy for WCS_DEVICE_CAPABILITIES_TYPE {}
-impl ::core::clone::Clone for WCS_DEVICE_CAPABILITIES_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WCS_DEVICE_CAPABILITIES_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WCS_DEVICE_CAPABILITIES_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1344,19 +1245,8 @@ impl ::core::fmt::Debug for WCS_DEVICE_CAPABILITIES_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WCS_PROFILE_MANAGEMENT_SCOPE(pub i32);
-impl ::core::marker::Copy for WCS_PROFILE_MANAGEMENT_SCOPE {}
-impl ::core::clone::Clone for WCS_PROFILE_MANAGEMENT_SCOPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WCS_PROFILE_MANAGEMENT_SCOPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WCS_PROFILE_MANAGEMENT_SCOPE {
     type TypeKind = ::windows_core::CopyType;
 }

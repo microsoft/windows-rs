@@ -1639,7 +1639,7 @@ impl ::windows_core::RuntimeName for DetectionConfigurationAvailabilityInfo {
 unsafe impl ::core::marker::Send for DetectionConfigurationAvailabilityInfo {}
 unsafe impl ::core::marker::Sync for DetectionConfigurationAvailabilityInfo {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ActivationSignalDetectionConfigurationCreationStatus(pub i32);
 impl ActivationSignalDetectionConfigurationCreationStatus {
     pub const Success: Self = Self(0i32);
@@ -1650,17 +1650,6 @@ impl ActivationSignalDetectionConfigurationCreationStatus {
     pub const InvalidDisplayName: Self = Self(5i32);
     pub const ConfigurationAlreadyExists: Self = Self(6i32);
     pub const CreationNotSupported: Self = Self(7i32);
-}
-impl ::core::marker::Copy for ActivationSignalDetectionConfigurationCreationStatus {}
-impl ::core::clone::Clone for ActivationSignalDetectionConfigurationCreationStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ActivationSignalDetectionConfigurationCreationStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ActivationSignalDetectionConfigurationCreationStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -1674,24 +1663,13 @@ impl ::windows_core::RuntimeType for ActivationSignalDetectionConfigurationCreat
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationCreationStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ActivationSignalDetectionConfigurationRemovalResult(pub i32);
 impl ActivationSignalDetectionConfigurationRemovalResult {
     pub const Success: Self = Self(0i32);
     pub const NotFound: Self = Self(1i32);
     pub const CurrentlyEnabled: Self = Self(2i32);
     pub const RemovalNotSupported: Self = Self(3i32);
-}
-impl ::core::marker::Copy for ActivationSignalDetectionConfigurationRemovalResult {}
-impl ::core::clone::Clone for ActivationSignalDetectionConfigurationRemovalResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ActivationSignalDetectionConfigurationRemovalResult {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ActivationSignalDetectionConfigurationRemovalResult {
     type TypeKind = ::windows_core::CopyType;
@@ -1705,7 +1683,7 @@ impl ::windows_core::RuntimeType for ActivationSignalDetectionConfigurationRemov
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationRemovalResult;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ActivationSignalDetectionConfigurationSetModelDataResult(pub i32);
 impl ActivationSignalDetectionConfigurationSetModelDataResult {
     pub const Success: Self = Self(0i32);
@@ -1716,17 +1694,6 @@ impl ActivationSignalDetectionConfigurationSetModelDataResult {
     pub const SetModelDataNotSupported: Self = Self(5i32);
     pub const ConfigurationNotFound: Self = Self(6i32);
     pub const UnknownError: Self = Self(7i32);
-}
-impl ::core::marker::Copy for ActivationSignalDetectionConfigurationSetModelDataResult {}
-impl ::core::clone::Clone for ActivationSignalDetectionConfigurationSetModelDataResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ActivationSignalDetectionConfigurationSetModelDataResult {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ActivationSignalDetectionConfigurationSetModelDataResult {
     type TypeKind = ::windows_core::CopyType;
@@ -1740,23 +1707,12 @@ impl ::windows_core::RuntimeType for ActivationSignalDetectionConfigurationSetMo
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationSetModelDataResult;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ActivationSignalDetectionConfigurationStateChangeResult(pub i32);
 impl ActivationSignalDetectionConfigurationStateChangeResult {
     pub const Success: Self = Self(0i32);
     pub const NoModelData: Self = Self(1i32);
     pub const ConfigurationNotFound: Self = Self(2i32);
-}
-impl ::core::marker::Copy for ActivationSignalDetectionConfigurationStateChangeResult {}
-impl ::core::clone::Clone for ActivationSignalDetectionConfigurationStateChangeResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ActivationSignalDetectionConfigurationStateChangeResult {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ActivationSignalDetectionConfigurationStateChangeResult {
     type TypeKind = ::windows_core::CopyType;
@@ -1770,7 +1726,7 @@ impl ::windows_core::RuntimeType for ActivationSignalDetectionConfigurationState
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationStateChangeResult;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ActivationSignalDetectionTrainingDataFormat(pub i32);
 impl ActivationSignalDetectionTrainingDataFormat {
     pub const Voice8kHz8BitMono: Self = Self(0i32);
@@ -1785,17 +1741,6 @@ impl ActivationSignalDetectionTrainingDataFormat {
     pub const AudioOEMDefined: Self = Self(9i32);
     pub const OtherOEMDefined: Self = Self(10i32);
 }
-impl ::core::marker::Copy for ActivationSignalDetectionTrainingDataFormat {}
-impl ::core::clone::Clone for ActivationSignalDetectionTrainingDataFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ActivationSignalDetectionTrainingDataFormat {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ActivationSignalDetectionTrainingDataFormat {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1808,23 +1753,12 @@ impl ::windows_core::RuntimeType for ActivationSignalDetectionTrainingDataFormat
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionTrainingDataFormat;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ActivationSignalDetectorKind(pub i32);
 impl ActivationSignalDetectorKind {
     pub const AudioPattern: Self = Self(0i32);
     pub const AudioImpulse: Self = Self(1i32);
     pub const HardwareEvent: Self = Self(2i32);
-}
-impl ::core::marker::Copy for ActivationSignalDetectorKind {}
-impl ::core::clone::Clone for ActivationSignalDetectorKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ActivationSignalDetectorKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ActivationSignalDetectorKind {
     type TypeKind = ::windows_core::CopyType;
@@ -1838,23 +1772,12 @@ impl ::windows_core::RuntimeType for ActivationSignalDetectorKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectorKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ActivationSignalDetectorPowerState(pub i32);
 impl ActivationSignalDetectorPowerState {
     pub const HighPower: Self = Self(0i32);
     pub const ConnectedLowPower: Self = Self(1i32);
     pub const DisconnectedLowPower: Self = Self(2i32);
-}
-impl ::core::marker::Copy for ActivationSignalDetectorPowerState {}
-impl ::core::clone::Clone for ActivationSignalDetectorPowerState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ActivationSignalDetectorPowerState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ActivationSignalDetectorPowerState {
     type TypeKind = ::windows_core::CopyType;
@@ -1868,22 +1791,11 @@ impl ::windows_core::RuntimeType for ActivationSignalDetectorPowerState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectorPowerState;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ConversationalAgentActivationKind(pub i32);
 impl ConversationalAgentActivationKind {
     pub const VoiceActivationPreview: Self = Self(0i32);
     pub const Foreground: Self = Self(1i32);
-}
-impl ::core::marker::Copy for ConversationalAgentActivationKind {}
-impl ::core::clone::Clone for ConversationalAgentActivationKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ConversationalAgentActivationKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ConversationalAgentActivationKind {
     type TypeKind = ::windows_core::CopyType;
@@ -1897,24 +1809,13 @@ impl ::windows_core::RuntimeType for ConversationalAgentActivationKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentActivationKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ConversationalAgentActivationResult(pub i32);
 impl ConversationalAgentActivationResult {
     pub const Success: Self = Self(0i32);
     pub const AgentInactive: Self = Self(1i32);
     pub const ScreenNotAvailable: Self = Self(2i32);
     pub const AgentInterrupted: Self = Self(3i32);
-}
-impl ::core::marker::Copy for ConversationalAgentActivationResult {}
-impl ::core::clone::Clone for ConversationalAgentActivationResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ConversationalAgentActivationResult {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ConversationalAgentActivationResult {
     type TypeKind = ::windows_core::CopyType;
@@ -1928,22 +1829,11 @@ impl ::windows_core::RuntimeType for ConversationalAgentActivationResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentActivationResult;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ConversationalAgentSessionUpdateResponse(pub i32);
 impl ConversationalAgentSessionUpdateResponse {
     pub const Success: Self = Self(0i32);
     pub const Failed: Self = Self(1i32);
-}
-impl ::core::marker::Copy for ConversationalAgentSessionUpdateResponse {}
-impl ::core::clone::Clone for ConversationalAgentSessionUpdateResponse {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ConversationalAgentSessionUpdateResponse {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ConversationalAgentSessionUpdateResponse {
     type TypeKind = ::windows_core::CopyType;
@@ -1957,7 +1847,7 @@ impl ::windows_core::RuntimeType for ConversationalAgentSessionUpdateResponse {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSessionUpdateResponse;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ConversationalAgentState(pub i32);
 impl ConversationalAgentState {
     pub const Inactive: Self = Self(0i32);
@@ -1966,17 +1856,6 @@ impl ConversationalAgentState {
     pub const Working: Self = Self(3i32);
     pub const Speaking: Self = Self(4i32);
     pub const ListeningAndSpeaking: Self = Self(5i32);
-}
-impl ::core::marker::Copy for ConversationalAgentState {}
-impl ::core::clone::Clone for ConversationalAgentState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ConversationalAgentState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ConversationalAgentState {
     type TypeKind = ::windows_core::CopyType;
@@ -1990,24 +1869,13 @@ impl ::windows_core::RuntimeType for ConversationalAgentState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentState;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ConversationalAgentSystemStateChangeType(pub i32);
 impl ConversationalAgentSystemStateChangeType {
     pub const UserAuthentication: Self = Self(0i32);
     pub const ScreenAvailability: Self = Self(1i32);
     pub const IndicatorLightAvailability: Self = Self(2i32);
     pub const VoiceActivationAvailability: Self = Self(3i32);
-}
-impl ::core::marker::Copy for ConversationalAgentSystemStateChangeType {}
-impl ::core::clone::Clone for ConversationalAgentSystemStateChangeType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ConversationalAgentSystemStateChangeType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ConversationalAgentSystemStateChangeType {
     type TypeKind = ::windows_core::CopyType;
@@ -2021,7 +1889,7 @@ impl ::windows_core::RuntimeType for ConversationalAgentSystemStateChangeType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSystemStateChangeType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ConversationalAgentVoiceActivationPrerequisiteKind(pub i32);
 impl ConversationalAgentVoiceActivationPrerequisiteKind {
     pub const MicrophonePermission: Self = Self(0i32);
@@ -2030,17 +1898,6 @@ impl ConversationalAgentVoiceActivationPrerequisiteKind {
     pub const AppCapability: Self = Self(3i32);
     pub const BackgroundTaskRegistration: Self = Self(4i32);
     pub const PolicyPermission: Self = Self(5i32);
-}
-impl ::core::marker::Copy for ConversationalAgentVoiceActivationPrerequisiteKind {}
-impl ::core::clone::Clone for ConversationalAgentVoiceActivationPrerequisiteKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ConversationalAgentVoiceActivationPrerequisiteKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ConversationalAgentVoiceActivationPrerequisiteKind {
     type TypeKind = ::windows_core::CopyType;
@@ -2054,23 +1911,12 @@ impl ::windows_core::RuntimeType for ConversationalAgentVoiceActivationPrerequis
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentVoiceActivationPrerequisiteKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DetectionConfigurationAvailabilityChangeKind(pub i32);
 impl DetectionConfigurationAvailabilityChangeKind {
     pub const SystemResourceAccess: Self = Self(0i32);
     pub const Permission: Self = Self(1i32);
     pub const LockScreenPermission: Self = Self(2i32);
-}
-impl ::core::marker::Copy for DetectionConfigurationAvailabilityChangeKind {}
-impl ::core::clone::Clone for DetectionConfigurationAvailabilityChangeKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DetectionConfigurationAvailabilityChangeKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DetectionConfigurationAvailabilityChangeKind {
     type TypeKind = ::windows_core::CopyType;
@@ -2084,7 +1930,7 @@ impl ::windows_core::RuntimeType for DetectionConfigurationAvailabilityChangeKin
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationAvailabilityChangeKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DetectionConfigurationTrainingStatus(pub i32);
 impl DetectionConfigurationTrainingStatus {
     pub const Success: Self = Self(0i32);
@@ -2098,17 +1944,6 @@ impl DetectionConfigurationTrainingStatus {
     pub const TrainingTimedOut: Self = Self(8i32);
     pub const ConfigurationNotFound: Self = Self(9i32);
 }
-impl ::core::marker::Copy for DetectionConfigurationTrainingStatus {}
-impl ::core::clone::Clone for DetectionConfigurationTrainingStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DetectionConfigurationTrainingStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DetectionConfigurationTrainingStatus {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2121,7 +1956,7 @@ impl ::windows_core::RuntimeType for DetectionConfigurationTrainingStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationTrainingStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SignalDetectorResourceKind(pub i32);
 impl SignalDetectorResourceKind {
     pub const ParallelModelSupport: Self = Self(0i32);
@@ -2138,17 +1973,6 @@ impl SignalDetectorResourceKind {
     pub const AcousticEchoCancellation: Self = Self(11i32);
     pub const ModelIdSupport: Self = Self(12i32);
     pub const DataChannel: Self = Self(13i32);
-}
-impl ::core::marker::Copy for SignalDetectorResourceKind {}
-impl ::core::clone::Clone for SignalDetectorResourceKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SignalDetectorResourceKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SignalDetectorResourceKind {
     type TypeKind = ::windows_core::CopyType;

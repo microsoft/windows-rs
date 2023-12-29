@@ -2627,7 +2627,7 @@ impl ::windows_core::RuntimeName for Printing3DTextureResource {
 unsafe impl ::core::marker::Send for Printing3DTextureResource {}
 unsafe impl ::core::marker::Sync for Printing3DTextureResource {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct Print3DTaskCompletion(pub i32);
 impl Print3DTaskCompletion {
     pub const Abandoned: Self = Self(0i32);
@@ -2635,17 +2635,6 @@ impl Print3DTaskCompletion {
     pub const Failed: Self = Self(2i32);
     pub const Slicing: Self = Self(3i32);
     pub const Submitted: Self = Self(4i32);
-}
-impl ::core::marker::Copy for Print3DTaskCompletion {}
-impl ::core::clone::Clone for Print3DTaskCompletion {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for Print3DTaskCompletion {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for Print3DTaskCompletion {
     type TypeKind = ::windows_core::CopyType;
@@ -2659,7 +2648,7 @@ impl ::windows_core::RuntimeType for Print3DTaskCompletion {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Print3DTaskCompletion;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct Print3DTaskDetail(pub i32);
 impl Print3DTaskDetail {
     pub const Unknown: Self = Self(0i32);
@@ -2669,17 +2658,6 @@ impl Print3DTaskDetail {
     pub const InvalidModel: Self = Self(4i32);
     pub const ModelNotManifold: Self = Self(5i32);
     pub const InvalidPrintTicket: Self = Self(6i32);
-}
-impl ::core::marker::Copy for Print3DTaskDetail {}
-impl ::core::clone::Clone for Print3DTaskDetail {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for Print3DTaskDetail {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for Print3DTaskDetail {
     type TypeKind = ::windows_core::CopyType;
@@ -2693,7 +2671,7 @@ impl ::windows_core::RuntimeType for Print3DTaskDetail {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Print3DTaskDetail;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct Printing3DBufferFormat(pub i32);
 impl Printing3DBufferFormat {
     pub const Unknown: Self = Self(0i32);
@@ -2703,17 +2681,6 @@ impl Printing3DBufferFormat {
     pub const R32G32B32UInt: Self = Self(7i32);
     pub const Printing3DDouble: Self = Self(500i32);
     pub const Printing3DUInt: Self = Self(501i32);
-}
-impl ::core::marker::Copy for Printing3DBufferFormat {}
-impl ::core::clone::Clone for Printing3DBufferFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for Printing3DBufferFormat {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for Printing3DBufferFormat {
     type TypeKind = ::windows_core::CopyType;
@@ -2727,22 +2694,11 @@ impl ::windows_core::RuntimeType for Printing3DBufferFormat {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DBufferFormat;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct Printing3DMeshVerificationMode(pub i32);
 impl Printing3DMeshVerificationMode {
     pub const FindFirstError: Self = Self(0i32);
     pub const FindAllErrors: Self = Self(1i32);
-}
-impl ::core::marker::Copy for Printing3DMeshVerificationMode {}
-impl ::core::clone::Clone for Printing3DMeshVerificationMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for Printing3DMeshVerificationMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for Printing3DMeshVerificationMode {
     type TypeKind = ::windows_core::CopyType;
@@ -2756,7 +2712,7 @@ impl ::windows_core::RuntimeType for Printing3DMeshVerificationMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DMeshVerificationMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct Printing3DModelUnit(pub i32);
 impl Printing3DModelUnit {
     pub const Meter: Self = Self(0i32);
@@ -2765,17 +2721,6 @@ impl Printing3DModelUnit {
     pub const Centimeter: Self = Self(3i32);
     pub const Inch: Self = Self(4i32);
     pub const Foot: Self = Self(5i32);
-}
-impl ::core::marker::Copy for Printing3DModelUnit {}
-impl ::core::clone::Clone for Printing3DModelUnit {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for Printing3DModelUnit {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for Printing3DModelUnit {
     type TypeKind = ::windows_core::CopyType;
@@ -2789,23 +2734,12 @@ impl ::windows_core::RuntimeType for Printing3DModelUnit {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DModelUnit;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct Printing3DObjectType(pub i32);
 impl Printing3DObjectType {
     pub const Model: Self = Self(0i32);
     pub const Support: Self = Self(1i32);
     pub const Others: Self = Self(2i32);
-}
-impl ::core::marker::Copy for Printing3DObjectType {}
-impl ::core::clone::Clone for Printing3DObjectType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for Printing3DObjectType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for Printing3DObjectType {
     type TypeKind = ::windows_core::CopyType;
@@ -2819,23 +2753,12 @@ impl ::windows_core::RuntimeType for Printing3DObjectType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DObjectType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct Printing3DPackageCompression(pub i32);
 impl Printing3DPackageCompression {
     pub const Low: Self = Self(0i32);
     pub const Medium: Self = Self(1i32);
     pub const High: Self = Self(2i32);
-}
-impl ::core::marker::Copy for Printing3DPackageCompression {}
-impl ::core::clone::Clone for Printing3DPackageCompression {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for Printing3DPackageCompression {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for Printing3DPackageCompression {
     type TypeKind = ::windows_core::CopyType;
@@ -2849,24 +2772,13 @@ impl ::windows_core::RuntimeType for Printing3DPackageCompression {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DPackageCompression;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct Printing3DTextureEdgeBehavior(pub i32);
 impl Printing3DTextureEdgeBehavior {
     pub const None: Self = Self(0i32);
     pub const Wrap: Self = Self(1i32);
     pub const Mirror: Self = Self(2i32);
     pub const Clamp: Self = Self(3i32);
-}
-impl ::core::marker::Copy for Printing3DTextureEdgeBehavior {}
-impl ::core::clone::Clone for Printing3DTextureEdgeBehavior {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for Printing3DTextureEdgeBehavior {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for Printing3DTextureEdgeBehavior {
     type TypeKind = ::windows_core::CopyType;

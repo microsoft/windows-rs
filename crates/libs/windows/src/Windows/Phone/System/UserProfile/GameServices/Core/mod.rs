@@ -160,24 +160,13 @@ impl ::windows_core::RuntimeName for GameServicePropertyCollection {
 unsafe impl ::core::marker::Send for GameServicePropertyCollection {}
 unsafe impl ::core::marker::Sync for GameServicePropertyCollection {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GameServiceGameOutcome(pub i32);
 impl GameServiceGameOutcome {
     pub const None: Self = Self(0i32);
     pub const Win: Self = Self(1i32);
     pub const Loss: Self = Self(2i32);
     pub const Tie: Self = Self(3i32);
-}
-impl ::core::marker::Copy for GameServiceGameOutcome {}
-impl ::core::clone::Clone for GameServiceGameOutcome {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GameServiceGameOutcome {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for GameServiceGameOutcome {
     type TypeKind = ::windows_core::CopyType;
@@ -191,22 +180,11 @@ impl ::windows_core::RuntimeType for GameServiceGameOutcome {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Phone.System.UserProfile.GameServices.Core.GameServiceGameOutcome;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GameServiceScoreKind(pub i32);
 impl GameServiceScoreKind {
     pub const Number: Self = Self(0i32);
     pub const Time: Self = Self(1i32);
-}
-impl ::core::marker::Copy for GameServiceScoreKind {}
-impl ::core::clone::Clone for GameServiceScoreKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GameServiceScoreKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for GameServiceScoreKind {
     type TypeKind = ::windows_core::CopyType;

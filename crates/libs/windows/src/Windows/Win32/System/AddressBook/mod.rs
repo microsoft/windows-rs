@@ -2355,19 +2355,8 @@ pub const szHrDispatchNotifications: ::windows_core::PCSTR = ::windows_core::s!(
 pub const szMAPINotificationMsg: ::windows_core::PCSTR = ::windows_core::s!("MAPI Notify window message");
 pub const szScCreateConversationIndex: ::windows_core::PCSTR = ::windows_core::s!("ScCreateConversationIndex");
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct Gender(pub i32);
-impl ::core::marker::Copy for Gender {}
-impl ::core::clone::Clone for Gender {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for Gender {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for Gender {
     type TypeKind = ::windows_core::CopyType;
 }

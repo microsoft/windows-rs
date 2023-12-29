@@ -1222,7 +1222,7 @@ impl ::windows_core::RuntimeName for UnfulfilledConsumable {
 unsafe impl ::core::marker::Send for UnfulfilledConsumable {}
 unsafe impl ::core::marker::Sync for UnfulfilledConsumable {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FulfillmentResult(pub i32);
 impl FulfillmentResult {
     pub const Succeeded: Self = Self(0i32);
@@ -1230,17 +1230,6 @@ impl FulfillmentResult {
     pub const PurchasePending: Self = Self(2i32);
     pub const PurchaseReverted: Self = Self(3i32);
     pub const ServerError: Self = Self(4i32);
-}
-impl ::core::marker::Copy for FulfillmentResult {}
-impl ::core::clone::Clone for FulfillmentResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FulfillmentResult {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for FulfillmentResult {
     type TypeKind = ::windows_core::CopyType;
@@ -1254,24 +1243,13 @@ impl ::windows_core::RuntimeType for FulfillmentResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.FulfillmentResult;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ProductPurchaseStatus(pub i32);
 impl ProductPurchaseStatus {
     pub const Succeeded: Self = Self(0i32);
     pub const AlreadyPurchased: Self = Self(1i32);
     pub const NotFulfilled: Self = Self(2i32);
     pub const NotPurchased: Self = Self(3i32);
-}
-impl ::core::marker::Copy for ProductPurchaseStatus {}
-impl ::core::clone::Clone for ProductPurchaseStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ProductPurchaseStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ProductPurchaseStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -1285,23 +1263,12 @@ impl ::windows_core::RuntimeType for ProductPurchaseStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.ProductPurchaseStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ProductType(pub i32);
 impl ProductType {
     pub const Unknown: Self = Self(0i32);
     pub const Durable: Self = Self(1i32);
     pub const Consumable: Self = Self(2i32);
-}
-impl ::core::marker::Copy for ProductType {}
-impl ::core::clone::Clone for ProductType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ProductType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ProductType {
     type TypeKind = ::windows_core::CopyType;

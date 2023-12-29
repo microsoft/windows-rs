@@ -2140,19 +2140,8 @@ pub const LDAP_VLVINFO_VERSION: u32 = 1u32;
 pub const SERVER_SEARCH_FLAG_DOMAIN_SCOPE: u32 = 1u32;
 pub const SERVER_SEARCH_FLAG_PHANTOM_ROOT: u32 = 2u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct LDAP_RETCODE(pub i32);
-impl ::core::marker::Copy for LDAP_RETCODE {}
-impl ::core::clone::Clone for LDAP_RETCODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for LDAP_RETCODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for LDAP_RETCODE {
     type TypeKind = ::windows_core::CopyType;
 }

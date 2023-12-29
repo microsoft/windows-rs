@@ -280,19 +280,8 @@ pub const VBS_ENCLAVE_REPORT_VERSION_CURRENT: u32 = 1u32;
 pub const VBS_ENCLAVE_VARDATA_INVALID: u32 = 0u32;
 pub const VBS_ENCLAVE_VARDATA_MODULE: u32 = 1u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ENCLAVE_SEALING_IDENTITY_POLICY(pub i32);
-impl ::core::marker::Copy for ENCLAVE_SEALING_IDENTITY_POLICY {}
-impl ::core::clone::Clone for ENCLAVE_SEALING_IDENTITY_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ENCLAVE_SEALING_IDENTITY_POLICY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ENCLAVE_SEALING_IDENTITY_POLICY {
     type TypeKind = ::windows_core::CopyType;
 }

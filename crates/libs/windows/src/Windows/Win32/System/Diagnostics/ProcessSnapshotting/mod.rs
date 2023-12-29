@@ -137,19 +137,8 @@ pub const PSS_WALK_HANDLES: PSS_WALK_INFORMATION_CLASS = PSS_WALK_INFORMATION_CL
 pub const PSS_WALK_THREADS: PSS_WALK_INFORMATION_CLASS = PSS_WALK_INFORMATION_CLASS(3i32);
 pub const PSS_WALK_VA_SPACE: PSS_WALK_INFORMATION_CLASS = PSS_WALK_INFORMATION_CLASS(1i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PSS_CAPTURE_FLAGS(pub u32);
-impl ::core::marker::Copy for PSS_CAPTURE_FLAGS {}
-impl ::core::clone::Clone for PSS_CAPTURE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PSS_CAPTURE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PSS_CAPTURE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -192,19 +181,8 @@ impl ::core::ops::Not for PSS_CAPTURE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PSS_DUPLICATE_FLAGS(pub i32);
-impl ::core::marker::Copy for PSS_DUPLICATE_FLAGS {}
-impl ::core::clone::Clone for PSS_DUPLICATE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PSS_DUPLICATE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PSS_DUPLICATE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -247,19 +225,8 @@ impl ::core::ops::Not for PSS_DUPLICATE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PSS_HANDLE_FLAGS(pub i32);
-impl ::core::marker::Copy for PSS_HANDLE_FLAGS {}
-impl ::core::clone::Clone for PSS_HANDLE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PSS_HANDLE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PSS_HANDLE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -302,19 +269,8 @@ impl ::core::ops::Not for PSS_HANDLE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PSS_OBJECT_TYPE(pub i32);
-impl ::core::marker::Copy for PSS_OBJECT_TYPE {}
-impl ::core::clone::Clone for PSS_OBJECT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PSS_OBJECT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PSS_OBJECT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -324,19 +280,8 @@ impl ::core::fmt::Debug for PSS_OBJECT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PSS_PROCESS_FLAGS(pub i32);
-impl ::core::marker::Copy for PSS_PROCESS_FLAGS {}
-impl ::core::clone::Clone for PSS_PROCESS_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PSS_PROCESS_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PSS_PROCESS_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -379,19 +324,8 @@ impl ::core::ops::Not for PSS_PROCESS_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PSS_QUERY_INFORMATION_CLASS(pub i32);
-impl ::core::marker::Copy for PSS_QUERY_INFORMATION_CLASS {}
-impl ::core::clone::Clone for PSS_QUERY_INFORMATION_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PSS_QUERY_INFORMATION_CLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PSS_QUERY_INFORMATION_CLASS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -401,19 +335,8 @@ impl ::core::fmt::Debug for PSS_QUERY_INFORMATION_CLASS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PSS_THREAD_FLAGS(pub i32);
-impl ::core::marker::Copy for PSS_THREAD_FLAGS {}
-impl ::core::clone::Clone for PSS_THREAD_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PSS_THREAD_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PSS_THREAD_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -456,19 +379,8 @@ impl ::core::ops::Not for PSS_THREAD_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PSS_WALK_INFORMATION_CLASS(pub i32);
-impl ::core::marker::Copy for PSS_WALK_INFORMATION_CLASS {}
-impl ::core::clone::Clone for PSS_WALK_INFORMATION_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PSS_WALK_INFORMATION_CLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PSS_WALK_INFORMATION_CLASS {
     type TypeKind = ::windows_core::CopyType;
 }

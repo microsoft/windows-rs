@@ -198,19 +198,8 @@ pub const NonLocal: DXCoreSegmentGroup = DXCoreSegmentGroup(1u32);
 pub const SharedSystemMemory: DXCoreAdapterProperty = DXCoreAdapterProperty(9u32);
 pub const _FACDXCORE: u32 = 2176u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXCoreAdapterPreference(pub u32);
-impl ::core::marker::Copy for DXCoreAdapterPreference {}
-impl ::core::clone::Clone for DXCoreAdapterPreference {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXCoreAdapterPreference {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXCoreAdapterPreference {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -220,19 +209,8 @@ impl ::core::fmt::Debug for DXCoreAdapterPreference {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXCoreAdapterProperty(pub u32);
-impl ::core::marker::Copy for DXCoreAdapterProperty {}
-impl ::core::clone::Clone for DXCoreAdapterProperty {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXCoreAdapterProperty {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXCoreAdapterProperty {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -242,19 +220,8 @@ impl ::core::fmt::Debug for DXCoreAdapterProperty {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXCoreAdapterState(pub u32);
-impl ::core::marker::Copy for DXCoreAdapterState {}
-impl ::core::clone::Clone for DXCoreAdapterState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXCoreAdapterState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXCoreAdapterState {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -264,19 +231,8 @@ impl ::core::fmt::Debug for DXCoreAdapterState {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXCoreNotificationType(pub u32);
-impl ::core::marker::Copy for DXCoreNotificationType {}
-impl ::core::clone::Clone for DXCoreNotificationType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXCoreNotificationType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXCoreNotificationType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -286,19 +242,8 @@ impl ::core::fmt::Debug for DXCoreNotificationType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXCoreSegmentGroup(pub u32);
-impl ::core::marker::Copy for DXCoreSegmentGroup {}
-impl ::core::clone::Clone for DXCoreSegmentGroup {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXCoreSegmentGroup {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXCoreSegmentGroup {
     type TypeKind = ::windows_core::CopyType;
 }

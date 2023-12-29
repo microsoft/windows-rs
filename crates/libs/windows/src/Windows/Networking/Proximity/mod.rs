@@ -867,23 +867,12 @@ impl ::windows_core::RuntimeName for TriggeredConnectionStateChangedEventArgs {
 unsafe impl ::core::marker::Send for TriggeredConnectionStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for TriggeredConnectionStateChangedEventArgs {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PeerDiscoveryTypes(pub u32);
 impl PeerDiscoveryTypes {
     pub const None: Self = Self(0u32);
     pub const Browse: Self = Self(1u32);
     pub const Triggered: Self = Self(2u32);
-}
-impl ::core::marker::Copy for PeerDiscoveryTypes {}
-impl ::core::clone::Clone for PeerDiscoveryTypes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PeerDiscoveryTypes {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PeerDiscoveryTypes {
     type TypeKind = ::windows_core::CopyType;
@@ -930,23 +919,12 @@ impl ::windows_core::RuntimeType for PeerDiscoveryTypes {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Proximity.PeerDiscoveryTypes;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PeerRole(pub i32);
 impl PeerRole {
     pub const Peer: Self = Self(0i32);
     pub const Host: Self = Self(1i32);
     pub const Client: Self = Self(2i32);
-}
-impl ::core::marker::Copy for PeerRole {}
-impl ::core::clone::Clone for PeerRole {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PeerRole {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PeerRole {
     type TypeKind = ::windows_core::CopyType;
@@ -960,7 +938,7 @@ impl ::windows_core::RuntimeType for PeerRole {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Proximity.PeerRole;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PeerWatcherStatus(pub i32);
 impl PeerWatcherStatus {
     pub const Created: Self = Self(0i32);
@@ -969,17 +947,6 @@ impl PeerWatcherStatus {
     pub const Stopping: Self = Self(3i32);
     pub const Stopped: Self = Self(4i32);
     pub const Aborted: Self = Self(5i32);
-}
-impl ::core::marker::Copy for PeerWatcherStatus {}
-impl ::core::clone::Clone for PeerWatcherStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PeerWatcherStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PeerWatcherStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -993,7 +960,7 @@ impl ::windows_core::RuntimeType for PeerWatcherStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Proximity.PeerWatcherStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TriggeredConnectState(pub i32);
 impl TriggeredConnectState {
     pub const PeerFound: Self = Self(0i32);
@@ -1002,17 +969,6 @@ impl TriggeredConnectState {
     pub const Completed: Self = Self(3i32);
     pub const Canceled: Self = Self(4i32);
     pub const Failed: Self = Self(5i32);
-}
-impl ::core::marker::Copy for TriggeredConnectState {}
-impl ::core::clone::Clone for TriggeredConnectState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TriggeredConnectState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for TriggeredConnectState {
     type TypeKind = ::windows_core::CopyType;

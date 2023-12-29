@@ -941,78 +941,48 @@ pub const WM_INTERIM: u32 = 268u32;
 pub const WM_WNT_CONVERTREQUESTEX: u32 = 265u32;
 pub const WinStationInformation: WINSTATIONINFOCLASS = 8i32;
 #[repr(transparent)]
+#[derive(::core::marker::Copy, ::core::clone::Clone)]
 pub struct CameraUIControlCaptureMode(pub i32);
 impl CameraUIControlCaptureMode {
     pub const PhotoOrVideo: Self = Self(0i32);
     pub const Photo: Self = Self(1i32);
     pub const Video: Self = Self(2i32);
 }
-impl ::core::marker::Copy for CameraUIControlCaptureMode {}
-impl ::core::clone::Clone for CameraUIControlCaptureMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(transparent)]
+#[derive(::core::marker::Copy, ::core::clone::Clone)]
 pub struct CameraUIControlLinearSelectionMode(pub i32);
 impl CameraUIControlLinearSelectionMode {
     pub const Single: Self = Self(0i32);
     pub const Multiple: Self = Self(1i32);
 }
-impl ::core::marker::Copy for CameraUIControlLinearSelectionMode {}
-impl ::core::clone::Clone for CameraUIControlLinearSelectionMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(transparent)]
+#[derive(::core::marker::Copy, ::core::clone::Clone)]
 pub struct CameraUIControlMode(pub i32);
 impl CameraUIControlMode {
     pub const Browse: Self = Self(0i32);
     pub const Linear: Self = Self(1i32);
 }
-impl ::core::marker::Copy for CameraUIControlMode {}
-impl ::core::clone::Clone for CameraUIControlMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(transparent)]
+#[derive(::core::marker::Copy, ::core::clone::Clone)]
 pub struct CameraUIControlPhotoFormat(pub i32);
 impl CameraUIControlPhotoFormat {
     pub const Jpeg: Self = Self(0i32);
     pub const Png: Self = Self(1i32);
     pub const JpegXR: Self = Self(2i32);
 }
-impl ::core::marker::Copy for CameraUIControlPhotoFormat {}
-impl ::core::clone::Clone for CameraUIControlPhotoFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(transparent)]
+#[derive(::core::marker::Copy, ::core::clone::Clone)]
 pub struct CameraUIControlVideoFormat(pub i32);
 impl CameraUIControlVideoFormat {
     pub const Mp4: Self = Self(0i32);
     pub const Wmv: Self = Self(1i32);
 }
-impl ::core::marker::Copy for CameraUIControlVideoFormat {}
-impl ::core::clone::Clone for CameraUIControlVideoFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(transparent)]
+#[derive(::core::marker::Copy, ::core::clone::Clone)]
 pub struct CameraUIControlViewType(pub i32);
 impl CameraUIControlViewType {
     pub const SingleItem: Self = Self(0i32);
     pub const ItemList: Self = Self(1i32);
-}
-impl ::core::marker::Copy for CameraUIControlViewType {}
-impl ::core::clone::Clone for CameraUIControlViewType {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type DECISION_LOCATION = i32;
 pub type FEATURE_CHANGE_TIME = i32;

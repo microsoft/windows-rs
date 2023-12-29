@@ -4531,24 +4531,13 @@ impl ::windows_core::RuntimeName for EmailStoreNotificationTriggerDetails {
 unsafe impl ::core::marker::Send for EmailStoreNotificationTriggerDetails {}
 unsafe impl ::core::marker::Sync for EmailStoreNotificationTriggerDetails {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EmailAttachmentDownloadState(pub i32);
 impl EmailAttachmentDownloadState {
     pub const NotDownloaded: Self = Self(0i32);
     pub const Downloading: Self = Self(1i32);
     pub const Downloaded: Self = Self(2i32);
     pub const Failed: Self = Self(3i32);
-}
-impl ::core::marker::Copy for EmailAttachmentDownloadState {}
-impl ::core::clone::Clone for EmailAttachmentDownloadState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EmailAttachmentDownloadState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for EmailAttachmentDownloadState {
     type TypeKind = ::windows_core::CopyType;
@@ -4562,23 +4551,12 @@ impl ::windows_core::RuntimeType for EmailAttachmentDownloadState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailAttachmentDownloadState;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EmailBatchStatus(pub i32);
 impl EmailBatchStatus {
     pub const Success: Self = Self(0i32);
     pub const ServerSearchSyncManagerError: Self = Self(1i32);
     pub const ServerSearchUnknownError: Self = Self(2i32);
-}
-impl ::core::marker::Copy for EmailBatchStatus {}
-impl ::core::clone::Clone for EmailBatchStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EmailBatchStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for EmailBatchStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -4592,7 +4570,7 @@ impl ::windows_core::RuntimeType for EmailBatchStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailBatchStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EmailCertificateValidationStatus(pub i32);
 impl EmailCertificateValidationStatus {
     pub const Success: Self = Self(0i32);
@@ -4607,17 +4585,6 @@ impl EmailCertificateValidationStatus {
     pub const ServerError: Self = Self(9i32);
     pub const UnknownFailure: Self = Self(10i32);
 }
-impl ::core::marker::Copy for EmailCertificateValidationStatus {}
-impl ::core::clone::Clone for EmailCertificateValidationStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EmailCertificateValidationStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EmailCertificateValidationStatus {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4630,24 +4597,13 @@ impl ::windows_core::RuntimeType for EmailCertificateValidationStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailCertificateValidationStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EmailFlagState(pub i32);
 impl EmailFlagState {
     pub const Unflagged: Self = Self(0i32);
     pub const Flagged: Self = Self(1i32);
     pub const Completed: Self = Self(2i32);
     pub const Cleared: Self = Self(3i32);
-}
-impl ::core::marker::Copy for EmailFlagState {}
-impl ::core::clone::Clone for EmailFlagState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EmailFlagState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for EmailFlagState {
     type TypeKind = ::windows_core::CopyType;
@@ -4661,23 +4617,12 @@ impl ::windows_core::RuntimeType for EmailFlagState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailFlagState;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EmailImportance(pub i32);
 impl EmailImportance {
     pub const Normal: Self = Self(0i32);
     pub const High: Self = Self(1i32);
     pub const Low: Self = Self(2i32);
-}
-impl ::core::marker::Copy for EmailImportance {}
-impl ::core::clone::Clone for EmailImportance {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EmailImportance {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for EmailImportance {
     type TypeKind = ::windows_core::CopyType;
@@ -4691,7 +4636,7 @@ impl ::windows_core::RuntimeType for EmailImportance {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailImportance;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EmailMailboxActionKind(pub i32);
 impl EmailMailboxActionKind {
     pub const MarkMessageAsSeen: Self = Self(0i32);
@@ -4706,17 +4651,6 @@ impl EmailMailboxActionKind {
     pub const MoveFolder: Self = Self(9i32);
     pub const MarkFolderForSyncEnabled: Self = Self(10i32);
 }
-impl ::core::marker::Copy for EmailMailboxActionKind {}
-impl ::core::clone::Clone for EmailMailboxActionKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EmailMailboxActionKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EmailMailboxActionKind {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4729,23 +4663,12 @@ impl ::windows_core::RuntimeType for EmailMailboxActionKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxActionKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation(pub i32);
 impl EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation {
     pub const None: Self = Self(0i32);
     pub const StrongAlgorithm: Self = Self(1i32);
     pub const AnyAlgorithm: Self = Self(2i32);
-}
-impl ::core::marker::Copy for EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation {}
-impl ::core::clone::Clone for EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation {
     type TypeKind = ::windows_core::CopyType;
@@ -4759,22 +4682,11 @@ impl ::windows_core::RuntimeType for EmailMailboxAllowedSmimeEncryptionAlgorithm
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EmailMailboxAutoReplyMessageResponseKind(pub i32);
 impl EmailMailboxAutoReplyMessageResponseKind {
     pub const Html: Self = Self(0i32);
     pub const PlainText: Self = Self(1i32);
-}
-impl ::core::marker::Copy for EmailMailboxAutoReplyMessageResponseKind {}
-impl ::core::clone::Clone for EmailMailboxAutoReplyMessageResponseKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EmailMailboxAutoReplyMessageResponseKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for EmailMailboxAutoReplyMessageResponseKind {
     type TypeKind = ::windows_core::CopyType;
@@ -4788,7 +4700,7 @@ impl ::windows_core::RuntimeType for EmailMailboxAutoReplyMessageResponseKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxAutoReplyMessageResponseKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EmailMailboxChangeType(pub i32);
 impl EmailMailboxChangeType {
     pub const MessageCreated: Self = Self(0i32);
@@ -4798,17 +4710,6 @@ impl EmailMailboxChangeType {
     pub const FolderModified: Self = Self(4i32);
     pub const FolderDeleted: Self = Self(5i32);
     pub const ChangeTrackingLost: Self = Self(6i32);
-}
-impl ::core::marker::Copy for EmailMailboxChangeType {}
-impl ::core::clone::Clone for EmailMailboxChangeType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EmailMailboxChangeType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for EmailMailboxChangeType {
     type TypeKind = ::windows_core::CopyType;
@@ -4822,7 +4723,7 @@ impl ::windows_core::RuntimeType for EmailMailboxChangeType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxChangeType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EmailMailboxCreateFolderStatus(pub i32);
 impl EmailMailboxCreateFolderStatus {
     pub const Success: Self = Self(0i32);
@@ -4832,17 +4733,6 @@ impl EmailMailboxCreateFolderStatus {
     pub const UnknownFailure: Self = Self(4i32);
     pub const NameCollision: Self = Self(5i32);
     pub const ServerRejected: Self = Self(6i32);
-}
-impl ::core::marker::Copy for EmailMailboxCreateFolderStatus {}
-impl ::core::clone::Clone for EmailMailboxCreateFolderStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EmailMailboxCreateFolderStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for EmailMailboxCreateFolderStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -4856,7 +4746,7 @@ impl ::windows_core::RuntimeType for EmailMailboxCreateFolderStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxCreateFolderStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EmailMailboxDeleteFolderStatus(pub i32);
 impl EmailMailboxDeleteFolderStatus {
     pub const Success: Self = Self(0i32);
@@ -4865,17 +4755,6 @@ impl EmailMailboxDeleteFolderStatus {
     pub const ServerError: Self = Self(3i32);
     pub const UnknownFailure: Self = Self(4i32);
     pub const CouldNotDeleteEverything: Self = Self(5i32);
-}
-impl ::core::marker::Copy for EmailMailboxDeleteFolderStatus {}
-impl ::core::clone::Clone for EmailMailboxDeleteFolderStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EmailMailboxDeleteFolderStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for EmailMailboxDeleteFolderStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -4889,7 +4768,7 @@ impl ::windows_core::RuntimeType for EmailMailboxDeleteFolderStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxDeleteFolderStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EmailMailboxEmptyFolderStatus(pub i32);
 impl EmailMailboxEmptyFolderStatus {
     pub const Success: Self = Self(0i32);
@@ -4898,17 +4777,6 @@ impl EmailMailboxEmptyFolderStatus {
     pub const ServerError: Self = Self(3i32);
     pub const UnknownFailure: Self = Self(4i32);
     pub const CouldNotDeleteEverything: Self = Self(5i32);
-}
-impl ::core::marker::Copy for EmailMailboxEmptyFolderStatus {}
-impl ::core::clone::Clone for EmailMailboxEmptyFolderStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EmailMailboxEmptyFolderStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for EmailMailboxEmptyFolderStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -4922,23 +4790,12 @@ impl ::windows_core::RuntimeType for EmailMailboxEmptyFolderStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxEmptyFolderStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EmailMailboxOtherAppReadAccess(pub i32);
 impl EmailMailboxOtherAppReadAccess {
     pub const SystemOnly: Self = Self(0i32);
     pub const Full: Self = Self(1i32);
     pub const None: Self = Self(2i32);
-}
-impl ::core::marker::Copy for EmailMailboxOtherAppReadAccess {}
-impl ::core::clone::Clone for EmailMailboxOtherAppReadAccess {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EmailMailboxOtherAppReadAccess {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for EmailMailboxOtherAppReadAccess {
     type TypeKind = ::windows_core::CopyType;
@@ -4952,22 +4809,11 @@ impl ::windows_core::RuntimeType for EmailMailboxOtherAppReadAccess {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxOtherAppReadAccess;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EmailMailboxOtherAppWriteAccess(pub i32);
 impl EmailMailboxOtherAppWriteAccess {
     pub const None: Self = Self(0i32);
     pub const Limited: Self = Self(1i32);
-}
-impl ::core::marker::Copy for EmailMailboxOtherAppWriteAccess {}
-impl ::core::clone::Clone for EmailMailboxOtherAppWriteAccess {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EmailMailboxOtherAppWriteAccess {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for EmailMailboxOtherAppWriteAccess {
     type TypeKind = ::windows_core::CopyType;
@@ -4981,7 +4827,7 @@ impl ::windows_core::RuntimeType for EmailMailboxOtherAppWriteAccess {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxOtherAppWriteAccess;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EmailMailboxSmimeEncryptionAlgorithm(pub i32);
 impl EmailMailboxSmimeEncryptionAlgorithm {
     pub const Any: Self = Self(0i32);
@@ -4990,17 +4836,6 @@ impl EmailMailboxSmimeEncryptionAlgorithm {
     pub const RC2128Bit: Self = Self(3i32);
     pub const RC264Bit: Self = Self(4i32);
     pub const RC240Bit: Self = Self(5i32);
-}
-impl ::core::marker::Copy for EmailMailboxSmimeEncryptionAlgorithm {}
-impl ::core::clone::Clone for EmailMailboxSmimeEncryptionAlgorithm {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EmailMailboxSmimeEncryptionAlgorithm {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for EmailMailboxSmimeEncryptionAlgorithm {
     type TypeKind = ::windows_core::CopyType;
@@ -5014,23 +4849,12 @@ impl ::windows_core::RuntimeType for EmailMailboxSmimeEncryptionAlgorithm {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxSmimeEncryptionAlgorithm;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EmailMailboxSmimeSigningAlgorithm(pub i32);
 impl EmailMailboxSmimeSigningAlgorithm {
     pub const Any: Self = Self(0i32);
     pub const Sha1: Self = Self(1i32);
     pub const MD5: Self = Self(2i32);
-}
-impl ::core::marker::Copy for EmailMailboxSmimeSigningAlgorithm {}
-impl ::core::clone::Clone for EmailMailboxSmimeSigningAlgorithm {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EmailMailboxSmimeSigningAlgorithm {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for EmailMailboxSmimeSigningAlgorithm {
     type TypeKind = ::windows_core::CopyType;
@@ -5044,7 +4868,7 @@ impl ::windows_core::RuntimeType for EmailMailboxSmimeSigningAlgorithm {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxSmimeSigningAlgorithm;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EmailMailboxSyncStatus(pub i32);
 impl EmailMailboxSyncStatus {
     pub const Idle: Self = Self(0i32);
@@ -5054,17 +4878,6 @@ impl EmailMailboxSyncStatus {
     pub const PolicyError: Self = Self(4i32);
     pub const UnknownError: Self = Self(5i32);
     pub const ManualAccountRemovalRequired: Self = Self(6i32);
-}
-impl ::core::marker::Copy for EmailMailboxSyncStatus {}
-impl ::core::clone::Clone for EmailMailboxSyncStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EmailMailboxSyncStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for EmailMailboxSyncStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -5078,23 +4891,12 @@ impl ::windows_core::RuntimeType for EmailMailboxSyncStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxSyncStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EmailMeetingResponseType(pub i32);
 impl EmailMeetingResponseType {
     pub const Accept: Self = Self(0i32);
     pub const Decline: Self = Self(1i32);
     pub const Tentative: Self = Self(2i32);
-}
-impl ::core::marker::Copy for EmailMeetingResponseType {}
-impl ::core::clone::Clone for EmailMeetingResponseType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EmailMeetingResponseType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for EmailMeetingResponseType {
     type TypeKind = ::windows_core::CopyType;
@@ -5108,22 +4910,11 @@ impl ::windows_core::RuntimeType for EmailMeetingResponseType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMeetingResponseType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EmailMessageBodyKind(pub i32);
 impl EmailMessageBodyKind {
     pub const Html: Self = Self(0i32);
     pub const PlainText: Self = Self(1i32);
-}
-impl ::core::marker::Copy for EmailMessageBodyKind {}
-impl ::core::clone::Clone for EmailMessageBodyKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EmailMessageBodyKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for EmailMessageBodyKind {
     type TypeKind = ::windows_core::CopyType;
@@ -5137,24 +4928,13 @@ impl ::windows_core::RuntimeType for EmailMessageBodyKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMessageBodyKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EmailMessageDownloadState(pub i32);
 impl EmailMessageDownloadState {
     pub const PartiallyDownloaded: Self = Self(0i32);
     pub const Downloading: Self = Self(1i32);
     pub const Downloaded: Self = Self(2i32);
     pub const Failed: Self = Self(3i32);
-}
-impl ::core::marker::Copy for EmailMessageDownloadState {}
-impl ::core::clone::Clone for EmailMessageDownloadState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EmailMessageDownloadState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for EmailMessageDownloadState {
     type TypeKind = ::windows_core::CopyType;
@@ -5168,24 +4948,13 @@ impl ::windows_core::RuntimeType for EmailMessageDownloadState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMessageDownloadState;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EmailMessageResponseKind(pub i32);
 impl EmailMessageResponseKind {
     pub const None: Self = Self(0i32);
     pub const Reply: Self = Self(1i32);
     pub const ReplyAll: Self = Self(2i32);
     pub const Forward: Self = Self(3i32);
-}
-impl ::core::marker::Copy for EmailMessageResponseKind {}
-impl ::core::clone::Clone for EmailMessageResponseKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EmailMessageResponseKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for EmailMessageResponseKind {
     type TypeKind = ::windows_core::CopyType;
@@ -5199,24 +4968,13 @@ impl ::windows_core::RuntimeType for EmailMessageResponseKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMessageResponseKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EmailMessageSmimeKind(pub i32);
 impl EmailMessageSmimeKind {
     pub const None: Self = Self(0i32);
     pub const ClearSigned: Self = Self(1i32);
     pub const OpaqueSigned: Self = Self(2i32);
     pub const Encrypted: Self = Self(3i32);
-}
-impl ::core::marker::Copy for EmailMessageSmimeKind {}
-impl ::core::clone::Clone for EmailMessageSmimeKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EmailMessageSmimeKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for EmailMessageSmimeKind {
     type TypeKind = ::windows_core::CopyType;
@@ -5230,7 +4988,7 @@ impl ::windows_core::RuntimeType for EmailMessageSmimeKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMessageSmimeKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EmailQueryKind(pub i32);
 impl EmailQueryKind {
     pub const All: Self = Self(0i32);
@@ -5239,17 +4997,6 @@ impl EmailQueryKind {
     pub const Unread: Self = Self(3i32);
     pub const Read: Self = Self(4i32);
     pub const Unseen: Self = Self(5i32);
-}
-impl ::core::marker::Copy for EmailQueryKind {}
-impl ::core::clone::Clone for EmailQueryKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EmailQueryKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for EmailQueryKind {
     type TypeKind = ::windows_core::CopyType;
@@ -5263,7 +5010,7 @@ impl ::windows_core::RuntimeType for EmailQueryKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailQueryKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EmailQuerySearchFields(pub u32);
 impl EmailQuerySearchFields {
     pub const None: Self = Self(0u32);
@@ -5272,17 +5019,6 @@ impl EmailQuerySearchFields {
     pub const Preview: Self = Self(4u32);
     pub const Recipients: Self = Self(8u32);
     pub const All: Self = Self(4294967295u32);
-}
-impl ::core::marker::Copy for EmailQuerySearchFields {}
-impl ::core::clone::Clone for EmailQuerySearchFields {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EmailQuerySearchFields {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for EmailQuerySearchFields {
     type TypeKind = ::windows_core::CopyType;
@@ -5329,22 +5065,11 @@ impl ::windows_core::RuntimeType for EmailQuerySearchFields {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailQuerySearchFields;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EmailQuerySearchScope(pub i32);
 impl EmailQuerySearchScope {
     pub const Local: Self = Self(0i32);
     pub const Server: Self = Self(1i32);
-}
-impl ::core::marker::Copy for EmailQuerySearchScope {}
-impl ::core::clone::Clone for EmailQuerySearchScope {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EmailQuerySearchScope {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for EmailQuerySearchScope {
     type TypeKind = ::windows_core::CopyType;
@@ -5358,22 +5083,11 @@ impl ::windows_core::RuntimeType for EmailQuerySearchScope {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailQuerySearchScope;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EmailQuerySortDirection(pub i32);
 impl EmailQuerySortDirection {
     pub const Descending: Self = Self(0i32);
     pub const Ascending: Self = Self(1i32);
-}
-impl ::core::marker::Copy for EmailQuerySortDirection {}
-impl ::core::clone::Clone for EmailQuerySortDirection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EmailQuerySortDirection {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for EmailQuerySortDirection {
     type TypeKind = ::windows_core::CopyType;
@@ -5387,21 +5101,10 @@ impl ::windows_core::RuntimeType for EmailQuerySortDirection {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailQuerySortDirection;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EmailQuerySortProperty(pub i32);
 impl EmailQuerySortProperty {
     pub const Date: Self = Self(0i32);
-}
-impl ::core::marker::Copy for EmailQuerySortProperty {}
-impl ::core::clone::Clone for EmailQuerySortProperty {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EmailQuerySortProperty {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for EmailQuerySortProperty {
     type TypeKind = ::windows_core::CopyType;
@@ -5415,7 +5118,7 @@ impl ::windows_core::RuntimeType for EmailQuerySortProperty {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailQuerySortProperty;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EmailRecipientResolutionStatus(pub i32);
 impl EmailRecipientResolutionStatus {
     pub const Success: Self = Self(0i32);
@@ -5426,17 +5129,6 @@ impl EmailRecipientResolutionStatus {
     pub const CannotResolveDistributionList: Self = Self(5i32);
     pub const ServerError: Self = Self(6i32);
     pub const UnknownFailure: Self = Self(7i32);
-}
-impl ::core::marker::Copy for EmailRecipientResolutionStatus {}
-impl ::core::clone::Clone for EmailRecipientResolutionStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EmailRecipientResolutionStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for EmailRecipientResolutionStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -5450,7 +5142,7 @@ impl ::windows_core::RuntimeType for EmailRecipientResolutionStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailRecipientResolutionStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EmailSpecialFolderKind(pub i32);
 impl EmailSpecialFolderKind {
     pub const None: Self = Self(0i32);
@@ -5460,17 +5152,6 @@ impl EmailSpecialFolderKind {
     pub const Drafts: Self = Self(4i32);
     pub const DeletedItems: Self = Self(5i32);
     pub const Sent: Self = Self(6i32);
-}
-impl ::core::marker::Copy for EmailSpecialFolderKind {}
-impl ::core::clone::Clone for EmailSpecialFolderKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EmailSpecialFolderKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for EmailSpecialFolderKind {
     type TypeKind = ::windows_core::CopyType;
@@ -5484,22 +5165,11 @@ impl ::windows_core::RuntimeType for EmailSpecialFolderKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailSpecialFolderKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EmailStoreAccessType(pub i32);
 impl EmailStoreAccessType {
     pub const AppMailboxesReadWrite: Self = Self(0i32);
     pub const AllMailboxesLimitedReadWrite: Self = Self(1i32);
-}
-impl ::core::marker::Copy for EmailStoreAccessType {}
-impl ::core::clone::Clone for EmailStoreAccessType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EmailStoreAccessType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for EmailStoreAccessType {
     type TypeKind = ::windows_core::CopyType;

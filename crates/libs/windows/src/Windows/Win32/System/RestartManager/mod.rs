@@ -110,19 +110,8 @@ pub const RmStatusStoppedOther: RM_APP_STATUS = RM_APP_STATUS(4i32);
 pub const RmStatusUnknown: RM_APP_STATUS = RM_APP_STATUS(0i32);
 pub const RmUnknownApp: RM_APP_TYPE = RM_APP_TYPE(0i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RM_APP_STATUS(pub i32);
-impl ::core::marker::Copy for RM_APP_STATUS {}
-impl ::core::clone::Clone for RM_APP_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RM_APP_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RM_APP_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -132,19 +121,8 @@ impl ::core::fmt::Debug for RM_APP_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RM_APP_TYPE(pub i32);
-impl ::core::marker::Copy for RM_APP_TYPE {}
-impl ::core::clone::Clone for RM_APP_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RM_APP_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RM_APP_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -154,19 +132,8 @@ impl ::core::fmt::Debug for RM_APP_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RM_FILTER_ACTION(pub i32);
-impl ::core::marker::Copy for RM_FILTER_ACTION {}
-impl ::core::clone::Clone for RM_FILTER_ACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RM_FILTER_ACTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RM_FILTER_ACTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -176,19 +143,8 @@ impl ::core::fmt::Debug for RM_FILTER_ACTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RM_FILTER_TRIGGER(pub i32);
-impl ::core::marker::Copy for RM_FILTER_TRIGGER {}
-impl ::core::clone::Clone for RM_FILTER_TRIGGER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RM_FILTER_TRIGGER {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RM_FILTER_TRIGGER {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -198,19 +154,8 @@ impl ::core::fmt::Debug for RM_FILTER_TRIGGER {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RM_REBOOT_REASON(pub i32);
-impl ::core::marker::Copy for RM_REBOOT_REASON {}
-impl ::core::clone::Clone for RM_REBOOT_REASON {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RM_REBOOT_REASON {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RM_REBOOT_REASON {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -220,19 +165,8 @@ impl ::core::fmt::Debug for RM_REBOOT_REASON {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RM_SHUTDOWN_TYPE(pub i32);
-impl ::core::marker::Copy for RM_SHUTDOWN_TYPE {}
-impl ::core::clone::Clone for RM_SHUTDOWN_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RM_SHUTDOWN_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RM_SHUTDOWN_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }

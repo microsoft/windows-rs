@@ -716,23 +716,12 @@ impl ::windows_core::CanTryInto<IWebUICommandBarIcon> for WebUICommandBarSymbolI
 unsafe impl ::core::marker::Send for WebUICommandBarSymbolIcon {}
 unsafe impl ::core::marker::Sync for WebUICommandBarSymbolIcon {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WebUICommandBarClosedDisplayMode(pub i32);
 impl WebUICommandBarClosedDisplayMode {
     pub const Default: Self = Self(0i32);
     pub const Minimal: Self = Self(1i32);
     pub const Compact: Self = Self(2i32);
-}
-impl ::core::marker::Copy for WebUICommandBarClosedDisplayMode {}
-impl ::core::clone::Clone for WebUICommandBarClosedDisplayMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WebUICommandBarClosedDisplayMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for WebUICommandBarClosedDisplayMode {
     type TypeKind = ::windows_core::CopyType;

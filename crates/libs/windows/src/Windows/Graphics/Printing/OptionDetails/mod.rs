@@ -2779,23 +2779,12 @@ impl ::windows_core::CanTryInto<super::IPrintTaskOptionsCoreUIConfiguration> for
 unsafe impl ::core::marker::Send for PrintTaskOptionDetails {}
 unsafe impl ::core::marker::Sync for PrintTaskOptionDetails {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PrintOptionStates(pub u32);
 impl PrintOptionStates {
     pub const None: Self = Self(0u32);
     pub const Enabled: Self = Self(1u32);
     pub const Constrained: Self = Self(2u32);
-}
-impl ::core::marker::Copy for PrintOptionStates {}
-impl ::core::clone::Clone for PrintOptionStates {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PrintOptionStates {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PrintOptionStates {
     type TypeKind = ::windows_core::CopyType;
@@ -2842,7 +2831,7 @@ impl ::windows_core::RuntimeType for PrintOptionStates {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.OptionDetails.PrintOptionStates;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PrintOptionType(pub i32);
 impl PrintOptionType {
     pub const Unknown: Self = Self(0i32);
@@ -2850,17 +2839,6 @@ impl PrintOptionType {
     pub const Text: Self = Self(2i32);
     pub const ItemList: Self = Self(3i32);
     pub const Toggle: Self = Self(4i32);
-}
-impl ::core::marker::Copy for PrintOptionType {}
-impl ::core::clone::Clone for PrintOptionType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PrintOptionType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PrintOptionType {
     type TypeKind = ::windows_core::CopyType;

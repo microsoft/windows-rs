@@ -5682,22 +5682,11 @@ impl ::windows_core::RuntimeName for UserDataPaths {
 unsafe impl ::core::marker::Send for UserDataPaths {}
 unsafe impl ::core::marker::Sync for UserDataPaths {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ApplicationDataCreateDisposition(pub i32);
 impl ApplicationDataCreateDisposition {
     pub const Always: Self = Self(0i32);
     pub const Existing: Self = Self(1i32);
-}
-impl ::core::marker::Copy for ApplicationDataCreateDisposition {}
-impl ::core::clone::Clone for ApplicationDataCreateDisposition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ApplicationDataCreateDisposition {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ApplicationDataCreateDisposition {
     type TypeKind = ::windows_core::CopyType;
@@ -5711,7 +5700,7 @@ impl ::windows_core::RuntimeType for ApplicationDataCreateDisposition {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.ApplicationDataCreateDisposition;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ApplicationDataLocality(pub i32);
 impl ApplicationDataLocality {
     pub const Local: Self = Self(0i32);
@@ -5719,17 +5708,6 @@ impl ApplicationDataLocality {
     pub const Temporary: Self = Self(2i32);
     pub const LocalCache: Self = Self(3i32);
     pub const SharedLocal: Self = Self(4i32);
-}
-impl ::core::marker::Copy for ApplicationDataLocality {}
-impl ::core::clone::Clone for ApplicationDataLocality {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ApplicationDataLocality {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ApplicationDataLocality {
     type TypeKind = ::windows_core::CopyType;
@@ -5743,24 +5721,13 @@ impl ::windows_core::RuntimeType for ApplicationDataLocality {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.ApplicationDataLocality;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CreationCollisionOption(pub i32);
 impl CreationCollisionOption {
     pub const GenerateUniqueName: Self = Self(0i32);
     pub const ReplaceExisting: Self = Self(1i32);
     pub const FailIfExists: Self = Self(2i32);
     pub const OpenIfExists: Self = Self(3i32);
-}
-impl ::core::marker::Copy for CreationCollisionOption {}
-impl ::core::clone::Clone for CreationCollisionOption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CreationCollisionOption {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CreationCollisionOption {
     type TypeKind = ::windows_core::CopyType;
@@ -5774,22 +5741,11 @@ impl ::windows_core::RuntimeType for CreationCollisionOption {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.CreationCollisionOption;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FileAccessMode(pub i32);
 impl FileAccessMode {
     pub const Read: Self = Self(0i32);
     pub const ReadWrite: Self = Self(1i32);
-}
-impl ::core::marker::Copy for FileAccessMode {}
-impl ::core::clone::Clone for FileAccessMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FileAccessMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for FileAccessMode {
     type TypeKind = ::windows_core::CopyType;
@@ -5803,7 +5759,7 @@ impl ::windows_core::RuntimeType for FileAccessMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.FileAccessMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FileAttributes(pub u32);
 impl FileAttributes {
     pub const Normal: Self = Self(0u32);
@@ -5812,17 +5768,6 @@ impl FileAttributes {
     pub const Archive: Self = Self(32u32);
     pub const Temporary: Self = Self(256u32);
     pub const LocallyIncomplete: Self = Self(512u32);
-}
-impl ::core::marker::Copy for FileAttributes {}
-impl ::core::clone::Clone for FileAttributes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FileAttributes {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for FileAttributes {
     type TypeKind = ::windows_core::CopyType;
@@ -5869,7 +5814,7 @@ impl ::windows_core::RuntimeType for FileAttributes {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.FileAttributes;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct KnownFolderId(pub i32);
 impl KnownFolderId {
     pub const AppCaptures: Self = Self(0i32);
@@ -5890,17 +5835,6 @@ impl KnownFolderId {
     pub const CurrentAppMods: Self = Self(15i32);
     pub const DownloadsFolder: Self = Self(16i32);
 }
-impl ::core::marker::Copy for KnownFolderId {}
-impl ::core::clone::Clone for KnownFolderId {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KnownFolderId {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for KnownFolderId {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5913,7 +5847,7 @@ impl ::windows_core::RuntimeType for KnownFolderId {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.KnownFolderId;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct KnownFoldersAccessStatus(pub i32);
 impl KnownFoldersAccessStatus {
     pub const DeniedBySystem: Self = Self(0i32);
@@ -5922,17 +5856,6 @@ impl KnownFoldersAccessStatus {
     pub const UserPromptRequired: Self = Self(3i32);
     pub const Allowed: Self = Self(4i32);
     pub const AllowedPerAppFolder: Self = Self(5i32);
-}
-impl ::core::marker::Copy for KnownFoldersAccessStatus {}
-impl ::core::clone::Clone for KnownFoldersAccessStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KnownFoldersAccessStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for KnownFoldersAccessStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -5946,24 +5869,13 @@ impl ::windows_core::RuntimeType for KnownFoldersAccessStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.KnownFoldersAccessStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct KnownLibraryId(pub i32);
 impl KnownLibraryId {
     pub const Music: Self = Self(0i32);
     pub const Pictures: Self = Self(1i32);
     pub const Videos: Self = Self(2i32);
     pub const Documents: Self = Self(3i32);
-}
-impl ::core::marker::Copy for KnownLibraryId {}
-impl ::core::clone::Clone for KnownLibraryId {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KnownLibraryId {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for KnownLibraryId {
     type TypeKind = ::windows_core::CopyType;
@@ -5977,23 +5889,12 @@ impl ::windows_core::RuntimeType for KnownLibraryId {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.KnownLibraryId;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NameCollisionOption(pub i32);
 impl NameCollisionOption {
     pub const GenerateUniqueName: Self = Self(0i32);
     pub const ReplaceExisting: Self = Self(1i32);
     pub const FailIfExists: Self = Self(2i32);
-}
-impl ::core::marker::Copy for NameCollisionOption {}
-impl ::core::clone::Clone for NameCollisionOption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NameCollisionOption {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for NameCollisionOption {
     type TypeKind = ::windows_core::CopyType;
@@ -6007,22 +5908,11 @@ impl ::windows_core::RuntimeType for NameCollisionOption {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.NameCollisionOption;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct StorageDeleteOption(pub i32);
 impl StorageDeleteOption {
     pub const Default: Self = Self(0i32);
     pub const PermanentDelete: Self = Self(1i32);
-}
-impl ::core::marker::Copy for StorageDeleteOption {}
-impl ::core::clone::Clone for StorageDeleteOption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for StorageDeleteOption {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for StorageDeleteOption {
     type TypeKind = ::windows_core::CopyType;
@@ -6036,23 +5926,12 @@ impl ::windows_core::RuntimeType for StorageDeleteOption {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.StorageDeleteOption;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct StorageItemTypes(pub u32);
 impl StorageItemTypes {
     pub const None: Self = Self(0u32);
     pub const File: Self = Self(1u32);
     pub const Folder: Self = Self(2u32);
-}
-impl ::core::marker::Copy for StorageItemTypes {}
-impl ::core::clone::Clone for StorageItemTypes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for StorageItemTypes {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for StorageItemTypes {
     type TypeKind = ::windows_core::CopyType;
@@ -6099,7 +5978,7 @@ impl ::windows_core::RuntimeType for StorageItemTypes {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.StorageItemTypes;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct StorageLibraryChangeType(pub i32);
 impl StorageLibraryChangeType {
     pub const Created: Self = Self(0i32);
@@ -6113,17 +5992,6 @@ impl StorageLibraryChangeType {
     pub const EncryptionChanged: Self = Self(8i32);
     pub const ChangeTrackingLost: Self = Self(9i32);
 }
-impl ::core::marker::Copy for StorageLibraryChangeType {}
-impl ::core::clone::Clone for StorageLibraryChangeType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for StorageLibraryChangeType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for StorageLibraryChangeType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6136,23 +6004,12 @@ impl ::windows_core::RuntimeType for StorageLibraryChangeType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.StorageLibraryChangeType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct StorageOpenOptions(pub u32);
 impl StorageOpenOptions {
     pub const None: Self = Self(0u32);
     pub const AllowOnlyReaders: Self = Self(1u32);
     pub const AllowReadersAndWriters: Self = Self(2u32);
-}
-impl ::core::marker::Copy for StorageOpenOptions {}
-impl ::core::clone::Clone for StorageOpenOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for StorageOpenOptions {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for StorageOpenOptions {
     type TypeKind = ::windows_core::CopyType;
@@ -6199,23 +6056,12 @@ impl ::windows_core::RuntimeType for StorageOpenOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.StorageOpenOptions;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct StreamedFileFailureMode(pub i32);
 impl StreamedFileFailureMode {
     pub const Failed: Self = Self(0i32);
     pub const CurrentlyUnavailable: Self = Self(1i32);
     pub const Incomplete: Self = Self(2i32);
-}
-impl ::core::marker::Copy for StreamedFileFailureMode {}
-impl ::core::clone::Clone for StreamedFileFailureMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for StreamedFileFailureMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for StreamedFileFailureMode {
     type TypeKind = ::windows_core::CopyType;

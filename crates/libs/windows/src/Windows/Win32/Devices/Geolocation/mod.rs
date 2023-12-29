@@ -792,19 +792,8 @@ pub const REPORT_NOT_SUPPORTED: LOCATION_REPORT_STATUS = LOCATION_REPORT_STATUS(
 pub const REPORT_RUNNING: LOCATION_REPORT_STATUS = LOCATION_REPORT_STATUS(4i32);
 pub const SUPL_CONFIG_DATA: GNSS_DRIVER_REQUEST = GNSS_DRIVER_REQUEST(1i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GNSS_AGNSS_REQUEST_TYPE(pub i32);
-impl ::core::marker::Copy for GNSS_AGNSS_REQUEST_TYPE {}
-impl ::core::clone::Clone for GNSS_AGNSS_REQUEST_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GNSS_AGNSS_REQUEST_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for GNSS_AGNSS_REQUEST_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -814,19 +803,8 @@ impl ::core::fmt::Debug for GNSS_AGNSS_REQUEST_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GNSS_DRIVERCOMMAND_TYPE(pub i32);
-impl ::core::marker::Copy for GNSS_DRIVERCOMMAND_TYPE {}
-impl ::core::clone::Clone for GNSS_DRIVERCOMMAND_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GNSS_DRIVERCOMMAND_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for GNSS_DRIVERCOMMAND_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -836,19 +814,8 @@ impl ::core::fmt::Debug for GNSS_DRIVERCOMMAND_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GNSS_DRIVER_REQUEST(pub i32);
-impl ::core::marker::Copy for GNSS_DRIVER_REQUEST {}
-impl ::core::clone::Clone for GNSS_DRIVER_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GNSS_DRIVER_REQUEST {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for GNSS_DRIVER_REQUEST {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -858,19 +825,8 @@ impl ::core::fmt::Debug for GNSS_DRIVER_REQUEST {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GNSS_EVENT_TYPE(pub i32);
-impl ::core::marker::Copy for GNSS_EVENT_TYPE {}
-impl ::core::clone::Clone for GNSS_EVENT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GNSS_EVENT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for GNSS_EVENT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -880,19 +836,8 @@ impl ::core::fmt::Debug for GNSS_EVENT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GNSS_FIXSESSIONTYPE(pub i32);
-impl ::core::marker::Copy for GNSS_FIXSESSIONTYPE {}
-impl ::core::clone::Clone for GNSS_FIXSESSIONTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GNSS_FIXSESSIONTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for GNSS_FIXSESSIONTYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -902,19 +847,8 @@ impl ::core::fmt::Debug for GNSS_FIXSESSIONTYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GNSS_GEOFENCE_STATE(pub i32);
-impl ::core::marker::Copy for GNSS_GEOFENCE_STATE {}
-impl ::core::clone::Clone for GNSS_GEOFENCE_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GNSS_GEOFENCE_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for GNSS_GEOFENCE_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -924,19 +858,8 @@ impl ::core::fmt::Debug for GNSS_GEOFENCE_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GNSS_GEOREGIONTYPE(pub i32);
-impl ::core::marker::Copy for GNSS_GEOREGIONTYPE {}
-impl ::core::clone::Clone for GNSS_GEOREGIONTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GNSS_GEOREGIONTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for GNSS_GEOREGIONTYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -946,19 +869,8 @@ impl ::core::fmt::Debug for GNSS_GEOREGIONTYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GNSS_NI_NOTIFICATION_TYPE(pub i32);
-impl ::core::marker::Copy for GNSS_NI_NOTIFICATION_TYPE {}
-impl ::core::clone::Clone for GNSS_NI_NOTIFICATION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GNSS_NI_NOTIFICATION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for GNSS_NI_NOTIFICATION_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -968,19 +880,8 @@ impl ::core::fmt::Debug for GNSS_NI_NOTIFICATION_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GNSS_NI_PLANE_TYPE(pub i32);
-impl ::core::marker::Copy for GNSS_NI_PLANE_TYPE {}
-impl ::core::clone::Clone for GNSS_NI_PLANE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GNSS_NI_PLANE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for GNSS_NI_PLANE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -990,19 +891,8 @@ impl ::core::fmt::Debug for GNSS_NI_PLANE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GNSS_NI_REQUEST_TYPE(pub i32);
-impl ::core::marker::Copy for GNSS_NI_REQUEST_TYPE {}
-impl ::core::clone::Clone for GNSS_NI_REQUEST_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GNSS_NI_REQUEST_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for GNSS_NI_REQUEST_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1012,19 +902,8 @@ impl ::core::fmt::Debug for GNSS_NI_REQUEST_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GNSS_NI_USER_RESPONSE(pub i32);
-impl ::core::marker::Copy for GNSS_NI_USER_RESPONSE {}
-impl ::core::clone::Clone for GNSS_NI_USER_RESPONSE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GNSS_NI_USER_RESPONSE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for GNSS_NI_USER_RESPONSE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1034,19 +913,8 @@ impl ::core::fmt::Debug for GNSS_NI_USER_RESPONSE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GNSS_SUPL_CERT_ACTION(pub i32);
-impl ::core::marker::Copy for GNSS_SUPL_CERT_ACTION {}
-impl ::core::clone::Clone for GNSS_SUPL_CERT_ACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GNSS_SUPL_CERT_ACTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for GNSS_SUPL_CERT_ACTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1056,19 +924,8 @@ impl ::core::fmt::Debug for GNSS_SUPL_CERT_ACTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct LOCATION_REPORT_STATUS(pub i32);
-impl ::core::marker::Copy for LOCATION_REPORT_STATUS {}
-impl ::core::clone::Clone for LOCATION_REPORT_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for LOCATION_REPORT_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for LOCATION_REPORT_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }

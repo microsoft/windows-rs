@@ -690,7 +690,7 @@ impl ::windows_core::RuntimeName for ServiceRequestedEventArgs {
 unsafe impl ::core::marker::Send for ServiceRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for ServiceRequestedEventArgs {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GraphicsTrustStatus(pub i32);
 impl GraphicsTrustStatus {
     pub const TrustNotRequired: Self = Self(0i32);
@@ -699,17 +699,6 @@ impl GraphicsTrustStatus {
     pub const DriverNotSupported: Self = Self(3i32);
     pub const DriverSigningFailure: Self = Self(4i32);
     pub const UnknownFailure: Self = Self(5i32);
-}
-impl ::core::marker::Copy for GraphicsTrustStatus {}
-impl ::core::clone::Clone for GraphicsTrustStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GraphicsTrustStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for GraphicsTrustStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -723,23 +712,12 @@ impl ::windows_core::RuntimeType for GraphicsTrustStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.GraphicsTrustStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HdcpProtection(pub i32);
 impl HdcpProtection {
     pub const Off: Self = Self(0i32);
     pub const On: Self = Self(1i32);
     pub const OnWithTypeEnforcement: Self = Self(2i32);
-}
-impl ::core::marker::Copy for HdcpProtection {}
-impl ::core::clone::Clone for HdcpProtection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HdcpProtection {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for HdcpProtection {
     type TypeKind = ::windows_core::CopyType;
@@ -753,24 +731,13 @@ impl ::windows_core::RuntimeType for HdcpProtection {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.HdcpProtection;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HdcpSetProtectionResult(pub i32);
 impl HdcpSetProtectionResult {
     pub const Success: Self = Self(0i32);
     pub const TimedOut: Self = Self(1i32);
     pub const NotSupported: Self = Self(2i32);
     pub const UnknownFailure: Self = Self(3i32);
-}
-impl ::core::marker::Copy for HdcpSetProtectionResult {}
-impl ::core::clone::Clone for HdcpSetProtectionResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HdcpSetProtectionResult {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for HdcpSetProtectionResult {
     type TypeKind = ::windows_core::CopyType;
@@ -784,23 +751,12 @@ impl ::windows_core::RuntimeType for HdcpSetProtectionResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.HdcpSetProtectionResult;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ProtectionCapabilityResult(pub i32);
 impl ProtectionCapabilityResult {
     pub const NotSupported: Self = Self(0i32);
     pub const Maybe: Self = Self(1i32);
     pub const Probably: Self = Self(2i32);
-}
-impl ::core::marker::Copy for ProtectionCapabilityResult {}
-impl ::core::clone::Clone for ProtectionCapabilityResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ProtectionCapabilityResult {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ProtectionCapabilityResult {
     type TypeKind = ::windows_core::CopyType;
@@ -814,7 +770,7 @@ impl ::windows_core::RuntimeType for ProtectionCapabilityResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.ProtectionCapabilityResult;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RenewalStatus(pub i32);
 impl RenewalStatus {
     pub const NotStarted: Self = Self(0i32);
@@ -822,17 +778,6 @@ impl RenewalStatus {
     pub const UserCancelled: Self = Self(2i32);
     pub const AppComponentsMayNeedUpdating: Self = Self(3i32);
     pub const NoComponentsFound: Self = Self(4i32);
-}
-impl ::core::marker::Copy for RenewalStatus {}
-impl ::core::clone::Clone for RenewalStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RenewalStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for RenewalStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -846,7 +791,7 @@ impl ::windows_core::RuntimeType for RenewalStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.RenewalStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RevocationAndRenewalReasons(pub u32);
 impl RevocationAndRenewalReasons {
     pub const UserModeComponentLoad: Self = Self(1u32);
@@ -864,17 +809,6 @@ impl RevocationAndRenewalReasons {
     pub const BootDriverVerificationFailed: Self = Self(1048576u32);
     pub const ComponentSignedWithTestCertificate: Self = Self(16777216u32);
     pub const EncryptionFailure: Self = Self(268435456u32);
-}
-impl ::core::marker::Copy for RevocationAndRenewalReasons {}
-impl ::core::clone::Clone for RevocationAndRenewalReasons {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RevocationAndRenewalReasons {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for RevocationAndRenewalReasons {
     type TypeKind = ::windows_core::CopyType;

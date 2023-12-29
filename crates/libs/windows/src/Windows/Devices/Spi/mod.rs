@@ -452,24 +452,13 @@ impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for SpiDevi
 unsafe impl ::core::marker::Send for SpiDevice {}
 unsafe impl ::core::marker::Sync for SpiDevice {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SpiMode(pub i32);
 impl SpiMode {
     pub const Mode0: Self = Self(0i32);
     pub const Mode1: Self = Self(1i32);
     pub const Mode2: Self = Self(2i32);
     pub const Mode3: Self = Self(3i32);
-}
-impl ::core::marker::Copy for SpiMode {}
-impl ::core::clone::Clone for SpiMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpiMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SpiMode {
     type TypeKind = ::windows_core::CopyType;
@@ -483,22 +472,11 @@ impl ::windows_core::RuntimeType for SpiMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Spi.SpiMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SpiSharingMode(pub i32);
 impl SpiSharingMode {
     pub const Exclusive: Self = Self(0i32);
     pub const Shared: Self = Self(1i32);
-}
-impl ::core::marker::Copy for SpiSharingMode {}
-impl ::core::clone::Clone for SpiSharingMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpiSharingMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SpiSharingMode {
     type TypeKind = ::windows_core::CopyType;

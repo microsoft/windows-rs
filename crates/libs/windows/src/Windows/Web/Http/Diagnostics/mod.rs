@@ -544,7 +544,7 @@ impl ::windows_core::RuntimeName for HttpDiagnosticSourceLocation {
 unsafe impl ::core::marker::Send for HttpDiagnosticSourceLocation {}
 unsafe impl ::core::marker::Sync for HttpDiagnosticSourceLocation {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HttpDiagnosticRequestInitiator(pub i32);
 impl HttpDiagnosticRequestInitiator {
     pub const ParsedElement: Self = Self(0i32);
@@ -560,17 +560,6 @@ impl HttpDiagnosticRequestInitiator {
     pub const CrossOriginPreFlight: Self = Self(10i32);
     pub const Fetch: Self = Self(11i32);
     pub const Beacon: Self = Self(12i32);
-}
-impl ::core::marker::Copy for HttpDiagnosticRequestInitiator {}
-impl ::core::clone::Clone for HttpDiagnosticRequestInitiator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HttpDiagnosticRequestInitiator {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for HttpDiagnosticRequestInitiator {
     type TypeKind = ::windows_core::CopyType;

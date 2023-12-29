@@ -2039,7 +2039,7 @@ impl ::windows_core::RuntimeName for PrintWorkflowXpsDataAvailableEventArgs {
 unsafe impl ::core::marker::Send for PrintWorkflowXpsDataAvailableEventArgs {}
 unsafe impl ::core::marker::Sync for PrintWorkflowXpsDataAvailableEventArgs {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PdlConversionHostBasedProcessingOperations(pub u32);
 impl PdlConversionHostBasedProcessingOperations {
     pub const None: Self = Self(0u32);
@@ -2048,17 +2048,6 @@ impl PdlConversionHostBasedProcessingOperations {
     pub const Copies: Self = Self(4u32);
     pub const BlankPageInsertion: Self = Self(8u32);
     pub const All: Self = Self(4294967295u32);
-}
-impl ::core::marker::Copy for PdlConversionHostBasedProcessingOperations {}
-impl ::core::clone::Clone for PdlConversionHostBasedProcessingOperations {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PdlConversionHostBasedProcessingOperations {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PdlConversionHostBasedProcessingOperations {
     type TypeKind = ::windows_core::CopyType;
@@ -2105,23 +2094,12 @@ impl ::windows_core::RuntimeType for PdlConversionHostBasedProcessingOperations 
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PdlConversionHostBasedProcessingOperations;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PrintWorkflowAttributesMergePolicy(pub i32);
 impl PrintWorkflowAttributesMergePolicy {
     pub const MergePreferPrintTicketOnConflict: Self = Self(0i32);
     pub const MergePreferPsaOnConflict: Self = Self(1i32);
     pub const DoNotMergeWithPrintTicket: Self = Self(2i32);
-}
-impl ::core::marker::Copy for PrintWorkflowAttributesMergePolicy {}
-impl ::core::clone::Clone for PrintWorkflowAttributesMergePolicy {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PrintWorkflowAttributesMergePolicy {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PrintWorkflowAttributesMergePolicy {
     type TypeKind = ::windows_core::CopyType;
@@ -2135,22 +2113,11 @@ impl ::windows_core::RuntimeType for PrintWorkflowAttributesMergePolicy {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowAttributesMergePolicy;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PrintWorkflowJobAbortReason(pub i32);
 impl PrintWorkflowJobAbortReason {
     pub const JobFailed: Self = Self(0i32);
     pub const UserCanceled: Self = Self(1i32);
-}
-impl ::core::marker::Copy for PrintWorkflowJobAbortReason {}
-impl ::core::clone::Clone for PrintWorkflowJobAbortReason {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PrintWorkflowJobAbortReason {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PrintWorkflowJobAbortReason {
     type TypeKind = ::windows_core::CopyType;
@@ -2164,23 +2131,12 @@ impl ::windows_core::RuntimeType for PrintWorkflowJobAbortReason {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowJobAbortReason;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PrintWorkflowPdlConversionType(pub i32);
 impl PrintWorkflowPdlConversionType {
     pub const XpsToPdf: Self = Self(0i32);
     pub const XpsToPwgr: Self = Self(1i32);
     pub const XpsToPclm: Self = Self(2i32);
-}
-impl ::core::marker::Copy for PrintWorkflowPdlConversionType {}
-impl ::core::clone::Clone for PrintWorkflowPdlConversionType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PrintWorkflowPdlConversionType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PrintWorkflowPdlConversionType {
     type TypeKind = ::windows_core::CopyType;
@@ -2194,24 +2150,13 @@ impl ::windows_core::RuntimeType for PrintWorkflowPdlConversionType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowPdlConversionType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PrintWorkflowPrinterJobStatus(pub i32);
 impl PrintWorkflowPrinterJobStatus {
     pub const Error: Self = Self(0i32);
     pub const Aborted: Self = Self(1i32);
     pub const InProgress: Self = Self(2i32);
     pub const Completed: Self = Self(3i32);
-}
-impl ::core::marker::Copy for PrintWorkflowPrinterJobStatus {}
-impl ::core::clone::Clone for PrintWorkflowPrinterJobStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PrintWorkflowPrinterJobStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PrintWorkflowPrinterJobStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -2225,7 +2170,7 @@ impl ::windows_core::RuntimeType for PrintWorkflowPrinterJobStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowPrinterJobStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PrintWorkflowSessionStatus(pub i32);
 impl PrintWorkflowSessionStatus {
     pub const Started: Self = Self(0i32);
@@ -2233,17 +2178,6 @@ impl PrintWorkflowSessionStatus {
     pub const Aborted: Self = Self(2i32);
     pub const Closed: Self = Self(3i32);
     pub const PdlDataAvailableForModification: Self = Self(4i32);
-}
-impl ::core::marker::Copy for PrintWorkflowSessionStatus {}
-impl ::core::clone::Clone for PrintWorkflowSessionStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PrintWorkflowSessionStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PrintWorkflowSessionStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -2257,23 +2191,12 @@ impl ::windows_core::RuntimeType for PrintWorkflowSessionStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowSessionStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PrintWorkflowSubmittedStatus(pub i32);
 impl PrintWorkflowSubmittedStatus {
     pub const Succeeded: Self = Self(0i32);
     pub const Canceled: Self = Self(1i32);
     pub const Failed: Self = Self(2i32);
-}
-impl ::core::marker::Copy for PrintWorkflowSubmittedStatus {}
-impl ::core::clone::Clone for PrintWorkflowSubmittedStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PrintWorkflowSubmittedStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PrintWorkflowSubmittedStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -2287,24 +2210,13 @@ impl ::windows_core::RuntimeType for PrintWorkflowSubmittedStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowSubmittedStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PrintWorkflowUICompletionStatus(pub i32);
 impl PrintWorkflowUICompletionStatus {
     pub const Completed: Self = Self(0i32);
     pub const LaunchFailed: Self = Self(1i32);
     pub const JobFailed: Self = Self(2i32);
     pub const UserCanceled: Self = Self(3i32);
-}
-impl ::core::marker::Copy for PrintWorkflowUICompletionStatus {}
-impl ::core::clone::Clone for PrintWorkflowUICompletionStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PrintWorkflowUICompletionStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PrintWorkflowUICompletionStatus {
     type TypeKind = ::windows_core::CopyType;

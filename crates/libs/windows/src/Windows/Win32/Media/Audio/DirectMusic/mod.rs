@@ -1008,19 +1008,8 @@ pub const WAVELINK_CHANNEL_RIGHT: i32 = 2i32;
 pub const WLOOP_TYPE_FORWARD: u32 = 0u32;
 pub const WLOOP_TYPE_RELEASE: u32 = 2u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DIRECTSOUNDDEVICE_DATAFLOW(pub i32);
-impl ::core::marker::Copy for DIRECTSOUNDDEVICE_DATAFLOW {}
-impl ::core::clone::Clone for DIRECTSOUNDDEVICE_DATAFLOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DIRECTSOUNDDEVICE_DATAFLOW {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DIRECTSOUNDDEVICE_DATAFLOW {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1030,19 +1019,8 @@ impl ::core::fmt::Debug for DIRECTSOUNDDEVICE_DATAFLOW {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DIRECTSOUNDDEVICE_TYPE(pub i32);
-impl ::core::marker::Copy for DIRECTSOUNDDEVICE_TYPE {}
-impl ::core::clone::Clone for DIRECTSOUNDDEVICE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DIRECTSOUNDDEVICE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DIRECTSOUNDDEVICE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1052,19 +1030,8 @@ impl ::core::fmt::Debug for DIRECTSOUNDDEVICE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DMUS_CLOCKTYPE(pub i32);
-impl ::core::marker::Copy for DMUS_CLOCKTYPE {}
-impl ::core::clone::Clone for DMUS_CLOCKTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DMUS_CLOCKTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DMUS_CLOCKTYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1074,19 +1041,8 @@ impl ::core::fmt::Debug for DMUS_CLOCKTYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE(pub i32);
-impl ::core::marker::Copy for DSPROPERTY_DIRECTSOUNDDEVICE {}
-impl ::core::clone::Clone for DSPROPERTY_DIRECTSOUNDDEVICE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DSPROPERTY_DIRECTSOUNDDEVICE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DSPROPERTY_DIRECTSOUNDDEVICE {
     type TypeKind = ::windows_core::CopyType;
 }

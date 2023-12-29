@@ -737,19 +737,8 @@ pub const _XmlReaderProperty_Last: XmlReaderProperty = XmlReaderProperty(7i32);
 pub const _XmlStandalone_Last: XmlStandalone = XmlStandalone(2i32);
 pub const _XmlWriterProperty_Last: XmlWriterProperty = XmlWriterProperty(5i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DtdProcessing(pub i32);
-impl ::core::marker::Copy for DtdProcessing {}
-impl ::core::clone::Clone for DtdProcessing {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DtdProcessing {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DtdProcessing {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -759,19 +748,8 @@ impl ::core::fmt::Debug for DtdProcessing {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XmlConformanceLevel(pub i32);
-impl ::core::marker::Copy for XmlConformanceLevel {}
-impl ::core::clone::Clone for XmlConformanceLevel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XmlConformanceLevel {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XmlConformanceLevel {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -781,19 +759,8 @@ impl ::core::fmt::Debug for XmlConformanceLevel {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XmlError(pub i32);
-impl ::core::marker::Copy for XmlError {}
-impl ::core::clone::Clone for XmlError {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XmlError {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XmlError {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -803,19 +770,8 @@ impl ::core::fmt::Debug for XmlError {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XmlNodeType(pub i32);
-impl ::core::marker::Copy for XmlNodeType {}
-impl ::core::clone::Clone for XmlNodeType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XmlNodeType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XmlNodeType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -825,19 +781,8 @@ impl ::core::fmt::Debug for XmlNodeType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XmlReadState(pub i32);
-impl ::core::marker::Copy for XmlReadState {}
-impl ::core::clone::Clone for XmlReadState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XmlReadState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XmlReadState {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -847,19 +792,8 @@ impl ::core::fmt::Debug for XmlReadState {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XmlReaderProperty(pub i32);
-impl ::core::marker::Copy for XmlReaderProperty {}
-impl ::core::clone::Clone for XmlReaderProperty {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XmlReaderProperty {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XmlReaderProperty {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -869,19 +803,8 @@ impl ::core::fmt::Debug for XmlReaderProperty {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XmlStandalone(pub i32);
-impl ::core::marker::Copy for XmlStandalone {}
-impl ::core::clone::Clone for XmlStandalone {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XmlStandalone {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XmlStandalone {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -891,19 +814,8 @@ impl ::core::fmt::Debug for XmlStandalone {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XmlWriterProperty(pub i32);
-impl ::core::marker::Copy for XmlWriterProperty {}
-impl ::core::clone::Clone for XmlWriterProperty {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XmlWriterProperty {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XmlWriterProperty {
     type TypeKind = ::windows_core::CopyType;
 }

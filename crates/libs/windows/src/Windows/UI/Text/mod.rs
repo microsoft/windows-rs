@@ -2691,22 +2691,11 @@ impl ::windows_core::RuntimeName for TextConstants {
     const NAME: &'static str = "Windows.UI.Text.TextConstants";
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CaretType(pub i32);
 impl CaretType {
     pub const Normal: Self = Self(0i32);
     pub const Null: Self = Self(1i32);
-}
-impl ::core::marker::Copy for CaretType {}
-impl ::core::clone::Clone for CaretType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CaretType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CaretType {
     type TypeKind = ::windows_core::CopyType;
@@ -2720,23 +2709,12 @@ impl ::windows_core::RuntimeType for CaretType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.CaretType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FindOptions(pub u32);
 impl FindOptions {
     pub const None: Self = Self(0u32);
     pub const Word: Self = Self(2u32);
     pub const Case: Self = Self(4u32);
-}
-impl ::core::marker::Copy for FindOptions {}
-impl ::core::clone::Clone for FindOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FindOptions {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for FindOptions {
     type TypeKind = ::windows_core::CopyType;
@@ -2783,7 +2761,7 @@ impl ::windows_core::RuntimeType for FindOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.FindOptions;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FontStretch(pub i32);
 impl FontStretch {
     pub const Undefined: Self = Self(0i32);
@@ -2797,17 +2775,6 @@ impl FontStretch {
     pub const ExtraExpanded: Self = Self(8i32);
     pub const UltraExpanded: Self = Self(9i32);
 }
-impl ::core::marker::Copy for FontStretch {}
-impl ::core::clone::Clone for FontStretch {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FontStretch {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FontStretch {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2820,23 +2787,12 @@ impl ::windows_core::RuntimeType for FontStretch {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.FontStretch;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FontStyle(pub i32);
 impl FontStyle {
     pub const Normal: Self = Self(0i32);
     pub const Oblique: Self = Self(1i32);
     pub const Italic: Self = Self(2i32);
-}
-impl ::core::marker::Copy for FontStyle {}
-impl ::core::clone::Clone for FontStyle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FontStyle {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for FontStyle {
     type TypeKind = ::windows_core::CopyType;
@@ -2850,24 +2806,13 @@ impl ::windows_core::RuntimeType for FontStyle {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.FontStyle;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FormatEffect(pub i32);
 impl FormatEffect {
     pub const Off: Self = Self(0i32);
     pub const On: Self = Self(1i32);
     pub const Toggle: Self = Self(2i32);
     pub const Undefined: Self = Self(3i32);
-}
-impl ::core::marker::Copy for FormatEffect {}
-impl ::core::clone::Clone for FormatEffect {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FormatEffect {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for FormatEffect {
     type TypeKind = ::windows_core::CopyType;
@@ -2881,23 +2826,12 @@ impl ::windows_core::RuntimeType for FormatEffect {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.FormatEffect;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HorizontalCharacterAlignment(pub i32);
 impl HorizontalCharacterAlignment {
     pub const Left: Self = Self(0i32);
     pub const Right: Self = Self(1i32);
     pub const Center: Self = Self(2i32);
-}
-impl ::core::marker::Copy for HorizontalCharacterAlignment {}
-impl ::core::clone::Clone for HorizontalCharacterAlignment {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HorizontalCharacterAlignment {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for HorizontalCharacterAlignment {
     type TypeKind = ::windows_core::CopyType;
@@ -2911,22 +2845,11 @@ impl ::windows_core::RuntimeType for HorizontalCharacterAlignment {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.HorizontalCharacterAlignment;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct LetterCase(pub i32);
 impl LetterCase {
     pub const Lower: Self = Self(0i32);
     pub const Upper: Self = Self(1i32);
-}
-impl ::core::marker::Copy for LetterCase {}
-impl ::core::clone::Clone for LetterCase {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for LetterCase {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for LetterCase {
     type TypeKind = ::windows_core::CopyType;
@@ -2940,7 +2863,7 @@ impl ::windows_core::RuntimeType for LetterCase {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.LetterCase;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct LineSpacingRule(pub i32);
 impl LineSpacingRule {
     pub const Undefined: Self = Self(0i32);
@@ -2951,17 +2874,6 @@ impl LineSpacingRule {
     pub const Exactly: Self = Self(5i32);
     pub const Multiple: Self = Self(6i32);
     pub const Percent: Self = Self(7i32);
-}
-impl ::core::marker::Copy for LineSpacingRule {}
-impl ::core::clone::Clone for LineSpacingRule {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for LineSpacingRule {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for LineSpacingRule {
     type TypeKind = ::windows_core::CopyType;
@@ -2975,7 +2887,7 @@ impl ::windows_core::RuntimeType for LineSpacingRule {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.LineSpacingRule;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct LinkType(pub i32);
 impl LinkType {
     pub const Undefined: Self = Self(0i32);
@@ -2987,17 +2899,6 @@ impl LinkType {
     pub const AutoLinkEmail: Self = Self(6i32);
     pub const AutoLinkPhone: Self = Self(7i32);
     pub const AutoLinkPath: Self = Self(8i32);
-}
-impl ::core::marker::Copy for LinkType {}
-impl ::core::clone::Clone for LinkType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for LinkType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for LinkType {
     type TypeKind = ::windows_core::CopyType;
@@ -3011,24 +2912,13 @@ impl ::windows_core::RuntimeType for LinkType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.LinkType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MarkerAlignment(pub i32);
 impl MarkerAlignment {
     pub const Undefined: Self = Self(0i32);
     pub const Left: Self = Self(1i32);
     pub const Center: Self = Self(2i32);
     pub const Right: Self = Self(3i32);
-}
-impl ::core::marker::Copy for MarkerAlignment {}
-impl ::core::clone::Clone for MarkerAlignment {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MarkerAlignment {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MarkerAlignment {
     type TypeKind = ::windows_core::CopyType;
@@ -3042,7 +2932,7 @@ impl ::windows_core::RuntimeType for MarkerAlignment {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.MarkerAlignment;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MarkerStyle(pub i32);
 impl MarkerStyle {
     pub const Undefined: Self = Self(0i32);
@@ -3052,17 +2942,6 @@ impl MarkerStyle {
     pub const Plain: Self = Self(4i32);
     pub const Minus: Self = Self(5i32);
     pub const NoNumber: Self = Self(6i32);
-}
-impl ::core::marker::Copy for MarkerStyle {}
-impl ::core::clone::Clone for MarkerStyle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MarkerStyle {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MarkerStyle {
     type TypeKind = ::windows_core::CopyType;
@@ -3076,7 +2955,7 @@ impl ::windows_core::RuntimeType for MarkerStyle {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.MarkerStyle;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MarkerType(pub i32);
 impl MarkerType {
     pub const Undefined: Self = Self(0i32);
@@ -3105,17 +2984,6 @@ impl MarkerType {
     pub const DevanagariConsonant: Self = Self(23i32);
     pub const DevanagariNumeric: Self = Self(24i32);
 }
-impl ::core::marker::Copy for MarkerType {}
-impl ::core::clone::Clone for MarkerType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MarkerType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MarkerType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3128,7 +2996,7 @@ impl ::windows_core::RuntimeType for MarkerType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.MarkerType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ParagraphAlignment(pub i32);
 impl ParagraphAlignment {
     pub const Undefined: Self = Self(0i32);
@@ -3136,17 +3004,6 @@ impl ParagraphAlignment {
     pub const Center: Self = Self(2i32);
     pub const Right: Self = Self(3i32);
     pub const Justify: Self = Self(4i32);
-}
-impl ::core::marker::Copy for ParagraphAlignment {}
-impl ::core::clone::Clone for ParagraphAlignment {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ParagraphAlignment {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ParagraphAlignment {
     type TypeKind = ::windows_core::CopyType;
@@ -3160,7 +3017,7 @@ impl ::windows_core::RuntimeType for ParagraphAlignment {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.ParagraphAlignment;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ParagraphStyle(pub i32);
 impl ParagraphStyle {
     pub const Undefined: Self = Self(0i32);
@@ -3176,17 +3033,6 @@ impl ParagraphStyle {
     pub const Heading8: Self = Self(10i32);
     pub const Heading9: Self = Self(11i32);
 }
-impl ::core::marker::Copy for ParagraphStyle {}
-impl ::core::clone::Clone for ParagraphStyle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ParagraphStyle {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ParagraphStyle {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3199,7 +3045,7 @@ impl ::windows_core::RuntimeType for ParagraphStyle {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.ParagraphStyle;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PointOptions(pub u32);
 impl PointOptions {
     pub const None: Self = Self(0u32);
@@ -3210,17 +3056,6 @@ impl PointOptions {
     pub const Transform: Self = Self(1024u32);
     pub const NoHorizontalScroll: Self = Self(65536u32);
     pub const NoVerticalScroll: Self = Self(262144u32);
-}
-impl ::core::marker::Copy for PointOptions {}
-impl ::core::clone::Clone for PointOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PointOptions {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PointOptions {
     type TypeKind = ::windows_core::CopyType;
@@ -3267,7 +3102,7 @@ impl ::windows_core::RuntimeType for PointOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.PointOptions;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RangeGravity(pub i32);
 impl RangeGravity {
     pub const UIBehavior: Self = Self(0i32);
@@ -3275,17 +3110,6 @@ impl RangeGravity {
     pub const Forward: Self = Self(2i32);
     pub const Inward: Self = Self(3i32);
     pub const Outward: Self = Self(4i32);
-}
-impl ::core::marker::Copy for RangeGravity {}
-impl ::core::clone::Clone for RangeGravity {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RangeGravity {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for RangeGravity {
     type TypeKind = ::windows_core::CopyType;
@@ -3299,22 +3123,11 @@ impl ::windows_core::RuntimeType for RangeGravity {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.RangeGravity;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RichEditMathMode(pub i32);
 impl RichEditMathMode {
     pub const NoMath: Self = Self(0i32);
     pub const MathOnly: Self = Self(1i32);
-}
-impl ::core::marker::Copy for RichEditMathMode {}
-impl ::core::clone::Clone for RichEditMathMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RichEditMathMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for RichEditMathMode {
     type TypeKind = ::windows_core::CopyType;
@@ -3328,7 +3141,7 @@ impl ::windows_core::RuntimeType for RichEditMathMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.RichEditMathMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SelectionOptions(pub u32);
 impl SelectionOptions {
     pub const StartActive: Self = Self(1u32);
@@ -3336,17 +3149,6 @@ impl SelectionOptions {
     pub const Overtype: Self = Self(4u32);
     pub const Active: Self = Self(8u32);
     pub const Replace: Self = Self(16u32);
-}
-impl ::core::marker::Copy for SelectionOptions {}
-impl ::core::clone::Clone for SelectionOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SelectionOptions {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SelectionOptions {
     type TypeKind = ::windows_core::CopyType;
@@ -3393,7 +3195,7 @@ impl ::windows_core::RuntimeType for SelectionOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.SelectionOptions;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SelectionType(pub i32);
 impl SelectionType {
     pub const None: Self = Self(0i32);
@@ -3401,17 +3203,6 @@ impl SelectionType {
     pub const Normal: Self = Self(2i32);
     pub const InlineShape: Self = Self(7i32);
     pub const Shape: Self = Self(8i32);
-}
-impl ::core::marker::Copy for SelectionType {}
-impl ::core::clone::Clone for SelectionType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SelectionType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SelectionType {
     type TypeKind = ::windows_core::CopyType;
@@ -3425,7 +3216,7 @@ impl ::windows_core::RuntimeType for SelectionType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.SelectionType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TabAlignment(pub i32);
 impl TabAlignment {
     pub const Left: Self = Self(0i32);
@@ -3433,17 +3224,6 @@ impl TabAlignment {
     pub const Right: Self = Self(2i32);
     pub const Decimal: Self = Self(3i32);
     pub const Bar: Self = Self(4i32);
-}
-impl ::core::marker::Copy for TabAlignment {}
-impl ::core::clone::Clone for TabAlignment {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TabAlignment {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for TabAlignment {
     type TypeKind = ::windows_core::CopyType;
@@ -3457,7 +3237,7 @@ impl ::windows_core::RuntimeType for TabAlignment {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.TabAlignment;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TabLeader(pub i32);
 impl TabLeader {
     pub const Spaces: Self = Self(0i32);
@@ -3466,17 +3246,6 @@ impl TabLeader {
     pub const Lines: Self = Self(3i32);
     pub const ThickLines: Self = Self(4i32);
     pub const Equals: Self = Self(5i32);
-}
-impl ::core::marker::Copy for TabLeader {}
-impl ::core::clone::Clone for TabLeader {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TabLeader {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for TabLeader {
     type TypeKind = ::windows_core::CopyType;
@@ -3490,23 +3259,12 @@ impl ::windows_core::RuntimeType for TabLeader {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.TabLeader;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TextDecorations(pub u32);
 impl TextDecorations {
     pub const None: Self = Self(0u32);
     pub const Underline: Self = Self(1u32);
     pub const Strikethrough: Self = Self(2u32);
-}
-impl ::core::marker::Copy for TextDecorations {}
-impl ::core::clone::Clone for TextDecorations {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TextDecorations {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for TextDecorations {
     type TypeKind = ::windows_core::CopyType;
@@ -3553,7 +3311,7 @@ impl ::windows_core::RuntimeType for TextDecorations {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.TextDecorations;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TextGetOptions(pub u32);
 impl TextGetOptions {
     pub const None: Self = Self(0u32);
@@ -3565,17 +3323,6 @@ impl TextGetOptions {
     pub const IncludeNumbering: Self = Self(64u32);
     pub const FormatRtf: Self = Self(8192u32);
     pub const UseLf: Self = Self(16777216u32);
-}
-impl ::core::marker::Copy for TextGetOptions {}
-impl ::core::clone::Clone for TextGetOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TextGetOptions {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for TextGetOptions {
     type TypeKind = ::windows_core::CopyType;
@@ -3622,7 +3369,7 @@ impl ::windows_core::RuntimeType for TextGetOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.TextGetOptions;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TextRangeUnit(pub i32);
 impl TextRangeUnit {
     pub const Character: Self = Self(0i32);
@@ -3659,17 +3406,6 @@ impl TextRangeUnit {
     pub const LinkProtected: Self = Self(31i32);
     pub const ContentLink: Self = Self(32i32);
 }
-impl ::core::marker::Copy for TextRangeUnit {}
-impl ::core::clone::Clone for TextRangeUnit {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TextRangeUnit {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TextRangeUnit {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3682,7 +3418,7 @@ impl ::windows_core::RuntimeType for TextRangeUnit {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.TextRangeUnit;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TextScript(pub i32);
 impl TextScript {
     pub const Undefined: Self = Self(0i32);
@@ -3750,17 +3486,6 @@ impl TextScript {
     pub const Deseret: Self = Self(62i32);
     pub const Tifinagh: Self = Self(63i32);
 }
-impl ::core::marker::Copy for TextScript {}
-impl ::core::clone::Clone for TextScript {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TextScript {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TextScript {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3773,7 +3498,7 @@ impl ::windows_core::RuntimeType for TextScript {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.TextScript;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TextSetOptions(pub u32);
 impl TextSetOptions {
     pub const None: Self = Self(0u32);
@@ -3783,17 +3508,6 @@ impl TextSetOptions {
     pub const CheckTextLimit: Self = Self(32u32);
     pub const FormatRtf: Self = Self(8192u32);
     pub const ApplyRtfDocumentDefaults: Self = Self(16384u32);
-}
-impl ::core::marker::Copy for TextSetOptions {}
-impl ::core::clone::Clone for TextSetOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TextSetOptions {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for TextSetOptions {
     type TypeKind = ::windows_core::CopyType;
@@ -3840,7 +3554,7 @@ impl ::windows_core::RuntimeType for TextSetOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.TextSetOptions;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UnderlineType(pub i32);
 impl UnderlineType {
     pub const Undefined: Self = Self(0i32);
@@ -3864,17 +3578,6 @@ impl UnderlineType {
     pub const ThickDotted: Self = Self(18i32);
     pub const ThickLongDash: Self = Self(19i32);
 }
-impl ::core::marker::Copy for UnderlineType {}
-impl ::core::clone::Clone for UnderlineType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UnderlineType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for UnderlineType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3887,23 +3590,12 @@ impl ::windows_core::RuntimeType for UnderlineType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.UnderlineType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VerticalCharacterAlignment(pub i32);
 impl VerticalCharacterAlignment {
     pub const Top: Self = Self(0i32);
     pub const Baseline: Self = Self(1i32);
     pub const Bottom: Self = Self(2i32);
-}
-impl ::core::marker::Copy for VerticalCharacterAlignment {}
-impl ::core::clone::Clone for VerticalCharacterAlignment {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VerticalCharacterAlignment {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for VerticalCharacterAlignment {
     type TypeKind = ::windows_core::CopyType;

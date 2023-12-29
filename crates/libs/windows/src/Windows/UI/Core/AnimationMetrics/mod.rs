@@ -476,7 +476,7 @@ impl ::windows_core::CanTryInto<IPropertyAnimation> for TranslationAnimation {}
 unsafe impl ::core::marker::Send for TranslationAnimation {}
 unsafe impl ::core::marker::Sync for TranslationAnimation {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AnimationEffect(pub i32);
 impl AnimationEffect {
     pub const Expand: Self = Self(0i32);
@@ -516,17 +516,6 @@ impl AnimationEffect {
     pub const Peek: Self = Self(34i32);
     pub const UpdateBadge: Self = Self(35i32);
 }
-impl ::core::marker::Copy for AnimationEffect {}
-impl ::core::clone::Clone for AnimationEffect {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AnimationEffect {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AnimationEffect {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -539,7 +528,7 @@ impl ::windows_core::RuntimeType for AnimationEffect {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.AnimationMetrics.AnimationEffect;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AnimationEffectTarget(pub i32);
 impl AnimationEffectTarget {
     pub const Primary: Self = Self(0i32);
@@ -563,17 +552,6 @@ impl AnimationEffectTarget {
     pub const Shown: Self = Self(18i32);
     pub const Tapped: Self = Self(19i32);
 }
-impl ::core::marker::Copy for AnimationEffectTarget {}
-impl ::core::clone::Clone for AnimationEffectTarget {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AnimationEffectTarget {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AnimationEffectTarget {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -586,23 +564,12 @@ impl ::windows_core::RuntimeType for AnimationEffectTarget {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.AnimationMetrics.AnimationEffectTarget;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PropertyAnimationType(pub i32);
 impl PropertyAnimationType {
     pub const Scale: Self = Self(0i32);
     pub const Translation: Self = Self(1i32);
     pub const Opacity: Self = Self(2i32);
-}
-impl ::core::marker::Copy for PropertyAnimationType {}
-impl ::core::clone::Clone for PropertyAnimationType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PropertyAnimationType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PropertyAnimationType {
     type TypeKind = ::windows_core::CopyType;

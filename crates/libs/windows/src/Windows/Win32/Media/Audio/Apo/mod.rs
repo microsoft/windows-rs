@@ -673,19 +673,8 @@ pub const eAudioConstriction48_16: EAudioConstriction = EAudioConstriction(1i32)
 pub const eAudioConstrictionMute: EAudioConstriction = EAudioConstriction(4i32);
 pub const eAudioConstrictionOff: EAudioConstriction = EAudioConstriction(0i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct APO_BUFFER_FLAGS(pub i32);
-impl ::core::marker::Copy for APO_BUFFER_FLAGS {}
-impl ::core::clone::Clone for APO_BUFFER_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for APO_BUFFER_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for APO_BUFFER_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -695,19 +684,8 @@ impl ::core::fmt::Debug for APO_BUFFER_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct APO_CONNECTION_BUFFER_TYPE(pub i32);
-impl ::core::marker::Copy for APO_CONNECTION_BUFFER_TYPE {}
-impl ::core::clone::Clone for APO_CONNECTION_BUFFER_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for APO_CONNECTION_BUFFER_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for APO_CONNECTION_BUFFER_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -717,19 +695,8 @@ impl ::core::fmt::Debug for APO_CONNECTION_BUFFER_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct APO_FLAG(pub i32);
-impl ::core::marker::Copy for APO_FLAG {}
-impl ::core::clone::Clone for APO_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for APO_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for APO_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -739,19 +706,8 @@ impl ::core::fmt::Debug for APO_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct APO_LOG_LEVEL(pub i32);
-impl ::core::marker::Copy for APO_LOG_LEVEL {}
-impl ::core::clone::Clone for APO_LOG_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for APO_LOG_LEVEL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for APO_LOG_LEVEL {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -761,19 +717,8 @@ impl ::core::fmt::Debug for APO_LOG_LEVEL {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct APO_NOTIFICATION_TYPE(pub i32);
-impl ::core::marker::Copy for APO_NOTIFICATION_TYPE {}
-impl ::core::clone::Clone for APO_NOTIFICATION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for APO_NOTIFICATION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for APO_NOTIFICATION_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -783,19 +728,8 @@ impl ::core::fmt::Debug for APO_NOTIFICATION_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AUDIO_FLOW_TYPE(pub i32);
-impl ::core::marker::Copy for AUDIO_FLOW_TYPE {}
-impl ::core::clone::Clone for AUDIO_FLOW_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AUDIO_FLOW_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AUDIO_FLOW_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -805,19 +739,8 @@ impl ::core::fmt::Debug for AUDIO_FLOW_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AUDIO_SYSTEMEFFECT_STATE(pub i32);
-impl ::core::marker::Copy for AUDIO_SYSTEMEFFECT_STATE {}
-impl ::core::clone::Clone for AUDIO_SYSTEMEFFECT_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AUDIO_SYSTEMEFFECT_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AUDIO_SYSTEMEFFECT_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -827,19 +750,8 @@ impl ::core::fmt::Debug for AUDIO_SYSTEMEFFECT_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DEVICE_ORIENTATION_TYPE(pub i32);
-impl ::core::marker::Copy for DEVICE_ORIENTATION_TYPE {}
-impl ::core::clone::Clone for DEVICE_ORIENTATION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DEVICE_ORIENTATION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DEVICE_ORIENTATION_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -849,19 +761,8 @@ impl ::core::fmt::Debug for DEVICE_ORIENTATION_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EAudioConstriction(pub i32);
-impl ::core::marker::Copy for EAudioConstriction {}
-impl ::core::clone::Clone for EAudioConstriction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EAudioConstriction {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EAudioConstriction {
     type TypeKind = ::windows_core::CopyType;
 }

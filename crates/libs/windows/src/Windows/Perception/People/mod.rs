@@ -436,7 +436,7 @@ impl ::windows_core::RuntimeName for HeadPose {
 unsafe impl ::core::marker::Send for HeadPose {}
 unsafe impl ::core::marker::Sync for HeadPose {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HandJointKind(pub i32);
 impl HandJointKind {
     pub const Palm: Self = Self(0i32);
@@ -466,17 +466,6 @@ impl HandJointKind {
     pub const LittleDistal: Self = Self(24i32);
     pub const LittleTip: Self = Self(25i32);
 }
-impl ::core::marker::Copy for HandJointKind {}
-impl ::core::clone::Clone for HandJointKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HandJointKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HandJointKind {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -489,22 +478,11 @@ impl ::windows_core::RuntimeType for HandJointKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Perception.People.HandJointKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct JointPoseAccuracy(pub i32);
 impl JointPoseAccuracy {
     pub const High: Self = Self(0i32);
     pub const Approximate: Self = Self(1i32);
-}
-impl ::core::marker::Copy for JointPoseAccuracy {}
-impl ::core::clone::Clone for JointPoseAccuracy {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for JointPoseAccuracy {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for JointPoseAccuracy {
     type TypeKind = ::windows_core::CopyType;

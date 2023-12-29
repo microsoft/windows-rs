@@ -129,19 +129,8 @@ pub const TH32CS_SNAPMODULE32: CREATE_TOOLHELP_SNAPSHOT_FLAGS = CREATE_TOOLHELP_
 pub const TH32CS_SNAPPROCESS: CREATE_TOOLHELP_SNAPSHOT_FLAGS = CREATE_TOOLHELP_SNAPSHOT_FLAGS(2u32);
 pub const TH32CS_SNAPTHREAD: CREATE_TOOLHELP_SNAPSHOT_FLAGS = CREATE_TOOLHELP_SNAPSHOT_FLAGS(4u32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CREATE_TOOLHELP_SNAPSHOT_FLAGS(pub u32);
-impl ::core::marker::Copy for CREATE_TOOLHELP_SNAPSHOT_FLAGS {}
-impl ::core::clone::Clone for CREATE_TOOLHELP_SNAPSHOT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CREATE_TOOLHELP_SNAPSHOT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CREATE_TOOLHELP_SNAPSHOT_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -184,19 +173,8 @@ impl ::core::ops::Not for CREATE_TOOLHELP_SNAPSHOT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HEAPENTRY32_FLAGS(pub u32);
-impl ::core::marker::Copy for HEAPENTRY32_FLAGS {}
-impl ::core::clone::Clone for HEAPENTRY32_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HEAPENTRY32_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HEAPENTRY32_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }

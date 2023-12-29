@@ -2869,19 +2869,8 @@ pub const QM_STATUS_JOB_ERROR: u32 = 16u32;
 pub const QM_STATUS_JOB_FOREGROUND: u32 = 32u32;
 pub const QM_STATUS_JOB_INCOMPLETE: u32 = 8u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BG_AUTH_SCHEME(pub i32);
-impl ::core::marker::Copy for BG_AUTH_SCHEME {}
-impl ::core::clone::Clone for BG_AUTH_SCHEME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BG_AUTH_SCHEME {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for BG_AUTH_SCHEME {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2891,19 +2880,8 @@ impl ::core::fmt::Debug for BG_AUTH_SCHEME {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BG_AUTH_TARGET(pub i32);
-impl ::core::marker::Copy for BG_AUTH_TARGET {}
-impl ::core::clone::Clone for BG_AUTH_TARGET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BG_AUTH_TARGET {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for BG_AUTH_TARGET {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2913,19 +2891,8 @@ impl ::core::fmt::Debug for BG_AUTH_TARGET {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BG_CERT_STORE_LOCATION(pub i32);
-impl ::core::marker::Copy for BG_CERT_STORE_LOCATION {}
-impl ::core::clone::Clone for BG_CERT_STORE_LOCATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BG_CERT_STORE_LOCATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for BG_CERT_STORE_LOCATION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2935,19 +2902,8 @@ impl ::core::fmt::Debug for BG_CERT_STORE_LOCATION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BG_ERROR_CONTEXT(pub i32);
-impl ::core::marker::Copy for BG_ERROR_CONTEXT {}
-impl ::core::clone::Clone for BG_ERROR_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BG_ERROR_CONTEXT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for BG_ERROR_CONTEXT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2957,19 +2913,8 @@ impl ::core::fmt::Debug for BG_ERROR_CONTEXT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BG_JOB_PRIORITY(pub i32);
-impl ::core::marker::Copy for BG_JOB_PRIORITY {}
-impl ::core::clone::Clone for BG_JOB_PRIORITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BG_JOB_PRIORITY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for BG_JOB_PRIORITY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2979,19 +2924,8 @@ impl ::core::fmt::Debug for BG_JOB_PRIORITY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BG_JOB_PROXY_USAGE(pub i32);
-impl ::core::marker::Copy for BG_JOB_PROXY_USAGE {}
-impl ::core::clone::Clone for BG_JOB_PROXY_USAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BG_JOB_PROXY_USAGE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for BG_JOB_PROXY_USAGE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3001,19 +2935,8 @@ impl ::core::fmt::Debug for BG_JOB_PROXY_USAGE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BG_JOB_STATE(pub i32);
-impl ::core::marker::Copy for BG_JOB_STATE {}
-impl ::core::clone::Clone for BG_JOB_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BG_JOB_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for BG_JOB_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3023,19 +2946,8 @@ impl ::core::fmt::Debug for BG_JOB_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BG_JOB_TYPE(pub i32);
-impl ::core::marker::Copy for BG_JOB_TYPE {}
-impl ::core::clone::Clone for BG_JOB_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BG_JOB_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for BG_JOB_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3045,19 +2957,8 @@ impl ::core::fmt::Debug for BG_JOB_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BG_TOKEN(pub u32);
-impl ::core::marker::Copy for BG_TOKEN {}
-impl ::core::clone::Clone for BG_TOKEN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BG_TOKEN {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for BG_TOKEN {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3067,19 +2968,8 @@ impl ::core::fmt::Debug for BG_TOKEN {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BITS_FILE_PROPERTY_ID(pub i32);
-impl ::core::marker::Copy for BITS_FILE_PROPERTY_ID {}
-impl ::core::clone::Clone for BITS_FILE_PROPERTY_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BITS_FILE_PROPERTY_ID {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for BITS_FILE_PROPERTY_ID {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3089,19 +2979,8 @@ impl ::core::fmt::Debug for BITS_FILE_PROPERTY_ID {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BITS_JOB_PROPERTY_ID(pub i32);
-impl ::core::marker::Copy for BITS_JOB_PROPERTY_ID {}
-impl ::core::clone::Clone for BITS_JOB_PROPERTY_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BITS_JOB_PROPERTY_ID {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for BITS_JOB_PROPERTY_ID {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3111,19 +2990,8 @@ impl ::core::fmt::Debug for BITS_JOB_PROPERTY_ID {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BITS_JOB_TRANSFER_POLICY(pub i32);
-impl ::core::marker::Copy for BITS_JOB_TRANSFER_POLICY {}
-impl ::core::clone::Clone for BITS_JOB_TRANSFER_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BITS_JOB_TRANSFER_POLICY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for BITS_JOB_TRANSFER_POLICY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3133,19 +3001,8 @@ impl ::core::fmt::Debug for BITS_JOB_TRANSFER_POLICY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GROUPPROP(pub i32);
-impl ::core::marker::Copy for GROUPPROP {}
-impl ::core::clone::Clone for GROUPPROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GROUPPROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for GROUPPROP {
     type TypeKind = ::windows_core::CopyType;
 }

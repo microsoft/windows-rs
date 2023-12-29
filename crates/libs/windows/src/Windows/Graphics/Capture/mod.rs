@@ -596,22 +596,11 @@ impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for Graphic
 unsafe impl ::core::marker::Send for GraphicsCaptureSession {}
 unsafe impl ::core::marker::Sync for GraphicsCaptureSession {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GraphicsCaptureAccessKind(pub i32);
 impl GraphicsCaptureAccessKind {
     pub const Borderless: Self = Self(0i32);
     pub const Programmatic: Self = Self(1i32);
-}
-impl ::core::marker::Copy for GraphicsCaptureAccessKind {}
-impl ::core::clone::Clone for GraphicsCaptureAccessKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GraphicsCaptureAccessKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for GraphicsCaptureAccessKind {
     type TypeKind = ::windows_core::CopyType;

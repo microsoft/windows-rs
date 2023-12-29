@@ -225,19 +225,8 @@ pub const XPS_JOB_COMPLETED: XPS_JOB_COMPLETION = XPS_JOB_COMPLETION(1i32);
 pub const XPS_JOB_FAILED: XPS_JOB_COMPLETION = XPS_JOB_COMPLETION(3i32);
 pub const XPS_JOB_IN_PROGRESS: XPS_JOB_COMPLETION = XPS_JOB_COMPLETION(0i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PrintDocumentPackageCompletion(pub i32);
-impl ::core::marker::Copy for PrintDocumentPackageCompletion {}
-impl ::core::clone::Clone for PrintDocumentPackageCompletion {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PrintDocumentPackageCompletion {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PrintDocumentPackageCompletion {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -247,19 +236,8 @@ impl ::core::fmt::Debug for PrintDocumentPackageCompletion {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XPS_JOB_COMPLETION(pub i32);
-impl ::core::marker::Copy for XPS_JOB_COMPLETION {}
-impl ::core::clone::Clone for XPS_JOB_COMPLETION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XPS_JOB_COMPLETION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XPS_JOB_COMPLETION {
     type TypeKind = ::windows_core::CopyType;
 }

@@ -2901,7 +2901,7 @@ impl ::windows_core::CanTryInto<ISyndicationText> for SyndicationText {}
 unsafe impl ::core::marker::Send for SyndicationText {}
 unsafe impl ::core::marker::Sync for SyndicationText {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SyndicationErrorStatus(pub i32);
 impl SyndicationErrorStatus {
     pub const Unknown: Self = Self(0i32);
@@ -2910,17 +2910,6 @@ impl SyndicationErrorStatus {
     pub const InvalidXml: Self = Self(3i32);
     pub const UnexpectedContent: Self = Self(4i32);
     pub const UnsupportedFormat: Self = Self(5i32);
-}
-impl ::core::marker::Copy for SyndicationErrorStatus {}
-impl ::core::clone::Clone for SyndicationErrorStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SyndicationErrorStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SyndicationErrorStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -2934,7 +2923,7 @@ impl ::windows_core::RuntimeType for SyndicationErrorStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Syndication.SyndicationErrorStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SyndicationFormat(pub i32);
 impl SyndicationFormat {
     pub const Atom10: Self = Self(0i32);
@@ -2943,17 +2932,6 @@ impl SyndicationFormat {
     pub const Rss092: Self = Self(3i32);
     pub const Rss091: Self = Self(4i32);
     pub const Atom03: Self = Self(5i32);
-}
-impl ::core::marker::Copy for SyndicationFormat {}
-impl ::core::clone::Clone for SyndicationFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SyndicationFormat {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SyndicationFormat {
     type TypeKind = ::windows_core::CopyType;
@@ -2967,23 +2945,12 @@ impl ::windows_core::RuntimeType for SyndicationFormat {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Syndication.SyndicationFormat;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SyndicationTextType(pub i32);
 impl SyndicationTextType {
     pub const Text: Self = Self(0i32);
     pub const Html: Self = Self(1i32);
     pub const Xhtml: Self = Self(2i32);
-}
-impl ::core::marker::Copy for SyndicationTextType {}
-impl ::core::clone::Clone for SyndicationTextType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SyndicationTextType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SyndicationTextType {
     type TypeKind = ::windows_core::CopyType;

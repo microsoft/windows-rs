@@ -139,7 +139,7 @@ impl ::windows_core::RuntimeName for CompositionDebugSettings {
 unsafe impl ::core::marker::Send for CompositionDebugSettings {}
 unsafe impl ::core::marker::Sync for CompositionDebugSettings {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CompositionDebugOverdrawContentKinds(pub u32);
 impl CompositionDebugOverdrawContentKinds {
     pub const None: Self = Self(0u32);
@@ -151,17 +151,6 @@ impl CompositionDebugOverdrawContentKinds {
     pub const Surfaces: Self = Self(32u32);
     pub const SwapChains: Self = Self(64u32);
     pub const All: Self = Self(4294967295u32);
-}
-impl ::core::marker::Copy for CompositionDebugOverdrawContentKinds {}
-impl ::core::clone::Clone for CompositionDebugOverdrawContentKinds {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CompositionDebugOverdrawContentKinds {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CompositionDebugOverdrawContentKinds {
     type TypeKind = ::windows_core::CopyType;

@@ -773,19 +773,8 @@ pub const wszTILDE: ::windows_core::PCWSTR = ::windows_core::w!("\u{303}");
 pub const wszTONOS: ::windows_core::PCWSTR = ::windows_core::w!("\u{384}");
 pub const wszUMLAUT: ::windows_core::PCWSTR = ::windows_core::w!("\u{308}");
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ACTIVATE_KEYBOARD_LAYOUT_FLAGS(pub u32);
-impl ::core::marker::Copy for ACTIVATE_KEYBOARD_LAYOUT_FLAGS {}
-impl ::core::clone::Clone for ACTIVATE_KEYBOARD_LAYOUT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ACTIVATE_KEYBOARD_LAYOUT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ACTIVATE_KEYBOARD_LAYOUT_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -795,19 +784,8 @@ impl ::core::fmt::Debug for ACTIVATE_KEYBOARD_LAYOUT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GET_MOUSE_MOVE_POINTS_EX_RESOLUTION(pub u32);
-impl ::core::marker::Copy for GET_MOUSE_MOVE_POINTS_EX_RESOLUTION {}
-impl ::core::clone::Clone for GET_MOUSE_MOVE_POINTS_EX_RESOLUTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GET_MOUSE_MOVE_POINTS_EX_RESOLUTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for GET_MOUSE_MOVE_POINTS_EX_RESOLUTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -817,19 +795,8 @@ impl ::core::fmt::Debug for GET_MOUSE_MOVE_POINTS_EX_RESOLUTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HOT_KEY_MODIFIERS(pub u32);
-impl ::core::marker::Copy for HOT_KEY_MODIFIERS {}
-impl ::core::clone::Clone for HOT_KEY_MODIFIERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HOT_KEY_MODIFIERS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HOT_KEY_MODIFIERS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -872,19 +839,8 @@ impl ::core::ops::Not for HOT_KEY_MODIFIERS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct INPUT_TYPE(pub u32);
-impl ::core::marker::Copy for INPUT_TYPE {}
-impl ::core::clone::Clone for INPUT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for INPUT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for INPUT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -894,19 +850,8 @@ impl ::core::fmt::Debug for INPUT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct KEYBD_EVENT_FLAGS(pub u32);
-impl ::core::marker::Copy for KEYBD_EVENT_FLAGS {}
-impl ::core::clone::Clone for KEYBD_EVENT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KEYBD_EVENT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for KEYBD_EVENT_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -949,19 +894,8 @@ impl ::core::ops::Not for KEYBD_EVENT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MAP_VIRTUAL_KEY_TYPE(pub u32);
-impl ::core::marker::Copy for MAP_VIRTUAL_KEY_TYPE {}
-impl ::core::clone::Clone for MAP_VIRTUAL_KEY_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MAP_VIRTUAL_KEY_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MAP_VIRTUAL_KEY_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -971,19 +905,8 @@ impl ::core::fmt::Debug for MAP_VIRTUAL_KEY_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MOUSE_EVENT_FLAGS(pub u32);
-impl ::core::marker::Copy for MOUSE_EVENT_FLAGS {}
-impl ::core::clone::Clone for MOUSE_EVENT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MOUSE_EVENT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MOUSE_EVENT_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1026,19 +949,8 @@ impl ::core::ops::Not for MOUSE_EVENT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TRACKMOUSEEVENT_FLAGS(pub u32);
-impl ::core::marker::Copy for TRACKMOUSEEVENT_FLAGS {}
-impl ::core::clone::Clone for TRACKMOUSEEVENT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TRACKMOUSEEVENT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TRACKMOUSEEVENT_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1081,19 +993,8 @@ impl ::core::ops::Not for TRACKMOUSEEVENT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VIRTUAL_KEY(pub u16);
-impl ::core::marker::Copy for VIRTUAL_KEY {}
-impl ::core::clone::Clone for VIRTUAL_KEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VIRTUAL_KEY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VIRTUAL_KEY {
     type TypeKind = ::windows_core::CopyType;
 }

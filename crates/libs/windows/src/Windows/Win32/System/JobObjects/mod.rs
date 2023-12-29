@@ -237,19 +237,8 @@ pub const ToleranceIntervalShort: JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL = JO
 pub const ToleranceLow: JOBOBJECT_RATE_CONTROL_TOLERANCE = JOBOBJECT_RATE_CONTROL_TOLERANCE(1i32);
 pub const ToleranceMedium: JOBOBJECT_RATE_CONTROL_TOLERANCE = JOBOBJECT_RATE_CONTROL_TOLERANCE(2i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct JOBOBJECTINFOCLASS(pub i32);
-impl ::core::marker::Copy for JOBOBJECTINFOCLASS {}
-impl ::core::clone::Clone for JOBOBJECTINFOCLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for JOBOBJECTINFOCLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for JOBOBJECTINFOCLASS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -259,19 +248,8 @@ impl ::core::fmt::Debug for JOBOBJECTINFOCLASS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS(pub i32);
-impl ::core::marker::Copy for JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS {}
-impl ::core::clone::Clone for JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -281,19 +259,8 @@ impl ::core::fmt::Debug for JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct JOBOBJECT_RATE_CONTROL_TOLERANCE(pub i32);
-impl ::core::marker::Copy for JOBOBJECT_RATE_CONTROL_TOLERANCE {}
-impl ::core::clone::Clone for JOBOBJECT_RATE_CONTROL_TOLERANCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for JOBOBJECT_RATE_CONTROL_TOLERANCE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for JOBOBJECT_RATE_CONTROL_TOLERANCE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -303,19 +270,8 @@ impl ::core::fmt::Debug for JOBOBJECT_RATE_CONTROL_TOLERANCE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL(pub i32);
-impl ::core::marker::Copy for JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL {}
-impl ::core::clone::Clone for JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -325,19 +281,8 @@ impl ::core::fmt::Debug for JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct JOB_OBJECT_CPU_RATE_CONTROL(pub u32);
-impl ::core::marker::Copy for JOB_OBJECT_CPU_RATE_CONTROL {}
-impl ::core::clone::Clone for JOB_OBJECT_CPU_RATE_CONTROL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for JOB_OBJECT_CPU_RATE_CONTROL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for JOB_OBJECT_CPU_RATE_CONTROL {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -380,19 +325,8 @@ impl ::core::ops::Not for JOB_OBJECT_CPU_RATE_CONTROL {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct JOB_OBJECT_IO_RATE_CONTROL_FLAGS(pub i32);
-impl ::core::marker::Copy for JOB_OBJECT_IO_RATE_CONTROL_FLAGS {}
-impl ::core::clone::Clone for JOB_OBJECT_IO_RATE_CONTROL_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for JOB_OBJECT_IO_RATE_CONTROL_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for JOB_OBJECT_IO_RATE_CONTROL_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -435,19 +369,8 @@ impl ::core::ops::Not for JOB_OBJECT_IO_RATE_CONTROL_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct JOB_OBJECT_LIMIT(pub u32);
-impl ::core::marker::Copy for JOB_OBJECT_LIMIT {}
-impl ::core::clone::Clone for JOB_OBJECT_LIMIT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for JOB_OBJECT_LIMIT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for JOB_OBJECT_LIMIT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -490,19 +413,8 @@ impl ::core::ops::Not for JOB_OBJECT_LIMIT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct JOB_OBJECT_NET_RATE_CONTROL_FLAGS(pub i32);
-impl ::core::marker::Copy for JOB_OBJECT_NET_RATE_CONTROL_FLAGS {}
-impl ::core::clone::Clone for JOB_OBJECT_NET_RATE_CONTROL_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for JOB_OBJECT_NET_RATE_CONTROL_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for JOB_OBJECT_NET_RATE_CONTROL_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -545,19 +457,8 @@ impl ::core::ops::Not for JOB_OBJECT_NET_RATE_CONTROL_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct JOB_OBJECT_SECURITY(pub u32);
-impl ::core::marker::Copy for JOB_OBJECT_SECURITY {}
-impl ::core::clone::Clone for JOB_OBJECT_SECURITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for JOB_OBJECT_SECURITY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for JOB_OBJECT_SECURITY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -600,19 +501,8 @@ impl ::core::ops::Not for JOB_OBJECT_SECURITY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct JOB_OBJECT_TERMINATE_AT_END_ACTION(pub u32);
-impl ::core::marker::Copy for JOB_OBJECT_TERMINATE_AT_END_ACTION {}
-impl ::core::clone::Clone for JOB_OBJECT_TERMINATE_AT_END_ACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for JOB_OBJECT_TERMINATE_AT_END_ACTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for JOB_OBJECT_TERMINATE_AT_END_ACTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -622,19 +512,8 @@ impl ::core::fmt::Debug for JOB_OBJECT_TERMINATE_AT_END_ACTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct JOB_OBJECT_UILIMIT(pub u32);
-impl ::core::marker::Copy for JOB_OBJECT_UILIMIT {}
-impl ::core::clone::Clone for JOB_OBJECT_UILIMIT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for JOB_OBJECT_UILIMIT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for JOB_OBJECT_UILIMIT {
     type TypeKind = ::windows_core::CopyType;
 }

@@ -3368,23 +3368,12 @@ impl ::windows_core::RuntimeName for PenAndInkSettings {
 unsafe impl ::core::marker::Send for PenAndInkSettings {}
 unsafe impl ::core::marker::Sync for PenAndInkSettings {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HandwritingLineHeight(pub i32);
 impl HandwritingLineHeight {
     pub const Small: Self = Self(0i32);
     pub const Medium: Self = Self(1i32);
     pub const Large: Self = Self(2i32);
-}
-impl ::core::marker::Copy for HandwritingLineHeight {}
-impl ::core::clone::Clone for HandwritingLineHeight {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HandwritingLineHeight {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for HandwritingLineHeight {
     type TypeKind = ::windows_core::CopyType;
@@ -3398,22 +3387,11 @@ impl ::windows_core::RuntimeType for HandwritingLineHeight {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.HandwritingLineHeight;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InkDrawingAttributesKind(pub i32);
 impl InkDrawingAttributesKind {
     pub const Default: Self = Self(0i32);
     pub const Pencil: Self = Self(1i32);
-}
-impl ::core::marker::Copy for InkDrawingAttributesKind {}
-impl ::core::clone::Clone for InkDrawingAttributesKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InkDrawingAttributesKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for InkDrawingAttributesKind {
     type TypeKind = ::windows_core::CopyType;
@@ -3427,23 +3405,12 @@ impl ::windows_core::RuntimeType for InkDrawingAttributesKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkDrawingAttributesKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InkHighContrastAdjustment(pub i32);
 impl InkHighContrastAdjustment {
     pub const UseSystemColorsWhenNecessary: Self = Self(0i32);
     pub const UseSystemColors: Self = Self(1i32);
     pub const UseOriginalColors: Self = Self(2i32);
-}
-impl ::core::marker::Copy for InkHighContrastAdjustment {}
-impl ::core::clone::Clone for InkHighContrastAdjustment {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InkHighContrastAdjustment {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for InkHighContrastAdjustment {
     type TypeKind = ::windows_core::CopyType;
@@ -3457,23 +3424,12 @@ impl ::windows_core::RuntimeType for InkHighContrastAdjustment {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkHighContrastAdjustment;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InkInputProcessingMode(pub i32);
 impl InkInputProcessingMode {
     pub const None: Self = Self(0i32);
     pub const Inking: Self = Self(1i32);
     pub const Erasing: Self = Self(2i32);
-}
-impl ::core::marker::Copy for InkInputProcessingMode {}
-impl ::core::clone::Clone for InkInputProcessingMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InkInputProcessingMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for InkInputProcessingMode {
     type TypeKind = ::windows_core::CopyType;
@@ -3487,22 +3443,11 @@ impl ::windows_core::RuntimeType for InkInputProcessingMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkInputProcessingMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InkInputRightDragAction(pub i32);
 impl InkInputRightDragAction {
     pub const LeaveUnprocessed: Self = Self(0i32);
     pub const AllowProcessing: Self = Self(1i32);
-}
-impl ::core::marker::Copy for InkInputRightDragAction {}
-impl ::core::clone::Clone for InkInputRightDragAction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InkInputRightDragAction {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for InkInputRightDragAction {
     type TypeKind = ::windows_core::CopyType;
@@ -3516,23 +3461,12 @@ impl ::windows_core::RuntimeType for InkInputRightDragAction {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkInputRightDragAction;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InkManipulationMode(pub i32);
 impl InkManipulationMode {
     pub const Inking: Self = Self(0i32);
     pub const Erasing: Self = Self(1i32);
     pub const Selecting: Self = Self(2i32);
-}
-impl ::core::marker::Copy for InkManipulationMode {}
-impl ::core::clone::Clone for InkManipulationMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InkManipulationMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for InkManipulationMode {
     type TypeKind = ::windows_core::CopyType;
@@ -3546,22 +3480,11 @@ impl ::windows_core::RuntimeType for InkManipulationMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkManipulationMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InkPersistenceFormat(pub i32);
 impl InkPersistenceFormat {
     pub const GifWithEmbeddedIsf: Self = Self(0i32);
     pub const Isf: Self = Self(1i32);
-}
-impl ::core::marker::Copy for InkPersistenceFormat {}
-impl ::core::clone::Clone for InkPersistenceFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InkPersistenceFormat {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for InkPersistenceFormat {
     type TypeKind = ::windows_core::CopyType;
@@ -3575,22 +3498,11 @@ impl ::windows_core::RuntimeType for InkPersistenceFormat {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkPersistenceFormat;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InkPresenterPredefinedConfiguration(pub i32);
 impl InkPresenterPredefinedConfiguration {
     pub const SimpleSinglePointer: Self = Self(0i32);
     pub const SimpleMultiplePointer: Self = Self(1i32);
-}
-impl ::core::marker::Copy for InkPresenterPredefinedConfiguration {}
-impl ::core::clone::Clone for InkPresenterPredefinedConfiguration {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InkPresenterPredefinedConfiguration {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for InkPresenterPredefinedConfiguration {
     type TypeKind = ::windows_core::CopyType;
@@ -3604,23 +3516,12 @@ impl ::windows_core::RuntimeType for InkPresenterPredefinedConfiguration {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkPresenterPredefinedConfiguration;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InkPresenterStencilKind(pub i32);
 impl InkPresenterStencilKind {
     pub const Other: Self = Self(0i32);
     pub const Ruler: Self = Self(1i32);
     pub const Protractor: Self = Self(2i32);
-}
-impl ::core::marker::Copy for InkPresenterStencilKind {}
-impl ::core::clone::Clone for InkPresenterStencilKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InkPresenterStencilKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for InkPresenterStencilKind {
     type TypeKind = ::windows_core::CopyType;
@@ -3634,23 +3535,12 @@ impl ::windows_core::RuntimeType for InkPresenterStencilKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkPresenterStencilKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InkRecognitionTarget(pub i32);
 impl InkRecognitionTarget {
     pub const All: Self = Self(0i32);
     pub const Selected: Self = Self(1i32);
     pub const Recent: Self = Self(2i32);
-}
-impl ::core::marker::Copy for InkRecognitionTarget {}
-impl ::core::clone::Clone for InkRecognitionTarget {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InkRecognitionTarget {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for InkRecognitionTarget {
     type TypeKind = ::windows_core::CopyType;
@@ -3664,22 +3554,11 @@ impl ::windows_core::RuntimeType for InkRecognitionTarget {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkRecognitionTarget;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PenHandedness(pub i32);
 impl PenHandedness {
     pub const Right: Self = Self(0i32);
     pub const Left: Self = Self(1i32);
-}
-impl ::core::marker::Copy for PenHandedness {}
-impl ::core::clone::Clone for PenHandedness {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PenHandedness {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PenHandedness {
     type TypeKind = ::windows_core::CopyType;
@@ -3693,22 +3572,11 @@ impl ::windows_core::RuntimeType for PenHandedness {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.PenHandedness;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PenTipShape(pub i32);
 impl PenTipShape {
     pub const Circle: Self = Self(0i32);
     pub const Rectangle: Self = Self(1i32);
-}
-impl ::core::marker::Copy for PenTipShape {}
-impl ::core::clone::Clone for PenTipShape {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PenTipShape {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PenTipShape {
     type TypeKind = ::windows_core::CopyType;

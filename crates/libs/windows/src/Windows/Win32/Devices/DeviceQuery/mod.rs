@@ -269,19 +269,8 @@ pub const DevQueryStateClosed: DEV_QUERY_STATE = DEV_QUERY_STATE(3i32);
 pub const DevQueryStateEnumCompleted: DEV_QUERY_STATE = DEV_QUERY_STATE(1i32);
 pub const DevQueryStateInitialized: DEV_QUERY_STATE = DEV_QUERY_STATE(0i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DEVPROP_OPERATOR(pub u32);
-impl ::core::marker::Copy for DEVPROP_OPERATOR {}
-impl ::core::clone::Clone for DEVPROP_OPERATOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DEVPROP_OPERATOR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DEVPROP_OPERATOR {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -324,19 +313,8 @@ impl ::core::ops::Not for DEVPROP_OPERATOR {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DEV_OBJECT_TYPE(pub i32);
-impl ::core::marker::Copy for DEV_OBJECT_TYPE {}
-impl ::core::clone::Clone for DEV_OBJECT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DEV_OBJECT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DEV_OBJECT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -346,19 +324,8 @@ impl ::core::fmt::Debug for DEV_OBJECT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DEV_QUERY_FLAGS(pub i32);
-impl ::core::marker::Copy for DEV_QUERY_FLAGS {}
-impl ::core::clone::Clone for DEV_QUERY_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DEV_QUERY_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DEV_QUERY_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -368,19 +335,8 @@ impl ::core::fmt::Debug for DEV_QUERY_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DEV_QUERY_RESULT_ACTION(pub i32);
-impl ::core::marker::Copy for DEV_QUERY_RESULT_ACTION {}
-impl ::core::clone::Clone for DEV_QUERY_RESULT_ACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DEV_QUERY_RESULT_ACTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DEV_QUERY_RESULT_ACTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -390,19 +346,8 @@ impl ::core::fmt::Debug for DEV_QUERY_RESULT_ACTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DEV_QUERY_STATE(pub i32);
-impl ::core::marker::Copy for DEV_QUERY_STATE {}
-impl ::core::clone::Clone for DEV_QUERY_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DEV_QUERY_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DEV_QUERY_STATE {
     type TypeKind = ::windows_core::CopyType;
 }

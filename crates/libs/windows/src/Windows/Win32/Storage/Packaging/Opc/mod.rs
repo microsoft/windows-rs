@@ -2039,19 +2039,8 @@ pub const OPC_WRITE_DEFAULT: OPC_WRITE_FLAGS = OPC_WRITE_FLAGS(0i32);
 pub const OPC_WRITE_FORCE_ZIP32: OPC_WRITE_FLAGS = OPC_WRITE_FLAGS(1i32);
 pub const OpcFactory: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6b2d6ba0_9f3e_4f27_920b_313cc426a39e);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OPC_CANONICALIZATION_METHOD(pub i32);
-impl ::core::marker::Copy for OPC_CANONICALIZATION_METHOD {}
-impl ::core::clone::Clone for OPC_CANONICALIZATION_METHOD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OPC_CANONICALIZATION_METHOD {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OPC_CANONICALIZATION_METHOD {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2061,19 +2050,8 @@ impl ::core::fmt::Debug for OPC_CANONICALIZATION_METHOD {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OPC_CERTIFICATE_EMBEDDING_OPTION(pub i32);
-impl ::core::marker::Copy for OPC_CERTIFICATE_EMBEDDING_OPTION {}
-impl ::core::clone::Clone for OPC_CERTIFICATE_EMBEDDING_OPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OPC_CERTIFICATE_EMBEDDING_OPTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OPC_CERTIFICATE_EMBEDDING_OPTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2083,19 +2061,8 @@ impl ::core::fmt::Debug for OPC_CERTIFICATE_EMBEDDING_OPTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OPC_COMPRESSION_OPTIONS(pub i32);
-impl ::core::marker::Copy for OPC_COMPRESSION_OPTIONS {}
-impl ::core::clone::Clone for OPC_COMPRESSION_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OPC_COMPRESSION_OPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OPC_COMPRESSION_OPTIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2105,19 +2072,8 @@ impl ::core::fmt::Debug for OPC_COMPRESSION_OPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OPC_READ_FLAGS(pub i32);
-impl ::core::marker::Copy for OPC_READ_FLAGS {}
-impl ::core::clone::Clone for OPC_READ_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OPC_READ_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OPC_READ_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2160,19 +2116,8 @@ impl ::core::ops::Not for OPC_READ_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OPC_RELATIONSHIPS_SIGNING_OPTION(pub i32);
-impl ::core::marker::Copy for OPC_RELATIONSHIPS_SIGNING_OPTION {}
-impl ::core::clone::Clone for OPC_RELATIONSHIPS_SIGNING_OPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OPC_RELATIONSHIPS_SIGNING_OPTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OPC_RELATIONSHIPS_SIGNING_OPTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2182,19 +2127,8 @@ impl ::core::fmt::Debug for OPC_RELATIONSHIPS_SIGNING_OPTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OPC_RELATIONSHIP_SELECTOR(pub i32);
-impl ::core::marker::Copy for OPC_RELATIONSHIP_SELECTOR {}
-impl ::core::clone::Clone for OPC_RELATIONSHIP_SELECTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OPC_RELATIONSHIP_SELECTOR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OPC_RELATIONSHIP_SELECTOR {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2204,19 +2138,8 @@ impl ::core::fmt::Debug for OPC_RELATIONSHIP_SELECTOR {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OPC_SIGNATURE_TIME_FORMAT(pub i32);
-impl ::core::marker::Copy for OPC_SIGNATURE_TIME_FORMAT {}
-impl ::core::clone::Clone for OPC_SIGNATURE_TIME_FORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OPC_SIGNATURE_TIME_FORMAT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OPC_SIGNATURE_TIME_FORMAT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2226,19 +2149,8 @@ impl ::core::fmt::Debug for OPC_SIGNATURE_TIME_FORMAT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OPC_SIGNATURE_VALIDATION_RESULT(pub i32);
-impl ::core::marker::Copy for OPC_SIGNATURE_VALIDATION_RESULT {}
-impl ::core::clone::Clone for OPC_SIGNATURE_VALIDATION_RESULT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OPC_SIGNATURE_VALIDATION_RESULT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OPC_SIGNATURE_VALIDATION_RESULT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2248,19 +2160,8 @@ impl ::core::fmt::Debug for OPC_SIGNATURE_VALIDATION_RESULT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OPC_STREAM_IO_MODE(pub i32);
-impl ::core::marker::Copy for OPC_STREAM_IO_MODE {}
-impl ::core::clone::Clone for OPC_STREAM_IO_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OPC_STREAM_IO_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OPC_STREAM_IO_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2270,19 +2171,8 @@ impl ::core::fmt::Debug for OPC_STREAM_IO_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OPC_URI_TARGET_MODE(pub i32);
-impl ::core::marker::Copy for OPC_URI_TARGET_MODE {}
-impl ::core::clone::Clone for OPC_URI_TARGET_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OPC_URI_TARGET_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OPC_URI_TARGET_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2292,19 +2182,8 @@ impl ::core::fmt::Debug for OPC_URI_TARGET_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OPC_WRITE_FLAGS(pub i32);
-impl ::core::marker::Copy for OPC_WRITE_FLAGS {}
-impl ::core::clone::Clone for OPC_WRITE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OPC_WRITE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OPC_WRITE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }

@@ -2314,22 +2314,11 @@ impl ::windows_core::RuntimeName for SymmetricKeyAlgorithmProvider {
 unsafe impl ::core::marker::Send for SymmetricKeyAlgorithmProvider {}
 unsafe impl ::core::marker::Sync for SymmetricKeyAlgorithmProvider {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct Capi1KdfTargetAlgorithm(pub i32);
 impl Capi1KdfTargetAlgorithm {
     pub const NotAes: Self = Self(0i32);
     pub const Aes: Self = Self(1i32);
-}
-impl ::core::marker::Copy for Capi1KdfTargetAlgorithm {}
-impl ::core::clone::Clone for Capi1KdfTargetAlgorithm {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for Capi1KdfTargetAlgorithm {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for Capi1KdfTargetAlgorithm {
     type TypeKind = ::windows_core::CopyType;
@@ -2343,24 +2332,13 @@ impl ::windows_core::RuntimeType for Capi1KdfTargetAlgorithm {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Core.Capi1KdfTargetAlgorithm;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CryptographicPadding(pub i32);
 impl CryptographicPadding {
     pub const None: Self = Self(0i32);
     pub const RsaOaep: Self = Self(1i32);
     pub const RsaPkcs1V15: Self = Self(2i32);
     pub const RsaPss: Self = Self(3i32);
-}
-impl ::core::marker::Copy for CryptographicPadding {}
-impl ::core::clone::Clone for CryptographicPadding {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CryptographicPadding {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CryptographicPadding {
     type TypeKind = ::windows_core::CopyType;
@@ -2374,7 +2352,7 @@ impl ::windows_core::RuntimeType for CryptographicPadding {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Core.CryptographicPadding;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CryptographicPrivateKeyBlobType(pub i32);
 impl CryptographicPrivateKeyBlobType {
     pub const Pkcs8RawPrivateKeyInfo: Self = Self(0i32);
@@ -2382,17 +2360,6 @@ impl CryptographicPrivateKeyBlobType {
     pub const BCryptPrivateKey: Self = Self(2i32);
     pub const Capi1PrivateKey: Self = Self(3i32);
     pub const BCryptEccFullPrivateKey: Self = Self(4i32);
-}
-impl ::core::marker::Copy for CryptographicPrivateKeyBlobType {}
-impl ::core::clone::Clone for CryptographicPrivateKeyBlobType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CryptographicPrivateKeyBlobType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CryptographicPrivateKeyBlobType {
     type TypeKind = ::windows_core::CopyType;
@@ -2406,7 +2373,7 @@ impl ::windows_core::RuntimeType for CryptographicPrivateKeyBlobType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Core.CryptographicPrivateKeyBlobType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CryptographicPublicKeyBlobType(pub i32);
 impl CryptographicPublicKeyBlobType {
     pub const X509SubjectPublicKeyInfo: Self = Self(0i32);
@@ -2414,17 +2381,6 @@ impl CryptographicPublicKeyBlobType {
     pub const BCryptPublicKey: Self = Self(2i32);
     pub const Capi1PublicKey: Self = Self(3i32);
     pub const BCryptEccFullPublicKey: Self = Self(4i32);
-}
-impl ::core::marker::Copy for CryptographicPublicKeyBlobType {}
-impl ::core::clone::Clone for CryptographicPublicKeyBlobType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CryptographicPublicKeyBlobType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CryptographicPublicKeyBlobType {
     type TypeKind = ::windows_core::CopyType;

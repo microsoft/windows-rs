@@ -2950,19 +2950,8 @@ pub const WdsTransportSetupManager: ::windows_core::GUID = ::windows_core::GUID:
 pub const WdsTransportTftpClient: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x50343925_7c5c_4c8c_96c4_ad9fa5005fba);
 pub const WdsTransportTftpManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc8e9dca2_3241_4e4d_b806_bc74019dfeda);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CPU_ARCHITECTURE(pub u32);
-impl ::core::marker::Copy for CPU_ARCHITECTURE {}
-impl ::core::clone::Clone for CPU_ARCHITECTURE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CPU_ARCHITECTURE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CPU_ARCHITECTURE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2972,19 +2961,8 @@ impl ::core::fmt::Debug for CPU_ARCHITECTURE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PFN_WDS_CLI_CALLBACK_MESSAGE_ID(pub u32);
-impl ::core::marker::Copy for PFN_WDS_CLI_CALLBACK_MESSAGE_ID {}
-impl ::core::clone::Clone for PFN_WDS_CLI_CALLBACK_MESSAGE_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PFN_WDS_CLI_CALLBACK_MESSAGE_ID {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PFN_WDS_CLI_CALLBACK_MESSAGE_ID {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2994,19 +2972,8 @@ impl ::core::fmt::Debug for PFN_WDS_CLI_CALLBACK_MESSAGE_ID {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TRANSPORTCLIENT_CALLBACK_ID(pub i32);
-impl ::core::marker::Copy for TRANSPORTCLIENT_CALLBACK_ID {}
-impl ::core::clone::Clone for TRANSPORTCLIENT_CALLBACK_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TRANSPORTCLIENT_CALLBACK_ID {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TRANSPORTCLIENT_CALLBACK_ID {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3016,19 +2983,8 @@ impl ::core::fmt::Debug for TRANSPORTCLIENT_CALLBACK_ID {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TRANSPORTPROVIDER_CALLBACK_ID(pub i32);
-impl ::core::marker::Copy for TRANSPORTPROVIDER_CALLBACK_ID {}
-impl ::core::clone::Clone for TRANSPORTPROVIDER_CALLBACK_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TRANSPORTPROVIDER_CALLBACK_ID {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TRANSPORTPROVIDER_CALLBACK_ID {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3038,19 +2994,8 @@ impl ::core::fmt::Debug for TRANSPORTPROVIDER_CALLBACK_ID {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS(pub i32);
-impl ::core::marker::Copy for WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS {}
-impl ::core::clone::Clone for WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3060,19 +3005,8 @@ impl ::core::fmt::Debug for WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WDSTRANSPORT_DISCONNECT_TYPE(pub i32);
-impl ::core::marker::Copy for WDSTRANSPORT_DISCONNECT_TYPE {}
-impl ::core::clone::Clone for WDSTRANSPORT_DISCONNECT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WDSTRANSPORT_DISCONNECT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WDSTRANSPORT_DISCONNECT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3082,19 +3016,8 @@ impl ::core::fmt::Debug for WDSTRANSPORT_DISCONNECT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WDSTRANSPORT_FEATURE_FLAGS(pub i32);
-impl ::core::marker::Copy for WDSTRANSPORT_FEATURE_FLAGS {}
-impl ::core::clone::Clone for WDSTRANSPORT_FEATURE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WDSTRANSPORT_FEATURE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WDSTRANSPORT_FEATURE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3104,19 +3027,8 @@ impl ::core::fmt::Debug for WDSTRANSPORT_FEATURE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE(pub i32);
-impl ::core::marker::Copy for WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE {}
-impl ::core::clone::Clone for WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3126,19 +3038,8 @@ impl ::core::fmt::Debug for WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WDSTRANSPORT_IP_ADDRESS_TYPE(pub i32);
-impl ::core::marker::Copy for WDSTRANSPORT_IP_ADDRESS_TYPE {}
-impl ::core::clone::Clone for WDSTRANSPORT_IP_ADDRESS_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WDSTRANSPORT_IP_ADDRESS_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WDSTRANSPORT_IP_ADDRESS_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3148,19 +3049,8 @@ impl ::core::fmt::Debug for WDSTRANSPORT_IP_ADDRESS_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WDSTRANSPORT_NAMESPACE_TYPE(pub i32);
-impl ::core::marker::Copy for WDSTRANSPORT_NAMESPACE_TYPE {}
-impl ::core::clone::Clone for WDSTRANSPORT_NAMESPACE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WDSTRANSPORT_NAMESPACE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WDSTRANSPORT_NAMESPACE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3170,19 +3060,8 @@ impl ::core::fmt::Debug for WDSTRANSPORT_NAMESPACE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WDSTRANSPORT_NETWORK_PROFILE_TYPE(pub i32);
-impl ::core::marker::Copy for WDSTRANSPORT_NETWORK_PROFILE_TYPE {}
-impl ::core::clone::Clone for WDSTRANSPORT_NETWORK_PROFILE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WDSTRANSPORT_NETWORK_PROFILE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WDSTRANSPORT_NETWORK_PROFILE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3192,19 +3071,8 @@ impl ::core::fmt::Debug for WDSTRANSPORT_NETWORK_PROFILE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WDSTRANSPORT_PROTOCOL_FLAGS(pub i32);
-impl ::core::marker::Copy for WDSTRANSPORT_PROTOCOL_FLAGS {}
-impl ::core::clone::Clone for WDSTRANSPORT_PROTOCOL_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WDSTRANSPORT_PROTOCOL_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WDSTRANSPORT_PROTOCOL_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3214,19 +3082,8 @@ impl ::core::fmt::Debug for WDSTRANSPORT_PROTOCOL_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WDSTRANSPORT_SERVICE_NOTIFICATION(pub i32);
-impl ::core::marker::Copy for WDSTRANSPORT_SERVICE_NOTIFICATION {}
-impl ::core::clone::Clone for WDSTRANSPORT_SERVICE_NOTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WDSTRANSPORT_SERVICE_NOTIFICATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WDSTRANSPORT_SERVICE_NOTIFICATION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3236,19 +3093,8 @@ impl ::core::fmt::Debug for WDSTRANSPORT_SERVICE_NOTIFICATION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE(pub i32);
-impl ::core::marker::Copy for WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE {}
-impl ::core::clone::Clone for WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3258,19 +3104,8 @@ impl ::core::fmt::Debug for WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WDSTRANSPORT_TFTP_CAPABILITY(pub i32);
-impl ::core::marker::Copy for WDSTRANSPORT_TFTP_CAPABILITY {}
-impl ::core::clone::Clone for WDSTRANSPORT_TFTP_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WDSTRANSPORT_TFTP_CAPABILITY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WDSTRANSPORT_TFTP_CAPABILITY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3280,19 +3115,8 @@ impl ::core::fmt::Debug for WDSTRANSPORT_TFTP_CAPABILITY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WDSTRANSPORT_UDP_PORT_POLICY(pub i32);
-impl ::core::marker::Copy for WDSTRANSPORT_UDP_PORT_POLICY {}
-impl ::core::clone::Clone for WDSTRANSPORT_UDP_PORT_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WDSTRANSPORT_UDP_PORT_POLICY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WDSTRANSPORT_UDP_PORT_POLICY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3302,19 +3126,8 @@ impl ::core::fmt::Debug for WDSTRANSPORT_UDP_PORT_POLICY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WDS_CLI_FIRMWARE_TYPE(pub i32);
-impl ::core::marker::Copy for WDS_CLI_FIRMWARE_TYPE {}
-impl ::core::clone::Clone for WDS_CLI_FIRMWARE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WDS_CLI_FIRMWARE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WDS_CLI_FIRMWARE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3324,19 +3137,8 @@ impl ::core::fmt::Debug for WDS_CLI_FIRMWARE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WDS_CLI_IMAGE_PARAM_TYPE(pub i32);
-impl ::core::marker::Copy for WDS_CLI_IMAGE_PARAM_TYPE {}
-impl ::core::clone::Clone for WDS_CLI_IMAGE_PARAM_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WDS_CLI_IMAGE_PARAM_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WDS_CLI_IMAGE_PARAM_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3346,19 +3148,8 @@ impl ::core::fmt::Debug for WDS_CLI_IMAGE_PARAM_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WDS_CLI_IMAGE_TYPE(pub i32);
-impl ::core::marker::Copy for WDS_CLI_IMAGE_TYPE {}
-impl ::core::clone::Clone for WDS_CLI_IMAGE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WDS_CLI_IMAGE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WDS_CLI_IMAGE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3368,19 +3159,8 @@ impl ::core::fmt::Debug for WDS_CLI_IMAGE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL(pub u32);
-impl ::core::marker::Copy for WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL {}
-impl ::core::clone::Clone for WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL {
     type TypeKind = ::windows_core::CopyType;
 }

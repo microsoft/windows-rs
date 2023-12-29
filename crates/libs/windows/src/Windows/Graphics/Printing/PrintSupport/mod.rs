@@ -861,22 +861,11 @@ impl ::windows_core::RuntimeName for PrintSupportSettingsUISession {
 unsafe impl ::core::marker::Send for PrintSupportSettingsUISession {}
 unsafe impl ::core::marker::Sync for PrintSupportSettingsUISession {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SettingsLaunchKind(pub i32);
 impl SettingsLaunchKind {
     pub const JobPrintTicket: Self = Self(0i32);
     pub const UserDefaultPrintTicket: Self = Self(1i32);
-}
-impl ::core::marker::Copy for SettingsLaunchKind {}
-impl ::core::clone::Clone for SettingsLaunchKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SettingsLaunchKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SettingsLaunchKind {
     type TypeKind = ::windows_core::CopyType;
@@ -890,23 +879,12 @@ impl ::windows_core::RuntimeType for SettingsLaunchKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintSupport.SettingsLaunchKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WorkflowPrintTicketValidationStatus(pub i32);
 impl WorkflowPrintTicketValidationStatus {
     pub const Resolved: Self = Self(0i32);
     pub const Conflicting: Self = Self(1i32);
     pub const Invalid: Self = Self(2i32);
-}
-impl ::core::marker::Copy for WorkflowPrintTicketValidationStatus {}
-impl ::core::clone::Clone for WorkflowPrintTicketValidationStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WorkflowPrintTicketValidationStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for WorkflowPrintTicketValidationStatus {
     type TypeKind = ::windows_core::CopyType;

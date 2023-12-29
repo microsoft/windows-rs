@@ -8420,19 +8420,8 @@ pub const PROFILER_GLOBAL_MODULE: COR_PRF_MISC = COR_PRF_MISC(-1i32);
 pub const PROFILER_PARENT_UNKNOWN: COR_PRF_MISC = COR_PRF_MISC(-3i32);
 pub const PROLOG: CorDebugIlToNativeMappingTypes = CorDebugIlToNativeMappingTypes(-2i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct COR_PRF_CLAUSE_TYPE(pub i32);
-impl ::core::marker::Copy for COR_PRF_CLAUSE_TYPE {}
-impl ::core::clone::Clone for COR_PRF_CLAUSE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COR_PRF_CLAUSE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for COR_PRF_CLAUSE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8442,19 +8431,8 @@ impl ::core::fmt::Debug for COR_PRF_CLAUSE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct COR_PRF_CODEGEN_FLAGS(pub i32);
-impl ::core::marker::Copy for COR_PRF_CODEGEN_FLAGS {}
-impl ::core::clone::Clone for COR_PRF_CODEGEN_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COR_PRF_CODEGEN_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for COR_PRF_CODEGEN_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8464,19 +8442,8 @@ impl ::core::fmt::Debug for COR_PRF_CODEGEN_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct COR_PRF_EVENTPIPE_LEVEL(pub i32);
-impl ::core::marker::Copy for COR_PRF_EVENTPIPE_LEVEL {}
-impl ::core::clone::Clone for COR_PRF_EVENTPIPE_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COR_PRF_EVENTPIPE_LEVEL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for COR_PRF_EVENTPIPE_LEVEL {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8486,19 +8453,8 @@ impl ::core::fmt::Debug for COR_PRF_EVENTPIPE_LEVEL {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct COR_PRF_EVENTPIPE_PARAM_TYPE(pub i32);
-impl ::core::marker::Copy for COR_PRF_EVENTPIPE_PARAM_TYPE {}
-impl ::core::clone::Clone for COR_PRF_EVENTPIPE_PARAM_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COR_PRF_EVENTPIPE_PARAM_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for COR_PRF_EVENTPIPE_PARAM_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8508,19 +8464,8 @@ impl ::core::fmt::Debug for COR_PRF_EVENTPIPE_PARAM_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct COR_PRF_FINALIZER_FLAGS(pub i32);
-impl ::core::marker::Copy for COR_PRF_FINALIZER_FLAGS {}
-impl ::core::clone::Clone for COR_PRF_FINALIZER_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COR_PRF_FINALIZER_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for COR_PRF_FINALIZER_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8530,19 +8475,8 @@ impl ::core::fmt::Debug for COR_PRF_FINALIZER_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct COR_PRF_GC_GENERATION(pub i32);
-impl ::core::marker::Copy for COR_PRF_GC_GENERATION {}
-impl ::core::clone::Clone for COR_PRF_GC_GENERATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COR_PRF_GC_GENERATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for COR_PRF_GC_GENERATION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8552,19 +8486,8 @@ impl ::core::fmt::Debug for COR_PRF_GC_GENERATION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct COR_PRF_GC_REASON(pub i32);
-impl ::core::marker::Copy for COR_PRF_GC_REASON {}
-impl ::core::clone::Clone for COR_PRF_GC_REASON {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COR_PRF_GC_REASON {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for COR_PRF_GC_REASON {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8574,19 +8497,8 @@ impl ::core::fmt::Debug for COR_PRF_GC_REASON {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct COR_PRF_GC_ROOT_FLAGS(pub i32);
-impl ::core::marker::Copy for COR_PRF_GC_ROOT_FLAGS {}
-impl ::core::clone::Clone for COR_PRF_GC_ROOT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COR_PRF_GC_ROOT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for COR_PRF_GC_ROOT_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8596,19 +8508,8 @@ impl ::core::fmt::Debug for COR_PRF_GC_ROOT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct COR_PRF_GC_ROOT_KIND(pub i32);
-impl ::core::marker::Copy for COR_PRF_GC_ROOT_KIND {}
-impl ::core::clone::Clone for COR_PRF_GC_ROOT_KIND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COR_PRF_GC_ROOT_KIND {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for COR_PRF_GC_ROOT_KIND {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8618,19 +8519,8 @@ impl ::core::fmt::Debug for COR_PRF_GC_ROOT_KIND {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct COR_PRF_HANDLE_TYPE(pub i32);
-impl ::core::marker::Copy for COR_PRF_HANDLE_TYPE {}
-impl ::core::clone::Clone for COR_PRF_HANDLE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COR_PRF_HANDLE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for COR_PRF_HANDLE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8640,19 +8530,8 @@ impl ::core::fmt::Debug for COR_PRF_HANDLE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct COR_PRF_HIGH_MONITOR(pub i32);
-impl ::core::marker::Copy for COR_PRF_HIGH_MONITOR {}
-impl ::core::clone::Clone for COR_PRF_HIGH_MONITOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COR_PRF_HIGH_MONITOR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for COR_PRF_HIGH_MONITOR {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8662,19 +8541,8 @@ impl ::core::fmt::Debug for COR_PRF_HIGH_MONITOR {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct COR_PRF_JIT_CACHE(pub i32);
-impl ::core::marker::Copy for COR_PRF_JIT_CACHE {}
-impl ::core::clone::Clone for COR_PRF_JIT_CACHE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COR_PRF_JIT_CACHE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for COR_PRF_JIT_CACHE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8684,19 +8552,8 @@ impl ::core::fmt::Debug for COR_PRF_JIT_CACHE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct COR_PRF_MISC(pub i32);
-impl ::core::marker::Copy for COR_PRF_MISC {}
-impl ::core::clone::Clone for COR_PRF_MISC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COR_PRF_MISC {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for COR_PRF_MISC {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8706,19 +8563,8 @@ impl ::core::fmt::Debug for COR_PRF_MISC {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct COR_PRF_MODULE_FLAGS(pub i32);
-impl ::core::marker::Copy for COR_PRF_MODULE_FLAGS {}
-impl ::core::clone::Clone for COR_PRF_MODULE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COR_PRF_MODULE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for COR_PRF_MODULE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8728,19 +8574,8 @@ impl ::core::fmt::Debug for COR_PRF_MODULE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct COR_PRF_MONITOR(pub i32);
-impl ::core::marker::Copy for COR_PRF_MONITOR {}
-impl ::core::clone::Clone for COR_PRF_MONITOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COR_PRF_MONITOR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for COR_PRF_MONITOR {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8750,19 +8585,8 @@ impl ::core::fmt::Debug for COR_PRF_MONITOR {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct COR_PRF_REJIT_FLAGS(pub i32);
-impl ::core::marker::Copy for COR_PRF_REJIT_FLAGS {}
-impl ::core::clone::Clone for COR_PRF_REJIT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COR_PRF_REJIT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for COR_PRF_REJIT_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8772,19 +8596,8 @@ impl ::core::fmt::Debug for COR_PRF_REJIT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct COR_PRF_RUNTIME_TYPE(pub i32);
-impl ::core::marker::Copy for COR_PRF_RUNTIME_TYPE {}
-impl ::core::clone::Clone for COR_PRF_RUNTIME_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COR_PRF_RUNTIME_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for COR_PRF_RUNTIME_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8794,19 +8607,8 @@ impl ::core::fmt::Debug for COR_PRF_RUNTIME_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct COR_PRF_SNAPSHOT_INFO(pub i32);
-impl ::core::marker::Copy for COR_PRF_SNAPSHOT_INFO {}
-impl ::core::clone::Clone for COR_PRF_SNAPSHOT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COR_PRF_SNAPSHOT_INFO {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for COR_PRF_SNAPSHOT_INFO {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8816,19 +8618,8 @@ impl ::core::fmt::Debug for COR_PRF_SNAPSHOT_INFO {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct COR_PRF_STATIC_TYPE(pub i32);
-impl ::core::marker::Copy for COR_PRF_STATIC_TYPE {}
-impl ::core::clone::Clone for COR_PRF_STATIC_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COR_PRF_STATIC_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for COR_PRF_STATIC_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8838,19 +8629,8 @@ impl ::core::fmt::Debug for COR_PRF_STATIC_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct COR_PRF_SUSPEND_REASON(pub i32);
-impl ::core::marker::Copy for COR_PRF_SUSPEND_REASON {}
-impl ::core::clone::Clone for COR_PRF_SUSPEND_REASON {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COR_PRF_SUSPEND_REASON {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for COR_PRF_SUSPEND_REASON {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8860,19 +8640,8 @@ impl ::core::fmt::Debug for COR_PRF_SUSPEND_REASON {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct COR_PRF_TRANSITION_REASON(pub i32);
-impl ::core::marker::Copy for COR_PRF_TRANSITION_REASON {}
-impl ::core::clone::Clone for COR_PRF_TRANSITION_REASON {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COR_PRF_TRANSITION_REASON {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for COR_PRF_TRANSITION_REASON {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8882,19 +8651,8 @@ impl ::core::fmt::Debug for COR_PRF_TRANSITION_REASON {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CorDebugIlToNativeMappingTypes(pub i32);
-impl ::core::marker::Copy for CorDebugIlToNativeMappingTypes {}
-impl ::core::clone::Clone for CorDebugIlToNativeMappingTypes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CorDebugIlToNativeMappingTypes {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CorDebugIlToNativeMappingTypes {
     type TypeKind = ::windows_core::CopyType;
 }

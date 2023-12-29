@@ -665,19 +665,8 @@ pub const EvtVarTypeUInt16: EVT_VARIANT_TYPE = EVT_VARIANT_TYPE(6i32);
 pub const EvtVarTypeUInt32: EVT_VARIANT_TYPE = EVT_VARIANT_TYPE(8i32);
 pub const EvtVarTypeUInt64: EVT_VARIANT_TYPE = EVT_VARIANT_TYPE(10i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EVT_CHANNEL_CLOCK_TYPE(pub i32);
-impl ::core::marker::Copy for EVT_CHANNEL_CLOCK_TYPE {}
-impl ::core::clone::Clone for EVT_CHANNEL_CLOCK_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EVT_CHANNEL_CLOCK_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EVT_CHANNEL_CLOCK_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -687,19 +676,8 @@ impl ::core::fmt::Debug for EVT_CHANNEL_CLOCK_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EVT_CHANNEL_CONFIG_PROPERTY_ID(pub i32);
-impl ::core::marker::Copy for EVT_CHANNEL_CONFIG_PROPERTY_ID {}
-impl ::core::clone::Clone for EVT_CHANNEL_CONFIG_PROPERTY_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EVT_CHANNEL_CONFIG_PROPERTY_ID {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EVT_CHANNEL_CONFIG_PROPERTY_ID {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -709,19 +687,8 @@ impl ::core::fmt::Debug for EVT_CHANNEL_CONFIG_PROPERTY_ID {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EVT_CHANNEL_ISOLATION_TYPE(pub i32);
-impl ::core::marker::Copy for EVT_CHANNEL_ISOLATION_TYPE {}
-impl ::core::clone::Clone for EVT_CHANNEL_ISOLATION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EVT_CHANNEL_ISOLATION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EVT_CHANNEL_ISOLATION_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -731,19 +698,8 @@ impl ::core::fmt::Debug for EVT_CHANNEL_ISOLATION_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EVT_CHANNEL_REFERENCE_FLAGS(pub u32);
-impl ::core::marker::Copy for EVT_CHANNEL_REFERENCE_FLAGS {}
-impl ::core::clone::Clone for EVT_CHANNEL_REFERENCE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EVT_CHANNEL_REFERENCE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EVT_CHANNEL_REFERENCE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -753,19 +709,8 @@ impl ::core::fmt::Debug for EVT_CHANNEL_REFERENCE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EVT_CHANNEL_SID_TYPE(pub i32);
-impl ::core::marker::Copy for EVT_CHANNEL_SID_TYPE {}
-impl ::core::clone::Clone for EVT_CHANNEL_SID_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EVT_CHANNEL_SID_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EVT_CHANNEL_SID_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -775,19 +720,8 @@ impl ::core::fmt::Debug for EVT_CHANNEL_SID_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EVT_CHANNEL_TYPE(pub i32);
-impl ::core::marker::Copy for EVT_CHANNEL_TYPE {}
-impl ::core::clone::Clone for EVT_CHANNEL_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EVT_CHANNEL_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EVT_CHANNEL_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -797,19 +731,8 @@ impl ::core::fmt::Debug for EVT_CHANNEL_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EVT_EVENT_METADATA_PROPERTY_ID(pub i32);
-impl ::core::marker::Copy for EVT_EVENT_METADATA_PROPERTY_ID {}
-impl ::core::clone::Clone for EVT_EVENT_METADATA_PROPERTY_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EVT_EVENT_METADATA_PROPERTY_ID {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EVT_EVENT_METADATA_PROPERTY_ID {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -819,19 +742,8 @@ impl ::core::fmt::Debug for EVT_EVENT_METADATA_PROPERTY_ID {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EVT_EVENT_PROPERTY_ID(pub i32);
-impl ::core::marker::Copy for EVT_EVENT_PROPERTY_ID {}
-impl ::core::clone::Clone for EVT_EVENT_PROPERTY_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EVT_EVENT_PROPERTY_ID {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EVT_EVENT_PROPERTY_ID {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -841,19 +753,8 @@ impl ::core::fmt::Debug for EVT_EVENT_PROPERTY_ID {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EVT_EXPORTLOG_FLAGS(pub u32);
-impl ::core::marker::Copy for EVT_EXPORTLOG_FLAGS {}
-impl ::core::clone::Clone for EVT_EXPORTLOG_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EVT_EXPORTLOG_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EVT_EXPORTLOG_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -863,19 +764,8 @@ impl ::core::fmt::Debug for EVT_EXPORTLOG_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EVT_FORMAT_MESSAGE_FLAGS(pub u32);
-impl ::core::marker::Copy for EVT_FORMAT_MESSAGE_FLAGS {}
-impl ::core::clone::Clone for EVT_FORMAT_MESSAGE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EVT_FORMAT_MESSAGE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EVT_FORMAT_MESSAGE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -885,19 +775,8 @@ impl ::core::fmt::Debug for EVT_FORMAT_MESSAGE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EVT_LOGIN_CLASS(pub i32);
-impl ::core::marker::Copy for EVT_LOGIN_CLASS {}
-impl ::core::clone::Clone for EVT_LOGIN_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EVT_LOGIN_CLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EVT_LOGIN_CLASS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -907,19 +786,8 @@ impl ::core::fmt::Debug for EVT_LOGIN_CLASS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EVT_LOG_PROPERTY_ID(pub i32);
-impl ::core::marker::Copy for EVT_LOG_PROPERTY_ID {}
-impl ::core::clone::Clone for EVT_LOG_PROPERTY_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EVT_LOG_PROPERTY_ID {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EVT_LOG_PROPERTY_ID {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -929,19 +797,8 @@ impl ::core::fmt::Debug for EVT_LOG_PROPERTY_ID {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EVT_OPEN_LOG_FLAGS(pub u32);
-impl ::core::marker::Copy for EVT_OPEN_LOG_FLAGS {}
-impl ::core::clone::Clone for EVT_OPEN_LOG_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EVT_OPEN_LOG_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EVT_OPEN_LOG_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -951,19 +808,8 @@ impl ::core::fmt::Debug for EVT_OPEN_LOG_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EVT_PUBLISHER_METADATA_PROPERTY_ID(pub i32);
-impl ::core::marker::Copy for EVT_PUBLISHER_METADATA_PROPERTY_ID {}
-impl ::core::clone::Clone for EVT_PUBLISHER_METADATA_PROPERTY_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EVT_PUBLISHER_METADATA_PROPERTY_ID {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EVT_PUBLISHER_METADATA_PROPERTY_ID {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -973,19 +819,8 @@ impl ::core::fmt::Debug for EVT_PUBLISHER_METADATA_PROPERTY_ID {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EVT_QUERY_FLAGS(pub u32);
-impl ::core::marker::Copy for EVT_QUERY_FLAGS {}
-impl ::core::clone::Clone for EVT_QUERY_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EVT_QUERY_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EVT_QUERY_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -995,19 +830,8 @@ impl ::core::fmt::Debug for EVT_QUERY_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EVT_QUERY_PROPERTY_ID(pub i32);
-impl ::core::marker::Copy for EVT_QUERY_PROPERTY_ID {}
-impl ::core::clone::Clone for EVT_QUERY_PROPERTY_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EVT_QUERY_PROPERTY_ID {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EVT_QUERY_PROPERTY_ID {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1017,19 +841,8 @@ impl ::core::fmt::Debug for EVT_QUERY_PROPERTY_ID {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EVT_RENDER_CONTEXT_FLAGS(pub u32);
-impl ::core::marker::Copy for EVT_RENDER_CONTEXT_FLAGS {}
-impl ::core::clone::Clone for EVT_RENDER_CONTEXT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EVT_RENDER_CONTEXT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EVT_RENDER_CONTEXT_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1039,19 +852,8 @@ impl ::core::fmt::Debug for EVT_RENDER_CONTEXT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EVT_RENDER_FLAGS(pub u32);
-impl ::core::marker::Copy for EVT_RENDER_FLAGS {}
-impl ::core::clone::Clone for EVT_RENDER_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EVT_RENDER_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EVT_RENDER_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1061,19 +863,8 @@ impl ::core::fmt::Debug for EVT_RENDER_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EVT_RPC_LOGIN_FLAGS(pub u32);
-impl ::core::marker::Copy for EVT_RPC_LOGIN_FLAGS {}
-impl ::core::clone::Clone for EVT_RPC_LOGIN_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EVT_RPC_LOGIN_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EVT_RPC_LOGIN_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1083,19 +874,8 @@ impl ::core::fmt::Debug for EVT_RPC_LOGIN_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EVT_SEEK_FLAGS(pub u32);
-impl ::core::marker::Copy for EVT_SEEK_FLAGS {}
-impl ::core::clone::Clone for EVT_SEEK_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EVT_SEEK_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EVT_SEEK_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1105,19 +885,8 @@ impl ::core::fmt::Debug for EVT_SEEK_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EVT_SUBSCRIBE_FLAGS(pub u32);
-impl ::core::marker::Copy for EVT_SUBSCRIBE_FLAGS {}
-impl ::core::clone::Clone for EVT_SUBSCRIBE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EVT_SUBSCRIBE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EVT_SUBSCRIBE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1127,19 +896,8 @@ impl ::core::fmt::Debug for EVT_SUBSCRIBE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EVT_SUBSCRIBE_NOTIFY_ACTION(pub i32);
-impl ::core::marker::Copy for EVT_SUBSCRIBE_NOTIFY_ACTION {}
-impl ::core::clone::Clone for EVT_SUBSCRIBE_NOTIFY_ACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EVT_SUBSCRIBE_NOTIFY_ACTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EVT_SUBSCRIBE_NOTIFY_ACTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1149,19 +907,8 @@ impl ::core::fmt::Debug for EVT_SUBSCRIBE_NOTIFY_ACTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EVT_SYSTEM_PROPERTY_ID(pub i32);
-impl ::core::marker::Copy for EVT_SYSTEM_PROPERTY_ID {}
-impl ::core::clone::Clone for EVT_SYSTEM_PROPERTY_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EVT_SYSTEM_PROPERTY_ID {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EVT_SYSTEM_PROPERTY_ID {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1171,19 +918,8 @@ impl ::core::fmt::Debug for EVT_SYSTEM_PROPERTY_ID {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EVT_VARIANT_TYPE(pub i32);
-impl ::core::marker::Copy for EVT_VARIANT_TYPE {}
-impl ::core::clone::Clone for EVT_VARIANT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EVT_VARIANT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EVT_VARIANT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1193,19 +929,8 @@ impl ::core::fmt::Debug for EVT_VARIANT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct READ_EVENT_LOG_READ_FLAGS(pub u32);
-impl ::core::marker::Copy for READ_EVENT_LOG_READ_FLAGS {}
-impl ::core::clone::Clone for READ_EVENT_LOG_READ_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for READ_EVENT_LOG_READ_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for READ_EVENT_LOG_READ_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1215,19 +940,8 @@ impl ::core::fmt::Debug for READ_EVENT_LOG_READ_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct REPORT_EVENT_TYPE(pub u16);
-impl ::core::marker::Copy for REPORT_EVENT_TYPE {}
-impl ::core::clone::Clone for REPORT_EVENT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for REPORT_EVENT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for REPORT_EVENT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }

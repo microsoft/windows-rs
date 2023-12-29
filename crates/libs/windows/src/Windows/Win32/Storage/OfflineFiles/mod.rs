@@ -2379,19 +2379,8 @@ pub const OFFLINEFILES_TRANSITION_FLAG_INTERACTIVE: u32 = 1u32;
 pub const OfflineFilesCache: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x48c6be7c_3871_43cc_b46f_1449a1bb2ff3);
 pub const OfflineFilesSetting: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfd3659e9_a920_4123_ad64_7fc76c7aacdf);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OFFLINEFILES_CACHING_MODE(pub i32);
-impl ::core::marker::Copy for OFFLINEFILES_CACHING_MODE {}
-impl ::core::clone::Clone for OFFLINEFILES_CACHING_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OFFLINEFILES_CACHING_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OFFLINEFILES_CACHING_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2401,19 +2390,8 @@ impl ::core::fmt::Debug for OFFLINEFILES_CACHING_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OFFLINEFILES_COMPARE(pub i32);
-impl ::core::marker::Copy for OFFLINEFILES_COMPARE {}
-impl ::core::clone::Clone for OFFLINEFILES_COMPARE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OFFLINEFILES_COMPARE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OFFLINEFILES_COMPARE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2423,19 +2401,8 @@ impl ::core::fmt::Debug for OFFLINEFILES_COMPARE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OFFLINEFILES_CONNECT_STATE(pub i32);
-impl ::core::marker::Copy for OFFLINEFILES_CONNECT_STATE {}
-impl ::core::clone::Clone for OFFLINEFILES_CONNECT_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OFFLINEFILES_CONNECT_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OFFLINEFILES_CONNECT_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2445,19 +2412,8 @@ impl ::core::fmt::Debug for OFFLINEFILES_CONNECT_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OFFLINEFILES_EVENTS(pub i32);
-impl ::core::marker::Copy for OFFLINEFILES_EVENTS {}
-impl ::core::clone::Clone for OFFLINEFILES_EVENTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OFFLINEFILES_EVENTS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OFFLINEFILES_EVENTS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2467,19 +2423,8 @@ impl ::core::fmt::Debug for OFFLINEFILES_EVENTS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OFFLINEFILES_ITEM_COPY(pub i32);
-impl ::core::marker::Copy for OFFLINEFILES_ITEM_COPY {}
-impl ::core::clone::Clone for OFFLINEFILES_ITEM_COPY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OFFLINEFILES_ITEM_COPY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OFFLINEFILES_ITEM_COPY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2489,19 +2434,8 @@ impl ::core::fmt::Debug for OFFLINEFILES_ITEM_COPY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OFFLINEFILES_ITEM_TIME(pub i32);
-impl ::core::marker::Copy for OFFLINEFILES_ITEM_TIME {}
-impl ::core::clone::Clone for OFFLINEFILES_ITEM_TIME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OFFLINEFILES_ITEM_TIME {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OFFLINEFILES_ITEM_TIME {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2511,19 +2445,8 @@ impl ::core::fmt::Debug for OFFLINEFILES_ITEM_TIME {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OFFLINEFILES_ITEM_TYPE(pub i32);
-impl ::core::marker::Copy for OFFLINEFILES_ITEM_TYPE {}
-impl ::core::clone::Clone for OFFLINEFILES_ITEM_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OFFLINEFILES_ITEM_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OFFLINEFILES_ITEM_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2533,19 +2456,8 @@ impl ::core::fmt::Debug for OFFLINEFILES_ITEM_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OFFLINEFILES_OFFLINE_REASON(pub i32);
-impl ::core::marker::Copy for OFFLINEFILES_OFFLINE_REASON {}
-impl ::core::clone::Clone for OFFLINEFILES_OFFLINE_REASON {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OFFLINEFILES_OFFLINE_REASON {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OFFLINEFILES_OFFLINE_REASON {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2555,19 +2467,8 @@ impl ::core::fmt::Debug for OFFLINEFILES_OFFLINE_REASON {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OFFLINEFILES_OP_RESPONSE(pub i32);
-impl ::core::marker::Copy for OFFLINEFILES_OP_RESPONSE {}
-impl ::core::clone::Clone for OFFLINEFILES_OP_RESPONSE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OFFLINEFILES_OP_RESPONSE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OFFLINEFILES_OP_RESPONSE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2577,19 +2478,8 @@ impl ::core::fmt::Debug for OFFLINEFILES_OP_RESPONSE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OFFLINEFILES_PATHFILTER_MATCH(pub i32);
-impl ::core::marker::Copy for OFFLINEFILES_PATHFILTER_MATCH {}
-impl ::core::clone::Clone for OFFLINEFILES_PATHFILTER_MATCH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OFFLINEFILES_PATHFILTER_MATCH {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OFFLINEFILES_PATHFILTER_MATCH {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2599,19 +2489,8 @@ impl ::core::fmt::Debug for OFFLINEFILES_PATHFILTER_MATCH {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OFFLINEFILES_SETTING_VALUE_TYPE(pub i32);
-impl ::core::marker::Copy for OFFLINEFILES_SETTING_VALUE_TYPE {}
-impl ::core::clone::Clone for OFFLINEFILES_SETTING_VALUE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OFFLINEFILES_SETTING_VALUE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OFFLINEFILES_SETTING_VALUE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2621,19 +2500,8 @@ impl ::core::fmt::Debug for OFFLINEFILES_SETTING_VALUE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OFFLINEFILES_SYNC_CONFLICT_RESOLVE(pub i32);
-impl ::core::marker::Copy for OFFLINEFILES_SYNC_CONFLICT_RESOLVE {}
-impl ::core::clone::Clone for OFFLINEFILES_SYNC_CONFLICT_RESOLVE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OFFLINEFILES_SYNC_CONFLICT_RESOLVE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OFFLINEFILES_SYNC_CONFLICT_RESOLVE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2643,19 +2511,8 @@ impl ::core::fmt::Debug for OFFLINEFILES_SYNC_CONFLICT_RESOLVE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OFFLINEFILES_SYNC_OPERATION(pub i32);
-impl ::core::marker::Copy for OFFLINEFILES_SYNC_OPERATION {}
-impl ::core::clone::Clone for OFFLINEFILES_SYNC_OPERATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OFFLINEFILES_SYNC_OPERATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OFFLINEFILES_SYNC_OPERATION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2665,19 +2522,8 @@ impl ::core::fmt::Debug for OFFLINEFILES_SYNC_OPERATION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OFFLINEFILES_SYNC_STATE(pub i32);
-impl ::core::marker::Copy for OFFLINEFILES_SYNC_STATE {}
-impl ::core::clone::Clone for OFFLINEFILES_SYNC_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OFFLINEFILES_SYNC_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OFFLINEFILES_SYNC_STATE {
     type TypeKind = ::windows_core::CopyType;
 }

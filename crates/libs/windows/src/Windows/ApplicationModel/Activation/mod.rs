@@ -6965,7 +6965,7 @@ impl ::windows_core::CanTryInto<IWebAuthenticationBrokerContinuationEventArgs> f
 unsafe impl ::core::marker::Send for WebAuthenticationBrokerContinuationEventArgs {}
 unsafe impl ::core::marker::Sync for WebAuthenticationBrokerContinuationEventArgs {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ActivationKind(pub i32);
 impl ActivationKind {
     pub const Launch: Self = Self(0i32);
@@ -7013,17 +7013,6 @@ impl ActivationKind {
     pub const PhoneCallActivation: Self = Self(1025i32);
     pub const VpnForeground: Self = Self(1026i32);
 }
-impl ::core::marker::Copy for ActivationKind {}
-impl ::core::clone::Clone for ActivationKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ActivationKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ActivationKind {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7036,7 +7025,7 @@ impl ::windows_core::RuntimeType for ActivationKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Activation.ActivationKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ApplicationExecutionState(pub i32);
 impl ApplicationExecutionState {
     pub const NotRunning: Self = Self(0i32);
@@ -7044,17 +7033,6 @@ impl ApplicationExecutionState {
     pub const Suspended: Self = Self(2i32);
     pub const Terminated: Self = Self(3i32);
     pub const ClosedByUser: Self = Self(4i32);
-}
-impl ::core::marker::Copy for ApplicationExecutionState {}
-impl ::core::clone::Clone for ApplicationExecutionState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ApplicationExecutionState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ApplicationExecutionState {
     type TypeKind = ::windows_core::CopyType;

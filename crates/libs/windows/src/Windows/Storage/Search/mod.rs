@@ -1751,7 +1751,7 @@ impl ::windows_core::RuntimeName for ValueAndLanguage {
 unsafe impl ::core::marker::Send for ValueAndLanguage {}
 unsafe impl ::core::marker::Sync for ValueAndLanguage {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CommonFileQuery(pub i32);
 impl CommonFileQuery {
     pub const DefaultQuery: Self = Self(0i32);
@@ -1760,17 +1760,6 @@ impl CommonFileQuery {
     pub const OrderByMusicProperties: Self = Self(3i32);
     pub const OrderBySearchRank: Self = Self(4i32);
     pub const OrderByDate: Self = Self(5i32);
-}
-impl ::core::marker::Copy for CommonFileQuery {}
-impl ::core::clone::Clone for CommonFileQuery {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CommonFileQuery {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CommonFileQuery {
     type TypeKind = ::windows_core::CopyType;
@@ -1784,7 +1773,7 @@ impl ::windows_core::RuntimeType for CommonFileQuery {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.CommonFileQuery;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CommonFolderQuery(pub i32);
 impl CommonFolderQuery {
     pub const DefaultQuery: Self = Self(0i32);
@@ -1801,17 +1790,6 @@ impl CommonFolderQuery {
     pub const GroupByAuthor: Self = Self(110i32);
     pub const GroupByType: Self = Self(111i32);
 }
-impl ::core::marker::Copy for CommonFolderQuery {}
-impl ::core::clone::Clone for CommonFolderQuery {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CommonFolderQuery {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CommonFolderQuery {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1824,23 +1802,12 @@ impl ::windows_core::RuntimeType for CommonFolderQuery {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.CommonFolderQuery;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DateStackOption(pub i32);
 impl DateStackOption {
     pub const None: Self = Self(0i32);
     pub const Year: Self = Self(1i32);
     pub const Month: Self = Self(2i32);
-}
-impl ::core::marker::Copy for DateStackOption {}
-impl ::core::clone::Clone for DateStackOption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DateStackOption {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DateStackOption {
     type TypeKind = ::windows_core::CopyType;
@@ -1854,22 +1821,11 @@ impl ::windows_core::RuntimeType for DateStackOption {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.DateStackOption;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FolderDepth(pub i32);
 impl FolderDepth {
     pub const Shallow: Self = Self(0i32);
     pub const Deep: Self = Self(1i32);
-}
-impl ::core::marker::Copy for FolderDepth {}
-impl ::core::clone::Clone for FolderDepth {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FolderDepth {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for FolderDepth {
     type TypeKind = ::windows_core::CopyType;
@@ -1883,24 +1839,13 @@ impl ::windows_core::RuntimeType for FolderDepth {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.FolderDepth;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct IndexedState(pub i32);
 impl IndexedState {
     pub const Unknown: Self = Self(0i32);
     pub const NotIndexed: Self = Self(1i32);
     pub const PartiallyIndexed: Self = Self(2i32);
     pub const FullyIndexed: Self = Self(3i32);
-}
-impl ::core::marker::Copy for IndexedState {}
-impl ::core::clone::Clone for IndexedState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for IndexedState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for IndexedState {
     type TypeKind = ::windows_core::CopyType;
@@ -1914,24 +1859,13 @@ impl ::windows_core::RuntimeType for IndexedState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.IndexedState;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct IndexerOption(pub i32);
 impl IndexerOption {
     pub const UseIndexerWhenAvailable: Self = Self(0i32);
     pub const OnlyUseIndexer: Self = Self(1i32);
     pub const DoNotUseIndexer: Self = Self(2i32);
     pub const OnlyUseIndexerAndOptimizeForIndexedProperties: Self = Self(3i32);
-}
-impl ::core::marker::Copy for IndexerOption {}
-impl ::core::clone::Clone for IndexerOption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for IndexerOption {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for IndexerOption {
     type TypeKind = ::windows_core::CopyType;

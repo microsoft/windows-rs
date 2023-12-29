@@ -1581,24 +1581,13 @@ impl ::windows_core::RuntimeName for WindowsUpdateScanCompletedEventArgs {
 unsafe impl ::core::marker::Send for WindowsUpdateScanCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for WindowsUpdateScanCompletedEventArgs {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WindowsUpdateAdministratorOptions(pub u32);
 impl WindowsUpdateAdministratorOptions {
     pub const None: Self = Self(0u32);
     pub const RequireAdministratorApprovalForScans: Self = Self(1u32);
     pub const RequireAdministratorApprovalForUpdates: Self = Self(2u32);
     pub const RequireAdministratorApprovalForActions: Self = Self(4u32);
-}
-impl ::core::marker::Copy for WindowsUpdateAdministratorOptions {}
-impl ::core::clone::Clone for WindowsUpdateAdministratorOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WindowsUpdateAdministratorOptions {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for WindowsUpdateAdministratorOptions {
     type TypeKind = ::windows_core::CopyType;
@@ -1645,23 +1634,12 @@ impl ::windows_core::RuntimeType for WindowsUpdateAdministratorOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Update.WindowsUpdateAdministratorOptions;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WindowsUpdateAdministratorStatus(pub i32);
 impl WindowsUpdateAdministratorStatus {
     pub const Succeeded: Self = Self(0i32);
     pub const NoAdministratorRegistered: Self = Self(1i32);
     pub const OtherAdministratorIsRegistered: Self = Self(2i32);
-}
-impl ::core::marker::Copy for WindowsUpdateAdministratorStatus {}
-impl ::core::clone::Clone for WindowsUpdateAdministratorStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WindowsUpdateAdministratorStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for WindowsUpdateAdministratorStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -1675,7 +1653,7 @@ impl ::windows_core::RuntimeType for WindowsUpdateAdministratorStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Update.WindowsUpdateAdministratorStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WindowsUpdateAttentionRequiredReason(pub i32);
 impl WindowsUpdateAttentionRequiredReason {
     pub const None: Self = Self(0i32);
@@ -1711,17 +1689,6 @@ impl WindowsUpdateAttentionRequiredReason {
     pub const BlockedByOobe: Self = Self(30i32);
     pub const DeferredDuringOobe: Self = Self(31i32);
     pub const DeferredForSustainableTime: Self = Self(32i32);
-}
-impl ::core::marker::Copy for WindowsUpdateAttentionRequiredReason {}
-impl ::core::clone::Clone for WindowsUpdateAttentionRequiredReason {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WindowsUpdateAttentionRequiredReason {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for WindowsUpdateAttentionRequiredReason {
     type TypeKind = ::windows_core::CopyType;

@@ -85,19 +85,8 @@ pub const COMPRESS_INFORMATION_CLASS_INVALID: COMPRESS_INFORMATION_CLASS = COMPR
 pub const COMPRESS_INFORMATION_CLASS_LEVEL: COMPRESS_INFORMATION_CLASS = COMPRESS_INFORMATION_CLASS(2i32);
 pub const COMPRESS_RAW: u32 = 536870912u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct COMPRESS_ALGORITHM(pub u32);
-impl ::core::marker::Copy for COMPRESS_ALGORITHM {}
-impl ::core::clone::Clone for COMPRESS_ALGORITHM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COMPRESS_ALGORITHM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for COMPRESS_ALGORITHM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -107,19 +96,8 @@ impl ::core::fmt::Debug for COMPRESS_ALGORITHM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct COMPRESS_INFORMATION_CLASS(pub i32);
-impl ::core::marker::Copy for COMPRESS_INFORMATION_CLASS {}
-impl ::core::clone::Clone for COMPRESS_INFORMATION_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COMPRESS_INFORMATION_CLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for COMPRESS_INFORMATION_CLASS {
     type TypeKind = ::windows_core::CopyType;
 }

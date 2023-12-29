@@ -222,7 +222,7 @@ impl ::windows_core::RuntimeName for AppCapabilityAccessChangedEventArgs {
 unsafe impl ::core::marker::Send for AppCapabilityAccessChangedEventArgs {}
 unsafe impl ::core::marker::Sync for AppCapabilityAccessChangedEventArgs {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AppCapabilityAccessStatus(pub i32);
 impl AppCapabilityAccessStatus {
     pub const DeniedBySystem: Self = Self(0i32);
@@ -230,17 +230,6 @@ impl AppCapabilityAccessStatus {
     pub const DeniedByUser: Self = Self(2i32);
     pub const UserPromptRequired: Self = Self(3i32);
     pub const Allowed: Self = Self(4i32);
-}
-impl ::core::marker::Copy for AppCapabilityAccessStatus {}
-impl ::core::clone::Clone for AppCapabilityAccessStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AppCapabilityAccessStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AppCapabilityAccessStatus {
     type TypeKind = ::windows_core::CopyType;

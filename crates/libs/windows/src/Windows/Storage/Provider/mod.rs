@@ -2036,24 +2036,13 @@ impl ::windows_core::RuntimeName for StorageProviderSyncRootManager {
     const NAME: &'static str = "Windows.Storage.Provider.StorageProviderSyncRootManager";
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CachedFileOptions(pub u32);
 impl CachedFileOptions {
     pub const None: Self = Self(0u32);
     pub const RequireUpdateOnAccess: Self = Self(1u32);
     pub const UseCachedFileWhenOffline: Self = Self(2u32);
     pub const DenyAccessWhenOffline: Self = Self(4u32);
-}
-impl ::core::marker::Copy for CachedFileOptions {}
-impl ::core::clone::Clone for CachedFileOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CachedFileOptions {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CachedFileOptions {
     type TypeKind = ::windows_core::CopyType;
@@ -2100,22 +2089,11 @@ impl ::windows_core::RuntimeType for CachedFileOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.CachedFileOptions;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CachedFileTarget(pub i32);
 impl CachedFileTarget {
     pub const Local: Self = Self(0i32);
     pub const Remote: Self = Self(1i32);
-}
-impl ::core::marker::Copy for CachedFileTarget {}
-impl ::core::clone::Clone for CachedFileTarget {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CachedFileTarget {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CachedFileTarget {
     type TypeKind = ::windows_core::CopyType;
@@ -2129,7 +2107,7 @@ impl ::windows_core::RuntimeType for CachedFileTarget {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.CachedFileTarget;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FileUpdateStatus(pub i32);
 impl FileUpdateStatus {
     pub const Incomplete: Self = Self(0i32);
@@ -2138,17 +2116,6 @@ impl FileUpdateStatus {
     pub const CurrentlyUnavailable: Self = Self(3i32);
     pub const Failed: Self = Self(4i32);
     pub const CompleteAndRenamed: Self = Self(5i32);
-}
-impl ::core::marker::Copy for FileUpdateStatus {}
-impl ::core::clone::Clone for FileUpdateStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FileUpdateStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for FileUpdateStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -2162,22 +2129,11 @@ impl ::windows_core::RuntimeType for FileUpdateStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.FileUpdateStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ReadActivationMode(pub i32);
 impl ReadActivationMode {
     pub const NotNeeded: Self = Self(0i32);
     pub const BeforeAccess: Self = Self(1i32);
-}
-impl ::core::marker::Copy for ReadActivationMode {}
-impl ::core::clone::Clone for ReadActivationMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ReadActivationMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ReadActivationMode {
     type TypeKind = ::windows_core::CopyType;
@@ -2191,22 +2147,11 @@ impl ::windows_core::RuntimeType for ReadActivationMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.ReadActivationMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct StorageProviderHardlinkPolicy(pub u32);
 impl StorageProviderHardlinkPolicy {
     pub const None: Self = Self(0u32);
     pub const Allowed: Self = Self(1u32);
-}
-impl ::core::marker::Copy for StorageProviderHardlinkPolicy {}
-impl ::core::clone::Clone for StorageProviderHardlinkPolicy {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for StorageProviderHardlinkPolicy {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for StorageProviderHardlinkPolicy {
     type TypeKind = ::windows_core::CopyType;
@@ -2253,24 +2198,13 @@ impl ::windows_core::RuntimeType for StorageProviderHardlinkPolicy {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderHardlinkPolicy;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct StorageProviderHydrationPolicy(pub i32);
 impl StorageProviderHydrationPolicy {
     pub const Partial: Self = Self(0i32);
     pub const Progressive: Self = Self(1i32);
     pub const Full: Self = Self(2i32);
     pub const AlwaysFull: Self = Self(3i32);
-}
-impl ::core::marker::Copy for StorageProviderHydrationPolicy {}
-impl ::core::clone::Clone for StorageProviderHydrationPolicy {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for StorageProviderHydrationPolicy {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for StorageProviderHydrationPolicy {
     type TypeKind = ::windows_core::CopyType;
@@ -2284,7 +2218,7 @@ impl ::windows_core::RuntimeType for StorageProviderHydrationPolicy {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderHydrationPolicy;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct StorageProviderHydrationPolicyModifier(pub u32);
 impl StorageProviderHydrationPolicyModifier {
     pub const None: Self = Self(0u32);
@@ -2292,17 +2226,6 @@ impl StorageProviderHydrationPolicyModifier {
     pub const StreamingAllowed: Self = Self(2u32);
     pub const AutoDehydrationAllowed: Self = Self(4u32);
     pub const AllowFullRestartHydration: Self = Self(8u32);
-}
-impl ::core::marker::Copy for StorageProviderHydrationPolicyModifier {}
-impl ::core::clone::Clone for StorageProviderHydrationPolicyModifier {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for StorageProviderHydrationPolicyModifier {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for StorageProviderHydrationPolicyModifier {
     type TypeKind = ::windows_core::CopyType;
@@ -2349,7 +2272,7 @@ impl ::windows_core::RuntimeType for StorageProviderHydrationPolicyModifier {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderHydrationPolicyModifier;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct StorageProviderInSyncPolicy(pub u32);
 impl StorageProviderInSyncPolicy {
     pub const Default: Self = Self(0u32);
@@ -2364,17 +2287,6 @@ impl StorageProviderInSyncPolicy {
     pub const FileLastWriteTime: Self = Self(256u32);
     pub const DirectoryLastWriteTime: Self = Self(512u32);
     pub const PreserveInsyncForSyncEngine: Self = Self(2147483648u32);
-}
-impl ::core::marker::Copy for StorageProviderInSyncPolicy {}
-impl ::core::clone::Clone for StorageProviderInSyncPolicy {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for StorageProviderInSyncPolicy {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for StorageProviderInSyncPolicy {
     type TypeKind = ::windows_core::CopyType;
@@ -2421,23 +2333,12 @@ impl ::windows_core::RuntimeType for StorageProviderInSyncPolicy {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderInSyncPolicy;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct StorageProviderKnownFolderSyncStatus(pub i32);
 impl StorageProviderKnownFolderSyncStatus {
     pub const Available: Self = Self(0i32);
     pub const Enrolling: Self = Self(1i32);
     pub const Enrolled: Self = Self(2i32);
-}
-impl ::core::marker::Copy for StorageProviderKnownFolderSyncStatus {}
-impl ::core::clone::Clone for StorageProviderKnownFolderSyncStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for StorageProviderKnownFolderSyncStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for StorageProviderKnownFolderSyncStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -2451,22 +2352,11 @@ impl ::windows_core::RuntimeType for StorageProviderKnownFolderSyncStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderKnownFolderSyncStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct StorageProviderPopulationPolicy(pub i32);
 impl StorageProviderPopulationPolicy {
     pub const Full: Self = Self(1i32);
     pub const AlwaysFull: Self = Self(2i32);
-}
-impl ::core::marker::Copy for StorageProviderPopulationPolicy {}
-impl ::core::clone::Clone for StorageProviderPopulationPolicy {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for StorageProviderPopulationPolicy {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for StorageProviderPopulationPolicy {
     type TypeKind = ::windows_core::CopyType;
@@ -2480,22 +2370,11 @@ impl ::windows_core::RuntimeType for StorageProviderPopulationPolicy {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderPopulationPolicy;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct StorageProviderProtectionMode(pub i32);
 impl StorageProviderProtectionMode {
     pub const Unknown: Self = Self(0i32);
     pub const Personal: Self = Self(1i32);
-}
-impl ::core::marker::Copy for StorageProviderProtectionMode {}
-impl ::core::clone::Clone for StorageProviderProtectionMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for StorageProviderProtectionMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for StorageProviderProtectionMode {
     type TypeKind = ::windows_core::CopyType;
@@ -2509,7 +2388,7 @@ impl ::windows_core::RuntimeType for StorageProviderProtectionMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderProtectionMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct StorageProviderState(pub i32);
 impl StorageProviderState {
     pub const InSync: Self = Self(0i32);
@@ -2518,17 +2397,6 @@ impl StorageProviderState {
     pub const Error: Self = Self(3i32);
     pub const Warning: Self = Self(4i32);
     pub const Offline: Self = Self(5i32);
-}
-impl ::core::marker::Copy for StorageProviderState {}
-impl ::core::clone::Clone for StorageProviderState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for StorageProviderState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for StorageProviderState {
     type TypeKind = ::windows_core::CopyType;
@@ -2542,23 +2410,12 @@ impl ::windows_core::RuntimeType for StorageProviderState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderState;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct StorageProviderUICommandState(pub i32);
 impl StorageProviderUICommandState {
     pub const Enabled: Self = Self(0i32);
     pub const Disabled: Self = Self(1i32);
     pub const Hidden: Self = Self(2i32);
-}
-impl ::core::marker::Copy for StorageProviderUICommandState {}
-impl ::core::clone::Clone for StorageProviderUICommandState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for StorageProviderUICommandState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for StorageProviderUICommandState {
     type TypeKind = ::windows_core::CopyType;
@@ -2572,23 +2429,12 @@ impl ::windows_core::RuntimeType for StorageProviderUICommandState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderUICommandState;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct StorageProviderUriSourceStatus(pub i32);
 impl StorageProviderUriSourceStatus {
     pub const Success: Self = Self(0i32);
     pub const NoSyncRoot: Self = Self(1i32);
     pub const FileNotFound: Self = Self(2i32);
-}
-impl ::core::marker::Copy for StorageProviderUriSourceStatus {}
-impl ::core::clone::Clone for StorageProviderUriSourceStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for StorageProviderUriSourceStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for StorageProviderUriSourceStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -2602,24 +2448,13 @@ impl ::windows_core::RuntimeType for StorageProviderUriSourceStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderUriSourceStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UIStatus(pub i32);
 impl UIStatus {
     pub const Unavailable: Self = Self(0i32);
     pub const Hidden: Self = Self(1i32);
     pub const Visible: Self = Self(2i32);
     pub const Complete: Self = Self(3i32);
-}
-impl ::core::marker::Copy for UIStatus {}
-impl ::core::clone::Clone for UIStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UIStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for UIStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -2633,23 +2468,12 @@ impl ::windows_core::RuntimeType for UIStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.UIStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WriteActivationMode(pub i32);
 impl WriteActivationMode {
     pub const ReadOnly: Self = Self(0i32);
     pub const NotNeeded: Self = Self(1i32);
     pub const AfterWrite: Self = Self(2i32);
-}
-impl ::core::marker::Copy for WriteActivationMode {}
-impl ::core::clone::Clone for WriteActivationMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WriteActivationMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for WriteActivationMode {
     type TypeKind = ::windows_core::CopyType;

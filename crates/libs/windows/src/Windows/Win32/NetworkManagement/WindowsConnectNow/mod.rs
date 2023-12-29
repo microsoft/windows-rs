@@ -403,19 +403,8 @@ pub const WCN_VALUE_TRUE: WCN_VALUE_TYPE_BOOLEAN = WCN_VALUE_TYPE_BOOLEAN(1i32);
 pub const WCN_VALUE_VERSION_1_0: WCN_VALUE_TYPE_VERSION = WCN_VALUE_TYPE_VERSION(16i32);
 pub const WCN_VALUE_VERSION_2_0: WCN_VALUE_TYPE_VERSION = WCN_VALUE_TYPE_VERSION(32i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WCN_ATTRIBUTE_TYPE(pub i32);
-impl ::core::marker::Copy for WCN_ATTRIBUTE_TYPE {}
-impl ::core::clone::Clone for WCN_ATTRIBUTE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WCN_ATTRIBUTE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WCN_ATTRIBUTE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -425,19 +414,8 @@ impl ::core::fmt::Debug for WCN_ATTRIBUTE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WCN_PASSWORD_TYPE(pub i32);
-impl ::core::marker::Copy for WCN_PASSWORD_TYPE {}
-impl ::core::clone::Clone for WCN_PASSWORD_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WCN_PASSWORD_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WCN_PASSWORD_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -447,19 +425,8 @@ impl ::core::fmt::Debug for WCN_PASSWORD_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WCN_SESSION_STATUS(pub i32);
-impl ::core::marker::Copy for WCN_SESSION_STATUS {}
-impl ::core::clone::Clone for WCN_SESSION_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WCN_SESSION_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WCN_SESSION_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -469,19 +436,8 @@ impl ::core::fmt::Debug for WCN_SESSION_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WCN_VALUE_TYPE_ASSOCIATION_STATE(pub i32);
-impl ::core::marker::Copy for WCN_VALUE_TYPE_ASSOCIATION_STATE {}
-impl ::core::clone::Clone for WCN_VALUE_TYPE_ASSOCIATION_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WCN_VALUE_TYPE_ASSOCIATION_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WCN_VALUE_TYPE_ASSOCIATION_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -491,19 +447,8 @@ impl ::core::fmt::Debug for WCN_VALUE_TYPE_ASSOCIATION_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WCN_VALUE_TYPE_AUTHENTICATION_TYPE(pub i32);
-impl ::core::marker::Copy for WCN_VALUE_TYPE_AUTHENTICATION_TYPE {}
-impl ::core::clone::Clone for WCN_VALUE_TYPE_AUTHENTICATION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WCN_VALUE_TYPE_AUTHENTICATION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WCN_VALUE_TYPE_AUTHENTICATION_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -513,19 +458,8 @@ impl ::core::fmt::Debug for WCN_VALUE_TYPE_AUTHENTICATION_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WCN_VALUE_TYPE_BOOLEAN(pub i32);
-impl ::core::marker::Copy for WCN_VALUE_TYPE_BOOLEAN {}
-impl ::core::clone::Clone for WCN_VALUE_TYPE_BOOLEAN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WCN_VALUE_TYPE_BOOLEAN {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WCN_VALUE_TYPE_BOOLEAN {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -535,19 +469,8 @@ impl ::core::fmt::Debug for WCN_VALUE_TYPE_BOOLEAN {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WCN_VALUE_TYPE_CONFIGURATION_ERROR(pub i32);
-impl ::core::marker::Copy for WCN_VALUE_TYPE_CONFIGURATION_ERROR {}
-impl ::core::clone::Clone for WCN_VALUE_TYPE_CONFIGURATION_ERROR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WCN_VALUE_TYPE_CONFIGURATION_ERROR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WCN_VALUE_TYPE_CONFIGURATION_ERROR {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -557,19 +480,8 @@ impl ::core::fmt::Debug for WCN_VALUE_TYPE_CONFIGURATION_ERROR {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WCN_VALUE_TYPE_CONFIG_METHODS(pub i32);
-impl ::core::marker::Copy for WCN_VALUE_TYPE_CONFIG_METHODS {}
-impl ::core::clone::Clone for WCN_VALUE_TYPE_CONFIG_METHODS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WCN_VALUE_TYPE_CONFIG_METHODS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WCN_VALUE_TYPE_CONFIG_METHODS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -579,19 +491,8 @@ impl ::core::fmt::Debug for WCN_VALUE_TYPE_CONFIG_METHODS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WCN_VALUE_TYPE_CONNECTION_TYPE(pub i32);
-impl ::core::marker::Copy for WCN_VALUE_TYPE_CONNECTION_TYPE {}
-impl ::core::clone::Clone for WCN_VALUE_TYPE_CONNECTION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WCN_VALUE_TYPE_CONNECTION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WCN_VALUE_TYPE_CONNECTION_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -601,19 +502,8 @@ impl ::core::fmt::Debug for WCN_VALUE_TYPE_CONNECTION_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WCN_VALUE_TYPE_DEVICE_PASSWORD_ID(pub i32);
-impl ::core::marker::Copy for WCN_VALUE_TYPE_DEVICE_PASSWORD_ID {}
-impl ::core::clone::Clone for WCN_VALUE_TYPE_DEVICE_PASSWORD_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WCN_VALUE_TYPE_DEVICE_PASSWORD_ID {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WCN_VALUE_TYPE_DEVICE_PASSWORD_ID {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -623,19 +513,8 @@ impl ::core::fmt::Debug for WCN_VALUE_TYPE_DEVICE_PASSWORD_ID {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WCN_VALUE_TYPE_ENCRYPTION_TYPE(pub i32);
-impl ::core::marker::Copy for WCN_VALUE_TYPE_ENCRYPTION_TYPE {}
-impl ::core::clone::Clone for WCN_VALUE_TYPE_ENCRYPTION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WCN_VALUE_TYPE_ENCRYPTION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WCN_VALUE_TYPE_ENCRYPTION_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -645,19 +524,8 @@ impl ::core::fmt::Debug for WCN_VALUE_TYPE_ENCRYPTION_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WCN_VALUE_TYPE_MESSAGE_TYPE(pub i32);
-impl ::core::marker::Copy for WCN_VALUE_TYPE_MESSAGE_TYPE {}
-impl ::core::clone::Clone for WCN_VALUE_TYPE_MESSAGE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WCN_VALUE_TYPE_MESSAGE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WCN_VALUE_TYPE_MESSAGE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -667,19 +535,8 @@ impl ::core::fmt::Debug for WCN_VALUE_TYPE_MESSAGE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WCN_VALUE_TYPE_REQUEST_TYPE(pub i32);
-impl ::core::marker::Copy for WCN_VALUE_TYPE_REQUEST_TYPE {}
-impl ::core::clone::Clone for WCN_VALUE_TYPE_REQUEST_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WCN_VALUE_TYPE_REQUEST_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WCN_VALUE_TYPE_REQUEST_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -689,19 +546,8 @@ impl ::core::fmt::Debug for WCN_VALUE_TYPE_REQUEST_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WCN_VALUE_TYPE_RESPONSE_TYPE(pub i32);
-impl ::core::marker::Copy for WCN_VALUE_TYPE_RESPONSE_TYPE {}
-impl ::core::clone::Clone for WCN_VALUE_TYPE_RESPONSE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WCN_VALUE_TYPE_RESPONSE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WCN_VALUE_TYPE_RESPONSE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -711,19 +557,8 @@ impl ::core::fmt::Debug for WCN_VALUE_TYPE_RESPONSE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WCN_VALUE_TYPE_RF_BANDS(pub i32);
-impl ::core::marker::Copy for WCN_VALUE_TYPE_RF_BANDS {}
-impl ::core::clone::Clone for WCN_VALUE_TYPE_RF_BANDS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WCN_VALUE_TYPE_RF_BANDS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WCN_VALUE_TYPE_RF_BANDS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -733,19 +568,8 @@ impl ::core::fmt::Debug for WCN_VALUE_TYPE_RF_BANDS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WCN_VALUE_TYPE_VERSION(pub i32);
-impl ::core::marker::Copy for WCN_VALUE_TYPE_VERSION {}
-impl ::core::clone::Clone for WCN_VALUE_TYPE_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WCN_VALUE_TYPE_VERSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WCN_VALUE_TYPE_VERSION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -755,19 +579,8 @@ impl ::core::fmt::Debug for WCN_VALUE_TYPE_VERSION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE(pub i32);
-impl ::core::marker::Copy for WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE {}
-impl ::core::clone::Clone for WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE {
     type TypeKind = ::windows_core::CopyType;
 }

@@ -1700,22 +1700,11 @@ impl ::windows_core::RuntimeName for VideoMediaFrameFormat {
 unsafe impl ::core::marker::Send for VideoMediaFrameFormat {}
 unsafe impl ::core::marker::Sync for VideoMediaFrameFormat {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MediaFrameReaderAcquisitionMode(pub i32);
 impl MediaFrameReaderAcquisitionMode {
     pub const Realtime: Self = Self(0i32);
     pub const Buffered: Self = Self(1i32);
-}
-impl ::core::marker::Copy for MediaFrameReaderAcquisitionMode {}
-impl ::core::clone::Clone for MediaFrameReaderAcquisitionMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MediaFrameReaderAcquisitionMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MediaFrameReaderAcquisitionMode {
     type TypeKind = ::windows_core::CopyType;
@@ -1729,7 +1718,7 @@ impl ::windows_core::RuntimeType for MediaFrameReaderAcquisitionMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MediaFrameReaderAcquisitionMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MediaFrameReaderStartStatus(pub i32);
 impl MediaFrameReaderStartStatus {
     pub const Success: Self = Self(0i32);
@@ -1737,17 +1726,6 @@ impl MediaFrameReaderStartStatus {
     pub const DeviceNotAvailable: Self = Self(2i32);
     pub const OutputFormatNotSupported: Self = Self(3i32);
     pub const ExclusiveControlNotAvailable: Self = Self(4i32);
-}
-impl ::core::marker::Copy for MediaFrameReaderStartStatus {}
-impl ::core::clone::Clone for MediaFrameReaderStartStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MediaFrameReaderStartStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MediaFrameReaderStartStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -1761,7 +1739,7 @@ impl ::windows_core::RuntimeType for MediaFrameReaderStartStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MediaFrameReaderStartStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MediaFrameSourceGetPropertyStatus(pub i32);
 impl MediaFrameSourceGetPropertyStatus {
     pub const Success: Self = Self(0i32);
@@ -1770,17 +1748,6 @@ impl MediaFrameSourceGetPropertyStatus {
     pub const DeviceNotAvailable: Self = Self(3i32);
     pub const MaxPropertyValueSizeTooSmall: Self = Self(4i32);
     pub const MaxPropertyValueSizeRequired: Self = Self(5i32);
-}
-impl ::core::marker::Copy for MediaFrameSourceGetPropertyStatus {}
-impl ::core::clone::Clone for MediaFrameSourceGetPropertyStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MediaFrameSourceGetPropertyStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MediaFrameSourceGetPropertyStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -1794,7 +1761,7 @@ impl ::windows_core::RuntimeType for MediaFrameSourceGetPropertyStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MediaFrameSourceGetPropertyStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MediaFrameSourceKind(pub i32);
 impl MediaFrameSourceKind {
     pub const Custom: Self = Self(0i32);
@@ -1804,17 +1771,6 @@ impl MediaFrameSourceKind {
     pub const Audio: Self = Self(4i32);
     pub const Image: Self = Self(5i32);
     pub const Metadata: Self = Self(6i32);
-}
-impl ::core::marker::Copy for MediaFrameSourceKind {}
-impl ::core::clone::Clone for MediaFrameSourceKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MediaFrameSourceKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MediaFrameSourceKind {
     type TypeKind = ::windows_core::CopyType;
@@ -1828,7 +1784,7 @@ impl ::windows_core::RuntimeType for MediaFrameSourceKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MediaFrameSourceKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MediaFrameSourceSetPropertyStatus(pub i32);
 impl MediaFrameSourceSetPropertyStatus {
     pub const Success: Self = Self(0i32);
@@ -1837,17 +1793,6 @@ impl MediaFrameSourceSetPropertyStatus {
     pub const InvalidValue: Self = Self(3i32);
     pub const DeviceNotAvailable: Self = Self(4i32);
     pub const NotInControl: Self = Self(5i32);
-}
-impl ::core::marker::Copy for MediaFrameSourceSetPropertyStatus {}
-impl ::core::clone::Clone for MediaFrameSourceSetPropertyStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MediaFrameSourceSetPropertyStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MediaFrameSourceSetPropertyStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -1861,7 +1806,7 @@ impl ::windows_core::RuntimeType for MediaFrameSourceSetPropertyStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MediaFrameSourceSetPropertyStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MultiSourceMediaFrameReaderStartStatus(pub i32);
 impl MultiSourceMediaFrameReaderStartStatus {
     pub const Success: Self = Self(0i32);
@@ -1869,17 +1814,6 @@ impl MultiSourceMediaFrameReaderStartStatus {
     pub const InsufficientResources: Self = Self(2i32);
     pub const DeviceNotAvailable: Self = Self(3i32);
     pub const UnknownFailure: Self = Self(4i32);
-}
-impl ::core::marker::Copy for MultiSourceMediaFrameReaderStartStatus {}
-impl ::core::clone::Clone for MultiSourceMediaFrameReaderStartStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MultiSourceMediaFrameReaderStartStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MultiSourceMediaFrameReaderStartStatus {
     type TypeKind = ::windows_core::CopyType;

@@ -477,7 +477,7 @@ impl ::windows_core::RuntimeName for PlaceInfoHelper {
     const NAME: &'static str = "Windows.Services.Maps.LocalSearch.PlaceInfoHelper";
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct LocalLocationFinderStatus(pub i32);
 impl LocalLocationFinderStatus {
     pub const Success: Self = Self(0i32);
@@ -488,17 +488,6 @@ impl LocalLocationFinderStatus {
     pub const InvalidSearchArea: Self = Self(5i32);
     pub const NetworkFailure: Self = Self(6i32);
     pub const NotSupported: Self = Self(7i32);
-}
-impl ::core::marker::Copy for LocalLocationFinderStatus {}
-impl ::core::clone::Clone for LocalLocationFinderStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for LocalLocationFinderStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for LocalLocationFinderStatus {
     type TypeKind = ::windows_core::CopyType;

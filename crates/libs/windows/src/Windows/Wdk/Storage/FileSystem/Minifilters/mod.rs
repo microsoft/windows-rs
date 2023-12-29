@@ -2347,19 +2347,8 @@ pub const IRP_MJ_VOLUME_DISMOUNT: u16 = 65516u16;
 pub const IRP_MJ_VOLUME_MOUNT: u16 = 65517u16;
 pub const VOL_PROP_FL_DAX_VOLUME: u32 = 1u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FLT_CALLBACK_DATA_QUEUE_FLAGS(pub i32);
-impl ::core::marker::Copy for FLT_CALLBACK_DATA_QUEUE_FLAGS {}
-impl ::core::clone::Clone for FLT_CALLBACK_DATA_QUEUE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FLT_CALLBACK_DATA_QUEUE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FLT_CALLBACK_DATA_QUEUE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2369,19 +2358,8 @@ impl ::core::fmt::Debug for FLT_CALLBACK_DATA_QUEUE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FLT_POSTOP_CALLBACK_STATUS(pub i32);
-impl ::core::marker::Copy for FLT_POSTOP_CALLBACK_STATUS {}
-impl ::core::clone::Clone for FLT_POSTOP_CALLBACK_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FLT_POSTOP_CALLBACK_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FLT_POSTOP_CALLBACK_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2391,19 +2369,8 @@ impl ::core::fmt::Debug for FLT_POSTOP_CALLBACK_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FLT_PREOP_CALLBACK_STATUS(pub i32);
-impl ::core::marker::Copy for FLT_PREOP_CALLBACK_STATUS {}
-impl ::core::clone::Clone for FLT_PREOP_CALLBACK_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FLT_PREOP_CALLBACK_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FLT_PREOP_CALLBACK_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2413,19 +2380,8 @@ impl ::core::fmt::Debug for FLT_PREOP_CALLBACK_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FLT_SET_CONTEXT_OPERATION(pub i32);
-impl ::core::marker::Copy for FLT_SET_CONTEXT_OPERATION {}
-impl ::core::clone::Clone for FLT_SET_CONTEXT_OPERATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FLT_SET_CONTEXT_OPERATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FLT_SET_CONTEXT_OPERATION {
     type TypeKind = ::windows_core::CopyType;
 }

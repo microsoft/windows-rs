@@ -6081,24 +6081,13 @@ impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::ICon
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IWebAuthenticationBrokerContinuationEventArgs> for WebUIWebAuthenticationBrokerContinuationEventArgs {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PrintContent(pub i32);
 impl PrintContent {
     pub const AllPages: Self = Self(0i32);
     pub const CurrentPage: Self = Self(1i32);
     pub const CustomPageRange: Self = Self(2i32);
     pub const CurrentSelection: Self = Self(3i32);
-}
-impl ::core::marker::Copy for PrintContent {}
-impl ::core::clone::Clone for PrintContent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PrintContent {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PrintContent {
     type TypeKind = ::windows_core::CopyType;

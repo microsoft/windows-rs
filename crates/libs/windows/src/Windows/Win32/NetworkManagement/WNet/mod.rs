@@ -636,19 +636,8 @@ pub const WN_PRIMARY_AUTHENT_CLASS: u32 = 4u32;
 pub const WN_SERVICE_CLASS: u32 = 8u32;
 pub const WN_VALID_LOGON_ACCOUNT: u32 = 1u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CONNECTDLGSTRUCT_FLAGS(pub u32);
-impl ::core::marker::Copy for CONNECTDLGSTRUCT_FLAGS {}
-impl ::core::clone::Clone for CONNECTDLGSTRUCT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CONNECTDLGSTRUCT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CONNECTDLGSTRUCT_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -691,19 +680,8 @@ impl ::core::ops::Not for CONNECTDLGSTRUCT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISCDLGSTRUCT_FLAGS(pub u32);
-impl ::core::marker::Copy for DISCDLGSTRUCT_FLAGS {}
-impl ::core::clone::Clone for DISCDLGSTRUCT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISCDLGSTRUCT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISCDLGSTRUCT_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -746,19 +724,8 @@ impl ::core::ops::Not for DISCDLGSTRUCT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NETINFOSTRUCT_CHARACTERISTICS(pub u32);
-impl ::core::marker::Copy for NETINFOSTRUCT_CHARACTERISTICS {}
-impl ::core::clone::Clone for NETINFOSTRUCT_CHARACTERISTICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NETINFOSTRUCT_CHARACTERISTICS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NETINFOSTRUCT_CHARACTERISTICS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -801,19 +768,8 @@ impl ::core::ops::Not for NETINFOSTRUCT_CHARACTERISTICS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NETWORK_NAME_FORMAT_FLAGS(pub u32);
-impl ::core::marker::Copy for NETWORK_NAME_FORMAT_FLAGS {}
-impl ::core::clone::Clone for NETWORK_NAME_FORMAT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NETWORK_NAME_FORMAT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NETWORK_NAME_FORMAT_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -823,19 +779,8 @@ impl ::core::fmt::Debug for NETWORK_NAME_FORMAT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NET_RESOURCE_SCOPE(pub u32);
-impl ::core::marker::Copy for NET_RESOURCE_SCOPE {}
-impl ::core::clone::Clone for NET_RESOURCE_SCOPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NET_RESOURCE_SCOPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NET_RESOURCE_SCOPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -845,19 +790,8 @@ impl ::core::fmt::Debug for NET_RESOURCE_SCOPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NET_RESOURCE_TYPE(pub u32);
-impl ::core::marker::Copy for NET_RESOURCE_TYPE {}
-impl ::core::clone::Clone for NET_RESOURCE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NET_RESOURCE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NET_RESOURCE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -900,19 +834,8 @@ impl ::core::ops::Not for NET_RESOURCE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NET_USE_CONNECT_FLAGS(pub u32);
-impl ::core::marker::Copy for NET_USE_CONNECT_FLAGS {}
-impl ::core::clone::Clone for NET_USE_CONNECT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NET_USE_CONNECT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NET_USE_CONNECT_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -955,19 +878,8 @@ impl ::core::ops::Not for NET_USE_CONNECT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NPDIRECTORY_NOTIFY_OPERATION(pub u32);
-impl ::core::marker::Copy for NPDIRECTORY_NOTIFY_OPERATION {}
-impl ::core::clone::Clone for NPDIRECTORY_NOTIFY_OPERATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NPDIRECTORY_NOTIFY_OPERATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NPDIRECTORY_NOTIFY_OPERATION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -977,19 +889,8 @@ impl ::core::fmt::Debug for NPDIRECTORY_NOTIFY_OPERATION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NP_PROPERTY_DIALOG_SELECTION(pub u32);
-impl ::core::marker::Copy for NP_PROPERTY_DIALOG_SELECTION {}
-impl ::core::clone::Clone for NP_PROPERTY_DIALOG_SELECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NP_PROPERTY_DIALOG_SELECTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NP_PROPERTY_DIALOG_SELECTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -999,19 +900,8 @@ impl ::core::fmt::Debug for NP_PROPERTY_DIALOG_SELECTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UNC_INFO_LEVEL(pub u32);
-impl ::core::marker::Copy for UNC_INFO_LEVEL {}
-impl ::core::clone::Clone for UNC_INFO_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UNC_INFO_LEVEL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for UNC_INFO_LEVEL {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1021,19 +911,8 @@ impl ::core::fmt::Debug for UNC_INFO_LEVEL {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WNET_OPEN_ENUM_USAGE(pub u32);
-impl ::core::marker::Copy for WNET_OPEN_ENUM_USAGE {}
-impl ::core::clone::Clone for WNET_OPEN_ENUM_USAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WNET_OPEN_ENUM_USAGE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WNET_OPEN_ENUM_USAGE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1076,19 +955,8 @@ impl ::core::ops::Not for WNET_OPEN_ENUM_USAGE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WNPERM_DLG(pub u32);
-impl ::core::marker::Copy for WNPERM_DLG {}
-impl ::core::clone::Clone for WNPERM_DLG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WNPERM_DLG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WNPERM_DLG {
     type TypeKind = ::windows_core::CopyType;
 }

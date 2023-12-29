@@ -254,24 +254,13 @@ impl ::windows_core::RuntimeName for OfflineMapPackageStartDownloadResult {
 unsafe impl ::core::marker::Send for OfflineMapPackageStartDownloadResult {}
 unsafe impl ::core::marker::Sync for OfflineMapPackageStartDownloadResult {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OfflineMapPackageQueryStatus(pub i32);
 impl OfflineMapPackageQueryStatus {
     pub const Success: Self = Self(0i32);
     pub const UnknownError: Self = Self(1i32);
     pub const InvalidCredentials: Self = Self(2i32);
     pub const NetworkFailure: Self = Self(3i32);
-}
-impl ::core::marker::Copy for OfflineMapPackageQueryStatus {}
-impl ::core::clone::Clone for OfflineMapPackageQueryStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OfflineMapPackageQueryStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for OfflineMapPackageQueryStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -285,24 +274,13 @@ impl ::windows_core::RuntimeType for OfflineMapPackageQueryStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.OfflineMaps.OfflineMapPackageQueryStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OfflineMapPackageStartDownloadStatus(pub i32);
 impl OfflineMapPackageStartDownloadStatus {
     pub const Success: Self = Self(0i32);
     pub const UnknownError: Self = Self(1i32);
     pub const InvalidCredentials: Self = Self(2i32);
     pub const DeniedWithoutCapability: Self = Self(3i32);
-}
-impl ::core::marker::Copy for OfflineMapPackageStartDownloadStatus {}
-impl ::core::clone::Clone for OfflineMapPackageStartDownloadStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OfflineMapPackageStartDownloadStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for OfflineMapPackageStartDownloadStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -316,24 +294,13 @@ impl ::windows_core::RuntimeType for OfflineMapPackageStartDownloadStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.OfflineMaps.OfflineMapPackageStartDownloadStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OfflineMapPackageStatus(pub i32);
 impl OfflineMapPackageStatus {
     pub const NotDownloaded: Self = Self(0i32);
     pub const Downloading: Self = Self(1i32);
     pub const Downloaded: Self = Self(2i32);
     pub const Deleting: Self = Self(3i32);
-}
-impl ::core::marker::Copy for OfflineMapPackageStatus {}
-impl ::core::clone::Clone for OfflineMapPackageStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OfflineMapPackageStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for OfflineMapPackageStatus {
     type TypeKind = ::windows_core::CopyType;

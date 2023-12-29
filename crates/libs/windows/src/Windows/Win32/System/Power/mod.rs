@@ -1220,19 +1220,8 @@ pub const VerifySystemPolicyAc: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVE
 pub const VerifySystemPolicyDc: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(3i32);
 pub const WakeTimerList: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(50i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ACPI_TIME_RESOLUTION(pub i32);
-impl ::core::marker::Copy for ACPI_TIME_RESOLUTION {}
-impl ::core::clone::Clone for ACPI_TIME_RESOLUTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ACPI_TIME_RESOLUTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ACPI_TIME_RESOLUTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1242,19 +1231,8 @@ impl ::core::fmt::Debug for ACPI_TIME_RESOLUTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BATTERY_CHARGING_SOURCE_TYPE(pub i32);
-impl ::core::marker::Copy for BATTERY_CHARGING_SOURCE_TYPE {}
-impl ::core::clone::Clone for BATTERY_CHARGING_SOURCE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BATTERY_CHARGING_SOURCE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for BATTERY_CHARGING_SOURCE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1264,19 +1242,8 @@ impl ::core::fmt::Debug for BATTERY_CHARGING_SOURCE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BATTERY_QUERY_INFORMATION_LEVEL(pub i32);
-impl ::core::marker::Copy for BATTERY_QUERY_INFORMATION_LEVEL {}
-impl ::core::clone::Clone for BATTERY_QUERY_INFORMATION_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BATTERY_QUERY_INFORMATION_LEVEL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for BATTERY_QUERY_INFORMATION_LEVEL {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1286,19 +1253,8 @@ impl ::core::fmt::Debug for BATTERY_QUERY_INFORMATION_LEVEL {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BATTERY_SET_INFORMATION_LEVEL(pub i32);
-impl ::core::marker::Copy for BATTERY_SET_INFORMATION_LEVEL {}
-impl ::core::clone::Clone for BATTERY_SET_INFORMATION_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BATTERY_SET_INFORMATION_LEVEL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for BATTERY_SET_INFORMATION_LEVEL {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1308,19 +1264,8 @@ impl ::core::fmt::Debug for BATTERY_SET_INFORMATION_LEVEL {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DEVICE_POWER_STATE(pub i32);
-impl ::core::marker::Copy for DEVICE_POWER_STATE {}
-impl ::core::clone::Clone for DEVICE_POWER_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DEVICE_POWER_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DEVICE_POWER_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1330,19 +1275,8 @@ impl ::core::fmt::Debug for DEVICE_POWER_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EFFECTIVE_POWER_MODE(pub i32);
-impl ::core::marker::Copy for EFFECTIVE_POWER_MODE {}
-impl ::core::clone::Clone for EFFECTIVE_POWER_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EFFECTIVE_POWER_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EFFECTIVE_POWER_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1352,19 +1286,8 @@ impl ::core::fmt::Debug for EFFECTIVE_POWER_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EMI_MEASUREMENT_UNIT(pub i32);
-impl ::core::marker::Copy for EMI_MEASUREMENT_UNIT {}
-impl ::core::clone::Clone for EMI_MEASUREMENT_UNIT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EMI_MEASUREMENT_UNIT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EMI_MEASUREMENT_UNIT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1374,19 +1297,8 @@ impl ::core::fmt::Debug for EMI_MEASUREMENT_UNIT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EXECUTION_STATE(pub u32);
-impl ::core::marker::Copy for EXECUTION_STATE {}
-impl ::core::clone::Clone for EXECUTION_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EXECUTION_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EXECUTION_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1429,19 +1341,8 @@ impl ::core::ops::Not for EXECUTION_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct LATENCY_TIME(pub i32);
-impl ::core::marker::Copy for LATENCY_TIME {}
-impl ::core::clone::Clone for LATENCY_TIME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for LATENCY_TIME {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for LATENCY_TIME {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1451,19 +1352,8 @@ impl ::core::fmt::Debug for LATENCY_TIME {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct POWER_ACTION(pub i32);
-impl ::core::marker::Copy for POWER_ACTION {}
-impl ::core::clone::Clone for POWER_ACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for POWER_ACTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for POWER_ACTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1473,19 +1363,8 @@ impl ::core::fmt::Debug for POWER_ACTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct POWER_ACTION_POLICY_EVENT_CODE(pub u32);
-impl ::core::marker::Copy for POWER_ACTION_POLICY_EVENT_CODE {}
-impl ::core::clone::Clone for POWER_ACTION_POLICY_EVENT_CODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for POWER_ACTION_POLICY_EVENT_CODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for POWER_ACTION_POLICY_EVENT_CODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1528,19 +1407,8 @@ impl ::core::ops::Not for POWER_ACTION_POLICY_EVENT_CODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct POWER_COOLING_MODE(pub u16);
-impl ::core::marker::Copy for POWER_COOLING_MODE {}
-impl ::core::clone::Clone for POWER_COOLING_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for POWER_COOLING_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for POWER_COOLING_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1550,19 +1418,8 @@ impl ::core::fmt::Debug for POWER_COOLING_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct POWER_DATA_ACCESSOR(pub i32);
-impl ::core::marker::Copy for POWER_DATA_ACCESSOR {}
-impl ::core::clone::Clone for POWER_DATA_ACCESSOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for POWER_DATA_ACCESSOR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for POWER_DATA_ACCESSOR {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1572,19 +1429,8 @@ impl ::core::fmt::Debug for POWER_DATA_ACCESSOR {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct POWER_INFORMATION_LEVEL(pub i32);
-impl ::core::marker::Copy for POWER_INFORMATION_LEVEL {}
-impl ::core::clone::Clone for POWER_INFORMATION_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for POWER_INFORMATION_LEVEL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for POWER_INFORMATION_LEVEL {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1594,19 +1440,8 @@ impl ::core::fmt::Debug for POWER_INFORMATION_LEVEL {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct POWER_MONITOR_REQUEST_REASON(pub i32);
-impl ::core::marker::Copy for POWER_MONITOR_REQUEST_REASON {}
-impl ::core::clone::Clone for POWER_MONITOR_REQUEST_REASON {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for POWER_MONITOR_REQUEST_REASON {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for POWER_MONITOR_REQUEST_REASON {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1616,19 +1451,8 @@ impl ::core::fmt::Debug for POWER_MONITOR_REQUEST_REASON {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct POWER_MONITOR_REQUEST_TYPE(pub i32);
-impl ::core::marker::Copy for POWER_MONITOR_REQUEST_TYPE {}
-impl ::core::clone::Clone for POWER_MONITOR_REQUEST_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for POWER_MONITOR_REQUEST_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for POWER_MONITOR_REQUEST_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1638,19 +1462,8 @@ impl ::core::fmt::Debug for POWER_MONITOR_REQUEST_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct POWER_PLATFORM_ROLE(pub i32);
-impl ::core::marker::Copy for POWER_PLATFORM_ROLE {}
-impl ::core::clone::Clone for POWER_PLATFORM_ROLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for POWER_PLATFORM_ROLE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for POWER_PLATFORM_ROLE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1660,19 +1473,8 @@ impl ::core::fmt::Debug for POWER_PLATFORM_ROLE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct POWER_PLATFORM_ROLE_VERSION(pub u32);
-impl ::core::marker::Copy for POWER_PLATFORM_ROLE_VERSION {}
-impl ::core::clone::Clone for POWER_PLATFORM_ROLE_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for POWER_PLATFORM_ROLE_VERSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for POWER_PLATFORM_ROLE_VERSION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1682,19 +1484,8 @@ impl ::core::fmt::Debug for POWER_PLATFORM_ROLE_VERSION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct POWER_REQUEST_TYPE(pub i32);
-impl ::core::marker::Copy for POWER_REQUEST_TYPE {}
-impl ::core::clone::Clone for POWER_REQUEST_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for POWER_REQUEST_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for POWER_REQUEST_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1704,19 +1495,8 @@ impl ::core::fmt::Debug for POWER_REQUEST_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct POWER_SETTING_ALTITUDE(pub i32);
-impl ::core::marker::Copy for POWER_SETTING_ALTITUDE {}
-impl ::core::clone::Clone for POWER_SETTING_ALTITUDE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for POWER_SETTING_ALTITUDE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for POWER_SETTING_ALTITUDE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1726,19 +1506,8 @@ impl ::core::fmt::Debug for POWER_SETTING_ALTITUDE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct POWER_USER_PRESENCE_TYPE(pub i32);
-impl ::core::marker::Copy for POWER_USER_PRESENCE_TYPE {}
-impl ::core::clone::Clone for POWER_USER_PRESENCE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for POWER_USER_PRESENCE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for POWER_USER_PRESENCE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1748,19 +1517,8 @@ impl ::core::fmt::Debug for POWER_USER_PRESENCE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SYSTEM_POWER_CONDITION(pub i32);
-impl ::core::marker::Copy for SYSTEM_POWER_CONDITION {}
-impl ::core::clone::Clone for SYSTEM_POWER_CONDITION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SYSTEM_POWER_CONDITION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SYSTEM_POWER_CONDITION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1770,19 +1528,8 @@ impl ::core::fmt::Debug for SYSTEM_POWER_CONDITION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SYSTEM_POWER_STATE(pub i32);
-impl ::core::marker::Copy for SYSTEM_POWER_STATE {}
-impl ::core::clone::Clone for SYSTEM_POWER_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SYSTEM_POWER_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SYSTEM_POWER_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1792,19 +1539,8 @@ impl ::core::fmt::Debug for SYSTEM_POWER_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct USB_CHARGER_PORT(pub i32);
-impl ::core::marker::Copy for USB_CHARGER_PORT {}
-impl ::core::clone::Clone for USB_CHARGER_PORT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for USB_CHARGER_PORT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for USB_CHARGER_PORT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1814,19 +1550,8 @@ impl ::core::fmt::Debug for USB_CHARGER_PORT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct USER_ACTIVITY_PRESENCE(pub i32);
-impl ::core::marker::Copy for USER_ACTIVITY_PRESENCE {}
-impl ::core::clone::Clone for USER_ACTIVITY_PRESENCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for USER_ACTIVITY_PRESENCE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for USER_ACTIVITY_PRESENCE {
     type TypeKind = ::windows_core::CopyType;
 }

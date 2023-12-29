@@ -349,19 +349,8 @@ pub const SI_SHOW_PERM_ACTIVATED: SI_PAGE_ACTIVATED = SI_PAGE_ACTIVATED(1i32);
 pub const SI_SHOW_SHARE_ACTIVATED: SI_PAGE_ACTIVATED = SI_PAGE_ACTIVATED(5i32);
 pub const SI_VIEW_ONLY: SI_OBJECT_INFO_FLAGS = SI_OBJECT_INFO_FLAGS(4194304u32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SECURITY_INFO_PAGE_FLAGS(pub u32);
-impl ::core::marker::Copy for SECURITY_INFO_PAGE_FLAGS {}
-impl ::core::clone::Clone for SECURITY_INFO_PAGE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SECURITY_INFO_PAGE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SECURITY_INFO_PAGE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -404,19 +393,8 @@ impl ::core::ops::Not for SECURITY_INFO_PAGE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SI_OBJECT_INFO_FLAGS(pub u32);
-impl ::core::marker::Copy for SI_OBJECT_INFO_FLAGS {}
-impl ::core::clone::Clone for SI_OBJECT_INFO_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SI_OBJECT_INFO_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SI_OBJECT_INFO_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -459,19 +437,8 @@ impl ::core::ops::Not for SI_OBJECT_INFO_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SI_PAGE_ACTIVATED(pub i32);
-impl ::core::marker::Copy for SI_PAGE_ACTIVATED {}
-impl ::core::clone::Clone for SI_PAGE_ACTIVATED {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SI_PAGE_ACTIVATED {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SI_PAGE_ACTIVATED {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -481,19 +448,8 @@ impl ::core::fmt::Debug for SI_PAGE_ACTIVATED {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SI_PAGE_TYPE(pub i32);
-impl ::core::marker::Copy for SI_PAGE_TYPE {}
-impl ::core::clone::Clone for SI_PAGE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SI_PAGE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SI_PAGE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }

@@ -61,19 +61,8 @@ pub const WLX_VERSION_1_3: u32 = 65539u32;
 pub const WLX_VERSION_1_4: u32 = 65540u32;
 pub const WLX_WM_SAS: u32 = 1625u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WLX_SHUTDOWN_TYPE(pub u32);
-impl ::core::marker::Copy for WLX_SHUTDOWN_TYPE {}
-impl ::core::clone::Clone for WLX_SHUTDOWN_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WLX_SHUTDOWN_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WLX_SHUTDOWN_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }

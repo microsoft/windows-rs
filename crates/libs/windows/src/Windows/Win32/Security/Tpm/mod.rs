@@ -299,19 +299,8 @@ pub const TPMVSC_ATTESTATION_NONE: TPMVSC_ATTESTATION_TYPE = TPMVSC_ATTESTATION_
 pub const TPMVSC_DEFAULT_ADMIN_ALGORITHM_ID: u32 = 130u32;
 pub const TpmVirtualSmartCardManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x16a18e86_7f6e_4c20_ad89_4ffc0db7a96a);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TPMVSCMGR_ERROR(pub i32);
-impl ::core::marker::Copy for TPMVSCMGR_ERROR {}
-impl ::core::clone::Clone for TPMVSCMGR_ERROR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TPMVSCMGR_ERROR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TPMVSCMGR_ERROR {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -321,19 +310,8 @@ impl ::core::fmt::Debug for TPMVSCMGR_ERROR {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TPMVSCMGR_STATUS(pub i32);
-impl ::core::marker::Copy for TPMVSCMGR_STATUS {}
-impl ::core::clone::Clone for TPMVSCMGR_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TPMVSCMGR_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TPMVSCMGR_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -343,19 +321,8 @@ impl ::core::fmt::Debug for TPMVSCMGR_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TPMVSC_ATTESTATION_TYPE(pub i32);
-impl ::core::marker::Copy for TPMVSC_ATTESTATION_TYPE {}
-impl ::core::clone::Clone for TPMVSC_ATTESTATION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TPMVSC_ATTESTATION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TPMVSC_ATTESTATION_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }

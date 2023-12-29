@@ -78,24 +78,13 @@ impl ::windows_core::RuntimeName for GeolocationProvider {
 unsafe impl ::core::marker::Send for GeolocationProvider {}
 unsafe impl ::core::marker::Sync for GeolocationProvider {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct LocationOverrideStatus(pub i32);
 impl LocationOverrideStatus {
     pub const Success: Self = Self(0i32);
     pub const AccessDenied: Self = Self(1i32);
     pub const AlreadyStarted: Self = Self(2i32);
     pub const Other: Self = Self(3i32);
-}
-impl ::core::marker::Copy for LocationOverrideStatus {}
-impl ::core::clone::Clone for LocationOverrideStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for LocationOverrideStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for LocationOverrideStatus {
     type TypeKind = ::windows_core::CopyType;

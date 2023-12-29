@@ -1780,22 +1780,11 @@ impl ::windows_core::RuntimeName for BarcodeSymbologyAttributesBuilder {
 unsafe impl ::core::marker::Send for BarcodeSymbologyAttributesBuilder {}
 unsafe impl ::core::marker::Sync for BarcodeSymbologyAttributesBuilder {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BarcodeScannerTriggerState(pub i32);
 impl BarcodeScannerTriggerState {
     pub const Released: Self = Self(0i32);
     pub const Pressed: Self = Self(1i32);
-}
-impl ::core::marker::Copy for BarcodeScannerTriggerState {}
-impl ::core::clone::Clone for BarcodeScannerTriggerState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BarcodeScannerTriggerState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for BarcodeScannerTriggerState {
     type TypeKind = ::windows_core::CopyType;

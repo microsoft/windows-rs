@@ -1115,22 +1115,11 @@ impl ::windows_core::RuntimeName for UserActivityVisualElements {
 unsafe impl ::core::marker::Send for UserActivityVisualElements {}
 unsafe impl ::core::marker::Sync for UserActivityVisualElements {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UserActivityState(pub i32);
 impl UserActivityState {
     pub const New: Self = Self(0i32);
     pub const Published: Self = Self(1i32);
-}
-impl ::core::marker::Copy for UserActivityState {}
-impl ::core::clone::Clone for UserActivityState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UserActivityState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for UserActivityState {
     type TypeKind = ::windows_core::CopyType;

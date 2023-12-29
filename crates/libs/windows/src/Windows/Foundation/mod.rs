@@ -2451,24 +2451,13 @@ impl ::windows_core::CanTryInto<IWwwFormUrlDecoderEntry> for WwwFormUrlDecoderEn
 unsafe impl ::core::marker::Send for WwwFormUrlDecoderEntry {}
 unsafe impl ::core::marker::Sync for WwwFormUrlDecoderEntry {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AsyncStatus(pub i32);
 impl AsyncStatus {
     pub const Canceled: Self = Self(2i32);
     pub const Completed: Self = Self(1i32);
     pub const Error: Self = Self(3i32);
     pub const Started: Self = Self(0i32);
-}
-impl ::core::marker::Copy for AsyncStatus {}
-impl ::core::clone::Clone for AsyncStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AsyncStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AsyncStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -2482,7 +2471,7 @@ impl ::windows_core::RuntimeType for AsyncStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.AsyncStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PropertyType(pub i32);
 impl PropertyType {
     pub const Empty: Self = Self(0i32);
@@ -2526,17 +2515,6 @@ impl PropertyType {
     pub const SizeArray: Self = Self(1042i32);
     pub const RectArray: Self = Self(1043i32);
     pub const OtherTypeArray: Self = Self(1044i32);
-}
-impl ::core::marker::Copy for PropertyType {}
-impl ::core::clone::Clone for PropertyType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PropertyType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PropertyType {
     type TypeKind = ::windows_core::CopyType;

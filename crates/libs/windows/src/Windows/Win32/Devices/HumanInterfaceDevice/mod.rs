@@ -4615,19 +4615,8 @@ pub const WHEELMOUSE_HID_HARDWARE: u32 = 256u32;
 pub const WHEELMOUSE_I8042_HARDWARE: u32 = 32u32;
 pub const WHEELMOUSE_SERIAL_HARDWARE: u32 = 64u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GPIOBUTTONS_BUTTON_TYPE(pub i32);
-impl ::core::marker::Copy for GPIOBUTTONS_BUTTON_TYPE {}
-impl ::core::clone::Clone for GPIOBUTTONS_BUTTON_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GPIOBUTTONS_BUTTON_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for GPIOBUTTONS_BUTTON_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4637,19 +4626,8 @@ impl ::core::fmt::Debug for GPIOBUTTONS_BUTTON_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HIDP_KEYBOARD_DIRECTION(pub i32);
-impl ::core::marker::Copy for HIDP_KEYBOARD_DIRECTION {}
-impl ::core::clone::Clone for HIDP_KEYBOARD_DIRECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HIDP_KEYBOARD_DIRECTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HIDP_KEYBOARD_DIRECTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4659,19 +4637,8 @@ impl ::core::fmt::Debug for HIDP_KEYBOARD_DIRECTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HIDP_REPORT_TYPE(pub i32);
-impl ::core::marker::Copy for HIDP_REPORT_TYPE {}
-impl ::core::clone::Clone for HIDP_REPORT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HIDP_REPORT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HIDP_REPORT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }

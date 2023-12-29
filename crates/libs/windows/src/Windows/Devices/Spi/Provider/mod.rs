@@ -251,24 +251,13 @@ impl ::windows_core::RuntimeName for ProviderSpiConnectionSettings {
 unsafe impl ::core::marker::Send for ProviderSpiConnectionSettings {}
 unsafe impl ::core::marker::Sync for ProviderSpiConnectionSettings {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ProviderSpiMode(pub i32);
 impl ProviderSpiMode {
     pub const Mode0: Self = Self(0i32);
     pub const Mode1: Self = Self(1i32);
     pub const Mode2: Self = Self(2i32);
     pub const Mode3: Self = Self(3i32);
-}
-impl ::core::marker::Copy for ProviderSpiMode {}
-impl ::core::clone::Clone for ProviderSpiMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ProviderSpiMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ProviderSpiMode {
     type TypeKind = ::windows_core::CopyType;
@@ -282,22 +271,11 @@ impl ::windows_core::RuntimeType for ProviderSpiMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Spi.Provider.ProviderSpiMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ProviderSpiSharingMode(pub i32);
 impl ProviderSpiSharingMode {
     pub const Exclusive: Self = Self(0i32);
     pub const Shared: Self = Self(1i32);
-}
-impl ::core::marker::Copy for ProviderSpiSharingMode {}
-impl ::core::clone::Clone for ProviderSpiSharingMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ProviderSpiSharingMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ProviderSpiSharingMode {
     type TypeKind = ::windows_core::CopyType;

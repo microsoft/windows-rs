@@ -694,19 +694,8 @@ pub const DRM_USAGEPOLICY_TYPE_OSEXCLUSION: DRM_USAGEPOLICY_TYPE = DRM_USAGEPOLI
 pub const MSDRM_CLIENT_ZONE: u32 = 52992u32;
 pub const MSDRM_POLICY_ZONE: u32 = 37632u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DRMATTESTTYPE(pub i32);
-impl ::core::marker::Copy for DRMATTESTTYPE {}
-impl ::core::clone::Clone for DRMATTESTTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DRMATTESTTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DRMATTESTTYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -716,19 +705,8 @@ impl ::core::fmt::Debug for DRMATTESTTYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DRMENCODINGTYPE(pub i32);
-impl ::core::marker::Copy for DRMENCODINGTYPE {}
-impl ::core::clone::Clone for DRMENCODINGTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DRMENCODINGTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DRMENCODINGTYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -738,19 +716,8 @@ impl ::core::fmt::Debug for DRMENCODINGTYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DRMGLOBALOPTIONS(pub i32);
-impl ::core::marker::Copy for DRMGLOBALOPTIONS {}
-impl ::core::clone::Clone for DRMGLOBALOPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DRMGLOBALOPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DRMGLOBALOPTIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -760,19 +727,8 @@ impl ::core::fmt::Debug for DRMGLOBALOPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DRMSECURITYPROVIDERTYPE(pub i32);
-impl ::core::marker::Copy for DRMSECURITYPROVIDERTYPE {}
-impl ::core::clone::Clone for DRMSECURITYPROVIDERTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DRMSECURITYPROVIDERTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DRMSECURITYPROVIDERTYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -782,19 +738,8 @@ impl ::core::fmt::Debug for DRMSECURITYPROVIDERTYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DRMSPECTYPE(pub i32);
-impl ::core::marker::Copy for DRMSPECTYPE {}
-impl ::core::clone::Clone for DRMSPECTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DRMSPECTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DRMSPECTYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -804,19 +749,8 @@ impl ::core::fmt::Debug for DRMSPECTYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DRMTIMETYPE(pub i32);
-impl ::core::marker::Copy for DRMTIMETYPE {}
-impl ::core::clone::Clone for DRMTIMETYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DRMTIMETYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DRMTIMETYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -826,19 +760,8 @@ impl ::core::fmt::Debug for DRMTIMETYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DRM_DISTRIBUTION_POINT_INFO(pub i32);
-impl ::core::marker::Copy for DRM_DISTRIBUTION_POINT_INFO {}
-impl ::core::clone::Clone for DRM_DISTRIBUTION_POINT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DRM_DISTRIBUTION_POINT_INFO {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DRM_DISTRIBUTION_POINT_INFO {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -848,19 +771,8 @@ impl ::core::fmt::Debug for DRM_DISTRIBUTION_POINT_INFO {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DRM_STATUS_MSG(pub i32);
-impl ::core::marker::Copy for DRM_STATUS_MSG {}
-impl ::core::clone::Clone for DRM_STATUS_MSG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DRM_STATUS_MSG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DRM_STATUS_MSG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -870,19 +782,8 @@ impl ::core::fmt::Debug for DRM_STATUS_MSG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DRM_USAGEPOLICY_TYPE(pub i32);
-impl ::core::marker::Copy for DRM_USAGEPOLICY_TYPE {}
-impl ::core::clone::Clone for DRM_USAGEPOLICY_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DRM_USAGEPOLICY_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DRM_USAGEPOLICY_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }

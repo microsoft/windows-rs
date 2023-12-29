@@ -7977,19 +7977,8 @@ pub const usrsRegistrationPending: UpdateServiceRegistrationState = UpdateServic
 pub const utDriver: UpdateType = UpdateType(2i32);
 pub const utSoftware: UpdateType = UpdateType(1i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AddServiceFlag(pub i32);
-impl ::core::marker::Copy for AddServiceFlag {}
-impl ::core::clone::Clone for AddServiceFlag {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AddServiceFlag {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AddServiceFlag {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7999,19 +7988,8 @@ impl ::core::fmt::Debug for AddServiceFlag {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AutoDownloadMode(pub i32);
-impl ::core::marker::Copy for AutoDownloadMode {}
-impl ::core::clone::Clone for AutoDownloadMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AutoDownloadMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AutoDownloadMode {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8021,19 +7999,8 @@ impl ::core::fmt::Debug for AutoDownloadMode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AutoSelectionMode(pub i32);
-impl ::core::marker::Copy for AutoSelectionMode {}
-impl ::core::clone::Clone for AutoSelectionMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AutoSelectionMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AutoSelectionMode {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8043,19 +8010,8 @@ impl ::core::fmt::Debug for AutoSelectionMode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AutomaticUpdatesNotificationLevel(pub i32);
-impl ::core::marker::Copy for AutomaticUpdatesNotificationLevel {}
-impl ::core::clone::Clone for AutomaticUpdatesNotificationLevel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AutomaticUpdatesNotificationLevel {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AutomaticUpdatesNotificationLevel {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8065,19 +8021,8 @@ impl ::core::fmt::Debug for AutomaticUpdatesNotificationLevel {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AutomaticUpdatesPermissionType(pub i32);
-impl ::core::marker::Copy for AutomaticUpdatesPermissionType {}
-impl ::core::clone::Clone for AutomaticUpdatesPermissionType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AutomaticUpdatesPermissionType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AutomaticUpdatesPermissionType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8087,19 +8032,8 @@ impl ::core::fmt::Debug for AutomaticUpdatesPermissionType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AutomaticUpdatesScheduledInstallationDay(pub i32);
-impl ::core::marker::Copy for AutomaticUpdatesScheduledInstallationDay {}
-impl ::core::clone::Clone for AutomaticUpdatesScheduledInstallationDay {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AutomaticUpdatesScheduledInstallationDay {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AutomaticUpdatesScheduledInstallationDay {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8109,19 +8043,8 @@ impl ::core::fmt::Debug for AutomaticUpdatesScheduledInstallationDay {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AutomaticUpdatesUserType(pub i32);
-impl ::core::marker::Copy for AutomaticUpdatesUserType {}
-impl ::core::clone::Clone for AutomaticUpdatesUserType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AutomaticUpdatesUserType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AutomaticUpdatesUserType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8131,19 +8054,8 @@ impl ::core::fmt::Debug for AutomaticUpdatesUserType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DeploymentAction(pub i32);
-impl ::core::marker::Copy for DeploymentAction {}
-impl ::core::clone::Clone for DeploymentAction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DeploymentAction {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DeploymentAction {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8153,19 +8065,8 @@ impl ::core::fmt::Debug for DeploymentAction {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DownloadPhase(pub i32);
-impl ::core::marker::Copy for DownloadPhase {}
-impl ::core::clone::Clone for DownloadPhase {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DownloadPhase {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DownloadPhase {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8175,19 +8076,8 @@ impl ::core::fmt::Debug for DownloadPhase {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DownloadPriority(pub i32);
-impl ::core::marker::Copy for DownloadPriority {}
-impl ::core::clone::Clone for DownloadPriority {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DownloadPriority {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DownloadPriority {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8197,19 +8087,8 @@ impl ::core::fmt::Debug for DownloadPriority {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InstallationImpact(pub i32);
-impl ::core::marker::Copy for InstallationImpact {}
-impl ::core::clone::Clone for InstallationImpact {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InstallationImpact {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for InstallationImpact {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8219,19 +8098,8 @@ impl ::core::fmt::Debug for InstallationImpact {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InstallationRebootBehavior(pub i32);
-impl ::core::marker::Copy for InstallationRebootBehavior {}
-impl ::core::clone::Clone for InstallationRebootBehavior {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InstallationRebootBehavior {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for InstallationRebootBehavior {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8241,19 +8109,8 @@ impl ::core::fmt::Debug for InstallationRebootBehavior {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OperationResultCode(pub i32);
-impl ::core::marker::Copy for OperationResultCode {}
-impl ::core::clone::Clone for OperationResultCode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OperationResultCode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OperationResultCode {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8263,19 +8120,8 @@ impl ::core::fmt::Debug for OperationResultCode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SearchScope(pub i32);
-impl ::core::marker::Copy for SearchScope {}
-impl ::core::clone::Clone for SearchScope {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SearchScope {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SearchScope {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8285,19 +8131,8 @@ impl ::core::fmt::Debug for SearchScope {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ServerSelection(pub i32);
-impl ::core::marker::Copy for ServerSelection {}
-impl ::core::clone::Clone for ServerSelection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ServerSelection {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ServerSelection {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8307,19 +8142,8 @@ impl ::core::fmt::Debug for ServerSelection {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UpdateExceptionContext(pub i32);
-impl ::core::marker::Copy for UpdateExceptionContext {}
-impl ::core::clone::Clone for UpdateExceptionContext {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UpdateExceptionContext {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for UpdateExceptionContext {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8329,19 +8153,8 @@ impl ::core::fmt::Debug for UpdateExceptionContext {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UpdateLockdownOption(pub i32);
-impl ::core::marker::Copy for UpdateLockdownOption {}
-impl ::core::clone::Clone for UpdateLockdownOption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UpdateLockdownOption {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for UpdateLockdownOption {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8351,19 +8164,8 @@ impl ::core::fmt::Debug for UpdateLockdownOption {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UpdateOperation(pub i32);
-impl ::core::marker::Copy for UpdateOperation {}
-impl ::core::clone::Clone for UpdateOperation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UpdateOperation {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for UpdateOperation {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8373,19 +8175,8 @@ impl ::core::fmt::Debug for UpdateOperation {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UpdateServiceOption(pub i32);
-impl ::core::marker::Copy for UpdateServiceOption {}
-impl ::core::clone::Clone for UpdateServiceOption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UpdateServiceOption {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for UpdateServiceOption {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8395,19 +8186,8 @@ impl ::core::fmt::Debug for UpdateServiceOption {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UpdateServiceRegistrationState(pub i32);
-impl ::core::marker::Copy for UpdateServiceRegistrationState {}
-impl ::core::clone::Clone for UpdateServiceRegistrationState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UpdateServiceRegistrationState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for UpdateServiceRegistrationState {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8417,19 +8197,8 @@ impl ::core::fmt::Debug for UpdateServiceRegistrationState {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UpdateType(pub i32);
-impl ::core::marker::Copy for UpdateType {}
-impl ::core::clone::Clone for UpdateType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UpdateType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for UpdateType {
     type TypeKind = ::windows_core::CopyType;
 }

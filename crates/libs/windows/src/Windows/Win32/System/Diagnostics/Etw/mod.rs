@@ -1448,19 +1448,8 @@ pub const WNODE_FLAG_USE_MOF_PTR: u32 = 1048576u32;
 pub const WNODE_FLAG_USE_TIMESTAMP: u32 = 512u32;
 pub const WNODE_FLAG_VERSIONED_PROPERTIES: u32 = 8388608u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DECODING_SOURCE(pub i32);
-impl ::core::marker::Copy for DECODING_SOURCE {}
-impl ::core::clone::Clone for DECODING_SOURCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DECODING_SOURCE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DECODING_SOURCE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1470,19 +1459,8 @@ impl ::core::fmt::Debug for DECODING_SOURCE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ENABLECALLBACK_ENABLED_STATE(pub u32);
-impl ::core::marker::Copy for ENABLECALLBACK_ENABLED_STATE {}
-impl ::core::clone::Clone for ENABLECALLBACK_ENABLED_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ENABLECALLBACK_ENABLED_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ENABLECALLBACK_ENABLED_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1492,19 +1470,8 @@ impl ::core::fmt::Debug for ENABLECALLBACK_ENABLED_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ETW_COMPRESSION_RESUMPTION_MODE(pub i32);
-impl ::core::marker::Copy for ETW_COMPRESSION_RESUMPTION_MODE {}
-impl ::core::clone::Clone for ETW_COMPRESSION_RESUMPTION_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ETW_COMPRESSION_RESUMPTION_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ETW_COMPRESSION_RESUMPTION_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1514,19 +1481,8 @@ impl ::core::fmt::Debug for ETW_COMPRESSION_RESUMPTION_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ETW_PMC_COUNTER_OWNER_TYPE(pub i32);
-impl ::core::marker::Copy for ETW_PMC_COUNTER_OWNER_TYPE {}
-impl ::core::clone::Clone for ETW_PMC_COUNTER_OWNER_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ETW_PMC_COUNTER_OWNER_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ETW_PMC_COUNTER_OWNER_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1536,19 +1492,8 @@ impl ::core::fmt::Debug for ETW_PMC_COUNTER_OWNER_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ETW_PROCESS_HANDLE_INFO_TYPE(pub i32);
-impl ::core::marker::Copy for ETW_PROCESS_HANDLE_INFO_TYPE {}
-impl ::core::clone::Clone for ETW_PROCESS_HANDLE_INFO_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ETW_PROCESS_HANDLE_INFO_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ETW_PROCESS_HANDLE_INFO_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1558,19 +1503,8 @@ impl ::core::fmt::Debug for ETW_PROCESS_HANDLE_INFO_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ETW_PROCESS_TRACE_MODES(pub i32);
-impl ::core::marker::Copy for ETW_PROCESS_TRACE_MODES {}
-impl ::core::clone::Clone for ETW_PROCESS_TRACE_MODES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ETW_PROCESS_TRACE_MODES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ETW_PROCESS_TRACE_MODES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1580,19 +1514,8 @@ impl ::core::fmt::Debug for ETW_PROCESS_TRACE_MODES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ETW_PROVIDER_TRAIT_TYPE(pub i32);
-impl ::core::marker::Copy for ETW_PROVIDER_TRAIT_TYPE {}
-impl ::core::clone::Clone for ETW_PROVIDER_TRAIT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ETW_PROVIDER_TRAIT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ETW_PROVIDER_TRAIT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1602,19 +1525,8 @@ impl ::core::fmt::Debug for ETW_PROVIDER_TRAIT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EVENTSECURITYOPERATION(pub i32);
-impl ::core::marker::Copy for EVENTSECURITYOPERATION {}
-impl ::core::clone::Clone for EVENTSECURITYOPERATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EVENTSECURITYOPERATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EVENTSECURITYOPERATION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1624,19 +1536,8 @@ impl ::core::fmt::Debug for EVENTSECURITYOPERATION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EVENT_FIELD_TYPE(pub i32);
-impl ::core::marker::Copy for EVENT_FIELD_TYPE {}
-impl ::core::clone::Clone for EVENT_FIELD_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EVENT_FIELD_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EVENT_FIELD_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1646,19 +1547,8 @@ impl ::core::fmt::Debug for EVENT_FIELD_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EVENT_INFO_CLASS(pub i32);
-impl ::core::marker::Copy for EVENT_INFO_CLASS {}
-impl ::core::clone::Clone for EVENT_INFO_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EVENT_INFO_CLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EVENT_INFO_CLASS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1668,19 +1558,8 @@ impl ::core::fmt::Debug for EVENT_INFO_CLASS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EVENT_TRACE_CONTROL(pub u32);
-impl ::core::marker::Copy for EVENT_TRACE_CONTROL {}
-impl ::core::clone::Clone for EVENT_TRACE_CONTROL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EVENT_TRACE_CONTROL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EVENT_TRACE_CONTROL {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1690,19 +1569,8 @@ impl ::core::fmt::Debug for EVENT_TRACE_CONTROL {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EVENT_TRACE_FLAG(pub u32);
-impl ::core::marker::Copy for EVENT_TRACE_FLAG {}
-impl ::core::clone::Clone for EVENT_TRACE_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EVENT_TRACE_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EVENT_TRACE_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1745,19 +1613,8 @@ impl ::core::ops::Not for EVENT_TRACE_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MAP_FLAGS(pub i32);
-impl ::core::marker::Copy for MAP_FLAGS {}
-impl ::core::clone::Clone for MAP_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MAP_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MAP_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1767,19 +1624,8 @@ impl ::core::fmt::Debug for MAP_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MAP_VALUETYPE(pub i32);
-impl ::core::marker::Copy for MAP_VALUETYPE {}
-impl ::core::clone::Clone for MAP_VALUETYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MAP_VALUETYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MAP_VALUETYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1789,19 +1635,8 @@ impl ::core::fmt::Debug for MAP_VALUETYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PAYLOAD_OPERATOR(pub i32);
-impl ::core::marker::Copy for PAYLOAD_OPERATOR {}
-impl ::core::clone::Clone for PAYLOAD_OPERATOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PAYLOAD_OPERATOR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PAYLOAD_OPERATOR {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1811,19 +1646,8 @@ impl ::core::fmt::Debug for PAYLOAD_OPERATOR {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PROPERTY_FLAGS(pub i32);
-impl ::core::marker::Copy for PROPERTY_FLAGS {}
-impl ::core::clone::Clone for PROPERTY_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PROPERTY_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PROPERTY_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1833,19 +1657,8 @@ impl ::core::fmt::Debug for PROPERTY_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TDH_CONTEXT_TYPE(pub i32);
-impl ::core::marker::Copy for TDH_CONTEXT_TYPE {}
-impl ::core::clone::Clone for TDH_CONTEXT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TDH_CONTEXT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TDH_CONTEXT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1855,19 +1668,8 @@ impl ::core::fmt::Debug for TDH_CONTEXT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TEMPLATE_FLAGS(pub i32);
-impl ::core::marker::Copy for TEMPLATE_FLAGS {}
-impl ::core::clone::Clone for TEMPLATE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TEMPLATE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TEMPLATE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1877,19 +1679,8 @@ impl ::core::fmt::Debug for TEMPLATE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TRACE_MESSAGE_FLAGS(pub u32);
-impl ::core::marker::Copy for TRACE_MESSAGE_FLAGS {}
-impl ::core::clone::Clone for TRACE_MESSAGE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TRACE_MESSAGE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TRACE_MESSAGE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1932,19 +1723,8 @@ impl ::core::ops::Not for TRACE_MESSAGE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TRACE_QUERY_INFO_CLASS(pub i32);
-impl ::core::marker::Copy for TRACE_QUERY_INFO_CLASS {}
-impl ::core::clone::Clone for TRACE_QUERY_INFO_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TRACE_QUERY_INFO_CLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TRACE_QUERY_INFO_CLASS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1954,19 +1734,8 @@ impl ::core::fmt::Debug for TRACE_QUERY_INFO_CLASS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WMIDPREQUESTCODE(pub i32);
-impl ::core::marker::Copy for WMIDPREQUESTCODE {}
-impl ::core::clone::Clone for WMIDPREQUESTCODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMIDPREQUESTCODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WMIDPREQUESTCODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1976,19 +1745,8 @@ impl ::core::fmt::Debug for WMIDPREQUESTCODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct _TDH_IN_TYPE(pub i32);
-impl ::core::marker::Copy for _TDH_IN_TYPE {}
-impl ::core::clone::Clone for _TDH_IN_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for _TDH_IN_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for _TDH_IN_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1998,19 +1756,8 @@ impl ::core::fmt::Debug for _TDH_IN_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct _TDH_OUT_TYPE(pub i32);
-impl ::core::marker::Copy for _TDH_OUT_TYPE {}
-impl ::core::clone::Clone for _TDH_OUT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for _TDH_OUT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for _TDH_OUT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }

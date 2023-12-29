@@ -219,27 +219,13 @@ impl ::windows_core::RuntimeName for WalletManagerSystem {
 #[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WalletItemAppAssociation(pub i32);
 #[cfg(feature = "deprecated")]
 impl WalletItemAppAssociation {
     pub const None: Self = Self(0i32);
     pub const AppInstalled: Self = Self(1i32);
     pub const AppNotInstalled: Self = Self(2i32);
-}
-#[cfg(feature = "deprecated")]
-impl ::core::marker::Copy for WalletItemAppAssociation {}
-#[cfg(feature = "deprecated")]
-impl ::core::clone::Clone for WalletItemAppAssociation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::default::Default for WalletItemAppAssociation {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 #[cfg(feature = "deprecated")]
 impl ::windows_core::TypeKind for WalletItemAppAssociation {

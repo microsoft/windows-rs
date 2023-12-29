@@ -1098,24 +1098,13 @@ impl ::windows_core::RuntimeName for UnhandledErrorDetectedEventArgs {
 unsafe impl ::core::marker::Send for UnhandledErrorDetectedEventArgs {}
 unsafe impl ::core::marker::Sync for UnhandledErrorDetectedEventArgs {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AppRestartFailureReason(pub i32);
 impl AppRestartFailureReason {
     pub const RestartPending: Self = Self(0i32);
     pub const NotInForeground: Self = Self(1i32);
     pub const InvalidUser: Self = Self(2i32);
     pub const Other: Self = Self(3i32);
-}
-impl ::core::marker::Copy for AppRestartFailureReason {}
-impl ::core::clone::Clone for AppRestartFailureReason {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AppRestartFailureReason {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AppRestartFailureReason {
     type TypeKind = ::windows_core::CopyType;

@@ -4964,19 +4964,8 @@ pub const typeUniversalGroup: GPMEntryType = GPMEntryType(4i32);
 pub const typeUnknown: GPMEntryType = GPMEntryType(6i32);
 pub const typeUser: GPMEntryType = GPMEntryType(0i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct APPSTATE(pub i32);
-impl ::core::marker::Copy for APPSTATE {}
-impl ::core::clone::Clone for APPSTATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for APPSTATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for APPSTATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4986,19 +4975,8 @@ impl ::core::fmt::Debug for APPSTATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GPMBackupType(pub i32);
-impl ::core::marker::Copy for GPMBackupType {}
-impl ::core::clone::Clone for GPMBackupType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GPMBackupType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for GPMBackupType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5008,19 +4986,8 @@ impl ::core::fmt::Debug for GPMBackupType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GPMDestinationOption(pub i32);
-impl ::core::marker::Copy for GPMDestinationOption {}
-impl ::core::clone::Clone for GPMDestinationOption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GPMDestinationOption {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for GPMDestinationOption {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5030,19 +4997,8 @@ impl ::core::fmt::Debug for GPMDestinationOption {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GPMEntryType(pub i32);
-impl ::core::marker::Copy for GPMEntryType {}
-impl ::core::clone::Clone for GPMEntryType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GPMEntryType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for GPMEntryType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5052,19 +5008,8 @@ impl ::core::fmt::Debug for GPMEntryType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GPMPermissionType(pub i32);
-impl ::core::marker::Copy for GPMPermissionType {}
-impl ::core::clone::Clone for GPMPermissionType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GPMPermissionType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for GPMPermissionType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5074,19 +5019,8 @@ impl ::core::fmt::Debug for GPMPermissionType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GPMRSOPMode(pub i32);
-impl ::core::marker::Copy for GPMRSOPMode {}
-impl ::core::clone::Clone for GPMRSOPMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GPMRSOPMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for GPMRSOPMode {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5096,19 +5030,8 @@ impl ::core::fmt::Debug for GPMRSOPMode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GPMReportType(pub i32);
-impl ::core::marker::Copy for GPMReportType {}
-impl ::core::clone::Clone for GPMReportType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GPMReportType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for GPMReportType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5118,19 +5041,8 @@ impl ::core::fmt::Debug for GPMReportType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GPMReportingOptions(pub i32);
-impl ::core::marker::Copy for GPMReportingOptions {}
-impl ::core::clone::Clone for GPMReportingOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GPMReportingOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for GPMReportingOptions {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5140,19 +5052,8 @@ impl ::core::fmt::Debug for GPMReportingOptions {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GPMSOMType(pub i32);
-impl ::core::marker::Copy for GPMSOMType {}
-impl ::core::clone::Clone for GPMSOMType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GPMSOMType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for GPMSOMType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5162,19 +5063,8 @@ impl ::core::fmt::Debug for GPMSOMType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GPMSearchOperation(pub i32);
-impl ::core::marker::Copy for GPMSearchOperation {}
-impl ::core::clone::Clone for GPMSearchOperation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GPMSearchOperation {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for GPMSearchOperation {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5184,19 +5074,8 @@ impl ::core::fmt::Debug for GPMSearchOperation {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GPMSearchProperty(pub i32);
-impl ::core::marker::Copy for GPMSearchProperty {}
-impl ::core::clone::Clone for GPMSearchProperty {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GPMSearchProperty {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for GPMSearchProperty {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5206,19 +5085,8 @@ impl ::core::fmt::Debug for GPMSearchProperty {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GPMStarterGPOType(pub i32);
-impl ::core::marker::Copy for GPMStarterGPOType {}
-impl ::core::clone::Clone for GPMStarterGPOType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GPMStarterGPOType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for GPMStarterGPOType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5228,19 +5096,8 @@ impl ::core::fmt::Debug for GPMStarterGPOType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GPO_LINK(pub i32);
-impl ::core::marker::Copy for GPO_LINK {}
-impl ::core::clone::Clone for GPO_LINK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GPO_LINK {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for GPO_LINK {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5250,19 +5107,8 @@ impl ::core::fmt::Debug for GPO_LINK {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GPO_OPEN_FLAGS(pub u32);
-impl ::core::marker::Copy for GPO_OPEN_FLAGS {}
-impl ::core::clone::Clone for GPO_OPEN_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GPO_OPEN_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for GPO_OPEN_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5272,19 +5118,8 @@ impl ::core::fmt::Debug for GPO_OPEN_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GPO_OPTIONS(pub u32);
-impl ::core::marker::Copy for GPO_OPTIONS {}
-impl ::core::clone::Clone for GPO_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GPO_OPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for GPO_OPTIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5327,19 +5162,8 @@ impl ::core::ops::Not for GPO_OPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GPO_SECTION(pub u32);
-impl ::core::marker::Copy for GPO_SECTION {}
-impl ::core::clone::Clone for GPO_SECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GPO_SECTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for GPO_SECTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5349,19 +5173,8 @@ impl ::core::fmt::Debug for GPO_SECTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GROUP_POLICY_HINT_TYPE(pub i32);
-impl ::core::marker::Copy for GROUP_POLICY_HINT_TYPE {}
-impl ::core::clone::Clone for GROUP_POLICY_HINT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GROUP_POLICY_HINT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for GROUP_POLICY_HINT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5371,19 +5184,8 @@ impl ::core::fmt::Debug for GROUP_POLICY_HINT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GROUP_POLICY_OBJECT_TYPE(pub i32);
-impl ::core::marker::Copy for GROUP_POLICY_OBJECT_TYPE {}
-impl ::core::clone::Clone for GROUP_POLICY_OBJECT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GROUP_POLICY_OBJECT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for GROUP_POLICY_OBJECT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5393,19 +5195,8 @@ impl ::core::fmt::Debug for GROUP_POLICY_OBJECT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct INSTALLSPECTYPE(pub i32);
-impl ::core::marker::Copy for INSTALLSPECTYPE {}
-impl ::core::clone::Clone for INSTALLSPECTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for INSTALLSPECTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for INSTALLSPECTYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5415,19 +5206,8 @@ impl ::core::fmt::Debug for INSTALLSPECTYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SETTINGSTATUS(pub i32);
-impl ::core::marker::Copy for SETTINGSTATUS {}
-impl ::core::clone::Clone for SETTINGSTATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SETTINGSTATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SETTINGSTATUS {
     type TypeKind = ::windows_core::CopyType;
 }

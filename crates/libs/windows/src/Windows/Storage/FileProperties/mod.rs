@@ -1338,7 +1338,7 @@ impl ::windows_core::RuntimeName for VideoProperties {
 ::windows_core::imp::interface_hierarchy!(VideoProperties, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<IStorageItemExtraProperties> for VideoProperties {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PhotoOrientation(pub i32);
 impl PhotoOrientation {
     pub const Unspecified: Self = Self(0i32);
@@ -1350,17 +1350,6 @@ impl PhotoOrientation {
     pub const Rotate270: Self = Self(6i32);
     pub const Transverse: Self = Self(7i32);
     pub const Rotate90: Self = Self(8i32);
-}
-impl ::core::marker::Copy for PhotoOrientation {}
-impl ::core::clone::Clone for PhotoOrientation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhotoOrientation {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PhotoOrientation {
     type TypeKind = ::windows_core::CopyType;
@@ -1374,7 +1363,7 @@ impl ::windows_core::RuntimeType for PhotoOrientation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.FileProperties.PhotoOrientation;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PropertyPrefetchOptions(pub u32);
 impl PropertyPrefetchOptions {
     pub const None: Self = Self(0u32);
@@ -1383,17 +1372,6 @@ impl PropertyPrefetchOptions {
     pub const ImageProperties: Self = Self(4u32);
     pub const DocumentProperties: Self = Self(8u32);
     pub const BasicProperties: Self = Self(16u32);
-}
-impl ::core::marker::Copy for PropertyPrefetchOptions {}
-impl ::core::clone::Clone for PropertyPrefetchOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PropertyPrefetchOptions {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PropertyPrefetchOptions {
     type TypeKind = ::windows_core::CopyType;
@@ -1440,7 +1418,7 @@ impl ::windows_core::RuntimeType for PropertyPrefetchOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.FileProperties.PropertyPrefetchOptions;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ThumbnailMode(pub i32);
 impl ThumbnailMode {
     pub const PicturesView: Self = Self(0i32);
@@ -1449,17 +1427,6 @@ impl ThumbnailMode {
     pub const DocumentsView: Self = Self(3i32);
     pub const ListView: Self = Self(4i32);
     pub const SingleItem: Self = Self(5i32);
-}
-impl ::core::marker::Copy for ThumbnailMode {}
-impl ::core::clone::Clone for ThumbnailMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ThumbnailMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ThumbnailMode {
     type TypeKind = ::windows_core::CopyType;
@@ -1473,24 +1440,13 @@ impl ::windows_core::RuntimeType for ThumbnailMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.FileProperties.ThumbnailMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ThumbnailOptions(pub u32);
 impl ThumbnailOptions {
     pub const None: Self = Self(0u32);
     pub const ReturnOnlyIfCached: Self = Self(1u32);
     pub const ResizeThumbnail: Self = Self(2u32);
     pub const UseCurrentScale: Self = Self(4u32);
-}
-impl ::core::marker::Copy for ThumbnailOptions {}
-impl ::core::clone::Clone for ThumbnailOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ThumbnailOptions {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ThumbnailOptions {
     type TypeKind = ::windows_core::CopyType;
@@ -1537,22 +1493,11 @@ impl ::windows_core::RuntimeType for ThumbnailOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.FileProperties.ThumbnailOptions;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ThumbnailType(pub i32);
 impl ThumbnailType {
     pub const Image: Self = Self(0i32);
     pub const Icon: Self = Self(1i32);
-}
-impl ::core::marker::Copy for ThumbnailType {}
-impl ::core::clone::Clone for ThumbnailType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ThumbnailType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ThumbnailType {
     type TypeKind = ::windows_core::CopyType;
@@ -1566,24 +1511,13 @@ impl ::windows_core::RuntimeType for ThumbnailType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.FileProperties.ThumbnailType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VideoOrientation(pub i32);
 impl VideoOrientation {
     pub const Normal: Self = Self(0i32);
     pub const Rotate90: Self = Self(90i32);
     pub const Rotate180: Self = Self(180i32);
     pub const Rotate270: Self = Self(270i32);
-}
-impl ::core::marker::Copy for VideoOrientation {}
-impl ::core::clone::Clone for VideoOrientation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VideoOrientation {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for VideoOrientation {
     type TypeKind = ::windows_core::CopyType;

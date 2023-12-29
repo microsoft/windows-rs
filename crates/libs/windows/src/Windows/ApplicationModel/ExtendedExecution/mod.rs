@@ -155,23 +155,12 @@ impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for Extende
 unsafe impl ::core::marker::Send for ExtendedExecutionSession {}
 unsafe impl ::core::marker::Sync for ExtendedExecutionSession {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ExtendedExecutionReason(pub i32);
 impl ExtendedExecutionReason {
     pub const Unspecified: Self = Self(0i32);
     pub const LocationTracking: Self = Self(1i32);
     pub const SavingData: Self = Self(2i32);
-}
-impl ::core::marker::Copy for ExtendedExecutionReason {}
-impl ::core::clone::Clone for ExtendedExecutionReason {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ExtendedExecutionReason {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ExtendedExecutionReason {
     type TypeKind = ::windows_core::CopyType;
@@ -185,22 +174,11 @@ impl ::windows_core::RuntimeType for ExtendedExecutionReason {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionReason;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ExtendedExecutionResult(pub i32);
 impl ExtendedExecutionResult {
     pub const Allowed: Self = Self(0i32);
     pub const Denied: Self = Self(1i32);
-}
-impl ::core::marker::Copy for ExtendedExecutionResult {}
-impl ::core::clone::Clone for ExtendedExecutionResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ExtendedExecutionResult {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ExtendedExecutionResult {
     type TypeKind = ::windows_core::CopyType;
@@ -214,22 +192,11 @@ impl ::windows_core::RuntimeType for ExtendedExecutionResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionResult;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ExtendedExecutionRevokedReason(pub i32);
 impl ExtendedExecutionRevokedReason {
     pub const Resumed: Self = Self(0i32);
     pub const SystemPolicy: Self = Self(1i32);
-}
-impl ::core::marker::Copy for ExtendedExecutionRevokedReason {}
-impl ::core::clone::Clone for ExtendedExecutionRevokedReason {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ExtendedExecutionRevokedReason {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ExtendedExecutionRevokedReason {
     type TypeKind = ::windows_core::CopyType;

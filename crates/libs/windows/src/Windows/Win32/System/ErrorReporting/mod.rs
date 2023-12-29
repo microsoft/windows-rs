@@ -453,19 +453,8 @@ pub const frrvOkHeadless: EFaultRepRetVal = EFaultRepRetVal(7i32);
 pub const frrvOkManifest: EFaultRepRetVal = EFaultRepRetVal(1i32);
 pub const frrvOkQueued: EFaultRepRetVal = EFaultRepRetVal(2i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EFaultRepRetVal(pub i32);
-impl ::core::marker::Copy for EFaultRepRetVal {}
-impl ::core::clone::Clone for EFaultRepRetVal {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EFaultRepRetVal {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EFaultRepRetVal {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -475,19 +464,8 @@ impl ::core::fmt::Debug for EFaultRepRetVal {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct REPORT_STORE_TYPES(pub i32);
-impl ::core::marker::Copy for REPORT_STORE_TYPES {}
-impl ::core::clone::Clone for REPORT_STORE_TYPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for REPORT_STORE_TYPES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for REPORT_STORE_TYPES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -497,19 +475,8 @@ impl ::core::fmt::Debug for REPORT_STORE_TYPES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WER_CONSENT(pub i32);
-impl ::core::marker::Copy for WER_CONSENT {}
-impl ::core::clone::Clone for WER_CONSENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WER_CONSENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WER_CONSENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -519,19 +486,8 @@ impl ::core::fmt::Debug for WER_CONSENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WER_DUMP_TYPE(pub i32);
-impl ::core::marker::Copy for WER_DUMP_TYPE {}
-impl ::core::clone::Clone for WER_DUMP_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WER_DUMP_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WER_DUMP_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -541,19 +497,8 @@ impl ::core::fmt::Debug for WER_DUMP_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WER_FAULT_REPORTING(pub u32);
-impl ::core::marker::Copy for WER_FAULT_REPORTING {}
-impl ::core::clone::Clone for WER_FAULT_REPORTING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WER_FAULT_REPORTING {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WER_FAULT_REPORTING {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -596,19 +541,8 @@ impl ::core::ops::Not for WER_FAULT_REPORTING {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WER_FILE(pub u32);
-impl ::core::marker::Copy for WER_FILE {}
-impl ::core::clone::Clone for WER_FILE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WER_FILE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WER_FILE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -651,19 +585,8 @@ impl ::core::ops::Not for WER_FILE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WER_FILE_TYPE(pub i32);
-impl ::core::marker::Copy for WER_FILE_TYPE {}
-impl ::core::clone::Clone for WER_FILE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WER_FILE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WER_FILE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -673,19 +596,8 @@ impl ::core::fmt::Debug for WER_FILE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WER_REGISTER_FILE_TYPE(pub i32);
-impl ::core::marker::Copy for WER_REGISTER_FILE_TYPE {}
-impl ::core::clone::Clone for WER_REGISTER_FILE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WER_REGISTER_FILE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WER_REGISTER_FILE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -695,19 +607,8 @@ impl ::core::fmt::Debug for WER_REGISTER_FILE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WER_REPORT_TYPE(pub i32);
-impl ::core::marker::Copy for WER_REPORT_TYPE {}
-impl ::core::clone::Clone for WER_REPORT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WER_REPORT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WER_REPORT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -717,19 +618,8 @@ impl ::core::fmt::Debug for WER_REPORT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WER_REPORT_UI(pub i32);
-impl ::core::marker::Copy for WER_REPORT_UI {}
-impl ::core::clone::Clone for WER_REPORT_UI {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WER_REPORT_UI {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WER_REPORT_UI {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -739,19 +629,8 @@ impl ::core::fmt::Debug for WER_REPORT_UI {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WER_SUBMIT_FLAGS(pub u32);
-impl ::core::marker::Copy for WER_SUBMIT_FLAGS {}
-impl ::core::clone::Clone for WER_SUBMIT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WER_SUBMIT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WER_SUBMIT_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -794,19 +673,8 @@ impl ::core::ops::Not for WER_SUBMIT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WER_SUBMIT_RESULT(pub i32);
-impl ::core::marker::Copy for WER_SUBMIT_RESULT {}
-impl ::core::clone::Clone for WER_SUBMIT_RESULT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WER_SUBMIT_RESULT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WER_SUBMIT_RESULT {
     type TypeKind = ::windows_core::CopyType;
 }

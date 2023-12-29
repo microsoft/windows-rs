@@ -178,23 +178,12 @@ impl ::windows_core::RuntimeName for ContactRemovedEventArgs {
 }
 ::windows_core::imp::interface_hierarchy!(ContactRemovedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AddContactResult(pub i32);
 impl AddContactResult {
     pub const Added: Self = Self(0i32);
     pub const AlreadyAdded: Self = Self(1i32);
     pub const Unavailable: Self = Self(2i32);
-}
-impl ::core::marker::Copy for AddContactResult {}
-impl ::core::clone::Clone for AddContactResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AddContactResult {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AddContactResult {
     type TypeKind = ::windows_core::CopyType;

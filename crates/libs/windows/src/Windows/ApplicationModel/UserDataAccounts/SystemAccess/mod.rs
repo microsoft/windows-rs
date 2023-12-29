@@ -755,23 +755,12 @@ impl ::windows_core::RuntimeName for UserDataAccountSystemAccessManager {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.SystemAccess.UserDataAccountSystemAccessManager";
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DeviceAccountAuthenticationType(pub i32);
 impl DeviceAccountAuthenticationType {
     pub const Basic: Self = Self(0i32);
     pub const OAuth: Self = Self(1i32);
     pub const SingleSignOn: Self = Self(2i32);
-}
-impl ::core::marker::Copy for DeviceAccountAuthenticationType {}
-impl ::core::clone::Clone for DeviceAccountAuthenticationType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DeviceAccountAuthenticationType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DeviceAccountAuthenticationType {
     type TypeKind = ::windows_core::CopyType;
@@ -785,24 +774,13 @@ impl ::windows_core::RuntimeType for DeviceAccountAuthenticationType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountAuthenticationType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DeviceAccountIconId(pub i32);
 impl DeviceAccountIconId {
     pub const Exchange: Self = Self(0i32);
     pub const Msa: Self = Self(1i32);
     pub const Outlook: Self = Self(2i32);
     pub const Generic: Self = Self(3i32);
-}
-impl ::core::marker::Copy for DeviceAccountIconId {}
-impl ::core::clone::Clone for DeviceAccountIconId {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DeviceAccountIconId {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DeviceAccountIconId {
     type TypeKind = ::windows_core::CopyType;
@@ -816,7 +794,7 @@ impl ::windows_core::RuntimeType for DeviceAccountIconId {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountIconId;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DeviceAccountMailAgeFilter(pub i32);
 impl DeviceAccountMailAgeFilter {
     pub const All: Self = Self(0i32);
@@ -826,17 +804,6 @@ impl DeviceAccountMailAgeFilter {
     pub const Last14Days: Self = Self(4i32);
     pub const Last30Days: Self = Self(5i32);
     pub const Last90Days: Self = Self(6i32);
-}
-impl ::core::marker::Copy for DeviceAccountMailAgeFilter {}
-impl ::core::clone::Clone for DeviceAccountMailAgeFilter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DeviceAccountMailAgeFilter {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DeviceAccountMailAgeFilter {
     type TypeKind = ::windows_core::CopyType;
@@ -850,23 +817,12 @@ impl ::windows_core::RuntimeType for DeviceAccountMailAgeFilter {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountMailAgeFilter;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DeviceAccountServerType(pub i32);
 impl DeviceAccountServerType {
     pub const Exchange: Self = Self(0i32);
     pub const Pop: Self = Self(1i32);
     pub const Imap: Self = Self(2i32);
-}
-impl ::core::marker::Copy for DeviceAccountServerType {}
-impl ::core::clone::Clone for DeviceAccountServerType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DeviceAccountServerType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DeviceAccountServerType {
     type TypeKind = ::windows_core::CopyType;
@@ -880,7 +836,7 @@ impl ::windows_core::RuntimeType for DeviceAccountServerType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountServerType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DeviceAccountSyncScheduleKind(pub i32);
 impl DeviceAccountSyncScheduleKind {
     pub const Manual: Self = Self(0i32);
@@ -890,17 +846,6 @@ impl DeviceAccountSyncScheduleKind {
     pub const Every2Hours: Self = Self(4i32);
     pub const Daily: Self = Self(5i32);
     pub const AsItemsArrive: Self = Self(6i32);
-}
-impl ::core::marker::Copy for DeviceAccountSyncScheduleKind {}
-impl ::core::clone::Clone for DeviceAccountSyncScheduleKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DeviceAccountSyncScheduleKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DeviceAccountSyncScheduleKind {
     type TypeKind = ::windows_core::CopyType;

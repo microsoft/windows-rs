@@ -4481,19 +4481,8 @@ pub const RTC_E_UDP_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRE
 pub const RTC_S_ROAMING_NOT_SUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(15597633i32);
 pub const STATUS_SEVERITY_RTC_ERROR: u32 = 2u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RTC_ACE_SCOPE(pub i32);
-impl ::core::marker::Copy for RTC_ACE_SCOPE {}
-impl ::core::clone::Clone for RTC_ACE_SCOPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RTC_ACE_SCOPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RTC_ACE_SCOPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4503,19 +4492,8 @@ impl ::core::fmt::Debug for RTC_ACE_SCOPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RTC_ANSWER_MODE(pub i32);
-impl ::core::marker::Copy for RTC_ANSWER_MODE {}
-impl ::core::clone::Clone for RTC_ANSWER_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RTC_ANSWER_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RTC_ANSWER_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4525,19 +4503,8 @@ impl ::core::fmt::Debug for RTC_ANSWER_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RTC_AUDIO_DEVICE(pub i32);
-impl ::core::marker::Copy for RTC_AUDIO_DEVICE {}
-impl ::core::clone::Clone for RTC_AUDIO_DEVICE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RTC_AUDIO_DEVICE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RTC_AUDIO_DEVICE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4547,19 +4514,8 @@ impl ::core::fmt::Debug for RTC_AUDIO_DEVICE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RTC_BUDDY_EVENT_TYPE(pub i32);
-impl ::core::marker::Copy for RTC_BUDDY_EVENT_TYPE {}
-impl ::core::clone::Clone for RTC_BUDDY_EVENT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RTC_BUDDY_EVENT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RTC_BUDDY_EVENT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4569,19 +4525,8 @@ impl ::core::fmt::Debug for RTC_BUDDY_EVENT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RTC_BUDDY_SUBSCRIPTION_TYPE(pub i32);
-impl ::core::marker::Copy for RTC_BUDDY_SUBSCRIPTION_TYPE {}
-impl ::core::clone::Clone for RTC_BUDDY_SUBSCRIPTION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RTC_BUDDY_SUBSCRIPTION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RTC_BUDDY_SUBSCRIPTION_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4591,19 +4536,8 @@ impl ::core::fmt::Debug for RTC_BUDDY_SUBSCRIPTION_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RTC_CLIENT_EVENT_TYPE(pub i32);
-impl ::core::marker::Copy for RTC_CLIENT_EVENT_TYPE {}
-impl ::core::clone::Clone for RTC_CLIENT_EVENT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RTC_CLIENT_EVENT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RTC_CLIENT_EVENT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4613,19 +4547,8 @@ impl ::core::fmt::Debug for RTC_CLIENT_EVENT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RTC_DTMF(pub i32);
-impl ::core::marker::Copy for RTC_DTMF {}
-impl ::core::clone::Clone for RTC_DTMF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RTC_DTMF {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RTC_DTMF {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4635,19 +4558,8 @@ impl ::core::fmt::Debug for RTC_DTMF {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RTC_EVENT(pub i32);
-impl ::core::marker::Copy for RTC_EVENT {}
-impl ::core::clone::Clone for RTC_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RTC_EVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RTC_EVENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4657,19 +4569,8 @@ impl ::core::fmt::Debug for RTC_EVENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RTC_GROUP_EVENT_TYPE(pub i32);
-impl ::core::marker::Copy for RTC_GROUP_EVENT_TYPE {}
-impl ::core::clone::Clone for RTC_GROUP_EVENT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RTC_GROUP_EVENT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RTC_GROUP_EVENT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4679,19 +4580,8 @@ impl ::core::fmt::Debug for RTC_GROUP_EVENT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RTC_LISTEN_MODE(pub i32);
-impl ::core::marker::Copy for RTC_LISTEN_MODE {}
-impl ::core::clone::Clone for RTC_LISTEN_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RTC_LISTEN_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RTC_LISTEN_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4701,19 +4591,8 @@ impl ::core::fmt::Debug for RTC_LISTEN_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RTC_MEDIA_EVENT_REASON(pub i32);
-impl ::core::marker::Copy for RTC_MEDIA_EVENT_REASON {}
-impl ::core::clone::Clone for RTC_MEDIA_EVENT_REASON {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RTC_MEDIA_EVENT_REASON {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RTC_MEDIA_EVENT_REASON {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4723,19 +4602,8 @@ impl ::core::fmt::Debug for RTC_MEDIA_EVENT_REASON {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RTC_MEDIA_EVENT_TYPE(pub i32);
-impl ::core::marker::Copy for RTC_MEDIA_EVENT_TYPE {}
-impl ::core::clone::Clone for RTC_MEDIA_EVENT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RTC_MEDIA_EVENT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RTC_MEDIA_EVENT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4745,19 +4613,8 @@ impl ::core::fmt::Debug for RTC_MEDIA_EVENT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RTC_MESSAGING_EVENT_TYPE(pub i32);
-impl ::core::marker::Copy for RTC_MESSAGING_EVENT_TYPE {}
-impl ::core::clone::Clone for RTC_MESSAGING_EVENT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RTC_MESSAGING_EVENT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RTC_MESSAGING_EVENT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4767,19 +4624,8 @@ impl ::core::fmt::Debug for RTC_MESSAGING_EVENT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RTC_MESSAGING_USER_STATUS(pub i32);
-impl ::core::marker::Copy for RTC_MESSAGING_USER_STATUS {}
-impl ::core::clone::Clone for RTC_MESSAGING_USER_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RTC_MESSAGING_USER_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RTC_MESSAGING_USER_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4789,19 +4635,8 @@ impl ::core::fmt::Debug for RTC_MESSAGING_USER_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RTC_OFFER_WATCHER_MODE(pub i32);
-impl ::core::marker::Copy for RTC_OFFER_WATCHER_MODE {}
-impl ::core::clone::Clone for RTC_OFFER_WATCHER_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RTC_OFFER_WATCHER_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RTC_OFFER_WATCHER_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4811,19 +4646,8 @@ impl ::core::fmt::Debug for RTC_OFFER_WATCHER_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RTC_PARTICIPANT_STATE(pub i32);
-impl ::core::marker::Copy for RTC_PARTICIPANT_STATE {}
-impl ::core::clone::Clone for RTC_PARTICIPANT_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RTC_PARTICIPANT_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RTC_PARTICIPANT_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4833,19 +4657,8 @@ impl ::core::fmt::Debug for RTC_PARTICIPANT_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RTC_PORT_TYPE(pub i32);
-impl ::core::marker::Copy for RTC_PORT_TYPE {}
-impl ::core::clone::Clone for RTC_PORT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RTC_PORT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RTC_PORT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4855,19 +4668,8 @@ impl ::core::fmt::Debug for RTC_PORT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RTC_PRESENCE_PROPERTY(pub i32);
-impl ::core::marker::Copy for RTC_PRESENCE_PROPERTY {}
-impl ::core::clone::Clone for RTC_PRESENCE_PROPERTY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RTC_PRESENCE_PROPERTY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RTC_PRESENCE_PROPERTY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4877,19 +4679,8 @@ impl ::core::fmt::Debug for RTC_PRESENCE_PROPERTY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RTC_PRESENCE_STATUS(pub i32);
-impl ::core::marker::Copy for RTC_PRESENCE_STATUS {}
-impl ::core::clone::Clone for RTC_PRESENCE_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RTC_PRESENCE_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RTC_PRESENCE_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4899,19 +4690,8 @@ impl ::core::fmt::Debug for RTC_PRESENCE_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RTC_PRIVACY_MODE(pub i32);
-impl ::core::marker::Copy for RTC_PRIVACY_MODE {}
-impl ::core::clone::Clone for RTC_PRIVACY_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RTC_PRIVACY_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RTC_PRIVACY_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4921,19 +4701,8 @@ impl ::core::fmt::Debug for RTC_PRIVACY_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RTC_PROFILE_EVENT_TYPE(pub i32);
-impl ::core::marker::Copy for RTC_PROFILE_EVENT_TYPE {}
-impl ::core::clone::Clone for RTC_PROFILE_EVENT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RTC_PROFILE_EVENT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RTC_PROFILE_EVENT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4943,19 +4712,8 @@ impl ::core::fmt::Debug for RTC_PROFILE_EVENT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RTC_PROVIDER_URI(pub i32);
-impl ::core::marker::Copy for RTC_PROVIDER_URI {}
-impl ::core::clone::Clone for RTC_PROVIDER_URI {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RTC_PROVIDER_URI {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RTC_PROVIDER_URI {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4965,19 +4723,8 @@ impl ::core::fmt::Debug for RTC_PROVIDER_URI {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RTC_REGISTRATION_STATE(pub i32);
-impl ::core::marker::Copy for RTC_REGISTRATION_STATE {}
-impl ::core::clone::Clone for RTC_REGISTRATION_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RTC_REGISTRATION_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RTC_REGISTRATION_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4987,19 +4734,8 @@ impl ::core::fmt::Debug for RTC_REGISTRATION_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RTC_REINVITE_STATE(pub i32);
-impl ::core::marker::Copy for RTC_REINVITE_STATE {}
-impl ::core::clone::Clone for RTC_REINVITE_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RTC_REINVITE_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RTC_REINVITE_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5009,19 +4745,8 @@ impl ::core::fmt::Debug for RTC_REINVITE_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RTC_RING_TYPE(pub i32);
-impl ::core::marker::Copy for RTC_RING_TYPE {}
-impl ::core::clone::Clone for RTC_RING_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RTC_RING_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RTC_RING_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5031,19 +4756,8 @@ impl ::core::fmt::Debug for RTC_RING_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RTC_ROAMING_EVENT_TYPE(pub i32);
-impl ::core::marker::Copy for RTC_ROAMING_EVENT_TYPE {}
-impl ::core::clone::Clone for RTC_ROAMING_EVENT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RTC_ROAMING_EVENT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RTC_ROAMING_EVENT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5053,19 +4767,8 @@ impl ::core::fmt::Debug for RTC_ROAMING_EVENT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RTC_SECURITY_LEVEL(pub i32);
-impl ::core::marker::Copy for RTC_SECURITY_LEVEL {}
-impl ::core::clone::Clone for RTC_SECURITY_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RTC_SECURITY_LEVEL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RTC_SECURITY_LEVEL {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5075,19 +4778,8 @@ impl ::core::fmt::Debug for RTC_SECURITY_LEVEL {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RTC_SECURITY_TYPE(pub i32);
-impl ::core::marker::Copy for RTC_SECURITY_TYPE {}
-impl ::core::clone::Clone for RTC_SECURITY_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RTC_SECURITY_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RTC_SECURITY_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5097,19 +4789,8 @@ impl ::core::fmt::Debug for RTC_SECURITY_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RTC_SESSION_REFER_STATUS(pub i32);
-impl ::core::marker::Copy for RTC_SESSION_REFER_STATUS {}
-impl ::core::clone::Clone for RTC_SESSION_REFER_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RTC_SESSION_REFER_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RTC_SESSION_REFER_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5119,19 +4800,8 @@ impl ::core::fmt::Debug for RTC_SESSION_REFER_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RTC_SESSION_STATE(pub i32);
-impl ::core::marker::Copy for RTC_SESSION_STATE {}
-impl ::core::clone::Clone for RTC_SESSION_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RTC_SESSION_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RTC_SESSION_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5141,19 +4811,8 @@ impl ::core::fmt::Debug for RTC_SESSION_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RTC_SESSION_TYPE(pub i32);
-impl ::core::marker::Copy for RTC_SESSION_TYPE {}
-impl ::core::clone::Clone for RTC_SESSION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RTC_SESSION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RTC_SESSION_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5163,19 +4822,8 @@ impl ::core::fmt::Debug for RTC_SESSION_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RTC_T120_APPLET(pub i32);
-impl ::core::marker::Copy for RTC_T120_APPLET {}
-impl ::core::clone::Clone for RTC_T120_APPLET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RTC_T120_APPLET {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RTC_T120_APPLET {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5185,19 +4833,8 @@ impl ::core::fmt::Debug for RTC_T120_APPLET {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RTC_TERMINATE_REASON(pub i32);
-impl ::core::marker::Copy for RTC_TERMINATE_REASON {}
-impl ::core::clone::Clone for RTC_TERMINATE_REASON {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RTC_TERMINATE_REASON {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RTC_TERMINATE_REASON {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5207,19 +4844,8 @@ impl ::core::fmt::Debug for RTC_TERMINATE_REASON {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RTC_USER_SEARCH_COLUMN(pub i32);
-impl ::core::marker::Copy for RTC_USER_SEARCH_COLUMN {}
-impl ::core::clone::Clone for RTC_USER_SEARCH_COLUMN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RTC_USER_SEARCH_COLUMN {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RTC_USER_SEARCH_COLUMN {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5229,19 +4855,8 @@ impl ::core::fmt::Debug for RTC_USER_SEARCH_COLUMN {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RTC_USER_SEARCH_PREFERENCE(pub i32);
-impl ::core::marker::Copy for RTC_USER_SEARCH_PREFERENCE {}
-impl ::core::clone::Clone for RTC_USER_SEARCH_PREFERENCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RTC_USER_SEARCH_PREFERENCE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RTC_USER_SEARCH_PREFERENCE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5251,19 +4866,8 @@ impl ::core::fmt::Debug for RTC_USER_SEARCH_PREFERENCE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RTC_VIDEO_DEVICE(pub i32);
-impl ::core::marker::Copy for RTC_VIDEO_DEVICE {}
-impl ::core::clone::Clone for RTC_VIDEO_DEVICE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RTC_VIDEO_DEVICE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RTC_VIDEO_DEVICE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5273,19 +4877,8 @@ impl ::core::fmt::Debug for RTC_VIDEO_DEVICE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RTC_WATCHER_EVENT_TYPE(pub i32);
-impl ::core::marker::Copy for RTC_WATCHER_EVENT_TYPE {}
-impl ::core::clone::Clone for RTC_WATCHER_EVENT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RTC_WATCHER_EVENT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RTC_WATCHER_EVENT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5295,19 +4888,8 @@ impl ::core::fmt::Debug for RTC_WATCHER_EVENT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RTC_WATCHER_MATCH_MODE(pub i32);
-impl ::core::marker::Copy for RTC_WATCHER_MATCH_MODE {}
-impl ::core::clone::Clone for RTC_WATCHER_MATCH_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RTC_WATCHER_MATCH_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RTC_WATCHER_MATCH_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5317,19 +4899,8 @@ impl ::core::fmt::Debug for RTC_WATCHER_MATCH_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RTC_WATCHER_STATE(pub i32);
-impl ::core::marker::Copy for RTC_WATCHER_STATE {}
-impl ::core::clone::Clone for RTC_WATCHER_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RTC_WATCHER_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RTC_WATCHER_STATE {
     type TypeKind = ::windows_core::CopyType;
 }

@@ -107,19 +107,8 @@ pub const RIM_TYPEHID: RID_DEVICE_INFO_TYPE = RID_DEVICE_INFO_TYPE(2u32);
 pub const RIM_TYPEKEYBOARD: RID_DEVICE_INFO_TYPE = RID_DEVICE_INFO_TYPE(1u32);
 pub const RIM_TYPEMOUSE: RID_DEVICE_INFO_TYPE = RID_DEVICE_INFO_TYPE(0u32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct INPUT_MESSAGE_DEVICE_TYPE(pub i32);
-impl ::core::marker::Copy for INPUT_MESSAGE_DEVICE_TYPE {}
-impl ::core::clone::Clone for INPUT_MESSAGE_DEVICE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for INPUT_MESSAGE_DEVICE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for INPUT_MESSAGE_DEVICE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -129,19 +118,8 @@ impl ::core::fmt::Debug for INPUT_MESSAGE_DEVICE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct INPUT_MESSAGE_ORIGIN_ID(pub i32);
-impl ::core::marker::Copy for INPUT_MESSAGE_ORIGIN_ID {}
-impl ::core::clone::Clone for INPUT_MESSAGE_ORIGIN_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for INPUT_MESSAGE_ORIGIN_ID {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for INPUT_MESSAGE_ORIGIN_ID {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -151,19 +129,8 @@ impl ::core::fmt::Debug for INPUT_MESSAGE_ORIGIN_ID {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RAWINPUTDEVICE_FLAGS(pub u32);
-impl ::core::marker::Copy for RAWINPUTDEVICE_FLAGS {}
-impl ::core::clone::Clone for RAWINPUTDEVICE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RAWINPUTDEVICE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RAWINPUTDEVICE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -206,19 +173,8 @@ impl ::core::ops::Not for RAWINPUTDEVICE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RAW_INPUT_DATA_COMMAND_FLAGS(pub u32);
-impl ::core::marker::Copy for RAW_INPUT_DATA_COMMAND_FLAGS {}
-impl ::core::clone::Clone for RAW_INPUT_DATA_COMMAND_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RAW_INPUT_DATA_COMMAND_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RAW_INPUT_DATA_COMMAND_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -228,19 +184,8 @@ impl ::core::fmt::Debug for RAW_INPUT_DATA_COMMAND_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RAW_INPUT_DEVICE_INFO_COMMAND(pub u32);
-impl ::core::marker::Copy for RAW_INPUT_DEVICE_INFO_COMMAND {}
-impl ::core::clone::Clone for RAW_INPUT_DEVICE_INFO_COMMAND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RAW_INPUT_DEVICE_INFO_COMMAND {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RAW_INPUT_DEVICE_INFO_COMMAND {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -250,19 +195,8 @@ impl ::core::fmt::Debug for RAW_INPUT_DEVICE_INFO_COMMAND {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RID_DEVICE_INFO_TYPE(pub u32);
-impl ::core::marker::Copy for RID_DEVICE_INFO_TYPE {}
-impl ::core::clone::Clone for RID_DEVICE_INFO_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RID_DEVICE_INFO_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RID_DEVICE_INFO_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }

@@ -542,19 +542,8 @@ pub const JsRuntimeVersionEdge: JsRuntimeVersion = JsRuntimeVersion(-1i32);
 pub const JsString: JsValueType = JsValueType(3i32);
 pub const JsUndefined: JsValueType = JsValueType(0i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct JsErrorCode(pub u32);
-impl ::core::marker::Copy for JsErrorCode {}
-impl ::core::clone::Clone for JsErrorCode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for JsErrorCode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for JsErrorCode {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -564,19 +553,8 @@ impl ::core::fmt::Debug for JsErrorCode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct JsMemoryEventType(pub i32);
-impl ::core::marker::Copy for JsMemoryEventType {}
-impl ::core::clone::Clone for JsMemoryEventType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for JsMemoryEventType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for JsMemoryEventType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -586,19 +564,8 @@ impl ::core::fmt::Debug for JsMemoryEventType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct JsRuntimeAttributes(pub i32);
-impl ::core::marker::Copy for JsRuntimeAttributes {}
-impl ::core::clone::Clone for JsRuntimeAttributes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for JsRuntimeAttributes {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for JsRuntimeAttributes {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -608,19 +575,8 @@ impl ::core::fmt::Debug for JsRuntimeAttributes {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct JsRuntimeVersion(pub i32);
-impl ::core::marker::Copy for JsRuntimeVersion {}
-impl ::core::clone::Clone for JsRuntimeVersion {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for JsRuntimeVersion {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for JsRuntimeVersion {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -630,19 +586,8 @@ impl ::core::fmt::Debug for JsRuntimeVersion {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct JsValueType(pub i32);
-impl ::core::marker::Copy for JsValueType {}
-impl ::core::clone::Clone for JsValueType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for JsValueType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for JsValueType {
     type TypeKind = ::windows_core::CopyType;
 }

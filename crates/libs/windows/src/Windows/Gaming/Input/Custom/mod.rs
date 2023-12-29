@@ -655,23 +655,12 @@ impl ::windows_core::CanTryInto<IGameControllerProvider> for XusbGameControllerP
 unsafe impl ::core::marker::Send for XusbGameControllerProvider {}
 unsafe impl ::core::marker::Sync for XusbGameControllerProvider {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GipFirmwareUpdateStatus(pub i32);
 impl GipFirmwareUpdateStatus {
     pub const Completed: Self = Self(0i32);
     pub const UpToDate: Self = Self(1i32);
     pub const Failed: Self = Self(2i32);
-}
-impl ::core::marker::Copy for GipFirmwareUpdateStatus {}
-impl ::core::clone::Clone for GipFirmwareUpdateStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GipFirmwareUpdateStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for GipFirmwareUpdateStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -685,23 +674,12 @@ impl ::windows_core::RuntimeType for GipFirmwareUpdateStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Custom.GipFirmwareUpdateStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GipMessageClass(pub i32);
 impl GipMessageClass {
     pub const Command: Self = Self(0i32);
     pub const LowLatency: Self = Self(1i32);
     pub const StandardLatency: Self = Self(2i32);
-}
-impl ::core::marker::Copy for GipMessageClass {}
-impl ::core::clone::Clone for GipMessageClass {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GipMessageClass {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for GipMessageClass {
     type TypeKind = ::windows_core::CopyType;
@@ -715,7 +693,7 @@ impl ::windows_core::RuntimeType for GipMessageClass {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Custom.GipMessageClass;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XusbDeviceSubtype(pub i32);
 impl XusbDeviceSubtype {
     pub const Unknown: Self = Self(0i32);
@@ -730,17 +708,6 @@ impl XusbDeviceSubtype {
     pub const DrumKit: Self = Self(9i32);
     pub const DancePad: Self = Self(10i32);
 }
-impl ::core::marker::Copy for XusbDeviceSubtype {}
-impl ::core::clone::Clone for XusbDeviceSubtype {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XusbDeviceSubtype {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XusbDeviceSubtype {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -753,22 +720,11 @@ impl ::windows_core::RuntimeType for XusbDeviceSubtype {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Custom.XusbDeviceSubtype;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XusbDeviceType(pub i32);
 impl XusbDeviceType {
     pub const Unknown: Self = Self(0i32);
     pub const Gamepad: Self = Self(1i32);
-}
-impl ::core::marker::Copy for XusbDeviceType {}
-impl ::core::clone::Clone for XusbDeviceType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XusbDeviceType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for XusbDeviceType {
     type TypeKind = ::windows_core::CopyType;

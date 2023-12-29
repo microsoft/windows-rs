@@ -105,19 +105,8 @@ pub const struuidNodetypeSceAnalysisServices: ::windows_core::PCSTR = ::windows_
 pub const struuidNodetypeSceEventLog: ::windows_core::PCSTR = ::windows_core::s!("{2ce06698-4bf3-11d1-8c30-00c04fb984f9}");
 pub const struuidNodetypeSceTemplateServices: ::windows_core::PCSTR = ::windows_core::s!("{24a7f717-1f0c-11d1-affb-00c04fb984f9}");
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SCESVC_INFO_TYPE(pub i32);
-impl ::core::marker::Copy for SCESVC_INFO_TYPE {}
-impl ::core::clone::Clone for SCESVC_INFO_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SCESVC_INFO_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SCESVC_INFO_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -127,19 +116,8 @@ impl ::core::fmt::Debug for SCESVC_INFO_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SCE_LOG_ERR_LEVEL(pub i32);
-impl ::core::marker::Copy for SCE_LOG_ERR_LEVEL {}
-impl ::core::clone::Clone for SCE_LOG_ERR_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SCE_LOG_ERR_LEVEL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SCE_LOG_ERR_LEVEL {
     type TypeKind = ::windows_core::CopyType;
 }

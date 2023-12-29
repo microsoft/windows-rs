@@ -1027,24 +1027,13 @@ impl ::windows_core::RuntimeName for WebTokenResponse {
 unsafe impl ::core::marker::Send for WebTokenResponse {}
 unsafe impl ::core::marker::Sync for WebTokenResponse {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FindAllWebAccountsStatus(pub i32);
 impl FindAllWebAccountsStatus {
     pub const Success: Self = Self(0i32);
     pub const NotAllowedByProvider: Self = Self(1i32);
     pub const NotSupportedByProvider: Self = Self(2i32);
     pub const ProviderError: Self = Self(3i32);
-}
-impl ::core::marker::Copy for FindAllWebAccountsStatus {}
-impl ::core::clone::Clone for FindAllWebAccountsStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FindAllWebAccountsStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for FindAllWebAccountsStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -1058,22 +1047,11 @@ impl ::windows_core::RuntimeType for FindAllWebAccountsStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Core.FindAllWebAccountsStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WebTokenRequestPromptType(pub i32);
 impl WebTokenRequestPromptType {
     pub const Default: Self = Self(0i32);
     pub const ForceAuthentication: Self = Self(1i32);
-}
-impl ::core::marker::Copy for WebTokenRequestPromptType {}
-impl ::core::clone::Clone for WebTokenRequestPromptType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WebTokenRequestPromptType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for WebTokenRequestPromptType {
     type TypeKind = ::windows_core::CopyType;
@@ -1087,7 +1065,7 @@ impl ::windows_core::RuntimeType for WebTokenRequestPromptType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Core.WebTokenRequestPromptType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WebTokenRequestStatus(pub i32);
 impl WebTokenRequestStatus {
     pub const Success: Self = Self(0i32);
@@ -1096,17 +1074,6 @@ impl WebTokenRequestStatus {
     pub const UserInteractionRequired: Self = Self(3i32);
     pub const AccountProviderNotAvailable: Self = Self(4i32);
     pub const ProviderError: Self = Self(5i32);
-}
-impl ::core::marker::Copy for WebTokenRequestStatus {}
-impl ::core::clone::Clone for WebTokenRequestStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WebTokenRequestStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for WebTokenRequestStatus {
     type TypeKind = ::windows_core::CopyType;

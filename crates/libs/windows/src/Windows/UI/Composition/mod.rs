@@ -28798,22 +28798,11 @@ impl ::windows_core::CanTryInto<CompositionObject> for VisualUnorderedCollection
 unsafe impl ::core::marker::Send for VisualUnorderedCollection {}
 unsafe impl ::core::marker::Sync for VisualUnorderedCollection {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AnimationControllerProgressBehavior(pub i32);
 impl AnimationControllerProgressBehavior {
     pub const Default: Self = Self(0i32);
     pub const IncludesDelayTime: Self = Self(1i32);
-}
-impl ::core::marker::Copy for AnimationControllerProgressBehavior {}
-impl ::core::clone::Clone for AnimationControllerProgressBehavior {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AnimationControllerProgressBehavior {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AnimationControllerProgressBehavior {
     type TypeKind = ::windows_core::CopyType;
@@ -28827,22 +28816,11 @@ impl ::windows_core::RuntimeType for AnimationControllerProgressBehavior {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.AnimationControllerProgressBehavior;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AnimationDelayBehavior(pub i32);
 impl AnimationDelayBehavior {
     pub const SetInitialValueAfterDelay: Self = Self(0i32);
     pub const SetInitialValueBeforeDelay: Self = Self(1i32);
-}
-impl ::core::marker::Copy for AnimationDelayBehavior {}
-impl ::core::clone::Clone for AnimationDelayBehavior {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AnimationDelayBehavior {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AnimationDelayBehavior {
     type TypeKind = ::windows_core::CopyType;
@@ -28856,24 +28834,13 @@ impl ::windows_core::RuntimeType for AnimationDelayBehavior {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.AnimationDelayBehavior;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AnimationDirection(pub i32);
 impl AnimationDirection {
     pub const Normal: Self = Self(0i32);
     pub const Reverse: Self = Self(1i32);
     pub const Alternate: Self = Self(2i32);
     pub const AlternateReverse: Self = Self(3i32);
-}
-impl ::core::marker::Copy for AnimationDirection {}
-impl ::core::clone::Clone for AnimationDirection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AnimationDirection {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AnimationDirection {
     type TypeKind = ::windows_core::CopyType;
@@ -28887,22 +28854,11 @@ impl ::windows_core::RuntimeType for AnimationDirection {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.AnimationDirection;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AnimationIterationBehavior(pub i32);
 impl AnimationIterationBehavior {
     pub const Count: Self = Self(0i32);
     pub const Forever: Self = Self(1i32);
-}
-impl ::core::marker::Copy for AnimationIterationBehavior {}
-impl ::core::clone::Clone for AnimationIterationBehavior {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AnimationIterationBehavior {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AnimationIterationBehavior {
     type TypeKind = ::windows_core::CopyType;
@@ -28916,24 +28872,13 @@ impl ::windows_core::RuntimeType for AnimationIterationBehavior {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.AnimationIterationBehavior;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AnimationPropertyAccessMode(pub i32);
 impl AnimationPropertyAccessMode {
     pub const None: Self = Self(0i32);
     pub const ReadOnly: Self = Self(1i32);
     pub const WriteOnly: Self = Self(2i32);
     pub const ReadWrite: Self = Self(3i32);
-}
-impl ::core::marker::Copy for AnimationPropertyAccessMode {}
-impl ::core::clone::Clone for AnimationPropertyAccessMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AnimationPropertyAccessMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AnimationPropertyAccessMode {
     type TypeKind = ::windows_core::CopyType;
@@ -28947,23 +28892,12 @@ impl ::windows_core::RuntimeType for AnimationPropertyAccessMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.AnimationPropertyAccessMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AnimationStopBehavior(pub i32);
 impl AnimationStopBehavior {
     pub const LeaveCurrentValue: Self = Self(0i32);
     pub const SetToInitialValue: Self = Self(1i32);
     pub const SetToFinalValue: Self = Self(2i32);
-}
-impl ::core::marker::Copy for AnimationStopBehavior {}
-impl ::core::clone::Clone for AnimationStopBehavior {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AnimationStopBehavior {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AnimationStopBehavior {
     type TypeKind = ::windows_core::CopyType;
@@ -28977,23 +28911,12 @@ impl ::windows_core::RuntimeType for AnimationStopBehavior {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.AnimationStopBehavior;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CompositionBackfaceVisibility(pub i32);
 impl CompositionBackfaceVisibility {
     pub const Inherit: Self = Self(0i32);
     pub const Visible: Self = Self(1i32);
     pub const Hidden: Self = Self(2i32);
-}
-impl ::core::marker::Copy for CompositionBackfaceVisibility {}
-impl ::core::clone::Clone for CompositionBackfaceVisibility {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CompositionBackfaceVisibility {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CompositionBackfaceVisibility {
     type TypeKind = ::windows_core::CopyType;
@@ -29007,7 +28930,7 @@ impl ::windows_core::RuntimeType for CompositionBackfaceVisibility {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionBackfaceVisibility;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CompositionBatchTypes(pub u32);
 impl CompositionBatchTypes {
     pub const None: Self = Self(0u32);
@@ -29015,17 +28938,6 @@ impl CompositionBatchTypes {
     pub const Effect: Self = Self(2u32);
     pub const InfiniteAnimation: Self = Self(4u32);
     pub const AllAnimations: Self = Self(5u32);
-}
-impl ::core::marker::Copy for CompositionBatchTypes {}
-impl ::core::clone::Clone for CompositionBatchTypes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CompositionBatchTypes {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CompositionBatchTypes {
     type TypeKind = ::windows_core::CopyType;
@@ -29072,7 +28984,7 @@ impl ::windows_core::RuntimeType for CompositionBatchTypes {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionBatchTypes;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CompositionBitmapInterpolationMode(pub i32);
 impl CompositionBitmapInterpolationMode {
     pub const NearestNeighbor: Self = Self(0i32);
@@ -29086,17 +28998,6 @@ impl CompositionBitmapInterpolationMode {
     pub const MagNearestMinNearestMipLinear: Self = Self(8i32);
     pub const MagNearestMinNearestMipNearest: Self = Self(9i32);
 }
-impl ::core::marker::Copy for CompositionBitmapInterpolationMode {}
-impl ::core::clone::Clone for CompositionBitmapInterpolationMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CompositionBitmapInterpolationMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CompositionBitmapInterpolationMode {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -29109,23 +29010,12 @@ impl ::windows_core::RuntimeType for CompositionBitmapInterpolationMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionBitmapInterpolationMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CompositionBorderMode(pub i32);
 impl CompositionBorderMode {
     pub const Inherit: Self = Self(0i32);
     pub const Soft: Self = Self(1i32);
     pub const Hard: Self = Self(2i32);
-}
-impl ::core::marker::Copy for CompositionBorderMode {}
-impl ::core::clone::Clone for CompositionBorderMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CompositionBorderMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CompositionBorderMode {
     type TypeKind = ::windows_core::CopyType;
@@ -29139,7 +29029,7 @@ impl ::windows_core::RuntimeType for CompositionBorderMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionBorderMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CompositionColorSpace(pub i32);
 impl CompositionColorSpace {
     pub const Auto: Self = Self(0i32);
@@ -29147,17 +29037,6 @@ impl CompositionColorSpace {
     pub const Rgb: Self = Self(2i32);
     pub const HslLinear: Self = Self(3i32);
     pub const RgbLinear: Self = Self(4i32);
-}
-impl ::core::marker::Copy for CompositionColorSpace {}
-impl ::core::clone::Clone for CompositionColorSpace {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CompositionColorSpace {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CompositionColorSpace {
     type TypeKind = ::windows_core::CopyType;
@@ -29171,24 +29050,13 @@ impl ::windows_core::RuntimeType for CompositionColorSpace {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionColorSpace;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CompositionCompositeMode(pub i32);
 impl CompositionCompositeMode {
     pub const Inherit: Self = Self(0i32);
     pub const SourceOver: Self = Self(1i32);
     pub const DestinationInvert: Self = Self(2i32);
     pub const MinBlend: Self = Self(3i32);
-}
-impl ::core::marker::Copy for CompositionCompositeMode {}
-impl ::core::clone::Clone for CompositionCompositeMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CompositionCompositeMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CompositionCompositeMode {
     type TypeKind = ::windows_core::CopyType;
@@ -29202,22 +29070,11 @@ impl ::windows_core::RuntimeType for CompositionCompositeMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionCompositeMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CompositionDropShadowSourcePolicy(pub i32);
 impl CompositionDropShadowSourcePolicy {
     pub const Default: Self = Self(0i32);
     pub const InheritFromVisualContent: Self = Self(1i32);
-}
-impl ::core::marker::Copy for CompositionDropShadowSourcePolicy {}
-impl ::core::clone::Clone for CompositionDropShadowSourcePolicy {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CompositionDropShadowSourcePolicy {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CompositionDropShadowSourcePolicy {
     type TypeKind = ::windows_core::CopyType;
@@ -29231,23 +29088,12 @@ impl ::windows_core::RuntimeType for CompositionDropShadowSourcePolicy {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionDropShadowSourcePolicy;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CompositionEasingFunctionMode(pub i32);
 impl CompositionEasingFunctionMode {
     pub const In: Self = Self(0i32);
     pub const Out: Self = Self(1i32);
     pub const InOut: Self = Self(2i32);
-}
-impl ::core::marker::Copy for CompositionEasingFunctionMode {}
-impl ::core::clone::Clone for CompositionEasingFunctionMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CompositionEasingFunctionMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CompositionEasingFunctionMode {
     type TypeKind = ::windows_core::CopyType;
@@ -29261,24 +29107,13 @@ impl ::windows_core::RuntimeType for CompositionEasingFunctionMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionEasingFunctionMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CompositionEffectFactoryLoadStatus(pub i32);
 impl CompositionEffectFactoryLoadStatus {
     pub const Success: Self = Self(0i32);
     pub const EffectTooComplex: Self = Self(1i32);
     pub const Pending: Self = Self(2i32);
     pub const Other: Self = Self(-1i32);
-}
-impl ::core::marker::Copy for CompositionEffectFactoryLoadStatus {}
-impl ::core::clone::Clone for CompositionEffectFactoryLoadStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CompositionEffectFactoryLoadStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CompositionEffectFactoryLoadStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -29292,23 +29127,12 @@ impl ::windows_core::RuntimeType for CompositionEffectFactoryLoadStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionEffectFactoryLoadStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CompositionGetValueStatus(pub i32);
 impl CompositionGetValueStatus {
     pub const Succeeded: Self = Self(0i32);
     pub const TypeMismatch: Self = Self(1i32);
     pub const NotFound: Self = Self(2i32);
-}
-impl ::core::marker::Copy for CompositionGetValueStatus {}
-impl ::core::clone::Clone for CompositionGetValueStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CompositionGetValueStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CompositionGetValueStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -29322,23 +29146,12 @@ impl ::windows_core::RuntimeType for CompositionGetValueStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionGetValueStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CompositionGradientExtendMode(pub i32);
 impl CompositionGradientExtendMode {
     pub const Clamp: Self = Self(0i32);
     pub const Wrap: Self = Self(1i32);
     pub const Mirror: Self = Self(2i32);
-}
-impl ::core::marker::Copy for CompositionGradientExtendMode {}
-impl ::core::clone::Clone for CompositionGradientExtendMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CompositionGradientExtendMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CompositionGradientExtendMode {
     type TypeKind = ::windows_core::CopyType;
@@ -29352,22 +29165,11 @@ impl ::windows_core::RuntimeType for CompositionGradientExtendMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionGradientExtendMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CompositionMappingMode(pub i32);
 impl CompositionMappingMode {
     pub const Absolute: Self = Self(0i32);
     pub const Relative: Self = Self(1i32);
-}
-impl ::core::marker::Copy for CompositionMappingMode {}
-impl ::core::clone::Clone for CompositionMappingMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CompositionMappingMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CompositionMappingMode {
     type TypeKind = ::windows_core::CopyType;
@@ -29381,24 +29183,13 @@ impl ::windows_core::RuntimeType for CompositionMappingMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionMappingMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CompositionStretch(pub i32);
 impl CompositionStretch {
     pub const None: Self = Self(0i32);
     pub const Fill: Self = Self(1i32);
     pub const Uniform: Self = Self(2i32);
     pub const UniformToFill: Self = Self(3i32);
-}
-impl ::core::marker::Copy for CompositionStretch {}
-impl ::core::clone::Clone for CompositionStretch {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CompositionStretch {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CompositionStretch {
     type TypeKind = ::windows_core::CopyType;
@@ -29412,24 +29203,13 @@ impl ::windows_core::RuntimeType for CompositionStretch {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionStretch;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CompositionStrokeCap(pub i32);
 impl CompositionStrokeCap {
     pub const Flat: Self = Self(0i32);
     pub const Square: Self = Self(1i32);
     pub const Round: Self = Self(2i32);
     pub const Triangle: Self = Self(3i32);
-}
-impl ::core::marker::Copy for CompositionStrokeCap {}
-impl ::core::clone::Clone for CompositionStrokeCap {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CompositionStrokeCap {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CompositionStrokeCap {
     type TypeKind = ::windows_core::CopyType;
@@ -29443,24 +29223,13 @@ impl ::windows_core::RuntimeType for CompositionStrokeCap {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionStrokeCap;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CompositionStrokeLineJoin(pub i32);
 impl CompositionStrokeLineJoin {
     pub const Miter: Self = Self(0i32);
     pub const Bevel: Self = Self(1i32);
     pub const Round: Self = Self(2i32);
     pub const MiterOrBevel: Self = Self(3i32);
-}
-impl ::core::marker::Copy for CompositionStrokeLineJoin {}
-impl ::core::clone::Clone for CompositionStrokeLineJoin {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CompositionStrokeLineJoin {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CompositionStrokeLineJoin {
     type TypeKind = ::windows_core::CopyType;

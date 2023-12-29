@@ -21,19 +21,8 @@ pub const LicenseKeyNotFound: LicenseProtectionStatus = LicenseProtectionStatus(
 pub const LicenseKeyUnprotected: LicenseProtectionStatus = LicenseProtectionStatus(2i32);
 pub const Success: LicenseProtectionStatus = LicenseProtectionStatus(0i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct LicenseProtectionStatus(pub i32);
-impl ::core::marker::Copy for LicenseProtectionStatus {}
-impl ::core::clone::Clone for LicenseProtectionStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for LicenseProtectionStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for LicenseProtectionStatus {
     type TypeKind = ::windows_core::CopyType;
 }

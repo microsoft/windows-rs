@@ -131,19 +131,8 @@ pub const tcompTYPE_MSZIP: u32 = 1u32;
 pub const tcompTYPE_NONE: u32 = 0u32;
 pub const tcompTYPE_QUANTUM: u32 = 2u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FCIERROR(pub i32);
-impl ::core::marker::Copy for FCIERROR {}
-impl ::core::clone::Clone for FCIERROR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FCIERROR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FCIERROR {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -153,19 +142,8 @@ impl ::core::fmt::Debug for FCIERROR {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FDICREATE_CPU_TYPE(pub i32);
-impl ::core::marker::Copy for FDICREATE_CPU_TYPE {}
-impl ::core::clone::Clone for FDICREATE_CPU_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FDICREATE_CPU_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FDICREATE_CPU_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -175,19 +153,8 @@ impl ::core::fmt::Debug for FDICREATE_CPU_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FDIDECRYPTTYPE(pub i32);
-impl ::core::marker::Copy for FDIDECRYPTTYPE {}
-impl ::core::clone::Clone for FDIDECRYPTTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FDIDECRYPTTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FDIDECRYPTTYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -197,19 +164,8 @@ impl ::core::fmt::Debug for FDIDECRYPTTYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FDIERROR(pub i32);
-impl ::core::marker::Copy for FDIERROR {}
-impl ::core::clone::Clone for FDIERROR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FDIERROR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FDIERROR {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -219,19 +175,8 @@ impl ::core::fmt::Debug for FDIERROR {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FDINOTIFICATIONTYPE(pub i32);
-impl ::core::marker::Copy for FDINOTIFICATIONTYPE {}
-impl ::core::clone::Clone for FDINOTIFICATIONTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FDINOTIFICATIONTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FDINOTIFICATIONTYPE {
     type TypeKind = ::windows_core::CopyType;
 }

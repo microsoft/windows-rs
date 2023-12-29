@@ -92,19 +92,8 @@ pub const __WARNING_RETURNING_BAD_RESULT: u32 = 28196u32;
 pub const __WARNING_RETURN_UNINIT_VAR: u32 = 6101u32;
 pub const __WARNING_USING_UNINIT_VAR: u32 = 6001u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct IO_PRIORITY_HINT(pub i32);
-impl ::core::marker::Copy for IO_PRIORITY_HINT {}
-impl ::core::clone::Clone for IO_PRIORITY_HINT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for IO_PRIORITY_HINT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for IO_PRIORITY_HINT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -114,19 +103,8 @@ impl ::core::fmt::Debug for IO_PRIORITY_HINT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct KSPIN_LOCK_QUEUE_NUMBER(pub i32);
-impl ::core::marker::Copy for KSPIN_LOCK_QUEUE_NUMBER {}
-impl ::core::clone::Clone for KSPIN_LOCK_QUEUE_NUMBER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPIN_LOCK_QUEUE_NUMBER {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for KSPIN_LOCK_QUEUE_NUMBER {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -136,19 +114,8 @@ impl ::core::fmt::Debug for KSPIN_LOCK_QUEUE_NUMBER {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OBJECT_INFORMATION_CLASS(pub i32);
-impl ::core::marker::Copy for OBJECT_INFORMATION_CLASS {}
-impl ::core::clone::Clone for OBJECT_INFORMATION_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OBJECT_INFORMATION_CLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OBJECT_INFORMATION_CLASS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -158,19 +125,8 @@ impl ::core::fmt::Debug for OBJECT_INFORMATION_CLASS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct POOL_TYPE(pub i32);
-impl ::core::marker::Copy for POOL_TYPE {}
-impl ::core::clone::Clone for POOL_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for POOL_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for POOL_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }

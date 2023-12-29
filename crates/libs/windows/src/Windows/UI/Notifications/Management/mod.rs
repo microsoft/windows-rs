@@ -124,23 +124,12 @@ impl ::windows_core::RuntimeName for UserNotificationListener {
 unsafe impl ::core::marker::Send for UserNotificationListener {}
 unsafe impl ::core::marker::Sync for UserNotificationListener {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UserNotificationListenerAccessStatus(pub i32);
 impl UserNotificationListenerAccessStatus {
     pub const Unspecified: Self = Self(0i32);
     pub const Allowed: Self = Self(1i32);
     pub const Denied: Self = Self(2i32);
-}
-impl ::core::marker::Copy for UserNotificationListenerAccessStatus {}
-impl ::core::clone::Clone for UserNotificationListenerAccessStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UserNotificationListenerAccessStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for UserNotificationListenerAccessStatus {
     type TypeKind = ::windows_core::CopyType;
