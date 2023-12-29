@@ -8121,19 +8121,8 @@ pub const rtfRight: SelAlignmentConstants = SelAlignmentConstants(1i32);
 pub const rtfThreeD: AppearanceConstants = AppearanceConstants(1i32);
 pub const rtfVertical: ScrollBarsConstants = ScrollBarsConstants(2i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ALT_BREAKS(pub i32);
-impl ::core::marker::Copy for ALT_BREAKS {}
-impl ::core::clone::Clone for ALT_BREAKS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ALT_BREAKS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ALT_BREAKS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8143,19 +8132,8 @@ impl ::core::fmt::Debug for ALT_BREAKS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AppearanceConstants(pub i32);
-impl ::core::marker::Copy for AppearanceConstants {}
-impl ::core::clone::Clone for AppearanceConstants {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AppearanceConstants {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AppearanceConstants {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8165,19 +8143,8 @@ impl ::core::fmt::Debug for AppearanceConstants {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BorderStyleConstants(pub i32);
-impl ::core::marker::Copy for BorderStyleConstants {}
-impl ::core::clone::Clone for BorderStyleConstants {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BorderStyleConstants {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for BorderStyleConstants {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8187,19 +8154,8 @@ impl ::core::fmt::Debug for BorderStyleConstants {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CONFIDENCE_LEVEL(pub i32);
-impl ::core::marker::Copy for CONFIDENCE_LEVEL {}
-impl ::core::clone::Clone for CONFIDENCE_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CONFIDENCE_LEVEL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CONFIDENCE_LEVEL {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8209,19 +8165,8 @@ impl ::core::fmt::Debug for CONFIDENCE_LEVEL {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CorrectionMode(pub i32);
-impl ::core::marker::Copy for CorrectionMode {}
-impl ::core::clone::Clone for CorrectionMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CorrectionMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CorrectionMode {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8231,19 +8176,8 @@ impl ::core::fmt::Debug for CorrectionMode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CorrectionPosition(pub i32);
-impl ::core::marker::Copy for CorrectionPosition {}
-impl ::core::clone::Clone for CorrectionPosition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CorrectionPosition {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CorrectionPosition {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8253,19 +8187,8 @@ impl ::core::fmt::Debug for CorrectionPosition {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_Ink(pub i32);
-impl ::core::marker::Copy for DISPID_Ink {}
-impl ::core::clone::Clone for DISPID_Ink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_Ink {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_Ink {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8275,19 +8198,8 @@ impl ::core::fmt::Debug for DISPID_Ink {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_InkCollector(pub i32);
-impl ::core::marker::Copy for DISPID_InkCollector {}
-impl ::core::clone::Clone for DISPID_InkCollector {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_InkCollector {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_InkCollector {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8297,19 +8209,8 @@ impl ::core::fmt::Debug for DISPID_InkCollector {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_InkCollectorEvent(pub i32);
-impl ::core::marker::Copy for DISPID_InkCollectorEvent {}
-impl ::core::clone::Clone for DISPID_InkCollectorEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_InkCollectorEvent {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_InkCollectorEvent {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8319,19 +8220,8 @@ impl ::core::fmt::Debug for DISPID_InkCollectorEvent {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_InkCursor(pub i32);
-impl ::core::marker::Copy for DISPID_InkCursor {}
-impl ::core::clone::Clone for DISPID_InkCursor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_InkCursor {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_InkCursor {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8341,19 +8231,8 @@ impl ::core::fmt::Debug for DISPID_InkCursor {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_InkCursorButton(pub i32);
-impl ::core::marker::Copy for DISPID_InkCursorButton {}
-impl ::core::clone::Clone for DISPID_InkCursorButton {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_InkCursorButton {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_InkCursorButton {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8363,19 +8242,8 @@ impl ::core::fmt::Debug for DISPID_InkCursorButton {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_InkCursorButtons(pub i32);
-impl ::core::marker::Copy for DISPID_InkCursorButtons {}
-impl ::core::clone::Clone for DISPID_InkCursorButtons {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_InkCursorButtons {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_InkCursorButtons {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8385,19 +8253,8 @@ impl ::core::fmt::Debug for DISPID_InkCursorButtons {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_InkCursors(pub i32);
-impl ::core::marker::Copy for DISPID_InkCursors {}
-impl ::core::clone::Clone for DISPID_InkCursors {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_InkCursors {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_InkCursors {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8407,19 +8264,8 @@ impl ::core::fmt::Debug for DISPID_InkCursors {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_InkCustomStrokes(pub i32);
-impl ::core::marker::Copy for DISPID_InkCustomStrokes {}
-impl ::core::clone::Clone for DISPID_InkCustomStrokes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_InkCustomStrokes {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_InkCustomStrokes {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8429,19 +8275,8 @@ impl ::core::fmt::Debug for DISPID_InkCustomStrokes {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_InkDivider(pub i32);
-impl ::core::marker::Copy for DISPID_InkDivider {}
-impl ::core::clone::Clone for DISPID_InkDivider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_InkDivider {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_InkDivider {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8451,19 +8286,8 @@ impl ::core::fmt::Debug for DISPID_InkDivider {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_InkDivisionResult(pub i32);
-impl ::core::marker::Copy for DISPID_InkDivisionResult {}
-impl ::core::clone::Clone for DISPID_InkDivisionResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_InkDivisionResult {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_InkDivisionResult {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8473,19 +8297,8 @@ impl ::core::fmt::Debug for DISPID_InkDivisionResult {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_InkDivisionUnit(pub i32);
-impl ::core::marker::Copy for DISPID_InkDivisionUnit {}
-impl ::core::clone::Clone for DISPID_InkDivisionUnit {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_InkDivisionUnit {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_InkDivisionUnit {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8495,19 +8308,8 @@ impl ::core::fmt::Debug for DISPID_InkDivisionUnit {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_InkDivisionUnits(pub i32);
-impl ::core::marker::Copy for DISPID_InkDivisionUnits {}
-impl ::core::clone::Clone for DISPID_InkDivisionUnits {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_InkDivisionUnits {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_InkDivisionUnits {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8517,19 +8319,8 @@ impl ::core::fmt::Debug for DISPID_InkDivisionUnits {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_InkDrawingAttributes(pub i32);
-impl ::core::marker::Copy for DISPID_InkDrawingAttributes {}
-impl ::core::clone::Clone for DISPID_InkDrawingAttributes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_InkDrawingAttributes {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_InkDrawingAttributes {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8539,19 +8330,8 @@ impl ::core::fmt::Debug for DISPID_InkDrawingAttributes {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_InkEdit(pub i32);
-impl ::core::marker::Copy for DISPID_InkEdit {}
-impl ::core::clone::Clone for DISPID_InkEdit {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_InkEdit {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_InkEdit {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8561,19 +8341,8 @@ impl ::core::fmt::Debug for DISPID_InkEdit {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_InkEditEvents(pub i32);
-impl ::core::marker::Copy for DISPID_InkEditEvents {}
-impl ::core::clone::Clone for DISPID_InkEditEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_InkEditEvents {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_InkEditEvents {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8583,19 +8352,8 @@ impl ::core::fmt::Debug for DISPID_InkEditEvents {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_InkEvent(pub i32);
-impl ::core::marker::Copy for DISPID_InkEvent {}
-impl ::core::clone::Clone for DISPID_InkEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_InkEvent {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_InkEvent {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8605,19 +8363,8 @@ impl ::core::fmt::Debug for DISPID_InkEvent {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_InkExtendedProperties(pub i32);
-impl ::core::marker::Copy for DISPID_InkExtendedProperties {}
-impl ::core::clone::Clone for DISPID_InkExtendedProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_InkExtendedProperties {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_InkExtendedProperties {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8627,19 +8374,8 @@ impl ::core::fmt::Debug for DISPID_InkExtendedProperties {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_InkExtendedProperty(pub i32);
-impl ::core::marker::Copy for DISPID_InkExtendedProperty {}
-impl ::core::clone::Clone for DISPID_InkExtendedProperty {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_InkExtendedProperty {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_InkExtendedProperty {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8649,19 +8385,8 @@ impl ::core::fmt::Debug for DISPID_InkExtendedProperty {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_InkGesture(pub i32);
-impl ::core::marker::Copy for DISPID_InkGesture {}
-impl ::core::clone::Clone for DISPID_InkGesture {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_InkGesture {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_InkGesture {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8671,19 +8396,8 @@ impl ::core::fmt::Debug for DISPID_InkGesture {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_InkRecoAlternate(pub i32);
-impl ::core::marker::Copy for DISPID_InkRecoAlternate {}
-impl ::core::clone::Clone for DISPID_InkRecoAlternate {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_InkRecoAlternate {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_InkRecoAlternate {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8693,19 +8407,8 @@ impl ::core::fmt::Debug for DISPID_InkRecoAlternate {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_InkRecoContext(pub i32);
-impl ::core::marker::Copy for DISPID_InkRecoContext {}
-impl ::core::clone::Clone for DISPID_InkRecoContext {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_InkRecoContext {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_InkRecoContext {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8715,19 +8418,8 @@ impl ::core::fmt::Debug for DISPID_InkRecoContext {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_InkRecoContext2(pub i32);
-impl ::core::marker::Copy for DISPID_InkRecoContext2 {}
-impl ::core::clone::Clone for DISPID_InkRecoContext2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_InkRecoContext2 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_InkRecoContext2 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8737,19 +8429,8 @@ impl ::core::fmt::Debug for DISPID_InkRecoContext2 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_InkRecognitionAlternates(pub i32);
-impl ::core::marker::Copy for DISPID_InkRecognitionAlternates {}
-impl ::core::clone::Clone for DISPID_InkRecognitionAlternates {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_InkRecognitionAlternates {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_InkRecognitionAlternates {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8759,19 +8440,8 @@ impl ::core::fmt::Debug for DISPID_InkRecognitionAlternates {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_InkRecognitionEvent(pub i32);
-impl ::core::marker::Copy for DISPID_InkRecognitionEvent {}
-impl ::core::clone::Clone for DISPID_InkRecognitionEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_InkRecognitionEvent {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_InkRecognitionEvent {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8781,19 +8451,8 @@ impl ::core::fmt::Debug for DISPID_InkRecognitionEvent {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_InkRecognitionResult(pub i32);
-impl ::core::marker::Copy for DISPID_InkRecognitionResult {}
-impl ::core::clone::Clone for DISPID_InkRecognitionResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_InkRecognitionResult {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_InkRecognitionResult {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8803,19 +8462,8 @@ impl ::core::fmt::Debug for DISPID_InkRecognitionResult {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_InkRecognizer(pub i32);
-impl ::core::marker::Copy for DISPID_InkRecognizer {}
-impl ::core::clone::Clone for DISPID_InkRecognizer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_InkRecognizer {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_InkRecognizer {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8825,19 +8473,8 @@ impl ::core::fmt::Debug for DISPID_InkRecognizer {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_InkRecognizer2(pub i32);
-impl ::core::marker::Copy for DISPID_InkRecognizer2 {}
-impl ::core::clone::Clone for DISPID_InkRecognizer2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_InkRecognizer2 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_InkRecognizer2 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8847,19 +8484,8 @@ impl ::core::fmt::Debug for DISPID_InkRecognizer2 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_InkRecognizerGuide(pub i32);
-impl ::core::marker::Copy for DISPID_InkRecognizerGuide {}
-impl ::core::clone::Clone for DISPID_InkRecognizerGuide {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_InkRecognizerGuide {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_InkRecognizerGuide {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8869,19 +8495,8 @@ impl ::core::fmt::Debug for DISPID_InkRecognizerGuide {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_InkRecognizers(pub i32);
-impl ::core::marker::Copy for DISPID_InkRecognizers {}
-impl ::core::clone::Clone for DISPID_InkRecognizers {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_InkRecognizers {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_InkRecognizers {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8891,19 +8506,8 @@ impl ::core::fmt::Debug for DISPID_InkRecognizers {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_InkRectangle(pub i32);
-impl ::core::marker::Copy for DISPID_InkRectangle {}
-impl ::core::clone::Clone for DISPID_InkRectangle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_InkRectangle {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_InkRectangle {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8913,19 +8517,8 @@ impl ::core::fmt::Debug for DISPID_InkRectangle {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_InkRenderer(pub i32);
-impl ::core::marker::Copy for DISPID_InkRenderer {}
-impl ::core::clone::Clone for DISPID_InkRenderer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_InkRenderer {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_InkRenderer {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8935,19 +8528,8 @@ impl ::core::fmt::Debug for DISPID_InkRenderer {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_InkStrokeDisp(pub i32);
-impl ::core::marker::Copy for DISPID_InkStrokeDisp {}
-impl ::core::clone::Clone for DISPID_InkStrokeDisp {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_InkStrokeDisp {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_InkStrokeDisp {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8957,19 +8539,8 @@ impl ::core::fmt::Debug for DISPID_InkStrokeDisp {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_InkStrokes(pub i32);
-impl ::core::marker::Copy for DISPID_InkStrokes {}
-impl ::core::clone::Clone for DISPID_InkStrokes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_InkStrokes {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_InkStrokes {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8979,19 +8550,8 @@ impl ::core::fmt::Debug for DISPID_InkStrokes {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_InkTablet(pub i32);
-impl ::core::marker::Copy for DISPID_InkTablet {}
-impl ::core::clone::Clone for DISPID_InkTablet {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_InkTablet {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_InkTablet {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9001,19 +8561,8 @@ impl ::core::fmt::Debug for DISPID_InkTablet {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_InkTablet2(pub i32);
-impl ::core::marker::Copy for DISPID_InkTablet2 {}
-impl ::core::clone::Clone for DISPID_InkTablet2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_InkTablet2 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_InkTablet2 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9023,19 +8572,8 @@ impl ::core::fmt::Debug for DISPID_InkTablet2 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_InkTablet3(pub i32);
-impl ::core::marker::Copy for DISPID_InkTablet3 {}
-impl ::core::clone::Clone for DISPID_InkTablet3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_InkTablet3 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_InkTablet3 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9045,19 +8583,8 @@ impl ::core::fmt::Debug for DISPID_InkTablet3 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_InkTablets(pub i32);
-impl ::core::marker::Copy for DISPID_InkTablets {}
-impl ::core::clone::Clone for DISPID_InkTablets {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_InkTablets {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_InkTablets {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9067,19 +8594,8 @@ impl ::core::fmt::Debug for DISPID_InkTablets {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_InkTransform(pub i32);
-impl ::core::marker::Copy for DISPID_InkTransform {}
-impl ::core::clone::Clone for DISPID_InkTransform {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_InkTransform {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_InkTransform {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9089,19 +8605,8 @@ impl ::core::fmt::Debug for DISPID_InkTransform {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_InkWordList(pub i32);
-impl ::core::marker::Copy for DISPID_InkWordList {}
-impl ::core::clone::Clone for DISPID_InkWordList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_InkWordList {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_InkWordList {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9111,19 +8616,8 @@ impl ::core::fmt::Debug for DISPID_InkWordList {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_InkWordList2(pub i32);
-impl ::core::marker::Copy for DISPID_InkWordList2 {}
-impl ::core::clone::Clone for DISPID_InkWordList2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_InkWordList2 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_InkWordList2 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9133,19 +8627,8 @@ impl ::core::fmt::Debug for DISPID_InkWordList2 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_MathInputControlEvents(pub i32);
-impl ::core::marker::Copy for DISPID_MathInputControlEvents {}
-impl ::core::clone::Clone for DISPID_MathInputControlEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_MathInputControlEvents {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_MathInputControlEvents {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9155,19 +8638,8 @@ impl ::core::fmt::Debug for DISPID_MathInputControlEvents {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_PenInputPanel(pub i32);
-impl ::core::marker::Copy for DISPID_PenInputPanel {}
-impl ::core::clone::Clone for DISPID_PenInputPanel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_PenInputPanel {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_PenInputPanel {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9177,19 +8649,8 @@ impl ::core::fmt::Debug for DISPID_PenInputPanel {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_PenInputPanelEvents(pub i32);
-impl ::core::marker::Copy for DISPID_PenInputPanelEvents {}
-impl ::core::clone::Clone for DISPID_PenInputPanelEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_PenInputPanelEvents {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_PenInputPanelEvents {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9199,19 +8660,8 @@ impl ::core::fmt::Debug for DISPID_PenInputPanelEvents {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_StrokeEvent(pub i32);
-impl ::core::marker::Copy for DISPID_StrokeEvent {}
-impl ::core::clone::Clone for DISPID_StrokeEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_StrokeEvent {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_StrokeEvent {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9221,19 +8671,8 @@ impl ::core::fmt::Debug for DISPID_StrokeEvent {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EventMask(pub i32);
-impl ::core::marker::Copy for EventMask {}
-impl ::core::clone::Clone for EventMask {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EventMask {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EventMask {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9243,19 +8682,8 @@ impl ::core::fmt::Debug for EventMask {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FLICKACTION_COMMANDCODE(pub i32);
-impl ::core::marker::Copy for FLICKACTION_COMMANDCODE {}
-impl ::core::clone::Clone for FLICKACTION_COMMANDCODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FLICKACTION_COMMANDCODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FLICKACTION_COMMANDCODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9265,19 +8693,8 @@ impl ::core::fmt::Debug for FLICKACTION_COMMANDCODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FLICKDIRECTION(pub i32);
-impl ::core::marker::Copy for FLICKDIRECTION {}
-impl ::core::clone::Clone for FLICKDIRECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FLICKDIRECTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FLICKDIRECTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9287,19 +8704,8 @@ impl ::core::fmt::Debug for FLICKDIRECTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FLICKMODE(pub i32);
-impl ::core::marker::Copy for FLICKMODE {}
-impl ::core::clone::Clone for FLICKMODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FLICKMODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FLICKMODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9309,19 +8715,8 @@ impl ::core::fmt::Debug for FLICKMODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GET_DANDIDATE_FLAGS(pub i32);
-impl ::core::marker::Copy for GET_DANDIDATE_FLAGS {}
-impl ::core::clone::Clone for GET_DANDIDATE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GET_DANDIDATE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for GET_DANDIDATE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9331,19 +8726,8 @@ impl ::core::fmt::Debug for GET_DANDIDATE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct INK_METRIC_FLAGS(pub i32);
-impl ::core::marker::Copy for INK_METRIC_FLAGS {}
-impl ::core::clone::Clone for INK_METRIC_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for INK_METRIC_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for INK_METRIC_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9353,19 +8737,8 @@ impl ::core::fmt::Debug for INK_METRIC_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InPlaceDirection(pub i32);
-impl ::core::marker::Copy for InPlaceDirection {}
-impl ::core::clone::Clone for InPlaceDirection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InPlaceDirection {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for InPlaceDirection {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9375,19 +8748,8 @@ impl ::core::fmt::Debug for InPlaceDirection {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InPlaceState(pub i32);
-impl ::core::marker::Copy for InPlaceState {}
-impl ::core::clone::Clone for InPlaceState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InPlaceState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for InPlaceState {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9397,19 +8759,8 @@ impl ::core::fmt::Debug for InPlaceState {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InkApplicationGesture(pub i32);
-impl ::core::marker::Copy for InkApplicationGesture {}
-impl ::core::clone::Clone for InkApplicationGesture {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InkApplicationGesture {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for InkApplicationGesture {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9419,19 +8770,8 @@ impl ::core::fmt::Debug for InkApplicationGesture {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InkBoundingBoxMode(pub i32);
-impl ::core::marker::Copy for InkBoundingBoxMode {}
-impl ::core::clone::Clone for InkBoundingBoxMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InkBoundingBoxMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for InkBoundingBoxMode {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9441,19 +8781,8 @@ impl ::core::fmt::Debug for InkBoundingBoxMode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InkClipboardFormats(pub i32);
-impl ::core::marker::Copy for InkClipboardFormats {}
-impl ::core::clone::Clone for InkClipboardFormats {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InkClipboardFormats {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for InkClipboardFormats {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9463,19 +8792,8 @@ impl ::core::fmt::Debug for InkClipboardFormats {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InkClipboardModes(pub i32);
-impl ::core::marker::Copy for InkClipboardModes {}
-impl ::core::clone::Clone for InkClipboardModes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InkClipboardModes {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for InkClipboardModes {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9485,19 +8803,8 @@ impl ::core::fmt::Debug for InkClipboardModes {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InkCollectionMode(pub i32);
-impl ::core::marker::Copy for InkCollectionMode {}
-impl ::core::clone::Clone for InkCollectionMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InkCollectionMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for InkCollectionMode {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9507,19 +8814,8 @@ impl ::core::fmt::Debug for InkCollectionMode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InkCollectorEventInterest(pub i32);
-impl ::core::marker::Copy for InkCollectorEventInterest {}
-impl ::core::clone::Clone for InkCollectorEventInterest {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InkCollectorEventInterest {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for InkCollectorEventInterest {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9529,19 +8825,8 @@ impl ::core::fmt::Debug for InkCollectorEventInterest {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InkCursorButtonState(pub i32);
-impl ::core::marker::Copy for InkCursorButtonState {}
-impl ::core::clone::Clone for InkCursorButtonState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InkCursorButtonState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for InkCursorButtonState {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9551,19 +8836,8 @@ impl ::core::fmt::Debug for InkCursorButtonState {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InkDisplayMode(pub i32);
-impl ::core::marker::Copy for InkDisplayMode {}
-impl ::core::clone::Clone for InkDisplayMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InkDisplayMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for InkDisplayMode {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9573,19 +8847,8 @@ impl ::core::fmt::Debug for InkDisplayMode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InkDivisionType(pub i32);
-impl ::core::marker::Copy for InkDivisionType {}
-impl ::core::clone::Clone for InkDivisionType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InkDivisionType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for InkDivisionType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9595,19 +8858,8 @@ impl ::core::fmt::Debug for InkDivisionType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InkEditStatus(pub i32);
-impl ::core::marker::Copy for InkEditStatus {}
-impl ::core::clone::Clone for InkEditStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InkEditStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for InkEditStatus {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9617,19 +8869,8 @@ impl ::core::fmt::Debug for InkEditStatus {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InkExtractFlags(pub i32);
-impl ::core::marker::Copy for InkExtractFlags {}
-impl ::core::clone::Clone for InkExtractFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InkExtractFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for InkExtractFlags {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9639,19 +8880,8 @@ impl ::core::fmt::Debug for InkExtractFlags {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InkInsertMode(pub i32);
-impl ::core::marker::Copy for InkInsertMode {}
-impl ::core::clone::Clone for InkInsertMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InkInsertMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for InkInsertMode {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9661,19 +8891,8 @@ impl ::core::fmt::Debug for InkInsertMode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InkMode(pub i32);
-impl ::core::marker::Copy for InkMode {}
-impl ::core::clone::Clone for InkMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InkMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for InkMode {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9683,19 +8902,8 @@ impl ::core::fmt::Debug for InkMode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InkMouseButton(pub i32);
-impl ::core::marker::Copy for InkMouseButton {}
-impl ::core::clone::Clone for InkMouseButton {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InkMouseButton {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for InkMouseButton {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9705,19 +8913,8 @@ impl ::core::fmt::Debug for InkMouseButton {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InkMousePointer(pub i32);
-impl ::core::marker::Copy for InkMousePointer {}
-impl ::core::clone::Clone for InkMousePointer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InkMousePointer {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for InkMousePointer {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9727,19 +8924,8 @@ impl ::core::fmt::Debug for InkMousePointer {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InkOverlayAttachMode(pub i32);
-impl ::core::marker::Copy for InkOverlayAttachMode {}
-impl ::core::clone::Clone for InkOverlayAttachMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InkOverlayAttachMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for InkOverlayAttachMode {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9749,19 +8935,8 @@ impl ::core::fmt::Debug for InkOverlayAttachMode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InkOverlayEditingMode(pub i32);
-impl ::core::marker::Copy for InkOverlayEditingMode {}
-impl ::core::clone::Clone for InkOverlayEditingMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InkOverlayEditingMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for InkOverlayEditingMode {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9771,19 +8946,8 @@ impl ::core::fmt::Debug for InkOverlayEditingMode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InkOverlayEraserMode(pub i32);
-impl ::core::marker::Copy for InkOverlayEraserMode {}
-impl ::core::clone::Clone for InkOverlayEraserMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InkOverlayEraserMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for InkOverlayEraserMode {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9793,19 +8957,8 @@ impl ::core::fmt::Debug for InkOverlayEraserMode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InkPenTip(pub i32);
-impl ::core::marker::Copy for InkPenTip {}
-impl ::core::clone::Clone for InkPenTip {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InkPenTip {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for InkPenTip {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9815,19 +8968,8 @@ impl ::core::fmt::Debug for InkPenTip {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InkPersistenceCompressionMode(pub i32);
-impl ::core::marker::Copy for InkPersistenceCompressionMode {}
-impl ::core::clone::Clone for InkPersistenceCompressionMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InkPersistenceCompressionMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for InkPersistenceCompressionMode {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9837,19 +8979,8 @@ impl ::core::fmt::Debug for InkPersistenceCompressionMode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InkPersistenceFormat(pub i32);
-impl ::core::marker::Copy for InkPersistenceFormat {}
-impl ::core::clone::Clone for InkPersistenceFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InkPersistenceFormat {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for InkPersistenceFormat {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9859,19 +8990,8 @@ impl ::core::fmt::Debug for InkPersistenceFormat {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InkPictureSizeMode(pub i32);
-impl ::core::marker::Copy for InkPictureSizeMode {}
-impl ::core::clone::Clone for InkPictureSizeMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InkPictureSizeMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for InkPictureSizeMode {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9881,19 +9001,8 @@ impl ::core::fmt::Debug for InkPictureSizeMode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InkRasterOperation(pub i32);
-impl ::core::marker::Copy for InkRasterOperation {}
-impl ::core::clone::Clone for InkRasterOperation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InkRasterOperation {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for InkRasterOperation {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9903,19 +9012,8 @@ impl ::core::fmt::Debug for InkRasterOperation {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InkRecognitionAlternatesSelection(pub i32);
-impl ::core::marker::Copy for InkRecognitionAlternatesSelection {}
-impl ::core::clone::Clone for InkRecognitionAlternatesSelection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InkRecognitionAlternatesSelection {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for InkRecognitionAlternatesSelection {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9925,19 +9023,8 @@ impl ::core::fmt::Debug for InkRecognitionAlternatesSelection {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InkRecognitionConfidence(pub i32);
-impl ::core::marker::Copy for InkRecognitionConfidence {}
-impl ::core::clone::Clone for InkRecognitionConfidence {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InkRecognitionConfidence {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for InkRecognitionConfidence {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9947,19 +9034,8 @@ impl ::core::fmt::Debug for InkRecognitionConfidence {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InkRecognitionModes(pub i32);
-impl ::core::marker::Copy for InkRecognitionModes {}
-impl ::core::clone::Clone for InkRecognitionModes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InkRecognitionModes {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for InkRecognitionModes {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9969,19 +9045,8 @@ impl ::core::fmt::Debug for InkRecognitionModes {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InkRecognitionStatus(pub i32);
-impl ::core::marker::Copy for InkRecognitionStatus {}
-impl ::core::clone::Clone for InkRecognitionStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InkRecognitionStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for InkRecognitionStatus {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9991,19 +9056,8 @@ impl ::core::fmt::Debug for InkRecognitionStatus {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InkRecognizerCapabilities(pub i32);
-impl ::core::marker::Copy for InkRecognizerCapabilities {}
-impl ::core::clone::Clone for InkRecognizerCapabilities {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InkRecognizerCapabilities {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for InkRecognizerCapabilities {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10013,19 +9067,8 @@ impl ::core::fmt::Debug for InkRecognizerCapabilities {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InkRecognizerCharacterAutoCompletionMode(pub i32);
-impl ::core::marker::Copy for InkRecognizerCharacterAutoCompletionMode {}
-impl ::core::clone::Clone for InkRecognizerCharacterAutoCompletionMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InkRecognizerCharacterAutoCompletionMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for InkRecognizerCharacterAutoCompletionMode {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10035,19 +9078,8 @@ impl ::core::fmt::Debug for InkRecognizerCharacterAutoCompletionMode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InkSelectionConstants(pub i32);
-impl ::core::marker::Copy for InkSelectionConstants {}
-impl ::core::clone::Clone for InkSelectionConstants {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InkSelectionConstants {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for InkSelectionConstants {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10057,19 +9089,8 @@ impl ::core::fmt::Debug for InkSelectionConstants {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InkShiftKeyModifierFlags(pub i32);
-impl ::core::marker::Copy for InkShiftKeyModifierFlags {}
-impl ::core::clone::Clone for InkShiftKeyModifierFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InkShiftKeyModifierFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for InkShiftKeyModifierFlags {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10079,19 +9100,8 @@ impl ::core::fmt::Debug for InkShiftKeyModifierFlags {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InkSystemGesture(pub i32);
-impl ::core::marker::Copy for InkSystemGesture {}
-impl ::core::clone::Clone for InkSystemGesture {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InkSystemGesture {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for InkSystemGesture {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10101,19 +9111,8 @@ impl ::core::fmt::Debug for InkSystemGesture {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InteractionMode(pub i32);
-impl ::core::marker::Copy for InteractionMode {}
-impl ::core::clone::Clone for InteractionMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InteractionMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for InteractionMode {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10123,19 +9122,8 @@ impl ::core::fmt::Debug for InteractionMode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct KEYMODIFIER(pub i32);
-impl ::core::marker::Copy for KEYMODIFIER {}
-impl ::core::clone::Clone for KEYMODIFIER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KEYMODIFIER {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for KEYMODIFIER {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10145,19 +9133,8 @@ impl ::core::fmt::Debug for KEYMODIFIER {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct LINE_METRICS(pub i32);
-impl ::core::marker::Copy for LINE_METRICS {}
-impl ::core::clone::Clone for LINE_METRICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for LINE_METRICS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for LINE_METRICS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10167,19 +9144,8 @@ impl ::core::fmt::Debug for LINE_METRICS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MICUIELEMENT(pub i32);
-impl ::core::marker::Copy for MICUIELEMENT {}
-impl ::core::clone::Clone for MICUIELEMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MICUIELEMENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MICUIELEMENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10189,19 +9155,8 @@ impl ::core::fmt::Debug for MICUIELEMENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MICUIELEMENTSTATE(pub i32);
-impl ::core::marker::Copy for MICUIELEMENTSTATE {}
-impl ::core::clone::Clone for MICUIELEMENTSTATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MICUIELEMENTSTATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MICUIELEMENTSTATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10211,19 +9166,8 @@ impl ::core::fmt::Debug for MICUIELEMENTSTATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MouseButton(pub i32);
-impl ::core::marker::Copy for MouseButton {}
-impl ::core::clone::Clone for MouseButton {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MouseButton {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MouseButton {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10233,19 +9177,8 @@ impl ::core::fmt::Debug for MouseButton {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PROPERTY_UNITS(pub i32);
-impl ::core::marker::Copy for PROPERTY_UNITS {}
-impl ::core::clone::Clone for PROPERTY_UNITS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PROPERTY_UNITS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PROPERTY_UNITS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10255,19 +9188,8 @@ impl ::core::fmt::Debug for PROPERTY_UNITS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PanelInputArea(pub i32);
-impl ::core::marker::Copy for PanelInputArea {}
-impl ::core::clone::Clone for PanelInputArea {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PanelInputArea {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PanelInputArea {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10277,19 +9199,8 @@ impl ::core::fmt::Debug for PanelInputArea {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PanelType(pub i32);
-impl ::core::marker::Copy for PanelType {}
-impl ::core::clone::Clone for PanelType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PanelType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PanelType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10299,19 +9210,8 @@ impl ::core::fmt::Debug for PanelType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RECO_TYPE(pub i32);
-impl ::core::marker::Copy for RECO_TYPE {}
-impl ::core::clone::Clone for RECO_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RECO_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RECO_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10321,19 +9221,8 @@ impl ::core::fmt::Debug for RECO_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RealTimeStylusDataInterest(pub i32);
-impl ::core::marker::Copy for RealTimeStylusDataInterest {}
-impl ::core::clone::Clone for RealTimeStylusDataInterest {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RealTimeStylusDataInterest {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RealTimeStylusDataInterest {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10343,19 +9232,8 @@ impl ::core::fmt::Debug for RealTimeStylusDataInterest {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RealTimeStylusLockType(pub i32);
-impl ::core::marker::Copy for RealTimeStylusLockType {}
-impl ::core::clone::Clone for RealTimeStylusLockType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RealTimeStylusLockType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RealTimeStylusLockType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10365,19 +9243,8 @@ impl ::core::fmt::Debug for RealTimeStylusLockType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SCROLLDIRECTION(pub i32);
-impl ::core::marker::Copy for SCROLLDIRECTION {}
-impl ::core::clone::Clone for SCROLLDIRECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SCROLLDIRECTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SCROLLDIRECTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10387,19 +9254,8 @@ impl ::core::fmt::Debug for SCROLLDIRECTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ScrollBarsConstants(pub i32);
-impl ::core::marker::Copy for ScrollBarsConstants {}
-impl ::core::clone::Clone for ScrollBarsConstants {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ScrollBarsConstants {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ScrollBarsConstants {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10409,19 +9265,8 @@ impl ::core::fmt::Debug for ScrollBarsConstants {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SelAlignmentConstants(pub i32);
-impl ::core::marker::Copy for SelAlignmentConstants {}
-impl ::core::clone::Clone for SelAlignmentConstants {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SelAlignmentConstants {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SelAlignmentConstants {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10431,19 +9276,8 @@ impl ::core::fmt::Debug for SelAlignmentConstants {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SelectionHitResult(pub i32);
-impl ::core::marker::Copy for SelectionHitResult {}
-impl ::core::clone::Clone for SelectionHitResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SelectionHitResult {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SelectionHitResult {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10453,19 +9287,8 @@ impl ::core::fmt::Debug for SelectionHitResult {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct StylusQueue(pub i32);
-impl ::core::marker::Copy for StylusQueue {}
-impl ::core::clone::Clone for StylusQueue {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for StylusQueue {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for StylusQueue {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10475,19 +9298,8 @@ impl ::core::fmt::Debug for StylusQueue {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TabletDeviceKind(pub i32);
-impl ::core::marker::Copy for TabletDeviceKind {}
-impl ::core::clone::Clone for TabletDeviceKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TabletDeviceKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TabletDeviceKind {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10497,19 +9309,8 @@ impl ::core::fmt::Debug for TabletDeviceKind {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TabletHardwareCapabilities(pub i32);
-impl ::core::marker::Copy for TabletHardwareCapabilities {}
-impl ::core::clone::Clone for TabletHardwareCapabilities {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TabletHardwareCapabilities {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TabletHardwareCapabilities {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10519,19 +9320,8 @@ impl ::core::fmt::Debug for TabletHardwareCapabilities {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TabletPropertyMetricUnit(pub i32);
-impl ::core::marker::Copy for TabletPropertyMetricUnit {}
-impl ::core::clone::Clone for TabletPropertyMetricUnit {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TabletPropertyMetricUnit {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TabletPropertyMetricUnit {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10541,19 +9331,8 @@ impl ::core::fmt::Debug for TabletPropertyMetricUnit {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VisualState(pub i32);
-impl ::core::marker::Copy for VisualState {}
-impl ::core::clone::Clone for VisualState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VisualState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VisualState {
     type TypeKind = ::windows_core::CopyType;
 }

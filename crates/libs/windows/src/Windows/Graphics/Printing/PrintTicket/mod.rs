@@ -967,22 +967,11 @@ impl ::windows_core::RuntimeName for WorkflowPrintTicketValidationResult {
 unsafe impl ::core::marker::Send for WorkflowPrintTicketValidationResult {}
 unsafe impl ::core::marker::Sync for WorkflowPrintTicketValidationResult {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PrintTicketFeatureSelectionType(pub i32);
 impl PrintTicketFeatureSelectionType {
     pub const PickOne: Self = Self(0i32);
     pub const PickMany: Self = Self(1i32);
-}
-impl ::core::marker::Copy for PrintTicketFeatureSelectionType {}
-impl ::core::clone::Clone for PrintTicketFeatureSelectionType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PrintTicketFeatureSelectionType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PrintTicketFeatureSelectionType {
     type TypeKind = ::windows_core::CopyType;
@@ -996,23 +985,12 @@ impl ::windows_core::RuntimeType for PrintTicketFeatureSelectionType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintTicket.PrintTicketFeatureSelectionType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PrintTicketParameterDataType(pub i32);
 impl PrintTicketParameterDataType {
     pub const Integer: Self = Self(0i32);
     pub const NumericString: Self = Self(1i32);
     pub const String: Self = Self(2i32);
-}
-impl ::core::marker::Copy for PrintTicketParameterDataType {}
-impl ::core::clone::Clone for PrintTicketParameterDataType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PrintTicketParameterDataType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PrintTicketParameterDataType {
     type TypeKind = ::windows_core::CopyType;
@@ -1026,23 +1004,12 @@ impl ::windows_core::RuntimeType for PrintTicketParameterDataType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintTicket.PrintTicketParameterDataType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PrintTicketValueType(pub i32);
 impl PrintTicketValueType {
     pub const Integer: Self = Self(0i32);
     pub const String: Self = Self(1i32);
     pub const Unknown: Self = Self(2i32);
-}
-impl ::core::marker::Copy for PrintTicketValueType {}
-impl ::core::clone::Clone for PrintTicketValueType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PrintTicketValueType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PrintTicketValueType {
     type TypeKind = ::windows_core::CopyType;

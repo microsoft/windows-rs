@@ -80,7 +80,7 @@ impl ::windows_core::RuntimeName for WebError {
     const NAME: &'static str = "Windows.Web.WebError";
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WebErrorStatus(pub i32);
 impl WebErrorStatus {
     pub const Unknown: Self = Self(0i32);
@@ -138,17 +138,6 @@ impl WebErrorStatus {
     pub const ServiceUnavailable: Self = Self(503i32);
     pub const GatewayTimeout: Self = Self(504i32);
     pub const HttpVersionNotSupported: Self = Self(505i32);
-}
-impl ::core::marker::Copy for WebErrorStatus {}
-impl ::core::clone::Clone for WebErrorStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WebErrorStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for WebErrorStatus {
     type TypeKind = ::windows_core::CopyType;

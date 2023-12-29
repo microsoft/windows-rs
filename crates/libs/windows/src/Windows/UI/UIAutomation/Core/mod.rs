@@ -641,7 +641,7 @@ impl ::windows_core::RuntimeName for RemoteAutomationWindow {
 unsafe impl ::core::marker::Send for RemoteAutomationWindow {}
 unsafe impl ::core::marker::Sync for RemoteAutomationWindow {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AutomationRemoteOperationStatus(pub i32);
 impl AutomationRemoteOperationStatus {
     pub const Success: Self = Self(0i32);
@@ -649,17 +649,6 @@ impl AutomationRemoteOperationStatus {
     pub const InstructionLimitExceeded: Self = Self(2i32);
     pub const UnhandledException: Self = Self(3i32);
     pub const ExecutionFailure: Self = Self(4i32);
-}
-impl ::core::marker::Copy for AutomationRemoteOperationStatus {}
-impl ::core::clone::Clone for AutomationRemoteOperationStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AutomationRemoteOperationStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AutomationRemoteOperationStatus {
     type TypeKind = ::windows_core::CopyType;

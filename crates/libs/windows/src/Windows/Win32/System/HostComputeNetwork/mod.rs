@@ -298,19 +298,8 @@ pub const HcnNotificationNetworkPreCreate: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS
 pub const HcnNotificationNetworkPreDelete: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(3i32);
 pub const HcnNotificationServiceDisconnect: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(16777216i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HCN_NOTIFICATIONS(pub i32);
-impl ::core::marker::Copy for HCN_NOTIFICATIONS {}
-impl ::core::clone::Clone for HCN_NOTIFICATIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HCN_NOTIFICATIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HCN_NOTIFICATIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -320,19 +309,8 @@ impl ::core::fmt::Debug for HCN_NOTIFICATIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HCN_PORT_ACCESS(pub i32);
-impl ::core::marker::Copy for HCN_PORT_ACCESS {}
-impl ::core::clone::Clone for HCN_PORT_ACCESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HCN_PORT_ACCESS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HCN_PORT_ACCESS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -342,19 +320,8 @@ impl ::core::fmt::Debug for HCN_PORT_ACCESS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HCN_PORT_PROTOCOL(pub i32);
-impl ::core::marker::Copy for HCN_PORT_PROTOCOL {}
-impl ::core::clone::Clone for HCN_PORT_PROTOCOL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HCN_PORT_PROTOCOL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HCN_PORT_PROTOCOL {
     type TypeKind = ::windows_core::CopyType;
 }

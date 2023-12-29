@@ -705,19 +705,8 @@ pub const XTYP_UNREGISTER: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_
 pub const XTYP_WILDCONNECT: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(8418u32);
 pub const XTYP_XACT_COMPLETE: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(32896u32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CONVINFO_CONVERSATION_STATE(pub u32);
-impl ::core::marker::Copy for CONVINFO_CONVERSATION_STATE {}
-impl ::core::clone::Clone for CONVINFO_CONVERSATION_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CONVINFO_CONVERSATION_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CONVINFO_CONVERSATION_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -727,19 +716,8 @@ impl ::core::fmt::Debug for CONVINFO_CONVERSATION_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CONVINFO_STATUS(pub u32);
-impl ::core::marker::Copy for CONVINFO_STATUS {}
-impl ::core::clone::Clone for CONVINFO_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CONVINFO_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CONVINFO_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -782,19 +760,8 @@ impl ::core::ops::Not for CONVINFO_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DDE_CLIENT_TRANSACTION_TYPE(pub u32);
-impl ::core::marker::Copy for DDE_CLIENT_TRANSACTION_TYPE {}
-impl ::core::clone::Clone for DDE_CLIENT_TRANSACTION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DDE_CLIENT_TRANSACTION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DDE_CLIENT_TRANSACTION_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -804,19 +771,8 @@ impl ::core::fmt::Debug for DDE_CLIENT_TRANSACTION_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DDE_ENABLE_CALLBACK_CMD(pub u32);
-impl ::core::marker::Copy for DDE_ENABLE_CALLBACK_CMD {}
-impl ::core::clone::Clone for DDE_ENABLE_CALLBACK_CMD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DDE_ENABLE_CALLBACK_CMD {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DDE_ENABLE_CALLBACK_CMD {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -826,19 +782,8 @@ impl ::core::fmt::Debug for DDE_ENABLE_CALLBACK_CMD {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DDE_INITIALIZE_COMMAND(pub u32);
-impl ::core::marker::Copy for DDE_INITIALIZE_COMMAND {}
-impl ::core::clone::Clone for DDE_INITIALIZE_COMMAND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DDE_INITIALIZE_COMMAND {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DDE_INITIALIZE_COMMAND {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -881,19 +826,8 @@ impl ::core::ops::Not for DDE_INITIALIZE_COMMAND {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DDE_NAME_SERVICE_CMD(pub u32);
-impl ::core::marker::Copy for DDE_NAME_SERVICE_CMD {}
-impl ::core::clone::Clone for DDE_NAME_SERVICE_CMD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DDE_NAME_SERVICE_CMD {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DDE_NAME_SERVICE_CMD {
     type TypeKind = ::windows_core::CopyType;
 }

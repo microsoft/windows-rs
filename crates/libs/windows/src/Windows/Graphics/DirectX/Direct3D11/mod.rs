@@ -62,7 +62,7 @@ pub struct IDirect3DSurface_Vtbl {
     pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut Direct3DSurfaceDescription) -> ::windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct Direct3DBindings(pub u32);
 impl Direct3DBindings {
     pub const VertexBuffer: Self = Self(1u32);
@@ -75,17 +75,6 @@ impl Direct3DBindings {
     pub const UnorderedAccess: Self = Self(128u32);
     pub const Decoder: Self = Self(512u32);
     pub const VideoEncoder: Self = Self(1024u32);
-}
-impl ::core::marker::Copy for Direct3DBindings {}
-impl ::core::clone::Clone for Direct3DBindings {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for Direct3DBindings {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for Direct3DBindings {
     type TypeKind = ::windows_core::CopyType;
@@ -132,24 +121,13 @@ impl ::windows_core::RuntimeType for Direct3DBindings {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.Direct3D11.Direct3DBindings;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct Direct3DUsage(pub i32);
 impl Direct3DUsage {
     pub const Default: Self = Self(0i32);
     pub const Immutable: Self = Self(1i32);
     pub const Dynamic: Self = Self(2i32);
     pub const Staging: Self = Self(3i32);
-}
-impl ::core::marker::Copy for Direct3DUsage {}
-impl ::core::clone::Clone for Direct3DUsage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for Direct3DUsage {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for Direct3DUsage {
     type TypeKind = ::windows_core::CopyType;

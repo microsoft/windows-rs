@@ -1157,7 +1157,7 @@ impl ::windows_core::RuntimeName for HidOutputReport {
 unsafe impl ::core::marker::Send for HidOutputReport {}
 unsafe impl ::core::marker::Sync for HidOutputReport {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HidCollectionType(pub i32);
 impl HidCollectionType {
     pub const Physical: Self = Self(0i32);
@@ -1168,17 +1168,6 @@ impl HidCollectionType {
     pub const UsageSwitch: Self = Self(5i32);
     pub const UsageModifier: Self = Self(6i32);
     pub const Other: Self = Self(7i32);
-}
-impl ::core::marker::Copy for HidCollectionType {}
-impl ::core::clone::Clone for HidCollectionType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HidCollectionType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for HidCollectionType {
     type TypeKind = ::windows_core::CopyType;
@@ -1192,23 +1181,12 @@ impl ::windows_core::RuntimeType for HidCollectionType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.HumanInterfaceDevice.HidCollectionType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HidReportType(pub i32);
 impl HidReportType {
     pub const Input: Self = Self(0i32);
     pub const Output: Self = Self(1i32);
     pub const Feature: Self = Self(2i32);
-}
-impl ::core::marker::Copy for HidReportType {}
-impl ::core::clone::Clone for HidReportType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HidReportType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for HidReportType {
     type TypeKind = ::windows_core::CopyType;

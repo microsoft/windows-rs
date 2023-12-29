@@ -1395,23 +1395,12 @@ impl ::windows_core::RuntimeName for DisplayServices {
 unsafe impl ::core::marker::Send for DisplayServices {}
 unsafe impl ::core::marker::Sync for DisplayServices {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AdvancedColorKind(pub i32);
 impl AdvancedColorKind {
     pub const StandardDynamicRange: Self = Self(0i32);
     pub const WideColorGamut: Self = Self(1i32);
     pub const HighDynamicRange: Self = Self(2i32);
-}
-impl ::core::marker::Copy for AdvancedColorKind {}
-impl ::core::clone::Clone for AdvancedColorKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AdvancedColorKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AdvancedColorKind {
     type TypeKind = ::windows_core::CopyType;
@@ -1425,22 +1414,11 @@ impl ::windows_core::RuntimeType for AdvancedColorKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.AdvancedColorKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DisplayBrightnessOverrideOptions(pub u32);
 impl DisplayBrightnessOverrideOptions {
     pub const None: Self = Self(0u32);
     pub const UseDimmedPolicyWhenBatteryIsLow: Self = Self(1u32);
-}
-impl ::core::marker::Copy for DisplayBrightnessOverrideOptions {}
-impl ::core::clone::Clone for DisplayBrightnessOverrideOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DisplayBrightnessOverrideOptions {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DisplayBrightnessOverrideOptions {
     type TypeKind = ::windows_core::CopyType;
@@ -1487,23 +1465,12 @@ impl ::windows_core::RuntimeType for DisplayBrightnessOverrideOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.DisplayBrightnessOverrideOptions;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DisplayBrightnessOverrideScenario(pub i32);
 impl DisplayBrightnessOverrideScenario {
     pub const IdleBrightness: Self = Self(0i32);
     pub const BarcodeReadingBrightness: Self = Self(1i32);
     pub const FullBrightness: Self = Self(2i32);
-}
-impl ::core::marker::Copy for DisplayBrightnessOverrideScenario {}
-impl ::core::clone::Clone for DisplayBrightnessOverrideScenario {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DisplayBrightnessOverrideScenario {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DisplayBrightnessOverrideScenario {
     type TypeKind = ::windows_core::CopyType;
@@ -1517,24 +1484,13 @@ impl ::windows_core::RuntimeType for DisplayBrightnessOverrideScenario {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.DisplayBrightnessOverrideScenario;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DisplayBrightnessScenario(pub i32);
 impl DisplayBrightnessScenario {
     pub const DefaultBrightness: Self = Self(0i32);
     pub const IdleBrightness: Self = Self(1i32);
     pub const BarcodeReadingBrightness: Self = Self(2i32);
     pub const FullBrightness: Self = Self(3i32);
-}
-impl ::core::marker::Copy for DisplayBrightnessScenario {}
-impl ::core::clone::Clone for DisplayBrightnessScenario {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DisplayBrightnessScenario {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DisplayBrightnessScenario {
     type TypeKind = ::windows_core::CopyType;
@@ -1548,21 +1504,10 @@ impl ::windows_core::RuntimeType for DisplayBrightnessScenario {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.DisplayBrightnessScenario;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DisplayColorOverrideScenario(pub i32);
 impl DisplayColorOverrideScenario {
     pub const Accurate: Self = Self(0i32);
-}
-impl ::core::marker::Copy for DisplayColorOverrideScenario {}
-impl ::core::clone::Clone for DisplayColorOverrideScenario {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DisplayColorOverrideScenario {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DisplayColorOverrideScenario {
     type TypeKind = ::windows_core::CopyType;
@@ -1576,7 +1521,7 @@ impl ::windows_core::RuntimeType for DisplayColorOverrideScenario {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.DisplayColorOverrideScenario;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DisplayOrientations(pub u32);
 impl DisplayOrientations {
     pub const None: Self = Self(0u32);
@@ -1584,17 +1529,6 @@ impl DisplayOrientations {
     pub const Portrait: Self = Self(2u32);
     pub const LandscapeFlipped: Self = Self(4u32);
     pub const PortraitFlipped: Self = Self(8u32);
-}
-impl ::core::marker::Copy for DisplayOrientations {}
-impl ::core::clone::Clone for DisplayOrientations {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DisplayOrientations {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DisplayOrientations {
     type TypeKind = ::windows_core::CopyType;
@@ -1641,22 +1575,11 @@ impl ::windows_core::RuntimeType for DisplayOrientations {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.DisplayOrientations;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HdrMetadataFormat(pub i32);
 impl HdrMetadataFormat {
     pub const Hdr10: Self = Self(0i32);
     pub const Hdr10Plus: Self = Self(1i32);
-}
-impl ::core::marker::Copy for HdrMetadataFormat {}
-impl ::core::clone::Clone for HdrMetadataFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HdrMetadataFormat {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for HdrMetadataFormat {
     type TypeKind = ::windows_core::CopyType;
@@ -1670,7 +1593,7 @@ impl ::windows_core::RuntimeType for HdrMetadataFormat {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.HdrMetadataFormat;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ResolutionScale(pub i32);
 impl ResolutionScale {
     pub const Invalid: Self = Self(0i32);
@@ -1690,17 +1613,6 @@ impl ResolutionScale {
     pub const Scale400Percent: Self = Self(400i32);
     pub const Scale450Percent: Self = Self(450i32);
     pub const Scale500Percent: Self = Self(500i32);
-}
-impl ::core::marker::Copy for ResolutionScale {}
-impl ::core::clone::Clone for ResolutionScale {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ResolutionScale {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ResolutionScale {
     type TypeKind = ::windows_core::CopyType;

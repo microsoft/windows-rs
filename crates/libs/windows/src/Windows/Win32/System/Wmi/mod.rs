@@ -6341,19 +6341,8 @@ pub const wbemQueryFlagShallow: WbemQueryFlagEnum = WbemQueryFlagEnum(1i32);
 pub const wbemTextFlagNoFlavors: WbemTextFlagEnum = WbemTextFlagEnum(1i32);
 pub const wbemTimeoutInfinite: WbemTimeout = WbemTimeout(-1i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CIMTYPE_ENUMERATION(pub i32);
-impl ::core::marker::Copy for CIMTYPE_ENUMERATION {}
-impl ::core::clone::Clone for CIMTYPE_ENUMERATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CIMTYPE_ENUMERATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CIMTYPE_ENUMERATION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6363,19 +6352,8 @@ impl ::core::fmt::Debug for CIMTYPE_ENUMERATION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MI_CallbackMode(pub i32);
-impl ::core::marker::Copy for MI_CallbackMode {}
-impl ::core::clone::Clone for MI_CallbackMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MI_CallbackMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MI_CallbackMode {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6385,19 +6363,8 @@ impl ::core::fmt::Debug for MI_CallbackMode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MI_CancellationReason(pub i32);
-impl ::core::marker::Copy for MI_CancellationReason {}
-impl ::core::clone::Clone for MI_CancellationReason {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MI_CancellationReason {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MI_CancellationReason {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6407,19 +6374,8 @@ impl ::core::fmt::Debug for MI_CancellationReason {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MI_DestinationOptions_ImpersonationType(pub i32);
-impl ::core::marker::Copy for MI_DestinationOptions_ImpersonationType {}
-impl ::core::clone::Clone for MI_DestinationOptions_ImpersonationType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MI_DestinationOptions_ImpersonationType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MI_DestinationOptions_ImpersonationType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6429,19 +6385,8 @@ impl ::core::fmt::Debug for MI_DestinationOptions_ImpersonationType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MI_ErrorCategory(pub i32);
-impl ::core::marker::Copy for MI_ErrorCategory {}
-impl ::core::clone::Clone for MI_ErrorCategory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MI_ErrorCategory {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MI_ErrorCategory {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6451,19 +6396,8 @@ impl ::core::fmt::Debug for MI_ErrorCategory {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MI_LocaleType(pub i32);
-impl ::core::marker::Copy for MI_LocaleType {}
-impl ::core::clone::Clone for MI_LocaleType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MI_LocaleType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MI_LocaleType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6473,19 +6407,8 @@ impl ::core::fmt::Debug for MI_LocaleType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MI_OperationCallback_ResponseType(pub i32);
-impl ::core::marker::Copy for MI_OperationCallback_ResponseType {}
-impl ::core::clone::Clone for MI_OperationCallback_ResponseType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MI_OperationCallback_ResponseType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MI_OperationCallback_ResponseType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6495,19 +6418,8 @@ impl ::core::fmt::Debug for MI_OperationCallback_ResponseType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MI_PromptType(pub i32);
-impl ::core::marker::Copy for MI_PromptType {}
-impl ::core::clone::Clone for MI_PromptType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MI_PromptType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MI_PromptType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6517,19 +6429,8 @@ impl ::core::fmt::Debug for MI_PromptType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MI_ProviderArchitecture(pub i32);
-impl ::core::marker::Copy for MI_ProviderArchitecture {}
-impl ::core::clone::Clone for MI_ProviderArchitecture {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MI_ProviderArchitecture {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MI_ProviderArchitecture {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6539,19 +6440,8 @@ impl ::core::fmt::Debug for MI_ProviderArchitecture {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MI_Result(pub i32);
-impl ::core::marker::Copy for MI_Result {}
-impl ::core::clone::Clone for MI_Result {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MI_Result {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MI_Result {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6561,19 +6451,8 @@ impl ::core::fmt::Debug for MI_Result {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MI_SubscriptionDeliveryType(pub i32);
-impl ::core::marker::Copy for MI_SubscriptionDeliveryType {}
-impl ::core::clone::Clone for MI_SubscriptionDeliveryType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MI_SubscriptionDeliveryType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MI_SubscriptionDeliveryType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6583,19 +6462,8 @@ impl ::core::fmt::Debug for MI_SubscriptionDeliveryType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MI_Type(pub i32);
-impl ::core::marker::Copy for MI_Type {}
-impl ::core::clone::Clone for MI_Type {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MI_Type {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MI_Type {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6605,19 +6473,8 @@ impl ::core::fmt::Debug for MI_Type {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WBEMSTATUS(pub i32);
-impl ::core::marker::Copy for WBEMSTATUS {}
-impl ::core::clone::Clone for WBEMSTATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEMSTATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WBEMSTATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6627,19 +6484,8 @@ impl ::core::fmt::Debug for WBEMSTATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WBEMSTATUS_FORMAT(pub i32);
-impl ::core::marker::Copy for WBEMSTATUS_FORMAT {}
-impl ::core::clone::Clone for WBEMSTATUS_FORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEMSTATUS_FORMAT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WBEMSTATUS_FORMAT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6649,19 +6495,8 @@ impl ::core::fmt::Debug for WBEMSTATUS_FORMAT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WBEM_BACKUP_RESTORE_FLAGS(pub i32);
-impl ::core::marker::Copy for WBEM_BACKUP_RESTORE_FLAGS {}
-impl ::core::clone::Clone for WBEM_BACKUP_RESTORE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEM_BACKUP_RESTORE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WBEM_BACKUP_RESTORE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6671,19 +6506,8 @@ impl ::core::fmt::Debug for WBEM_BACKUP_RESTORE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WBEM_BATCH_TYPE(pub i32);
-impl ::core::marker::Copy for WBEM_BATCH_TYPE {}
-impl ::core::clone::Clone for WBEM_BATCH_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEM_BATCH_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WBEM_BATCH_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6693,19 +6517,8 @@ impl ::core::fmt::Debug for WBEM_BATCH_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WBEM_CHANGE_FLAG_TYPE(pub i32);
-impl ::core::marker::Copy for WBEM_CHANGE_FLAG_TYPE {}
-impl ::core::clone::Clone for WBEM_CHANGE_FLAG_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEM_CHANGE_FLAG_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WBEM_CHANGE_FLAG_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6715,19 +6528,8 @@ impl ::core::fmt::Debug for WBEM_CHANGE_FLAG_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WBEM_COMPARISON_FLAG(pub i32);
-impl ::core::marker::Copy for WBEM_COMPARISON_FLAG {}
-impl ::core::clone::Clone for WBEM_COMPARISON_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEM_COMPARISON_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WBEM_COMPARISON_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6737,19 +6539,8 @@ impl ::core::fmt::Debug for WBEM_COMPARISON_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WBEM_COMPILER_OPTIONS(pub i32);
-impl ::core::marker::Copy for WBEM_COMPILER_OPTIONS {}
-impl ::core::clone::Clone for WBEM_COMPILER_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEM_COMPILER_OPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WBEM_COMPILER_OPTIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6759,19 +6550,8 @@ impl ::core::fmt::Debug for WBEM_COMPILER_OPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WBEM_CONDITION_FLAG_TYPE(pub i32);
-impl ::core::marker::Copy for WBEM_CONDITION_FLAG_TYPE {}
-impl ::core::clone::Clone for WBEM_CONDITION_FLAG_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEM_CONDITION_FLAG_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WBEM_CONDITION_FLAG_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6781,19 +6561,8 @@ impl ::core::fmt::Debug for WBEM_CONDITION_FLAG_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WBEM_CONNECT_OPTIONS(pub i32);
-impl ::core::marker::Copy for WBEM_CONNECT_OPTIONS {}
-impl ::core::clone::Clone for WBEM_CONNECT_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEM_CONNECT_OPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WBEM_CONNECT_OPTIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6803,19 +6572,8 @@ impl ::core::fmt::Debug for WBEM_CONNECT_OPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WBEM_EXTRA_RETURN_CODES(pub i32);
-impl ::core::marker::Copy for WBEM_EXTRA_RETURN_CODES {}
-impl ::core::clone::Clone for WBEM_EXTRA_RETURN_CODES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEM_EXTRA_RETURN_CODES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WBEM_EXTRA_RETURN_CODES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6825,19 +6583,8 @@ impl ::core::fmt::Debug for WBEM_EXTRA_RETURN_CODES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WBEM_FLAVOR_TYPE(pub i32);
-impl ::core::marker::Copy for WBEM_FLAVOR_TYPE {}
-impl ::core::clone::Clone for WBEM_FLAVOR_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEM_FLAVOR_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WBEM_FLAVOR_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6847,19 +6594,8 @@ impl ::core::fmt::Debug for WBEM_FLAVOR_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WBEM_GENERIC_FLAG_TYPE(pub i32);
-impl ::core::marker::Copy for WBEM_GENERIC_FLAG_TYPE {}
-impl ::core::clone::Clone for WBEM_GENERIC_FLAG_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEM_GENERIC_FLAG_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WBEM_GENERIC_FLAG_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6902,19 +6638,8 @@ impl ::core::ops::Not for WBEM_GENERIC_FLAG_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WBEM_GENUS_TYPE(pub i32);
-impl ::core::marker::Copy for WBEM_GENUS_TYPE {}
-impl ::core::clone::Clone for WBEM_GENUS_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEM_GENUS_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WBEM_GENUS_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6924,19 +6649,8 @@ impl ::core::fmt::Debug for WBEM_GENUS_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WBEM_GET_KEY_FLAGS(pub i32);
-impl ::core::marker::Copy for WBEM_GET_KEY_FLAGS {}
-impl ::core::clone::Clone for WBEM_GET_KEY_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEM_GET_KEY_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WBEM_GET_KEY_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6946,19 +6660,8 @@ impl ::core::fmt::Debug for WBEM_GET_KEY_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WBEM_GET_TEXT_FLAGS(pub i32);
-impl ::core::marker::Copy for WBEM_GET_TEXT_FLAGS {}
-impl ::core::clone::Clone for WBEM_GET_TEXT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEM_GET_TEXT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WBEM_GET_TEXT_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6968,19 +6671,8 @@ impl ::core::fmt::Debug for WBEM_GET_TEXT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WBEM_INFORMATION_FLAG_TYPE(pub i32);
-impl ::core::marker::Copy for WBEM_INFORMATION_FLAG_TYPE {}
-impl ::core::clone::Clone for WBEM_INFORMATION_FLAG_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEM_INFORMATION_FLAG_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WBEM_INFORMATION_FLAG_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6990,19 +6682,8 @@ impl ::core::fmt::Debug for WBEM_INFORMATION_FLAG_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WBEM_LIMITATION_FLAG_TYPE(pub i32);
-impl ::core::marker::Copy for WBEM_LIMITATION_FLAG_TYPE {}
-impl ::core::clone::Clone for WBEM_LIMITATION_FLAG_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEM_LIMITATION_FLAG_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WBEM_LIMITATION_FLAG_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7012,19 +6693,8 @@ impl ::core::fmt::Debug for WBEM_LIMITATION_FLAG_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WBEM_LIMITS(pub i32);
-impl ::core::marker::Copy for WBEM_LIMITS {}
-impl ::core::clone::Clone for WBEM_LIMITS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEM_LIMITS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WBEM_LIMITS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7034,19 +6704,8 @@ impl ::core::fmt::Debug for WBEM_LIMITS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WBEM_LOCKING_FLAG_TYPE(pub i32);
-impl ::core::marker::Copy for WBEM_LOCKING_FLAG_TYPE {}
-impl ::core::clone::Clone for WBEM_LOCKING_FLAG_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEM_LOCKING_FLAG_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WBEM_LOCKING_FLAG_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7056,19 +6715,8 @@ impl ::core::fmt::Debug for WBEM_LOCKING_FLAG_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WBEM_LOGIN_TYPE(pub i32);
-impl ::core::marker::Copy for WBEM_LOGIN_TYPE {}
-impl ::core::clone::Clone for WBEM_LOGIN_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEM_LOGIN_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WBEM_LOGIN_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7078,19 +6726,8 @@ impl ::core::fmt::Debug for WBEM_LOGIN_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WBEM_PATH_CREATE_FLAG(pub i32);
-impl ::core::marker::Copy for WBEM_PATH_CREATE_FLAG {}
-impl ::core::clone::Clone for WBEM_PATH_CREATE_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEM_PATH_CREATE_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WBEM_PATH_CREATE_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7100,19 +6737,8 @@ impl ::core::fmt::Debug for WBEM_PATH_CREATE_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WBEM_PATH_STATUS_FLAG(pub i32);
-impl ::core::marker::Copy for WBEM_PATH_STATUS_FLAG {}
-impl ::core::clone::Clone for WBEM_PATH_STATUS_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEM_PATH_STATUS_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WBEM_PATH_STATUS_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7122,19 +6748,8 @@ impl ::core::fmt::Debug for WBEM_PATH_STATUS_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WBEM_PROVIDER_FLAGS(pub i32);
-impl ::core::marker::Copy for WBEM_PROVIDER_FLAGS {}
-impl ::core::clone::Clone for WBEM_PROVIDER_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEM_PROVIDER_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WBEM_PROVIDER_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7144,19 +6759,8 @@ impl ::core::fmt::Debug for WBEM_PROVIDER_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WBEM_PROVIDER_REQUIREMENTS_TYPE(pub i32);
-impl ::core::marker::Copy for WBEM_PROVIDER_REQUIREMENTS_TYPE {}
-impl ::core::clone::Clone for WBEM_PROVIDER_REQUIREMENTS_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEM_PROVIDER_REQUIREMENTS_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WBEM_PROVIDER_REQUIREMENTS_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7166,19 +6770,8 @@ impl ::core::fmt::Debug for WBEM_PROVIDER_REQUIREMENTS_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WBEM_QUERY_FLAG_TYPE(pub i32);
-impl ::core::marker::Copy for WBEM_QUERY_FLAG_TYPE {}
-impl ::core::clone::Clone for WBEM_QUERY_FLAG_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEM_QUERY_FLAG_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WBEM_QUERY_FLAG_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7188,19 +6781,8 @@ impl ::core::fmt::Debug for WBEM_QUERY_FLAG_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WBEM_REFRESHER_FLAGS(pub i32);
-impl ::core::marker::Copy for WBEM_REFRESHER_FLAGS {}
-impl ::core::clone::Clone for WBEM_REFRESHER_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEM_REFRESHER_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WBEM_REFRESHER_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7210,19 +6792,8 @@ impl ::core::fmt::Debug for WBEM_REFRESHER_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WBEM_SECURITY_FLAGS(pub i32);
-impl ::core::marker::Copy for WBEM_SECURITY_FLAGS {}
-impl ::core::clone::Clone for WBEM_SECURITY_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEM_SECURITY_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WBEM_SECURITY_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7232,19 +6803,8 @@ impl ::core::fmt::Debug for WBEM_SECURITY_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WBEM_SHUTDOWN_FLAGS(pub i32);
-impl ::core::marker::Copy for WBEM_SHUTDOWN_FLAGS {}
-impl ::core::clone::Clone for WBEM_SHUTDOWN_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEM_SHUTDOWN_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WBEM_SHUTDOWN_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7254,19 +6814,8 @@ impl ::core::fmt::Debug for WBEM_SHUTDOWN_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WBEM_STATUS_TYPE(pub i32);
-impl ::core::marker::Copy for WBEM_STATUS_TYPE {}
-impl ::core::clone::Clone for WBEM_STATUS_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEM_STATUS_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WBEM_STATUS_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7276,19 +6825,8 @@ impl ::core::fmt::Debug for WBEM_STATUS_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WBEM_TEXT_FLAG_TYPE(pub i32);
-impl ::core::marker::Copy for WBEM_TEXT_FLAG_TYPE {}
-impl ::core::clone::Clone for WBEM_TEXT_FLAG_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEM_TEXT_FLAG_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WBEM_TEXT_FLAG_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7298,19 +6836,8 @@ impl ::core::fmt::Debug for WBEM_TEXT_FLAG_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WBEM_UNSECAPP_FLAG_TYPE(pub i32);
-impl ::core::marker::Copy for WBEM_UNSECAPP_FLAG_TYPE {}
-impl ::core::clone::Clone for WBEM_UNSECAPP_FLAG_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEM_UNSECAPP_FLAG_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WBEM_UNSECAPP_FLAG_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7320,19 +6847,8 @@ impl ::core::fmt::Debug for WBEM_UNSECAPP_FLAG_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WMIQ_ANALYSIS_TYPE(pub i32);
-impl ::core::marker::Copy for WMIQ_ANALYSIS_TYPE {}
-impl ::core::clone::Clone for WMIQ_ANALYSIS_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMIQ_ANALYSIS_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WMIQ_ANALYSIS_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7342,19 +6858,8 @@ impl ::core::fmt::Debug for WMIQ_ANALYSIS_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WMIQ_ASSOCQ_FLAGS(pub i32);
-impl ::core::marker::Copy for WMIQ_ASSOCQ_FLAGS {}
-impl ::core::clone::Clone for WMIQ_ASSOCQ_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMIQ_ASSOCQ_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WMIQ_ASSOCQ_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7364,19 +6869,8 @@ impl ::core::fmt::Debug for WMIQ_ASSOCQ_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WMIQ_LANGUAGE_FEATURES(pub i32);
-impl ::core::marker::Copy for WMIQ_LANGUAGE_FEATURES {}
-impl ::core::clone::Clone for WMIQ_LANGUAGE_FEATURES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMIQ_LANGUAGE_FEATURES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WMIQ_LANGUAGE_FEATURES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7386,19 +6880,8 @@ impl ::core::fmt::Debug for WMIQ_LANGUAGE_FEATURES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WMIQ_RPNF_FEATURE(pub i32);
-impl ::core::marker::Copy for WMIQ_RPNF_FEATURE {}
-impl ::core::clone::Clone for WMIQ_RPNF_FEATURE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMIQ_RPNF_FEATURE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WMIQ_RPNF_FEATURE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7408,19 +6891,8 @@ impl ::core::fmt::Debug for WMIQ_RPNF_FEATURE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WMIQ_RPN_TOKEN_FLAGS(pub i32);
-impl ::core::marker::Copy for WMIQ_RPN_TOKEN_FLAGS {}
-impl ::core::clone::Clone for WMIQ_RPN_TOKEN_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMIQ_RPN_TOKEN_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WMIQ_RPN_TOKEN_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7430,19 +6902,8 @@ impl ::core::fmt::Debug for WMIQ_RPN_TOKEN_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WMI_OBJ_TEXT(pub i32);
-impl ::core::marker::Copy for WMI_OBJ_TEXT {}
-impl ::core::clone::Clone for WMI_OBJ_TEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMI_OBJ_TEXT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WMI_OBJ_TEXT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7452,19 +6913,8 @@ impl ::core::fmt::Debug for WMI_OBJ_TEXT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WbemAuthenticationLevelEnum(pub i32);
-impl ::core::marker::Copy for WbemAuthenticationLevelEnum {}
-impl ::core::clone::Clone for WbemAuthenticationLevelEnum {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WbemAuthenticationLevelEnum {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WbemAuthenticationLevelEnum {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7474,19 +6924,8 @@ impl ::core::fmt::Debug for WbemAuthenticationLevelEnum {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WbemChangeFlagEnum(pub i32);
-impl ::core::marker::Copy for WbemChangeFlagEnum {}
-impl ::core::clone::Clone for WbemChangeFlagEnum {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WbemChangeFlagEnum {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WbemChangeFlagEnum {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7496,19 +6935,8 @@ impl ::core::fmt::Debug for WbemChangeFlagEnum {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WbemCimtypeEnum(pub i32);
-impl ::core::marker::Copy for WbemCimtypeEnum {}
-impl ::core::clone::Clone for WbemCimtypeEnum {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WbemCimtypeEnum {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WbemCimtypeEnum {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7518,19 +6946,8 @@ impl ::core::fmt::Debug for WbemCimtypeEnum {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WbemComparisonFlagEnum(pub i32);
-impl ::core::marker::Copy for WbemComparisonFlagEnum {}
-impl ::core::clone::Clone for WbemComparisonFlagEnum {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WbemComparisonFlagEnum {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WbemComparisonFlagEnum {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7540,19 +6957,8 @@ impl ::core::fmt::Debug for WbemComparisonFlagEnum {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WbemConnectOptionsEnum(pub i32);
-impl ::core::marker::Copy for WbemConnectOptionsEnum {}
-impl ::core::clone::Clone for WbemConnectOptionsEnum {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WbemConnectOptionsEnum {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WbemConnectOptionsEnum {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7562,19 +6968,8 @@ impl ::core::fmt::Debug for WbemConnectOptionsEnum {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WbemErrorEnum(pub i32);
-impl ::core::marker::Copy for WbemErrorEnum {}
-impl ::core::clone::Clone for WbemErrorEnum {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WbemErrorEnum {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WbemErrorEnum {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7584,19 +6979,8 @@ impl ::core::fmt::Debug for WbemErrorEnum {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WbemFlagEnum(pub i32);
-impl ::core::marker::Copy for WbemFlagEnum {}
-impl ::core::clone::Clone for WbemFlagEnum {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WbemFlagEnum {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WbemFlagEnum {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7606,19 +6990,8 @@ impl ::core::fmt::Debug for WbemFlagEnum {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WbemImpersonationLevelEnum(pub i32);
-impl ::core::marker::Copy for WbemImpersonationLevelEnum {}
-impl ::core::clone::Clone for WbemImpersonationLevelEnum {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WbemImpersonationLevelEnum {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WbemImpersonationLevelEnum {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7628,19 +7001,8 @@ impl ::core::fmt::Debug for WbemImpersonationLevelEnum {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WbemObjectTextFormatEnum(pub i32);
-impl ::core::marker::Copy for WbemObjectTextFormatEnum {}
-impl ::core::clone::Clone for WbemObjectTextFormatEnum {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WbemObjectTextFormatEnum {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WbemObjectTextFormatEnum {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7650,19 +7012,8 @@ impl ::core::fmt::Debug for WbemObjectTextFormatEnum {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WbemPrivilegeEnum(pub i32);
-impl ::core::marker::Copy for WbemPrivilegeEnum {}
-impl ::core::clone::Clone for WbemPrivilegeEnum {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WbemPrivilegeEnum {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WbemPrivilegeEnum {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7672,19 +7023,8 @@ impl ::core::fmt::Debug for WbemPrivilegeEnum {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WbemQueryFlagEnum(pub i32);
-impl ::core::marker::Copy for WbemQueryFlagEnum {}
-impl ::core::clone::Clone for WbemQueryFlagEnum {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WbemQueryFlagEnum {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WbemQueryFlagEnum {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7694,19 +7034,8 @@ impl ::core::fmt::Debug for WbemQueryFlagEnum {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WbemTextFlagEnum(pub i32);
-impl ::core::marker::Copy for WbemTextFlagEnum {}
-impl ::core::clone::Clone for WbemTextFlagEnum {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WbemTextFlagEnum {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WbemTextFlagEnum {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7716,19 +7045,8 @@ impl ::core::fmt::Debug for WbemTextFlagEnum {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WbemTimeout(pub i32);
-impl ::core::marker::Copy for WbemTimeout {}
-impl ::core::clone::Clone for WbemTimeout {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WbemTimeout {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WbemTimeout {
     type TypeKind = ::windows_core::CopyType;
 }

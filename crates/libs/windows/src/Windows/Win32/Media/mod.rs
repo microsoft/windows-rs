@@ -283,19 +283,8 @@ pub const TIME_SMPTE: u32 = 8u32;
 pub const TIME_TICKS: u32 = 32u32;
 pub const WAVERR_BASE: u32 = 32u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TIMECODE_SAMPLE_FLAGS(pub u32);
-impl ::core::marker::Copy for TIMECODE_SAMPLE_FLAGS {}
-impl ::core::clone::Clone for TIMECODE_SAMPLE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TIMECODE_SAMPLE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TIMECODE_SAMPLE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }

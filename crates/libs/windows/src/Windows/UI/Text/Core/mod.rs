@@ -1300,7 +1300,7 @@ impl ::windows_core::RuntimeName for CoreTextTextUpdatingEventArgs {
 unsafe impl ::core::marker::Send for CoreTextTextUpdatingEventArgs {}
 unsafe impl ::core::marker::Sync for CoreTextTextUpdatingEventArgs {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CoreTextFormatUpdatingReason(pub i32);
 impl CoreTextFormatUpdatingReason {
     pub const None: Self = Self(0i32);
@@ -1308,17 +1308,6 @@ impl CoreTextFormatUpdatingReason {
     pub const CompositionConverted: Self = Self(2i32);
     pub const CompositionTargetUnconverted: Self = Self(3i32);
     pub const CompositionTargetConverted: Self = Self(4i32);
-}
-impl ::core::marker::Copy for CoreTextFormatUpdatingReason {}
-impl ::core::clone::Clone for CoreTextFormatUpdatingReason {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CoreTextFormatUpdatingReason {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CoreTextFormatUpdatingReason {
     type TypeKind = ::windows_core::CopyType;
@@ -1332,22 +1321,11 @@ impl ::windows_core::RuntimeType for CoreTextFormatUpdatingReason {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextFormatUpdatingReason;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CoreTextFormatUpdatingResult(pub i32);
 impl CoreTextFormatUpdatingResult {
     pub const Succeeded: Self = Self(0i32);
     pub const Failed: Self = Self(1i32);
-}
-impl ::core::marker::Copy for CoreTextFormatUpdatingResult {}
-impl ::core::clone::Clone for CoreTextFormatUpdatingResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CoreTextFormatUpdatingResult {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CoreTextFormatUpdatingResult {
     type TypeKind = ::windows_core::CopyType;
@@ -1361,22 +1339,11 @@ impl ::windows_core::RuntimeType for CoreTextFormatUpdatingResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextFormatUpdatingResult;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CoreTextInputPaneDisplayPolicy(pub i32);
 impl CoreTextInputPaneDisplayPolicy {
     pub const Automatic: Self = Self(0i32);
     pub const Manual: Self = Self(1i32);
-}
-impl ::core::marker::Copy for CoreTextInputPaneDisplayPolicy {}
-impl ::core::clone::Clone for CoreTextInputPaneDisplayPolicy {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CoreTextInputPaneDisplayPolicy {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CoreTextInputPaneDisplayPolicy {
     type TypeKind = ::windows_core::CopyType;
@@ -1390,7 +1357,7 @@ impl ::windows_core::RuntimeType for CoreTextInputPaneDisplayPolicy {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextInputPaneDisplayPolicy;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CoreTextInputScope(pub i32);
 impl CoreTextInputScope {
     pub const Default: Self = Self(0i32);
@@ -1461,17 +1428,6 @@ impl CoreTextInputScope {
     pub const PinNumeric: Self = Self(64i32);
     pub const PinAlphanumeric: Self = Self(65i32);
 }
-impl ::core::marker::Copy for CoreTextInputScope {}
-impl ::core::clone::Clone for CoreTextInputScope {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CoreTextInputScope {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CoreTextInputScope {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1484,22 +1440,11 @@ impl ::windows_core::RuntimeType for CoreTextInputScope {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextInputScope;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CoreTextSelectionUpdatingResult(pub i32);
 impl CoreTextSelectionUpdatingResult {
     pub const Succeeded: Self = Self(0i32);
     pub const Failed: Self = Self(1i32);
-}
-impl ::core::marker::Copy for CoreTextSelectionUpdatingResult {}
-impl ::core::clone::Clone for CoreTextSelectionUpdatingResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CoreTextSelectionUpdatingResult {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CoreTextSelectionUpdatingResult {
     type TypeKind = ::windows_core::CopyType;
@@ -1513,22 +1458,11 @@ impl ::windows_core::RuntimeType for CoreTextSelectionUpdatingResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextSelectionUpdatingResult;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CoreTextTextUpdatingResult(pub i32);
 impl CoreTextTextUpdatingResult {
     pub const Succeeded: Self = Self(0i32);
     pub const Failed: Self = Self(1i32);
-}
-impl ::core::marker::Copy for CoreTextTextUpdatingResult {}
-impl ::core::clone::Clone for CoreTextTextUpdatingResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CoreTextTextUpdatingResult {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CoreTextTextUpdatingResult {
     type TypeKind = ::windows_core::CopyType;

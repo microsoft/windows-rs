@@ -6906,19 +6906,8 @@ pub const wszXMLNS_DIGSIG: ::windows_core::PCWSTR = ::windows_core::w!("http://w
 pub const wszXMLNS_DIGSIG_Id: ::windows_core::PCWSTR = ::windows_core::w!("Id");
 pub const wszXMLNS_DIGSIG_SignatureProperties: ::windows_core::PCWSTR = ::windows_core::w!("http://www.w3.org/2000/09/xmldsig#SignatureProperties");
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ALG_ID(pub u32);
-impl ::core::marker::Copy for ALG_ID {}
-impl ::core::clone::Clone for ALG_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ALG_ID {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ALG_ID {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6928,19 +6917,8 @@ impl ::core::fmt::Debug for ALG_ID {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BCRYPTGENRANDOM_FLAGS(pub u32);
-impl ::core::marker::Copy for BCRYPTGENRANDOM_FLAGS {}
-impl ::core::clone::Clone for BCRYPTGENRANDOM_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BCRYPTGENRANDOM_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for BCRYPTGENRANDOM_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6950,19 +6928,8 @@ impl ::core::fmt::Debug for BCRYPTGENRANDOM_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BCRYPT_DH_KEY_BLOB_MAGIC(pub u32);
-impl ::core::marker::Copy for BCRYPT_DH_KEY_BLOB_MAGIC {}
-impl ::core::clone::Clone for BCRYPT_DH_KEY_BLOB_MAGIC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BCRYPT_DH_KEY_BLOB_MAGIC {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for BCRYPT_DH_KEY_BLOB_MAGIC {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6972,19 +6939,8 @@ impl ::core::fmt::Debug for BCRYPT_DH_KEY_BLOB_MAGIC {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BCRYPT_DSA_MAGIC(pub u32);
-impl ::core::marker::Copy for BCRYPT_DSA_MAGIC {}
-impl ::core::clone::Clone for BCRYPT_DSA_MAGIC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BCRYPT_DSA_MAGIC {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for BCRYPT_DSA_MAGIC {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6994,19 +6950,8 @@ impl ::core::fmt::Debug for BCRYPT_DSA_MAGIC {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BCRYPT_FLAGS(pub u32);
-impl ::core::marker::Copy for BCRYPT_FLAGS {}
-impl ::core::clone::Clone for BCRYPT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BCRYPT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for BCRYPT_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7049,19 +6994,8 @@ impl ::core::ops::Not for BCRYPT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BCRYPT_HASH_OPERATION_TYPE(pub i32);
-impl ::core::marker::Copy for BCRYPT_HASH_OPERATION_TYPE {}
-impl ::core::clone::Clone for BCRYPT_HASH_OPERATION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BCRYPT_HASH_OPERATION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for BCRYPT_HASH_OPERATION_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7071,19 +7005,8 @@ impl ::core::fmt::Debug for BCRYPT_HASH_OPERATION_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BCRYPT_INTERFACE(pub u32);
-impl ::core::marker::Copy for BCRYPT_INTERFACE {}
-impl ::core::clone::Clone for BCRYPT_INTERFACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BCRYPT_INTERFACE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for BCRYPT_INTERFACE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7093,19 +7016,8 @@ impl ::core::fmt::Debug for BCRYPT_INTERFACE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BCRYPT_MULTI_OPERATION_TYPE(pub i32);
-impl ::core::marker::Copy for BCRYPT_MULTI_OPERATION_TYPE {}
-impl ::core::clone::Clone for BCRYPT_MULTI_OPERATION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BCRYPT_MULTI_OPERATION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for BCRYPT_MULTI_OPERATION_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7115,19 +7027,8 @@ impl ::core::fmt::Debug for BCRYPT_MULTI_OPERATION_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS(pub u32);
-impl ::core::marker::Copy for BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS {}
-impl ::core::clone::Clone for BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7170,19 +7071,8 @@ impl ::core::ops::Not for BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BCRYPT_OPERATION(pub u32);
-impl ::core::marker::Copy for BCRYPT_OPERATION {}
-impl ::core::clone::Clone for BCRYPT_OPERATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BCRYPT_OPERATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for BCRYPT_OPERATION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7225,19 +7115,8 @@ impl ::core::ops::Not for BCRYPT_OPERATION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BCRYPT_QUERY_PROVIDER_MODE(pub u32);
-impl ::core::marker::Copy for BCRYPT_QUERY_PROVIDER_MODE {}
-impl ::core::clone::Clone for BCRYPT_QUERY_PROVIDER_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BCRYPT_QUERY_PROVIDER_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for BCRYPT_QUERY_PROVIDER_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7247,19 +7126,8 @@ impl ::core::fmt::Debug for BCRYPT_QUERY_PROVIDER_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BCRYPT_RESOLVE_PROVIDERS_FLAGS(pub u32);
-impl ::core::marker::Copy for BCRYPT_RESOLVE_PROVIDERS_FLAGS {}
-impl ::core::clone::Clone for BCRYPT_RESOLVE_PROVIDERS_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BCRYPT_RESOLVE_PROVIDERS_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for BCRYPT_RESOLVE_PROVIDERS_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7302,19 +7170,8 @@ impl ::core::ops::Not for BCRYPT_RESOLVE_PROVIDERS_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BCRYPT_RSAKEY_BLOB_MAGIC(pub u32);
-impl ::core::marker::Copy for BCRYPT_RSAKEY_BLOB_MAGIC {}
-impl ::core::clone::Clone for BCRYPT_RSAKEY_BLOB_MAGIC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BCRYPT_RSAKEY_BLOB_MAGIC {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for BCRYPT_RSAKEY_BLOB_MAGIC {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7324,19 +7181,8 @@ impl ::core::fmt::Debug for BCRYPT_RSAKEY_BLOB_MAGIC {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BCRYPT_TABLE(pub u32);
-impl ::core::marker::Copy for BCRYPT_TABLE {}
-impl ::core::clone::Clone for BCRYPT_TABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BCRYPT_TABLE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for BCRYPT_TABLE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7346,19 +7192,8 @@ impl ::core::fmt::Debug for BCRYPT_TABLE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CASetupProperty(pub i32);
-impl ::core::marker::Copy for CASetupProperty {}
-impl ::core::clone::Clone for CASetupProperty {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CASetupProperty {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CASetupProperty {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7368,19 +7203,8 @@ impl ::core::fmt::Debug for CASetupProperty {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CEPSetupProperty(pub i32);
-impl ::core::marker::Copy for CEPSetupProperty {}
-impl ::core::clone::Clone for CEPSetupProperty {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CEPSetupProperty {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CEPSetupProperty {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7390,19 +7214,8 @@ impl ::core::fmt::Debug for CEPSetupProperty {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CERT_BIOMETRIC_DATA_TYPE(pub u32);
-impl ::core::marker::Copy for CERT_BIOMETRIC_DATA_TYPE {}
-impl ::core::clone::Clone for CERT_BIOMETRIC_DATA_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CERT_BIOMETRIC_DATA_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CERT_BIOMETRIC_DATA_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7412,19 +7225,8 @@ impl ::core::fmt::Debug for CERT_BIOMETRIC_DATA_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CERT_CHAIN_POLICY_FLAGS(pub u32);
-impl ::core::marker::Copy for CERT_CHAIN_POLICY_FLAGS {}
-impl ::core::clone::Clone for CERT_CHAIN_POLICY_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CERT_CHAIN_POLICY_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CERT_CHAIN_POLICY_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7434,19 +7236,8 @@ impl ::core::fmt::Debug for CERT_CHAIN_POLICY_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CERT_CONTROL_STORE_FLAGS(pub u32);
-impl ::core::marker::Copy for CERT_CONTROL_STORE_FLAGS {}
-impl ::core::clone::Clone for CERT_CONTROL_STORE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CERT_CONTROL_STORE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CERT_CONTROL_STORE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7456,19 +7247,8 @@ impl ::core::fmt::Debug for CERT_CONTROL_STORE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CERT_CREATE_SELFSIGN_FLAGS(pub u32);
-impl ::core::marker::Copy for CERT_CREATE_SELFSIGN_FLAGS {}
-impl ::core::clone::Clone for CERT_CREATE_SELFSIGN_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CERT_CREATE_SELFSIGN_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CERT_CREATE_SELFSIGN_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7511,19 +7291,8 @@ impl ::core::ops::Not for CERT_CREATE_SELFSIGN_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CERT_FIND_CHAIN_IN_STORE_FLAGS(pub u32);
-impl ::core::marker::Copy for CERT_FIND_CHAIN_IN_STORE_FLAGS {}
-impl ::core::clone::Clone for CERT_FIND_CHAIN_IN_STORE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CERT_FIND_CHAIN_IN_STORE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CERT_FIND_CHAIN_IN_STORE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7566,19 +7335,8 @@ impl ::core::ops::Not for CERT_FIND_CHAIN_IN_STORE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CERT_FIND_FLAGS(pub u32);
-impl ::core::marker::Copy for CERT_FIND_FLAGS {}
-impl ::core::clone::Clone for CERT_FIND_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CERT_FIND_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CERT_FIND_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7621,19 +7379,8 @@ impl ::core::ops::Not for CERT_FIND_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CERT_FIND_TYPE(pub u32);
-impl ::core::marker::Copy for CERT_FIND_TYPE {}
-impl ::core::clone::Clone for CERT_FIND_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CERT_FIND_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CERT_FIND_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7643,19 +7390,8 @@ impl ::core::fmt::Debug for CERT_FIND_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CERT_ID_OPTION(pub u32);
-impl ::core::marker::Copy for CERT_ID_OPTION {}
-impl ::core::clone::Clone for CERT_ID_OPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CERT_ID_OPTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CERT_ID_OPTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7665,19 +7401,8 @@ impl ::core::fmt::Debug for CERT_ID_OPTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CERT_KEY_SPEC(pub u32);
-impl ::core::marker::Copy for CERT_KEY_SPEC {}
-impl ::core::clone::Clone for CERT_KEY_SPEC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CERT_KEY_SPEC {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CERT_KEY_SPEC {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7687,19 +7412,8 @@ impl ::core::fmt::Debug for CERT_KEY_SPEC {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CERT_LOGOTYPE_CHOICE(pub u32);
-impl ::core::marker::Copy for CERT_LOGOTYPE_CHOICE {}
-impl ::core::clone::Clone for CERT_LOGOTYPE_CHOICE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CERT_LOGOTYPE_CHOICE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CERT_LOGOTYPE_CHOICE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7709,19 +7423,8 @@ impl ::core::fmt::Debug for CERT_LOGOTYPE_CHOICE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CERT_LOGOTYPE_IMAGE_INFO_TYPE(pub u32);
-impl ::core::marker::Copy for CERT_LOGOTYPE_IMAGE_INFO_TYPE {}
-impl ::core::clone::Clone for CERT_LOGOTYPE_IMAGE_INFO_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CERT_LOGOTYPE_IMAGE_INFO_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CERT_LOGOTYPE_IMAGE_INFO_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7731,19 +7434,8 @@ impl ::core::fmt::Debug for CERT_LOGOTYPE_IMAGE_INFO_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CERT_LOGOTYPE_OPTION(pub u32);
-impl ::core::marker::Copy for CERT_LOGOTYPE_OPTION {}
-impl ::core::clone::Clone for CERT_LOGOTYPE_OPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CERT_LOGOTYPE_OPTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CERT_LOGOTYPE_OPTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7753,19 +7445,8 @@ impl ::core::fmt::Debug for CERT_LOGOTYPE_OPTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CERT_OPEN_STORE_FLAGS(pub u32);
-impl ::core::marker::Copy for CERT_OPEN_STORE_FLAGS {}
-impl ::core::clone::Clone for CERT_OPEN_STORE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CERT_OPEN_STORE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CERT_OPEN_STORE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7808,19 +7489,8 @@ impl ::core::ops::Not for CERT_OPEN_STORE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CERT_QUERY_CONTENT_TYPE(pub u32);
-impl ::core::marker::Copy for CERT_QUERY_CONTENT_TYPE {}
-impl ::core::clone::Clone for CERT_QUERY_CONTENT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CERT_QUERY_CONTENT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CERT_QUERY_CONTENT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7830,19 +7500,8 @@ impl ::core::fmt::Debug for CERT_QUERY_CONTENT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CERT_QUERY_CONTENT_TYPE_FLAGS(pub u32);
-impl ::core::marker::Copy for CERT_QUERY_CONTENT_TYPE_FLAGS {}
-impl ::core::clone::Clone for CERT_QUERY_CONTENT_TYPE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CERT_QUERY_CONTENT_TYPE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CERT_QUERY_CONTENT_TYPE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7852,19 +7511,8 @@ impl ::core::fmt::Debug for CERT_QUERY_CONTENT_TYPE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CERT_QUERY_ENCODING_TYPE(pub u32);
-impl ::core::marker::Copy for CERT_QUERY_ENCODING_TYPE {}
-impl ::core::clone::Clone for CERT_QUERY_ENCODING_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CERT_QUERY_ENCODING_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CERT_QUERY_ENCODING_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7907,19 +7555,8 @@ impl ::core::ops::Not for CERT_QUERY_ENCODING_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CERT_QUERY_FORMAT_TYPE(pub u32);
-impl ::core::marker::Copy for CERT_QUERY_FORMAT_TYPE {}
-impl ::core::clone::Clone for CERT_QUERY_FORMAT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CERT_QUERY_FORMAT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CERT_QUERY_FORMAT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7929,19 +7566,8 @@ impl ::core::fmt::Debug for CERT_QUERY_FORMAT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CERT_QUERY_FORMAT_TYPE_FLAGS(pub u32);
-impl ::core::marker::Copy for CERT_QUERY_FORMAT_TYPE_FLAGS {}
-impl ::core::clone::Clone for CERT_QUERY_FORMAT_TYPE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CERT_QUERY_FORMAT_TYPE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CERT_QUERY_FORMAT_TYPE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7951,19 +7577,8 @@ impl ::core::fmt::Debug for CERT_QUERY_FORMAT_TYPE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CERT_QUERY_OBJECT_TYPE(pub u32);
-impl ::core::marker::Copy for CERT_QUERY_OBJECT_TYPE {}
-impl ::core::clone::Clone for CERT_QUERY_OBJECT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CERT_QUERY_OBJECT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CERT_QUERY_OBJECT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7973,19 +7588,8 @@ impl ::core::fmt::Debug for CERT_QUERY_OBJECT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CERT_RDN_ATTR_VALUE_TYPE(pub i32);
-impl ::core::marker::Copy for CERT_RDN_ATTR_VALUE_TYPE {}
-impl ::core::clone::Clone for CERT_RDN_ATTR_VALUE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CERT_RDN_ATTR_VALUE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CERT_RDN_ATTR_VALUE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7995,19 +7599,8 @@ impl ::core::fmt::Debug for CERT_RDN_ATTR_VALUE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CERT_REVOCATION_STATUS_REASON(pub u32);
-impl ::core::marker::Copy for CERT_REVOCATION_STATUS_REASON {}
-impl ::core::clone::Clone for CERT_REVOCATION_STATUS_REASON {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CERT_REVOCATION_STATUS_REASON {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CERT_REVOCATION_STATUS_REASON {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8017,19 +7610,8 @@ impl ::core::fmt::Debug for CERT_REVOCATION_STATUS_REASON {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CERT_ROOT_PROGRAM_FLAGS(pub u32);
-impl ::core::marker::Copy for CERT_ROOT_PROGRAM_FLAGS {}
-impl ::core::clone::Clone for CERT_ROOT_PROGRAM_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CERT_ROOT_PROGRAM_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CERT_ROOT_PROGRAM_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8072,19 +7654,8 @@ impl ::core::ops::Not for CERT_ROOT_PROGRAM_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CERT_SELECT_CRITERIA_TYPE(pub u32);
-impl ::core::marker::Copy for CERT_SELECT_CRITERIA_TYPE {}
-impl ::core::clone::Clone for CERT_SELECT_CRITERIA_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CERT_SELECT_CRITERIA_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CERT_SELECT_CRITERIA_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8094,19 +7665,8 @@ impl ::core::fmt::Debug for CERT_SELECT_CRITERIA_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CERT_STORE_PROV_FLAGS(pub u32);
-impl ::core::marker::Copy for CERT_STORE_PROV_FLAGS {}
-impl ::core::clone::Clone for CERT_STORE_PROV_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CERT_STORE_PROV_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CERT_STORE_PROV_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8149,19 +7709,8 @@ impl ::core::ops::Not for CERT_STORE_PROV_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CERT_STORE_SAVE_AS(pub u32);
-impl ::core::marker::Copy for CERT_STORE_SAVE_AS {}
-impl ::core::clone::Clone for CERT_STORE_SAVE_AS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CERT_STORE_SAVE_AS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CERT_STORE_SAVE_AS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8171,19 +7720,8 @@ impl ::core::fmt::Debug for CERT_STORE_SAVE_AS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CERT_STORE_SAVE_TO(pub u32);
-impl ::core::marker::Copy for CERT_STORE_SAVE_TO {}
-impl ::core::clone::Clone for CERT_STORE_SAVE_TO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CERT_STORE_SAVE_TO {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CERT_STORE_SAVE_TO {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8193,19 +7731,8 @@ impl ::core::fmt::Debug for CERT_STORE_SAVE_TO {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CERT_STRING_TYPE(pub u32);
-impl ::core::marker::Copy for CERT_STRING_TYPE {}
-impl ::core::clone::Clone for CERT_STRING_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CERT_STRING_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CERT_STRING_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8215,19 +7742,8 @@ impl ::core::fmt::Debug for CERT_STRING_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CERT_STRONG_SIGN_FLAGS(pub u32);
-impl ::core::marker::Copy for CERT_STRONG_SIGN_FLAGS {}
-impl ::core::clone::Clone for CERT_STRONG_SIGN_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CERT_STRONG_SIGN_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CERT_STRONG_SIGN_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8270,19 +7786,8 @@ impl ::core::ops::Not for CERT_STRONG_SIGN_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CERT_SYSTEM_STORE_FLAGS(pub u32);
-impl ::core::marker::Copy for CERT_SYSTEM_STORE_FLAGS {}
-impl ::core::clone::Clone for CERT_SYSTEM_STORE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CERT_SYSTEM_STORE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CERT_SYSTEM_STORE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8292,19 +7797,8 @@ impl ::core::fmt::Debug for CERT_SYSTEM_STORE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CESSetupProperty(pub i32);
-impl ::core::marker::Copy for CESSetupProperty {}
-impl ::core::clone::Clone for CESSetupProperty {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CESSetupProperty {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CESSetupProperty {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8314,19 +7808,8 @@ impl ::core::fmt::Debug for CESSetupProperty {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CMSG_KEY_AGREE_OPTION(pub u32);
-impl ::core::marker::Copy for CMSG_KEY_AGREE_OPTION {}
-impl ::core::clone::Clone for CMSG_KEY_AGREE_OPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CMSG_KEY_AGREE_OPTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CMSG_KEY_AGREE_OPTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8336,19 +7819,8 @@ impl ::core::fmt::Debug for CMSG_KEY_AGREE_OPTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CMSG_KEY_AGREE_ORIGINATOR(pub u32);
-impl ::core::marker::Copy for CMSG_KEY_AGREE_ORIGINATOR {}
-impl ::core::clone::Clone for CMSG_KEY_AGREE_ORIGINATOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CMSG_KEY_AGREE_ORIGINATOR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CMSG_KEY_AGREE_ORIGINATOR {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8358,19 +7830,8 @@ impl ::core::fmt::Debug for CMSG_KEY_AGREE_ORIGINATOR {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CRYPT_ACQUIRE_FLAGS(pub u32);
-impl ::core::marker::Copy for CRYPT_ACQUIRE_FLAGS {}
-impl ::core::clone::Clone for CRYPT_ACQUIRE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CRYPT_ACQUIRE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CRYPT_ACQUIRE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8413,19 +7874,8 @@ impl ::core::ops::Not for CRYPT_ACQUIRE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CRYPT_CONTEXT_CONFIG_FLAGS(pub u32);
-impl ::core::marker::Copy for CRYPT_CONTEXT_CONFIG_FLAGS {}
-impl ::core::clone::Clone for CRYPT_CONTEXT_CONFIG_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CRYPT_CONTEXT_CONFIG_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CRYPT_CONTEXT_CONFIG_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8468,19 +7918,8 @@ impl ::core::ops::Not for CRYPT_CONTEXT_CONFIG_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CRYPT_DEFAULT_CONTEXT_FLAGS(pub u32);
-impl ::core::marker::Copy for CRYPT_DEFAULT_CONTEXT_FLAGS {}
-impl ::core::clone::Clone for CRYPT_DEFAULT_CONTEXT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CRYPT_DEFAULT_CONTEXT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CRYPT_DEFAULT_CONTEXT_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8523,19 +7962,8 @@ impl ::core::ops::Not for CRYPT_DEFAULT_CONTEXT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CRYPT_DEFAULT_CONTEXT_TYPE(pub u32);
-impl ::core::marker::Copy for CRYPT_DEFAULT_CONTEXT_TYPE {}
-impl ::core::clone::Clone for CRYPT_DEFAULT_CONTEXT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CRYPT_DEFAULT_CONTEXT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CRYPT_DEFAULT_CONTEXT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8545,19 +7973,8 @@ impl ::core::fmt::Debug for CRYPT_DEFAULT_CONTEXT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CRYPT_ENCODE_OBJECT_FLAGS(pub u32);
-impl ::core::marker::Copy for CRYPT_ENCODE_OBJECT_FLAGS {}
-impl ::core::clone::Clone for CRYPT_ENCODE_OBJECT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CRYPT_ENCODE_OBJECT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CRYPT_ENCODE_OBJECT_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8600,19 +8017,8 @@ impl ::core::ops::Not for CRYPT_ENCODE_OBJECT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CRYPT_FIND_FLAGS(pub u32);
-impl ::core::marker::Copy for CRYPT_FIND_FLAGS {}
-impl ::core::clone::Clone for CRYPT_FIND_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CRYPT_FIND_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CRYPT_FIND_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8622,19 +8028,8 @@ impl ::core::fmt::Debug for CRYPT_FIND_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CRYPT_GET_URL_FLAGS(pub u32);
-impl ::core::marker::Copy for CRYPT_GET_URL_FLAGS {}
-impl ::core::clone::Clone for CRYPT_GET_URL_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CRYPT_GET_URL_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CRYPT_GET_URL_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8677,19 +8072,8 @@ impl ::core::ops::Not for CRYPT_GET_URL_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CRYPT_IMAGE_REF_FLAGS(pub u32);
-impl ::core::marker::Copy for CRYPT_IMAGE_REF_FLAGS {}
-impl ::core::clone::Clone for CRYPT_IMAGE_REF_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CRYPT_IMAGE_REF_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CRYPT_IMAGE_REF_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8732,19 +8116,8 @@ impl ::core::ops::Not for CRYPT_IMAGE_REF_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CRYPT_IMPORT_PUBLIC_KEY_FLAGS(pub u32);
-impl ::core::marker::Copy for CRYPT_IMPORT_PUBLIC_KEY_FLAGS {}
-impl ::core::clone::Clone for CRYPT_IMPORT_PUBLIC_KEY_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CRYPT_IMPORT_PUBLIC_KEY_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CRYPT_IMPORT_PUBLIC_KEY_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8787,19 +8160,8 @@ impl ::core::ops::Not for CRYPT_IMPORT_PUBLIC_KEY_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CRYPT_KEY_FLAGS(pub u32);
-impl ::core::marker::Copy for CRYPT_KEY_FLAGS {}
-impl ::core::clone::Clone for CRYPT_KEY_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CRYPT_KEY_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CRYPT_KEY_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8842,19 +8204,8 @@ impl ::core::ops::Not for CRYPT_KEY_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CRYPT_KEY_PARAM_ID(pub u32);
-impl ::core::marker::Copy for CRYPT_KEY_PARAM_ID {}
-impl ::core::clone::Clone for CRYPT_KEY_PARAM_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CRYPT_KEY_PARAM_ID {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CRYPT_KEY_PARAM_ID {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8864,19 +8215,8 @@ impl ::core::fmt::Debug for CRYPT_KEY_PARAM_ID {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CRYPT_MSG_TYPE(pub u32);
-impl ::core::marker::Copy for CRYPT_MSG_TYPE {}
-impl ::core::clone::Clone for CRYPT_MSG_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CRYPT_MSG_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CRYPT_MSG_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8886,19 +8226,8 @@ impl ::core::fmt::Debug for CRYPT_MSG_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CRYPT_OBJECT_LOCATOR_RELEASE_REASON(pub u32);
-impl ::core::marker::Copy for CRYPT_OBJECT_LOCATOR_RELEASE_REASON {}
-impl ::core::clone::Clone for CRYPT_OBJECT_LOCATOR_RELEASE_REASON {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CRYPT_OBJECT_LOCATOR_RELEASE_REASON {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CRYPT_OBJECT_LOCATOR_RELEASE_REASON {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8908,19 +8237,8 @@ impl ::core::fmt::Debug for CRYPT_OBJECT_LOCATOR_RELEASE_REASON {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CRYPT_SET_HASH_PARAM(pub u32);
-impl ::core::marker::Copy for CRYPT_SET_HASH_PARAM {}
-impl ::core::clone::Clone for CRYPT_SET_HASH_PARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CRYPT_SET_HASH_PARAM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CRYPT_SET_HASH_PARAM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8930,19 +8248,8 @@ impl ::core::fmt::Debug for CRYPT_SET_HASH_PARAM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CRYPT_SET_PROV_PARAM_ID(pub u32);
-impl ::core::marker::Copy for CRYPT_SET_PROV_PARAM_ID {}
-impl ::core::clone::Clone for CRYPT_SET_PROV_PARAM_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CRYPT_SET_PROV_PARAM_ID {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CRYPT_SET_PROV_PARAM_ID {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8952,19 +8259,8 @@ impl ::core::fmt::Debug for CRYPT_SET_PROV_PARAM_ID {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CRYPT_STRING(pub u32);
-impl ::core::marker::Copy for CRYPT_STRING {}
-impl ::core::clone::Clone for CRYPT_STRING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CRYPT_STRING {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CRYPT_STRING {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8974,19 +8270,8 @@ impl ::core::fmt::Debug for CRYPT_STRING {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CRYPT_TIMESTAMP_RESPONSE_STATUS(pub u32);
-impl ::core::marker::Copy for CRYPT_TIMESTAMP_RESPONSE_STATUS {}
-impl ::core::clone::Clone for CRYPT_TIMESTAMP_RESPONSE_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CRYPT_TIMESTAMP_RESPONSE_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CRYPT_TIMESTAMP_RESPONSE_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8996,19 +8281,8 @@ impl ::core::fmt::Debug for CRYPT_TIMESTAMP_RESPONSE_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CRYPT_TIMESTAMP_VERSION(pub u32);
-impl ::core::marker::Copy for CRYPT_TIMESTAMP_VERSION {}
-impl ::core::clone::Clone for CRYPT_TIMESTAMP_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CRYPT_TIMESTAMP_VERSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CRYPT_TIMESTAMP_VERSION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9018,19 +8292,8 @@ impl ::core::fmt::Debug for CRYPT_TIMESTAMP_VERSION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CRYPT_VERIFY_CERT_FLAGS(pub u32);
-impl ::core::marker::Copy for CRYPT_VERIFY_CERT_FLAGS {}
-impl ::core::clone::Clone for CRYPT_VERIFY_CERT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CRYPT_VERIFY_CERT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CRYPT_VERIFY_CERT_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9040,19 +8303,8 @@ impl ::core::fmt::Debug for CRYPT_VERIFY_CERT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CRYPT_XML_CHARSET(pub i32);
-impl ::core::marker::Copy for CRYPT_XML_CHARSET {}
-impl ::core::clone::Clone for CRYPT_XML_CHARSET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CRYPT_XML_CHARSET {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CRYPT_XML_CHARSET {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9062,19 +8314,8 @@ impl ::core::fmt::Debug for CRYPT_XML_CHARSET {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CRYPT_XML_FLAGS(pub u32);
-impl ::core::marker::Copy for CRYPT_XML_FLAGS {}
-impl ::core::clone::Clone for CRYPT_XML_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CRYPT_XML_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CRYPT_XML_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9084,19 +8325,8 @@ impl ::core::fmt::Debug for CRYPT_XML_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CRYPT_XML_GROUP_ID(pub u32);
-impl ::core::marker::Copy for CRYPT_XML_GROUP_ID {}
-impl ::core::clone::Clone for CRYPT_XML_GROUP_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CRYPT_XML_GROUP_ID {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CRYPT_XML_GROUP_ID {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9106,19 +8336,8 @@ impl ::core::fmt::Debug for CRYPT_XML_GROUP_ID {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CRYPT_XML_KEYINFO_SPEC(pub i32);
-impl ::core::marker::Copy for CRYPT_XML_KEYINFO_SPEC {}
-impl ::core::clone::Clone for CRYPT_XML_KEYINFO_SPEC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CRYPT_XML_KEYINFO_SPEC {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CRYPT_XML_KEYINFO_SPEC {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9128,19 +8347,8 @@ impl ::core::fmt::Debug for CRYPT_XML_KEYINFO_SPEC {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CRYPT_XML_KEYINFO_TYPE(pub u32);
-impl ::core::marker::Copy for CRYPT_XML_KEYINFO_TYPE {}
-impl ::core::clone::Clone for CRYPT_XML_KEYINFO_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CRYPT_XML_KEYINFO_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CRYPT_XML_KEYINFO_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9150,19 +8358,8 @@ impl ::core::fmt::Debug for CRYPT_XML_KEYINFO_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CRYPT_XML_KEY_VALUE_TYPE(pub u32);
-impl ::core::marker::Copy for CRYPT_XML_KEY_VALUE_TYPE {}
-impl ::core::clone::Clone for CRYPT_XML_KEY_VALUE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CRYPT_XML_KEY_VALUE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CRYPT_XML_KEY_VALUE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9172,19 +8369,8 @@ impl ::core::fmt::Debug for CRYPT_XML_KEY_VALUE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CRYPT_XML_PROPERTY_ID(pub i32);
-impl ::core::marker::Copy for CRYPT_XML_PROPERTY_ID {}
-impl ::core::clone::Clone for CRYPT_XML_PROPERTY_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CRYPT_XML_PROPERTY_ID {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CRYPT_XML_PROPERTY_ID {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9194,19 +8380,8 @@ impl ::core::fmt::Debug for CRYPT_XML_PROPERTY_ID {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CRYPT_XML_STATUS_ERROR_STATUS(pub u32);
-impl ::core::marker::Copy for CRYPT_XML_STATUS_ERROR_STATUS {}
-impl ::core::clone::Clone for CRYPT_XML_STATUS_ERROR_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CRYPT_XML_STATUS_ERROR_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CRYPT_XML_STATUS_ERROR_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9216,19 +8391,8 @@ impl ::core::fmt::Debug for CRYPT_XML_STATUS_ERROR_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CRYPT_XML_STATUS_INFO_STATUS(pub u32);
-impl ::core::marker::Copy for CRYPT_XML_STATUS_INFO_STATUS {}
-impl ::core::clone::Clone for CRYPT_XML_STATUS_INFO_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CRYPT_XML_STATUS_INFO_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CRYPT_XML_STATUS_INFO_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9238,19 +8402,8 @@ impl ::core::fmt::Debug for CRYPT_XML_STATUS_INFO_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CRYPT_XML_TRANSFORM_FLAGS(pub u32);
-impl ::core::marker::Copy for CRYPT_XML_TRANSFORM_FLAGS {}
-impl ::core::clone::Clone for CRYPT_XML_TRANSFORM_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CRYPT_XML_TRANSFORM_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CRYPT_XML_TRANSFORM_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9293,19 +8446,8 @@ impl ::core::ops::Not for CRYPT_XML_TRANSFORM_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CRYPT_XML_X509DATA_TYPE(pub u32);
-impl ::core::marker::Copy for CRYPT_XML_X509DATA_TYPE {}
-impl ::core::clone::Clone for CRYPT_XML_X509DATA_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CRYPT_XML_X509DATA_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CRYPT_XML_X509DATA_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9315,19 +8457,8 @@ impl ::core::fmt::Debug for CRYPT_XML_X509DATA_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CertKeyType(pub u32);
-impl ::core::marker::Copy for CertKeyType {}
-impl ::core::clone::Clone for CertKeyType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CertKeyType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CertKeyType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9337,19 +8468,8 @@ impl ::core::fmt::Debug for CertKeyType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DSAFIPSVERSION_ENUM(pub i32);
-impl ::core::marker::Copy for DSAFIPSVERSION_ENUM {}
-impl ::core::clone::Clone for DSAFIPSVERSION_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DSAFIPSVERSION_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DSAFIPSVERSION_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9359,19 +8479,8 @@ impl ::core::fmt::Debug for DSAFIPSVERSION_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct Direction(pub i32);
-impl ::core::marker::Copy for Direction {}
-impl ::core::clone::Clone for Direction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for Direction {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for Direction {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9381,19 +8490,8 @@ impl ::core::fmt::Debug for Direction {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ECC_CURVE_ALG_ID_ENUM(pub i32);
-impl ::core::marker::Copy for ECC_CURVE_ALG_ID_ENUM {}
-impl ::core::clone::Clone for ECC_CURVE_ALG_ID_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ECC_CURVE_ALG_ID_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ECC_CURVE_ALG_ID_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9403,19 +8501,8 @@ impl ::core::fmt::Debug for ECC_CURVE_ALG_ID_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ECC_CURVE_TYPE_ENUM(pub i32);
-impl ::core::marker::Copy for ECC_CURVE_TYPE_ENUM {}
-impl ::core::clone::Clone for ECC_CURVE_TYPE_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ECC_CURVE_TYPE_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ECC_CURVE_TYPE_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9425,19 +8512,8 @@ impl ::core::fmt::Debug for ECC_CURVE_TYPE_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HASHALGORITHM_ENUM(pub i32);
-impl ::core::marker::Copy for HASHALGORITHM_ENUM {}
-impl ::core::clone::Clone for HASHALGORITHM_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HASHALGORITHM_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HASHALGORITHM_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9447,19 +8523,8 @@ impl ::core::fmt::Debug for HASHALGORITHM_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE(pub u32);
-impl ::core::marker::Copy for HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE {}
-impl ::core::clone::Clone for HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9469,24 +8534,13 @@ impl ::core::fmt::Debug for HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HandleType(pub i32);
 impl HandleType {
     pub const Asymmetric: Self = Self(1i32);
     pub const Symmetric: Self = Self(2i32);
     pub const Transform: Self = Self(3i32);
     pub const Hash: Self = Self(4i32);
-}
-impl ::core::marker::Copy for HandleType {}
-impl ::core::clone::Clone for HandleType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HandleType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for HandleType {
     type TypeKind = ::windows_core::CopyType;
@@ -9497,19 +8551,8 @@ impl ::core::fmt::Debug for HandleType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MSCEPSetupProperty(pub i32);
-impl ::core::marker::Copy for MSCEPSetupProperty {}
-impl ::core::clone::Clone for MSCEPSetupProperty {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MSCEPSetupProperty {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MSCEPSetupProperty {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9519,19 +8562,8 @@ impl ::core::fmt::Debug for MSCEPSetupProperty {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NCRYPT_ALGORITHM_NAME_CLASS(pub u32);
-impl ::core::marker::Copy for NCRYPT_ALGORITHM_NAME_CLASS {}
-impl ::core::clone::Clone for NCRYPT_ALGORITHM_NAME_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NCRYPT_ALGORITHM_NAME_CLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NCRYPT_ALGORITHM_NAME_CLASS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9541,19 +8573,8 @@ impl ::core::fmt::Debug for NCRYPT_ALGORITHM_NAME_CLASS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NCRYPT_FLAGS(pub u32);
-impl ::core::marker::Copy for NCRYPT_FLAGS {}
-impl ::core::clone::Clone for NCRYPT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NCRYPT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NCRYPT_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9596,19 +8617,8 @@ impl ::core::ops::Not for NCRYPT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NCRYPT_OPERATION(pub u32);
-impl ::core::marker::Copy for NCRYPT_OPERATION {}
-impl ::core::clone::Clone for NCRYPT_OPERATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NCRYPT_OPERATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NCRYPT_OPERATION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9651,7 +8661,7 @@ impl ::core::ops::Not for NCRYPT_OPERATION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PaddingMode(pub i32);
 impl PaddingMode {
     pub const None: Self = Self(1i32);
@@ -9659,17 +8669,6 @@ impl PaddingMode {
     pub const Zeros: Self = Self(3i32);
     pub const ANSIX923: Self = Self(4i32);
     pub const ISO10126: Self = Self(5i32);
-}
-impl ::core::marker::Copy for PaddingMode {}
-impl ::core::clone::Clone for PaddingMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PaddingMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PaddingMode {
     type TypeKind = ::windows_core::CopyType;
@@ -9680,19 +8679,8 @@ impl ::core::fmt::Debug for PaddingMode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SIGNER_CERT_CHOICE(pub u32);
-impl ::core::marker::Copy for SIGNER_CERT_CHOICE {}
-impl ::core::clone::Clone for SIGNER_CERT_CHOICE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SIGNER_CERT_CHOICE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SIGNER_CERT_CHOICE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9702,19 +8690,8 @@ impl ::core::fmt::Debug for SIGNER_CERT_CHOICE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SIGNER_CERT_POLICY(pub u32);
-impl ::core::marker::Copy for SIGNER_CERT_POLICY {}
-impl ::core::clone::Clone for SIGNER_CERT_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SIGNER_CERT_POLICY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SIGNER_CERT_POLICY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9757,19 +8734,8 @@ impl ::core::ops::Not for SIGNER_CERT_POLICY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SIGNER_PRIVATE_KEY_CHOICE(pub u32);
-impl ::core::marker::Copy for SIGNER_PRIVATE_KEY_CHOICE {}
-impl ::core::clone::Clone for SIGNER_PRIVATE_KEY_CHOICE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SIGNER_PRIVATE_KEY_CHOICE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SIGNER_PRIVATE_KEY_CHOICE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9779,19 +8745,8 @@ impl ::core::fmt::Debug for SIGNER_PRIVATE_KEY_CHOICE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SIGNER_SIGNATURE_ATTRIBUTE_CHOICE(pub u32);
-impl ::core::marker::Copy for SIGNER_SIGNATURE_ATTRIBUTE_CHOICE {}
-impl ::core::clone::Clone for SIGNER_SIGNATURE_ATTRIBUTE_CHOICE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SIGNER_SIGNATURE_ATTRIBUTE_CHOICE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SIGNER_SIGNATURE_ATTRIBUTE_CHOICE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9801,19 +8756,8 @@ impl ::core::fmt::Debug for SIGNER_SIGNATURE_ATTRIBUTE_CHOICE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SIGNER_SIGN_FLAGS(pub u32);
-impl ::core::marker::Copy for SIGNER_SIGN_FLAGS {}
-impl ::core::clone::Clone for SIGNER_SIGN_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SIGNER_SIGN_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SIGNER_SIGN_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9856,19 +8800,8 @@ impl ::core::ops::Not for SIGNER_SIGN_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SIGNER_SUBJECT_CHOICE(pub u32);
-impl ::core::marker::Copy for SIGNER_SUBJECT_CHOICE {}
-impl ::core::clone::Clone for SIGNER_SUBJECT_CHOICE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SIGNER_SUBJECT_CHOICE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SIGNER_SUBJECT_CHOICE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9878,19 +8811,8 @@ impl ::core::fmt::Debug for SIGNER_SUBJECT_CHOICE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SIGNER_TIMESTAMP_FLAGS(pub u32);
-impl ::core::marker::Copy for SIGNER_TIMESTAMP_FLAGS {}
-impl ::core::clone::Clone for SIGNER_TIMESTAMP_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SIGNER_TIMESTAMP_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SIGNER_TIMESTAMP_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }

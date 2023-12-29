@@ -1372,24 +1372,13 @@ impl ::windows_core::RuntimeName for WebViewControlWebResourceRequestedEventArgs
 }
 ::windows_core::imp::interface_hierarchy!(WebViewControlWebResourceRequestedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WebViewControlPermissionState(pub i32);
 impl WebViewControlPermissionState {
     pub const Unknown: Self = Self(0i32);
     pub const Defer: Self = Self(1i32);
     pub const Allow: Self = Self(2i32);
     pub const Deny: Self = Self(3i32);
-}
-impl ::core::marker::Copy for WebViewControlPermissionState {}
-impl ::core::clone::Clone for WebViewControlPermissionState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WebViewControlPermissionState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for WebViewControlPermissionState {
     type TypeKind = ::windows_core::CopyType;
@@ -1403,7 +1392,7 @@ impl ::windows_core::RuntimeType for WebViewControlPermissionState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.UI.WebViewControlPermissionState;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WebViewControlPermissionType(pub i32);
 impl WebViewControlPermissionType {
     pub const Geolocation: Self = Self(0i32);
@@ -1413,17 +1402,6 @@ impl WebViewControlPermissionType {
     pub const WebNotifications: Self = Self(4i32);
     pub const Screen: Self = Self(5i32);
     pub const ImmersiveView: Self = Self(6i32);
-}
-impl ::core::marker::Copy for WebViewControlPermissionType {}
-impl ::core::clone::Clone for WebViewControlPermissionType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WebViewControlPermissionType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for WebViewControlPermissionType {
     type TypeKind = ::windows_core::CopyType;

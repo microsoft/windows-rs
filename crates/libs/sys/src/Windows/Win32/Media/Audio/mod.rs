@@ -922,6 +922,7 @@ pub type AudioSessionDisconnectReason = i32;
 pub type AudioSessionState = i32;
 pub type AudioStateMonitorSoundLevel = i32;
 #[repr(transparent)]
+#[derive(::core::marker::Copy, ::core::clone::Clone)]
 pub struct ConnectorType(pub i32);
 impl ConnectorType {
     pub const Unknown_Connector: Self = Self(0i32);
@@ -930,12 +931,6 @@ impl ConnectorType {
     pub const Software_IO: Self = Self(3i32);
     pub const Software_Fixed: Self = Self(4i32);
     pub const Network: Self = Self(5i32);
-}
-impl ::core::marker::Copy for ConnectorType {}
-impl ::core::clone::Clone for ConnectorType {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type DataFlow = i32;
 pub type EDataFlow = i32;

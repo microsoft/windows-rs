@@ -894,7 +894,7 @@ impl ::windows_core::RuntimeName for VoiceCommandUserMessage {
 unsafe impl ::core::marker::Send for VoiceCommandUserMessage {}
 unsafe impl ::core::marker::Sync for VoiceCommandUserMessage {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VoiceCommandCompletionReason(pub i32);
 impl VoiceCommandCompletionReason {
     pub const Unknown: Self = Self(0i32);
@@ -904,17 +904,6 @@ impl VoiceCommandCompletionReason {
     pub const TimeoutExceeded: Self = Self(4i32);
     pub const AppLaunched: Self = Self(5i32);
     pub const Completed: Self = Self(6i32);
-}
-impl ::core::marker::Copy for VoiceCommandCompletionReason {}
-impl ::core::clone::Clone for VoiceCommandCompletionReason {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VoiceCommandCompletionReason {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for VoiceCommandCompletionReason {
     type TypeKind = ::windows_core::CopyType;
@@ -928,7 +917,7 @@ impl ::windows_core::RuntimeType for VoiceCommandCompletionReason {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.VoiceCommands.VoiceCommandCompletionReason;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VoiceCommandContentTileType(pub i32);
 impl VoiceCommandContentTileType {
     pub const TitleOnly: Self = Self(0i32);
@@ -939,17 +928,6 @@ impl VoiceCommandContentTileType {
     pub const TitleWith68x92IconAndText: Self = Self(5i32);
     pub const TitleWith280x140Icon: Self = Self(6i32);
     pub const TitleWith280x140IconAndText: Self = Self(7i32);
-}
-impl ::core::marker::Copy for VoiceCommandContentTileType {}
-impl ::core::clone::Clone for VoiceCommandContentTileType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VoiceCommandContentTileType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for VoiceCommandContentTileType {
     type TypeKind = ::windows_core::CopyType;

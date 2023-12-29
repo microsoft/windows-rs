@@ -161,19 +161,8 @@ pub const EcVarTypeNull: EC_VARIANT_TYPE = EC_VARIANT_TYPE(0i32);
 pub const EcVarTypeString: EC_VARIANT_TYPE = EC_VARIANT_TYPE(4i32);
 pub const EcVarTypeUInt32: EC_VARIANT_TYPE = EC_VARIANT_TYPE(2i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EC_SUBSCRIPTION_CONFIGURATION_MODE(pub i32);
-impl ::core::marker::Copy for EC_SUBSCRIPTION_CONFIGURATION_MODE {}
-impl ::core::clone::Clone for EC_SUBSCRIPTION_CONFIGURATION_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EC_SUBSCRIPTION_CONFIGURATION_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EC_SUBSCRIPTION_CONFIGURATION_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -183,19 +172,8 @@ impl ::core::fmt::Debug for EC_SUBSCRIPTION_CONFIGURATION_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EC_SUBSCRIPTION_CONTENT_FORMAT(pub i32);
-impl ::core::marker::Copy for EC_SUBSCRIPTION_CONTENT_FORMAT {}
-impl ::core::clone::Clone for EC_SUBSCRIPTION_CONTENT_FORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EC_SUBSCRIPTION_CONTENT_FORMAT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EC_SUBSCRIPTION_CONTENT_FORMAT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -205,19 +183,8 @@ impl ::core::fmt::Debug for EC_SUBSCRIPTION_CONTENT_FORMAT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EC_SUBSCRIPTION_CREDENTIALS_TYPE(pub i32);
-impl ::core::marker::Copy for EC_SUBSCRIPTION_CREDENTIALS_TYPE {}
-impl ::core::clone::Clone for EC_SUBSCRIPTION_CREDENTIALS_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EC_SUBSCRIPTION_CREDENTIALS_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EC_SUBSCRIPTION_CREDENTIALS_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -227,19 +194,8 @@ impl ::core::fmt::Debug for EC_SUBSCRIPTION_CREDENTIALS_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EC_SUBSCRIPTION_DELIVERY_MODE(pub i32);
-impl ::core::marker::Copy for EC_SUBSCRIPTION_DELIVERY_MODE {}
-impl ::core::clone::Clone for EC_SUBSCRIPTION_DELIVERY_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EC_SUBSCRIPTION_DELIVERY_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EC_SUBSCRIPTION_DELIVERY_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -249,19 +205,8 @@ impl ::core::fmt::Debug for EC_SUBSCRIPTION_DELIVERY_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EC_SUBSCRIPTION_PROPERTY_ID(pub i32);
-impl ::core::marker::Copy for EC_SUBSCRIPTION_PROPERTY_ID {}
-impl ::core::clone::Clone for EC_SUBSCRIPTION_PROPERTY_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EC_SUBSCRIPTION_PROPERTY_ID {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EC_SUBSCRIPTION_PROPERTY_ID {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -271,19 +216,8 @@ impl ::core::fmt::Debug for EC_SUBSCRIPTION_PROPERTY_ID {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EC_SUBSCRIPTION_RUNTIME_STATUS_ACTIVE_STATUS(pub i32);
-impl ::core::marker::Copy for EC_SUBSCRIPTION_RUNTIME_STATUS_ACTIVE_STATUS {}
-impl ::core::clone::Clone for EC_SUBSCRIPTION_RUNTIME_STATUS_ACTIVE_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EC_SUBSCRIPTION_RUNTIME_STATUS_ACTIVE_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EC_SUBSCRIPTION_RUNTIME_STATUS_ACTIVE_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -293,19 +227,8 @@ impl ::core::fmt::Debug for EC_SUBSCRIPTION_RUNTIME_STATUS_ACTIVE_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID(pub i32);
-impl ::core::marker::Copy for EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID {}
-impl ::core::clone::Clone for EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -315,19 +238,8 @@ impl ::core::fmt::Debug for EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EC_SUBSCRIPTION_TYPE(pub i32);
-impl ::core::marker::Copy for EC_SUBSCRIPTION_TYPE {}
-impl ::core::clone::Clone for EC_SUBSCRIPTION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EC_SUBSCRIPTION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EC_SUBSCRIPTION_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -337,19 +249,8 @@ impl ::core::fmt::Debug for EC_SUBSCRIPTION_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EC_VARIANT_TYPE(pub i32);
-impl ::core::marker::Copy for EC_VARIANT_TYPE {}
-impl ::core::clone::Clone for EC_VARIANT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EC_VARIANT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EC_VARIANT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }

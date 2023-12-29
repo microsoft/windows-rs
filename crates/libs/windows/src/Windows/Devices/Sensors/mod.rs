@@ -7002,23 +7002,12 @@ impl ::windows_core::RuntimeName for WakeOnApproachOptions {
 unsafe impl ::core::marker::Send for WakeOnApproachOptions {}
 unsafe impl ::core::marker::Sync for WakeOnApproachOptions {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AccelerometerReadingType(pub i32);
 impl AccelerometerReadingType {
     pub const Standard: Self = Self(0i32);
     pub const Linear: Self = Self(1i32);
     pub const Gravity: Self = Self(2i32);
-}
-impl ::core::marker::Copy for AccelerometerReadingType {}
-impl ::core::clone::Clone for AccelerometerReadingType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AccelerometerReadingType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AccelerometerReadingType {
     type TypeKind = ::windows_core::CopyType;
@@ -7032,22 +7021,11 @@ impl ::windows_core::RuntimeType for AccelerometerReadingType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.AccelerometerReadingType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ActivitySensorReadingConfidence(pub i32);
 impl ActivitySensorReadingConfidence {
     pub const High: Self = Self(0i32);
     pub const Low: Self = Self(1i32);
-}
-impl ::core::marker::Copy for ActivitySensorReadingConfidence {}
-impl ::core::clone::Clone for ActivitySensorReadingConfidence {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ActivitySensorReadingConfidence {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ActivitySensorReadingConfidence {
     type TypeKind = ::windows_core::CopyType;
@@ -7061,7 +7039,7 @@ impl ::windows_core::RuntimeType for ActivitySensorReadingConfidence {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.ActivitySensorReadingConfidence;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ActivityType(pub i32);
 impl ActivityType {
     pub const Unknown: Self = Self(0i32);
@@ -7072,17 +7050,6 @@ impl ActivityType {
     pub const Running: Self = Self(5i32);
     pub const InVehicle: Self = Self(6i32);
     pub const Biking: Self = Self(7i32);
-}
-impl ::core::marker::Copy for ActivityType {}
-impl ::core::clone::Clone for ActivityType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ActivityType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ActivityType {
     type TypeKind = ::windows_core::CopyType;
@@ -7096,23 +7063,12 @@ impl ::windows_core::RuntimeType for ActivityType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.ActivityType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HumanEngagement(pub i32);
 impl HumanEngagement {
     pub const Unknown: Self = Self(0i32);
     pub const Engaged: Self = Self(1i32);
     pub const Unengaged: Self = Self(2i32);
-}
-impl ::core::marker::Copy for HumanEngagement {}
-impl ::core::clone::Clone for HumanEngagement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HumanEngagement {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for HumanEngagement {
     type TypeKind = ::windows_core::CopyType;
@@ -7126,23 +7082,12 @@ impl ::windows_core::RuntimeType for HumanEngagement {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.HumanEngagement;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HumanPresence(pub i32);
 impl HumanPresence {
     pub const Unknown: Self = Self(0i32);
     pub const Present: Self = Self(1i32);
     pub const NotPresent: Self = Self(2i32);
-}
-impl ::core::marker::Copy for HumanPresence {}
-impl ::core::clone::Clone for HumanPresence {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HumanPresence {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for HumanPresence {
     type TypeKind = ::windows_core::CopyType;
@@ -7156,24 +7101,13 @@ impl ::windows_core::RuntimeType for HumanPresence {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.HumanPresence;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MagnetometerAccuracy(pub i32);
 impl MagnetometerAccuracy {
     pub const Unknown: Self = Self(0i32);
     pub const Unreliable: Self = Self(1i32);
     pub const Approximate: Self = Self(2i32);
     pub const High: Self = Self(3i32);
-}
-impl ::core::marker::Copy for MagnetometerAccuracy {}
-impl ::core::clone::Clone for MagnetometerAccuracy {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MagnetometerAccuracy {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MagnetometerAccuracy {
     type TypeKind = ::windows_core::CopyType;
@@ -7187,23 +7121,12 @@ impl ::windows_core::RuntimeType for MagnetometerAccuracy {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.MagnetometerAccuracy;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PedometerStepKind(pub i32);
 impl PedometerStepKind {
     pub const Unknown: Self = Self(0i32);
     pub const Walking: Self = Self(1i32);
     pub const Running: Self = Self(2i32);
-}
-impl ::core::marker::Copy for PedometerStepKind {}
-impl ::core::clone::Clone for PedometerStepKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PedometerStepKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PedometerStepKind {
     type TypeKind = ::windows_core::CopyType;
@@ -7217,22 +7140,11 @@ impl ::windows_core::RuntimeType for PedometerStepKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.PedometerStepKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SensorOptimizationGoal(pub i32);
 impl SensorOptimizationGoal {
     pub const Precision: Self = Self(0i32);
     pub const PowerEfficiency: Self = Self(1i32);
-}
-impl ::core::marker::Copy for SensorOptimizationGoal {}
-impl ::core::clone::Clone for SensorOptimizationGoal {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SensorOptimizationGoal {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SensorOptimizationGoal {
     type TypeKind = ::windows_core::CopyType;
@@ -7246,22 +7158,11 @@ impl ::windows_core::RuntimeType for SensorOptimizationGoal {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.SensorOptimizationGoal;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SensorReadingType(pub i32);
 impl SensorReadingType {
     pub const Absolute: Self = Self(0i32);
     pub const Relative: Self = Self(1i32);
-}
-impl ::core::marker::Copy for SensorReadingType {}
-impl ::core::clone::Clone for SensorReadingType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SensorReadingType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SensorReadingType {
     type TypeKind = ::windows_core::CopyType;
@@ -7275,7 +7176,7 @@ impl ::windows_core::RuntimeType for SensorReadingType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.SensorReadingType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SensorType(pub i32);
 impl SensorType {
     pub const Accelerometer: Self = Self(0i32);
@@ -7293,17 +7194,6 @@ impl SensorType {
     pub const RelativeOrientationSensor: Self = Self(12i32);
     pub const SimpleOrientationSensor: Self = Self(13i32);
 }
-impl ::core::marker::Copy for SensorType {}
-impl ::core::clone::Clone for SensorType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SensorType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SensorType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7316,7 +7206,7 @@ impl ::windows_core::RuntimeType for SensorType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.SensorType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SimpleOrientation(pub i32);
 impl SimpleOrientation {
     pub const NotRotated: Self = Self(0i32);
@@ -7325,17 +7215,6 @@ impl SimpleOrientation {
     pub const Rotated270DegreesCounterclockwise: Self = Self(3i32);
     pub const Faceup: Self = Self(4i32);
     pub const Facedown: Self = Self(5i32);
-}
-impl ::core::marker::Copy for SimpleOrientation {}
-impl ::core::clone::Clone for SimpleOrientation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SimpleOrientation {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SimpleOrientation {
     type TypeKind = ::windows_core::CopyType;

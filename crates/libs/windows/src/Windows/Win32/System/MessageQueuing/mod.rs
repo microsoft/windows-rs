@@ -6564,19 +6564,8 @@ pub const REL_LT: RELOPS = RELOPS(3i32);
 pub const REL_NEQ: RELOPS = RELOPS(2i32);
 pub const REL_NOP: RELOPS = RELOPS(0i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FOREIGN_STATUS(pub i32);
-impl ::core::marker::Copy for FOREIGN_STATUS {}
-impl ::core::clone::Clone for FOREIGN_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FOREIGN_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FOREIGN_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6586,19 +6575,8 @@ impl ::core::fmt::Debug for FOREIGN_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MQACCESS(pub i32);
-impl ::core::marker::Copy for MQACCESS {}
-impl ::core::clone::Clone for MQACCESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MQACCESS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MQACCESS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6608,19 +6586,8 @@ impl ::core::fmt::Debug for MQACCESS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MQAUTHENTICATE(pub i32);
-impl ::core::marker::Copy for MQAUTHENTICATE {}
-impl ::core::clone::Clone for MQAUTHENTICATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MQAUTHENTICATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MQAUTHENTICATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6630,19 +6597,8 @@ impl ::core::fmt::Debug for MQAUTHENTICATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MQCALG(pub i32);
-impl ::core::marker::Copy for MQCALG {}
-impl ::core::clone::Clone for MQCALG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MQCALG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MQCALG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6652,19 +6608,8 @@ impl ::core::fmt::Debug for MQCALG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MQCERT_REGISTER(pub i32);
-impl ::core::marker::Copy for MQCERT_REGISTER {}
-impl ::core::clone::Clone for MQCERT_REGISTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MQCERT_REGISTER {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MQCERT_REGISTER {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6674,19 +6619,8 @@ impl ::core::fmt::Debug for MQCERT_REGISTER {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MQConnectionState(pub i32);
-impl ::core::marker::Copy for MQConnectionState {}
-impl ::core::clone::Clone for MQConnectionState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MQConnectionState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MQConnectionState {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6696,19 +6630,8 @@ impl ::core::fmt::Debug for MQConnectionState {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MQDEFAULT(pub i32);
-impl ::core::marker::Copy for MQDEFAULT {}
-impl ::core::clone::Clone for MQDEFAULT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MQDEFAULT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MQDEFAULT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6718,19 +6641,8 @@ impl ::core::fmt::Debug for MQDEFAULT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MQERROR(pub i32);
-impl ::core::marker::Copy for MQERROR {}
-impl ::core::clone::Clone for MQERROR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MQERROR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MQERROR {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6740,19 +6652,8 @@ impl ::core::fmt::Debug for MQERROR {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MQJOURNAL(pub i32);
-impl ::core::marker::Copy for MQJOURNAL {}
-impl ::core::clone::Clone for MQJOURNAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MQJOURNAL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MQJOURNAL {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6762,19 +6663,8 @@ impl ::core::fmt::Debug for MQJOURNAL {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MQMAX(pub i32);
-impl ::core::marker::Copy for MQMAX {}
-impl ::core::clone::Clone for MQMAX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MQMAX {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MQMAX {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6784,19 +6674,8 @@ impl ::core::fmt::Debug for MQMAX {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MQMSGACKNOWLEDGEMENT(pub i32);
-impl ::core::marker::Copy for MQMSGACKNOWLEDGEMENT {}
-impl ::core::clone::Clone for MQMSGACKNOWLEDGEMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MQMSGACKNOWLEDGEMENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MQMSGACKNOWLEDGEMENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6806,19 +6685,8 @@ impl ::core::fmt::Debug for MQMSGACKNOWLEDGEMENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MQMSGAUTHENTICATION(pub i32);
-impl ::core::marker::Copy for MQMSGAUTHENTICATION {}
-impl ::core::clone::Clone for MQMSGAUTHENTICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MQMSGAUTHENTICATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MQMSGAUTHENTICATION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6828,19 +6696,8 @@ impl ::core::fmt::Debug for MQMSGAUTHENTICATION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MQMSGAUTHLEVEL(pub i32);
-impl ::core::marker::Copy for MQMSGAUTHLEVEL {}
-impl ::core::clone::Clone for MQMSGAUTHLEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MQMSGAUTHLEVEL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MQMSGAUTHLEVEL {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6850,19 +6707,8 @@ impl ::core::fmt::Debug for MQMSGAUTHLEVEL {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MQMSGCLASS(pub i32);
-impl ::core::marker::Copy for MQMSGCLASS {}
-impl ::core::clone::Clone for MQMSGCLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MQMSGCLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MQMSGCLASS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6872,19 +6718,8 @@ impl ::core::fmt::Debug for MQMSGCLASS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MQMSGCURSOR(pub i32);
-impl ::core::marker::Copy for MQMSGCURSOR {}
-impl ::core::clone::Clone for MQMSGCURSOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MQMSGCURSOR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MQMSGCURSOR {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6894,19 +6729,8 @@ impl ::core::fmt::Debug for MQMSGCURSOR {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MQMSGDELIVERY(pub i32);
-impl ::core::marker::Copy for MQMSGDELIVERY {}
-impl ::core::clone::Clone for MQMSGDELIVERY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MQMSGDELIVERY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MQMSGDELIVERY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6916,19 +6740,8 @@ impl ::core::fmt::Debug for MQMSGDELIVERY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MQMSGIDSIZE(pub i32);
-impl ::core::marker::Copy for MQMSGIDSIZE {}
-impl ::core::clone::Clone for MQMSGIDSIZE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MQMSGIDSIZE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MQMSGIDSIZE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6938,19 +6751,8 @@ impl ::core::fmt::Debug for MQMSGIDSIZE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MQMSGJOURNAL(pub i32);
-impl ::core::marker::Copy for MQMSGJOURNAL {}
-impl ::core::clone::Clone for MQMSGJOURNAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MQMSGJOURNAL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MQMSGJOURNAL {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6960,19 +6762,8 @@ impl ::core::fmt::Debug for MQMSGJOURNAL {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MQMSGMAX(pub i32);
-impl ::core::marker::Copy for MQMSGMAX {}
-impl ::core::clone::Clone for MQMSGMAX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MQMSGMAX {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MQMSGMAX {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6982,19 +6773,8 @@ impl ::core::fmt::Debug for MQMSGMAX {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MQMSGPRIVLEVEL(pub i32);
-impl ::core::marker::Copy for MQMSGPRIVLEVEL {}
-impl ::core::clone::Clone for MQMSGPRIVLEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MQMSGPRIVLEVEL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MQMSGPRIVLEVEL {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7004,19 +6784,8 @@ impl ::core::fmt::Debug for MQMSGPRIVLEVEL {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MQMSGSENDERIDTYPE(pub i32);
-impl ::core::marker::Copy for MQMSGSENDERIDTYPE {}
-impl ::core::clone::Clone for MQMSGSENDERIDTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MQMSGSENDERIDTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MQMSGSENDERIDTYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7026,19 +6795,8 @@ impl ::core::fmt::Debug for MQMSGSENDERIDTYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MQMSGTRACE(pub i32);
-impl ::core::marker::Copy for MQMSGTRACE {}
-impl ::core::clone::Clone for MQMSGTRACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MQMSGTRACE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MQMSGTRACE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7048,19 +6806,8 @@ impl ::core::fmt::Debug for MQMSGTRACE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MQPRIORITY(pub i32);
-impl ::core::marker::Copy for MQPRIORITY {}
-impl ::core::clone::Clone for MQPRIORITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MQPRIORITY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MQPRIORITY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7070,19 +6817,8 @@ impl ::core::fmt::Debug for MQPRIORITY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MQPRIVLEVEL(pub i32);
-impl ::core::marker::Copy for MQPRIVLEVEL {}
-impl ::core::clone::Clone for MQPRIVLEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MQPRIVLEVEL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MQPRIVLEVEL {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7092,19 +6828,8 @@ impl ::core::fmt::Debug for MQPRIVLEVEL {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MQQUEUEACCESSMASK(pub u32);
-impl ::core::marker::Copy for MQQUEUEACCESSMASK {}
-impl ::core::clone::Clone for MQQUEUEACCESSMASK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MQQUEUEACCESSMASK {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MQQUEUEACCESSMASK {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7147,19 +6872,8 @@ impl ::core::ops::Not for MQQUEUEACCESSMASK {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MQSHARE(pub i32);
-impl ::core::marker::Copy for MQSHARE {}
-impl ::core::clone::Clone for MQSHARE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MQSHARE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MQSHARE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7169,19 +6883,8 @@ impl ::core::fmt::Debug for MQSHARE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MQTRANSACTION(pub i32);
-impl ::core::marker::Copy for MQTRANSACTION {}
-impl ::core::clone::Clone for MQTRANSACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MQTRANSACTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MQTRANSACTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7191,19 +6894,8 @@ impl ::core::fmt::Debug for MQTRANSACTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MQTRANSACTIONAL(pub i32);
-impl ::core::marker::Copy for MQTRANSACTIONAL {}
-impl ::core::clone::Clone for MQTRANSACTIONAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MQTRANSACTIONAL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MQTRANSACTIONAL {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7213,19 +6905,8 @@ impl ::core::fmt::Debug for MQTRANSACTIONAL {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MQWARNING(pub i32);
-impl ::core::marker::Copy for MQWARNING {}
-impl ::core::clone::Clone for MQWARNING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MQWARNING {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MQWARNING {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7235,19 +6916,8 @@ impl ::core::fmt::Debug for MQWARNING {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct QUEUE_STATE(pub i32);
-impl ::core::marker::Copy for QUEUE_STATE {}
-impl ::core::clone::Clone for QUEUE_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for QUEUE_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for QUEUE_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7257,19 +6927,8 @@ impl ::core::fmt::Debug for QUEUE_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct QUEUE_TYPE(pub i32);
-impl ::core::marker::Copy for QUEUE_TYPE {}
-impl ::core::clone::Clone for QUEUE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for QUEUE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for QUEUE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7279,19 +6938,8 @@ impl ::core::fmt::Debug for QUEUE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RELOPS(pub i32);
-impl ::core::marker::Copy for RELOPS {}
-impl ::core::clone::Clone for RELOPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RELOPS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RELOPS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7301,19 +6949,8 @@ impl ::core::fmt::Debug for RELOPS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XACT_STATUS(pub i32);
-impl ::core::marker::Copy for XACT_STATUS {}
-impl ::core::clone::Clone for XACT_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XACT_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XACT_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }

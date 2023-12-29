@@ -1698,19 +1698,8 @@ pub const RDPTransportStreamEvents: ::windows_core::GUID = ::windows_core::GUID:
 pub const RDPViewer: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x32be5ed2_5c86_480f_a914_0ff8885a1b3f);
 pub const WND_FLAG_PRIVILEGED: RDPSRAPI_WND_FLAGS = RDPSRAPI_WND_FLAGS(1i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ATTENDEE_DISCONNECT_REASON(pub i32);
-impl ::core::marker::Copy for ATTENDEE_DISCONNECT_REASON {}
-impl ::core::clone::Clone for ATTENDEE_DISCONNECT_REASON {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ATTENDEE_DISCONNECT_REASON {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ATTENDEE_DISCONNECT_REASON {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1720,19 +1709,8 @@ impl ::core::fmt::Debug for ATTENDEE_DISCONNECT_REASON {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CHANNEL_ACCESS_ENUM(pub i32);
-impl ::core::marker::Copy for CHANNEL_ACCESS_ENUM {}
-impl ::core::clone::Clone for CHANNEL_ACCESS_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CHANNEL_ACCESS_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CHANNEL_ACCESS_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1742,19 +1720,8 @@ impl ::core::fmt::Debug for CHANNEL_ACCESS_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CHANNEL_FLAGS(pub i32);
-impl ::core::marker::Copy for CHANNEL_FLAGS {}
-impl ::core::clone::Clone for CHANNEL_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CHANNEL_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CHANNEL_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1764,19 +1731,8 @@ impl ::core::fmt::Debug for CHANNEL_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CHANNEL_PRIORITY(pub i32);
-impl ::core::marker::Copy for CHANNEL_PRIORITY {}
-impl ::core::clone::Clone for CHANNEL_PRIORITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CHANNEL_PRIORITY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CHANNEL_PRIORITY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1786,19 +1742,8 @@ impl ::core::fmt::Debug for CHANNEL_PRIORITY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CTRL_LEVEL(pub i32);
-impl ::core::marker::Copy for CTRL_LEVEL {}
-impl ::core::clone::Clone for CTRL_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CTRL_LEVEL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CTRL_LEVEL {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1808,19 +1753,8 @@ impl ::core::fmt::Debug for CTRL_LEVEL {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RDPENCOMAPI_ATTENDEE_FLAGS(pub i32);
-impl ::core::marker::Copy for RDPENCOMAPI_ATTENDEE_FLAGS {}
-impl ::core::clone::Clone for RDPENCOMAPI_ATTENDEE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RDPENCOMAPI_ATTENDEE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RDPENCOMAPI_ATTENDEE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1830,19 +1764,8 @@ impl ::core::fmt::Debug for RDPENCOMAPI_ATTENDEE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RDPENCOMAPI_CONSTANTS(pub i32);
-impl ::core::marker::Copy for RDPENCOMAPI_CONSTANTS {}
-impl ::core::clone::Clone for RDPENCOMAPI_CONSTANTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RDPENCOMAPI_CONSTANTS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RDPENCOMAPI_CONSTANTS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1852,19 +1775,8 @@ impl ::core::fmt::Debug for RDPENCOMAPI_CONSTANTS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RDPSRAPI_APP_FLAGS(pub i32);
-impl ::core::marker::Copy for RDPSRAPI_APP_FLAGS {}
-impl ::core::clone::Clone for RDPSRAPI_APP_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RDPSRAPI_APP_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RDPSRAPI_APP_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1874,19 +1786,8 @@ impl ::core::fmt::Debug for RDPSRAPI_APP_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RDPSRAPI_KBD_CODE_TYPE(pub i32);
-impl ::core::marker::Copy for RDPSRAPI_KBD_CODE_TYPE {}
-impl ::core::clone::Clone for RDPSRAPI_KBD_CODE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RDPSRAPI_KBD_CODE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RDPSRAPI_KBD_CODE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1896,19 +1797,8 @@ impl ::core::fmt::Debug for RDPSRAPI_KBD_CODE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RDPSRAPI_KBD_SYNC_FLAG(pub i32);
-impl ::core::marker::Copy for RDPSRAPI_KBD_SYNC_FLAG {}
-impl ::core::clone::Clone for RDPSRAPI_KBD_SYNC_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RDPSRAPI_KBD_SYNC_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RDPSRAPI_KBD_SYNC_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1918,19 +1808,8 @@ impl ::core::fmt::Debug for RDPSRAPI_KBD_SYNC_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RDPSRAPI_MOUSE_BUTTON_TYPE(pub i32);
-impl ::core::marker::Copy for RDPSRAPI_MOUSE_BUTTON_TYPE {}
-impl ::core::clone::Clone for RDPSRAPI_MOUSE_BUTTON_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RDPSRAPI_MOUSE_BUTTON_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RDPSRAPI_MOUSE_BUTTON_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1940,19 +1819,8 @@ impl ::core::fmt::Debug for RDPSRAPI_MOUSE_BUTTON_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RDPSRAPI_WND_FLAGS(pub i32);
-impl ::core::marker::Copy for RDPSRAPI_WND_FLAGS {}
-impl ::core::clone::Clone for RDPSRAPI_WND_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RDPSRAPI_WND_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RDPSRAPI_WND_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }

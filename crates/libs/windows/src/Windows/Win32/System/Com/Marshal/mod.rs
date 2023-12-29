@@ -869,19 +869,8 @@ pub struct IMarshalingStream_Vtbl {
 pub const SMEXF_HANDLER: STDMSHLFLAGS = STDMSHLFLAGS(2i32);
 pub const SMEXF_SERVER: STDMSHLFLAGS = STDMSHLFLAGS(1i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct STDMSHLFLAGS(pub i32);
-impl ::core::marker::Copy for STDMSHLFLAGS {}
-impl ::core::clone::Clone for STDMSHLFLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for STDMSHLFLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for STDMSHLFLAGS {
     type TypeKind = ::windows_core::CopyType;
 }

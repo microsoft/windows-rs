@@ -805,19 +805,8 @@ pub const TYPE_POINTER: u32 = 1u32;
 pub const TYPE_STRING: u32 = 2u32;
 pub const TYPE_VALUE: u32 = 0u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HH_GPROPID(pub i32);
-impl ::core::marker::Copy for HH_GPROPID {}
-impl ::core::clone::Clone for HH_GPROPID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HH_GPROPID {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HH_GPROPID {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -827,19 +816,8 @@ impl ::core::fmt::Debug for HH_GPROPID {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HTML_HELP_COMMAND(pub i32);
-impl ::core::marker::Copy for HTML_HELP_COMMAND {}
-impl ::core::clone::Clone for HTML_HELP_COMMAND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HTML_HELP_COMMAND {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HTML_HELP_COMMAND {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -849,19 +827,8 @@ impl ::core::fmt::Debug for HTML_HELP_COMMAND {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PRIORITY(pub i32);
-impl ::core::marker::Copy for PRIORITY {}
-impl ::core::clone::Clone for PRIORITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PRIORITY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PRIORITY {
     type TypeKind = ::windows_core::CopyType;
 }

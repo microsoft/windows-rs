@@ -139,24 +139,13 @@ impl ::windows_core::CanTryInto<super::super::super::Foundation::IClosable> for 
 unsafe impl ::core::marker::Send for ExtendedExecutionForegroundSession {}
 unsafe impl ::core::marker::Sync for ExtendedExecutionForegroundSession {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ExtendedExecutionForegroundReason(pub i32);
 impl ExtendedExecutionForegroundReason {
     pub const Unspecified: Self = Self(0i32);
     pub const SavingData: Self = Self(1i32);
     pub const BackgroundAudio: Self = Self(2i32);
     pub const Unconstrained: Self = Self(3i32);
-}
-impl ::core::marker::Copy for ExtendedExecutionForegroundReason {}
-impl ::core::clone::Clone for ExtendedExecutionForegroundReason {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ExtendedExecutionForegroundReason {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ExtendedExecutionForegroundReason {
     type TypeKind = ::windows_core::CopyType;
@@ -170,22 +159,11 @@ impl ::windows_core::RuntimeType for ExtendedExecutionForegroundReason {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundReason;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ExtendedExecutionForegroundResult(pub i32);
 impl ExtendedExecutionForegroundResult {
     pub const Allowed: Self = Self(0i32);
     pub const Denied: Self = Self(1i32);
-}
-impl ::core::marker::Copy for ExtendedExecutionForegroundResult {}
-impl ::core::clone::Clone for ExtendedExecutionForegroundResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ExtendedExecutionForegroundResult {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ExtendedExecutionForegroundResult {
     type TypeKind = ::windows_core::CopyType;
@@ -199,22 +177,11 @@ impl ::windows_core::RuntimeType for ExtendedExecutionForegroundResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundResult;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ExtendedExecutionForegroundRevokedReason(pub i32);
 impl ExtendedExecutionForegroundRevokedReason {
     pub const Resumed: Self = Self(0i32);
     pub const SystemPolicy: Self = Self(1i32);
-}
-impl ::core::marker::Copy for ExtendedExecutionForegroundRevokedReason {}
-impl ::core::clone::Clone for ExtendedExecutionForegroundRevokedReason {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ExtendedExecutionForegroundRevokedReason {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ExtendedExecutionForegroundRevokedReason {
     type TypeKind = ::windows_core::CopyType;

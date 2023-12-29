@@ -707,19 +707,8 @@ pub const SimilarityTraitsMappedView: ::windows_core::GUID = ::windows_core::GUI
 pub const SimilarityTraitsMapping: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96236a94_9dbc_11da_9e3f_0011114ae311);
 pub const SimilarityTraitsTable: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96236a8f_9dbc_11da_9e3f_0011114ae311);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GeneratorParametersType(pub i32);
-impl ::core::marker::Copy for GeneratorParametersType {}
-impl ::core::clone::Clone for GeneratorParametersType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GeneratorParametersType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for GeneratorParametersType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -729,19 +718,8 @@ impl ::core::fmt::Debug for GeneratorParametersType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RDC_ErrorCode(pub i32);
-impl ::core::marker::Copy for RDC_ErrorCode {}
-impl ::core::clone::Clone for RDC_ErrorCode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RDC_ErrorCode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RDC_ErrorCode {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -751,19 +729,8 @@ impl ::core::fmt::Debug for RDC_ErrorCode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RdcCreatedTables(pub i32);
-impl ::core::marker::Copy for RdcCreatedTables {}
-impl ::core::clone::Clone for RdcCreatedTables {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RdcCreatedTables {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RdcCreatedTables {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -773,19 +740,8 @@ impl ::core::fmt::Debug for RdcCreatedTables {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RdcMappingAccessMode(pub i32);
-impl ::core::marker::Copy for RdcMappingAccessMode {}
-impl ::core::clone::Clone for RdcMappingAccessMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RdcMappingAccessMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RdcMappingAccessMode {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -795,19 +751,8 @@ impl ::core::fmt::Debug for RdcMappingAccessMode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RdcNeedType(pub i32);
-impl ::core::marker::Copy for RdcNeedType {}
-impl ::core::clone::Clone for RdcNeedType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RdcNeedType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RdcNeedType {
     type TypeKind = ::windows_core::CopyType;
 }

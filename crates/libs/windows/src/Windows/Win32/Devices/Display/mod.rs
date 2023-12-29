@@ -1835,19 +1835,8 @@ pub const XO_TABLE: u32 = 2u32;
 pub const XO_TO_MONO: u32 = 4u32;
 pub const XO_TRIVIAL: u32 = 1u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AR_STATE(pub i32);
-impl ::core::marker::Copy for AR_STATE {}
-impl ::core::clone::Clone for AR_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AR_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AR_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1890,19 +1879,8 @@ impl ::core::ops::Not for AR_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BACKLIGHT_OPTIMIZATION_LEVEL(pub i32);
-impl ::core::marker::Copy for BACKLIGHT_OPTIMIZATION_LEVEL {}
-impl ::core::clone::Clone for BACKLIGHT_OPTIMIZATION_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BACKLIGHT_OPTIMIZATION_LEVEL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for BACKLIGHT_OPTIMIZATION_LEVEL {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1912,19 +1890,8 @@ impl ::core::fmt::Debug for BACKLIGHT_OPTIMIZATION_LEVEL {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BRIGHTNESS_INTERFACE_VERSION(pub i32);
-impl ::core::marker::Copy for BRIGHTNESS_INTERFACE_VERSION {}
-impl ::core::clone::Clone for BRIGHTNESS_INTERFACE_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BRIGHTNESS_INTERFACE_VERSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for BRIGHTNESS_INTERFACE_VERSION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1934,19 +1901,8 @@ impl ::core::fmt::Debug for BRIGHTNESS_INTERFACE_VERSION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BlackScreenDiagnosticsCalloutParam(pub i32);
-impl ::core::marker::Copy for BlackScreenDiagnosticsCalloutParam {}
-impl ::core::clone::Clone for BlackScreenDiagnosticsCalloutParam {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BlackScreenDiagnosticsCalloutParam {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for BlackScreenDiagnosticsCalloutParam {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1956,19 +1912,8 @@ impl ::core::fmt::Debug for BlackScreenDiagnosticsCalloutParam {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct COLORSPACE_TRANSFORM_DATA_TYPE(pub i32);
-impl ::core::marker::Copy for COLORSPACE_TRANSFORM_DATA_TYPE {}
-impl ::core::clone::Clone for COLORSPACE_TRANSFORM_DATA_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COLORSPACE_TRANSFORM_DATA_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for COLORSPACE_TRANSFORM_DATA_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1978,19 +1923,8 @@ impl ::core::fmt::Debug for COLORSPACE_TRANSFORM_DATA_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct COLORSPACE_TRANSFORM_STAGE_CONTROL(pub i32);
-impl ::core::marker::Copy for COLORSPACE_TRANSFORM_STAGE_CONTROL {}
-impl ::core::clone::Clone for COLORSPACE_TRANSFORM_STAGE_CONTROL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COLORSPACE_TRANSFORM_STAGE_CONTROL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for COLORSPACE_TRANSFORM_STAGE_CONTROL {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2000,19 +1934,8 @@ impl ::core::fmt::Debug for COLORSPACE_TRANSFORM_STAGE_CONTROL {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION(pub i32);
-impl ::core::marker::Copy for COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION {}
-impl ::core::clone::Clone for COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2022,19 +1945,8 @@ impl ::core::fmt::Debug for COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct COLORSPACE_TRANSFORM_TYPE(pub i32);
-impl ::core::marker::Copy for COLORSPACE_TRANSFORM_TYPE {}
-impl ::core::clone::Clone for COLORSPACE_TRANSFORM_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COLORSPACE_TRANSFORM_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for COLORSPACE_TRANSFORM_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2044,19 +1956,8 @@ impl ::core::fmt::Debug for COLORSPACE_TRANSFORM_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPLAYCONFIG_DEVICE_INFO_TYPE(pub i32);
-impl ::core::marker::Copy for DISPLAYCONFIG_DEVICE_INFO_TYPE {}
-impl ::core::clone::Clone for DISPLAYCONFIG_DEVICE_INFO_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPLAYCONFIG_DEVICE_INFO_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPLAYCONFIG_DEVICE_INFO_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2066,19 +1967,8 @@ impl ::core::fmt::Debug for DISPLAYCONFIG_DEVICE_INFO_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPLAYCONFIG_MODE_INFO_TYPE(pub i32);
-impl ::core::marker::Copy for DISPLAYCONFIG_MODE_INFO_TYPE {}
-impl ::core::clone::Clone for DISPLAYCONFIG_MODE_INFO_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPLAYCONFIG_MODE_INFO_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPLAYCONFIG_MODE_INFO_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2088,19 +1978,8 @@ impl ::core::fmt::Debug for DISPLAYCONFIG_MODE_INFO_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPLAYCONFIG_PIXELFORMAT(pub i32);
-impl ::core::marker::Copy for DISPLAYCONFIG_PIXELFORMAT {}
-impl ::core::clone::Clone for DISPLAYCONFIG_PIXELFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPLAYCONFIG_PIXELFORMAT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPLAYCONFIG_PIXELFORMAT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2110,19 +1989,8 @@ impl ::core::fmt::Debug for DISPLAYCONFIG_PIXELFORMAT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPLAYCONFIG_ROTATION(pub i32);
-impl ::core::marker::Copy for DISPLAYCONFIG_ROTATION {}
-impl ::core::clone::Clone for DISPLAYCONFIG_ROTATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPLAYCONFIG_ROTATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPLAYCONFIG_ROTATION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2132,19 +2000,8 @@ impl ::core::fmt::Debug for DISPLAYCONFIG_ROTATION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPLAYCONFIG_SCALING(pub i32);
-impl ::core::marker::Copy for DISPLAYCONFIG_SCALING {}
-impl ::core::clone::Clone for DISPLAYCONFIG_SCALING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPLAYCONFIG_SCALING {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPLAYCONFIG_SCALING {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2154,19 +2011,8 @@ impl ::core::fmt::Debug for DISPLAYCONFIG_SCALING {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPLAYCONFIG_SCANLINE_ORDERING(pub i32);
-impl ::core::marker::Copy for DISPLAYCONFIG_SCANLINE_ORDERING {}
-impl ::core::clone::Clone for DISPLAYCONFIG_SCANLINE_ORDERING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPLAYCONFIG_SCANLINE_ORDERING {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPLAYCONFIG_SCANLINE_ORDERING {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2176,19 +2022,8 @@ impl ::core::fmt::Debug for DISPLAYCONFIG_SCANLINE_ORDERING {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPLAYCONFIG_TOPOLOGY_ID(pub i32);
-impl ::core::marker::Copy for DISPLAYCONFIG_TOPOLOGY_ID {}
-impl ::core::clone::Clone for DISPLAYCONFIG_TOPOLOGY_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPLAYCONFIG_TOPOLOGY_ID {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPLAYCONFIG_TOPOLOGY_ID {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2198,19 +2033,8 @@ impl ::core::fmt::Debug for DISPLAYCONFIG_TOPOLOGY_ID {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(pub i32);
-impl ::core::marker::Copy for DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY {}
-impl ::core::clone::Clone for DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2220,19 +2044,8 @@ impl ::core::fmt::Debug for DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DSI_CONTROL_TRANSMISSION_MODE(pub i32);
-impl ::core::marker::Copy for DSI_CONTROL_TRANSMISSION_MODE {}
-impl ::core::clone::Clone for DSI_CONTROL_TRANSMISSION_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DSI_CONTROL_TRANSMISSION_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DSI_CONTROL_TRANSMISSION_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2242,19 +2055,8 @@ impl ::core::fmt::Debug for DSI_CONTROL_TRANSMISSION_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ENG_DEVICE_ATTRIBUTE(pub i32);
-impl ::core::marker::Copy for ENG_DEVICE_ATTRIBUTE {}
-impl ::core::clone::Clone for ENG_DEVICE_ATTRIBUTE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ENG_DEVICE_ATTRIBUTE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ENG_DEVICE_ATTRIBUTE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2264,19 +2066,8 @@ impl ::core::fmt::Debug for ENG_DEVICE_ATTRIBUTE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ENG_SYSTEM_ATTRIBUTE(pub i32);
-impl ::core::marker::Copy for ENG_SYSTEM_ATTRIBUTE {}
-impl ::core::clone::Clone for ENG_SYSTEM_ATTRIBUTE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ENG_SYSTEM_ATTRIBUTE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ENG_SYSTEM_ATTRIBUTE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2286,19 +2077,8 @@ impl ::core::fmt::Debug for ENG_SYSTEM_ATTRIBUTE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MC_COLOR_TEMPERATURE(pub i32);
-impl ::core::marker::Copy for MC_COLOR_TEMPERATURE {}
-impl ::core::clone::Clone for MC_COLOR_TEMPERATURE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MC_COLOR_TEMPERATURE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MC_COLOR_TEMPERATURE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2308,19 +2088,8 @@ impl ::core::fmt::Debug for MC_COLOR_TEMPERATURE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MC_DISPLAY_TECHNOLOGY_TYPE(pub i32);
-impl ::core::marker::Copy for MC_DISPLAY_TECHNOLOGY_TYPE {}
-impl ::core::clone::Clone for MC_DISPLAY_TECHNOLOGY_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MC_DISPLAY_TECHNOLOGY_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MC_DISPLAY_TECHNOLOGY_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2330,19 +2099,8 @@ impl ::core::fmt::Debug for MC_DISPLAY_TECHNOLOGY_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MC_DRIVE_TYPE(pub i32);
-impl ::core::marker::Copy for MC_DRIVE_TYPE {}
-impl ::core::clone::Clone for MC_DRIVE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MC_DRIVE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MC_DRIVE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2352,19 +2110,8 @@ impl ::core::fmt::Debug for MC_DRIVE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MC_GAIN_TYPE(pub i32);
-impl ::core::marker::Copy for MC_GAIN_TYPE {}
-impl ::core::clone::Clone for MC_GAIN_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MC_GAIN_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MC_GAIN_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2374,19 +2121,8 @@ impl ::core::fmt::Debug for MC_GAIN_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MC_POSITION_TYPE(pub i32);
-impl ::core::marker::Copy for MC_POSITION_TYPE {}
-impl ::core::clone::Clone for MC_POSITION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MC_POSITION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MC_POSITION_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2396,19 +2132,8 @@ impl ::core::fmt::Debug for MC_POSITION_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MC_SIZE_TYPE(pub i32);
-impl ::core::marker::Copy for MC_SIZE_TYPE {}
-impl ::core::clone::Clone for MC_SIZE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MC_SIZE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MC_SIZE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2418,19 +2143,8 @@ impl ::core::fmt::Debug for MC_SIZE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MC_VCP_CODE_TYPE(pub i32);
-impl ::core::marker::Copy for MC_VCP_CODE_TYPE {}
-impl ::core::clone::Clone for MC_VCP_CODE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MC_VCP_CODE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MC_VCP_CODE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2440,19 +2154,8 @@ impl ::core::fmt::Debug for MC_VCP_CODE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ORIENTATION_PREFERENCE(pub i32);
-impl ::core::marker::Copy for ORIENTATION_PREFERENCE {}
-impl ::core::clone::Clone for ORIENTATION_PREFERENCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ORIENTATION_PREFERENCE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ORIENTATION_PREFERENCE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2495,19 +2198,8 @@ impl ::core::ops::Not for ORIENTATION_PREFERENCE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OUTPUT_COLOR_ENCODING(pub i32);
-impl ::core::marker::Copy for OUTPUT_COLOR_ENCODING {}
-impl ::core::clone::Clone for OUTPUT_COLOR_ENCODING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OUTPUT_COLOR_ENCODING {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OUTPUT_COLOR_ENCODING {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2517,19 +2209,8 @@ impl ::core::fmt::Debug for OUTPUT_COLOR_ENCODING {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OUTPUT_WIRE_COLOR_SPACE_TYPE(pub i32);
-impl ::core::marker::Copy for OUTPUT_WIRE_COLOR_SPACE_TYPE {}
-impl ::core::clone::Clone for OUTPUT_WIRE_COLOR_SPACE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OUTPUT_WIRE_COLOR_SPACE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OUTPUT_WIRE_COLOR_SPACE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2539,19 +2220,8 @@ impl ::core::fmt::Debug for OUTPUT_WIRE_COLOR_SPACE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct QUERY_DISPLAY_CONFIG_FLAGS(pub u32);
-impl ::core::marker::Copy for QUERY_DISPLAY_CONFIG_FLAGS {}
-impl ::core::clone::Clone for QUERY_DISPLAY_CONFIG_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for QUERY_DISPLAY_CONFIG_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for QUERY_DISPLAY_CONFIG_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2594,19 +2264,8 @@ impl ::core::ops::Not for QUERY_DISPLAY_CONFIG_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SET_DISPLAY_CONFIG_FLAGS(pub u32);
-impl ::core::marker::Copy for SET_DISPLAY_CONFIG_FLAGS {}
-impl ::core::clone::Clone for SET_DISPLAY_CONFIG_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SET_DISPLAY_CONFIG_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SET_DISPLAY_CONFIG_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2649,19 +2308,8 @@ impl ::core::ops::Not for SET_DISPLAY_CONFIG_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VIDEO_BANK_TYPE(pub i32);
-impl ::core::marker::Copy for VIDEO_BANK_TYPE {}
-impl ::core::clone::Clone for VIDEO_BANK_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VIDEO_BANK_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VIDEO_BANK_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2671,19 +2319,8 @@ impl ::core::fmt::Debug for VIDEO_BANK_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VIDEO_POWER_STATE(pub i32);
-impl ::core::marker::Copy for VIDEO_POWER_STATE {}
-impl ::core::clone::Clone for VIDEO_POWER_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VIDEO_POWER_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VIDEO_POWER_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2693,19 +2330,8 @@ impl ::core::fmt::Debug for VIDEO_POWER_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(pub i32);
-impl ::core::marker::Copy for VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE {}
-impl ::core::clone::Clone for VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }

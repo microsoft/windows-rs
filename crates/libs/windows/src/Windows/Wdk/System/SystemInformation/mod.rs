@@ -25,19 +25,8 @@ pub const SystemProcessorPerformanceInformation: SYSTEM_INFORMATION_CLASS = SYST
 pub const SystemRegistryQuotaInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(37i32);
 pub const SystemTimeOfDayInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(3i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SYSTEM_INFORMATION_CLASS(pub i32);
-impl ::core::marker::Copy for SYSTEM_INFORMATION_CLASS {}
-impl ::core::clone::Clone for SYSTEM_INFORMATION_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SYSTEM_INFORMATION_CLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SYSTEM_INFORMATION_CLASS {
     type TypeKind = ::windows_core::CopyType;
 }

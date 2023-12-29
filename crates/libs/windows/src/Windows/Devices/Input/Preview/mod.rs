@@ -716,7 +716,7 @@ impl ::windows_core::RuntimeName for GazePointPreview {
 unsafe impl ::core::marker::Send for GazePointPreview {}
 unsafe impl ::core::marker::Sync for GazePointPreview {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GazeDeviceConfigurationStatePreview(pub i32);
 impl GazeDeviceConfigurationStatePreview {
     pub const Unknown: Self = Self(0i32);
@@ -724,17 +724,6 @@ impl GazeDeviceConfigurationStatePreview {
     pub const Configuring: Self = Self(2i32);
     pub const ScreenSetupNeeded: Self = Self(3i32);
     pub const UserCalibrationNeeded: Self = Self(4i32);
-}
-impl ::core::marker::Copy for GazeDeviceConfigurationStatePreview {}
-impl ::core::clone::Clone for GazeDeviceConfigurationStatePreview {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GazeDeviceConfigurationStatePreview {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for GazeDeviceConfigurationStatePreview {
     type TypeKind = ::windows_core::CopyType;

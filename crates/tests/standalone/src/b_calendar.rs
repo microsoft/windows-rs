@@ -1319,7 +1319,13 @@ impl ::core::default::Default for DateTime {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(
+    ::core::cmp::PartialEq,
+    ::core::cmp::Eq,
+    ::core::marker::Copy,
+    ::core::clone::Clone,
+    ::core::default::Default,
+)]
 pub struct DayOfWeek(pub i32);
 impl DayOfWeek {
     pub const Sunday: Self = Self(0i32);
@@ -1329,17 +1335,6 @@ impl DayOfWeek {
     pub const Thursday: Self = Self(4i32);
     pub const Friday: Self = Self(5i32);
     pub const Saturday: Self = Self(6i32);
-}
-impl ::core::marker::Copy for DayOfWeek {}
-impl ::core::clone::Clone for DayOfWeek {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DayOfWeek {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DayOfWeek {
     type TypeKind = ::windows_core::CopyType;

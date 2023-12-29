@@ -29,12 +29,17 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
         })
         .collect();
 
-    let eq = if writer.sys {
-        quote! {}
+    let derive = if writer.sys {
+        if is_scoped {
+            quote! {
+                #[derive(::core::marker::Copy, ::core::clone::Clone)]
+            }
+        } else {
+            quote! {}
+        }
     } else {
         quote! {
-            // Unfortunately, Rust requires these to be derived to allow constant patterns.
-            #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+            #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
         }
     };
 
@@ -43,7 +48,7 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
             #doc
             #features
             #[repr(transparent)]
-            #eq
+            #derive
             pub struct #ident(pub #underlying_type);
         }
     } else {
@@ -65,30 +70,6 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
             #features
             impl #ident {
                 #(#fields)*
-            }
-        });
-    }
-
-    if is_scoped || !writer.sys {
-        tokens.combine(&quote! {
-            #features
-            impl ::core::marker::Copy for #ident {}
-            #features
-            impl ::core::clone::Clone for #ident {
-                fn clone(&self) -> Self {
-                    *self
-                }
-            }
-        });
-    }
-
-    if !writer.sys {
-        tokens.combine(&quote! {
-            #features
-            impl ::core::default::Default for #ident {
-                fn default() -> Self {
-                    Self(0)
-                }
             }
         });
     }

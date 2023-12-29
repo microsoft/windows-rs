@@ -484,19 +484,8 @@ pub const TOUCHINPUTMASKF_TIMEFROMSYSTEM: TOUCHINPUTMASKF_MASK = TOUCHINPUTMASKF
 pub const TWF_FINETOUCH: REGISTER_TOUCH_WINDOW_FLAGS = REGISTER_TOUCH_WINDOW_FLAGS(1u32);
 pub const TWF_WANTPALM: REGISTER_TOUCH_WINDOW_FLAGS = REGISTER_TOUCH_WINDOW_FLAGS(2u32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GESTURECONFIG_ID(pub u32);
-impl ::core::marker::Copy for GESTURECONFIG_ID {}
-impl ::core::clone::Clone for GESTURECONFIG_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GESTURECONFIG_ID {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for GESTURECONFIG_ID {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -539,19 +528,8 @@ impl ::core::ops::Not for GESTURECONFIG_ID {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MANIPULATION_PROCESSOR_MANIPULATIONS(pub i32);
-impl ::core::marker::Copy for MANIPULATION_PROCESSOR_MANIPULATIONS {}
-impl ::core::clone::Clone for MANIPULATION_PROCESSOR_MANIPULATIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MANIPULATION_PROCESSOR_MANIPULATIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MANIPULATION_PROCESSOR_MANIPULATIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -594,19 +572,8 @@ impl ::core::ops::Not for MANIPULATION_PROCESSOR_MANIPULATIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct REGISTER_TOUCH_WINDOW_FLAGS(pub u32);
-impl ::core::marker::Copy for REGISTER_TOUCH_WINDOW_FLAGS {}
-impl ::core::clone::Clone for REGISTER_TOUCH_WINDOW_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for REGISTER_TOUCH_WINDOW_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for REGISTER_TOUCH_WINDOW_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -616,19 +583,8 @@ impl ::core::fmt::Debug for REGISTER_TOUCH_WINDOW_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TOUCHEVENTF_FLAGS(pub u32);
-impl ::core::marker::Copy for TOUCHEVENTF_FLAGS {}
-impl ::core::clone::Clone for TOUCHEVENTF_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TOUCHEVENTF_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TOUCHEVENTF_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -671,19 +627,8 @@ impl ::core::ops::Not for TOUCHEVENTF_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TOUCHINPUTMASKF_MASK(pub u32);
-impl ::core::marker::Copy for TOUCHINPUTMASKF_MASK {}
-impl ::core::clone::Clone for TOUCHINPUTMASKF_MASK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TOUCHINPUTMASKF_MASK {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TOUCHINPUTMASKF_MASK {
     type TypeKind = ::windows_core::CopyType;
 }

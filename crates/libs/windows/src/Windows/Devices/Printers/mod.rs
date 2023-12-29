@@ -1692,7 +1692,7 @@ impl ::windows_core::RuntimeName for PrintSchema {
 unsafe impl ::core::marker::Send for PrintSchema {}
 unsafe impl ::core::marker::Sync for PrintSchema {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct IppAttributeErrorReason(pub i32);
 impl IppAttributeErrorReason {
     pub const RequestEntityTooLarge: Self = Self(0i32);
@@ -1700,17 +1700,6 @@ impl IppAttributeErrorReason {
     pub const AttributeValuesNotSupported: Self = Self(2i32);
     pub const AttributeNotSettable: Self = Self(3i32);
     pub const ConflictingAttributes: Self = Self(4i32);
-}
-impl ::core::marker::Copy for IppAttributeErrorReason {}
-impl ::core::clone::Clone for IppAttributeErrorReason {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for IppAttributeErrorReason {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for IppAttributeErrorReason {
     type TypeKind = ::windows_core::CopyType;
@@ -1724,7 +1713,7 @@ impl ::windows_core::RuntimeType for IppAttributeErrorReason {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.IppAttributeErrorReason;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct IppAttributeValueKind(pub i32);
 impl IppAttributeValueKind {
     pub const Unsupported: Self = Self(0i32);
@@ -1749,17 +1738,6 @@ impl IppAttributeValueKind {
     pub const NaturalLanguage: Self = Self(19i32);
     pub const MimeMediaType: Self = Self(20i32);
 }
-impl ::core::marker::Copy for IppAttributeValueKind {}
-impl ::core::clone::Clone for IppAttributeValueKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for IppAttributeValueKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for IppAttributeValueKind {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1772,22 +1750,11 @@ impl ::windows_core::RuntimeType for IppAttributeValueKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.IppAttributeValueKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct IppResolutionUnit(pub i32);
 impl IppResolutionUnit {
     pub const DotsPerInch: Self = Self(0i32);
     pub const DotsPerCentimeter: Self = Self(1i32);
-}
-impl ::core::marker::Copy for IppResolutionUnit {}
-impl ::core::clone::Clone for IppResolutionUnit {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for IppResolutionUnit {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for IppResolutionUnit {
     type TypeKind = ::windows_core::CopyType;
@@ -1801,22 +1768,11 @@ impl ::windows_core::RuntimeType for IppResolutionUnit {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.IppResolutionUnit;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PageConfigurationSource(pub i32);
 impl PageConfigurationSource {
     pub const PrintJobConfiguration: Self = Self(0i32);
     pub const PdlContent: Self = Self(1i32);
-}
-impl ::core::marker::Copy for PageConfigurationSource {}
-impl ::core::clone::Clone for PageConfigurationSource {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PageConfigurationSource {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PageConfigurationSource {
     type TypeKind = ::windows_core::CopyType;

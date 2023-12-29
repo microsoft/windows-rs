@@ -1629,7 +1629,7 @@ impl ::windows_core::RuntimeName for VolumeChangeRequestedEventArgs {
 #[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PlayToConnectionError(pub i32);
 #[cfg(feature = "deprecated")]
 impl PlayToConnectionError {
@@ -1638,20 +1638,6 @@ impl PlayToConnectionError {
     pub const DeviceError: Self = Self(2i32);
     pub const DeviceLocked: Self = Self(3i32);
     pub const ProtectedPlaybackFailed: Self = Self(4i32);
-}
-#[cfg(feature = "deprecated")]
-impl ::core::marker::Copy for PlayToConnectionError {}
-#[cfg(feature = "deprecated")]
-impl ::core::clone::Clone for PlayToConnectionError {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::default::Default for PlayToConnectionError {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 #[cfg(feature = "deprecated")]
 impl ::windows_core::TypeKind for PlayToConnectionError {
@@ -1670,27 +1656,13 @@ impl ::windows_core::RuntimeType for PlayToConnectionError {
 #[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PlayToConnectionState(pub i32);
 #[cfg(feature = "deprecated")]
 impl PlayToConnectionState {
     pub const Disconnected: Self = Self(0i32);
     pub const Connected: Self = Self(1i32);
     pub const Rendering: Self = Self(2i32);
-}
-#[cfg(feature = "deprecated")]
-impl ::core::marker::Copy for PlayToConnectionState {}
-#[cfg(feature = "deprecated")]
-impl ::core::clone::Clone for PlayToConnectionState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::default::Default for PlayToConnectionState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 #[cfg(feature = "deprecated")]
 impl ::windows_core::TypeKind for PlayToConnectionState {

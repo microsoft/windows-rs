@@ -4283,19 +4283,8 @@ pub const szImeKorea: ::windows_core::PCWSTR = ::windows_core::w!("MSIME.Korea")
 pub const szImeTaiwan: ::windows_core::PCWSTR = ::windows_core::w!("MSIME.Taiwan");
 pub const wchPrivate1: u32 = 57344u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GET_CONVERSION_LIST_FLAG(pub u32);
-impl ::core::marker::Copy for GET_CONVERSION_LIST_FLAG {}
-impl ::core::clone::Clone for GET_CONVERSION_LIST_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GET_CONVERSION_LIST_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for GET_CONVERSION_LIST_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4305,19 +4294,8 @@ impl ::core::fmt::Debug for GET_CONVERSION_LIST_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GET_GUIDE_LINE_TYPE(pub u32);
-impl ::core::marker::Copy for GET_GUIDE_LINE_TYPE {}
-impl ::core::clone::Clone for GET_GUIDE_LINE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GET_GUIDE_LINE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for GET_GUIDE_LINE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4327,19 +4305,8 @@ impl ::core::fmt::Debug for GET_GUIDE_LINE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct IMEFMT(pub i32);
-impl ::core::marker::Copy for IMEFMT {}
-impl ::core::clone::Clone for IMEFMT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for IMEFMT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for IMEFMT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4349,19 +4316,8 @@ impl ::core::fmt::Debug for IMEFMT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct IMEREG(pub i32);
-impl ::core::marker::Copy for IMEREG {}
-impl ::core::clone::Clone for IMEREG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for IMEREG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for IMEREG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4371,19 +4327,8 @@ impl ::core::fmt::Debug for IMEREG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct IMEREL(pub i32);
-impl ::core::marker::Copy for IMEREL {}
-impl ::core::clone::Clone for IMEREL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for IMEREL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for IMEREL {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4393,19 +4338,8 @@ impl ::core::fmt::Debug for IMEREL {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct IMEUCT(pub i32);
-impl ::core::marker::Copy for IMEUCT {}
-impl ::core::clone::Clone for IMEUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for IMEUCT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for IMEUCT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4415,19 +4349,8 @@ impl ::core::fmt::Debug for IMEUCT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct IME_COMPOSITION_STRING(pub u32);
-impl ::core::marker::Copy for IME_COMPOSITION_STRING {}
-impl ::core::clone::Clone for IME_COMPOSITION_STRING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for IME_COMPOSITION_STRING {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for IME_COMPOSITION_STRING {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4470,19 +4393,8 @@ impl ::core::ops::Not for IME_COMPOSITION_STRING {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct IME_CONVERSION_MODE(pub u32);
-impl ::core::marker::Copy for IME_CONVERSION_MODE {}
-impl ::core::clone::Clone for IME_CONVERSION_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for IME_CONVERSION_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for IME_CONVERSION_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4525,19 +4437,8 @@ impl ::core::ops::Not for IME_CONVERSION_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct IME_ESCAPE(pub u32);
-impl ::core::marker::Copy for IME_ESCAPE {}
-impl ::core::clone::Clone for IME_ESCAPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for IME_ESCAPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for IME_ESCAPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4547,19 +4448,8 @@ impl ::core::fmt::Debug for IME_ESCAPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct IME_HOTKEY_IDENTIFIER(pub u32);
-impl ::core::marker::Copy for IME_HOTKEY_IDENTIFIER {}
-impl ::core::clone::Clone for IME_HOTKEY_IDENTIFIER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for IME_HOTKEY_IDENTIFIER {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for IME_HOTKEY_IDENTIFIER {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4569,19 +4459,8 @@ impl ::core::fmt::Debug for IME_HOTKEY_IDENTIFIER {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct IME_PAD_REQUEST_FLAGS(pub u32);
-impl ::core::marker::Copy for IME_PAD_REQUEST_FLAGS {}
-impl ::core::clone::Clone for IME_PAD_REQUEST_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for IME_PAD_REQUEST_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for IME_PAD_REQUEST_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4591,19 +4470,8 @@ impl ::core::fmt::Debug for IME_PAD_REQUEST_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct IME_SENTENCE_MODE(pub u32);
-impl ::core::marker::Copy for IME_SENTENCE_MODE {}
-impl ::core::clone::Clone for IME_SENTENCE_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for IME_SENTENCE_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for IME_SENTENCE_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4646,19 +4514,8 @@ impl ::core::ops::Not for IME_SENTENCE_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NOTIFY_IME_ACTION(pub u32);
-impl ::core::marker::Copy for NOTIFY_IME_ACTION {}
-impl ::core::clone::Clone for NOTIFY_IME_ACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NOTIFY_IME_ACTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NOTIFY_IME_ACTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4668,19 +4525,8 @@ impl ::core::fmt::Debug for NOTIFY_IME_ACTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NOTIFY_IME_INDEX(pub u32);
-impl ::core::marker::Copy for NOTIFY_IME_INDEX {}
-impl ::core::clone::Clone for NOTIFY_IME_INDEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NOTIFY_IME_INDEX {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NOTIFY_IME_INDEX {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4690,19 +4536,8 @@ impl ::core::fmt::Debug for NOTIFY_IME_INDEX {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SET_COMPOSITION_STRING_TYPE(pub u32);
-impl ::core::marker::Copy for SET_COMPOSITION_STRING_TYPE {}
-impl ::core::clone::Clone for SET_COMPOSITION_STRING_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SET_COMPOSITION_STRING_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SET_COMPOSITION_STRING_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }

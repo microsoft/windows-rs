@@ -987,7 +987,7 @@ impl ::windows_core::RuntimeName for UISettingsController {
 unsafe impl ::core::marker::Send for UISettingsController {}
 unsafe impl ::core::marker::Sync for UISettingsController {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CoreInputViewKind(pub i32);
 impl CoreInputViewKind {
     pub const Default: Self = Self(0i32);
@@ -997,17 +997,6 @@ impl CoreInputViewKind {
     pub const Symbols: Self = Self(4i32);
     pub const Clipboard: Self = Self(5i32);
     pub const Dictation: Self = Self(6i32);
-}
-impl ::core::marker::Copy for CoreInputViewKind {}
-impl ::core::clone::Clone for CoreInputViewKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CoreInputViewKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CoreInputViewKind {
     type TypeKind = ::windows_core::CopyType;
@@ -1021,23 +1010,12 @@ impl ::windows_core::RuntimeType for CoreInputViewKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.Core.CoreInputViewKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CoreInputViewOcclusionKind(pub i32);
 impl CoreInputViewOcclusionKind {
     pub const Docked: Self = Self(0i32);
     pub const Floating: Self = Self(1i32);
     pub const Overlay: Self = Self(2i32);
-}
-impl ::core::marker::Copy for CoreInputViewOcclusionKind {}
-impl ::core::clone::Clone for CoreInputViewOcclusionKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CoreInputViewOcclusionKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CoreInputViewOcclusionKind {
     type TypeKind = ::windows_core::CopyType;
@@ -1051,24 +1029,13 @@ impl ::windows_core::RuntimeType for CoreInputViewOcclusionKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.Core.CoreInputViewOcclusionKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CoreInputViewXYFocusTransferDirection(pub i32);
 impl CoreInputViewXYFocusTransferDirection {
     pub const Up: Self = Self(0i32);
     pub const Right: Self = Self(1i32);
     pub const Down: Self = Self(2i32);
     pub const Left: Self = Self(3i32);
-}
-impl ::core::marker::Copy for CoreInputViewXYFocusTransferDirection {}
-impl ::core::clone::Clone for CoreInputViewXYFocusTransferDirection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CoreInputViewXYFocusTransferDirection {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CoreInputViewXYFocusTransferDirection {
     type TypeKind = ::windows_core::CopyType;

@@ -965,7 +965,7 @@ impl ::windows_core::RuntimeName for TimelinePropertiesChangedEventArgs {
 unsafe impl ::core::marker::Send for TimelinePropertiesChangedEventArgs {}
 unsafe impl ::core::marker::Sync for TimelinePropertiesChangedEventArgs {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GlobalSystemMediaTransportControlsSessionPlaybackStatus(pub i32);
 impl GlobalSystemMediaTransportControlsSessionPlaybackStatus {
     pub const Closed: Self = Self(0i32);
@@ -974,17 +974,6 @@ impl GlobalSystemMediaTransportControlsSessionPlaybackStatus {
     pub const Stopped: Self = Self(3i32);
     pub const Playing: Self = Self(4i32);
     pub const Paused: Self = Self(5i32);
-}
-impl ::core::marker::Copy for GlobalSystemMediaTransportControlsSessionPlaybackStatus {}
-impl ::core::clone::Clone for GlobalSystemMediaTransportControlsSessionPlaybackStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GlobalSystemMediaTransportControlsSessionPlaybackStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for GlobalSystemMediaTransportControlsSessionPlaybackStatus {
     type TypeKind = ::windows_core::CopyType;

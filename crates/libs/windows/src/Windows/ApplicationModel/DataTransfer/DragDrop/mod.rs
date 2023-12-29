@@ -2,7 +2,7 @@
 #[doc = "Required features: `\"ApplicationModel_DataTransfer_DragDrop_Core\"`"]
 pub mod Core;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DragDropModifiers(pub u32);
 impl DragDropModifiers {
     pub const None: Self = Self(0u32);
@@ -12,17 +12,6 @@ impl DragDropModifiers {
     pub const LeftButton: Self = Self(8u32);
     pub const MiddleButton: Self = Self(16u32);
     pub const RightButton: Self = Self(32u32);
-}
-impl ::core::marker::Copy for DragDropModifiers {}
-impl ::core::clone::Clone for DragDropModifiers {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DragDropModifiers {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DragDropModifiers {
     type TypeKind = ::windows_core::CopyType;

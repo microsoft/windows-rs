@@ -417,7 +417,7 @@ impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for SerialD
 unsafe impl ::core::marker::Send for SerialDevice {}
 unsafe impl ::core::marker::Sync for SerialDevice {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SerialError(pub i32);
 impl SerialError {
     pub const Frame: Self = Self(0i32);
@@ -425,17 +425,6 @@ impl SerialError {
     pub const ReceiveFull: Self = Self(2i32);
     pub const ReceiveParity: Self = Self(3i32);
     pub const TransmitFull: Self = Self(4i32);
-}
-impl ::core::marker::Copy for SerialError {}
-impl ::core::clone::Clone for SerialError {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SerialError {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SerialError {
     type TypeKind = ::windows_core::CopyType;
@@ -449,24 +438,13 @@ impl ::windows_core::RuntimeType for SerialError {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SerialCommunication.SerialError;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SerialHandshake(pub i32);
 impl SerialHandshake {
     pub const None: Self = Self(0i32);
     pub const RequestToSend: Self = Self(1i32);
     pub const XOnXOff: Self = Self(2i32);
     pub const RequestToSendXOnXOff: Self = Self(3i32);
-}
-impl ::core::marker::Copy for SerialHandshake {}
-impl ::core::clone::Clone for SerialHandshake {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SerialHandshake {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SerialHandshake {
     type TypeKind = ::windows_core::CopyType;
@@ -480,7 +458,7 @@ impl ::windows_core::RuntimeType for SerialHandshake {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SerialCommunication.SerialHandshake;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SerialParity(pub i32);
 impl SerialParity {
     pub const None: Self = Self(0i32);
@@ -488,17 +466,6 @@ impl SerialParity {
     pub const Even: Self = Self(2i32);
     pub const Mark: Self = Self(3i32);
     pub const Space: Self = Self(4i32);
-}
-impl ::core::marker::Copy for SerialParity {}
-impl ::core::clone::Clone for SerialParity {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SerialParity {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SerialParity {
     type TypeKind = ::windows_core::CopyType;
@@ -512,7 +479,7 @@ impl ::windows_core::RuntimeType for SerialParity {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SerialCommunication.SerialParity;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SerialPinChange(pub i32);
 impl SerialPinChange {
     pub const BreakSignal: Self = Self(0i32);
@@ -520,17 +487,6 @@ impl SerialPinChange {
     pub const ClearToSend: Self = Self(2i32);
     pub const DataSetReady: Self = Self(3i32);
     pub const RingIndicator: Self = Self(4i32);
-}
-impl ::core::marker::Copy for SerialPinChange {}
-impl ::core::clone::Clone for SerialPinChange {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SerialPinChange {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SerialPinChange {
     type TypeKind = ::windows_core::CopyType;
@@ -544,23 +500,12 @@ impl ::windows_core::RuntimeType for SerialPinChange {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SerialCommunication.SerialPinChange;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SerialStopBitCount(pub i32);
 impl SerialStopBitCount {
     pub const One: Self = Self(0i32);
     pub const OnePointFive: Self = Self(1i32);
     pub const Two: Self = Self(2i32);
-}
-impl ::core::marker::Copy for SerialStopBitCount {}
-impl ::core::clone::Clone for SerialStopBitCount {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SerialStopBitCount {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SerialStopBitCount {
     type TypeKind = ::windows_core::CopyType;

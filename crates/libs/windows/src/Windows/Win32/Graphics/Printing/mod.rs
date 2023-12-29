@@ -8559,19 +8559,8 @@ pub const kResourceAdded: EPrintXPSJobProgress = EPrintXPSJobProgress(6i32);
 pub const kUniDirectional: PrintAsyncNotifyConversationStyle = PrintAsyncNotifyConversationStyle(1i32);
 pub const kXpsDocumentCommitted: EPrintXPSJobProgress = EPrintXPSJobProgress(9i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BIDI_TYPE(pub i32);
-impl ::core::marker::Copy for BIDI_TYPE {}
-impl ::core::clone::Clone for BIDI_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BIDI_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for BIDI_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8581,19 +8570,8 @@ impl ::core::fmt::Debug for BIDI_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EATTRIBUTE_DATATYPE(pub i32);
-impl ::core::marker::Copy for EATTRIBUTE_DATATYPE {}
-impl ::core::clone::Clone for EATTRIBUTE_DATATYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EATTRIBUTE_DATATYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EATTRIBUTE_DATATYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8603,19 +8581,8 @@ impl ::core::fmt::Debug for EATTRIBUTE_DATATYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EBranchOfficeJobEventType(pub i32);
-impl ::core::marker::Copy for EBranchOfficeJobEventType {}
-impl ::core::clone::Clone for EBranchOfficeJobEventType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EBranchOfficeJobEventType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EBranchOfficeJobEventType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8625,19 +8592,8 @@ impl ::core::fmt::Debug for EBranchOfficeJobEventType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EPrintPropertyType(pub i32);
-impl ::core::marker::Copy for EPrintPropertyType {}
-impl ::core::clone::Clone for EPrintPropertyType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EPrintPropertyType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EPrintPropertyType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8647,19 +8603,8 @@ impl ::core::fmt::Debug for EPrintPropertyType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EPrintXPSJobOperation(pub i32);
-impl ::core::marker::Copy for EPrintXPSJobOperation {}
-impl ::core::clone::Clone for EPrintXPSJobOperation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EPrintXPSJobOperation {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EPrintXPSJobOperation {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8669,19 +8614,8 @@ impl ::core::fmt::Debug for EPrintXPSJobOperation {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EPrintXPSJobProgress(pub i32);
-impl ::core::marker::Copy for EPrintXPSJobProgress {}
-impl ::core::clone::Clone for EPrintXPSJobProgress {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EPrintXPSJobProgress {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EPrintXPSJobProgress {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8691,19 +8625,8 @@ impl ::core::fmt::Debug for EPrintXPSJobProgress {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EXpsCompressionOptions(pub i32);
-impl ::core::marker::Copy for EXpsCompressionOptions {}
-impl ::core::clone::Clone for EXpsCompressionOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EXpsCompressionOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EXpsCompressionOptions {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8713,19 +8636,8 @@ impl ::core::fmt::Debug for EXpsCompressionOptions {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EXpsFontOptions(pub i32);
-impl ::core::marker::Copy for EXpsFontOptions {}
-impl ::core::clone::Clone for EXpsFontOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EXpsFontOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EXpsFontOptions {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8735,19 +8647,8 @@ impl ::core::fmt::Debug for EXpsFontOptions {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EXpsFontRestriction(pub i32);
-impl ::core::marker::Copy for EXpsFontRestriction {}
-impl ::core::clone::Clone for EXpsFontRestriction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EXpsFontRestriction {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EXpsFontRestriction {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8757,19 +8658,8 @@ impl ::core::fmt::Debug for EXpsFontRestriction {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EXpsJobConsumption(pub i32);
-impl ::core::marker::Copy for EXpsJobConsumption {}
-impl ::core::clone::Clone for EXpsJobConsumption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EXpsJobConsumption {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EXpsJobConsumption {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8779,19 +8669,8 @@ impl ::core::fmt::Debug for EXpsJobConsumption {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MXDC_IMAGE_TYPE_ENUMS(pub i32);
-impl ::core::marker::Copy for MXDC_IMAGE_TYPE_ENUMS {}
-impl ::core::clone::Clone for MXDC_IMAGE_TYPE_ENUMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MXDC_IMAGE_TYPE_ENUMS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MXDC_IMAGE_TYPE_ENUMS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8801,19 +8680,8 @@ impl ::core::fmt::Debug for MXDC_IMAGE_TYPE_ENUMS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MXDC_LANDSCAPE_ROTATION_ENUMS(pub i32);
-impl ::core::marker::Copy for MXDC_LANDSCAPE_ROTATION_ENUMS {}
-impl ::core::clone::Clone for MXDC_LANDSCAPE_ROTATION_ENUMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MXDC_LANDSCAPE_ROTATION_ENUMS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MXDC_LANDSCAPE_ROTATION_ENUMS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8823,19 +8691,8 @@ impl ::core::fmt::Debug for MXDC_LANDSCAPE_ROTATION_ENUMS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MXDC_S0_PAGE_ENUMS(pub i32);
-impl ::core::marker::Copy for MXDC_S0_PAGE_ENUMS {}
-impl ::core::clone::Clone for MXDC_S0_PAGE_ENUMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MXDC_S0_PAGE_ENUMS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MXDC_S0_PAGE_ENUMS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8845,19 +8702,8 @@ impl ::core::fmt::Debug for MXDC_S0_PAGE_ENUMS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NOTIFICATION_CALLBACK_COMMANDS(pub i32);
-impl ::core::marker::Copy for NOTIFICATION_CALLBACK_COMMANDS {}
-impl ::core::clone::Clone for NOTIFICATION_CALLBACK_COMMANDS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NOTIFICATION_CALLBACK_COMMANDS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NOTIFICATION_CALLBACK_COMMANDS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8867,19 +8713,8 @@ impl ::core::fmt::Debug for NOTIFICATION_CALLBACK_COMMANDS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NOTIFICATION_CONFIG_FLAGS(pub i32);
-impl ::core::marker::Copy for NOTIFICATION_CONFIG_FLAGS {}
-impl ::core::clone::Clone for NOTIFICATION_CONFIG_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NOTIFICATION_CONFIG_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NOTIFICATION_CONFIG_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8889,19 +8724,8 @@ impl ::core::fmt::Debug for NOTIFICATION_CONFIG_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PRINTER_ACCESS_RIGHTS(pub u32);
-impl ::core::marker::Copy for PRINTER_ACCESS_RIGHTS {}
-impl ::core::clone::Clone for PRINTER_ACCESS_RIGHTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PRINTER_ACCESS_RIGHTS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PRINTER_ACCESS_RIGHTS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8944,19 +8768,8 @@ impl ::core::ops::Not for PRINTER_ACCESS_RIGHTS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PRINTER_OPTION_FLAGS(pub i32);
-impl ::core::marker::Copy for PRINTER_OPTION_FLAGS {}
-impl ::core::clone::Clone for PRINTER_OPTION_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PRINTER_OPTION_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PRINTER_OPTION_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8966,19 +8779,8 @@ impl ::core::fmt::Debug for PRINTER_OPTION_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PRINT_EXECUTION_CONTEXT(pub i32);
-impl ::core::marker::Copy for PRINT_EXECUTION_CONTEXT {}
-impl ::core::clone::Clone for PRINT_EXECUTION_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PRINT_EXECUTION_CONTEXT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PRINT_EXECUTION_CONTEXT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8988,19 +8790,8 @@ impl ::core::fmt::Debug for PRINT_EXECUTION_CONTEXT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PageCountType(pub i32);
-impl ::core::marker::Copy for PageCountType {}
-impl ::core::clone::Clone for PageCountType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PageCountType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PageCountType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9010,19 +8801,8 @@ impl ::core::fmt::Debug for PageCountType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PrintAsyncNotifyConversationStyle(pub i32);
-impl ::core::marker::Copy for PrintAsyncNotifyConversationStyle {}
-impl ::core::clone::Clone for PrintAsyncNotifyConversationStyle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PrintAsyncNotifyConversationStyle {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PrintAsyncNotifyConversationStyle {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9032,19 +8812,8 @@ impl ::core::fmt::Debug for PrintAsyncNotifyConversationStyle {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PrintAsyncNotifyError(pub i32);
-impl ::core::marker::Copy for PrintAsyncNotifyError {}
-impl ::core::clone::Clone for PrintAsyncNotifyError {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PrintAsyncNotifyError {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PrintAsyncNotifyError {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9054,19 +8823,8 @@ impl ::core::fmt::Debug for PrintAsyncNotifyError {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PrintAsyncNotifyUserFilter(pub i32);
-impl ::core::marker::Copy for PrintAsyncNotifyUserFilter {}
-impl ::core::clone::Clone for PrintAsyncNotifyUserFilter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PrintAsyncNotifyUserFilter {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PrintAsyncNotifyUserFilter {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9076,19 +8834,8 @@ impl ::core::fmt::Debug for PrintAsyncNotifyUserFilter {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PrintJobStatus(pub i32);
-impl ::core::marker::Copy for PrintJobStatus {}
-impl ::core::clone::Clone for PrintJobStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PrintJobStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PrintJobStatus {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9098,19 +8845,8 @@ impl ::core::fmt::Debug for PrintJobStatus {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PrintSchemaConstrainedSetting(pub i32);
-impl ::core::marker::Copy for PrintSchemaConstrainedSetting {}
-impl ::core::clone::Clone for PrintSchemaConstrainedSetting {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PrintSchemaConstrainedSetting {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PrintSchemaConstrainedSetting {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9120,19 +8856,8 @@ impl ::core::fmt::Debug for PrintSchemaConstrainedSetting {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PrintSchemaParameterDataType(pub i32);
-impl ::core::marker::Copy for PrintSchemaParameterDataType {}
-impl ::core::clone::Clone for PrintSchemaParameterDataType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PrintSchemaParameterDataType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PrintSchemaParameterDataType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9142,19 +8867,8 @@ impl ::core::fmt::Debug for PrintSchemaParameterDataType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PrintSchemaSelectionType(pub i32);
-impl ::core::marker::Copy for PrintSchemaSelectionType {}
-impl ::core::clone::Clone for PrintSchemaSelectionType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PrintSchemaSelectionType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PrintSchemaSelectionType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9164,19 +8878,8 @@ impl ::core::fmt::Debug for PrintSchemaSelectionType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SHIMOPTS(pub i32);
-impl ::core::marker::Copy for SHIMOPTS {}
-impl ::core::clone::Clone for SHIMOPTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SHIMOPTS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SHIMOPTS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9186,19 +8889,8 @@ impl ::core::fmt::Debug for SHIMOPTS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UI_TYPE(pub i32);
-impl ::core::marker::Copy for UI_TYPE {}
-impl ::core::clone::Clone for UI_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UI_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for UI_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9208,19 +8900,8 @@ impl ::core::fmt::Debug for UI_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XPSRAS_BACKGROUND_COLOR(pub i32);
-impl ::core::marker::Copy for XPSRAS_BACKGROUND_COLOR {}
-impl ::core::clone::Clone for XPSRAS_BACKGROUND_COLOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XPSRAS_BACKGROUND_COLOR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XPSRAS_BACKGROUND_COLOR {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9230,19 +8911,8 @@ impl ::core::fmt::Debug for XPSRAS_BACKGROUND_COLOR {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XPSRAS_PIXEL_FORMAT(pub i32);
-impl ::core::marker::Copy for XPSRAS_PIXEL_FORMAT {}
-impl ::core::clone::Clone for XPSRAS_PIXEL_FORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XPSRAS_PIXEL_FORMAT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XPSRAS_PIXEL_FORMAT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9252,19 +8922,8 @@ impl ::core::fmt::Debug for XPSRAS_PIXEL_FORMAT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XPSRAS_RENDERING_MODE(pub i32);
-impl ::core::marker::Copy for XPSRAS_RENDERING_MODE {}
-impl ::core::clone::Clone for XPSRAS_RENDERING_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XPSRAS_RENDERING_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XPSRAS_RENDERING_MODE {
     type TypeKind = ::windows_core::CopyType;
 }

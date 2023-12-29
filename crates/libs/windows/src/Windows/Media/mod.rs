@@ -2991,23 +2991,12 @@ impl ::windows_core::CanTryInto<IMediaFrame> for VideoFrame {}
 unsafe impl ::core::marker::Send for VideoFrame {}
 unsafe impl ::core::marker::Sync for VideoFrame {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AudioBufferAccessMode(pub i32);
 impl AudioBufferAccessMode {
     pub const Read: Self = Self(0i32);
     pub const ReadWrite: Self = Self(1i32);
     pub const Write: Self = Self(2i32);
-}
-impl ::core::marker::Copy for AudioBufferAccessMode {}
-impl ::core::clone::Clone for AudioBufferAccessMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AudioBufferAccessMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AudioBufferAccessMode {
     type TypeKind = ::windows_core::CopyType;
@@ -3021,22 +3010,11 @@ impl ::windows_core::RuntimeType for AudioBufferAccessMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.AudioBufferAccessMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AudioProcessing(pub i32);
 impl AudioProcessing {
     pub const Default: Self = Self(0i32);
     pub const Raw: Self = Self(1i32);
-}
-impl ::core::marker::Copy for AudioProcessing {}
-impl ::core::clone::Clone for AudioProcessing {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AudioProcessing {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AudioProcessing {
     type TypeKind = ::windows_core::CopyType;
@@ -3050,23 +3028,12 @@ impl ::windows_core::RuntimeType for AudioProcessing {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.AudioProcessing;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MediaPlaybackAutoRepeatMode(pub i32);
 impl MediaPlaybackAutoRepeatMode {
     pub const None: Self = Self(0i32);
     pub const Track: Self = Self(1i32);
     pub const List: Self = Self(2i32);
-}
-impl ::core::marker::Copy for MediaPlaybackAutoRepeatMode {}
-impl ::core::clone::Clone for MediaPlaybackAutoRepeatMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MediaPlaybackAutoRepeatMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MediaPlaybackAutoRepeatMode {
     type TypeKind = ::windows_core::CopyType;
@@ -3080,7 +3047,7 @@ impl ::windows_core::RuntimeType for MediaPlaybackAutoRepeatMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.MediaPlaybackAutoRepeatMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MediaPlaybackStatus(pub i32);
 impl MediaPlaybackStatus {
     pub const Closed: Self = Self(0i32);
@@ -3088,17 +3055,6 @@ impl MediaPlaybackStatus {
     pub const Stopped: Self = Self(2i32);
     pub const Playing: Self = Self(3i32);
     pub const Paused: Self = Self(4i32);
-}
-impl ::core::marker::Copy for MediaPlaybackStatus {}
-impl ::core::clone::Clone for MediaPlaybackStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MediaPlaybackStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MediaPlaybackStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -3112,24 +3068,13 @@ impl ::windows_core::RuntimeType for MediaPlaybackStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.MediaPlaybackStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MediaPlaybackType(pub i32);
 impl MediaPlaybackType {
     pub const Unknown: Self = Self(0i32);
     pub const Music: Self = Self(1i32);
     pub const Video: Self = Self(2i32);
     pub const Image: Self = Self(3i32);
-}
-impl ::core::marker::Copy for MediaPlaybackType {}
-impl ::core::clone::Clone for MediaPlaybackType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MediaPlaybackType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MediaPlaybackType {
     type TypeKind = ::windows_core::CopyType;
@@ -3143,24 +3088,13 @@ impl ::windows_core::RuntimeType for MediaPlaybackType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.MediaPlaybackType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MediaTimelineControllerState(pub i32);
 impl MediaTimelineControllerState {
     pub const Paused: Self = Self(0i32);
     pub const Running: Self = Self(1i32);
     pub const Stalled: Self = Self(2i32);
     pub const Error: Self = Self(3i32);
-}
-impl ::core::marker::Copy for MediaTimelineControllerState {}
-impl ::core::clone::Clone for MediaTimelineControllerState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MediaTimelineControllerState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MediaTimelineControllerState {
     type TypeKind = ::windows_core::CopyType;
@@ -3174,23 +3108,12 @@ impl ::windows_core::RuntimeType for MediaTimelineControllerState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.MediaTimelineControllerState;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SoundLevel(pub i32);
 impl SoundLevel {
     pub const Muted: Self = Self(0i32);
     pub const Low: Self = Self(1i32);
     pub const Full: Self = Self(2i32);
-}
-impl ::core::marker::Copy for SoundLevel {}
-impl ::core::clone::Clone for SoundLevel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SoundLevel {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SoundLevel {
     type TypeKind = ::windows_core::CopyType;
@@ -3204,7 +3127,7 @@ impl ::windows_core::RuntimeType for SoundLevel {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.SoundLevel;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SystemMediaTransportControlsButton(pub i32);
 impl SystemMediaTransportControlsButton {
     pub const Play: Self = Self(0i32);
@@ -3218,17 +3141,6 @@ impl SystemMediaTransportControlsButton {
     pub const ChannelUp: Self = Self(8i32);
     pub const ChannelDown: Self = Self(9i32);
 }
-impl ::core::marker::Copy for SystemMediaTransportControlsButton {}
-impl ::core::clone::Clone for SystemMediaTransportControlsButton {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SystemMediaTransportControlsButton {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SystemMediaTransportControlsButton {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3241,21 +3153,10 @@ impl ::windows_core::RuntimeType for SystemMediaTransportControlsButton {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.SystemMediaTransportControlsButton;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SystemMediaTransportControlsProperty(pub i32);
 impl SystemMediaTransportControlsProperty {
     pub const SoundLevel: Self = Self(0i32);
-}
-impl ::core::marker::Copy for SystemMediaTransportControlsProperty {}
-impl ::core::clone::Clone for SystemMediaTransportControlsProperty {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SystemMediaTransportControlsProperty {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SystemMediaTransportControlsProperty {
     type TypeKind = ::windows_core::CopyType;

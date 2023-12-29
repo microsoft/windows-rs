@@ -6891,19 +6891,8 @@ pub const FsrmTemplateApplyOptions_ApplyToDerivedAll: FsrmTemplateApplyOptions =
 pub const FsrmTemplateApplyOptions_ApplyToDerivedMatching: FsrmTemplateApplyOptions = FsrmTemplateApplyOptions(1i32);
 pub const MessageSizeLimit: u32 = 4096u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AdrClientDisplayFlags(pub i32);
-impl ::core::marker::Copy for AdrClientDisplayFlags {}
-impl ::core::clone::Clone for AdrClientDisplayFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AdrClientDisplayFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AdrClientDisplayFlags {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6913,19 +6902,8 @@ impl ::core::fmt::Debug for AdrClientDisplayFlags {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AdrClientErrorType(pub i32);
-impl ::core::marker::Copy for AdrClientErrorType {}
-impl ::core::clone::Clone for AdrClientErrorType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AdrClientErrorType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AdrClientErrorType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6935,19 +6913,8 @@ impl ::core::fmt::Debug for AdrClientErrorType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AdrClientFlags(pub i32);
-impl ::core::marker::Copy for AdrClientFlags {}
-impl ::core::clone::Clone for AdrClientFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AdrClientFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AdrClientFlags {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6957,19 +6924,8 @@ impl ::core::fmt::Debug for AdrClientFlags {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AdrEmailFlags(pub i32);
-impl ::core::marker::Copy for AdrEmailFlags {}
-impl ::core::clone::Clone for AdrEmailFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AdrEmailFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AdrEmailFlags {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6979,19 +6935,8 @@ impl ::core::fmt::Debug for AdrEmailFlags {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FsrmAccountType(pub i32);
-impl ::core::marker::Copy for FsrmAccountType {}
-impl ::core::clone::Clone for FsrmAccountType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmAccountType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FsrmAccountType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7001,19 +6946,8 @@ impl ::core::fmt::Debug for FsrmAccountType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FsrmActionType(pub i32);
-impl ::core::marker::Copy for FsrmActionType {}
-impl ::core::clone::Clone for FsrmActionType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmActionType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FsrmActionType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7023,19 +6957,8 @@ impl ::core::fmt::Debug for FsrmActionType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FsrmClassificationLoggingFlags(pub i32);
-impl ::core::marker::Copy for FsrmClassificationLoggingFlags {}
-impl ::core::clone::Clone for FsrmClassificationLoggingFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmClassificationLoggingFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FsrmClassificationLoggingFlags {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7045,19 +6968,8 @@ impl ::core::fmt::Debug for FsrmClassificationLoggingFlags {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FsrmCollectionState(pub i32);
-impl ::core::marker::Copy for FsrmCollectionState {}
-impl ::core::clone::Clone for FsrmCollectionState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmCollectionState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FsrmCollectionState {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7067,19 +6979,8 @@ impl ::core::fmt::Debug for FsrmCollectionState {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FsrmCommitOptions(pub i32);
-impl ::core::marker::Copy for FsrmCommitOptions {}
-impl ::core::clone::Clone for FsrmCommitOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmCommitOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FsrmCommitOptions {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7089,19 +6990,8 @@ impl ::core::fmt::Debug for FsrmCommitOptions {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FsrmEnumOptions(pub i32);
-impl ::core::marker::Copy for FsrmEnumOptions {}
-impl ::core::clone::Clone for FsrmEnumOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmEnumOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FsrmEnumOptions {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7111,19 +7001,8 @@ impl ::core::fmt::Debug for FsrmEnumOptions {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FsrmEventType(pub i32);
-impl ::core::marker::Copy for FsrmEventType {}
-impl ::core::clone::Clone for FsrmEventType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmEventType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FsrmEventType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7133,19 +7012,8 @@ impl ::core::fmt::Debug for FsrmEventType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FsrmExecutionOption(pub i32);
-impl ::core::marker::Copy for FsrmExecutionOption {}
-impl ::core::clone::Clone for FsrmExecutionOption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmExecutionOption {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FsrmExecutionOption {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7155,19 +7023,8 @@ impl ::core::fmt::Debug for FsrmExecutionOption {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FsrmFileConditionType(pub i32);
-impl ::core::marker::Copy for FsrmFileConditionType {}
-impl ::core::clone::Clone for FsrmFileConditionType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmFileConditionType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FsrmFileConditionType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7177,19 +7034,8 @@ impl ::core::fmt::Debug for FsrmFileConditionType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FsrmFileManagementLoggingFlags(pub i32);
-impl ::core::marker::Copy for FsrmFileManagementLoggingFlags {}
-impl ::core::clone::Clone for FsrmFileManagementLoggingFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmFileManagementLoggingFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FsrmFileManagementLoggingFlags {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7199,19 +7045,8 @@ impl ::core::fmt::Debug for FsrmFileManagementLoggingFlags {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FsrmFileManagementType(pub i32);
-impl ::core::marker::Copy for FsrmFileManagementType {}
-impl ::core::clone::Clone for FsrmFileManagementType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmFileManagementType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FsrmFileManagementType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7221,19 +7056,8 @@ impl ::core::fmt::Debug for FsrmFileManagementType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FsrmFileScreenFlags(pub i32);
-impl ::core::marker::Copy for FsrmFileScreenFlags {}
-impl ::core::clone::Clone for FsrmFileScreenFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmFileScreenFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FsrmFileScreenFlags {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7243,19 +7067,8 @@ impl ::core::fmt::Debug for FsrmFileScreenFlags {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FsrmFileStreamingInterfaceType(pub i32);
-impl ::core::marker::Copy for FsrmFileStreamingInterfaceType {}
-impl ::core::clone::Clone for FsrmFileStreamingInterfaceType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmFileStreamingInterfaceType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FsrmFileStreamingInterfaceType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7265,19 +7078,8 @@ impl ::core::fmt::Debug for FsrmFileStreamingInterfaceType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FsrmFileStreamingMode(pub i32);
-impl ::core::marker::Copy for FsrmFileStreamingMode {}
-impl ::core::clone::Clone for FsrmFileStreamingMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmFileStreamingMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FsrmFileStreamingMode {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7287,19 +7089,8 @@ impl ::core::fmt::Debug for FsrmFileStreamingMode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FsrmFileSystemPropertyId(pub i32);
-impl ::core::marker::Copy for FsrmFileSystemPropertyId {}
-impl ::core::clone::Clone for FsrmFileSystemPropertyId {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmFileSystemPropertyId {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FsrmFileSystemPropertyId {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7309,19 +7100,8 @@ impl ::core::fmt::Debug for FsrmFileSystemPropertyId {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FsrmGetFilePropertyOptions(pub i32);
-impl ::core::marker::Copy for FsrmGetFilePropertyOptions {}
-impl ::core::clone::Clone for FsrmGetFilePropertyOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmGetFilePropertyOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FsrmGetFilePropertyOptions {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7331,19 +7111,8 @@ impl ::core::fmt::Debug for FsrmGetFilePropertyOptions {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FsrmPipelineModuleType(pub i32);
-impl ::core::marker::Copy for FsrmPipelineModuleType {}
-impl ::core::clone::Clone for FsrmPipelineModuleType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmPipelineModuleType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FsrmPipelineModuleType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7353,19 +7122,8 @@ impl ::core::fmt::Debug for FsrmPipelineModuleType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FsrmPropertyBagField(pub i32);
-impl ::core::marker::Copy for FsrmPropertyBagField {}
-impl ::core::clone::Clone for FsrmPropertyBagField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmPropertyBagField {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FsrmPropertyBagField {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7375,19 +7133,8 @@ impl ::core::fmt::Debug for FsrmPropertyBagField {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FsrmPropertyBagFlags(pub i32);
-impl ::core::marker::Copy for FsrmPropertyBagFlags {}
-impl ::core::clone::Clone for FsrmPropertyBagFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmPropertyBagFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FsrmPropertyBagFlags {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7397,19 +7144,8 @@ impl ::core::fmt::Debug for FsrmPropertyBagFlags {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FsrmPropertyConditionType(pub i32);
-impl ::core::marker::Copy for FsrmPropertyConditionType {}
-impl ::core::clone::Clone for FsrmPropertyConditionType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmPropertyConditionType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FsrmPropertyConditionType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7419,19 +7155,8 @@ impl ::core::fmt::Debug for FsrmPropertyConditionType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FsrmPropertyDefinitionAppliesTo(pub i32);
-impl ::core::marker::Copy for FsrmPropertyDefinitionAppliesTo {}
-impl ::core::clone::Clone for FsrmPropertyDefinitionAppliesTo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmPropertyDefinitionAppliesTo {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FsrmPropertyDefinitionAppliesTo {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7441,19 +7166,8 @@ impl ::core::fmt::Debug for FsrmPropertyDefinitionAppliesTo {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FsrmPropertyDefinitionFlags(pub i32);
-impl ::core::marker::Copy for FsrmPropertyDefinitionFlags {}
-impl ::core::clone::Clone for FsrmPropertyDefinitionFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmPropertyDefinitionFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FsrmPropertyDefinitionFlags {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7463,19 +7177,8 @@ impl ::core::fmt::Debug for FsrmPropertyDefinitionFlags {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FsrmPropertyDefinitionType(pub i32);
-impl ::core::marker::Copy for FsrmPropertyDefinitionType {}
-impl ::core::clone::Clone for FsrmPropertyDefinitionType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmPropertyDefinitionType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FsrmPropertyDefinitionType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7485,19 +7188,8 @@ impl ::core::fmt::Debug for FsrmPropertyDefinitionType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FsrmPropertyFlags(pub i32);
-impl ::core::marker::Copy for FsrmPropertyFlags {}
-impl ::core::clone::Clone for FsrmPropertyFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmPropertyFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FsrmPropertyFlags {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7507,19 +7199,8 @@ impl ::core::fmt::Debug for FsrmPropertyFlags {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FsrmPropertyValueType(pub i32);
-impl ::core::marker::Copy for FsrmPropertyValueType {}
-impl ::core::clone::Clone for FsrmPropertyValueType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmPropertyValueType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FsrmPropertyValueType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7529,19 +7210,8 @@ impl ::core::fmt::Debug for FsrmPropertyValueType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FsrmQuotaFlags(pub i32);
-impl ::core::marker::Copy for FsrmQuotaFlags {}
-impl ::core::clone::Clone for FsrmQuotaFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmQuotaFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FsrmQuotaFlags {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7551,19 +7221,8 @@ impl ::core::fmt::Debug for FsrmQuotaFlags {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FsrmReportFilter(pub i32);
-impl ::core::marker::Copy for FsrmReportFilter {}
-impl ::core::clone::Clone for FsrmReportFilter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmReportFilter {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FsrmReportFilter {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7573,19 +7232,8 @@ impl ::core::fmt::Debug for FsrmReportFilter {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FsrmReportFormat(pub i32);
-impl ::core::marker::Copy for FsrmReportFormat {}
-impl ::core::clone::Clone for FsrmReportFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmReportFormat {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FsrmReportFormat {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7595,19 +7243,8 @@ impl ::core::fmt::Debug for FsrmReportFormat {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FsrmReportGenerationContext(pub i32);
-impl ::core::marker::Copy for FsrmReportGenerationContext {}
-impl ::core::clone::Clone for FsrmReportGenerationContext {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmReportGenerationContext {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FsrmReportGenerationContext {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7617,19 +7254,8 @@ impl ::core::fmt::Debug for FsrmReportGenerationContext {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FsrmReportLimit(pub i32);
-impl ::core::marker::Copy for FsrmReportLimit {}
-impl ::core::clone::Clone for FsrmReportLimit {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmReportLimit {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FsrmReportLimit {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7639,19 +7265,8 @@ impl ::core::fmt::Debug for FsrmReportLimit {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FsrmReportRunningStatus(pub i32);
-impl ::core::marker::Copy for FsrmReportRunningStatus {}
-impl ::core::clone::Clone for FsrmReportRunningStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmReportRunningStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FsrmReportRunningStatus {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7661,19 +7276,8 @@ impl ::core::fmt::Debug for FsrmReportRunningStatus {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FsrmReportType(pub i32);
-impl ::core::marker::Copy for FsrmReportType {}
-impl ::core::clone::Clone for FsrmReportType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmReportType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FsrmReportType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7683,19 +7287,8 @@ impl ::core::fmt::Debug for FsrmReportType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FsrmRuleFlags(pub i32);
-impl ::core::marker::Copy for FsrmRuleFlags {}
-impl ::core::clone::Clone for FsrmRuleFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmRuleFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FsrmRuleFlags {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7705,19 +7298,8 @@ impl ::core::fmt::Debug for FsrmRuleFlags {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FsrmRuleType(pub i32);
-impl ::core::marker::Copy for FsrmRuleType {}
-impl ::core::clone::Clone for FsrmRuleType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmRuleType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FsrmRuleType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7727,19 +7309,8 @@ impl ::core::fmt::Debug for FsrmRuleType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FsrmStorageModuleCaps(pub i32);
-impl ::core::marker::Copy for FsrmStorageModuleCaps {}
-impl ::core::clone::Clone for FsrmStorageModuleCaps {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmStorageModuleCaps {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FsrmStorageModuleCaps {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7749,19 +7320,8 @@ impl ::core::fmt::Debug for FsrmStorageModuleCaps {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FsrmStorageModuleType(pub i32);
-impl ::core::marker::Copy for FsrmStorageModuleType {}
-impl ::core::clone::Clone for FsrmStorageModuleType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmStorageModuleType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FsrmStorageModuleType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -7771,19 +7331,8 @@ impl ::core::fmt::Debug for FsrmStorageModuleType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FsrmTemplateApplyOptions(pub i32);
-impl ::core::marker::Copy for FsrmTemplateApplyOptions {}
-impl ::core::clone::Clone for FsrmTemplateApplyOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FsrmTemplateApplyOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FsrmTemplateApplyOptions {
     type TypeKind = ::windows_core::CopyType;
 }

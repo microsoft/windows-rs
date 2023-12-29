@@ -3194,19 +3194,8 @@ pub const cObjectInfoCols: u32 = 9u32;
 pub const wrnBTNotVisibleAccumulated: u32 = 353u32;
 pub const wrnBTNotVisibleRejected: u32 = 352u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct JET_ERRCAT(pub i32);
-impl ::core::marker::Copy for JET_ERRCAT {}
-impl ::core::clone::Clone for JET_ERRCAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for JET_ERRCAT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for JET_ERRCAT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3216,19 +3205,8 @@ impl ::core::fmt::Debug for JET_ERRCAT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct JET_INDEXCHECKING(pub i32);
-impl ::core::marker::Copy for JET_INDEXCHECKING {}
-impl ::core::clone::Clone for JET_INDEXCHECKING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for JET_INDEXCHECKING {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for JET_INDEXCHECKING {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3238,19 +3216,8 @@ impl ::core::fmt::Debug for JET_INDEXCHECKING {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct JET_RELOP(pub i32);
-impl ::core::marker::Copy for JET_RELOP {}
-impl ::core::clone::Clone for JET_RELOP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for JET_RELOP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for JET_RELOP {
     type TypeKind = ::windows_core::CopyType;
 }

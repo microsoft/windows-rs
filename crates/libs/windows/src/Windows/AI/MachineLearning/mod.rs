@@ -4099,7 +4099,7 @@ impl ::windows_core::CanTryInto<ITensor> for TensorUInt8Bit {}
 unsafe impl ::core::marker::Send for TensorUInt8Bit {}
 unsafe impl ::core::marker::Sync for TensorUInt8Bit {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct LearningModelDeviceKind(pub i32);
 impl LearningModelDeviceKind {
     pub const Default: Self = Self(0i32);
@@ -4107,17 +4107,6 @@ impl LearningModelDeviceKind {
     pub const DirectX: Self = Self(2i32);
     pub const DirectXHighPerformance: Self = Self(3i32);
     pub const DirectXMinPower: Self = Self(4i32);
-}
-impl ::core::marker::Copy for LearningModelDeviceKind {}
-impl ::core::clone::Clone for LearningModelDeviceKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for LearningModelDeviceKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for LearningModelDeviceKind {
     type TypeKind = ::windows_core::CopyType;
@@ -4131,24 +4120,13 @@ impl ::windows_core::RuntimeType for LearningModelDeviceKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.AI.MachineLearning.LearningModelDeviceKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct LearningModelFeatureKind(pub i32);
 impl LearningModelFeatureKind {
     pub const Tensor: Self = Self(0i32);
     pub const Sequence: Self = Self(1i32);
     pub const Map: Self = Self(2i32);
     pub const Image: Self = Self(3i32);
-}
-impl ::core::marker::Copy for LearningModelFeatureKind {}
-impl ::core::clone::Clone for LearningModelFeatureKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for LearningModelFeatureKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for LearningModelFeatureKind {
     type TypeKind = ::windows_core::CopyType;
@@ -4162,23 +4140,12 @@ impl ::windows_core::RuntimeType for LearningModelFeatureKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.AI.MachineLearning.LearningModelFeatureKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct LearningModelPixelRange(pub i32);
 impl LearningModelPixelRange {
     pub const ZeroTo255: Self = Self(0i32);
     pub const ZeroToOne: Self = Self(1i32);
     pub const MinusOneToOne: Self = Self(2i32);
-}
-impl ::core::marker::Copy for LearningModelPixelRange {}
-impl ::core::clone::Clone for LearningModelPixelRange {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for LearningModelPixelRange {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for LearningModelPixelRange {
     type TypeKind = ::windows_core::CopyType;
@@ -4192,7 +4159,7 @@ impl ::windows_core::RuntimeType for LearningModelPixelRange {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.AI.MachineLearning.LearningModelPixelRange;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TensorKind(pub i32);
 impl TensorKind {
     pub const Undefined: Self = Self(0i32);
@@ -4211,17 +4178,6 @@ impl TensorKind {
     pub const UInt64: Self = Self(13i32);
     pub const Complex64: Self = Self(14i32);
     pub const Complex128: Self = Self(15i32);
-}
-impl ::core::marker::Copy for TensorKind {}
-impl ::core::clone::Clone for TensorKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TensorKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for TensorKind {
     type TypeKind = ::windows_core::CopyType;

@@ -230,22 +230,11 @@ impl ::windows_core::RuntimeName for LicenseSatisfactionResult {
 unsafe impl ::core::marker::Send for LicenseSatisfactionResult {}
 unsafe impl ::core::marker::Sync for LicenseSatisfactionResult {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct LicenseRefreshOption(pub i32);
 impl LicenseRefreshOption {
     pub const RunningLicenses: Self = Self(0i32);
     pub const AllLicenses: Self = Self(1i32);
-}
-impl ::core::marker::Copy for LicenseRefreshOption {}
-impl ::core::clone::Clone for LicenseRefreshOption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for LicenseRefreshOption {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for LicenseRefreshOption {
     type TypeKind = ::windows_core::CopyType;

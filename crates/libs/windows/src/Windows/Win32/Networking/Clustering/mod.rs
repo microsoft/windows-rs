@@ -9098,19 +9098,8 @@ pub const eResourceStateChangeReasonRundown: CLUSTER_RESOURCE_STATE_CHANGE_REASO
 pub const eResourceStateChangeReasonShutdown: CLUSTER_RESOURCE_STATE_CHANGE_REASON = CLUSTER_RESOURCE_STATE_CHANGE_REASON(4i32);
 pub const eResourceStateChangeReasonUnknown: CLUSTER_RESOURCE_STATE_CHANGE_REASON = CLUSTER_RESOURCE_STATE_CHANGE_REASON(0i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLCTL_CODES(pub i32);
-impl ::core::marker::Copy for CLCTL_CODES {}
-impl ::core::clone::Clone for CLCTL_CODES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLCTL_CODES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLCTL_CODES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9120,19 +9109,8 @@ impl ::core::fmt::Debug for CLCTL_CODES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUADMEX_OBJECT_TYPE(pub i32);
-impl ::core::marker::Copy for CLUADMEX_OBJECT_TYPE {}
-impl ::core::clone::Clone for CLUADMEX_OBJECT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUADMEX_OBJECT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUADMEX_OBJECT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9142,19 +9120,8 @@ impl ::core::fmt::Debug for CLUADMEX_OBJECT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSCTL_AFFINITYRULE_CODES(pub i32);
-impl ::core::marker::Copy for CLUSCTL_AFFINITYRULE_CODES {}
-impl ::core::clone::Clone for CLUSCTL_AFFINITYRULE_CODES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSCTL_AFFINITYRULE_CODES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSCTL_AFFINITYRULE_CODES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9164,19 +9131,8 @@ impl ::core::fmt::Debug for CLUSCTL_AFFINITYRULE_CODES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSCTL_CLUSTER_CODES(pub i32);
-impl ::core::marker::Copy for CLUSCTL_CLUSTER_CODES {}
-impl ::core::clone::Clone for CLUSCTL_CLUSTER_CODES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSCTL_CLUSTER_CODES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSCTL_CLUSTER_CODES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9186,19 +9142,8 @@ impl ::core::fmt::Debug for CLUSCTL_CLUSTER_CODES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSCTL_GROUPSET_CODES(pub i32);
-impl ::core::marker::Copy for CLUSCTL_GROUPSET_CODES {}
-impl ::core::clone::Clone for CLUSCTL_GROUPSET_CODES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSCTL_GROUPSET_CODES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSCTL_GROUPSET_CODES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9208,19 +9153,8 @@ impl ::core::fmt::Debug for CLUSCTL_GROUPSET_CODES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSCTL_GROUP_CODES(pub i32);
-impl ::core::marker::Copy for CLUSCTL_GROUP_CODES {}
-impl ::core::clone::Clone for CLUSCTL_GROUP_CODES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSCTL_GROUP_CODES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSCTL_GROUP_CODES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9230,19 +9164,8 @@ impl ::core::fmt::Debug for CLUSCTL_GROUP_CODES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSCTL_NETINTERFACE_CODES(pub i32);
-impl ::core::marker::Copy for CLUSCTL_NETINTERFACE_CODES {}
-impl ::core::clone::Clone for CLUSCTL_NETINTERFACE_CODES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSCTL_NETINTERFACE_CODES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSCTL_NETINTERFACE_CODES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9252,19 +9175,8 @@ impl ::core::fmt::Debug for CLUSCTL_NETINTERFACE_CODES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSCTL_NETWORK_CODES(pub i32);
-impl ::core::marker::Copy for CLUSCTL_NETWORK_CODES {}
-impl ::core::clone::Clone for CLUSCTL_NETWORK_CODES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSCTL_NETWORK_CODES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSCTL_NETWORK_CODES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9274,19 +9186,8 @@ impl ::core::fmt::Debug for CLUSCTL_NETWORK_CODES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSCTL_NODE_CODES(pub i32);
-impl ::core::marker::Copy for CLUSCTL_NODE_CODES {}
-impl ::core::clone::Clone for CLUSCTL_NODE_CODES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSCTL_NODE_CODES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSCTL_NODE_CODES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9296,19 +9197,8 @@ impl ::core::fmt::Debug for CLUSCTL_NODE_CODES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSCTL_RESOURCE_CODES(pub i32);
-impl ::core::marker::Copy for CLUSCTL_RESOURCE_CODES {}
-impl ::core::clone::Clone for CLUSCTL_RESOURCE_CODES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSCTL_RESOURCE_CODES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSCTL_RESOURCE_CODES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9318,19 +9208,8 @@ impl ::core::fmt::Debug for CLUSCTL_RESOURCE_CODES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSCTL_RESOURCE_TYPE_CODES(pub i32);
-impl ::core::marker::Copy for CLUSCTL_RESOURCE_TYPE_CODES {}
-impl ::core::clone::Clone for CLUSCTL_RESOURCE_TYPE_CODES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSCTL_RESOURCE_TYPE_CODES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSCTL_RESOURCE_TYPE_CODES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9340,19 +9219,8 @@ impl ::core::fmt::Debug for CLUSCTL_RESOURCE_TYPE_CODES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSGROUP_TYPE(pub i32);
-impl ::core::marker::Copy for CLUSGROUP_TYPE {}
-impl ::core::clone::Clone for CLUSGROUP_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSGROUP_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSGROUP_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9362,19 +9230,8 @@ impl ::core::fmt::Debug for CLUSGROUP_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSPROP_IPADDR_ENABLENETBIOS(pub i32);
-impl ::core::marker::Copy for CLUSPROP_IPADDR_ENABLENETBIOS {}
-impl ::core::clone::Clone for CLUSPROP_IPADDR_ENABLENETBIOS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSPROP_IPADDR_ENABLENETBIOS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSPROP_IPADDR_ENABLENETBIOS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9384,19 +9241,8 @@ impl ::core::fmt::Debug for CLUSPROP_IPADDR_ENABLENETBIOS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSPROP_PIFLAGS(pub i32);
-impl ::core::marker::Copy for CLUSPROP_PIFLAGS {}
-impl ::core::clone::Clone for CLUSPROP_PIFLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSPROP_PIFLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSPROP_PIFLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9406,19 +9252,8 @@ impl ::core::fmt::Debug for CLUSPROP_PIFLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTERSET_OBJECT_TYPE(pub i32);
-impl ::core::marker::Copy for CLUSTERSET_OBJECT_TYPE {}
-impl ::core::clone::Clone for CLUSTERSET_OBJECT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTERSET_OBJECT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTERSET_OBJECT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9428,19 +9263,8 @@ impl ::core::fmt::Debug for CLUSTERSET_OBJECT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_CHANGE(pub i32);
-impl ::core::marker::Copy for CLUSTER_CHANGE {}
-impl ::core::clone::Clone for CLUSTER_CHANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_CHANGE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_CHANGE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9450,19 +9274,8 @@ impl ::core::fmt::Debug for CLUSTER_CHANGE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_CHANGE_CLUSTER_V2(pub i32);
-impl ::core::marker::Copy for CLUSTER_CHANGE_CLUSTER_V2 {}
-impl ::core::clone::Clone for CLUSTER_CHANGE_CLUSTER_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_CHANGE_CLUSTER_V2 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_CHANGE_CLUSTER_V2 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9472,19 +9285,8 @@ impl ::core::fmt::Debug for CLUSTER_CHANGE_CLUSTER_V2 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_CHANGE_GROUPSET_V2(pub i32);
-impl ::core::marker::Copy for CLUSTER_CHANGE_GROUPSET_V2 {}
-impl ::core::clone::Clone for CLUSTER_CHANGE_GROUPSET_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_CHANGE_GROUPSET_V2 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_CHANGE_GROUPSET_V2 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9494,19 +9296,8 @@ impl ::core::fmt::Debug for CLUSTER_CHANGE_GROUPSET_V2 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_CHANGE_GROUP_V2(pub i32);
-impl ::core::marker::Copy for CLUSTER_CHANGE_GROUP_V2 {}
-impl ::core::clone::Clone for CLUSTER_CHANGE_GROUP_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_CHANGE_GROUP_V2 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_CHANGE_GROUP_V2 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9516,19 +9307,8 @@ impl ::core::fmt::Debug for CLUSTER_CHANGE_GROUP_V2 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_CHANGE_NETINTERFACE_V2(pub i32);
-impl ::core::marker::Copy for CLUSTER_CHANGE_NETINTERFACE_V2 {}
-impl ::core::clone::Clone for CLUSTER_CHANGE_NETINTERFACE_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_CHANGE_NETINTERFACE_V2 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_CHANGE_NETINTERFACE_V2 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9538,19 +9318,8 @@ impl ::core::fmt::Debug for CLUSTER_CHANGE_NETINTERFACE_V2 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_CHANGE_NETWORK_V2(pub i32);
-impl ::core::marker::Copy for CLUSTER_CHANGE_NETWORK_V2 {}
-impl ::core::clone::Clone for CLUSTER_CHANGE_NETWORK_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_CHANGE_NETWORK_V2 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_CHANGE_NETWORK_V2 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9560,19 +9329,8 @@ impl ::core::fmt::Debug for CLUSTER_CHANGE_NETWORK_V2 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2(pub i32);
-impl ::core::marker::Copy for CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2 {}
-impl ::core::clone::Clone for CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9582,19 +9340,8 @@ impl ::core::fmt::Debug for CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_CHANGE_NODE_V2(pub i32);
-impl ::core::marker::Copy for CLUSTER_CHANGE_NODE_V2 {}
-impl ::core::clone::Clone for CLUSTER_CHANGE_NODE_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_CHANGE_NODE_V2 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_CHANGE_NODE_V2 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9604,19 +9351,8 @@ impl ::core::fmt::Debug for CLUSTER_CHANGE_NODE_V2 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_CHANGE_QUORUM_V2(pub i32);
-impl ::core::marker::Copy for CLUSTER_CHANGE_QUORUM_V2 {}
-impl ::core::clone::Clone for CLUSTER_CHANGE_QUORUM_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_CHANGE_QUORUM_V2 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_CHANGE_QUORUM_V2 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9626,19 +9362,8 @@ impl ::core::fmt::Debug for CLUSTER_CHANGE_QUORUM_V2 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_CHANGE_REGISTRY_V2(pub i32);
-impl ::core::marker::Copy for CLUSTER_CHANGE_REGISTRY_V2 {}
-impl ::core::clone::Clone for CLUSTER_CHANGE_REGISTRY_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_CHANGE_REGISTRY_V2 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_CHANGE_REGISTRY_V2 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9648,19 +9373,8 @@ impl ::core::fmt::Debug for CLUSTER_CHANGE_REGISTRY_V2 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_CHANGE_RESOURCE_TYPE_V2(pub i32);
-impl ::core::marker::Copy for CLUSTER_CHANGE_RESOURCE_TYPE_V2 {}
-impl ::core::clone::Clone for CLUSTER_CHANGE_RESOURCE_TYPE_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_CHANGE_RESOURCE_TYPE_V2 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_CHANGE_RESOURCE_TYPE_V2 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9670,19 +9384,8 @@ impl ::core::fmt::Debug for CLUSTER_CHANGE_RESOURCE_TYPE_V2 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_CHANGE_RESOURCE_V2(pub i32);
-impl ::core::marker::Copy for CLUSTER_CHANGE_RESOURCE_V2 {}
-impl ::core::clone::Clone for CLUSTER_CHANGE_RESOURCE_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_CHANGE_RESOURCE_V2 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_CHANGE_RESOURCE_V2 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9692,19 +9395,8 @@ impl ::core::fmt::Debug for CLUSTER_CHANGE_RESOURCE_V2 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_CHANGE_SHARED_VOLUME_V2(pub i32);
-impl ::core::marker::Copy for CLUSTER_CHANGE_SHARED_VOLUME_V2 {}
-impl ::core::clone::Clone for CLUSTER_CHANGE_SHARED_VOLUME_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_CHANGE_SHARED_VOLUME_V2 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_CHANGE_SHARED_VOLUME_V2 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9714,19 +9406,8 @@ impl ::core::fmt::Debug for CLUSTER_CHANGE_SHARED_VOLUME_V2 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_CHANGE_SPACEPORT_V2(pub i32);
-impl ::core::marker::Copy for CLUSTER_CHANGE_SPACEPORT_V2 {}
-impl ::core::clone::Clone for CLUSTER_CHANGE_SPACEPORT_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_CHANGE_SPACEPORT_V2 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_CHANGE_SPACEPORT_V2 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9736,19 +9417,8 @@ impl ::core::fmt::Debug for CLUSTER_CHANGE_SPACEPORT_V2 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_CLOUD_TYPE(pub i32);
-impl ::core::marker::Copy for CLUSTER_CLOUD_TYPE {}
-impl ::core::clone::Clone for CLUSTER_CLOUD_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_CLOUD_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_CLOUD_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9758,19 +9428,8 @@ impl ::core::fmt::Debug for CLUSTER_CLOUD_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_CONTROL_OBJECT(pub i32);
-impl ::core::marker::Copy for CLUSTER_CONTROL_OBJECT {}
-impl ::core::clone::Clone for CLUSTER_CONTROL_OBJECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_CONTROL_OBJECT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_CONTROL_OBJECT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9780,19 +9439,8 @@ impl ::core::fmt::Debug for CLUSTER_CONTROL_OBJECT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_CSV_VOLUME_FAULT_STATE(pub i32);
-impl ::core::marker::Copy for CLUSTER_CSV_VOLUME_FAULT_STATE {}
-impl ::core::clone::Clone for CLUSTER_CSV_VOLUME_FAULT_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_CSV_VOLUME_FAULT_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_CSV_VOLUME_FAULT_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9802,19 +9450,8 @@ impl ::core::fmt::Debug for CLUSTER_CSV_VOLUME_FAULT_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_ENUM(pub i32);
-impl ::core::marker::Copy for CLUSTER_ENUM {}
-impl ::core::clone::Clone for CLUSTER_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9824,19 +9461,8 @@ impl ::core::fmt::Debug for CLUSTER_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_GROUP_AUTOFAILBACK_TYPE(pub i32);
-impl ::core::marker::Copy for CLUSTER_GROUP_AUTOFAILBACK_TYPE {}
-impl ::core::clone::Clone for CLUSTER_GROUP_AUTOFAILBACK_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_GROUP_AUTOFAILBACK_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_GROUP_AUTOFAILBACK_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9846,19 +9472,8 @@ impl ::core::fmt::Debug for CLUSTER_GROUP_AUTOFAILBACK_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_GROUP_ENUM(pub i32);
-impl ::core::marker::Copy for CLUSTER_GROUP_ENUM {}
-impl ::core::clone::Clone for CLUSTER_GROUP_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_GROUP_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_GROUP_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9868,19 +9483,8 @@ impl ::core::fmt::Debug for CLUSTER_GROUP_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_GROUP_PRIORITY(pub i32);
-impl ::core::marker::Copy for CLUSTER_GROUP_PRIORITY {}
-impl ::core::clone::Clone for CLUSTER_GROUP_PRIORITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_GROUP_PRIORITY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_GROUP_PRIORITY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9890,19 +9494,8 @@ impl ::core::fmt::Debug for CLUSTER_GROUP_PRIORITY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_GROUP_STATE(pub i32);
-impl ::core::marker::Copy for CLUSTER_GROUP_STATE {}
-impl ::core::clone::Clone for CLUSTER_GROUP_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_GROUP_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_GROUP_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9912,19 +9505,8 @@ impl ::core::fmt::Debug for CLUSTER_GROUP_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_MGMT_POINT_RESTYPE(pub i32);
-impl ::core::marker::Copy for CLUSTER_MGMT_POINT_RESTYPE {}
-impl ::core::clone::Clone for CLUSTER_MGMT_POINT_RESTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_MGMT_POINT_RESTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_MGMT_POINT_RESTYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9934,19 +9516,8 @@ impl ::core::fmt::Debug for CLUSTER_MGMT_POINT_RESTYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_MGMT_POINT_TYPE(pub i32);
-impl ::core::marker::Copy for CLUSTER_MGMT_POINT_TYPE {}
-impl ::core::clone::Clone for CLUSTER_MGMT_POINT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_MGMT_POINT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_MGMT_POINT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9956,19 +9527,8 @@ impl ::core::fmt::Debug for CLUSTER_MGMT_POINT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_NETINTERFACE_STATE(pub i32);
-impl ::core::marker::Copy for CLUSTER_NETINTERFACE_STATE {}
-impl ::core::clone::Clone for CLUSTER_NETINTERFACE_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_NETINTERFACE_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_NETINTERFACE_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9978,19 +9538,8 @@ impl ::core::fmt::Debug for CLUSTER_NETINTERFACE_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_NETWORK_ENUM(pub i32);
-impl ::core::marker::Copy for CLUSTER_NETWORK_ENUM {}
-impl ::core::clone::Clone for CLUSTER_NETWORK_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_NETWORK_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_NETWORK_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10000,19 +9549,8 @@ impl ::core::fmt::Debug for CLUSTER_NETWORK_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_NETWORK_ROLE(pub i32);
-impl ::core::marker::Copy for CLUSTER_NETWORK_ROLE {}
-impl ::core::clone::Clone for CLUSTER_NETWORK_ROLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_NETWORK_ROLE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_NETWORK_ROLE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10022,19 +9560,8 @@ impl ::core::fmt::Debug for CLUSTER_NETWORK_ROLE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_NETWORK_STATE(pub i32);
-impl ::core::marker::Copy for CLUSTER_NETWORK_STATE {}
-impl ::core::clone::Clone for CLUSTER_NETWORK_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_NETWORK_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_NETWORK_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10044,19 +9571,8 @@ impl ::core::fmt::Debug for CLUSTER_NETWORK_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_NODE_DRAIN_STATUS(pub i32);
-impl ::core::marker::Copy for CLUSTER_NODE_DRAIN_STATUS {}
-impl ::core::clone::Clone for CLUSTER_NODE_DRAIN_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_NODE_DRAIN_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_NODE_DRAIN_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10066,19 +9582,8 @@ impl ::core::fmt::Debug for CLUSTER_NODE_DRAIN_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_NODE_ENUM(pub i32);
-impl ::core::marker::Copy for CLUSTER_NODE_ENUM {}
-impl ::core::clone::Clone for CLUSTER_NODE_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_NODE_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_NODE_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10088,19 +9593,8 @@ impl ::core::fmt::Debug for CLUSTER_NODE_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_NODE_RESUME_FAILBACK_TYPE(pub i32);
-impl ::core::marker::Copy for CLUSTER_NODE_RESUME_FAILBACK_TYPE {}
-impl ::core::clone::Clone for CLUSTER_NODE_RESUME_FAILBACK_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_NODE_RESUME_FAILBACK_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_NODE_RESUME_FAILBACK_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10110,19 +9604,8 @@ impl ::core::fmt::Debug for CLUSTER_NODE_RESUME_FAILBACK_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_NODE_STATE(pub i32);
-impl ::core::marker::Copy for CLUSTER_NODE_STATE {}
-impl ::core::clone::Clone for CLUSTER_NODE_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_NODE_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_NODE_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10132,19 +9615,8 @@ impl ::core::fmt::Debug for CLUSTER_NODE_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_NODE_STATUS(pub i32);
-impl ::core::marker::Copy for CLUSTER_NODE_STATUS {}
-impl ::core::clone::Clone for CLUSTER_NODE_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_NODE_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_NODE_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10154,19 +9626,8 @@ impl ::core::fmt::Debug for CLUSTER_NODE_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_NOTIFICATIONS_VERSION(pub i32);
-impl ::core::marker::Copy for CLUSTER_NOTIFICATIONS_VERSION {}
-impl ::core::clone::Clone for CLUSTER_NOTIFICATIONS_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_NOTIFICATIONS_VERSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_NOTIFICATIONS_VERSION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10176,19 +9637,8 @@ impl ::core::fmt::Debug for CLUSTER_NOTIFICATIONS_VERSION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_OBJECT_TYPE(pub i32);
-impl ::core::marker::Copy for CLUSTER_OBJECT_TYPE {}
-impl ::core::clone::Clone for CLUSTER_OBJECT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_OBJECT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_OBJECT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10198,19 +9648,8 @@ impl ::core::fmt::Debug for CLUSTER_OBJECT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_PROPERTY_FORMAT(pub i32);
-impl ::core::marker::Copy for CLUSTER_PROPERTY_FORMAT {}
-impl ::core::clone::Clone for CLUSTER_PROPERTY_FORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_PROPERTY_FORMAT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_PROPERTY_FORMAT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10220,19 +9659,8 @@ impl ::core::fmt::Debug for CLUSTER_PROPERTY_FORMAT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_PROPERTY_SYNTAX(pub u32);
-impl ::core::marker::Copy for CLUSTER_PROPERTY_SYNTAX {}
-impl ::core::clone::Clone for CLUSTER_PROPERTY_SYNTAX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_PROPERTY_SYNTAX {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_PROPERTY_SYNTAX {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10242,19 +9670,8 @@ impl ::core::fmt::Debug for CLUSTER_PROPERTY_SYNTAX {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_PROPERTY_TYPE(pub i32);
-impl ::core::marker::Copy for CLUSTER_PROPERTY_TYPE {}
-impl ::core::clone::Clone for CLUSTER_PROPERTY_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_PROPERTY_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_PROPERTY_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10264,19 +9681,8 @@ impl ::core::fmt::Debug for CLUSTER_PROPERTY_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_QUORUM_TYPE(pub i32);
-impl ::core::marker::Copy for CLUSTER_QUORUM_TYPE {}
-impl ::core::clone::Clone for CLUSTER_QUORUM_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_QUORUM_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_QUORUM_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10286,19 +9692,8 @@ impl ::core::fmt::Debug for CLUSTER_QUORUM_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_QUORUM_VALUE(pub i32);
-impl ::core::marker::Copy for CLUSTER_QUORUM_VALUE {}
-impl ::core::clone::Clone for CLUSTER_QUORUM_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_QUORUM_VALUE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_QUORUM_VALUE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10308,19 +9703,8 @@ impl ::core::fmt::Debug for CLUSTER_QUORUM_VALUE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_REG_COMMAND(pub i32);
-impl ::core::marker::Copy for CLUSTER_REG_COMMAND {}
-impl ::core::clone::Clone for CLUSTER_REG_COMMAND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_REG_COMMAND {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_REG_COMMAND {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10330,19 +9714,8 @@ impl ::core::fmt::Debug for CLUSTER_REG_COMMAND {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_RESOURCE_APPLICATION_STATE(pub i32);
-impl ::core::marker::Copy for CLUSTER_RESOURCE_APPLICATION_STATE {}
-impl ::core::clone::Clone for CLUSTER_RESOURCE_APPLICATION_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_RESOURCE_APPLICATION_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_RESOURCE_APPLICATION_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10352,19 +9725,8 @@ impl ::core::fmt::Debug for CLUSTER_RESOURCE_APPLICATION_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_RESOURCE_CLASS(pub i32);
-impl ::core::marker::Copy for CLUSTER_RESOURCE_CLASS {}
-impl ::core::clone::Clone for CLUSTER_RESOURCE_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_RESOURCE_CLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_RESOURCE_CLASS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10374,19 +9736,8 @@ impl ::core::fmt::Debug for CLUSTER_RESOURCE_CLASS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_RESOURCE_CREATE_FLAGS(pub i32);
-impl ::core::marker::Copy for CLUSTER_RESOURCE_CREATE_FLAGS {}
-impl ::core::clone::Clone for CLUSTER_RESOURCE_CREATE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_RESOURCE_CREATE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_RESOURCE_CREATE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10396,19 +9747,8 @@ impl ::core::fmt::Debug for CLUSTER_RESOURCE_CREATE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION(pub i32);
-impl ::core::marker::Copy for CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION {}
-impl ::core::clone::Clone for CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10418,19 +9758,8 @@ impl ::core::fmt::Debug for CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_RESOURCE_ENUM(pub i32);
-impl ::core::marker::Copy for CLUSTER_RESOURCE_ENUM {}
-impl ::core::clone::Clone for CLUSTER_RESOURCE_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_RESOURCE_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_RESOURCE_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10440,19 +9769,8 @@ impl ::core::fmt::Debug for CLUSTER_RESOURCE_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_RESOURCE_RESTART_ACTION(pub i32);
-impl ::core::marker::Copy for CLUSTER_RESOURCE_RESTART_ACTION {}
-impl ::core::clone::Clone for CLUSTER_RESOURCE_RESTART_ACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_RESOURCE_RESTART_ACTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_RESOURCE_RESTART_ACTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10462,19 +9780,8 @@ impl ::core::fmt::Debug for CLUSTER_RESOURCE_RESTART_ACTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_RESOURCE_STATE(pub i32);
-impl ::core::marker::Copy for CLUSTER_RESOURCE_STATE {}
-impl ::core::clone::Clone for CLUSTER_RESOURCE_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_RESOURCE_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_RESOURCE_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10484,19 +9791,8 @@ impl ::core::fmt::Debug for CLUSTER_RESOURCE_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_RESOURCE_STATE_CHANGE_REASON(pub i32);
-impl ::core::marker::Copy for CLUSTER_RESOURCE_STATE_CHANGE_REASON {}
-impl ::core::clone::Clone for CLUSTER_RESOURCE_STATE_CHANGE_REASON {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_RESOURCE_STATE_CHANGE_REASON {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_RESOURCE_STATE_CHANGE_REASON {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10506,19 +9802,8 @@ impl ::core::fmt::Debug for CLUSTER_RESOURCE_STATE_CHANGE_REASON {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_RESOURCE_TYPE_ENUM(pub i32);
-impl ::core::marker::Copy for CLUSTER_RESOURCE_TYPE_ENUM {}
-impl ::core::clone::Clone for CLUSTER_RESOURCE_TYPE_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_RESOURCE_TYPE_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_RESOURCE_TYPE_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10528,19 +9813,8 @@ impl ::core::fmt::Debug for CLUSTER_RESOURCE_TYPE_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_ROLE(pub i32);
-impl ::core::marker::Copy for CLUSTER_ROLE {}
-impl ::core::clone::Clone for CLUSTER_ROLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_ROLE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_ROLE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10550,19 +9824,8 @@ impl ::core::fmt::Debug for CLUSTER_ROLE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_ROLE_STATE(pub i32);
-impl ::core::marker::Copy for CLUSTER_ROLE_STATE {}
-impl ::core::clone::Clone for CLUSTER_ROLE_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_ROLE_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_ROLE_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10572,19 +9835,8 @@ impl ::core::fmt::Debug for CLUSTER_ROLE_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_SETUP_PHASE(pub i32);
-impl ::core::marker::Copy for CLUSTER_SETUP_PHASE {}
-impl ::core::clone::Clone for CLUSTER_SETUP_PHASE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_SETUP_PHASE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_SETUP_PHASE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10594,19 +9846,8 @@ impl ::core::fmt::Debug for CLUSTER_SETUP_PHASE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_SETUP_PHASE_SEVERITY(pub i32);
-impl ::core::marker::Copy for CLUSTER_SETUP_PHASE_SEVERITY {}
-impl ::core::clone::Clone for CLUSTER_SETUP_PHASE_SEVERITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_SETUP_PHASE_SEVERITY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_SETUP_PHASE_SEVERITY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10616,19 +9857,8 @@ impl ::core::fmt::Debug for CLUSTER_SETUP_PHASE_SEVERITY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_SETUP_PHASE_TYPE(pub i32);
-impl ::core::marker::Copy for CLUSTER_SETUP_PHASE_TYPE {}
-impl ::core::clone::Clone for CLUSTER_SETUP_PHASE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_SETUP_PHASE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_SETUP_PHASE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10638,19 +9868,8 @@ impl ::core::fmt::Debug for CLUSTER_SETUP_PHASE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_SHARED_VOLUME_BACKUP_STATE(pub i32);
-impl ::core::marker::Copy for CLUSTER_SHARED_VOLUME_BACKUP_STATE {}
-impl ::core::clone::Clone for CLUSTER_SHARED_VOLUME_BACKUP_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_SHARED_VOLUME_BACKUP_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_SHARED_VOLUME_BACKUP_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10660,19 +9879,8 @@ impl ::core::fmt::Debug for CLUSTER_SHARED_VOLUME_BACKUP_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE(pub i32);
-impl ::core::marker::Copy for CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE {}
-impl ::core::clone::Clone for CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10682,19 +9890,8 @@ impl ::core::fmt::Debug for CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE(pub i32);
-impl ::core::marker::Copy for CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE {}
-impl ::core::clone::Clone for CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10704,19 +9901,8 @@ impl ::core::fmt::Debug for CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_SHARED_VOLUME_STATE(pub i32);
-impl ::core::marker::Copy for CLUSTER_SHARED_VOLUME_STATE {}
-impl ::core::clone::Clone for CLUSTER_SHARED_VOLUME_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_SHARED_VOLUME_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_SHARED_VOLUME_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10726,19 +9912,8 @@ impl ::core::fmt::Debug for CLUSTER_SHARED_VOLUME_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_STORAGENODE_STATE(pub i32);
-impl ::core::marker::Copy for CLUSTER_STORAGENODE_STATE {}
-impl ::core::clone::Clone for CLUSTER_STORAGENODE_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_STORAGENODE_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_STORAGENODE_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10748,19 +9923,8 @@ impl ::core::fmt::Debug for CLUSTER_STORAGENODE_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUSTER_UPGRADE_PHASE(pub i32);
-impl ::core::marker::Copy for CLUSTER_UPGRADE_PHASE {}
-impl ::core::clone::Clone for CLUSTER_UPGRADE_PHASE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUSTER_UPGRADE_PHASE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUSTER_UPGRADE_PHASE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10770,19 +9934,8 @@ impl ::core::fmt::Debug for CLUSTER_UPGRADE_PHASE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUS_AFFINITY_RULE_TYPE(pub i32);
-impl ::core::marker::Copy for CLUS_AFFINITY_RULE_TYPE {}
-impl ::core::clone::Clone for CLUS_AFFINITY_RULE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUS_AFFINITY_RULE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUS_AFFINITY_RULE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10792,19 +9945,8 @@ impl ::core::fmt::Debug for CLUS_AFFINITY_RULE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUS_CHARACTERISTICS(pub i32);
-impl ::core::marker::Copy for CLUS_CHARACTERISTICS {}
-impl ::core::clone::Clone for CLUS_CHARACTERISTICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUS_CHARACTERISTICS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUS_CHARACTERISTICS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10814,19 +9956,8 @@ impl ::core::fmt::Debug for CLUS_CHARACTERISTICS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUS_FLAGS(pub i32);
-impl ::core::marker::Copy for CLUS_FLAGS {}
-impl ::core::clone::Clone for CLUS_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUS_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUS_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10836,19 +9967,8 @@ impl ::core::fmt::Debug for CLUS_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUS_GROUP_START_SETTING(pub i32);
-impl ::core::marker::Copy for CLUS_GROUP_START_SETTING {}
-impl ::core::clone::Clone for CLUS_GROUP_START_SETTING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUS_GROUP_START_SETTING {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUS_GROUP_START_SETTING {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10858,19 +9978,8 @@ impl ::core::fmt::Debug for CLUS_GROUP_START_SETTING {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUS_RESSUBCLASS(pub i32);
-impl ::core::marker::Copy for CLUS_RESSUBCLASS {}
-impl ::core::clone::Clone for CLUS_RESSUBCLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUS_RESSUBCLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUS_RESSUBCLASS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10880,19 +9989,8 @@ impl ::core::fmt::Debug for CLUS_RESSUBCLASS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUS_RESSUBCLASS_NETWORK(pub i32);
-impl ::core::marker::Copy for CLUS_RESSUBCLASS_NETWORK {}
-impl ::core::clone::Clone for CLUS_RESSUBCLASS_NETWORK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUS_RESSUBCLASS_NETWORK {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUS_RESSUBCLASS_NETWORK {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10902,19 +10000,8 @@ impl ::core::fmt::Debug for CLUS_RESSUBCLASS_NETWORK {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CLUS_RESSUBCLASS_STORAGE(pub i32);
-impl ::core::marker::Copy for CLUS_RESSUBCLASS_STORAGE {}
-impl ::core::clone::Clone for CLUS_RESSUBCLASS_STORAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLUS_RESSUBCLASS_STORAGE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CLUS_RESSUBCLASS_STORAGE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10924,19 +10011,8 @@ impl ::core::fmt::Debug for CLUS_RESSUBCLASS_STORAGE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FAILURE_TYPE(pub i32);
-impl ::core::marker::Copy for FAILURE_TYPE {}
-impl ::core::clone::Clone for FAILURE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FAILURE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FAILURE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10946,19 +10022,8 @@ impl ::core::fmt::Debug for FAILURE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FILESHARE_CHANGE_ENUM(pub i32);
-impl ::core::marker::Copy for FILESHARE_CHANGE_ENUM {}
-impl ::core::clone::Clone for FILESHARE_CHANGE_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FILESHARE_CHANGE_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FILESHARE_CHANGE_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10968,19 +10033,8 @@ impl ::core::fmt::Debug for FILESHARE_CHANGE_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GRP_PLACEMENT_OPTIONS(pub i32);
-impl ::core::marker::Copy for GRP_PLACEMENT_OPTIONS {}
-impl ::core::clone::Clone for GRP_PLACEMENT_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GRP_PLACEMENT_OPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for GRP_PLACEMENT_OPTIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10990,19 +10044,8 @@ impl ::core::fmt::Debug for GRP_PLACEMENT_OPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct LOG_LEVEL(pub i32);
-impl ::core::marker::Copy for LOG_LEVEL {}
-impl ::core::clone::Clone for LOG_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for LOG_LEVEL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for LOG_LEVEL {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11012,19 +10055,8 @@ impl ::core::fmt::Debug for LOG_LEVEL {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MAINTENANCE_MODE_TYPE_ENUM(pub i32);
-impl ::core::marker::Copy for MAINTENANCE_MODE_TYPE_ENUM {}
-impl ::core::clone::Clone for MAINTENANCE_MODE_TYPE_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MAINTENANCE_MODE_TYPE_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MAINTENANCE_MODE_TYPE_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11034,19 +10066,8 @@ impl ::core::fmt::Debug for MAINTENANCE_MODE_TYPE_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NODE_CLUSTER_STATE(pub i32);
-impl ::core::marker::Copy for NODE_CLUSTER_STATE {}
-impl ::core::clone::Clone for NODE_CLUSTER_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NODE_CLUSTER_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NODE_CLUSTER_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11056,19 +10077,8 @@ impl ::core::fmt::Debug for NODE_CLUSTER_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PLACEMENT_OPTIONS(pub i32);
-impl ::core::marker::Copy for PLACEMENT_OPTIONS {}
-impl ::core::clone::Clone for PLACEMENT_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PLACEMENT_OPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PLACEMENT_OPTIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11078,19 +10088,8 @@ impl ::core::fmt::Debug for PLACEMENT_OPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RESDLL_CONTEXT_OPERATION_TYPE(pub i32);
-impl ::core::marker::Copy for RESDLL_CONTEXT_OPERATION_TYPE {}
-impl ::core::clone::Clone for RESDLL_CONTEXT_OPERATION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RESDLL_CONTEXT_OPERATION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RESDLL_CONTEXT_OPERATION_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11100,19 +10099,8 @@ impl ::core::fmt::Debug for RESDLL_CONTEXT_OPERATION_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RESOURCE_EXIT_STATE(pub i32);
-impl ::core::marker::Copy for RESOURCE_EXIT_STATE {}
-impl ::core::clone::Clone for RESOURCE_EXIT_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RESOURCE_EXIT_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RESOURCE_EXIT_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11122,19 +10110,8 @@ impl ::core::fmt::Debug for RESOURCE_EXIT_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RESOURCE_MONITOR_STATE(pub i32);
-impl ::core::marker::Copy for RESOURCE_MONITOR_STATE {}
-impl ::core::clone::Clone for RESOURCE_MONITOR_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RESOURCE_MONITOR_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RESOURCE_MONITOR_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11144,19 +10121,8 @@ impl ::core::fmt::Debug for RESOURCE_MONITOR_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SR_DISK_REPLICATION_ELIGIBLE(pub i32);
-impl ::core::marker::Copy for SR_DISK_REPLICATION_ELIGIBLE {}
-impl ::core::clone::Clone for SR_DISK_REPLICATION_ELIGIBLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SR_DISK_REPLICATION_ELIGIBLE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SR_DISK_REPLICATION_ELIGIBLE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11166,19 +10132,8 @@ impl ::core::fmt::Debug for SR_DISK_REPLICATION_ELIGIBLE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SR_REPLICATED_DISK_TYPE(pub i32);
-impl ::core::marker::Copy for SR_REPLICATED_DISK_TYPE {}
-impl ::core::clone::Clone for SR_REPLICATED_DISK_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SR_REPLICATED_DISK_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SR_REPLICATED_DISK_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11188,19 +10143,8 @@ impl ::core::fmt::Debug for SR_REPLICATED_DISK_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VM_RESDLL_CONTEXT(pub i32);
-impl ::core::marker::Copy for VM_RESDLL_CONTEXT {}
-impl ::core::clone::Clone for VM_RESDLL_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VM_RESDLL_CONTEXT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VM_RESDLL_CONTEXT {
     type TypeKind = ::windows_core::CopyType;
 }

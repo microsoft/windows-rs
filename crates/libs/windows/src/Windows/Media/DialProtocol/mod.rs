@@ -661,24 +661,13 @@ impl ::windows_core::RuntimeName for DialReceiverApp {
 unsafe impl ::core::marker::Send for DialReceiverApp {}
 unsafe impl ::core::marker::Sync for DialReceiverApp {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DialAppLaunchResult(pub i32);
 impl DialAppLaunchResult {
     pub const Launched: Self = Self(0i32);
     pub const FailedToLaunch: Self = Self(1i32);
     pub const NotFound: Self = Self(2i32);
     pub const NetworkFailure: Self = Self(3i32);
-}
-impl ::core::marker::Copy for DialAppLaunchResult {}
-impl ::core::clone::Clone for DialAppLaunchResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DialAppLaunchResult {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DialAppLaunchResult {
     type TypeKind = ::windows_core::CopyType;
@@ -692,24 +681,13 @@ impl ::windows_core::RuntimeType for DialAppLaunchResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.DialProtocol.DialAppLaunchResult;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DialAppState(pub i32);
 impl DialAppState {
     pub const Unknown: Self = Self(0i32);
     pub const Stopped: Self = Self(1i32);
     pub const Running: Self = Self(2i32);
     pub const NetworkFailure: Self = Self(3i32);
-}
-impl ::core::marker::Copy for DialAppState {}
-impl ::core::clone::Clone for DialAppState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DialAppState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DialAppState {
     type TypeKind = ::windows_core::CopyType;
@@ -723,24 +701,13 @@ impl ::windows_core::RuntimeType for DialAppState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.DialProtocol.DialAppState;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DialAppStopResult(pub i32);
 impl DialAppStopResult {
     pub const Stopped: Self = Self(0i32);
     pub const StopFailed: Self = Self(1i32);
     pub const OperationNotSupported: Self = Self(2i32);
     pub const NetworkFailure: Self = Self(3i32);
-}
-impl ::core::marker::Copy for DialAppStopResult {}
-impl ::core::clone::Clone for DialAppStopResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DialAppStopResult {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DialAppStopResult {
     type TypeKind = ::windows_core::CopyType;
@@ -754,7 +721,7 @@ impl ::windows_core::RuntimeType for DialAppStopResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.DialProtocol.DialAppStopResult;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DialDeviceDisplayStatus(pub i32);
 impl DialDeviceDisplayStatus {
     pub const None: Self = Self(0i32);
@@ -763,17 +730,6 @@ impl DialDeviceDisplayStatus {
     pub const Disconnecting: Self = Self(3i32);
     pub const Disconnected: Self = Self(4i32);
     pub const Error: Self = Self(5i32);
-}
-impl ::core::marker::Copy for DialDeviceDisplayStatus {}
-impl ::core::clone::Clone for DialDeviceDisplayStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DialDeviceDisplayStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DialDeviceDisplayStatus {
     type TypeKind = ::windows_core::CopyType;

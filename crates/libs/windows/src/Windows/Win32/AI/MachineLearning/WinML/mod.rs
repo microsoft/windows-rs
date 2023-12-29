@@ -721,7 +721,7 @@ pub const WINML_TENSOR_UINT64: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(1
 pub const WINML_TENSOR_UINT8: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(2i32);
 pub const WINML_TENSOR_UNDEFINED: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(0i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MLOperatorAttributeType(pub u32);
 impl MLOperatorAttributeType {
     pub const Undefined: Self = Self(0u32);
@@ -732,17 +732,6 @@ impl MLOperatorAttributeType {
     pub const IntArray: Self = Self(8u32);
     pub const StringArray: Self = Self(9u32);
 }
-impl ::core::marker::Copy for MLOperatorAttributeType {}
-impl ::core::clone::Clone for MLOperatorAttributeType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MLOperatorAttributeType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MLOperatorAttributeType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -752,22 +741,11 @@ impl ::core::fmt::Debug for MLOperatorAttributeType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MLOperatorEdgeType(pub u32);
 impl MLOperatorEdgeType {
     pub const Undefined: Self = Self(0u32);
     pub const Tensor: Self = Self(1u32);
-}
-impl ::core::marker::Copy for MLOperatorEdgeType {}
-impl ::core::clone::Clone for MLOperatorEdgeType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MLOperatorEdgeType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MLOperatorEdgeType {
     type TypeKind = ::windows_core::CopyType;
@@ -778,23 +756,12 @@ impl ::core::fmt::Debug for MLOperatorEdgeType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MLOperatorExecutionType(pub u32);
 impl MLOperatorExecutionType {
     pub const Undefined: Self = Self(0u32);
     pub const Cpu: Self = Self(1u32);
     pub const D3D12: Self = Self(2u32);
-}
-impl ::core::marker::Copy for MLOperatorExecutionType {}
-impl ::core::clone::Clone for MLOperatorExecutionType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MLOperatorExecutionType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MLOperatorExecutionType {
     type TypeKind = ::windows_core::CopyType;
@@ -805,22 +772,11 @@ impl ::core::fmt::Debug for MLOperatorExecutionType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MLOperatorKernelOptions(pub u32);
 impl MLOperatorKernelOptions {
     pub const None: Self = Self(0u32);
     pub const AllowDynamicInputShapes: Self = Self(1u32);
-}
-impl ::core::marker::Copy for MLOperatorKernelOptions {}
-impl ::core::clone::Clone for MLOperatorKernelOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MLOperatorKernelOptions {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MLOperatorKernelOptions {
     type TypeKind = ::windows_core::CopyType;
@@ -864,23 +820,12 @@ impl ::core::ops::Not for MLOperatorKernelOptions {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MLOperatorParameterOptions(pub u32);
 impl MLOperatorParameterOptions {
     pub const Single: Self = Self(0u32);
     pub const Optional: Self = Self(1u32);
     pub const Variadic: Self = Self(2u32);
-}
-impl ::core::marker::Copy for MLOperatorParameterOptions {}
-impl ::core::clone::Clone for MLOperatorParameterOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MLOperatorParameterOptions {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MLOperatorParameterOptions {
     type TypeKind = ::windows_core::CopyType;
@@ -924,22 +869,11 @@ impl ::core::ops::Not for MLOperatorParameterOptions {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MLOperatorSchemaEdgeTypeFormat(pub i32);
 impl MLOperatorSchemaEdgeTypeFormat {
     pub const EdgeDescription: Self = Self(0i32);
     pub const Label: Self = Self(1i32);
-}
-impl ::core::marker::Copy for MLOperatorSchemaEdgeTypeFormat {}
-impl ::core::clone::Clone for MLOperatorSchemaEdgeTypeFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MLOperatorSchemaEdgeTypeFormat {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MLOperatorSchemaEdgeTypeFormat {
     type TypeKind = ::windows_core::CopyType;
@@ -950,7 +884,7 @@ impl ::core::fmt::Debug for MLOperatorSchemaEdgeTypeFormat {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MLOperatorTensorDataType(pub u32);
 impl MLOperatorTensorDataType {
     pub const Undefined: Self = Self(0u32);
@@ -970,17 +904,6 @@ impl MLOperatorTensorDataType {
     pub const Complex64: Self = Self(14u32);
     pub const Complex128: Self = Self(15u32);
 }
-impl ::core::marker::Copy for MLOperatorTensorDataType {}
-impl ::core::clone::Clone for MLOperatorTensorDataType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MLOperatorTensorDataType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MLOperatorTensorDataType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -990,19 +913,8 @@ impl ::core::fmt::Debug for MLOperatorTensorDataType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WINML_BINDING_TYPE(pub i32);
-impl ::core::marker::Copy for WINML_BINDING_TYPE {}
-impl ::core::clone::Clone for WINML_BINDING_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WINML_BINDING_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WINML_BINDING_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1012,19 +924,8 @@ impl ::core::fmt::Debug for WINML_BINDING_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WINML_FEATURE_TYPE(pub i32);
-impl ::core::marker::Copy for WINML_FEATURE_TYPE {}
-impl ::core::clone::Clone for WINML_FEATURE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WINML_FEATURE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WINML_FEATURE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1034,19 +935,8 @@ impl ::core::fmt::Debug for WINML_FEATURE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WINML_RUNTIME_TYPE(pub i32);
-impl ::core::marker::Copy for WINML_RUNTIME_TYPE {}
-impl ::core::clone::Clone for WINML_RUNTIME_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WINML_RUNTIME_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WINML_RUNTIME_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1056,19 +946,8 @@ impl ::core::fmt::Debug for WINML_RUNTIME_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WINML_TENSOR_DATA_TYPE(pub i32);
-impl ::core::marker::Copy for WINML_TENSOR_DATA_TYPE {}
-impl ::core::clone::Clone for WINML_TENSOR_DATA_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WINML_TENSOR_DATA_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WINML_TENSOR_DATA_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }

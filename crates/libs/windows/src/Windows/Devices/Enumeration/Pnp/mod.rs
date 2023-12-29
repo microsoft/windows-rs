@@ -461,7 +461,7 @@ impl ::windows_core::RuntimeName for PnpObjectWatcher {
 unsafe impl ::core::marker::Send for PnpObjectWatcher {}
 unsafe impl ::core::marker::Sync for PnpObjectWatcher {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PnpObjectType(pub i32);
 impl PnpObjectType {
     pub const Unknown: Self = Self(0i32);
@@ -473,17 +473,6 @@ impl PnpObjectType {
     pub const AssociationEndpointContainer: Self = Self(6i32);
     pub const AssociationEndpointService: Self = Self(7i32);
     pub const DevicePanel: Self = Self(8i32);
-}
-impl ::core::marker::Copy for PnpObjectType {}
-impl ::core::clone::Clone for PnpObjectType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PnpObjectType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PnpObjectType {
     type TypeKind = ::windows_core::CopyType;

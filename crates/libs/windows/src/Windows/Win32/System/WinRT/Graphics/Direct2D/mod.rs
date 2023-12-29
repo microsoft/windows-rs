@@ -109,19 +109,8 @@ pub const GRAPHICS_EFFECT_PROPERTY_MAPPING_VECTORX: GRAPHICS_EFFECT_PROPERTY_MAP
 pub const GRAPHICS_EFFECT_PROPERTY_MAPPING_VECTORY: GRAPHICS_EFFECT_PROPERTY_MAPPING = GRAPHICS_EFFECT_PROPERTY_MAPPING(3i32);
 pub const GRAPHICS_EFFECT_PROPERTY_MAPPING_VECTORZ: GRAPHICS_EFFECT_PROPERTY_MAPPING = GRAPHICS_EFFECT_PROPERTY_MAPPING(4i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GRAPHICS_EFFECT_PROPERTY_MAPPING(pub i32);
-impl ::core::marker::Copy for GRAPHICS_EFFECT_PROPERTY_MAPPING {}
-impl ::core::clone::Clone for GRAPHICS_EFFECT_PROPERTY_MAPPING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GRAPHICS_EFFECT_PROPERTY_MAPPING {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for GRAPHICS_EFFECT_PROPERTY_MAPPING {
     type TypeKind = ::windows_core::CopyType;
 }

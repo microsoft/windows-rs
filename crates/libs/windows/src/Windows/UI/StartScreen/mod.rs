@@ -1542,22 +1542,11 @@ impl ::windows_core::RuntimeName for VisualElementsRequestedEventArgs {
 unsafe impl ::core::marker::Send for VisualElementsRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for VisualElementsRequestedEventArgs {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ForegroundText(pub i32);
 impl ForegroundText {
     pub const Dark: Self = Self(0i32);
     pub const Light: Self = Self(1i32);
-}
-impl ::core::marker::Copy for ForegroundText {}
-impl ::core::clone::Clone for ForegroundText {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ForegroundText {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ForegroundText {
     type TypeKind = ::windows_core::CopyType;
@@ -1571,22 +1560,11 @@ impl ::windows_core::RuntimeType for ForegroundText {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.StartScreen.ForegroundText;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct JumpListItemKind(pub i32);
 impl JumpListItemKind {
     pub const Arguments: Self = Self(0i32);
     pub const Separator: Self = Self(1i32);
-}
-impl ::core::marker::Copy for JumpListItemKind {}
-impl ::core::clone::Clone for JumpListItemKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for JumpListItemKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for JumpListItemKind {
     type TypeKind = ::windows_core::CopyType;
@@ -1600,23 +1578,12 @@ impl ::windows_core::RuntimeType for JumpListItemKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.StartScreen.JumpListItemKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct JumpListSystemGroupKind(pub i32);
 impl JumpListSystemGroupKind {
     pub const None: Self = Self(0i32);
     pub const Frequent: Self = Self(1i32);
     pub const Recent: Self = Self(2i32);
-}
-impl ::core::marker::Copy for JumpListSystemGroupKind {}
-impl ::core::clone::Clone for JumpListSystemGroupKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for JumpListSystemGroupKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for JumpListSystemGroupKind {
     type TypeKind = ::windows_core::CopyType;
@@ -1630,22 +1597,11 @@ impl ::windows_core::RuntimeType for JumpListSystemGroupKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.StartScreen.JumpListSystemGroupKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TileMixedRealityModelActivationBehavior(pub i32);
 impl TileMixedRealityModelActivationBehavior {
     pub const Default: Self = Self(0i32);
     pub const None: Self = Self(1i32);
-}
-impl ::core::marker::Copy for TileMixedRealityModelActivationBehavior {}
-impl ::core::clone::Clone for TileMixedRealityModelActivationBehavior {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TileMixedRealityModelActivationBehavior {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for TileMixedRealityModelActivationBehavior {
     type TypeKind = ::windows_core::CopyType;
@@ -1659,24 +1615,13 @@ impl ::windows_core::RuntimeType for TileMixedRealityModelActivationBehavior {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.StartScreen.TileMixedRealityModelActivationBehavior;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TileOptions(pub u32);
 impl TileOptions {
     pub const None: Self = Self(0u32);
     pub const ShowNameOnLogo: Self = Self(1u32);
     pub const ShowNameOnWideLogo: Self = Self(2u32);
     pub const CopyOnDeployment: Self = Self(4u32);
-}
-impl ::core::marker::Copy for TileOptions {}
-impl ::core::clone::Clone for TileOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TileOptions {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for TileOptions {
     type TypeKind = ::windows_core::CopyType;
@@ -1723,7 +1668,7 @@ impl ::windows_core::RuntimeType for TileOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.StartScreen.TileOptions;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TileSize(pub i32);
 impl TileSize {
     pub const Default: Self = Self(0i32);
@@ -1734,17 +1679,6 @@ impl TileSize {
     pub const Square310x310: Self = Self(5i32);
     pub const Square71x71: Self = Self(6i32);
     pub const Square44x44: Self = Self(7i32);
-}
-impl ::core::marker::Copy for TileSize {}
-impl ::core::clone::Clone for TileSize {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TileSize {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for TileSize {
     type TypeKind = ::windows_core::CopyType;

@@ -301,19 +301,8 @@ pub const WORDREP_BREAK_EOP: WORDREP_BREAK_TYPE = WORDREP_BREAK_TYPE(2i32);
 pub const WORDREP_BREAK_EOS: WORDREP_BREAK_TYPE = WORDREP_BREAK_TYPE(1i32);
 pub const WORDREP_BREAK_EOW: WORDREP_BREAK_TYPE = WORDREP_BREAK_TYPE(0i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CHUNKSTATE(pub i32);
-impl ::core::marker::Copy for CHUNKSTATE {}
-impl ::core::clone::Clone for CHUNKSTATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CHUNKSTATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CHUNKSTATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -323,19 +312,8 @@ impl ::core::fmt::Debug for CHUNKSTATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CHUNK_BREAKTYPE(pub i32);
-impl ::core::marker::Copy for CHUNK_BREAKTYPE {}
-impl ::core::clone::Clone for CHUNK_BREAKTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CHUNK_BREAKTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CHUNK_BREAKTYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -345,19 +323,8 @@ impl ::core::fmt::Debug for CHUNK_BREAKTYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DBKINDENUM(pub i32);
-impl ::core::marker::Copy for DBKINDENUM {}
-impl ::core::clone::Clone for DBKINDENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DBKINDENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DBKINDENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -367,19 +334,8 @@ impl ::core::fmt::Debug for DBKINDENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct IFILTER_FLAGS(pub i32);
-impl ::core::marker::Copy for IFILTER_FLAGS {}
-impl ::core::clone::Clone for IFILTER_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for IFILTER_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for IFILTER_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -389,19 +345,8 @@ impl ::core::fmt::Debug for IFILTER_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct IFILTER_INIT(pub i32);
-impl ::core::marker::Copy for IFILTER_INIT {}
-impl ::core::clone::Clone for IFILTER_INIT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for IFILTER_INIT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for IFILTER_INIT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -411,19 +356,8 @@ impl ::core::fmt::Debug for IFILTER_INIT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WORDREP_BREAK_TYPE(pub i32);
-impl ::core::marker::Copy for WORDREP_BREAK_TYPE {}
-impl ::core::clone::Clone for WORDREP_BREAK_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WORDREP_BREAK_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WORDREP_BREAK_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }

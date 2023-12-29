@@ -2710,23 +2710,12 @@ pub const WM_INTERIM: u32 = 268u32;
 pub const WM_WNT_CONVERTREQUESTEX: u32 = 265u32;
 pub const WinStationInformation: WINSTATIONINFOCLASS = WINSTATIONINFOCLASS(8i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CameraUIControlCaptureMode(pub i32);
 impl CameraUIControlCaptureMode {
     pub const PhotoOrVideo: Self = Self(0i32);
     pub const Photo: Self = Self(1i32);
     pub const Video: Self = Self(2i32);
-}
-impl ::core::marker::Copy for CameraUIControlCaptureMode {}
-impl ::core::clone::Clone for CameraUIControlCaptureMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CameraUIControlCaptureMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CameraUIControlCaptureMode {
     type TypeKind = ::windows_core::CopyType;
@@ -2737,22 +2726,11 @@ impl ::core::fmt::Debug for CameraUIControlCaptureMode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CameraUIControlLinearSelectionMode(pub i32);
 impl CameraUIControlLinearSelectionMode {
     pub const Single: Self = Self(0i32);
     pub const Multiple: Self = Self(1i32);
-}
-impl ::core::marker::Copy for CameraUIControlLinearSelectionMode {}
-impl ::core::clone::Clone for CameraUIControlLinearSelectionMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CameraUIControlLinearSelectionMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CameraUIControlLinearSelectionMode {
     type TypeKind = ::windows_core::CopyType;
@@ -2763,22 +2741,11 @@ impl ::core::fmt::Debug for CameraUIControlLinearSelectionMode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CameraUIControlMode(pub i32);
 impl CameraUIControlMode {
     pub const Browse: Self = Self(0i32);
     pub const Linear: Self = Self(1i32);
-}
-impl ::core::marker::Copy for CameraUIControlMode {}
-impl ::core::clone::Clone for CameraUIControlMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CameraUIControlMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CameraUIControlMode {
     type TypeKind = ::windows_core::CopyType;
@@ -2789,23 +2756,12 @@ impl ::core::fmt::Debug for CameraUIControlMode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CameraUIControlPhotoFormat(pub i32);
 impl CameraUIControlPhotoFormat {
     pub const Jpeg: Self = Self(0i32);
     pub const Png: Self = Self(1i32);
     pub const JpegXR: Self = Self(2i32);
-}
-impl ::core::marker::Copy for CameraUIControlPhotoFormat {}
-impl ::core::clone::Clone for CameraUIControlPhotoFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CameraUIControlPhotoFormat {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CameraUIControlPhotoFormat {
     type TypeKind = ::windows_core::CopyType;
@@ -2816,22 +2772,11 @@ impl ::core::fmt::Debug for CameraUIControlPhotoFormat {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CameraUIControlVideoFormat(pub i32);
 impl CameraUIControlVideoFormat {
     pub const Mp4: Self = Self(0i32);
     pub const Wmv: Self = Self(1i32);
-}
-impl ::core::marker::Copy for CameraUIControlVideoFormat {}
-impl ::core::clone::Clone for CameraUIControlVideoFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CameraUIControlVideoFormat {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CameraUIControlVideoFormat {
     type TypeKind = ::windows_core::CopyType;
@@ -2842,22 +2787,11 @@ impl ::core::fmt::Debug for CameraUIControlVideoFormat {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CameraUIControlViewType(pub i32);
 impl CameraUIControlViewType {
     pub const SingleItem: Self = Self(0i32);
     pub const ItemList: Self = Self(1i32);
-}
-impl ::core::marker::Copy for CameraUIControlViewType {}
-impl ::core::clone::Clone for CameraUIControlViewType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CameraUIControlViewType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CameraUIControlViewType {
     type TypeKind = ::windows_core::CopyType;
@@ -2868,19 +2802,8 @@ impl ::core::fmt::Debug for CameraUIControlViewType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DECISION_LOCATION(pub i32);
-impl ::core::marker::Copy for DECISION_LOCATION {}
-impl ::core::clone::Clone for DECISION_LOCATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DECISION_LOCATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DECISION_LOCATION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2890,19 +2813,8 @@ impl ::core::fmt::Debug for DECISION_LOCATION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FEATURE_CHANGE_TIME(pub i32);
-impl ::core::marker::Copy for FEATURE_CHANGE_TIME {}
-impl ::core::clone::Clone for FEATURE_CHANGE_TIME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FEATURE_CHANGE_TIME {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FEATURE_CHANGE_TIME {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2912,19 +2824,8 @@ impl ::core::fmt::Debug for FEATURE_CHANGE_TIME {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FEATURE_ENABLED_STATE(pub i32);
-impl ::core::marker::Copy for FEATURE_ENABLED_STATE {}
-impl ::core::clone::Clone for FEATURE_ENABLED_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FEATURE_ENABLED_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FEATURE_ENABLED_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2934,19 +2835,8 @@ impl ::core::fmt::Debug for FEATURE_ENABLED_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FILE_INFORMATION_CLASS(pub i32);
-impl ::core::marker::Copy for FILE_INFORMATION_CLASS {}
-impl ::core::clone::Clone for FILE_INFORMATION_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FILE_INFORMATION_CLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FILE_INFORMATION_CLASS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2956,19 +2846,8 @@ impl ::core::fmt::Debug for FILE_INFORMATION_CLASS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TDIENTITY_ENTITY_TYPE(pub u32);
-impl ::core::marker::Copy for TDIENTITY_ENTITY_TYPE {}
-impl ::core::clone::Clone for TDIENTITY_ENTITY_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TDIENTITY_ENTITY_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TDIENTITY_ENTITY_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2978,19 +2857,8 @@ impl ::core::fmt::Debug for TDIENTITY_ENTITY_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TDI_TL_IO_CONTROL_TYPE(pub i32);
-impl ::core::marker::Copy for TDI_TL_IO_CONTROL_TYPE {}
-impl ::core::clone::Clone for TDI_TL_IO_CONTROL_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TDI_TL_IO_CONTROL_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TDI_TL_IO_CONTROL_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3000,19 +2868,8 @@ impl ::core::fmt::Debug for TDI_TL_IO_CONTROL_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VALUENAME(pub i32);
-impl ::core::marker::Copy for VALUENAME {}
-impl ::core::clone::Clone for VALUENAME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VALUENAME {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VALUENAME {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3022,19 +2879,8 @@ impl ::core::fmt::Debug for VALUENAME {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WINSTATIONINFOCLASS(pub i32);
-impl ::core::marker::Copy for WINSTATIONINFOCLASS {}
-impl ::core::clone::Clone for WINSTATIONINFOCLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WINSTATIONINFOCLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WINSTATIONINFOCLASS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3044,19 +2890,8 @@ impl ::core::fmt::Debug for WINSTATIONINFOCLASS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WLDP_EXECUTION_EVALUATION_OPTIONS(pub i32);
-impl ::core::marker::Copy for WLDP_EXECUTION_EVALUATION_OPTIONS {}
-impl ::core::clone::Clone for WLDP_EXECUTION_EVALUATION_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WLDP_EXECUTION_EVALUATION_OPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WLDP_EXECUTION_EVALUATION_OPTIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3099,19 +2934,8 @@ impl ::core::ops::Not for WLDP_EXECUTION_EVALUATION_OPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WLDP_EXECUTION_POLICY(pub i32);
-impl ::core::marker::Copy for WLDP_EXECUTION_POLICY {}
-impl ::core::clone::Clone for WLDP_EXECUTION_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WLDP_EXECUTION_POLICY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WLDP_EXECUTION_POLICY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3121,19 +2945,8 @@ impl ::core::fmt::Debug for WLDP_EXECUTION_POLICY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WLDP_HOST(pub i32);
-impl ::core::marker::Copy for WLDP_HOST {}
-impl ::core::clone::Clone for WLDP_HOST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WLDP_HOST {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WLDP_HOST {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3143,19 +2956,8 @@ impl ::core::fmt::Debug for WLDP_HOST {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WLDP_HOST_ID(pub i32);
-impl ::core::marker::Copy for WLDP_HOST_ID {}
-impl ::core::clone::Clone for WLDP_HOST_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WLDP_HOST_ID {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WLDP_HOST_ID {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3165,19 +2967,8 @@ impl ::core::fmt::Debug for WLDP_HOST_ID {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WLDP_KEY(pub i32);
-impl ::core::marker::Copy for WLDP_KEY {}
-impl ::core::clone::Clone for WLDP_KEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WLDP_KEY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WLDP_KEY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3187,19 +2978,8 @@ impl ::core::fmt::Debug for WLDP_KEY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WLDP_POLICY_SETTING(pub i32);
-impl ::core::marker::Copy for WLDP_POLICY_SETTING {}
-impl ::core::clone::Clone for WLDP_POLICY_SETTING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WLDP_POLICY_SETTING {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WLDP_POLICY_SETTING {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3209,19 +2989,8 @@ impl ::core::fmt::Debug for WLDP_POLICY_SETTING {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WLDP_WINDOWS_LOCKDOWN_MODE(pub i32);
-impl ::core::marker::Copy for WLDP_WINDOWS_LOCKDOWN_MODE {}
-impl ::core::clone::Clone for WLDP_WINDOWS_LOCKDOWN_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WLDP_WINDOWS_LOCKDOWN_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WLDP_WINDOWS_LOCKDOWN_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3231,19 +3000,8 @@ impl ::core::fmt::Debug for WLDP_WINDOWS_LOCKDOWN_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WLDP_WINDOWS_LOCKDOWN_RESTRICTION(pub i32);
-impl ::core::marker::Copy for WLDP_WINDOWS_LOCKDOWN_RESTRICTION {}
-impl ::core::clone::Clone for WLDP_WINDOWS_LOCKDOWN_RESTRICTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WLDP_WINDOWS_LOCKDOWN_RESTRICTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WLDP_WINDOWS_LOCKDOWN_RESTRICTION {
     type TypeKind = ::windows_core::CopyType;
 }

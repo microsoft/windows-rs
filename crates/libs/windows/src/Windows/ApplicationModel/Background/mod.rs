@@ -5104,24 +5104,13 @@ impl ::windows_core::CanTryInto<IBackgroundTrigger> for WiFiOnDemandHotspotUpdat
 unsafe impl ::core::marker::Send for WiFiOnDemandHotspotUpdateMetadataTrigger {}
 unsafe impl ::core::marker::Sync for WiFiOnDemandHotspotUpdateMetadataTrigger {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AlarmAccessStatus(pub i32);
 impl AlarmAccessStatus {
     pub const Unspecified: Self = Self(0i32);
     pub const AllowedWithWakeupCapability: Self = Self(1i32);
     pub const AllowedWithoutWakeupCapability: Self = Self(2i32);
     pub const Denied: Self = Self(3i32);
-}
-impl ::core::marker::Copy for AlarmAccessStatus {}
-impl ::core::clone::Clone for AlarmAccessStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AlarmAccessStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AlarmAccessStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -5135,24 +5124,13 @@ impl ::windows_core::RuntimeType for AlarmAccessStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.AlarmAccessStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ApplicationTriggerResult(pub i32);
 impl ApplicationTriggerResult {
     pub const Allowed: Self = Self(0i32);
     pub const CurrentlyRunning: Self = Self(1i32);
     pub const DisabledByPolicy: Self = Self(2i32);
     pub const UnknownError: Self = Self(3i32);
-}
-impl ::core::marker::Copy for ApplicationTriggerResult {}
-impl ::core::clone::Clone for ApplicationTriggerResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ApplicationTriggerResult {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ApplicationTriggerResult {
     type TypeKind = ::windows_core::CopyType;
@@ -5166,22 +5144,11 @@ impl ::windows_core::RuntimeType for ApplicationTriggerResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.ApplicationTriggerResult;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BackgroundAccessRequestKind(pub i32);
 impl BackgroundAccessRequestKind {
     pub const AlwaysAllowed: Self = Self(0i32);
     pub const AllowedSubjectToSystemPolicy: Self = Self(1i32);
-}
-impl ::core::marker::Copy for BackgroundAccessRequestKind {}
-impl ::core::clone::Clone for BackgroundAccessRequestKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BackgroundAccessRequestKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for BackgroundAccessRequestKind {
     type TypeKind = ::windows_core::CopyType;
@@ -5195,7 +5162,7 @@ impl ::windows_core::RuntimeType for BackgroundAccessRequestKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.BackgroundAccessRequestKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BackgroundAccessStatus(pub i32);
 impl BackgroundAccessStatus {
     pub const Unspecified: Self = Self(0i32);
@@ -5206,17 +5173,6 @@ impl BackgroundAccessStatus {
     pub const AllowedSubjectToSystemPolicy: Self = Self(5i32);
     pub const DeniedBySystemPolicy: Self = Self(6i32);
     pub const DeniedByUser: Self = Self(7i32);
-}
-impl ::core::marker::Copy for BackgroundAccessStatus {}
-impl ::core::clone::Clone for BackgroundAccessStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BackgroundAccessStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for BackgroundAccessStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -5230,7 +5186,7 @@ impl ::windows_core::RuntimeType for BackgroundAccessStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.BackgroundAccessStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BackgroundTaskCancellationReason(pub i32);
 impl BackgroundTaskCancellationReason {
     pub const Abort: Self = Self(0i32);
@@ -5246,17 +5202,6 @@ impl BackgroundTaskCancellationReason {
     pub const ResourceRevocation: Self = Self(10i32);
     pub const EnergySaver: Self = Self(11i32);
 }
-impl ::core::marker::Copy for BackgroundTaskCancellationReason {}
-impl ::core::clone::Clone for BackgroundTaskCancellationReason {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BackgroundTaskCancellationReason {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for BackgroundTaskCancellationReason {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5269,23 +5214,12 @@ impl ::windows_core::RuntimeType for BackgroundTaskCancellationReason {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.BackgroundTaskCancellationReason;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BackgroundTaskThrottleCounter(pub i32);
 impl BackgroundTaskThrottleCounter {
     pub const All: Self = Self(0i32);
     pub const Cpu: Self = Self(1i32);
     pub const Network: Self = Self(2i32);
-}
-impl ::core::marker::Copy for BackgroundTaskThrottleCounter {}
-impl ::core::clone::Clone for BackgroundTaskThrottleCounter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BackgroundTaskThrottleCounter {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for BackgroundTaskThrottleCounter {
     type TypeKind = ::windows_core::CopyType;
@@ -5299,23 +5233,12 @@ impl ::windows_core::RuntimeType for BackgroundTaskThrottleCounter {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.BackgroundTaskThrottleCounter;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BackgroundWorkCostValue(pub i32);
 impl BackgroundWorkCostValue {
     pub const Low: Self = Self(0i32);
     pub const Medium: Self = Self(1i32);
     pub const High: Self = Self(2i32);
-}
-impl ::core::marker::Copy for BackgroundWorkCostValue {}
-impl ::core::clone::Clone for BackgroundWorkCostValue {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BackgroundWorkCostValue {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for BackgroundWorkCostValue {
     type TypeKind = ::windows_core::CopyType;
@@ -5329,22 +5252,11 @@ impl ::windows_core::RuntimeType for BackgroundWorkCostValue {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.BackgroundWorkCostValue;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CustomSystemEventTriggerRecurrence(pub i32);
 impl CustomSystemEventTriggerRecurrence {
     pub const Once: Self = Self(0i32);
     pub const Always: Self = Self(1i32);
-}
-impl ::core::marker::Copy for CustomSystemEventTriggerRecurrence {}
-impl ::core::clone::Clone for CustomSystemEventTriggerRecurrence {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CustomSystemEventTriggerRecurrence {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CustomSystemEventTriggerRecurrence {
     type TypeKind = ::windows_core::CopyType;
@@ -5358,24 +5270,13 @@ impl ::windows_core::RuntimeType for CustomSystemEventTriggerRecurrence {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.CustomSystemEventTriggerRecurrence;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DeviceTriggerResult(pub i32);
 impl DeviceTriggerResult {
     pub const Allowed: Self = Self(0i32);
     pub const DeniedByUser: Self = Self(1i32);
     pub const DeniedBySystem: Self = Self(2i32);
     pub const LowBattery: Self = Self(3i32);
-}
-impl ::core::marker::Copy for DeviceTriggerResult {}
-impl ::core::clone::Clone for DeviceTriggerResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DeviceTriggerResult {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DeviceTriggerResult {
     type TypeKind = ::windows_core::CopyType;
@@ -5389,21 +5290,10 @@ impl ::windows_core::RuntimeType for DeviceTriggerResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.DeviceTriggerResult;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct LocationTriggerType(pub i32);
 impl LocationTriggerType {
     pub const Geofence: Self = Self(0i32);
-}
-impl ::core::marker::Copy for LocationTriggerType {}
-impl ::core::clone::Clone for LocationTriggerType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for LocationTriggerType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for LocationTriggerType {
     type TypeKind = ::windows_core::CopyType;
@@ -5417,24 +5307,13 @@ impl ::windows_core::RuntimeType for LocationTriggerType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.LocationTriggerType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MediaProcessingTriggerResult(pub i32);
 impl MediaProcessingTriggerResult {
     pub const Allowed: Self = Self(0i32);
     pub const CurrentlyRunning: Self = Self(1i32);
     pub const DisabledByPolicy: Self = Self(2i32);
     pub const UnknownError: Self = Self(3i32);
-}
-impl ::core::marker::Copy for MediaProcessingTriggerResult {}
-impl ::core::clone::Clone for MediaProcessingTriggerResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MediaProcessingTriggerResult {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MediaProcessingTriggerResult {
     type TypeKind = ::windows_core::CopyType;
@@ -5448,7 +5327,7 @@ impl ::windows_core::RuntimeType for MediaProcessingTriggerResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.MediaProcessingTriggerResult;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SystemConditionType(pub i32);
 impl SystemConditionType {
     pub const Invalid: Self = Self(0i32);
@@ -5460,17 +5339,6 @@ impl SystemConditionType {
     pub const SessionDisconnected: Self = Self(6i32);
     pub const FreeNetworkAvailable: Self = Self(7i32);
     pub const BackgroundWorkCostNotHigh: Self = Self(8i32);
-}
-impl ::core::marker::Copy for SystemConditionType {}
-impl ::core::clone::Clone for SystemConditionType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SystemConditionType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SystemConditionType {
     type TypeKind = ::windows_core::CopyType;
@@ -5484,7 +5352,7 @@ impl ::windows_core::RuntimeType for SystemConditionType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.SystemConditionType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SystemTriggerType(pub i32);
 impl SystemTriggerType {
     pub const Invalid: Self = Self(0i32);
@@ -5503,17 +5371,6 @@ impl SystemTriggerType {
     pub const BackgroundWorkCostChange: Self = Self(13i32);
     pub const PowerStateChange: Self = Self(14i32);
     pub const DefaultSignInAccountChange: Self = Self(15i32);
-}
-impl ::core::marker::Copy for SystemTriggerType {}
-impl ::core::clone::Clone for SystemTriggerType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SystemTriggerType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SystemTriggerType {
     type TypeKind = ::windows_core::CopyType;

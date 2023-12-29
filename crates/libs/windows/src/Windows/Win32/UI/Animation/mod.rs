@@ -1694,19 +1694,8 @@ pub const UI_ANIMATION_TIMER_CLIENT_IDLE: UI_ANIMATION_TIMER_CLIENT_STATUS = UI_
 pub const UI_ANIMATION_UPDATE_NO_CHANGE: UI_ANIMATION_UPDATE_RESULT = UI_ANIMATION_UPDATE_RESULT(0i32);
 pub const UI_ANIMATION_UPDATE_VARIABLES_CHANGED: UI_ANIMATION_UPDATE_RESULT = UI_ANIMATION_UPDATE_RESULT(1i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UI_ANIMATION_DEPENDENCIES(pub i32);
-impl ::core::marker::Copy for UI_ANIMATION_DEPENDENCIES {}
-impl ::core::clone::Clone for UI_ANIMATION_DEPENDENCIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UI_ANIMATION_DEPENDENCIES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for UI_ANIMATION_DEPENDENCIES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1749,19 +1738,8 @@ impl ::core::ops::Not for UI_ANIMATION_DEPENDENCIES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UI_ANIMATION_IDLE_BEHAVIOR(pub i32);
-impl ::core::marker::Copy for UI_ANIMATION_IDLE_BEHAVIOR {}
-impl ::core::clone::Clone for UI_ANIMATION_IDLE_BEHAVIOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UI_ANIMATION_IDLE_BEHAVIOR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for UI_ANIMATION_IDLE_BEHAVIOR {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1771,19 +1749,8 @@ impl ::core::fmt::Debug for UI_ANIMATION_IDLE_BEHAVIOR {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UI_ANIMATION_MANAGER_STATUS(pub i32);
-impl ::core::marker::Copy for UI_ANIMATION_MANAGER_STATUS {}
-impl ::core::clone::Clone for UI_ANIMATION_MANAGER_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UI_ANIMATION_MANAGER_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for UI_ANIMATION_MANAGER_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1793,19 +1760,8 @@ impl ::core::fmt::Debug for UI_ANIMATION_MANAGER_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UI_ANIMATION_MODE(pub i32);
-impl ::core::marker::Copy for UI_ANIMATION_MODE {}
-impl ::core::clone::Clone for UI_ANIMATION_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UI_ANIMATION_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for UI_ANIMATION_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1815,19 +1771,8 @@ impl ::core::fmt::Debug for UI_ANIMATION_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UI_ANIMATION_PRIORITY_EFFECT(pub i32);
-impl ::core::marker::Copy for UI_ANIMATION_PRIORITY_EFFECT {}
-impl ::core::clone::Clone for UI_ANIMATION_PRIORITY_EFFECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UI_ANIMATION_PRIORITY_EFFECT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for UI_ANIMATION_PRIORITY_EFFECT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1837,19 +1782,8 @@ impl ::core::fmt::Debug for UI_ANIMATION_PRIORITY_EFFECT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UI_ANIMATION_REPEAT_MODE(pub i32);
-impl ::core::marker::Copy for UI_ANIMATION_REPEAT_MODE {}
-impl ::core::clone::Clone for UI_ANIMATION_REPEAT_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UI_ANIMATION_REPEAT_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for UI_ANIMATION_REPEAT_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1859,19 +1793,8 @@ impl ::core::fmt::Debug for UI_ANIMATION_REPEAT_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UI_ANIMATION_ROUNDING_MODE(pub i32);
-impl ::core::marker::Copy for UI_ANIMATION_ROUNDING_MODE {}
-impl ::core::clone::Clone for UI_ANIMATION_ROUNDING_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UI_ANIMATION_ROUNDING_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for UI_ANIMATION_ROUNDING_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1881,19 +1804,8 @@ impl ::core::fmt::Debug for UI_ANIMATION_ROUNDING_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UI_ANIMATION_SCHEDULING_RESULT(pub i32);
-impl ::core::marker::Copy for UI_ANIMATION_SCHEDULING_RESULT {}
-impl ::core::clone::Clone for UI_ANIMATION_SCHEDULING_RESULT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UI_ANIMATION_SCHEDULING_RESULT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for UI_ANIMATION_SCHEDULING_RESULT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1903,19 +1815,8 @@ impl ::core::fmt::Debug for UI_ANIMATION_SCHEDULING_RESULT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UI_ANIMATION_SLOPE(pub i32);
-impl ::core::marker::Copy for UI_ANIMATION_SLOPE {}
-impl ::core::clone::Clone for UI_ANIMATION_SLOPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UI_ANIMATION_SLOPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for UI_ANIMATION_SLOPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1925,19 +1826,8 @@ impl ::core::fmt::Debug for UI_ANIMATION_SLOPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UI_ANIMATION_STORYBOARD_STATUS(pub i32);
-impl ::core::marker::Copy for UI_ANIMATION_STORYBOARD_STATUS {}
-impl ::core::clone::Clone for UI_ANIMATION_STORYBOARD_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UI_ANIMATION_STORYBOARD_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for UI_ANIMATION_STORYBOARD_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1947,19 +1837,8 @@ impl ::core::fmt::Debug for UI_ANIMATION_STORYBOARD_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UI_ANIMATION_TIMER_CLIENT_STATUS(pub i32);
-impl ::core::marker::Copy for UI_ANIMATION_TIMER_CLIENT_STATUS {}
-impl ::core::clone::Clone for UI_ANIMATION_TIMER_CLIENT_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UI_ANIMATION_TIMER_CLIENT_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for UI_ANIMATION_TIMER_CLIENT_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1969,19 +1848,8 @@ impl ::core::fmt::Debug for UI_ANIMATION_TIMER_CLIENT_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UI_ANIMATION_UPDATE_RESULT(pub i32);
-impl ::core::marker::Copy for UI_ANIMATION_UPDATE_RESULT {}
-impl ::core::clone::Clone for UI_ANIMATION_UPDATE_RESULT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UI_ANIMATION_UPDATE_RESULT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for UI_ANIMATION_UPDATE_RESULT {
     type TypeKind = ::windows_core::CopyType;
 }

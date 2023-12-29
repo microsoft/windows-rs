@@ -2123,19 +2123,8 @@ pub const MbnConnectionProfileManager: ::windows_core::GUID = ::windows_core::GU
 pub const MbnDeviceServicesManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2269daa3_2a9f_4165_a501_ce00a6f7a75b);
 pub const MbnInterfaceManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbdfee05b_4418_11dd_90ed_001c257ccff1);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MBN_ACTIVATION_STATE(pub i32);
-impl ::core::marker::Copy for MBN_ACTIVATION_STATE {}
-impl ::core::clone::Clone for MBN_ACTIVATION_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MBN_ACTIVATION_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MBN_ACTIVATION_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2145,19 +2134,8 @@ impl ::core::fmt::Debug for MBN_ACTIVATION_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MBN_AUTH_PROTOCOL(pub i32);
-impl ::core::marker::Copy for MBN_AUTH_PROTOCOL {}
-impl ::core::clone::Clone for MBN_AUTH_PROTOCOL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MBN_AUTH_PROTOCOL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MBN_AUTH_PROTOCOL {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2167,19 +2145,8 @@ impl ::core::fmt::Debug for MBN_AUTH_PROTOCOL {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MBN_BAND_CLASS(pub i32);
-impl ::core::marker::Copy for MBN_BAND_CLASS {}
-impl ::core::clone::Clone for MBN_BAND_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MBN_BAND_CLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MBN_BAND_CLASS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2189,19 +2156,8 @@ impl ::core::fmt::Debug for MBN_BAND_CLASS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MBN_CELLULAR_CLASS(pub i32);
-impl ::core::marker::Copy for MBN_CELLULAR_CLASS {}
-impl ::core::clone::Clone for MBN_CELLULAR_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MBN_CELLULAR_CLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MBN_CELLULAR_CLASS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2211,19 +2167,8 @@ impl ::core::fmt::Debug for MBN_CELLULAR_CLASS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MBN_COMPRESSION(pub i32);
-impl ::core::marker::Copy for MBN_COMPRESSION {}
-impl ::core::clone::Clone for MBN_COMPRESSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MBN_COMPRESSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MBN_COMPRESSION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2233,19 +2178,8 @@ impl ::core::fmt::Debug for MBN_COMPRESSION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MBN_CONNECTION_MODE(pub i32);
-impl ::core::marker::Copy for MBN_CONNECTION_MODE {}
-impl ::core::clone::Clone for MBN_CONNECTION_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MBN_CONNECTION_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MBN_CONNECTION_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2255,19 +2189,8 @@ impl ::core::fmt::Debug for MBN_CONNECTION_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MBN_CONTEXT_CONSTANTS(pub i32);
-impl ::core::marker::Copy for MBN_CONTEXT_CONSTANTS {}
-impl ::core::clone::Clone for MBN_CONTEXT_CONSTANTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MBN_CONTEXT_CONSTANTS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MBN_CONTEXT_CONSTANTS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2277,19 +2200,8 @@ impl ::core::fmt::Debug for MBN_CONTEXT_CONSTANTS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MBN_CONTEXT_TYPE(pub i32);
-impl ::core::marker::Copy for MBN_CONTEXT_TYPE {}
-impl ::core::clone::Clone for MBN_CONTEXT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MBN_CONTEXT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MBN_CONTEXT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2299,19 +2211,8 @@ impl ::core::fmt::Debug for MBN_CONTEXT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MBN_CTRL_CAPS(pub i32);
-impl ::core::marker::Copy for MBN_CTRL_CAPS {}
-impl ::core::clone::Clone for MBN_CTRL_CAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MBN_CTRL_CAPS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MBN_CTRL_CAPS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2321,19 +2222,8 @@ impl ::core::fmt::Debug for MBN_CTRL_CAPS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MBN_DATA_CLASS(pub i32);
-impl ::core::marker::Copy for MBN_DATA_CLASS {}
-impl ::core::clone::Clone for MBN_DATA_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MBN_DATA_CLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MBN_DATA_CLASS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2343,19 +2233,8 @@ impl ::core::fmt::Debug for MBN_DATA_CLASS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MBN_DEVICE_SERVICES_INTERFACE_STATE(pub i32);
-impl ::core::marker::Copy for MBN_DEVICE_SERVICES_INTERFACE_STATE {}
-impl ::core::clone::Clone for MBN_DEVICE_SERVICES_INTERFACE_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MBN_DEVICE_SERVICES_INTERFACE_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MBN_DEVICE_SERVICES_INTERFACE_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2365,19 +2244,8 @@ impl ::core::fmt::Debug for MBN_DEVICE_SERVICES_INTERFACE_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MBN_DEVICE_SERVICE_SESSIONS_STATE(pub i32);
-impl ::core::marker::Copy for MBN_DEVICE_SERVICE_SESSIONS_STATE {}
-impl ::core::clone::Clone for MBN_DEVICE_SERVICE_SESSIONS_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MBN_DEVICE_SERVICE_SESSIONS_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MBN_DEVICE_SERVICE_SESSIONS_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2387,19 +2255,8 @@ impl ::core::fmt::Debug for MBN_DEVICE_SERVICE_SESSIONS_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MBN_INTERFACE_CAPS_CONSTANTS(pub i32);
-impl ::core::marker::Copy for MBN_INTERFACE_CAPS_CONSTANTS {}
-impl ::core::clone::Clone for MBN_INTERFACE_CAPS_CONSTANTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MBN_INTERFACE_CAPS_CONSTANTS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MBN_INTERFACE_CAPS_CONSTANTS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2409,19 +2266,8 @@ impl ::core::fmt::Debug for MBN_INTERFACE_CAPS_CONSTANTS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MBN_MSG_STATUS(pub i32);
-impl ::core::marker::Copy for MBN_MSG_STATUS {}
-impl ::core::clone::Clone for MBN_MSG_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MBN_MSG_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MBN_MSG_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2431,19 +2277,8 @@ impl ::core::fmt::Debug for MBN_MSG_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MBN_PIN_CONSTANTS(pub i32);
-impl ::core::marker::Copy for MBN_PIN_CONSTANTS {}
-impl ::core::clone::Clone for MBN_PIN_CONSTANTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MBN_PIN_CONSTANTS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MBN_PIN_CONSTANTS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2453,19 +2288,8 @@ impl ::core::fmt::Debug for MBN_PIN_CONSTANTS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MBN_PIN_FORMAT(pub i32);
-impl ::core::marker::Copy for MBN_PIN_FORMAT {}
-impl ::core::clone::Clone for MBN_PIN_FORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MBN_PIN_FORMAT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MBN_PIN_FORMAT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2475,19 +2299,8 @@ impl ::core::fmt::Debug for MBN_PIN_FORMAT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MBN_PIN_MODE(pub i32);
-impl ::core::marker::Copy for MBN_PIN_MODE {}
-impl ::core::clone::Clone for MBN_PIN_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MBN_PIN_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MBN_PIN_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2497,19 +2310,8 @@ impl ::core::fmt::Debug for MBN_PIN_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MBN_PIN_STATE(pub i32);
-impl ::core::marker::Copy for MBN_PIN_STATE {}
-impl ::core::clone::Clone for MBN_PIN_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MBN_PIN_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MBN_PIN_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2519,19 +2321,8 @@ impl ::core::fmt::Debug for MBN_PIN_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MBN_PIN_TYPE(pub i32);
-impl ::core::marker::Copy for MBN_PIN_TYPE {}
-impl ::core::clone::Clone for MBN_PIN_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MBN_PIN_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MBN_PIN_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2541,19 +2332,8 @@ impl ::core::fmt::Debug for MBN_PIN_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MBN_PROVIDER_CONSTANTS(pub i32);
-impl ::core::marker::Copy for MBN_PROVIDER_CONSTANTS {}
-impl ::core::clone::Clone for MBN_PROVIDER_CONSTANTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MBN_PROVIDER_CONSTANTS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MBN_PROVIDER_CONSTANTS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2563,19 +2343,8 @@ impl ::core::fmt::Debug for MBN_PROVIDER_CONSTANTS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MBN_PROVIDER_STATE(pub i32);
-impl ::core::marker::Copy for MBN_PROVIDER_STATE {}
-impl ::core::clone::Clone for MBN_PROVIDER_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MBN_PROVIDER_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MBN_PROVIDER_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2585,19 +2354,8 @@ impl ::core::fmt::Debug for MBN_PROVIDER_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MBN_RADIO(pub i32);
-impl ::core::marker::Copy for MBN_RADIO {}
-impl ::core::clone::Clone for MBN_RADIO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MBN_RADIO {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MBN_RADIO {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2607,19 +2365,8 @@ impl ::core::fmt::Debug for MBN_RADIO {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MBN_READY_STATE(pub i32);
-impl ::core::marker::Copy for MBN_READY_STATE {}
-impl ::core::clone::Clone for MBN_READY_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MBN_READY_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MBN_READY_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2629,19 +2376,8 @@ impl ::core::fmt::Debug for MBN_READY_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MBN_REGISTER_MODE(pub i32);
-impl ::core::marker::Copy for MBN_REGISTER_MODE {}
-impl ::core::clone::Clone for MBN_REGISTER_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MBN_REGISTER_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MBN_REGISTER_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2651,19 +2387,8 @@ impl ::core::fmt::Debug for MBN_REGISTER_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MBN_REGISTER_STATE(pub i32);
-impl ::core::marker::Copy for MBN_REGISTER_STATE {}
-impl ::core::clone::Clone for MBN_REGISTER_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MBN_REGISTER_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MBN_REGISTER_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2673,19 +2398,8 @@ impl ::core::fmt::Debug for MBN_REGISTER_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MBN_REGISTRATION_CONSTANTS(pub i32);
-impl ::core::marker::Copy for MBN_REGISTRATION_CONSTANTS {}
-impl ::core::clone::Clone for MBN_REGISTRATION_CONSTANTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MBN_REGISTRATION_CONSTANTS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MBN_REGISTRATION_CONSTANTS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2695,19 +2409,8 @@ impl ::core::fmt::Debug for MBN_REGISTRATION_CONSTANTS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MBN_SIGNAL_CONSTANTS(pub i32);
-impl ::core::marker::Copy for MBN_SIGNAL_CONSTANTS {}
-impl ::core::clone::Clone for MBN_SIGNAL_CONSTANTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MBN_SIGNAL_CONSTANTS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MBN_SIGNAL_CONSTANTS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2717,19 +2420,8 @@ impl ::core::fmt::Debug for MBN_SIGNAL_CONSTANTS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MBN_SMS_CAPS(pub i32);
-impl ::core::marker::Copy for MBN_SMS_CAPS {}
-impl ::core::clone::Clone for MBN_SMS_CAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MBN_SMS_CAPS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MBN_SMS_CAPS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2739,19 +2431,8 @@ impl ::core::fmt::Debug for MBN_SMS_CAPS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MBN_SMS_CDMA_ENCODING(pub i32);
-impl ::core::marker::Copy for MBN_SMS_CDMA_ENCODING {}
-impl ::core::clone::Clone for MBN_SMS_CDMA_ENCODING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MBN_SMS_CDMA_ENCODING {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MBN_SMS_CDMA_ENCODING {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2761,19 +2442,8 @@ impl ::core::fmt::Debug for MBN_SMS_CDMA_ENCODING {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MBN_SMS_CDMA_LANG(pub i32);
-impl ::core::marker::Copy for MBN_SMS_CDMA_LANG {}
-impl ::core::clone::Clone for MBN_SMS_CDMA_LANG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MBN_SMS_CDMA_LANG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MBN_SMS_CDMA_LANG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2783,19 +2453,8 @@ impl ::core::fmt::Debug for MBN_SMS_CDMA_LANG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MBN_SMS_FLAG(pub i32);
-impl ::core::marker::Copy for MBN_SMS_FLAG {}
-impl ::core::clone::Clone for MBN_SMS_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MBN_SMS_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MBN_SMS_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2805,19 +2464,8 @@ impl ::core::fmt::Debug for MBN_SMS_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MBN_SMS_FORMAT(pub i32);
-impl ::core::marker::Copy for MBN_SMS_FORMAT {}
-impl ::core::clone::Clone for MBN_SMS_FORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MBN_SMS_FORMAT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MBN_SMS_FORMAT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2827,19 +2475,8 @@ impl ::core::fmt::Debug for MBN_SMS_FORMAT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MBN_SMS_STATUS_FLAG(pub i32);
-impl ::core::marker::Copy for MBN_SMS_STATUS_FLAG {}
-impl ::core::clone::Clone for MBN_SMS_STATUS_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MBN_SMS_STATUS_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MBN_SMS_STATUS_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2849,19 +2486,8 @@ impl ::core::fmt::Debug for MBN_SMS_STATUS_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MBN_VOICE_CALL_STATE(pub i32);
-impl ::core::marker::Copy for MBN_VOICE_CALL_STATE {}
-impl ::core::clone::Clone for MBN_VOICE_CALL_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MBN_VOICE_CALL_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MBN_VOICE_CALL_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2871,19 +2497,8 @@ impl ::core::fmt::Debug for MBN_VOICE_CALL_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MBN_VOICE_CLASS(pub i32);
-impl ::core::marker::Copy for MBN_VOICE_CLASS {}
-impl ::core::clone::Clone for MBN_VOICE_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MBN_VOICE_CLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MBN_VOICE_CLASS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2893,19 +2508,8 @@ impl ::core::fmt::Debug for MBN_VOICE_CLASS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WWAEXT_SMS_CONSTANTS(pub i32);
-impl ::core::marker::Copy for WWAEXT_SMS_CONSTANTS {}
-impl ::core::clone::Clone for WWAEXT_SMS_CONSTANTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WWAEXT_SMS_CONSTANTS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WWAEXT_SMS_CONSTANTS {
     type TypeKind = ::windows_core::CopyType;
 }

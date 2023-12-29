@@ -592,22 +592,11 @@ impl ::windows_core::RuntimeName for VoiceInformation {
 unsafe impl ::core::marker::Send for VoiceInformation {}
 unsafe impl ::core::marker::Sync for VoiceInformation {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SpeechAppendedSilence(pub i32);
 impl SpeechAppendedSilence {
     pub const Default: Self = Self(0i32);
     pub const Min: Self = Self(1i32);
-}
-impl ::core::marker::Copy for SpeechAppendedSilence {}
-impl ::core::clone::Clone for SpeechAppendedSilence {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpeechAppendedSilence {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SpeechAppendedSilence {
     type TypeKind = ::windows_core::CopyType;
@@ -621,22 +610,11 @@ impl ::windows_core::RuntimeType for SpeechAppendedSilence {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechSynthesis.SpeechAppendedSilence;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SpeechPunctuationSilence(pub i32);
 impl SpeechPunctuationSilence {
     pub const Default: Self = Self(0i32);
     pub const Min: Self = Self(1i32);
-}
-impl ::core::marker::Copy for SpeechPunctuationSilence {}
-impl ::core::clone::Clone for SpeechPunctuationSilence {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpeechPunctuationSilence {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SpeechPunctuationSilence {
     type TypeKind = ::windows_core::CopyType;
@@ -650,22 +628,11 @@ impl ::windows_core::RuntimeType for SpeechPunctuationSilence {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechSynthesis.SpeechPunctuationSilence;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VoiceGender(pub i32);
 impl VoiceGender {
     pub const Male: Self = Self(0i32);
     pub const Female: Self = Self(1i32);
-}
-impl ::core::marker::Copy for VoiceGender {}
-impl ::core::clone::Clone for VoiceGender {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VoiceGender {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for VoiceGender {
     type TypeKind = ::windows_core::CopyType;

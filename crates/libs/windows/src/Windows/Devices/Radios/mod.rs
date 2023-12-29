@@ -135,24 +135,13 @@ impl ::windows_core::RuntimeName for Radio {
 unsafe impl ::core::marker::Send for Radio {}
 unsafe impl ::core::marker::Sync for Radio {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RadioAccessStatus(pub i32);
 impl RadioAccessStatus {
     pub const Unspecified: Self = Self(0i32);
     pub const Allowed: Self = Self(1i32);
     pub const DeniedByUser: Self = Self(2i32);
     pub const DeniedBySystem: Self = Self(3i32);
-}
-impl ::core::marker::Copy for RadioAccessStatus {}
-impl ::core::clone::Clone for RadioAccessStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RadioAccessStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for RadioAccessStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -166,7 +155,7 @@ impl ::windows_core::RuntimeType for RadioAccessStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Radios.RadioAccessStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RadioKind(pub i32);
 impl RadioKind {
     pub const Other: Self = Self(0i32);
@@ -174,17 +163,6 @@ impl RadioKind {
     pub const MobileBroadband: Self = Self(2i32);
     pub const Bluetooth: Self = Self(3i32);
     pub const FM: Self = Self(4i32);
-}
-impl ::core::marker::Copy for RadioKind {}
-impl ::core::clone::Clone for RadioKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RadioKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for RadioKind {
     type TypeKind = ::windows_core::CopyType;
@@ -198,24 +176,13 @@ impl ::windows_core::RuntimeType for RadioKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Radios.RadioKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RadioState(pub i32);
 impl RadioState {
     pub const Unknown: Self = Self(0i32);
     pub const On: Self = Self(1i32);
     pub const Off: Self = Self(2i32);
     pub const Disabled: Self = Self(3i32);
-}
-impl ::core::marker::Copy for RadioState {}
-impl ::core::clone::Clone for RadioState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RadioState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for RadioState {
     type TypeKind = ::windows_core::CopyType;

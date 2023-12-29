@@ -351,19 +351,8 @@ pub const MAX_RETENTION_TYPE: FH_RETENTION_TYPES = FH_RETENTION_TYPES(3i32);
 pub const MAX_TARGET_PROPERTY: FH_TARGET_PROPERTY_TYPE = FH_TARGET_PROPERTY_TYPE(3i32);
 pub const MAX_VALIDATION_RESULT: FH_DEVICE_VALIDATION_RESULT = FH_DEVICE_VALIDATION_RESULT(7i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FH_BACKUP_STATUS(pub i32);
-impl ::core::marker::Copy for FH_BACKUP_STATUS {}
-impl ::core::clone::Clone for FH_BACKUP_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FH_BACKUP_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FH_BACKUP_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -373,19 +362,8 @@ impl ::core::fmt::Debug for FH_BACKUP_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FH_DEVICE_VALIDATION_RESULT(pub i32);
-impl ::core::marker::Copy for FH_DEVICE_VALIDATION_RESULT {}
-impl ::core::clone::Clone for FH_DEVICE_VALIDATION_RESULT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FH_DEVICE_VALIDATION_RESULT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FH_DEVICE_VALIDATION_RESULT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -395,19 +373,8 @@ impl ::core::fmt::Debug for FH_DEVICE_VALIDATION_RESULT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FH_LOCAL_POLICY_TYPE(pub i32);
-impl ::core::marker::Copy for FH_LOCAL_POLICY_TYPE {}
-impl ::core::clone::Clone for FH_LOCAL_POLICY_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FH_LOCAL_POLICY_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FH_LOCAL_POLICY_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -417,19 +384,8 @@ impl ::core::fmt::Debug for FH_LOCAL_POLICY_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FH_PROTECTED_ITEM_CATEGORY(pub i32);
-impl ::core::marker::Copy for FH_PROTECTED_ITEM_CATEGORY {}
-impl ::core::clone::Clone for FH_PROTECTED_ITEM_CATEGORY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FH_PROTECTED_ITEM_CATEGORY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FH_PROTECTED_ITEM_CATEGORY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -439,19 +395,8 @@ impl ::core::fmt::Debug for FH_PROTECTED_ITEM_CATEGORY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FH_RETENTION_TYPES(pub i32);
-impl ::core::marker::Copy for FH_RETENTION_TYPES {}
-impl ::core::clone::Clone for FH_RETENTION_TYPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FH_RETENTION_TYPES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FH_RETENTION_TYPES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -461,19 +406,8 @@ impl ::core::fmt::Debug for FH_RETENTION_TYPES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FH_TARGET_DRIVE_TYPES(pub i32);
-impl ::core::marker::Copy for FH_TARGET_DRIVE_TYPES {}
-impl ::core::clone::Clone for FH_TARGET_DRIVE_TYPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FH_TARGET_DRIVE_TYPES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FH_TARGET_DRIVE_TYPES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -483,19 +417,8 @@ impl ::core::fmt::Debug for FH_TARGET_DRIVE_TYPES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FH_TARGET_PROPERTY_TYPE(pub i32);
-impl ::core::marker::Copy for FH_TARGET_PROPERTY_TYPE {}
-impl ::core::clone::Clone for FH_TARGET_PROPERTY_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FH_TARGET_PROPERTY_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FH_TARGET_PROPERTY_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -505,19 +428,8 @@ impl ::core::fmt::Debug for FH_TARGET_PROPERTY_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FhBackupStopReason(pub i32);
-impl ::core::marker::Copy for FhBackupStopReason {}
-impl ::core::clone::Clone for FhBackupStopReason {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FhBackupStopReason {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FhBackupStopReason {
     type TypeKind = ::windows_core::CopyType;
 }

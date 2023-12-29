@@ -681,23 +681,12 @@ impl ::windows_core::RuntimeName for CoreWetStrokeUpdateSource {
 unsafe impl ::core::marker::Send for CoreWetStrokeUpdateSource {}
 unsafe impl ::core::marker::Sync for CoreWetStrokeUpdateSource {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CoreWetStrokeDisposition(pub i32);
 impl CoreWetStrokeDisposition {
     pub const Inking: Self = Self(0i32);
     pub const Completed: Self = Self(1i32);
     pub const Canceled: Self = Self(2i32);
-}
-impl ::core::marker::Copy for CoreWetStrokeDisposition {}
-impl ::core::clone::Clone for CoreWetStrokeDisposition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CoreWetStrokeDisposition {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CoreWetStrokeDisposition {
     type TypeKind = ::windows_core::CopyType;

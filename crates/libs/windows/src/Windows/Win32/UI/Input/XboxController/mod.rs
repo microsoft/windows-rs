@@ -124,19 +124,8 @@ pub const XINPUT_KEYSTROKE_REPEAT: XINPUT_KEYSTROKE_FLAGS = XINPUT_KEYSTROKE_FLA
 pub const XUSER_INDEX_ANY: u32 = 255u32;
 pub const XUSER_MAX_COUNT: u32 = 4u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BATTERY_DEVTYPE(pub u8);
-impl ::core::marker::Copy for BATTERY_DEVTYPE {}
-impl ::core::clone::Clone for BATTERY_DEVTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BATTERY_DEVTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for BATTERY_DEVTYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -146,19 +135,8 @@ impl ::core::fmt::Debug for BATTERY_DEVTYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BATTERY_LEVEL(pub u8);
-impl ::core::marker::Copy for BATTERY_LEVEL {}
-impl ::core::clone::Clone for BATTERY_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BATTERY_LEVEL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for BATTERY_LEVEL {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -168,19 +146,8 @@ impl ::core::fmt::Debug for BATTERY_LEVEL {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BATTERY_TYPE(pub u8);
-impl ::core::marker::Copy for BATTERY_TYPE {}
-impl ::core::clone::Clone for BATTERY_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BATTERY_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for BATTERY_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -190,19 +157,8 @@ impl ::core::fmt::Debug for BATTERY_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XINPUT_CAPABILITIES_FLAGS(pub u16);
-impl ::core::marker::Copy for XINPUT_CAPABILITIES_FLAGS {}
-impl ::core::clone::Clone for XINPUT_CAPABILITIES_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XINPUT_CAPABILITIES_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XINPUT_CAPABILITIES_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -245,19 +201,8 @@ impl ::core::ops::Not for XINPUT_CAPABILITIES_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XINPUT_DEVSUBTYPE(pub u8);
-impl ::core::marker::Copy for XINPUT_DEVSUBTYPE {}
-impl ::core::clone::Clone for XINPUT_DEVSUBTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XINPUT_DEVSUBTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XINPUT_DEVSUBTYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -267,19 +212,8 @@ impl ::core::fmt::Debug for XINPUT_DEVSUBTYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XINPUT_DEVTYPE(pub u8);
-impl ::core::marker::Copy for XINPUT_DEVTYPE {}
-impl ::core::clone::Clone for XINPUT_DEVTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XINPUT_DEVTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XINPUT_DEVTYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -289,19 +223,8 @@ impl ::core::fmt::Debug for XINPUT_DEVTYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XINPUT_FLAG(pub u32);
-impl ::core::marker::Copy for XINPUT_FLAG {}
-impl ::core::clone::Clone for XINPUT_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XINPUT_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XINPUT_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -344,19 +267,8 @@ impl ::core::ops::Not for XINPUT_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XINPUT_GAMEPAD_BUTTON_FLAGS(pub u16);
-impl ::core::marker::Copy for XINPUT_GAMEPAD_BUTTON_FLAGS {}
-impl ::core::clone::Clone for XINPUT_GAMEPAD_BUTTON_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XINPUT_GAMEPAD_BUTTON_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XINPUT_GAMEPAD_BUTTON_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -399,19 +311,8 @@ impl ::core::ops::Not for XINPUT_GAMEPAD_BUTTON_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XINPUT_KEYSTROKE_FLAGS(pub u16);
-impl ::core::marker::Copy for XINPUT_KEYSTROKE_FLAGS {}
-impl ::core::clone::Clone for XINPUT_KEYSTROKE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XINPUT_KEYSTROKE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XINPUT_KEYSTROKE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -454,19 +355,8 @@ impl ::core::ops::Not for XINPUT_KEYSTROKE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XINPUT_VIRTUAL_KEY(pub u16);
-impl ::core::marker::Copy for XINPUT_VIRTUAL_KEY {}
-impl ::core::clone::Clone for XINPUT_VIRTUAL_KEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XINPUT_VIRTUAL_KEY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XINPUT_VIRTUAL_KEY {
     type TypeKind = ::windows_core::CopyType;
 }

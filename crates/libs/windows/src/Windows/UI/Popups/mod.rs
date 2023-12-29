@@ -476,22 +476,11 @@ impl ::windows_core::CanTryInto<IUICommand> for UICommandSeparator {}
 unsafe impl ::core::marker::Send for UICommandSeparator {}
 unsafe impl ::core::marker::Sync for UICommandSeparator {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MessageDialogOptions(pub u32);
 impl MessageDialogOptions {
     pub const None: Self = Self(0u32);
     pub const AcceptUserInputAfterDelay: Self = Self(1u32);
-}
-impl ::core::marker::Copy for MessageDialogOptions {}
-impl ::core::clone::Clone for MessageDialogOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MessageDialogOptions {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MessageDialogOptions {
     type TypeKind = ::windows_core::CopyType;
@@ -538,7 +527,7 @@ impl ::windows_core::RuntimeType for MessageDialogOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Popups.MessageDialogOptions;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct Placement(pub i32);
 impl Placement {
     pub const Default: Self = Self(0i32);
@@ -546,17 +535,6 @@ impl Placement {
     pub const Below: Self = Self(2i32);
     pub const Left: Self = Self(3i32);
     pub const Right: Self = Self(4i32);
-}
-impl ::core::marker::Copy for Placement {}
-impl ::core::clone::Clone for Placement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for Placement {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for Placement {
     type TypeKind = ::windows_core::CopyType;

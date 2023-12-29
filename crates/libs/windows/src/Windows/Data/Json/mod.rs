@@ -921,7 +921,7 @@ impl ::windows_core::CanTryInto<super::super::Foundation::IStringable> for JsonV
 unsafe impl ::core::marker::Send for JsonValue {}
 unsafe impl ::core::marker::Sync for JsonValue {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct JsonErrorStatus(pub i32);
 impl JsonErrorStatus {
     pub const Unknown: Self = Self(0i32);
@@ -929,17 +929,6 @@ impl JsonErrorStatus {
     pub const InvalidJsonNumber: Self = Self(2i32);
     pub const JsonValueNotFound: Self = Self(3i32);
     pub const ImplementationLimit: Self = Self(4i32);
-}
-impl ::core::marker::Copy for JsonErrorStatus {}
-impl ::core::clone::Clone for JsonErrorStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for JsonErrorStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for JsonErrorStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -953,7 +942,7 @@ impl ::windows_core::RuntimeType for JsonErrorStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Data.Json.JsonErrorStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct JsonValueType(pub i32);
 impl JsonValueType {
     pub const Null: Self = Self(0i32);
@@ -962,17 +951,6 @@ impl JsonValueType {
     pub const String: Self = Self(3i32);
     pub const Array: Self = Self(4i32);
     pub const Object: Self = Self(5i32);
-}
-impl ::core::marker::Copy for JsonValueType {}
-impl ::core::clone::Clone for JsonValueType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for JsonValueType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for JsonValueType {
     type TypeKind = ::windows_core::CopyType;

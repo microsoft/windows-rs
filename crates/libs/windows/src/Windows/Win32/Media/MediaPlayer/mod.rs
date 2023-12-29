@@ -11075,19 +11075,8 @@ pub const wmpttDownload: WMPTransactionType = WMPTransactionType(1i32);
 pub const wmpttNoTransaction: WMPTransactionType = WMPTransactionType(0i32);
 pub const wmpttSync: WMPTaskType = WMPTaskType(2i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FEEDS_BACKGROUNDSYNC_ACTION(pub i32);
-impl ::core::marker::Copy for FEEDS_BACKGROUNDSYNC_ACTION {}
-impl ::core::clone::Clone for FEEDS_BACKGROUNDSYNC_ACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FEEDS_BACKGROUNDSYNC_ACTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FEEDS_BACKGROUNDSYNC_ACTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11097,19 +11086,8 @@ impl ::core::fmt::Debug for FEEDS_BACKGROUNDSYNC_ACTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FEEDS_BACKGROUNDSYNC_STATUS(pub i32);
-impl ::core::marker::Copy for FEEDS_BACKGROUNDSYNC_STATUS {}
-impl ::core::clone::Clone for FEEDS_BACKGROUNDSYNC_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FEEDS_BACKGROUNDSYNC_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FEEDS_BACKGROUNDSYNC_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11119,19 +11097,8 @@ impl ::core::fmt::Debug for FEEDS_BACKGROUNDSYNC_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FEEDS_DOWNLOAD_ERROR(pub i32);
-impl ::core::marker::Copy for FEEDS_DOWNLOAD_ERROR {}
-impl ::core::clone::Clone for FEEDS_DOWNLOAD_ERROR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FEEDS_DOWNLOAD_ERROR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FEEDS_DOWNLOAD_ERROR {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11141,19 +11108,8 @@ impl ::core::fmt::Debug for FEEDS_DOWNLOAD_ERROR {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FEEDS_DOWNLOAD_STATUS(pub i32);
-impl ::core::marker::Copy for FEEDS_DOWNLOAD_STATUS {}
-impl ::core::clone::Clone for FEEDS_DOWNLOAD_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FEEDS_DOWNLOAD_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FEEDS_DOWNLOAD_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11163,19 +11119,8 @@ impl ::core::fmt::Debug for FEEDS_DOWNLOAD_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FEEDS_ERROR_CODE(pub i32);
-impl ::core::marker::Copy for FEEDS_ERROR_CODE {}
-impl ::core::clone::Clone for FEEDS_ERROR_CODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FEEDS_ERROR_CODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FEEDS_ERROR_CODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11185,19 +11130,8 @@ impl ::core::fmt::Debug for FEEDS_ERROR_CODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FEEDS_EVENTS_ITEM_COUNT_FLAGS(pub i32);
-impl ::core::marker::Copy for FEEDS_EVENTS_ITEM_COUNT_FLAGS {}
-impl ::core::clone::Clone for FEEDS_EVENTS_ITEM_COUNT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FEEDS_EVENTS_ITEM_COUNT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FEEDS_EVENTS_ITEM_COUNT_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11207,19 +11141,8 @@ impl ::core::fmt::Debug for FEEDS_EVENTS_ITEM_COUNT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FEEDS_EVENTS_MASK(pub i32);
-impl ::core::marker::Copy for FEEDS_EVENTS_MASK {}
-impl ::core::clone::Clone for FEEDS_EVENTS_MASK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FEEDS_EVENTS_MASK {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FEEDS_EVENTS_MASK {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11229,19 +11152,8 @@ impl ::core::fmt::Debug for FEEDS_EVENTS_MASK {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FEEDS_EVENTS_SCOPE(pub i32);
-impl ::core::marker::Copy for FEEDS_EVENTS_SCOPE {}
-impl ::core::clone::Clone for FEEDS_EVENTS_SCOPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FEEDS_EVENTS_SCOPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FEEDS_EVENTS_SCOPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11251,19 +11163,8 @@ impl ::core::fmt::Debug for FEEDS_EVENTS_SCOPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FEEDS_SYNC_SETTING(pub i32);
-impl ::core::marker::Copy for FEEDS_SYNC_SETTING {}
-impl ::core::clone::Clone for FEEDS_SYNC_SETTING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FEEDS_SYNC_SETTING {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FEEDS_SYNC_SETTING {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11273,19 +11174,8 @@ impl ::core::fmt::Debug for FEEDS_SYNC_SETTING {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FEEDS_XML_FILTER_FLAGS(pub i32);
-impl ::core::marker::Copy for FEEDS_XML_FILTER_FLAGS {}
-impl ::core::clone::Clone for FEEDS_XML_FILTER_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FEEDS_XML_FILTER_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FEEDS_XML_FILTER_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11295,19 +11185,8 @@ impl ::core::fmt::Debug for FEEDS_XML_FILTER_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FEEDS_XML_INCLUDE_FLAGS(pub i32);
-impl ::core::marker::Copy for FEEDS_XML_INCLUDE_FLAGS {}
-impl ::core::clone::Clone for FEEDS_XML_INCLUDE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FEEDS_XML_INCLUDE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FEEDS_XML_INCLUDE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11317,19 +11196,8 @@ impl ::core::fmt::Debug for FEEDS_XML_INCLUDE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FEEDS_XML_SORT_ORDER(pub i32);
-impl ::core::marker::Copy for FEEDS_XML_SORT_ORDER {}
-impl ::core::clone::Clone for FEEDS_XML_SORT_ORDER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FEEDS_XML_SORT_ORDER {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FEEDS_XML_SORT_ORDER {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11339,19 +11207,8 @@ impl ::core::fmt::Debug for FEEDS_XML_SORT_ORDER {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FEEDS_XML_SORT_PROPERTY(pub i32);
-impl ::core::marker::Copy for FEEDS_XML_SORT_PROPERTY {}
-impl ::core::clone::Clone for FEEDS_XML_SORT_PROPERTY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FEEDS_XML_SORT_PROPERTY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FEEDS_XML_SORT_PROPERTY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11361,19 +11218,8 @@ impl ::core::fmt::Debug for FEEDS_XML_SORT_PROPERTY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PlayerState(pub i32);
-impl ::core::marker::Copy for PlayerState {}
-impl ::core::clone::Clone for PlayerState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PlayerState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PlayerState {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11383,19 +11229,8 @@ impl ::core::fmt::Debug for PlayerState {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WMPAccountType(pub i32);
-impl ::core::marker::Copy for WMPAccountType {}
-impl ::core::clone::Clone for WMPAccountType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMPAccountType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WMPAccountType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11405,19 +11240,8 @@ impl ::core::fmt::Debug for WMPAccountType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WMPBurnFormat(pub i32);
-impl ::core::marker::Copy for WMPBurnFormat {}
-impl ::core::clone::Clone for WMPBurnFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMPBurnFormat {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WMPBurnFormat {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11427,19 +11251,8 @@ impl ::core::fmt::Debug for WMPBurnFormat {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WMPBurnState(pub i32);
-impl ::core::marker::Copy for WMPBurnState {}
-impl ::core::clone::Clone for WMPBurnState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMPBurnState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WMPBurnState {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11449,19 +11262,8 @@ impl ::core::fmt::Debug for WMPBurnState {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WMPCallbackNotification(pub i32);
-impl ::core::marker::Copy for WMPCallbackNotification {}
-impl ::core::clone::Clone for WMPCallbackNotification {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMPCallbackNotification {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WMPCallbackNotification {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11471,19 +11273,8 @@ impl ::core::fmt::Debug for WMPCallbackNotification {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WMPDeviceStatus(pub i32);
-impl ::core::marker::Copy for WMPDeviceStatus {}
-impl ::core::clone::Clone for WMPDeviceStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMPDeviceStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WMPDeviceStatus {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11493,19 +11284,8 @@ impl ::core::fmt::Debug for WMPDeviceStatus {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WMPFolderScanState(pub i32);
-impl ::core::marker::Copy for WMPFolderScanState {}
-impl ::core::clone::Clone for WMPFolderScanState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMPFolderScanState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WMPFolderScanState {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11515,19 +11295,8 @@ impl ::core::fmt::Debug for WMPFolderScanState {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WMPLibraryType(pub i32);
-impl ::core::marker::Copy for WMPLibraryType {}
-impl ::core::clone::Clone for WMPLibraryType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMPLibraryType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WMPLibraryType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11537,19 +11306,8 @@ impl ::core::fmt::Debug for WMPLibraryType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WMPOpenState(pub i32);
-impl ::core::marker::Copy for WMPOpenState {}
-impl ::core::clone::Clone for WMPOpenState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMPOpenState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WMPOpenState {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11559,19 +11317,8 @@ impl ::core::fmt::Debug for WMPOpenState {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WMPPartnerNotification(pub i32);
-impl ::core::marker::Copy for WMPPartnerNotification {}
-impl ::core::clone::Clone for WMPPartnerNotification {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMPPartnerNotification {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WMPPartnerNotification {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11581,19 +11328,8 @@ impl ::core::fmt::Debug for WMPPartnerNotification {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WMPPlayState(pub i32);
-impl ::core::marker::Copy for WMPPlayState {}
-impl ::core::clone::Clone for WMPPlayState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMPPlayState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WMPPlayState {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11603,19 +11339,8 @@ impl ::core::fmt::Debug for WMPPlayState {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WMPPlaylistChangeEventType(pub i32);
-impl ::core::marker::Copy for WMPPlaylistChangeEventType {}
-impl ::core::clone::Clone for WMPPlaylistChangeEventType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMPPlaylistChangeEventType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WMPPlaylistChangeEventType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11625,19 +11350,8 @@ impl ::core::fmt::Debug for WMPPlaylistChangeEventType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WMPPlugin_Caps(pub i32);
-impl ::core::marker::Copy for WMPPlugin_Caps {}
-impl ::core::clone::Clone for WMPPlugin_Caps {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMPPlugin_Caps {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WMPPlugin_Caps {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11647,19 +11361,8 @@ impl ::core::fmt::Debug for WMPPlugin_Caps {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WMPRipState(pub i32);
-impl ::core::marker::Copy for WMPRipState {}
-impl ::core::clone::Clone for WMPRipState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMPRipState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WMPRipState {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11669,19 +11372,8 @@ impl ::core::fmt::Debug for WMPRipState {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WMPServices_StreamState(pub i32);
-impl ::core::marker::Copy for WMPServices_StreamState {}
-impl ::core::clone::Clone for WMPServices_StreamState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMPServices_StreamState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WMPServices_StreamState {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11691,19 +11383,8 @@ impl ::core::fmt::Debug for WMPServices_StreamState {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WMPStreamingType(pub i32);
-impl ::core::marker::Copy for WMPStreamingType {}
-impl ::core::clone::Clone for WMPStreamingType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMPStreamingType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WMPStreamingType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11713,19 +11394,8 @@ impl ::core::fmt::Debug for WMPStreamingType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WMPStringCollectionChangeEventType(pub i32);
-impl ::core::marker::Copy for WMPStringCollectionChangeEventType {}
-impl ::core::clone::Clone for WMPStringCollectionChangeEventType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMPStringCollectionChangeEventType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WMPStringCollectionChangeEventType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11735,19 +11405,8 @@ impl ::core::fmt::Debug for WMPStringCollectionChangeEventType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WMPSubscriptionDownloadState(pub i32);
-impl ::core::marker::Copy for WMPSubscriptionDownloadState {}
-impl ::core::clone::Clone for WMPSubscriptionDownloadState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMPSubscriptionDownloadState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WMPSubscriptionDownloadState {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11757,19 +11416,8 @@ impl ::core::fmt::Debug for WMPSubscriptionDownloadState {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WMPSubscriptionServiceEvent(pub i32);
-impl ::core::marker::Copy for WMPSubscriptionServiceEvent {}
-impl ::core::clone::Clone for WMPSubscriptionServiceEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMPSubscriptionServiceEvent {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WMPSubscriptionServiceEvent {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11779,19 +11427,8 @@ impl ::core::fmt::Debug for WMPSubscriptionServiceEvent {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WMPSyncState(pub i32);
-impl ::core::marker::Copy for WMPSyncState {}
-impl ::core::clone::Clone for WMPSyncState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMPSyncState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WMPSyncState {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11801,19 +11438,8 @@ impl ::core::fmt::Debug for WMPSyncState {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WMPTaskType(pub i32);
-impl ::core::marker::Copy for WMPTaskType {}
-impl ::core::clone::Clone for WMPTaskType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMPTaskType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WMPTaskType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11823,19 +11449,8 @@ impl ::core::fmt::Debug for WMPTaskType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WMPTemplateSize(pub i32);
-impl ::core::marker::Copy for WMPTemplateSize {}
-impl ::core::clone::Clone for WMPTemplateSize {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMPTemplateSize {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WMPTemplateSize {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11845,19 +11460,8 @@ impl ::core::fmt::Debug for WMPTemplateSize {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WMPTransactionType(pub i32);
-impl ::core::marker::Copy for WMPTransactionType {}
-impl ::core::clone::Clone for WMPTransactionType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMPTransactionType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WMPTransactionType {
     type TypeKind = ::windows_core::CopyType;
 }

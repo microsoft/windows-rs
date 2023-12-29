@@ -113,23 +113,12 @@ impl ::windows_core::RuntimeName for WorkplaceSettings {
     const NAME: &'static str = "Windows.Management.Workplace.WorkplaceSettings";
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MessagingSyncPolicy(pub i32);
 impl MessagingSyncPolicy {
     pub const Disallowed: Self = Self(0i32);
     pub const Allowed: Self = Self(1i32);
     pub const Required: Self = Self(2i32);
-}
-impl ::core::marker::Copy for MessagingSyncPolicy {}
-impl ::core::clone::Clone for MessagingSyncPolicy {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MessagingSyncPolicy {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MessagingSyncPolicy {
     type TypeKind = ::windows_core::CopyType;

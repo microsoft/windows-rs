@@ -3712,19 +3712,8 @@ pub const SYNC_VERSION_FLAG_FROM_FEED: u32 = 1u32;
 pub const SYNC_VERSION_FLAG_HAS_BY: u32 = 2u32;
 pub const SyncProviderRegistration: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf82b4ef1_93a9_4dde_8015_f7950a1a6e31);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CONFLICT_RESOLUTION_POLICY(pub i32);
-impl ::core::marker::Copy for CONFLICT_RESOLUTION_POLICY {}
-impl ::core::clone::Clone for CONFLICT_RESOLUTION_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CONFLICT_RESOLUTION_POLICY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CONFLICT_RESOLUTION_POLICY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3734,19 +3723,8 @@ impl ::core::fmt::Debug for CONFLICT_RESOLUTION_POLICY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CONSTRAINT_CONFLICT_REASON(pub i32);
-impl ::core::marker::Copy for CONSTRAINT_CONFLICT_REASON {}
-impl ::core::clone::Clone for CONSTRAINT_CONFLICT_REASON {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CONSTRAINT_CONFLICT_REASON {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CONSTRAINT_CONFLICT_REASON {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3756,19 +3734,8 @@ impl ::core::fmt::Debug for CONSTRAINT_CONFLICT_REASON {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FILTERING_TYPE(pub i32);
-impl ::core::marker::Copy for FILTERING_TYPE {}
-impl ::core::clone::Clone for FILTERING_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FILTERING_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FILTERING_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3778,19 +3745,8 @@ impl ::core::fmt::Debug for FILTERING_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FILTER_COMBINATION_TYPE(pub i32);
-impl ::core::marker::Copy for FILTER_COMBINATION_TYPE {}
-impl ::core::clone::Clone for FILTER_COMBINATION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FILTER_COMBINATION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FILTER_COMBINATION_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3800,19 +3756,8 @@ impl ::core::fmt::Debug for FILTER_COMBINATION_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct KNOWLEDGE_COOKIE_COMPARISON_RESULT(pub i32);
-impl ::core::marker::Copy for KNOWLEDGE_COOKIE_COMPARISON_RESULT {}
-impl ::core::clone::Clone for KNOWLEDGE_COOKIE_COMPARISON_RESULT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KNOWLEDGE_COOKIE_COMPARISON_RESULT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for KNOWLEDGE_COOKIE_COMPARISON_RESULT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3822,19 +3767,8 @@ impl ::core::fmt::Debug for KNOWLEDGE_COOKIE_COMPARISON_RESULT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SYNC_CONSTRAINT_RESOLVE_ACTION(pub i32);
-impl ::core::marker::Copy for SYNC_CONSTRAINT_RESOLVE_ACTION {}
-impl ::core::clone::Clone for SYNC_CONSTRAINT_RESOLVE_ACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SYNC_CONSTRAINT_RESOLVE_ACTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SYNC_CONSTRAINT_RESOLVE_ACTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3844,19 +3778,8 @@ impl ::core::fmt::Debug for SYNC_CONSTRAINT_RESOLVE_ACTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SYNC_FULL_ENUMERATION_ACTION(pub i32);
-impl ::core::marker::Copy for SYNC_FULL_ENUMERATION_ACTION {}
-impl ::core::clone::Clone for SYNC_FULL_ENUMERATION_ACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SYNC_FULL_ENUMERATION_ACTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SYNC_FULL_ENUMERATION_ACTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3866,19 +3789,8 @@ impl ::core::fmt::Debug for SYNC_FULL_ENUMERATION_ACTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SYNC_PROGRESS_STAGE(pub i32);
-impl ::core::marker::Copy for SYNC_PROGRESS_STAGE {}
-impl ::core::clone::Clone for SYNC_PROGRESS_STAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SYNC_PROGRESS_STAGE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SYNC_PROGRESS_STAGE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3888,19 +3800,8 @@ impl ::core::fmt::Debug for SYNC_PROGRESS_STAGE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SYNC_PROVIDER_ROLE(pub i32);
-impl ::core::marker::Copy for SYNC_PROVIDER_ROLE {}
-impl ::core::clone::Clone for SYNC_PROVIDER_ROLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SYNC_PROVIDER_ROLE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SYNC_PROVIDER_ROLE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3910,19 +3811,8 @@ impl ::core::fmt::Debug for SYNC_PROVIDER_ROLE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SYNC_REGISTRATION_EVENT(pub i32);
-impl ::core::marker::Copy for SYNC_REGISTRATION_EVENT {}
-impl ::core::clone::Clone for SYNC_REGISTRATION_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SYNC_REGISTRATION_EVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SYNC_REGISTRATION_EVENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3932,19 +3822,8 @@ impl ::core::fmt::Debug for SYNC_REGISTRATION_EVENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SYNC_RESOLVE_ACTION(pub i32);
-impl ::core::marker::Copy for SYNC_RESOLVE_ACTION {}
-impl ::core::clone::Clone for SYNC_RESOLVE_ACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SYNC_RESOLVE_ACTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SYNC_RESOLVE_ACTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3954,19 +3833,8 @@ impl ::core::fmt::Debug for SYNC_RESOLVE_ACTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SYNC_SERIALIZATION_VERSION(pub i32);
-impl ::core::marker::Copy for SYNC_SERIALIZATION_VERSION {}
-impl ::core::clone::Clone for SYNC_SERIALIZATION_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SYNC_SERIALIZATION_VERSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SYNC_SERIALIZATION_VERSION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3976,19 +3844,8 @@ impl ::core::fmt::Debug for SYNC_SERIALIZATION_VERSION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SYNC_STATISTICS(pub i32);
-impl ::core::marker::Copy for SYNC_STATISTICS {}
-impl ::core::clone::Clone for SYNC_STATISTICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SYNC_STATISTICS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SYNC_STATISTICS {
     type TypeKind = ::windows_core::CopyType;
 }

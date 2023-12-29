@@ -12204,19 +12204,8 @@ pub const XMLHTTPRequest: ::windows_core::GUID = ::windows_core::GUID::from_u128
 pub const XMLSchemaCache60: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x88d96a07_f192_11d4_a65f_0040963251e5);
 pub const XSLTemplate60: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x88d96a08_f192_11d4_a65f_0040963251e5);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DOMNodeType(pub i32);
-impl ::core::marker::Copy for DOMNodeType {}
-impl ::core::clone::Clone for DOMNodeType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DOMNodeType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DOMNodeType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -12226,19 +12215,8 @@ impl ::core::fmt::Debug for DOMNodeType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SCHEMACONTENTTYPE(pub i32);
-impl ::core::marker::Copy for SCHEMACONTENTTYPE {}
-impl ::core::clone::Clone for SCHEMACONTENTTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SCHEMACONTENTTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SCHEMACONTENTTYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -12248,19 +12226,8 @@ impl ::core::fmt::Debug for SCHEMACONTENTTYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SCHEMADERIVATIONMETHOD(pub i32);
-impl ::core::marker::Copy for SCHEMADERIVATIONMETHOD {}
-impl ::core::clone::Clone for SCHEMADERIVATIONMETHOD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SCHEMADERIVATIONMETHOD {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SCHEMADERIVATIONMETHOD {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -12270,19 +12237,8 @@ impl ::core::fmt::Debug for SCHEMADERIVATIONMETHOD {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SCHEMAPROCESSCONTENTS(pub i32);
-impl ::core::marker::Copy for SCHEMAPROCESSCONTENTS {}
-impl ::core::clone::Clone for SCHEMAPROCESSCONTENTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SCHEMAPROCESSCONTENTS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SCHEMAPROCESSCONTENTS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -12292,19 +12248,8 @@ impl ::core::fmt::Debug for SCHEMAPROCESSCONTENTS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SCHEMATYPEVARIETY(pub i32);
-impl ::core::marker::Copy for SCHEMATYPEVARIETY {}
-impl ::core::clone::Clone for SCHEMATYPEVARIETY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SCHEMATYPEVARIETY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SCHEMATYPEVARIETY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -12314,19 +12259,8 @@ impl ::core::fmt::Debug for SCHEMATYPEVARIETY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SCHEMAUSE(pub i32);
-impl ::core::marker::Copy for SCHEMAUSE {}
-impl ::core::clone::Clone for SCHEMAUSE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SCHEMAUSE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SCHEMAUSE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -12336,19 +12270,8 @@ impl ::core::fmt::Debug for SCHEMAUSE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SCHEMAWHITESPACE(pub i32);
-impl ::core::marker::Copy for SCHEMAWHITESPACE {}
-impl ::core::clone::Clone for SCHEMAWHITESPACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SCHEMAWHITESPACE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SCHEMAWHITESPACE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -12358,19 +12281,8 @@ impl ::core::fmt::Debug for SCHEMAWHITESPACE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SERVERXMLHTTP_OPTION(pub i32);
-impl ::core::marker::Copy for SERVERXMLHTTP_OPTION {}
-impl ::core::clone::Clone for SERVERXMLHTTP_OPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SERVERXMLHTTP_OPTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SERVERXMLHTTP_OPTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -12380,19 +12292,8 @@ impl ::core::fmt::Debug for SERVERXMLHTTP_OPTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SOMITEMTYPE(pub i32);
-impl ::core::marker::Copy for SOMITEMTYPE {}
-impl ::core::clone::Clone for SOMITEMTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SOMITEMTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SOMITEMTYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -12402,19 +12303,8 @@ impl ::core::fmt::Debug for SOMITEMTYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SXH_PROXY_SETTING(pub i32);
-impl ::core::marker::Copy for SXH_PROXY_SETTING {}
-impl ::core::clone::Clone for SXH_PROXY_SETTING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SXH_PROXY_SETTING {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SXH_PROXY_SETTING {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -12424,19 +12314,8 @@ impl ::core::fmt::Debug for SXH_PROXY_SETTING {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SXH_SERVER_CERT_OPTION(pub i32);
-impl ::core::marker::Copy for SXH_SERVER_CERT_OPTION {}
-impl ::core::clone::Clone for SXH_SERVER_CERT_OPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SXH_SERVER_CERT_OPTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SXH_SERVER_CERT_OPTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -12446,19 +12325,8 @@ impl ::core::fmt::Debug for SXH_SERVER_CERT_OPTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XHR_AUTH(pub i32);
-impl ::core::marker::Copy for XHR_AUTH {}
-impl ::core::clone::Clone for XHR_AUTH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XHR_AUTH {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XHR_AUTH {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -12468,19 +12336,8 @@ impl ::core::fmt::Debug for XHR_AUTH {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XHR_CERT_ERROR_FLAG(pub u32);
-impl ::core::marker::Copy for XHR_CERT_ERROR_FLAG {}
-impl ::core::clone::Clone for XHR_CERT_ERROR_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XHR_CERT_ERROR_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XHR_CERT_ERROR_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -12490,19 +12347,8 @@ impl ::core::fmt::Debug for XHR_CERT_ERROR_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XHR_CERT_IGNORE_FLAG(pub u32);
-impl ::core::marker::Copy for XHR_CERT_IGNORE_FLAG {}
-impl ::core::clone::Clone for XHR_CERT_IGNORE_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XHR_CERT_IGNORE_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XHR_CERT_IGNORE_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -12512,19 +12358,8 @@ impl ::core::fmt::Debug for XHR_CERT_IGNORE_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XHR_COOKIE_FLAG(pub i32);
-impl ::core::marker::Copy for XHR_COOKIE_FLAG {}
-impl ::core::clone::Clone for XHR_COOKIE_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XHR_COOKIE_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XHR_COOKIE_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -12534,19 +12369,8 @@ impl ::core::fmt::Debug for XHR_COOKIE_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XHR_COOKIE_STATE(pub i32);
-impl ::core::marker::Copy for XHR_COOKIE_STATE {}
-impl ::core::clone::Clone for XHR_COOKIE_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XHR_COOKIE_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XHR_COOKIE_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -12556,19 +12380,8 @@ impl ::core::fmt::Debug for XHR_COOKIE_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XHR_CRED_PROMPT(pub i32);
-impl ::core::marker::Copy for XHR_CRED_PROMPT {}
-impl ::core::clone::Clone for XHR_CRED_PROMPT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XHR_CRED_PROMPT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XHR_CRED_PROMPT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -12578,19 +12391,8 @@ impl ::core::fmt::Debug for XHR_CRED_PROMPT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XHR_PROPERTY(pub i32);
-impl ::core::marker::Copy for XHR_PROPERTY {}
-impl ::core::clone::Clone for XHR_PROPERTY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XHR_PROPERTY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XHR_PROPERTY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -12600,19 +12402,8 @@ impl ::core::fmt::Debug for XHR_PROPERTY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XMLELEM_TYPE(pub i32);
-impl ::core::marker::Copy for XMLELEM_TYPE {}
-impl ::core::clone::Clone for XMLELEM_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XMLELEM_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XMLELEM_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }

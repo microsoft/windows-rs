@@ -174,23 +174,12 @@ impl ::windows_core::RuntimeName for CryptographicBuffer {
     const NAME: &'static str = "Windows.Security.Cryptography.CryptographicBuffer";
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BinaryStringEncoding(pub i32);
 impl BinaryStringEncoding {
     pub const Utf8: Self = Self(0i32);
     pub const Utf16LE: Self = Self(1i32);
     pub const Utf16BE: Self = Self(2i32);
-}
-impl ::core::marker::Copy for BinaryStringEncoding {}
-impl ::core::clone::Clone for BinaryStringEncoding {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BinaryStringEncoding {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for BinaryStringEncoding {
     type TypeKind = ::windows_core::CopyType;

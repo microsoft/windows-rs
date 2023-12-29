@@ -684,19 +684,8 @@ pub const WindowsParentalControls: ::windows_core::GUID = ::windows_core::GUID::
 pub const WpcProviderSupport: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbb18c7a0_2186_4be0_97d8_04847b628e02);
 pub const WpcSettingsProvider: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x355dffaa_3b9f_435c_b428_5d44290bc5f2);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPCFLAG_IM_FEATURE(pub i32);
-impl ::core::marker::Copy for WPCFLAG_IM_FEATURE {}
-impl ::core::clone::Clone for WPCFLAG_IM_FEATURE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPCFLAG_IM_FEATURE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPCFLAG_IM_FEATURE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -706,19 +695,8 @@ impl ::core::fmt::Debug for WPCFLAG_IM_FEATURE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPCFLAG_IM_LEAVE(pub i32);
-impl ::core::marker::Copy for WPCFLAG_IM_LEAVE {}
-impl ::core::clone::Clone for WPCFLAG_IM_LEAVE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPCFLAG_IM_LEAVE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPCFLAG_IM_LEAVE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -728,19 +706,8 @@ impl ::core::fmt::Debug for WPCFLAG_IM_LEAVE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPCFLAG_ISBLOCKED(pub i32);
-impl ::core::marker::Copy for WPCFLAG_ISBLOCKED {}
-impl ::core::clone::Clone for WPCFLAG_ISBLOCKED {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPCFLAG_ISBLOCKED {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPCFLAG_ISBLOCKED {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -750,19 +717,8 @@ impl ::core::fmt::Debug for WPCFLAG_ISBLOCKED {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPCFLAG_LOGOFF_TYPE(pub i32);
-impl ::core::marker::Copy for WPCFLAG_LOGOFF_TYPE {}
-impl ::core::clone::Clone for WPCFLAG_LOGOFF_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPCFLAG_LOGOFF_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPCFLAG_LOGOFF_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -772,19 +728,8 @@ impl ::core::fmt::Debug for WPCFLAG_LOGOFF_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPCFLAG_OVERRIDE(pub i32);
-impl ::core::marker::Copy for WPCFLAG_OVERRIDE {}
-impl ::core::clone::Clone for WPCFLAG_OVERRIDE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPCFLAG_OVERRIDE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPCFLAG_OVERRIDE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -794,19 +739,8 @@ impl ::core::fmt::Debug for WPCFLAG_OVERRIDE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPCFLAG_RESTRICTION(pub i32);
-impl ::core::marker::Copy for WPCFLAG_RESTRICTION {}
-impl ::core::clone::Clone for WPCFLAG_RESTRICTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPCFLAG_RESTRICTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPCFLAG_RESTRICTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -816,19 +750,8 @@ impl ::core::fmt::Debug for WPCFLAG_RESTRICTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPCFLAG_VISIBILITY(pub i32);
-impl ::core::marker::Copy for WPCFLAG_VISIBILITY {}
-impl ::core::clone::Clone for WPCFLAG_VISIBILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPCFLAG_VISIBILITY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPCFLAG_VISIBILITY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -838,19 +761,8 @@ impl ::core::fmt::Debug for WPCFLAG_VISIBILITY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPCFLAG_WEB_SETTING(pub i32);
-impl ::core::marker::Copy for WPCFLAG_WEB_SETTING {}
-impl ::core::clone::Clone for WPCFLAG_WEB_SETTING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPCFLAG_WEB_SETTING {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPCFLAG_WEB_SETTING {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -860,19 +772,8 @@ impl ::core::fmt::Debug for WPCFLAG_WEB_SETTING {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPC_ARGS_APPLICATIONEVENT(pub i32);
-impl ::core::marker::Copy for WPC_ARGS_APPLICATIONEVENT {}
-impl ::core::clone::Clone for WPC_ARGS_APPLICATIONEVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPC_ARGS_APPLICATIONEVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPC_ARGS_APPLICATIONEVENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -882,19 +783,8 @@ impl ::core::fmt::Debug for WPC_ARGS_APPLICATIONEVENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPC_ARGS_APPOVERRIDEEVENT(pub i32);
-impl ::core::marker::Copy for WPC_ARGS_APPOVERRIDEEVENT {}
-impl ::core::clone::Clone for WPC_ARGS_APPOVERRIDEEVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPC_ARGS_APPOVERRIDEEVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPC_ARGS_APPOVERRIDEEVENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -904,19 +794,8 @@ impl ::core::fmt::Debug for WPC_ARGS_APPOVERRIDEEVENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPC_ARGS_COMPUTERUSAGEEVENT(pub i32);
-impl ::core::marker::Copy for WPC_ARGS_COMPUTERUSAGEEVENT {}
-impl ::core::clone::Clone for WPC_ARGS_COMPUTERUSAGEEVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPC_ARGS_COMPUTERUSAGEEVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPC_ARGS_COMPUTERUSAGEEVENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -926,19 +805,8 @@ impl ::core::fmt::Debug for WPC_ARGS_COMPUTERUSAGEEVENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPC_ARGS_CONTENTUSAGEEVENT(pub i32);
-impl ::core::marker::Copy for WPC_ARGS_CONTENTUSAGEEVENT {}
-impl ::core::clone::Clone for WPC_ARGS_CONTENTUSAGEEVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPC_ARGS_CONTENTUSAGEEVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPC_ARGS_CONTENTUSAGEEVENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -948,19 +816,8 @@ impl ::core::fmt::Debug for WPC_ARGS_CONTENTUSAGEEVENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPC_ARGS_CONVERSATIONINITEVENT(pub i32);
-impl ::core::marker::Copy for WPC_ARGS_CONVERSATIONINITEVENT {}
-impl ::core::clone::Clone for WPC_ARGS_CONVERSATIONINITEVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPC_ARGS_CONVERSATIONINITEVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPC_ARGS_CONVERSATIONINITEVENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -970,19 +827,8 @@ impl ::core::fmt::Debug for WPC_ARGS_CONVERSATIONINITEVENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPC_ARGS_CONVERSATIONJOINEVENT(pub i32);
-impl ::core::marker::Copy for WPC_ARGS_CONVERSATIONJOINEVENT {}
-impl ::core::clone::Clone for WPC_ARGS_CONVERSATIONJOINEVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPC_ARGS_CONVERSATIONJOINEVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPC_ARGS_CONVERSATIONJOINEVENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -992,19 +838,8 @@ impl ::core::fmt::Debug for WPC_ARGS_CONVERSATIONJOINEVENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPC_ARGS_CONVERSATIONLEAVEEVENT(pub i32);
-impl ::core::marker::Copy for WPC_ARGS_CONVERSATIONLEAVEEVENT {}
-impl ::core::clone::Clone for WPC_ARGS_CONVERSATIONLEAVEEVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPC_ARGS_CONVERSATIONLEAVEEVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPC_ARGS_CONVERSATIONLEAVEEVENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1014,19 +849,8 @@ impl ::core::fmt::Debug for WPC_ARGS_CONVERSATIONLEAVEEVENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPC_ARGS_CUSTOMEVENT(pub i32);
-impl ::core::marker::Copy for WPC_ARGS_CUSTOMEVENT {}
-impl ::core::clone::Clone for WPC_ARGS_CUSTOMEVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPC_ARGS_CUSTOMEVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPC_ARGS_CUSTOMEVENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1036,19 +860,8 @@ impl ::core::fmt::Debug for WPC_ARGS_CUSTOMEVENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPC_ARGS_EMAILCONTACTEVENT(pub i32);
-impl ::core::marker::Copy for WPC_ARGS_EMAILCONTACTEVENT {}
-impl ::core::clone::Clone for WPC_ARGS_EMAILCONTACTEVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPC_ARGS_EMAILCONTACTEVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPC_ARGS_EMAILCONTACTEVENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1058,19 +871,8 @@ impl ::core::fmt::Debug for WPC_ARGS_EMAILCONTACTEVENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPC_ARGS_EMAILRECEIEVEDEVENT(pub i32);
-impl ::core::marker::Copy for WPC_ARGS_EMAILRECEIEVEDEVENT {}
-impl ::core::clone::Clone for WPC_ARGS_EMAILRECEIEVEDEVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPC_ARGS_EMAILRECEIEVEDEVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPC_ARGS_EMAILRECEIEVEDEVENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1080,19 +882,8 @@ impl ::core::fmt::Debug for WPC_ARGS_EMAILRECEIEVEDEVENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPC_ARGS_EMAILSENTEVENT(pub i32);
-impl ::core::marker::Copy for WPC_ARGS_EMAILSENTEVENT {}
-impl ::core::clone::Clone for WPC_ARGS_EMAILSENTEVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPC_ARGS_EMAILSENTEVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPC_ARGS_EMAILSENTEVENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1102,19 +893,8 @@ impl ::core::fmt::Debug for WPC_ARGS_EMAILSENTEVENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPC_ARGS_FILEDOWNLOADEVENT(pub i32);
-impl ::core::marker::Copy for WPC_ARGS_FILEDOWNLOADEVENT {}
-impl ::core::clone::Clone for WPC_ARGS_FILEDOWNLOADEVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPC_ARGS_FILEDOWNLOADEVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPC_ARGS_FILEDOWNLOADEVENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1124,19 +904,8 @@ impl ::core::fmt::Debug for WPC_ARGS_FILEDOWNLOADEVENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPC_ARGS_GAMESTARTEVENT(pub i32);
-impl ::core::marker::Copy for WPC_ARGS_GAMESTARTEVENT {}
-impl ::core::clone::Clone for WPC_ARGS_GAMESTARTEVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPC_ARGS_GAMESTARTEVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPC_ARGS_GAMESTARTEVENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1146,19 +915,8 @@ impl ::core::fmt::Debug for WPC_ARGS_GAMESTARTEVENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPC_ARGS_IMCONTACTEVENT(pub i32);
-impl ::core::marker::Copy for WPC_ARGS_IMCONTACTEVENT {}
-impl ::core::clone::Clone for WPC_ARGS_IMCONTACTEVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPC_ARGS_IMCONTACTEVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPC_ARGS_IMCONTACTEVENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1168,19 +926,8 @@ impl ::core::fmt::Debug for WPC_ARGS_IMCONTACTEVENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPC_ARGS_IMFEATUREEVENT(pub i32);
-impl ::core::marker::Copy for WPC_ARGS_IMFEATUREEVENT {}
-impl ::core::clone::Clone for WPC_ARGS_IMFEATUREEVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPC_ARGS_IMFEATUREEVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPC_ARGS_IMFEATUREEVENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1190,19 +937,8 @@ impl ::core::fmt::Debug for WPC_ARGS_IMFEATUREEVENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPC_ARGS_MEDIADOWNLOADEVENT(pub i32);
-impl ::core::marker::Copy for WPC_ARGS_MEDIADOWNLOADEVENT {}
-impl ::core::clone::Clone for WPC_ARGS_MEDIADOWNLOADEVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPC_ARGS_MEDIADOWNLOADEVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPC_ARGS_MEDIADOWNLOADEVENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1212,19 +948,8 @@ impl ::core::fmt::Debug for WPC_ARGS_MEDIADOWNLOADEVENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPC_ARGS_MEDIAPLAYBACKEVENT(pub i32);
-impl ::core::marker::Copy for WPC_ARGS_MEDIAPLAYBACKEVENT {}
-impl ::core::clone::Clone for WPC_ARGS_MEDIAPLAYBACKEVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPC_ARGS_MEDIAPLAYBACKEVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPC_ARGS_MEDIAPLAYBACKEVENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1234,19 +959,8 @@ impl ::core::fmt::Debug for WPC_ARGS_MEDIAPLAYBACKEVENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPC_ARGS_SAFERAPPBLOCKED(pub i32);
-impl ::core::marker::Copy for WPC_ARGS_SAFERAPPBLOCKED {}
-impl ::core::clone::Clone for WPC_ARGS_SAFERAPPBLOCKED {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPC_ARGS_SAFERAPPBLOCKED {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPC_ARGS_SAFERAPPBLOCKED {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1256,19 +970,8 @@ impl ::core::fmt::Debug for WPC_ARGS_SAFERAPPBLOCKED {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPC_ARGS_SETTINGSCHANGEEVENT(pub i32);
-impl ::core::marker::Copy for WPC_ARGS_SETTINGSCHANGEEVENT {}
-impl ::core::clone::Clone for WPC_ARGS_SETTINGSCHANGEEVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPC_ARGS_SETTINGSCHANGEEVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPC_ARGS_SETTINGSCHANGEEVENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1278,19 +981,8 @@ impl ::core::fmt::Debug for WPC_ARGS_SETTINGSCHANGEEVENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPC_ARGS_URLVISITEVENT(pub i32);
-impl ::core::marker::Copy for WPC_ARGS_URLVISITEVENT {}
-impl ::core::clone::Clone for WPC_ARGS_URLVISITEVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPC_ARGS_URLVISITEVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPC_ARGS_URLVISITEVENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1300,19 +992,8 @@ impl ::core::fmt::Debug for WPC_ARGS_URLVISITEVENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPC_ARGS_WEBOVERRIDEEVENT(pub i32);
-impl ::core::marker::Copy for WPC_ARGS_WEBOVERRIDEEVENT {}
-impl ::core::clone::Clone for WPC_ARGS_WEBOVERRIDEEVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPC_ARGS_WEBOVERRIDEEVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPC_ARGS_WEBOVERRIDEEVENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1322,19 +1003,8 @@ impl ::core::fmt::Debug for WPC_ARGS_WEBOVERRIDEEVENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPC_ARGS_WEBSITEVISITEVENT(pub i32);
-impl ::core::marker::Copy for WPC_ARGS_WEBSITEVISITEVENT {}
-impl ::core::clone::Clone for WPC_ARGS_WEBSITEVISITEVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPC_ARGS_WEBSITEVISITEVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPC_ARGS_WEBSITEVISITEVENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1344,19 +1014,8 @@ impl ::core::fmt::Debug for WPC_ARGS_WEBSITEVISITEVENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPC_MEDIA_EXPLICIT(pub i32);
-impl ::core::marker::Copy for WPC_MEDIA_EXPLICIT {}
-impl ::core::clone::Clone for WPC_MEDIA_EXPLICIT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPC_MEDIA_EXPLICIT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPC_MEDIA_EXPLICIT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1366,19 +1025,8 @@ impl ::core::fmt::Debug for WPC_MEDIA_EXPLICIT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPC_MEDIA_TYPE(pub i32);
-impl ::core::marker::Copy for WPC_MEDIA_TYPE {}
-impl ::core::clone::Clone for WPC_MEDIA_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPC_MEDIA_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPC_MEDIA_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1388,19 +1036,8 @@ impl ::core::fmt::Debug for WPC_MEDIA_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WPC_SETTINGS(pub i32);
-impl ::core::marker::Copy for WPC_SETTINGS {}
-impl ::core::clone::Clone for WPC_SETTINGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WPC_SETTINGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WPC_SETTINGS {
     type TypeKind = ::windows_core::CopyType;
 }

@@ -303,22 +303,11 @@ impl ::windows_core::CanTryInto<super::Foundation::IStringable> for HostName {}
 unsafe impl ::core::marker::Send for HostName {}
 unsafe impl ::core::marker::Sync for HostName {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DomainNameType(pub i32);
 impl DomainNameType {
     pub const Suffix: Self = Self(0i32);
     pub const FullyQualified: Self = Self(1i32);
-}
-impl ::core::marker::Copy for DomainNameType {}
-impl ::core::clone::Clone for DomainNameType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DomainNameType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DomainNameType {
     type TypeKind = ::windows_core::CopyType;
@@ -332,22 +321,11 @@ impl ::windows_core::RuntimeType for DomainNameType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.DomainNameType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HostNameSortOptions(pub u32);
 impl HostNameSortOptions {
     pub const None: Self = Self(0u32);
     pub const OptimizeForLongConnections: Self = Self(2u32);
-}
-impl ::core::marker::Copy for HostNameSortOptions {}
-impl ::core::clone::Clone for HostNameSortOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HostNameSortOptions {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for HostNameSortOptions {
     type TypeKind = ::windows_core::CopyType;
@@ -394,24 +372,13 @@ impl ::windows_core::RuntimeType for HostNameSortOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.HostNameSortOptions;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HostNameType(pub i32);
 impl HostNameType {
     pub const DomainName: Self = Self(0i32);
     pub const Ipv4: Self = Self(1i32);
     pub const Ipv6: Self = Self(2i32);
     pub const Bluetooth: Self = Self(3i32);
-}
-impl ::core::marker::Copy for HostNameType {}
-impl ::core::clone::Clone for HostNameType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HostNameType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for HostNameType {
     type TypeKind = ::windows_core::CopyType;

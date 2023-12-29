@@ -2230,22 +2230,11 @@ impl ::windows_core::RuntimeName for HolographicViewConfiguration {
 unsafe impl ::core::marker::Send for HolographicViewConfiguration {}
 unsafe impl ::core::marker::Sync for HolographicViewConfiguration {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HolographicDepthReprojectionMethod(pub i32);
 impl HolographicDepthReprojectionMethod {
     pub const DepthReprojection: Self = Self(0i32);
     pub const AutoPlanar: Self = Self(1i32);
-}
-impl ::core::marker::Copy for HolographicDepthReprojectionMethod {}
-impl ::core::clone::Clone for HolographicDepthReprojectionMethod {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HolographicDepthReprojectionMethod {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for HolographicDepthReprojectionMethod {
     type TypeKind = ::windows_core::CopyType;
@@ -2259,22 +2248,11 @@ impl ::windows_core::RuntimeType for HolographicDepthReprojectionMethod {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicDepthReprojectionMethod;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HolographicFramePresentResult(pub i32);
 impl HolographicFramePresentResult {
     pub const Success: Self = Self(0i32);
     pub const DeviceRemoved: Self = Self(1i32);
-}
-impl ::core::marker::Copy for HolographicFramePresentResult {}
-impl ::core::clone::Clone for HolographicFramePresentResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HolographicFramePresentResult {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for HolographicFramePresentResult {
     type TypeKind = ::windows_core::CopyType;
@@ -2288,22 +2266,11 @@ impl ::windows_core::RuntimeType for HolographicFramePresentResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicFramePresentResult;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HolographicFramePresentWaitBehavior(pub i32);
 impl HolographicFramePresentWaitBehavior {
     pub const WaitForFrameToFinish: Self = Self(0i32);
     pub const DoNotWaitForFrameToFinish: Self = Self(1i32);
-}
-impl ::core::marker::Copy for HolographicFramePresentWaitBehavior {}
-impl ::core::clone::Clone for HolographicFramePresentWaitBehavior {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HolographicFramePresentWaitBehavior {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for HolographicFramePresentWaitBehavior {
     type TypeKind = ::windows_core::CopyType;
@@ -2317,23 +2284,12 @@ impl ::windows_core::RuntimeType for HolographicFramePresentWaitBehavior {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicFramePresentWaitBehavior;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HolographicReprojectionMode(pub i32);
 impl HolographicReprojectionMode {
     pub const PositionAndOrientation: Self = Self(0i32);
     pub const OrientationOnly: Self = Self(1i32);
     pub const Disabled: Self = Self(2i32);
-}
-impl ::core::marker::Copy for HolographicReprojectionMode {}
-impl ::core::clone::Clone for HolographicReprojectionMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HolographicReprojectionMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for HolographicReprojectionMode {
     type TypeKind = ::windows_core::CopyType;
@@ -2347,23 +2303,12 @@ impl ::windows_core::RuntimeType for HolographicReprojectionMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicReprojectionMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HolographicSpaceUserPresence(pub i32);
 impl HolographicSpaceUserPresence {
     pub const Absent: Self = Self(0i32);
     pub const PresentPassive: Self = Self(1i32);
     pub const PresentActive: Self = Self(2i32);
-}
-impl ::core::marker::Copy for HolographicSpaceUserPresence {}
-impl ::core::clone::Clone for HolographicSpaceUserPresence {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HolographicSpaceUserPresence {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for HolographicSpaceUserPresence {
     type TypeKind = ::windows_core::CopyType;
@@ -2377,22 +2322,11 @@ impl ::windows_core::RuntimeType for HolographicSpaceUserPresence {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicSpaceUserPresence;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HolographicViewConfigurationKind(pub i32);
 impl HolographicViewConfigurationKind {
     pub const Display: Self = Self(0i32);
     pub const PhotoVideoCamera: Self = Self(1i32);
-}
-impl ::core::marker::Copy for HolographicViewConfigurationKind {}
-impl ::core::clone::Clone for HolographicViewConfigurationKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HolographicViewConfigurationKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for HolographicViewConfigurationKind {
     type TypeKind = ::windows_core::CopyType;

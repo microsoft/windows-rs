@@ -9958,19 +9958,8 @@ pub const DWRITE_WORD_WRAPPING_WHOLE_WORD: DWRITE_WORD_WRAPPING = DWRITE_WORD_WR
 pub const DWRITE_WORD_WRAPPING_WRAP: DWRITE_WORD_WRAPPING = DWRITE_WORD_WRAPPING(0i32);
 pub const FACILITY_DWRITE: u32 = 2200u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_AUTOMATIC_FONT_AXES(pub i32);
-impl ::core::marker::Copy for DWRITE_AUTOMATIC_FONT_AXES {}
-impl ::core::clone::Clone for DWRITE_AUTOMATIC_FONT_AXES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_AUTOMATIC_FONT_AXES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_AUTOMATIC_FONT_AXES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10013,19 +10002,8 @@ impl ::core::ops::Not for DWRITE_AUTOMATIC_FONT_AXES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_BASELINE(pub i32);
-impl ::core::marker::Copy for DWRITE_BASELINE {}
-impl ::core::clone::Clone for DWRITE_BASELINE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_BASELINE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_BASELINE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10035,19 +10013,8 @@ impl ::core::fmt::Debug for DWRITE_BASELINE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_BREAK_CONDITION(pub i32);
-impl ::core::marker::Copy for DWRITE_BREAK_CONDITION {}
-impl ::core::clone::Clone for DWRITE_BREAK_CONDITION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_BREAK_CONDITION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_BREAK_CONDITION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10057,19 +10024,8 @@ impl ::core::fmt::Debug for DWRITE_BREAK_CONDITION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_CONTAINER_TYPE(pub i32);
-impl ::core::marker::Copy for DWRITE_CONTAINER_TYPE {}
-impl ::core::clone::Clone for DWRITE_CONTAINER_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_CONTAINER_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_CONTAINER_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10079,19 +10035,8 @@ impl ::core::fmt::Debug for DWRITE_CONTAINER_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_FACTORY_TYPE(pub i32);
-impl ::core::marker::Copy for DWRITE_FACTORY_TYPE {}
-impl ::core::clone::Clone for DWRITE_FACTORY_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_FACTORY_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_FACTORY_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10101,19 +10046,8 @@ impl ::core::fmt::Debug for DWRITE_FACTORY_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_FLOW_DIRECTION(pub i32);
-impl ::core::marker::Copy for DWRITE_FLOW_DIRECTION {}
-impl ::core::clone::Clone for DWRITE_FLOW_DIRECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_FLOW_DIRECTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_FLOW_DIRECTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10123,19 +10057,8 @@ impl ::core::fmt::Debug for DWRITE_FLOW_DIRECTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_FONT_AXIS_ATTRIBUTES(pub i32);
-impl ::core::marker::Copy for DWRITE_FONT_AXIS_ATTRIBUTES {}
-impl ::core::clone::Clone for DWRITE_FONT_AXIS_ATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_FONT_AXIS_ATTRIBUTES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_FONT_AXIS_ATTRIBUTES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10178,19 +10101,8 @@ impl ::core::ops::Not for DWRITE_FONT_AXIS_ATTRIBUTES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_FONT_AXIS_TAG(pub u32);
-impl ::core::marker::Copy for DWRITE_FONT_AXIS_TAG {}
-impl ::core::clone::Clone for DWRITE_FONT_AXIS_TAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_FONT_AXIS_TAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_FONT_AXIS_TAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10200,19 +10112,8 @@ impl ::core::fmt::Debug for DWRITE_FONT_AXIS_TAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_FONT_FACE_TYPE(pub i32);
-impl ::core::marker::Copy for DWRITE_FONT_FACE_TYPE {}
-impl ::core::clone::Clone for DWRITE_FONT_FACE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_FONT_FACE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_FONT_FACE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10222,19 +10123,8 @@ impl ::core::fmt::Debug for DWRITE_FONT_FACE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_FONT_FAMILY_MODEL(pub i32);
-impl ::core::marker::Copy for DWRITE_FONT_FAMILY_MODEL {}
-impl ::core::clone::Clone for DWRITE_FONT_FAMILY_MODEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_FONT_FAMILY_MODEL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_FONT_FAMILY_MODEL {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10244,19 +10134,8 @@ impl ::core::fmt::Debug for DWRITE_FONT_FAMILY_MODEL {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_FONT_FEATURE_TAG(pub u32);
-impl ::core::marker::Copy for DWRITE_FONT_FEATURE_TAG {}
-impl ::core::clone::Clone for DWRITE_FONT_FEATURE_TAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_FONT_FEATURE_TAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_FONT_FEATURE_TAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10266,19 +10145,8 @@ impl ::core::fmt::Debug for DWRITE_FONT_FEATURE_TAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_FONT_FILE_TYPE(pub i32);
-impl ::core::marker::Copy for DWRITE_FONT_FILE_TYPE {}
-impl ::core::clone::Clone for DWRITE_FONT_FILE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_FONT_FILE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_FONT_FILE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10288,19 +10156,8 @@ impl ::core::fmt::Debug for DWRITE_FONT_FILE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_FONT_LINE_GAP_USAGE(pub i32);
-impl ::core::marker::Copy for DWRITE_FONT_LINE_GAP_USAGE {}
-impl ::core::clone::Clone for DWRITE_FONT_LINE_GAP_USAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_FONT_LINE_GAP_USAGE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_FONT_LINE_GAP_USAGE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10310,19 +10167,8 @@ impl ::core::fmt::Debug for DWRITE_FONT_LINE_GAP_USAGE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_FONT_PROPERTY_ID(pub i32);
-impl ::core::marker::Copy for DWRITE_FONT_PROPERTY_ID {}
-impl ::core::clone::Clone for DWRITE_FONT_PROPERTY_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_FONT_PROPERTY_ID {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_FONT_PROPERTY_ID {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10332,19 +10178,8 @@ impl ::core::fmt::Debug for DWRITE_FONT_PROPERTY_ID {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_FONT_SIMULATIONS(pub i32);
-impl ::core::marker::Copy for DWRITE_FONT_SIMULATIONS {}
-impl ::core::clone::Clone for DWRITE_FONT_SIMULATIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_FONT_SIMULATIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_FONT_SIMULATIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10387,19 +10222,8 @@ impl ::core::ops::Not for DWRITE_FONT_SIMULATIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_FONT_SOURCE_TYPE(pub i32);
-impl ::core::marker::Copy for DWRITE_FONT_SOURCE_TYPE {}
-impl ::core::clone::Clone for DWRITE_FONT_SOURCE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_FONT_SOURCE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_FONT_SOURCE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10409,19 +10233,8 @@ impl ::core::fmt::Debug for DWRITE_FONT_SOURCE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_FONT_STRETCH(pub i32);
-impl ::core::marker::Copy for DWRITE_FONT_STRETCH {}
-impl ::core::clone::Clone for DWRITE_FONT_STRETCH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_FONT_STRETCH {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_FONT_STRETCH {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10431,19 +10244,8 @@ impl ::core::fmt::Debug for DWRITE_FONT_STRETCH {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_FONT_STYLE(pub i32);
-impl ::core::marker::Copy for DWRITE_FONT_STYLE {}
-impl ::core::clone::Clone for DWRITE_FONT_STYLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_FONT_STYLE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_FONT_STYLE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10453,19 +10255,8 @@ impl ::core::fmt::Debug for DWRITE_FONT_STYLE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_FONT_WEIGHT(pub i32);
-impl ::core::marker::Copy for DWRITE_FONT_WEIGHT {}
-impl ::core::clone::Clone for DWRITE_FONT_WEIGHT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_FONT_WEIGHT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_FONT_WEIGHT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10475,19 +10266,8 @@ impl ::core::fmt::Debug for DWRITE_FONT_WEIGHT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_GLYPH_IMAGE_FORMATS(pub i32);
-impl ::core::marker::Copy for DWRITE_GLYPH_IMAGE_FORMATS {}
-impl ::core::clone::Clone for DWRITE_GLYPH_IMAGE_FORMATS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_GLYPH_IMAGE_FORMATS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_GLYPH_IMAGE_FORMATS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10530,19 +10310,8 @@ impl ::core::ops::Not for DWRITE_GLYPH_IMAGE_FORMATS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_GLYPH_ORIENTATION_ANGLE(pub i32);
-impl ::core::marker::Copy for DWRITE_GLYPH_ORIENTATION_ANGLE {}
-impl ::core::clone::Clone for DWRITE_GLYPH_ORIENTATION_ANGLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_GLYPH_ORIENTATION_ANGLE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_GLYPH_ORIENTATION_ANGLE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10552,19 +10321,8 @@ impl ::core::fmt::Debug for DWRITE_GLYPH_ORIENTATION_ANGLE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_GRID_FIT_MODE(pub i32);
-impl ::core::marker::Copy for DWRITE_GRID_FIT_MODE {}
-impl ::core::clone::Clone for DWRITE_GRID_FIT_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_GRID_FIT_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_GRID_FIT_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10574,19 +10332,8 @@ impl ::core::fmt::Debug for DWRITE_GRID_FIT_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_INFORMATIONAL_STRING_ID(pub i32);
-impl ::core::marker::Copy for DWRITE_INFORMATIONAL_STRING_ID {}
-impl ::core::clone::Clone for DWRITE_INFORMATIONAL_STRING_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_INFORMATIONAL_STRING_ID {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_INFORMATIONAL_STRING_ID {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10596,19 +10343,8 @@ impl ::core::fmt::Debug for DWRITE_INFORMATIONAL_STRING_ID {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_LINE_SPACING_METHOD(pub i32);
-impl ::core::marker::Copy for DWRITE_LINE_SPACING_METHOD {}
-impl ::core::clone::Clone for DWRITE_LINE_SPACING_METHOD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_LINE_SPACING_METHOD {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_LINE_SPACING_METHOD {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10618,19 +10354,8 @@ impl ::core::fmt::Debug for DWRITE_LINE_SPACING_METHOD {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_LOCALITY(pub i32);
-impl ::core::marker::Copy for DWRITE_LOCALITY {}
-impl ::core::clone::Clone for DWRITE_LOCALITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_LOCALITY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_LOCALITY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10640,19 +10365,8 @@ impl ::core::fmt::Debug for DWRITE_LOCALITY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_MEASURING_MODE(pub i32);
-impl ::core::marker::Copy for DWRITE_MEASURING_MODE {}
-impl ::core::clone::Clone for DWRITE_MEASURING_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_MEASURING_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_MEASURING_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10662,19 +10376,8 @@ impl ::core::fmt::Debug for DWRITE_MEASURING_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_NUMBER_SUBSTITUTION_METHOD(pub i32);
-impl ::core::marker::Copy for DWRITE_NUMBER_SUBSTITUTION_METHOD {}
-impl ::core::clone::Clone for DWRITE_NUMBER_SUBSTITUTION_METHOD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_NUMBER_SUBSTITUTION_METHOD {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_NUMBER_SUBSTITUTION_METHOD {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10684,19 +10387,8 @@ impl ::core::fmt::Debug for DWRITE_NUMBER_SUBSTITUTION_METHOD {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_OPTICAL_ALIGNMENT(pub i32);
-impl ::core::marker::Copy for DWRITE_OPTICAL_ALIGNMENT {}
-impl ::core::clone::Clone for DWRITE_OPTICAL_ALIGNMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_OPTICAL_ALIGNMENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_OPTICAL_ALIGNMENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10706,19 +10398,8 @@ impl ::core::fmt::Debug for DWRITE_OPTICAL_ALIGNMENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_OUTLINE_THRESHOLD(pub i32);
-impl ::core::marker::Copy for DWRITE_OUTLINE_THRESHOLD {}
-impl ::core::clone::Clone for DWRITE_OUTLINE_THRESHOLD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_OUTLINE_THRESHOLD {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_OUTLINE_THRESHOLD {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10728,19 +10409,8 @@ impl ::core::fmt::Debug for DWRITE_OUTLINE_THRESHOLD {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_PANOSE_ARM_STYLE(pub i32);
-impl ::core::marker::Copy for DWRITE_PANOSE_ARM_STYLE {}
-impl ::core::clone::Clone for DWRITE_PANOSE_ARM_STYLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_PANOSE_ARM_STYLE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_PANOSE_ARM_STYLE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10750,19 +10420,8 @@ impl ::core::fmt::Debug for DWRITE_PANOSE_ARM_STYLE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_PANOSE_ASPECT(pub i32);
-impl ::core::marker::Copy for DWRITE_PANOSE_ASPECT {}
-impl ::core::clone::Clone for DWRITE_PANOSE_ASPECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_PANOSE_ASPECT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_PANOSE_ASPECT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10772,19 +10431,8 @@ impl ::core::fmt::Debug for DWRITE_PANOSE_ASPECT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_PANOSE_ASPECT_RATIO(pub i32);
-impl ::core::marker::Copy for DWRITE_PANOSE_ASPECT_RATIO {}
-impl ::core::clone::Clone for DWRITE_PANOSE_ASPECT_RATIO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_PANOSE_ASPECT_RATIO {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_PANOSE_ASPECT_RATIO {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10794,19 +10442,8 @@ impl ::core::fmt::Debug for DWRITE_PANOSE_ASPECT_RATIO {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_PANOSE_CHARACTER_RANGES(pub i32);
-impl ::core::marker::Copy for DWRITE_PANOSE_CHARACTER_RANGES {}
-impl ::core::clone::Clone for DWRITE_PANOSE_CHARACTER_RANGES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_PANOSE_CHARACTER_RANGES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_PANOSE_CHARACTER_RANGES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10816,19 +10453,8 @@ impl ::core::fmt::Debug for DWRITE_PANOSE_CHARACTER_RANGES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_PANOSE_CONTRAST(pub i32);
-impl ::core::marker::Copy for DWRITE_PANOSE_CONTRAST {}
-impl ::core::clone::Clone for DWRITE_PANOSE_CONTRAST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_PANOSE_CONTRAST {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_PANOSE_CONTRAST {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10838,19 +10464,8 @@ impl ::core::fmt::Debug for DWRITE_PANOSE_CONTRAST {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_PANOSE_DECORATIVE_CLASS(pub i32);
-impl ::core::marker::Copy for DWRITE_PANOSE_DECORATIVE_CLASS {}
-impl ::core::clone::Clone for DWRITE_PANOSE_DECORATIVE_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_PANOSE_DECORATIVE_CLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_PANOSE_DECORATIVE_CLASS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10860,19 +10475,8 @@ impl ::core::fmt::Debug for DWRITE_PANOSE_DECORATIVE_CLASS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_PANOSE_DECORATIVE_TOPOLOGY(pub i32);
-impl ::core::marker::Copy for DWRITE_PANOSE_DECORATIVE_TOPOLOGY {}
-impl ::core::clone::Clone for DWRITE_PANOSE_DECORATIVE_TOPOLOGY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_PANOSE_DECORATIVE_TOPOLOGY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_PANOSE_DECORATIVE_TOPOLOGY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10882,19 +10486,8 @@ impl ::core::fmt::Debug for DWRITE_PANOSE_DECORATIVE_TOPOLOGY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_PANOSE_FAMILY(pub i32);
-impl ::core::marker::Copy for DWRITE_PANOSE_FAMILY {}
-impl ::core::clone::Clone for DWRITE_PANOSE_FAMILY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_PANOSE_FAMILY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_PANOSE_FAMILY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10904,19 +10497,8 @@ impl ::core::fmt::Debug for DWRITE_PANOSE_FAMILY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_PANOSE_FILL(pub i32);
-impl ::core::marker::Copy for DWRITE_PANOSE_FILL {}
-impl ::core::clone::Clone for DWRITE_PANOSE_FILL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_PANOSE_FILL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_PANOSE_FILL {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10926,19 +10508,8 @@ impl ::core::fmt::Debug for DWRITE_PANOSE_FILL {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_PANOSE_FINIALS(pub i32);
-impl ::core::marker::Copy for DWRITE_PANOSE_FINIALS {}
-impl ::core::clone::Clone for DWRITE_PANOSE_FINIALS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_PANOSE_FINIALS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_PANOSE_FINIALS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10948,19 +10519,8 @@ impl ::core::fmt::Debug for DWRITE_PANOSE_FINIALS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_PANOSE_LETTERFORM(pub i32);
-impl ::core::marker::Copy for DWRITE_PANOSE_LETTERFORM {}
-impl ::core::clone::Clone for DWRITE_PANOSE_LETTERFORM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_PANOSE_LETTERFORM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_PANOSE_LETTERFORM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10970,19 +10530,8 @@ impl ::core::fmt::Debug for DWRITE_PANOSE_LETTERFORM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_PANOSE_LINING(pub i32);
-impl ::core::marker::Copy for DWRITE_PANOSE_LINING {}
-impl ::core::clone::Clone for DWRITE_PANOSE_LINING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_PANOSE_LINING {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_PANOSE_LINING {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10992,19 +10541,8 @@ impl ::core::fmt::Debug for DWRITE_PANOSE_LINING {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_PANOSE_MIDLINE(pub i32);
-impl ::core::marker::Copy for DWRITE_PANOSE_MIDLINE {}
-impl ::core::clone::Clone for DWRITE_PANOSE_MIDLINE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_PANOSE_MIDLINE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_PANOSE_MIDLINE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11014,19 +10552,8 @@ impl ::core::fmt::Debug for DWRITE_PANOSE_MIDLINE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_PANOSE_PROPORTION(pub i32);
-impl ::core::marker::Copy for DWRITE_PANOSE_PROPORTION {}
-impl ::core::clone::Clone for DWRITE_PANOSE_PROPORTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_PANOSE_PROPORTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_PANOSE_PROPORTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11036,19 +10563,8 @@ impl ::core::fmt::Debug for DWRITE_PANOSE_PROPORTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_PANOSE_SCRIPT_FORM(pub i32);
-impl ::core::marker::Copy for DWRITE_PANOSE_SCRIPT_FORM {}
-impl ::core::clone::Clone for DWRITE_PANOSE_SCRIPT_FORM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_PANOSE_SCRIPT_FORM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_PANOSE_SCRIPT_FORM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11058,19 +10574,8 @@ impl ::core::fmt::Debug for DWRITE_PANOSE_SCRIPT_FORM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_PANOSE_SCRIPT_TOPOLOGY(pub i32);
-impl ::core::marker::Copy for DWRITE_PANOSE_SCRIPT_TOPOLOGY {}
-impl ::core::clone::Clone for DWRITE_PANOSE_SCRIPT_TOPOLOGY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_PANOSE_SCRIPT_TOPOLOGY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_PANOSE_SCRIPT_TOPOLOGY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11080,19 +10585,8 @@ impl ::core::fmt::Debug for DWRITE_PANOSE_SCRIPT_TOPOLOGY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_PANOSE_SERIF_STYLE(pub i32);
-impl ::core::marker::Copy for DWRITE_PANOSE_SERIF_STYLE {}
-impl ::core::clone::Clone for DWRITE_PANOSE_SERIF_STYLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_PANOSE_SERIF_STYLE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_PANOSE_SERIF_STYLE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11102,19 +10596,8 @@ impl ::core::fmt::Debug for DWRITE_PANOSE_SERIF_STYLE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_PANOSE_SPACING(pub i32);
-impl ::core::marker::Copy for DWRITE_PANOSE_SPACING {}
-impl ::core::clone::Clone for DWRITE_PANOSE_SPACING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_PANOSE_SPACING {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_PANOSE_SPACING {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11124,19 +10607,8 @@ impl ::core::fmt::Debug for DWRITE_PANOSE_SPACING {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_PANOSE_STROKE_VARIATION(pub i32);
-impl ::core::marker::Copy for DWRITE_PANOSE_STROKE_VARIATION {}
-impl ::core::clone::Clone for DWRITE_PANOSE_STROKE_VARIATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_PANOSE_STROKE_VARIATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_PANOSE_STROKE_VARIATION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11146,19 +10618,8 @@ impl ::core::fmt::Debug for DWRITE_PANOSE_STROKE_VARIATION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_PANOSE_SYMBOL_ASPECT_RATIO(pub i32);
-impl ::core::marker::Copy for DWRITE_PANOSE_SYMBOL_ASPECT_RATIO {}
-impl ::core::clone::Clone for DWRITE_PANOSE_SYMBOL_ASPECT_RATIO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_PANOSE_SYMBOL_ASPECT_RATIO {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_PANOSE_SYMBOL_ASPECT_RATIO {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11168,19 +10629,8 @@ impl ::core::fmt::Debug for DWRITE_PANOSE_SYMBOL_ASPECT_RATIO {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_PANOSE_SYMBOL_KIND(pub i32);
-impl ::core::marker::Copy for DWRITE_PANOSE_SYMBOL_KIND {}
-impl ::core::clone::Clone for DWRITE_PANOSE_SYMBOL_KIND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_PANOSE_SYMBOL_KIND {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_PANOSE_SYMBOL_KIND {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11190,19 +10640,8 @@ impl ::core::fmt::Debug for DWRITE_PANOSE_SYMBOL_KIND {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_PANOSE_TOOL_KIND(pub i32);
-impl ::core::marker::Copy for DWRITE_PANOSE_TOOL_KIND {}
-impl ::core::clone::Clone for DWRITE_PANOSE_TOOL_KIND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_PANOSE_TOOL_KIND {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_PANOSE_TOOL_KIND {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11212,19 +10651,8 @@ impl ::core::fmt::Debug for DWRITE_PANOSE_TOOL_KIND {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_PANOSE_WEIGHT(pub i32);
-impl ::core::marker::Copy for DWRITE_PANOSE_WEIGHT {}
-impl ::core::clone::Clone for DWRITE_PANOSE_WEIGHT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_PANOSE_WEIGHT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_PANOSE_WEIGHT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11234,19 +10662,8 @@ impl ::core::fmt::Debug for DWRITE_PANOSE_WEIGHT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_PANOSE_XASCENT(pub i32);
-impl ::core::marker::Copy for DWRITE_PANOSE_XASCENT {}
-impl ::core::clone::Clone for DWRITE_PANOSE_XASCENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_PANOSE_XASCENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_PANOSE_XASCENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11256,19 +10673,8 @@ impl ::core::fmt::Debug for DWRITE_PANOSE_XASCENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_PANOSE_XHEIGHT(pub i32);
-impl ::core::marker::Copy for DWRITE_PANOSE_XHEIGHT {}
-impl ::core::clone::Clone for DWRITE_PANOSE_XHEIGHT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_PANOSE_XHEIGHT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_PANOSE_XHEIGHT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11278,19 +10684,8 @@ impl ::core::fmt::Debug for DWRITE_PANOSE_XHEIGHT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_PARAGRAPH_ALIGNMENT(pub i32);
-impl ::core::marker::Copy for DWRITE_PARAGRAPH_ALIGNMENT {}
-impl ::core::clone::Clone for DWRITE_PARAGRAPH_ALIGNMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_PARAGRAPH_ALIGNMENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_PARAGRAPH_ALIGNMENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11300,19 +10695,8 @@ impl ::core::fmt::Debug for DWRITE_PARAGRAPH_ALIGNMENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_PIXEL_GEOMETRY(pub i32);
-impl ::core::marker::Copy for DWRITE_PIXEL_GEOMETRY {}
-impl ::core::clone::Clone for DWRITE_PIXEL_GEOMETRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_PIXEL_GEOMETRY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_PIXEL_GEOMETRY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11322,19 +10706,8 @@ impl ::core::fmt::Debug for DWRITE_PIXEL_GEOMETRY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_READING_DIRECTION(pub i32);
-impl ::core::marker::Copy for DWRITE_READING_DIRECTION {}
-impl ::core::clone::Clone for DWRITE_READING_DIRECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_READING_DIRECTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_READING_DIRECTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11344,19 +10717,8 @@ impl ::core::fmt::Debug for DWRITE_READING_DIRECTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_RENDERING_MODE(pub i32);
-impl ::core::marker::Copy for DWRITE_RENDERING_MODE {}
-impl ::core::clone::Clone for DWRITE_RENDERING_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_RENDERING_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_RENDERING_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11366,19 +10728,8 @@ impl ::core::fmt::Debug for DWRITE_RENDERING_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_RENDERING_MODE1(pub i32);
-impl ::core::marker::Copy for DWRITE_RENDERING_MODE1 {}
-impl ::core::clone::Clone for DWRITE_RENDERING_MODE1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_RENDERING_MODE1 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_RENDERING_MODE1 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11388,19 +10739,8 @@ impl ::core::fmt::Debug for DWRITE_RENDERING_MODE1 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_SCRIPT_SHAPES(pub i32);
-impl ::core::marker::Copy for DWRITE_SCRIPT_SHAPES {}
-impl ::core::clone::Clone for DWRITE_SCRIPT_SHAPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_SCRIPT_SHAPES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_SCRIPT_SHAPES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11443,19 +10783,8 @@ impl ::core::ops::Not for DWRITE_SCRIPT_SHAPES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_TEXTURE_TYPE(pub i32);
-impl ::core::marker::Copy for DWRITE_TEXTURE_TYPE {}
-impl ::core::clone::Clone for DWRITE_TEXTURE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_TEXTURE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_TEXTURE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11465,19 +10794,8 @@ impl ::core::fmt::Debug for DWRITE_TEXTURE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_TEXT_ALIGNMENT(pub i32);
-impl ::core::marker::Copy for DWRITE_TEXT_ALIGNMENT {}
-impl ::core::clone::Clone for DWRITE_TEXT_ALIGNMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_TEXT_ALIGNMENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_TEXT_ALIGNMENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11487,19 +10805,8 @@ impl ::core::fmt::Debug for DWRITE_TEXT_ALIGNMENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_TEXT_ANTIALIAS_MODE(pub i32);
-impl ::core::marker::Copy for DWRITE_TEXT_ANTIALIAS_MODE {}
-impl ::core::clone::Clone for DWRITE_TEXT_ANTIALIAS_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_TEXT_ANTIALIAS_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_TEXT_ANTIALIAS_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11509,19 +10816,8 @@ impl ::core::fmt::Debug for DWRITE_TEXT_ANTIALIAS_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_TRIMMING_GRANULARITY(pub i32);
-impl ::core::marker::Copy for DWRITE_TRIMMING_GRANULARITY {}
-impl ::core::clone::Clone for DWRITE_TRIMMING_GRANULARITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_TRIMMING_GRANULARITY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_TRIMMING_GRANULARITY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11531,19 +10827,8 @@ impl ::core::fmt::Debug for DWRITE_TRIMMING_GRANULARITY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_VERTICAL_GLYPH_ORIENTATION(pub i32);
-impl ::core::marker::Copy for DWRITE_VERTICAL_GLYPH_ORIENTATION {}
-impl ::core::clone::Clone for DWRITE_VERTICAL_GLYPH_ORIENTATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_VERTICAL_GLYPH_ORIENTATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_VERTICAL_GLYPH_ORIENTATION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11553,19 +10838,8 @@ impl ::core::fmt::Debug for DWRITE_VERTICAL_GLYPH_ORIENTATION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DWRITE_WORD_WRAPPING(pub i32);
-impl ::core::marker::Copy for DWRITE_WORD_WRAPPING {}
-impl ::core::clone::Clone for DWRITE_WORD_WRAPPING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DWRITE_WORD_WRAPPING {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DWRITE_WORD_WRAPPING {
     type TypeKind = ::windows_core::CopyType;
 }

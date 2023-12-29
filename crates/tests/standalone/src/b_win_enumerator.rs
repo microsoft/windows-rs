@@ -8,19 +8,14 @@
     clippy::all
 )]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(
+    ::core::cmp::PartialEq,
+    ::core::cmp::Eq,
+    ::core::marker::Copy,
+    ::core::clone::Clone,
+    ::core::default::Default,
+)]
 pub struct WAIT_EVENT(pub u32);
-impl ::core::marker::Copy for WAIT_EVENT {}
-impl ::core::clone::Clone for WAIT_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WAIT_EVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WAIT_EVENT {
     type TypeKind = ::windows_core::CopyType;
 }

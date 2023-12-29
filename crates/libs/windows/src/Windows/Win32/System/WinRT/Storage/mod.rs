@@ -165,19 +165,8 @@ pub const HSO_SHARE_NONE: HANDLE_SHARING_OPTIONS = HANDLE_SHARING_OPTIONS(0i32);
 pub const HSO_SHARE_READ: HANDLE_SHARING_OPTIONS = HANDLE_SHARING_OPTIONS(1i32);
 pub const HSO_SHARE_WRITE: HANDLE_SHARING_OPTIONS = HANDLE_SHARING_OPTIONS(2i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HANDLE_ACCESS_OPTIONS(pub i32);
-impl ::core::marker::Copy for HANDLE_ACCESS_OPTIONS {}
-impl ::core::clone::Clone for HANDLE_ACCESS_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HANDLE_ACCESS_OPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HANDLE_ACCESS_OPTIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -220,19 +209,8 @@ impl ::core::ops::Not for HANDLE_ACCESS_OPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HANDLE_CREATION_OPTIONS(pub i32);
-impl ::core::marker::Copy for HANDLE_CREATION_OPTIONS {}
-impl ::core::clone::Clone for HANDLE_CREATION_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HANDLE_CREATION_OPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HANDLE_CREATION_OPTIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -242,19 +220,8 @@ impl ::core::fmt::Debug for HANDLE_CREATION_OPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HANDLE_OPTIONS(pub u32);
-impl ::core::marker::Copy for HANDLE_OPTIONS {}
-impl ::core::clone::Clone for HANDLE_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HANDLE_OPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HANDLE_OPTIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -297,19 +264,8 @@ impl ::core::ops::Not for HANDLE_OPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HANDLE_SHARING_OPTIONS(pub i32);
-impl ::core::marker::Copy for HANDLE_SHARING_OPTIONS {}
-impl ::core::clone::Clone for HANDLE_SHARING_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HANDLE_SHARING_OPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HANDLE_SHARING_OPTIONS {
     type TypeKind = ::windows_core::CopyType;
 }

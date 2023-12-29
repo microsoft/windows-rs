@@ -209,22 +209,11 @@ impl ::windows_core::RuntimeName for ProviderI2cConnectionSettings {
 unsafe impl ::core::marker::Send for ProviderI2cConnectionSettings {}
 unsafe impl ::core::marker::Sync for ProviderI2cConnectionSettings {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ProviderI2cBusSpeed(pub i32);
 impl ProviderI2cBusSpeed {
     pub const StandardMode: Self = Self(0i32);
     pub const FastMode: Self = Self(1i32);
-}
-impl ::core::marker::Copy for ProviderI2cBusSpeed {}
-impl ::core::clone::Clone for ProviderI2cBusSpeed {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ProviderI2cBusSpeed {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ProviderI2cBusSpeed {
     type TypeKind = ::windows_core::CopyType;
@@ -238,22 +227,11 @@ impl ::windows_core::RuntimeType for ProviderI2cBusSpeed {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.I2c.Provider.ProviderI2cBusSpeed;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ProviderI2cSharingMode(pub i32);
 impl ProviderI2cSharingMode {
     pub const Exclusive: Self = Self(0i32);
     pub const Shared: Self = Self(1i32);
-}
-impl ::core::marker::Copy for ProviderI2cSharingMode {}
-impl ::core::clone::Clone for ProviderI2cSharingMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ProviderI2cSharingMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ProviderI2cSharingMode {
     type TypeKind = ::windows_core::CopyType;
@@ -267,23 +245,12 @@ impl ::windows_core::RuntimeType for ProviderI2cSharingMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.I2c.Provider.ProviderI2cSharingMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ProviderI2cTransferStatus(pub i32);
 impl ProviderI2cTransferStatus {
     pub const FullTransfer: Self = Self(0i32);
     pub const PartialTransfer: Self = Self(1i32);
     pub const SlaveAddressNotAcknowledged: Self = Self(2i32);
-}
-impl ::core::marker::Copy for ProviderI2cTransferStatus {}
-impl ::core::clone::Clone for ProviderI2cTransferStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ProviderI2cTransferStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ProviderI2cTransferStatus {
     type TypeKind = ::windows_core::CopyType;

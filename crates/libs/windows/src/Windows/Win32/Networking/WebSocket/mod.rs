@@ -143,19 +143,8 @@ pub const WEB_SOCKET_UNSUPPORTED_EXTENSIONS_CLOSE_STATUS: WEB_SOCKET_CLOSE_STATU
 pub const WEB_SOCKET_UTF8_FRAGMENT_BUFFER_TYPE: WEB_SOCKET_BUFFER_TYPE = WEB_SOCKET_BUFFER_TYPE(-2147483647i32);
 pub const WEB_SOCKET_UTF8_MESSAGE_BUFFER_TYPE: WEB_SOCKET_BUFFER_TYPE = WEB_SOCKET_BUFFER_TYPE(-2147483648i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WEB_SOCKET_ACTION(pub i32);
-impl ::core::marker::Copy for WEB_SOCKET_ACTION {}
-impl ::core::clone::Clone for WEB_SOCKET_ACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WEB_SOCKET_ACTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WEB_SOCKET_ACTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -165,19 +154,8 @@ impl ::core::fmt::Debug for WEB_SOCKET_ACTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WEB_SOCKET_ACTION_QUEUE(pub i32);
-impl ::core::marker::Copy for WEB_SOCKET_ACTION_QUEUE {}
-impl ::core::clone::Clone for WEB_SOCKET_ACTION_QUEUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WEB_SOCKET_ACTION_QUEUE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WEB_SOCKET_ACTION_QUEUE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -187,19 +165,8 @@ impl ::core::fmt::Debug for WEB_SOCKET_ACTION_QUEUE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WEB_SOCKET_BUFFER_TYPE(pub i32);
-impl ::core::marker::Copy for WEB_SOCKET_BUFFER_TYPE {}
-impl ::core::clone::Clone for WEB_SOCKET_BUFFER_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WEB_SOCKET_BUFFER_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WEB_SOCKET_BUFFER_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -209,19 +176,8 @@ impl ::core::fmt::Debug for WEB_SOCKET_BUFFER_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WEB_SOCKET_CLOSE_STATUS(pub i32);
-impl ::core::marker::Copy for WEB_SOCKET_CLOSE_STATUS {}
-impl ::core::clone::Clone for WEB_SOCKET_CLOSE_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WEB_SOCKET_CLOSE_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WEB_SOCKET_CLOSE_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -231,19 +187,8 @@ impl ::core::fmt::Debug for WEB_SOCKET_CLOSE_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WEB_SOCKET_PROPERTY_TYPE(pub i32);
-impl ::core::marker::Copy for WEB_SOCKET_PROPERTY_TYPE {}
-impl ::core::clone::Clone for WEB_SOCKET_PROPERTY_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WEB_SOCKET_PROPERTY_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WEB_SOCKET_PROPERTY_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }

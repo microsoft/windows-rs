@@ -3526,24 +3526,13 @@ impl ::windows_core::RuntimeName for RemoteParticipantComposingChangedEventArgs 
 unsafe impl ::core::marker::Send for RemoteParticipantComposingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for RemoteParticipantComposingChangedEventArgs {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ChatConversationThreadingKind(pub i32);
 impl ChatConversationThreadingKind {
     pub const Participants: Self = Self(0i32);
     pub const ContactId: Self = Self(1i32);
     pub const ConversationId: Self = Self(2i32);
     pub const Custom: Self = Self(3i32);
-}
-impl ::core::marker::Copy for ChatConversationThreadingKind {}
-impl ::core::clone::Clone for ChatConversationThreadingKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ChatConversationThreadingKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ChatConversationThreadingKind {
     type TypeKind = ::windows_core::CopyType;
@@ -3557,22 +3546,11 @@ impl ::windows_core::RuntimeType for ChatConversationThreadingKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatConversationThreadingKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ChatItemKind(pub i32);
 impl ChatItemKind {
     pub const Message: Self = Self(0i32);
     pub const Conversation: Self = Self(1i32);
-}
-impl ::core::marker::Copy for ChatItemKind {}
-impl ::core::clone::Clone for ChatItemKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ChatItemKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ChatItemKind {
     type TypeKind = ::windows_core::CopyType;
@@ -3586,24 +3564,13 @@ impl ::windows_core::RuntimeType for ChatItemKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatItemKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ChatMessageChangeType(pub i32);
 impl ChatMessageChangeType {
     pub const MessageCreated: Self = Self(0i32);
     pub const MessageModified: Self = Self(1i32);
     pub const MessageDeleted: Self = Self(2i32);
     pub const ChangeTrackingLost: Self = Self(3i32);
-}
-impl ::core::marker::Copy for ChatMessageChangeType {}
-impl ::core::clone::Clone for ChatMessageChangeType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ChatMessageChangeType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ChatMessageChangeType {
     type TypeKind = ::windows_core::CopyType;
@@ -3617,7 +3584,7 @@ impl ::windows_core::RuntimeType for ChatMessageChangeType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatMessageChangeType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ChatMessageKind(pub i32);
 impl ChatMessageKind {
     pub const Standard: Self = Self(0i32);
@@ -3627,17 +3594,6 @@ impl ChatMessageKind {
     pub const LeftConversation: Self = Self(4i32);
     pub const OtherParticipantJoinedConversation: Self = Self(5i32);
     pub const OtherParticipantLeftConversation: Self = Self(6i32);
-}
-impl ::core::marker::Copy for ChatMessageKind {}
-impl ::core::clone::Clone for ChatMessageKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ChatMessageKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ChatMessageKind {
     type TypeKind = ::windows_core::CopyType;
@@ -3651,24 +3607,13 @@ impl ::windows_core::RuntimeType for ChatMessageKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatMessageKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ChatMessageOperatorKind(pub i32);
 impl ChatMessageOperatorKind {
     pub const Unspecified: Self = Self(0i32);
     pub const Sms: Self = Self(1i32);
     pub const Mms: Self = Self(2i32);
     pub const Rcs: Self = Self(3i32);
-}
-impl ::core::marker::Copy for ChatMessageOperatorKind {}
-impl ::core::clone::Clone for ChatMessageOperatorKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ChatMessageOperatorKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ChatMessageOperatorKind {
     type TypeKind = ::windows_core::CopyType;
@@ -3682,7 +3627,7 @@ impl ::windows_core::RuntimeType for ChatMessageOperatorKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatMessageOperatorKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ChatMessageStatus(pub i32);
 impl ChatMessageStatus {
     pub const Draft: Self = Self(0i32);
@@ -3700,17 +3645,6 @@ impl ChatMessageStatus {
     pub const Recalled: Self = Self(12i32);
     pub const ReceiveRetryNeeded: Self = Self(13i32);
 }
-impl ::core::marker::Copy for ChatMessageStatus {}
-impl ::core::clone::Clone for ChatMessageStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ChatMessageStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ChatMessageStatus {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3723,24 +3657,13 @@ impl ::windows_core::RuntimeType for ChatMessageStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatMessageStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ChatMessageTransportKind(pub i32);
 impl ChatMessageTransportKind {
     pub const Text: Self = Self(0i32);
     pub const Untriaged: Self = Self(1i32);
     pub const Blocked: Self = Self(2i32);
     pub const Custom: Self = Self(3i32);
-}
-impl ::core::marker::Copy for ChatMessageTransportKind {}
-impl ::core::clone::Clone for ChatMessageTransportKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ChatMessageTransportKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ChatMessageTransportKind {
     type TypeKind = ::windows_core::CopyType;
@@ -3754,7 +3677,7 @@ impl ::windows_core::RuntimeType for ChatMessageTransportKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatMessageTransportKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ChatMessageValidationStatus(pub i32);
 impl ChatMessageValidationStatus {
     pub const Valid: Self = Self(0i32);
@@ -3772,17 +3695,6 @@ impl ChatMessageValidationStatus {
     pub const VoiceRoamingRestriction: Self = Self(12i32);
     pub const DataRoamingRestriction: Self = Self(13i32);
 }
-impl ::core::marker::Copy for ChatMessageValidationStatus {}
-impl ::core::clone::Clone for ChatMessageValidationStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ChatMessageValidationStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ChatMessageValidationStatus {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3795,23 +3707,12 @@ impl ::windows_core::RuntimeType for ChatMessageValidationStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatMessageValidationStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ChatRestoreHistorySpan(pub i32);
 impl ChatRestoreHistorySpan {
     pub const LastMonth: Self = Self(0i32);
     pub const LastYear: Self = Self(1i32);
     pub const AnyTime: Self = Self(2i32);
-}
-impl ::core::marker::Copy for ChatRestoreHistorySpan {}
-impl ::core::clone::Clone for ChatRestoreHistorySpan {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ChatRestoreHistorySpan {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ChatRestoreHistorySpan {
     type TypeKind = ::windows_core::CopyType;
@@ -3825,7 +3726,7 @@ impl ::windows_core::RuntimeType for ChatRestoreHistorySpan {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatRestoreHistorySpan;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ChatStoreChangedEventKind(pub i32);
 impl ChatStoreChangedEventKind {
     pub const NotificationsMissed: Self = Self(0i32);
@@ -3836,17 +3737,6 @@ impl ChatStoreChangedEventKind {
     pub const ConversationModified: Self = Self(5i32);
     pub const ConversationDeleted: Self = Self(6i32);
     pub const ConversationTransportDeleted: Self = Self(7i32);
-}
-impl ::core::marker::Copy for ChatStoreChangedEventKind {}
-impl ::core::clone::Clone for ChatStoreChangedEventKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ChatStoreChangedEventKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ChatStoreChangedEventKind {
     type TypeKind = ::windows_core::CopyType;
@@ -3860,24 +3750,13 @@ impl ::windows_core::RuntimeType for ChatStoreChangedEventKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatStoreChangedEventKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ChatTransportErrorCodeCategory(pub i32);
 impl ChatTransportErrorCodeCategory {
     pub const None: Self = Self(0i32);
     pub const Http: Self = Self(1i32);
     pub const Network: Self = Self(2i32);
     pub const MmsServer: Self = Self(3i32);
-}
-impl ::core::marker::Copy for ChatTransportErrorCodeCategory {}
-impl ::core::clone::Clone for ChatTransportErrorCodeCategory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ChatTransportErrorCodeCategory {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ChatTransportErrorCodeCategory {
     type TypeKind = ::windows_core::CopyType;
@@ -3891,7 +3770,7 @@ impl ::windows_core::RuntimeType for ChatTransportErrorCodeCategory {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatTransportErrorCodeCategory;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ChatTransportInterpretedErrorCode(pub i32);
 impl ChatTransportInterpretedErrorCode {
     pub const None: Self = Self(0i32);
@@ -3900,17 +3779,6 @@ impl ChatTransportInterpretedErrorCode {
     pub const NetworkConnectivity: Self = Self(3i32);
     pub const ServiceDenied: Self = Self(4i32);
     pub const Timeout: Self = Self(5i32);
-}
-impl ::core::marker::Copy for ChatTransportInterpretedErrorCode {}
-impl ::core::clone::Clone for ChatTransportInterpretedErrorCode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ChatTransportInterpretedErrorCode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ChatTransportInterpretedErrorCode {
     type TypeKind = ::windows_core::CopyType;
@@ -3924,24 +3792,13 @@ impl ::windows_core::RuntimeType for ChatTransportInterpretedErrorCode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatTransportInterpretedErrorCode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RcsServiceKind(pub i32);
 impl RcsServiceKind {
     pub const Chat: Self = Self(0i32);
     pub const GroupChat: Self = Self(1i32);
     pub const FileTransfer: Self = Self(2i32);
     pub const Capability: Self = Self(3i32);
-}
-impl ::core::marker::Copy for RcsServiceKind {}
-impl ::core::clone::Clone for RcsServiceKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RcsServiceKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for RcsServiceKind {
     type TypeKind = ::windows_core::CopyType;

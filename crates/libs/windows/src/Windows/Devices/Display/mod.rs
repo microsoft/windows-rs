@@ -271,24 +271,13 @@ impl ::windows_core::RuntimeName for DisplayMonitor {
 unsafe impl ::core::marker::Send for DisplayMonitor {}
 unsafe impl ::core::marker::Sync for DisplayMonitor {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DisplayMonitorConnectionKind(pub i32);
 impl DisplayMonitorConnectionKind {
     pub const Internal: Self = Self(0i32);
     pub const Wired: Self = Self(1i32);
     pub const Wireless: Self = Self(2i32);
     pub const Virtual: Self = Self(3i32);
-}
-impl ::core::marker::Copy for DisplayMonitorConnectionKind {}
-impl ::core::clone::Clone for DisplayMonitorConnectionKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DisplayMonitorConnectionKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DisplayMonitorConnectionKind {
     type TypeKind = ::windows_core::CopyType;
@@ -302,22 +291,11 @@ impl ::windows_core::RuntimeType for DisplayMonitorConnectionKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.DisplayMonitorConnectionKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DisplayMonitorDescriptorKind(pub i32);
 impl DisplayMonitorDescriptorKind {
     pub const Edid: Self = Self(0i32);
     pub const DisplayId: Self = Self(1i32);
-}
-impl ::core::marker::Copy for DisplayMonitorDescriptorKind {}
-impl ::core::clone::Clone for DisplayMonitorDescriptorKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DisplayMonitorDescriptorKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DisplayMonitorDescriptorKind {
     type TypeKind = ::windows_core::CopyType;
@@ -331,7 +309,7 @@ impl ::windows_core::RuntimeType for DisplayMonitorDescriptorKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.DisplayMonitorDescriptorKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DisplayMonitorPhysicalConnectorKind(pub i32);
 impl DisplayMonitorPhysicalConnectorKind {
     pub const Unknown: Self = Self(0i32);
@@ -342,17 +320,6 @@ impl DisplayMonitorPhysicalConnectorKind {
     pub const Lvds: Self = Self(5i32);
     pub const Sdi: Self = Self(6i32);
     pub const DisplayPort: Self = Self(7i32);
-}
-impl ::core::marker::Copy for DisplayMonitorPhysicalConnectorKind {}
-impl ::core::clone::Clone for DisplayMonitorPhysicalConnectorKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DisplayMonitorPhysicalConnectorKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DisplayMonitorPhysicalConnectorKind {
     type TypeKind = ::windows_core::CopyType;
@@ -366,23 +333,12 @@ impl ::windows_core::RuntimeType for DisplayMonitorPhysicalConnectorKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.DisplayMonitorPhysicalConnectorKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DisplayMonitorUsageKind(pub i32);
 impl DisplayMonitorUsageKind {
     pub const Standard: Self = Self(0i32);
     pub const HeadMounted: Self = Self(1i32);
     pub const SpecialPurpose: Self = Self(2i32);
-}
-impl ::core::marker::Copy for DisplayMonitorUsageKind {}
-impl ::core::clone::Clone for DisplayMonitorUsageKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DisplayMonitorUsageKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DisplayMonitorUsageKind {
     type TypeKind = ::windows_core::CopyType;

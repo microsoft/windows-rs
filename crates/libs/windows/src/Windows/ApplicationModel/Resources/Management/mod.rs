@@ -305,23 +305,12 @@ unsafe impl ::core::marker::Send for ResourceIndexer {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for ResourceIndexer {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct IndexedResourceType(pub i32);
 impl IndexedResourceType {
     pub const String: Self = Self(0i32);
     pub const Path: Self = Self(1i32);
     pub const EmbeddedData: Self = Self(2i32);
-}
-impl ::core::marker::Copy for IndexedResourceType {}
-impl ::core::clone::Clone for IndexedResourceType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for IndexedResourceType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for IndexedResourceType {
     type TypeKind = ::windows_core::CopyType;

@@ -628,23 +628,12 @@ impl ::windows_core::RuntimeName for GameModeUserConfiguration {
 unsafe impl ::core::marker::Send for GameModeUserConfiguration {}
 unsafe impl ::core::marker::Sync for GameModeUserConfiguration {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GameListCategory(pub i32);
 impl GameListCategory {
     pub const Candidate: Self = Self(0i32);
     pub const ConfirmedBySystem: Self = Self(1i32);
     pub const ConfirmedByUser: Self = Self(2i32);
-}
-impl ::core::marker::Copy for GameListCategory {}
-impl ::core::clone::Clone for GameListCategory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GameListCategory {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for GameListCategory {
     type TypeKind = ::windows_core::CopyType;
@@ -658,24 +647,13 @@ impl ::windows_core::RuntimeType for GameListCategory {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Preview.GamesEnumeration.GameListCategory;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GameListEntryLaunchableState(pub i32);
 impl GameListEntryLaunchableState {
     pub const NotLaunchable: Self = Self(0i32);
     pub const ByLastRunningFullPath: Self = Self(1i32);
     pub const ByUserProvidedPath: Self = Self(2i32);
     pub const ByTile: Self = Self(3i32);
-}
-impl ::core::marker::Copy for GameListEntryLaunchableState {}
-impl ::core::clone::Clone for GameListEntryLaunchableState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GameListEntryLaunchableState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for GameListEntryLaunchableState {
     type TypeKind = ::windows_core::CopyType;

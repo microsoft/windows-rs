@@ -1207,7 +1207,7 @@ impl ::windows_core::RuntimeName for InkAnalyzer {
 unsafe impl ::core::marker::Send for InkAnalyzer {}
 unsafe impl ::core::marker::Sync for InkAnalyzer {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InkAnalysisDrawingKind(pub i32);
 impl InkAnalysisDrawingKind {
     pub const Drawing: Self = Self(0i32);
@@ -1226,17 +1226,6 @@ impl InkAnalysisDrawingKind {
     pub const Pentagon: Self = Self(13i32);
     pub const Hexagon: Self = Self(14i32);
 }
-impl ::core::marker::Copy for InkAnalysisDrawingKind {}
-impl ::core::clone::Clone for InkAnalysisDrawingKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InkAnalysisDrawingKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for InkAnalysisDrawingKind {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1249,7 +1238,7 @@ impl ::windows_core::RuntimeType for InkAnalysisDrawingKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.Analysis.InkAnalysisDrawingKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InkAnalysisNodeKind(pub i32);
 impl InkAnalysisNodeKind {
     pub const UnclassifiedInk: Self = Self(0i32);
@@ -1261,17 +1250,6 @@ impl InkAnalysisNodeKind {
     pub const InkBullet: Self = Self(6i32);
     pub const InkDrawing: Self = Self(7i32);
     pub const ListItem: Self = Self(8i32);
-}
-impl ::core::marker::Copy for InkAnalysisNodeKind {}
-impl ::core::clone::Clone for InkAnalysisNodeKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InkAnalysisNodeKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for InkAnalysisNodeKind {
     type TypeKind = ::windows_core::CopyType;
@@ -1285,22 +1263,11 @@ impl ::windows_core::RuntimeType for InkAnalysisNodeKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.Analysis.InkAnalysisNodeKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InkAnalysisStatus(pub i32);
 impl InkAnalysisStatus {
     pub const Updated: Self = Self(0i32);
     pub const Unchanged: Self = Self(1i32);
-}
-impl ::core::marker::Copy for InkAnalysisStatus {}
-impl ::core::clone::Clone for InkAnalysisStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InkAnalysisStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for InkAnalysisStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -1314,23 +1281,12 @@ impl ::windows_core::RuntimeType for InkAnalysisStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.Analysis.InkAnalysisStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InkAnalysisStrokeKind(pub i32);
 impl InkAnalysisStrokeKind {
     pub const Auto: Self = Self(0i32);
     pub const Writing: Self = Self(1i32);
     pub const Drawing: Self = Self(2i32);
-}
-impl ::core::marker::Copy for InkAnalysisStrokeKind {}
-impl ::core::clone::Clone for InkAnalysisStrokeKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InkAnalysisStrokeKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for InkAnalysisStrokeKind {
     type TypeKind = ::windows_core::CopyType;

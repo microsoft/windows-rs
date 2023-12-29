@@ -1289,19 +1289,8 @@ pub const UPnPRemoteEndpointInfo: ::windows_core::GUID = ::windows_core::GUID::f
 pub const UPnPService: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc624ba95_fbcb_4409_8c03_8cceec533ef1);
 pub const UPnPServices: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc0bc4b4a_a406_4efc_932f_b8546b8100cc);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SW_DEVICE_CAPABILITIES(pub i32);
-impl ::core::marker::Copy for SW_DEVICE_CAPABILITIES {}
-impl ::core::clone::Clone for SW_DEVICE_CAPABILITIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SW_DEVICE_CAPABILITIES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SW_DEVICE_CAPABILITIES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1311,19 +1300,8 @@ impl ::core::fmt::Debug for SW_DEVICE_CAPABILITIES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SW_DEVICE_LIFETIME(pub i32);
-impl ::core::marker::Copy for SW_DEVICE_LIFETIME {}
-impl ::core::clone::Clone for SW_DEVICE_LIFETIME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SW_DEVICE_LIFETIME {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SW_DEVICE_LIFETIME {
     type TypeKind = ::windows_core::CopyType;
 }

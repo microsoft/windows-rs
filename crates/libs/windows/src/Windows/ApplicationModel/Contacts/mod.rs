@@ -6055,23 +6055,12 @@ impl ::windows_core::RuntimeName for PinnedContactManager {
 unsafe impl ::core::marker::Send for PinnedContactManager {}
 unsafe impl ::core::marker::Sync for PinnedContactManager {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ContactAddressKind(pub i32);
 impl ContactAddressKind {
     pub const Home: Self = Self(0i32);
     pub const Work: Self = Self(1i32);
     pub const Other: Self = Self(2i32);
-}
-impl ::core::marker::Copy for ContactAddressKind {}
-impl ::core::clone::Clone for ContactAddressKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ContactAddressKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ContactAddressKind {
     type TypeKind = ::windows_core::CopyType;
@@ -6085,7 +6074,7 @@ impl ::windows_core::RuntimeType for ContactAddressKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactAddressKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ContactAnnotationOperations(pub u32);
 impl ContactAnnotationOperations {
     pub const None: Self = Self(0u32);
@@ -6095,17 +6084,6 @@ impl ContactAnnotationOperations {
     pub const VideoCall: Self = Self(8u32);
     pub const SocialFeeds: Self = Self(16u32);
     pub const Share: Self = Self(32u32);
-}
-impl ::core::marker::Copy for ContactAnnotationOperations {}
-impl ::core::clone::Clone for ContactAnnotationOperations {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ContactAnnotationOperations {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ContactAnnotationOperations {
     type TypeKind = ::windows_core::CopyType;
@@ -6152,22 +6130,11 @@ impl ::windows_core::RuntimeType for ContactAnnotationOperations {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactAnnotationOperations;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ContactAnnotationStoreAccessType(pub i32);
 impl ContactAnnotationStoreAccessType {
     pub const AppAnnotationsReadWrite: Self = Self(0i32);
     pub const AllAnnotationsReadWrite: Self = Self(1i32);
-}
-impl ::core::marker::Copy for ContactAnnotationStoreAccessType {}
-impl ::core::clone::Clone for ContactAnnotationStoreAccessType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ContactAnnotationStoreAccessType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ContactAnnotationStoreAccessType {
     type TypeKind = ::windows_core::CopyType;
@@ -6181,23 +6148,12 @@ impl ::windows_core::RuntimeType for ContactAnnotationStoreAccessType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactAnnotationStoreAccessType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ContactBatchStatus(pub i32);
 impl ContactBatchStatus {
     pub const Success: Self = Self(0i32);
     pub const ServerSearchSyncManagerError: Self = Self(1i32);
     pub const ServerSearchUnknownError: Self = Self(2i32);
-}
-impl ::core::marker::Copy for ContactBatchStatus {}
-impl ::core::clone::Clone for ContactBatchStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ContactBatchStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ContactBatchStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -6211,23 +6167,12 @@ impl ::windows_core::RuntimeType for ContactBatchStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactBatchStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ContactCardHeaderKind(pub i32);
 impl ContactCardHeaderKind {
     pub const Default: Self = Self(0i32);
     pub const Basic: Self = Self(1i32);
     pub const Enterprise: Self = Self(2i32);
-}
-impl ::core::marker::Copy for ContactCardHeaderKind {}
-impl ::core::clone::Clone for ContactCardHeaderKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ContactCardHeaderKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ContactCardHeaderKind {
     type TypeKind = ::windows_core::CopyType;
@@ -6241,7 +6186,7 @@ impl ::windows_core::RuntimeType for ContactCardHeaderKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactCardHeaderKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ContactCardTabKind(pub i32);
 impl ContactCardTabKind {
     pub const Default: Self = Self(0i32);
@@ -6250,17 +6195,6 @@ impl ContactCardTabKind {
     pub const Phone: Self = Self(3i32);
     pub const Video: Self = Self(4i32);
     pub const OrganizationalHierarchy: Self = Self(5i32);
-}
-impl ::core::marker::Copy for ContactCardTabKind {}
-impl ::core::clone::Clone for ContactCardTabKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ContactCardTabKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ContactCardTabKind {
     type TypeKind = ::windows_core::CopyType;
@@ -6274,24 +6208,13 @@ impl ::windows_core::RuntimeType for ContactCardTabKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactCardTabKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ContactChangeType(pub i32);
 impl ContactChangeType {
     pub const Created: Self = Self(0i32);
     pub const Modified: Self = Self(1i32);
     pub const Deleted: Self = Self(2i32);
     pub const ChangeTrackingLost: Self = Self(3i32);
-}
-impl ::core::marker::Copy for ContactChangeType {}
-impl ::core::clone::Clone for ContactChangeType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ContactChangeType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ContactChangeType {
     type TypeKind = ::windows_core::CopyType;
@@ -6305,23 +6228,12 @@ impl ::windows_core::RuntimeType for ContactChangeType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactChangeType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ContactDateKind(pub i32);
 impl ContactDateKind {
     pub const Birthday: Self = Self(0i32);
     pub const Anniversary: Self = Self(1i32);
     pub const Other: Self = Self(2i32);
-}
-impl ::core::marker::Copy for ContactDateKind {}
-impl ::core::clone::Clone for ContactDateKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ContactDateKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ContactDateKind {
     type TypeKind = ::windows_core::CopyType;
@@ -6335,23 +6247,12 @@ impl ::windows_core::RuntimeType for ContactDateKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactDateKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ContactEmailKind(pub i32);
 impl ContactEmailKind {
     pub const Personal: Self = Self(0i32);
     pub const Work: Self = Self(1i32);
     pub const Other: Self = Self(2i32);
-}
-impl ::core::marker::Copy for ContactEmailKind {}
-impl ::core::clone::Clone for ContactEmailKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ContactEmailKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ContactEmailKind {
     type TypeKind = ::windows_core::CopyType;
@@ -6365,7 +6266,7 @@ impl ::windows_core::RuntimeType for ContactEmailKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactEmailKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ContactFieldCategory(pub i32);
 impl ContactFieldCategory {
     pub const None: Self = Self(0i32);
@@ -6373,17 +6274,6 @@ impl ContactFieldCategory {
     pub const Work: Self = Self(2i32);
     pub const Mobile: Self = Self(3i32);
     pub const Other: Self = Self(4i32);
-}
-impl ::core::marker::Copy for ContactFieldCategory {}
-impl ::core::clone::Clone for ContactFieldCategory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ContactFieldCategory {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ContactFieldCategory {
     type TypeKind = ::windows_core::CopyType;
@@ -6397,7 +6287,7 @@ impl ::windows_core::RuntimeType for ContactFieldCategory {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactFieldCategory;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ContactFieldType(pub i32);
 impl ContactFieldType {
     pub const Email: Self = Self(0i32);
@@ -6413,17 +6303,6 @@ impl ContactFieldType {
     pub const Website: Self = Self(10i32);
     pub const JobInfo: Self = Self(11i32);
 }
-impl ::core::marker::Copy for ContactFieldType {}
-impl ::core::clone::Clone for ContactFieldType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ContactFieldType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ContactFieldType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6436,24 +6315,13 @@ impl ::windows_core::RuntimeType for ContactFieldType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactFieldType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ContactListOtherAppReadAccess(pub i32);
 impl ContactListOtherAppReadAccess {
     pub const SystemOnly: Self = Self(0i32);
     pub const Limited: Self = Self(1i32);
     pub const Full: Self = Self(2i32);
     pub const None: Self = Self(3i32);
-}
-impl ::core::marker::Copy for ContactListOtherAppReadAccess {}
-impl ::core::clone::Clone for ContactListOtherAppReadAccess {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ContactListOtherAppReadAccess {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ContactListOtherAppReadAccess {
     type TypeKind = ::windows_core::CopyType;
@@ -6467,23 +6335,12 @@ impl ::windows_core::RuntimeType for ContactListOtherAppReadAccess {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactListOtherAppReadAccess;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ContactListOtherAppWriteAccess(pub i32);
 impl ContactListOtherAppWriteAccess {
     pub const None: Self = Self(0i32);
     pub const SystemOnly: Self = Self(1i32);
     pub const Limited: Self = Self(2i32);
-}
-impl ::core::marker::Copy for ContactListOtherAppWriteAccess {}
-impl ::core::clone::Clone for ContactListOtherAppWriteAccess {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ContactListOtherAppWriteAccess {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ContactListOtherAppWriteAccess {
     type TypeKind = ::windows_core::CopyType;
@@ -6497,7 +6354,7 @@ impl ::windows_core::RuntimeType for ContactListOtherAppWriteAccess {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactListOtherAppWriteAccess;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ContactListSyncStatus(pub i32);
 impl ContactListSyncStatus {
     pub const Idle: Self = Self(0i32);
@@ -6507,17 +6364,6 @@ impl ContactListSyncStatus {
     pub const PolicyError: Self = Self(4i32);
     pub const UnknownError: Self = Self(5i32);
     pub const ManualAccountRemovalRequired: Self = Self(6i32);
-}
-impl ::core::marker::Copy for ContactListSyncStatus {}
-impl ::core::clone::Clone for ContactListSyncStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ContactListSyncStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ContactListSyncStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -6531,7 +6377,7 @@ impl ::windows_core::RuntimeType for ContactListSyncStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactListSyncStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ContactMatchReasonKind(pub i32);
 impl ContactMatchReasonKind {
     pub const Name: Self = Self(0i32);
@@ -6540,17 +6386,6 @@ impl ContactMatchReasonKind {
     pub const JobInfo: Self = Self(3i32);
     pub const YomiName: Self = Self(4i32);
     pub const Other: Self = Self(5i32);
-}
-impl ::core::marker::Copy for ContactMatchReasonKind {}
-impl ::core::clone::Clone for ContactMatchReasonKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ContactMatchReasonKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ContactMatchReasonKind {
     type TypeKind = ::windows_core::CopyType;
@@ -6564,22 +6399,11 @@ impl ::windows_core::RuntimeType for ContactMatchReasonKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactMatchReasonKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ContactNameOrder(pub i32);
 impl ContactNameOrder {
     pub const FirstNameLastName: Self = Self(0i32);
     pub const LastNameFirstName: Self = Self(1i32);
-}
-impl ::core::marker::Copy for ContactNameOrder {}
-impl ::core::clone::Clone for ContactNameOrder {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ContactNameOrder {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ContactNameOrder {
     type TypeKind = ::windows_core::CopyType;
@@ -6593,7 +6417,7 @@ impl ::windows_core::RuntimeType for ContactNameOrder {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactNameOrder;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ContactPhoneKind(pub i32);
 impl ContactPhoneKind {
     pub const Home: Self = Self(0i32);
@@ -6607,17 +6431,6 @@ impl ContactPhoneKind {
     pub const Assistant: Self = Self(8i32);
     pub const Radio: Self = Self(9i32);
 }
-impl ::core::marker::Copy for ContactPhoneKind {}
-impl ::core::clone::Clone for ContactPhoneKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ContactPhoneKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ContactPhoneKind {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -6630,24 +6443,13 @@ impl ::windows_core::RuntimeType for ContactPhoneKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactPhoneKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ContactQueryDesiredFields(pub u32);
 impl ContactQueryDesiredFields {
     pub const None: Self = Self(0u32);
     pub const PhoneNumber: Self = Self(1u32);
     pub const EmailAddress: Self = Self(2u32);
     pub const PostalAddress: Self = Self(4u32);
-}
-impl ::core::marker::Copy for ContactQueryDesiredFields {}
-impl ::core::clone::Clone for ContactQueryDesiredFields {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ContactQueryDesiredFields {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ContactQueryDesiredFields {
     type TypeKind = ::windows_core::CopyType;
@@ -6694,7 +6496,7 @@ impl ::windows_core::RuntimeType for ContactQueryDesiredFields {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactQueryDesiredFields;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ContactQuerySearchFields(pub u32);
 impl ContactQuerySearchFields {
     pub const None: Self = Self(0u32);
@@ -6702,17 +6504,6 @@ impl ContactQuerySearchFields {
     pub const Email: Self = Self(2u32);
     pub const Phone: Self = Self(4u32);
     pub const All: Self = Self(4294967295u32);
-}
-impl ::core::marker::Copy for ContactQuerySearchFields {}
-impl ::core::clone::Clone for ContactQuerySearchFields {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ContactQuerySearchFields {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ContactQuerySearchFields {
     type TypeKind = ::windows_core::CopyType;
@@ -6759,22 +6550,11 @@ impl ::windows_core::RuntimeType for ContactQuerySearchFields {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactQuerySearchFields;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ContactQuerySearchScope(pub i32);
 impl ContactQuerySearchScope {
     pub const Local: Self = Self(0i32);
     pub const Server: Self = Self(1i32);
-}
-impl ::core::marker::Copy for ContactQuerySearchScope {}
-impl ::core::clone::Clone for ContactQuerySearchScope {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ContactQuerySearchScope {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ContactQuerySearchScope {
     type TypeKind = ::windows_core::CopyType;
@@ -6788,7 +6568,7 @@ impl ::windows_core::RuntimeType for ContactQuerySearchScope {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactQuerySearchScope;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ContactRelationship(pub i32);
 impl ContactRelationship {
     pub const Other: Self = Self(0i32);
@@ -6797,17 +6577,6 @@ impl ContactRelationship {
     pub const Sibling: Self = Self(3i32);
     pub const Parent: Self = Self(4i32);
     pub const Child: Self = Self(5i32);
-}
-impl ::core::marker::Copy for ContactRelationship {}
-impl ::core::clone::Clone for ContactRelationship {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ContactRelationship {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ContactRelationship {
     type TypeKind = ::windows_core::CopyType;
@@ -6821,22 +6590,11 @@ impl ::windows_core::RuntimeType for ContactRelationship {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactRelationship;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ContactSelectionMode(pub i32);
 impl ContactSelectionMode {
     pub const Contacts: Self = Self(0i32);
     pub const Fields: Self = Self(1i32);
-}
-impl ::core::marker::Copy for ContactSelectionMode {}
-impl ::core::clone::Clone for ContactSelectionMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ContactSelectionMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ContactSelectionMode {
     type TypeKind = ::windows_core::CopyType;
@@ -6850,23 +6608,12 @@ impl ::windows_core::RuntimeType for ContactSelectionMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactSelectionMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ContactStoreAccessType(pub i32);
 impl ContactStoreAccessType {
     pub const AppContactsReadWrite: Self = Self(0i32);
     pub const AllContactsReadOnly: Self = Self(1i32);
     pub const AllContactsReadWrite: Self = Self(2i32);
-}
-impl ::core::marker::Copy for ContactStoreAccessType {}
-impl ::core::clone::Clone for ContactStoreAccessType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ContactStoreAccessType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ContactStoreAccessType {
     type TypeKind = ::windows_core::CopyType;
@@ -6880,22 +6627,11 @@ impl ::windows_core::RuntimeType for ContactStoreAccessType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactStoreAccessType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PinnedContactSurface(pub i32);
 impl PinnedContactSurface {
     pub const StartMenu: Self = Self(0i32);
     pub const Taskbar: Self = Self(1i32);
-}
-impl ::core::marker::Copy for PinnedContactSurface {}
-impl ::core::clone::Clone for PinnedContactSurface {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PinnedContactSurface {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PinnedContactSurface {
     type TypeKind = ::windows_core::CopyType;

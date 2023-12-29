@@ -781,7 +781,7 @@ impl ::windows_core::RuntimeName for GameSaveProviderGetResult {
 unsafe impl ::core::marker::Send for GameSaveProviderGetResult {}
 unsafe impl ::core::marker::Sync for GameSaveProviderGetResult {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GameSaveErrorStatus(pub i32);
 impl GameSaveErrorStatus {
     pub const Ok: Self = Self(0i32);
@@ -799,17 +799,6 @@ impl GameSaveErrorStatus {
     pub const ContainerSyncFailed: Self = Self(-2138898421i32);
     pub const UserHasNoXboxLiveInfo: Self = Self(-2138898420i32);
     pub const ObjectExpired: Self = Self(-2138898419i32);
-}
-impl ::core::marker::Copy for GameSaveErrorStatus {}
-impl ::core::clone::Clone for GameSaveErrorStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GameSaveErrorStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for GameSaveErrorStatus {
     type TypeKind = ::windows_core::CopyType;

@@ -4162,24 +4162,13 @@ impl ::windows_core::RuntimeName for WebSocketServerCustomValidationRequestedEve
 unsafe impl ::core::marker::Send for WebSocketServerCustomValidationRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for WebSocketServerCustomValidationRequestedEventArgs {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ControlChannelTriggerResetReason(pub i32);
 impl ControlChannelTriggerResetReason {
     pub const FastUserSwitched: Self = Self(0i32);
     pub const LowPowerExit: Self = Self(1i32);
     pub const QuietHoursExit: Self = Self(2i32);
     pub const ApplicationRestart: Self = Self(3i32);
-}
-impl ::core::marker::Copy for ControlChannelTriggerResetReason {}
-impl ::core::clone::Clone for ControlChannelTriggerResetReason {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ControlChannelTriggerResetReason {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ControlChannelTriggerResetReason {
     type TypeKind = ::windows_core::CopyType;
@@ -4193,22 +4182,11 @@ impl ::windows_core::RuntimeType for ControlChannelTriggerResetReason {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.ControlChannelTriggerResetReason;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ControlChannelTriggerResourceType(pub i32);
 impl ControlChannelTriggerResourceType {
     pub const RequestSoftwareSlot: Self = Self(0i32);
     pub const RequestHardwareSlot: Self = Self(1i32);
-}
-impl ::core::marker::Copy for ControlChannelTriggerResourceType {}
-impl ::core::clone::Clone for ControlChannelTriggerResourceType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ControlChannelTriggerResourceType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ControlChannelTriggerResourceType {
     type TypeKind = ::windows_core::CopyType;
@@ -4222,7 +4200,7 @@ impl ::windows_core::RuntimeType for ControlChannelTriggerResourceType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.ControlChannelTriggerResourceType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ControlChannelTriggerStatus(pub i32);
 impl ControlChannelTriggerStatus {
     pub const HardwareSlotRequested: Self = Self(0i32);
@@ -4232,17 +4210,6 @@ impl ControlChannelTriggerStatus {
     pub const SystemError: Self = Self(4i32);
     pub const TransportDisconnected: Self = Self(5i32);
     pub const ServiceUnavailable: Self = Self(6i32);
-}
-impl ::core::marker::Copy for ControlChannelTriggerStatus {}
-impl ::core::clone::Clone for ControlChannelTriggerStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ControlChannelTriggerStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ControlChannelTriggerStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -4256,22 +4223,11 @@ impl ::windows_core::RuntimeType for ControlChannelTriggerStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.ControlChannelTriggerStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MessageWebSocketReceiveMode(pub i32);
 impl MessageWebSocketReceiveMode {
     pub const FullMessage: Self = Self(0i32);
     pub const PartialMessage: Self = Self(1i32);
-}
-impl ::core::marker::Copy for MessageWebSocketReceiveMode {}
-impl ::core::clone::Clone for MessageWebSocketReceiveMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MessageWebSocketReceiveMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MessageWebSocketReceiveMode {
     type TypeKind = ::windows_core::CopyType;
@@ -4285,22 +4241,11 @@ impl ::windows_core::RuntimeType for MessageWebSocketReceiveMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.MessageWebSocketReceiveMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SocketActivityConnectedStandbyAction(pub i32);
 impl SocketActivityConnectedStandbyAction {
     pub const DoNotWake: Self = Self(0i32);
     pub const Wake: Self = Self(1i32);
-}
-impl ::core::marker::Copy for SocketActivityConnectedStandbyAction {}
-impl ::core::clone::Clone for SocketActivityConnectedStandbyAction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SocketActivityConnectedStandbyAction {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SocketActivityConnectedStandbyAction {
     type TypeKind = ::windows_core::CopyType;
@@ -4314,24 +4259,13 @@ impl ::windows_core::RuntimeType for SocketActivityConnectedStandbyAction {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketActivityConnectedStandbyAction;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SocketActivityKind(pub i32);
 impl SocketActivityKind {
     pub const None: Self = Self(0i32);
     pub const StreamSocketListener: Self = Self(1i32);
     pub const DatagramSocket: Self = Self(2i32);
     pub const StreamSocket: Self = Self(3i32);
-}
-impl ::core::marker::Copy for SocketActivityKind {}
-impl ::core::clone::Clone for SocketActivityKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SocketActivityKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SocketActivityKind {
     type TypeKind = ::windows_core::CopyType;
@@ -4345,7 +4279,7 @@ impl ::windows_core::RuntimeType for SocketActivityKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketActivityKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SocketActivityTriggerReason(pub i32);
 impl SocketActivityTriggerReason {
     pub const None: Self = Self(0i32);
@@ -4353,17 +4287,6 @@ impl SocketActivityTriggerReason {
     pub const ConnectionAccepted: Self = Self(2i32);
     pub const KeepAliveTimerExpired: Self = Self(3i32);
     pub const SocketClosed: Self = Self(4i32);
-}
-impl ::core::marker::Copy for SocketActivityTriggerReason {}
-impl ::core::clone::Clone for SocketActivityTriggerReason {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SocketActivityTriggerReason {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SocketActivityTriggerReason {
     type TypeKind = ::windows_core::CopyType;
@@ -4377,7 +4300,7 @@ impl ::windows_core::RuntimeType for SocketActivityTriggerReason {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketActivityTriggerReason;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SocketErrorStatus(pub i32);
 impl SocketErrorStatus {
     pub const Unknown: Self = Self(0i32);
@@ -4412,17 +4335,6 @@ impl SocketErrorStatus {
     pub const CertificateRevocationServerOffline: Self = Self(29i32);
     pub const CertificateIsInvalid: Self = Self(30i32);
 }
-impl ::core::marker::Copy for SocketErrorStatus {}
-impl ::core::clone::Clone for SocketErrorStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SocketErrorStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SocketErrorStatus {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4435,22 +4347,11 @@ impl ::windows_core::RuntimeType for SocketErrorStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketErrorStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SocketMessageType(pub i32);
 impl SocketMessageType {
     pub const Binary: Self = Self(0i32);
     pub const Utf8: Self = Self(1i32);
-}
-impl ::core::marker::Copy for SocketMessageType {}
-impl ::core::clone::Clone for SocketMessageType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SocketMessageType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SocketMessageType {
     type TypeKind = ::windows_core::CopyType;
@@ -4464,7 +4365,7 @@ impl ::windows_core::RuntimeType for SocketMessageType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketMessageType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SocketProtectionLevel(pub i32);
 impl SocketProtectionLevel {
     pub const PlainSocket: Self = Self(0i32);
@@ -4478,17 +4379,6 @@ impl SocketProtectionLevel {
     pub const Tls12: Self = Self(8i32);
     pub const Unspecified: Self = Self(9i32);
 }
-impl ::core::marker::Copy for SocketProtectionLevel {}
-impl ::core::clone::Clone for SocketProtectionLevel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SocketProtectionLevel {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SocketProtectionLevel {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4501,22 +4391,11 @@ impl ::windows_core::RuntimeType for SocketProtectionLevel {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketProtectionLevel;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SocketQualityOfService(pub i32);
 impl SocketQualityOfService {
     pub const Normal: Self = Self(0i32);
     pub const LowLatency: Self = Self(1i32);
-}
-impl ::core::marker::Copy for SocketQualityOfService {}
-impl ::core::clone::Clone for SocketQualityOfService {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SocketQualityOfService {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SocketQualityOfService {
     type TypeKind = ::windows_core::CopyType;
@@ -4530,23 +4409,12 @@ impl ::windows_core::RuntimeType for SocketQualityOfService {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketQualityOfService;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SocketSslErrorSeverity(pub i32);
 impl SocketSslErrorSeverity {
     pub const None: Self = Self(0i32);
     pub const Ignorable: Self = Self(1i32);
     pub const Fatal: Self = Self(2i32);
-}
-impl ::core::marker::Copy for SocketSslErrorSeverity {}
-impl ::core::clone::Clone for SocketSslErrorSeverity {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SocketSslErrorSeverity {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SocketSslErrorSeverity {
     type TypeKind = ::windows_core::CopyType;

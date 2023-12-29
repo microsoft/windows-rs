@@ -417,19 +417,8 @@ pub const VIRTUAL_STORAGE_TYPE_DEVICE_VHDX: u32 = 3u32;
 pub const VIRTUAL_STORAGE_TYPE_VENDOR_MICROSOFT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xec984aec_a0f9_47e9_901f_71415a66345b);
 pub const VIRTUAL_STORAGE_TYPE_VENDOR_UNKNOWN: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct APPLY_SNAPSHOT_VHDSET_FLAG(pub i32);
-impl ::core::marker::Copy for APPLY_SNAPSHOT_VHDSET_FLAG {}
-impl ::core::clone::Clone for APPLY_SNAPSHOT_VHDSET_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for APPLY_SNAPSHOT_VHDSET_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for APPLY_SNAPSHOT_VHDSET_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -472,19 +461,8 @@ impl ::core::ops::Not for APPLY_SNAPSHOT_VHDSET_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct APPLY_SNAPSHOT_VHDSET_VERSION(pub i32);
-impl ::core::marker::Copy for APPLY_SNAPSHOT_VHDSET_VERSION {}
-impl ::core::clone::Clone for APPLY_SNAPSHOT_VHDSET_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for APPLY_SNAPSHOT_VHDSET_VERSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for APPLY_SNAPSHOT_VHDSET_VERSION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -494,19 +472,8 @@ impl ::core::fmt::Debug for APPLY_SNAPSHOT_VHDSET_VERSION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ATTACH_VIRTUAL_DISK_FLAG(pub i32);
-impl ::core::marker::Copy for ATTACH_VIRTUAL_DISK_FLAG {}
-impl ::core::clone::Clone for ATTACH_VIRTUAL_DISK_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ATTACH_VIRTUAL_DISK_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ATTACH_VIRTUAL_DISK_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -549,19 +516,8 @@ impl ::core::ops::Not for ATTACH_VIRTUAL_DISK_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ATTACH_VIRTUAL_DISK_VERSION(pub i32);
-impl ::core::marker::Copy for ATTACH_VIRTUAL_DISK_VERSION {}
-impl ::core::clone::Clone for ATTACH_VIRTUAL_DISK_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ATTACH_VIRTUAL_DISK_VERSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ATTACH_VIRTUAL_DISK_VERSION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -571,19 +527,8 @@ impl ::core::fmt::Debug for ATTACH_VIRTUAL_DISK_VERSION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct COMPACT_VIRTUAL_DISK_FLAG(pub i32);
-impl ::core::marker::Copy for COMPACT_VIRTUAL_DISK_FLAG {}
-impl ::core::clone::Clone for COMPACT_VIRTUAL_DISK_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COMPACT_VIRTUAL_DISK_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for COMPACT_VIRTUAL_DISK_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -626,19 +571,8 @@ impl ::core::ops::Not for COMPACT_VIRTUAL_DISK_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct COMPACT_VIRTUAL_DISK_VERSION(pub i32);
-impl ::core::marker::Copy for COMPACT_VIRTUAL_DISK_VERSION {}
-impl ::core::clone::Clone for COMPACT_VIRTUAL_DISK_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COMPACT_VIRTUAL_DISK_VERSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for COMPACT_VIRTUAL_DISK_VERSION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -648,19 +582,8 @@ impl ::core::fmt::Debug for COMPACT_VIRTUAL_DISK_VERSION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CREATE_VIRTUAL_DISK_FLAG(pub i32);
-impl ::core::marker::Copy for CREATE_VIRTUAL_DISK_FLAG {}
-impl ::core::clone::Clone for CREATE_VIRTUAL_DISK_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CREATE_VIRTUAL_DISK_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CREATE_VIRTUAL_DISK_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -703,19 +626,8 @@ impl ::core::ops::Not for CREATE_VIRTUAL_DISK_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CREATE_VIRTUAL_DISK_VERSION(pub i32);
-impl ::core::marker::Copy for CREATE_VIRTUAL_DISK_VERSION {}
-impl ::core::clone::Clone for CREATE_VIRTUAL_DISK_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CREATE_VIRTUAL_DISK_VERSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CREATE_VIRTUAL_DISK_VERSION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -725,19 +637,8 @@ impl ::core::fmt::Debug for CREATE_VIRTUAL_DISK_VERSION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DELETE_SNAPSHOT_VHDSET_FLAG(pub i32);
-impl ::core::marker::Copy for DELETE_SNAPSHOT_VHDSET_FLAG {}
-impl ::core::clone::Clone for DELETE_SNAPSHOT_VHDSET_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DELETE_SNAPSHOT_VHDSET_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DELETE_SNAPSHOT_VHDSET_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -780,19 +681,8 @@ impl ::core::ops::Not for DELETE_SNAPSHOT_VHDSET_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DELETE_SNAPSHOT_VHDSET_VERSION(pub i32);
-impl ::core::marker::Copy for DELETE_SNAPSHOT_VHDSET_VERSION {}
-impl ::core::clone::Clone for DELETE_SNAPSHOT_VHDSET_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DELETE_SNAPSHOT_VHDSET_VERSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DELETE_SNAPSHOT_VHDSET_VERSION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -802,19 +692,8 @@ impl ::core::fmt::Debug for DELETE_SNAPSHOT_VHDSET_VERSION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DEPENDENT_DISK_FLAG(pub i32);
-impl ::core::marker::Copy for DEPENDENT_DISK_FLAG {}
-impl ::core::clone::Clone for DEPENDENT_DISK_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DEPENDENT_DISK_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DEPENDENT_DISK_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -857,19 +736,8 @@ impl ::core::ops::Not for DEPENDENT_DISK_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DETACH_VIRTUAL_DISK_FLAG(pub i32);
-impl ::core::marker::Copy for DETACH_VIRTUAL_DISK_FLAG {}
-impl ::core::clone::Clone for DETACH_VIRTUAL_DISK_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DETACH_VIRTUAL_DISK_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DETACH_VIRTUAL_DISK_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -912,19 +780,8 @@ impl ::core::ops::Not for DETACH_VIRTUAL_DISK_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EXPAND_VIRTUAL_DISK_FLAG(pub i32);
-impl ::core::marker::Copy for EXPAND_VIRTUAL_DISK_FLAG {}
-impl ::core::clone::Clone for EXPAND_VIRTUAL_DISK_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EXPAND_VIRTUAL_DISK_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EXPAND_VIRTUAL_DISK_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -967,19 +824,8 @@ impl ::core::ops::Not for EXPAND_VIRTUAL_DISK_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EXPAND_VIRTUAL_DISK_VERSION(pub i32);
-impl ::core::marker::Copy for EXPAND_VIRTUAL_DISK_VERSION {}
-impl ::core::clone::Clone for EXPAND_VIRTUAL_DISK_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EXPAND_VIRTUAL_DISK_VERSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EXPAND_VIRTUAL_DISK_VERSION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -989,19 +835,8 @@ impl ::core::fmt::Debug for EXPAND_VIRTUAL_DISK_VERSION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FORK_VIRTUAL_DISK_FLAG(pub i32);
-impl ::core::marker::Copy for FORK_VIRTUAL_DISK_FLAG {}
-impl ::core::clone::Clone for FORK_VIRTUAL_DISK_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FORK_VIRTUAL_DISK_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FORK_VIRTUAL_DISK_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1044,19 +879,8 @@ impl ::core::ops::Not for FORK_VIRTUAL_DISK_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FORK_VIRTUAL_DISK_VERSION(pub i32);
-impl ::core::marker::Copy for FORK_VIRTUAL_DISK_VERSION {}
-impl ::core::clone::Clone for FORK_VIRTUAL_DISK_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FORK_VIRTUAL_DISK_VERSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FORK_VIRTUAL_DISK_VERSION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1066,19 +890,8 @@ impl ::core::fmt::Debug for FORK_VIRTUAL_DISK_VERSION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GET_STORAGE_DEPENDENCY_FLAG(pub i32);
-impl ::core::marker::Copy for GET_STORAGE_DEPENDENCY_FLAG {}
-impl ::core::clone::Clone for GET_STORAGE_DEPENDENCY_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GET_STORAGE_DEPENDENCY_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for GET_STORAGE_DEPENDENCY_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1121,19 +934,8 @@ impl ::core::ops::Not for GET_STORAGE_DEPENDENCY_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GET_VIRTUAL_DISK_INFO_VERSION(pub i32);
-impl ::core::marker::Copy for GET_VIRTUAL_DISK_INFO_VERSION {}
-impl ::core::clone::Clone for GET_VIRTUAL_DISK_INFO_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GET_VIRTUAL_DISK_INFO_VERSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for GET_VIRTUAL_DISK_INFO_VERSION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1143,19 +945,8 @@ impl ::core::fmt::Debug for GET_VIRTUAL_DISK_INFO_VERSION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MERGE_VIRTUAL_DISK_FLAG(pub i32);
-impl ::core::marker::Copy for MERGE_VIRTUAL_DISK_FLAG {}
-impl ::core::clone::Clone for MERGE_VIRTUAL_DISK_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MERGE_VIRTUAL_DISK_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MERGE_VIRTUAL_DISK_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1198,19 +989,8 @@ impl ::core::ops::Not for MERGE_VIRTUAL_DISK_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MERGE_VIRTUAL_DISK_VERSION(pub i32);
-impl ::core::marker::Copy for MERGE_VIRTUAL_DISK_VERSION {}
-impl ::core::clone::Clone for MERGE_VIRTUAL_DISK_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MERGE_VIRTUAL_DISK_VERSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MERGE_VIRTUAL_DISK_VERSION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1220,19 +1000,8 @@ impl ::core::fmt::Debug for MERGE_VIRTUAL_DISK_VERSION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MIRROR_VIRTUAL_DISK_FLAG(pub i32);
-impl ::core::marker::Copy for MIRROR_VIRTUAL_DISK_FLAG {}
-impl ::core::clone::Clone for MIRROR_VIRTUAL_DISK_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MIRROR_VIRTUAL_DISK_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MIRROR_VIRTUAL_DISK_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1275,19 +1044,8 @@ impl ::core::ops::Not for MIRROR_VIRTUAL_DISK_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MIRROR_VIRTUAL_DISK_VERSION(pub i32);
-impl ::core::marker::Copy for MIRROR_VIRTUAL_DISK_VERSION {}
-impl ::core::clone::Clone for MIRROR_VIRTUAL_DISK_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MIRROR_VIRTUAL_DISK_VERSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MIRROR_VIRTUAL_DISK_VERSION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1297,19 +1055,8 @@ impl ::core::fmt::Debug for MIRROR_VIRTUAL_DISK_VERSION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MODIFY_VHDSET_FLAG(pub i32);
-impl ::core::marker::Copy for MODIFY_VHDSET_FLAG {}
-impl ::core::clone::Clone for MODIFY_VHDSET_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MODIFY_VHDSET_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MODIFY_VHDSET_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1352,19 +1099,8 @@ impl ::core::ops::Not for MODIFY_VHDSET_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MODIFY_VHDSET_VERSION(pub i32);
-impl ::core::marker::Copy for MODIFY_VHDSET_VERSION {}
-impl ::core::clone::Clone for MODIFY_VHDSET_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MODIFY_VHDSET_VERSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MODIFY_VHDSET_VERSION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1374,19 +1110,8 @@ impl ::core::fmt::Debug for MODIFY_VHDSET_VERSION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OPEN_VIRTUAL_DISK_FLAG(pub i32);
-impl ::core::marker::Copy for OPEN_VIRTUAL_DISK_FLAG {}
-impl ::core::clone::Clone for OPEN_VIRTUAL_DISK_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OPEN_VIRTUAL_DISK_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OPEN_VIRTUAL_DISK_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1429,19 +1154,8 @@ impl ::core::ops::Not for OPEN_VIRTUAL_DISK_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OPEN_VIRTUAL_DISK_VERSION(pub i32);
-impl ::core::marker::Copy for OPEN_VIRTUAL_DISK_VERSION {}
-impl ::core::clone::Clone for OPEN_VIRTUAL_DISK_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OPEN_VIRTUAL_DISK_VERSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OPEN_VIRTUAL_DISK_VERSION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1451,19 +1165,8 @@ impl ::core::fmt::Debug for OPEN_VIRTUAL_DISK_VERSION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct QUERY_CHANGES_VIRTUAL_DISK_FLAG(pub i32);
-impl ::core::marker::Copy for QUERY_CHANGES_VIRTUAL_DISK_FLAG {}
-impl ::core::clone::Clone for QUERY_CHANGES_VIRTUAL_DISK_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for QUERY_CHANGES_VIRTUAL_DISK_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for QUERY_CHANGES_VIRTUAL_DISK_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1506,19 +1209,8 @@ impl ::core::ops::Not for QUERY_CHANGES_VIRTUAL_DISK_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RAW_SCSI_VIRTUAL_DISK_FLAG(pub i32);
-impl ::core::marker::Copy for RAW_SCSI_VIRTUAL_DISK_FLAG {}
-impl ::core::clone::Clone for RAW_SCSI_VIRTUAL_DISK_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RAW_SCSI_VIRTUAL_DISK_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RAW_SCSI_VIRTUAL_DISK_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1561,19 +1253,8 @@ impl ::core::ops::Not for RAW_SCSI_VIRTUAL_DISK_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RAW_SCSI_VIRTUAL_DISK_VERSION(pub i32);
-impl ::core::marker::Copy for RAW_SCSI_VIRTUAL_DISK_VERSION {}
-impl ::core::clone::Clone for RAW_SCSI_VIRTUAL_DISK_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RAW_SCSI_VIRTUAL_DISK_VERSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RAW_SCSI_VIRTUAL_DISK_VERSION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1583,19 +1264,8 @@ impl ::core::fmt::Debug for RAW_SCSI_VIRTUAL_DISK_VERSION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RESIZE_VIRTUAL_DISK_FLAG(pub i32);
-impl ::core::marker::Copy for RESIZE_VIRTUAL_DISK_FLAG {}
-impl ::core::clone::Clone for RESIZE_VIRTUAL_DISK_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RESIZE_VIRTUAL_DISK_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RESIZE_VIRTUAL_DISK_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1638,19 +1308,8 @@ impl ::core::ops::Not for RESIZE_VIRTUAL_DISK_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RESIZE_VIRTUAL_DISK_VERSION(pub i32);
-impl ::core::marker::Copy for RESIZE_VIRTUAL_DISK_VERSION {}
-impl ::core::clone::Clone for RESIZE_VIRTUAL_DISK_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RESIZE_VIRTUAL_DISK_VERSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RESIZE_VIRTUAL_DISK_VERSION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1660,19 +1319,8 @@ impl ::core::fmt::Debug for RESIZE_VIRTUAL_DISK_VERSION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SET_VIRTUAL_DISK_INFO_VERSION(pub i32);
-impl ::core::marker::Copy for SET_VIRTUAL_DISK_INFO_VERSION {}
-impl ::core::clone::Clone for SET_VIRTUAL_DISK_INFO_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SET_VIRTUAL_DISK_INFO_VERSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SET_VIRTUAL_DISK_INFO_VERSION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1682,19 +1330,8 @@ impl ::core::fmt::Debug for SET_VIRTUAL_DISK_INFO_VERSION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct STORAGE_DEPENDENCY_INFO_VERSION(pub i32);
-impl ::core::marker::Copy for STORAGE_DEPENDENCY_INFO_VERSION {}
-impl ::core::clone::Clone for STORAGE_DEPENDENCY_INFO_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for STORAGE_DEPENDENCY_INFO_VERSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for STORAGE_DEPENDENCY_INFO_VERSION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1704,19 +1341,8 @@ impl ::core::fmt::Debug for STORAGE_DEPENDENCY_INFO_VERSION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TAKE_SNAPSHOT_VHDSET_FLAG(pub i32);
-impl ::core::marker::Copy for TAKE_SNAPSHOT_VHDSET_FLAG {}
-impl ::core::clone::Clone for TAKE_SNAPSHOT_VHDSET_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TAKE_SNAPSHOT_VHDSET_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TAKE_SNAPSHOT_VHDSET_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1759,19 +1385,8 @@ impl ::core::ops::Not for TAKE_SNAPSHOT_VHDSET_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TAKE_SNAPSHOT_VHDSET_VERSION(pub i32);
-impl ::core::marker::Copy for TAKE_SNAPSHOT_VHDSET_VERSION {}
-impl ::core::clone::Clone for TAKE_SNAPSHOT_VHDSET_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TAKE_SNAPSHOT_VHDSET_VERSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TAKE_SNAPSHOT_VHDSET_VERSION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1781,19 +1396,8 @@ impl ::core::fmt::Debug for TAKE_SNAPSHOT_VHDSET_VERSION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VIRTUAL_DISK_ACCESS_MASK(pub i32);
-impl ::core::marker::Copy for VIRTUAL_DISK_ACCESS_MASK {}
-impl ::core::clone::Clone for VIRTUAL_DISK_ACCESS_MASK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VIRTUAL_DISK_ACCESS_MASK {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VIRTUAL_DISK_ACCESS_MASK {
     type TypeKind = ::windows_core::CopyType;
 }

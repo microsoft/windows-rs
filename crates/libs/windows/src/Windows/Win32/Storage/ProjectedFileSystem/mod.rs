@@ -212,19 +212,8 @@ pub const PRJ_UPDATE_NONE: PRJ_UPDATE_TYPES = PRJ_UPDATE_TYPES(0i32);
 pub const PRJ_UPDATE_RESERVED1: PRJ_UPDATE_TYPES = PRJ_UPDATE_TYPES(8i32);
 pub const PRJ_UPDATE_RESERVED2: PRJ_UPDATE_TYPES = PRJ_UPDATE_TYPES(16i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PRJ_CALLBACK_DATA_FLAGS(pub i32);
-impl ::core::marker::Copy for PRJ_CALLBACK_DATA_FLAGS {}
-impl ::core::clone::Clone for PRJ_CALLBACK_DATA_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PRJ_CALLBACK_DATA_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PRJ_CALLBACK_DATA_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -234,19 +223,8 @@ impl ::core::fmt::Debug for PRJ_CALLBACK_DATA_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PRJ_COMPLETE_COMMAND_TYPE(pub i32);
-impl ::core::marker::Copy for PRJ_COMPLETE_COMMAND_TYPE {}
-impl ::core::clone::Clone for PRJ_COMPLETE_COMMAND_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PRJ_COMPLETE_COMMAND_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PRJ_COMPLETE_COMMAND_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -256,19 +234,8 @@ impl ::core::fmt::Debug for PRJ_COMPLETE_COMMAND_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PRJ_EXT_INFO_TYPE(pub i32);
-impl ::core::marker::Copy for PRJ_EXT_INFO_TYPE {}
-impl ::core::clone::Clone for PRJ_EXT_INFO_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PRJ_EXT_INFO_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PRJ_EXT_INFO_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -278,19 +245,8 @@ impl ::core::fmt::Debug for PRJ_EXT_INFO_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PRJ_FILE_STATE(pub i32);
-impl ::core::marker::Copy for PRJ_FILE_STATE {}
-impl ::core::clone::Clone for PRJ_FILE_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PRJ_FILE_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PRJ_FILE_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -333,19 +289,8 @@ impl ::core::ops::Not for PRJ_FILE_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PRJ_NOTIFICATION(pub i32);
-impl ::core::marker::Copy for PRJ_NOTIFICATION {}
-impl ::core::clone::Clone for PRJ_NOTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PRJ_NOTIFICATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PRJ_NOTIFICATION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -355,19 +300,8 @@ impl ::core::fmt::Debug for PRJ_NOTIFICATION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PRJ_NOTIFY_TYPES(pub u32);
-impl ::core::marker::Copy for PRJ_NOTIFY_TYPES {}
-impl ::core::clone::Clone for PRJ_NOTIFY_TYPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PRJ_NOTIFY_TYPES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PRJ_NOTIFY_TYPES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -410,19 +344,8 @@ impl ::core::ops::Not for PRJ_NOTIFY_TYPES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PRJ_PLACEHOLDER_ID(pub i32);
-impl ::core::marker::Copy for PRJ_PLACEHOLDER_ID {}
-impl ::core::clone::Clone for PRJ_PLACEHOLDER_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PRJ_PLACEHOLDER_ID {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PRJ_PLACEHOLDER_ID {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -432,19 +355,8 @@ impl ::core::fmt::Debug for PRJ_PLACEHOLDER_ID {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PRJ_STARTVIRTUALIZING_FLAGS(pub i32);
-impl ::core::marker::Copy for PRJ_STARTVIRTUALIZING_FLAGS {}
-impl ::core::clone::Clone for PRJ_STARTVIRTUALIZING_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PRJ_STARTVIRTUALIZING_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PRJ_STARTVIRTUALIZING_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -487,19 +399,8 @@ impl ::core::ops::Not for PRJ_STARTVIRTUALIZING_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PRJ_UPDATE_FAILURE_CAUSES(pub i32);
-impl ::core::marker::Copy for PRJ_UPDATE_FAILURE_CAUSES {}
-impl ::core::clone::Clone for PRJ_UPDATE_FAILURE_CAUSES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PRJ_UPDATE_FAILURE_CAUSES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PRJ_UPDATE_FAILURE_CAUSES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -542,19 +443,8 @@ impl ::core::ops::Not for PRJ_UPDATE_FAILURE_CAUSES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PRJ_UPDATE_TYPES(pub i32);
-impl ::core::marker::Copy for PRJ_UPDATE_TYPES {}
-impl ::core::clone::Clone for PRJ_UPDATE_TYPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PRJ_UPDATE_TYPES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PRJ_UPDATE_TYPES {
     type TypeKind = ::windows_core::CopyType;
 }

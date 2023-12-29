@@ -1923,19 +1923,8 @@ pub const UDP_TABLE_BASIC: UDP_TABLE_CLASS = UDP_TABLE_CLASS(0i32);
 pub const UDP_TABLE_OWNER_MODULE: UDP_TABLE_CLASS = UDP_TABLE_CLASS(2i32);
 pub const UDP_TABLE_OWNER_PID: UDP_TABLE_CLASS = UDP_TABLE_CLASS(1i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DNS_SERVER_PROPERTY_TYPE(pub i32);
-impl ::core::marker::Copy for DNS_SERVER_PROPERTY_TYPE {}
-impl ::core::clone::Clone for DNS_SERVER_PROPERTY_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DNS_SERVER_PROPERTY_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DNS_SERVER_PROPERTY_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1945,19 +1934,8 @@ impl ::core::fmt::Debug for DNS_SERVER_PROPERTY_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GET_ADAPTERS_ADDRESSES_FLAGS(pub u32);
-impl ::core::marker::Copy for GET_ADAPTERS_ADDRESSES_FLAGS {}
-impl ::core::clone::Clone for GET_ADAPTERS_ADDRESSES_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GET_ADAPTERS_ADDRESSES_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for GET_ADAPTERS_ADDRESSES_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2000,19 +1978,8 @@ impl ::core::ops::Not for GET_ADAPTERS_ADDRESSES_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GLOBAL_FILTER(pub i32);
-impl ::core::marker::Copy for GLOBAL_FILTER {}
-impl ::core::clone::Clone for GLOBAL_FILTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GLOBAL_FILTER {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for GLOBAL_FILTER {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2022,19 +1989,8 @@ impl ::core::fmt::Debug for GLOBAL_FILTER {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ICMP4_TYPE(pub i32);
-impl ::core::marker::Copy for ICMP4_TYPE {}
-impl ::core::clone::Clone for ICMP4_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ICMP4_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ICMP4_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2044,19 +2000,8 @@ impl ::core::fmt::Debug for ICMP4_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ICMP6_TYPE(pub i32);
-impl ::core::marker::Copy for ICMP6_TYPE {}
-impl ::core::clone::Clone for ICMP6_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ICMP6_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ICMP6_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2066,19 +2011,8 @@ impl ::core::fmt::Debug for ICMP6_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct IF_ACCESS_TYPE(pub i32);
-impl ::core::marker::Copy for IF_ACCESS_TYPE {}
-impl ::core::clone::Clone for IF_ACCESS_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for IF_ACCESS_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for IF_ACCESS_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2088,19 +2022,8 @@ impl ::core::fmt::Debug for IF_ACCESS_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct INTERNAL_IF_OPER_STATUS(pub i32);
-impl ::core::marker::Copy for INTERNAL_IF_OPER_STATUS {}
-impl ::core::clone::Clone for INTERNAL_IF_OPER_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for INTERNAL_IF_OPER_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for INTERNAL_IF_OPER_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2110,19 +2033,8 @@ impl ::core::fmt::Debug for INTERNAL_IF_OPER_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MIB_IF_ENTRY_LEVEL(pub i32);
-impl ::core::marker::Copy for MIB_IF_ENTRY_LEVEL {}
-impl ::core::clone::Clone for MIB_IF_ENTRY_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MIB_IF_ENTRY_LEVEL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MIB_IF_ENTRY_LEVEL {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2132,19 +2044,8 @@ impl ::core::fmt::Debug for MIB_IF_ENTRY_LEVEL {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MIB_IF_TABLE_LEVEL(pub i32);
-impl ::core::marker::Copy for MIB_IF_TABLE_LEVEL {}
-impl ::core::clone::Clone for MIB_IF_TABLE_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MIB_IF_TABLE_LEVEL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MIB_IF_TABLE_LEVEL {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2154,19 +2055,8 @@ impl ::core::fmt::Debug for MIB_IF_TABLE_LEVEL {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MIB_IPFORWARD_TYPE(pub i32);
-impl ::core::marker::Copy for MIB_IPFORWARD_TYPE {}
-impl ::core::clone::Clone for MIB_IPFORWARD_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MIB_IPFORWARD_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MIB_IPFORWARD_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2176,19 +2066,8 @@ impl ::core::fmt::Debug for MIB_IPFORWARD_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MIB_IPNET_TYPE(pub i32);
-impl ::core::marker::Copy for MIB_IPNET_TYPE {}
-impl ::core::clone::Clone for MIB_IPNET_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MIB_IPNET_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MIB_IPNET_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2198,19 +2077,8 @@ impl ::core::fmt::Debug for MIB_IPNET_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MIB_IPSTATS_FORWARDING(pub i32);
-impl ::core::marker::Copy for MIB_IPSTATS_FORWARDING {}
-impl ::core::clone::Clone for MIB_IPSTATS_FORWARDING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MIB_IPSTATS_FORWARDING {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MIB_IPSTATS_FORWARDING {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2220,19 +2088,8 @@ impl ::core::fmt::Debug for MIB_IPSTATS_FORWARDING {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MIB_NOTIFICATION_TYPE(pub i32);
-impl ::core::marker::Copy for MIB_NOTIFICATION_TYPE {}
-impl ::core::clone::Clone for MIB_NOTIFICATION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MIB_NOTIFICATION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MIB_NOTIFICATION_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2242,19 +2099,8 @@ impl ::core::fmt::Debug for MIB_NOTIFICATION_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MIB_TCP_STATE(pub i32);
-impl ::core::marker::Copy for MIB_TCP_STATE {}
-impl ::core::clone::Clone for MIB_TCP_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MIB_TCP_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MIB_TCP_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2264,19 +2110,8 @@ impl ::core::fmt::Debug for MIB_TCP_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NET_ADDRESS_FORMAT(pub i32);
-impl ::core::marker::Copy for NET_ADDRESS_FORMAT {}
-impl ::core::clone::Clone for NET_ADDRESS_FORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NET_ADDRESS_FORMAT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NET_ADDRESS_FORMAT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2286,19 +2121,8 @@ impl ::core::fmt::Debug for NET_ADDRESS_FORMAT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PFADDRESSTYPE(pub i32);
-impl ::core::marker::Copy for PFADDRESSTYPE {}
-impl ::core::clone::Clone for PFADDRESSTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PFADDRESSTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PFADDRESSTYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2308,19 +2132,8 @@ impl ::core::fmt::Debug for PFADDRESSTYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PFFORWARD_ACTION(pub i32);
-impl ::core::marker::Copy for PFFORWARD_ACTION {}
-impl ::core::clone::Clone for PFFORWARD_ACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PFFORWARD_ACTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PFFORWARD_ACTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2330,19 +2143,8 @@ impl ::core::fmt::Debug for PFFORWARD_ACTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PFFRAMETYPE(pub i32);
-impl ::core::marker::Copy for PFFRAMETYPE {}
-impl ::core::clone::Clone for PFFRAMETYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PFFRAMETYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PFFRAMETYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2352,19 +2154,8 @@ impl ::core::fmt::Debug for PFFRAMETYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TCPIP_OWNER_MODULE_INFO_CLASS(pub i32);
-impl ::core::marker::Copy for TCPIP_OWNER_MODULE_INFO_CLASS {}
-impl ::core::clone::Clone for TCPIP_OWNER_MODULE_INFO_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TCPIP_OWNER_MODULE_INFO_CLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TCPIP_OWNER_MODULE_INFO_CLASS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2374,19 +2165,8 @@ impl ::core::fmt::Debug for TCPIP_OWNER_MODULE_INFO_CLASS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TCP_BOOLEAN_OPTIONAL(pub i32);
-impl ::core::marker::Copy for TCP_BOOLEAN_OPTIONAL {}
-impl ::core::clone::Clone for TCP_BOOLEAN_OPTIONAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TCP_BOOLEAN_OPTIONAL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TCP_BOOLEAN_OPTIONAL {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2396,19 +2176,8 @@ impl ::core::fmt::Debug for TCP_BOOLEAN_OPTIONAL {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TCP_CONNECTION_OFFLOAD_STATE(pub i32);
-impl ::core::marker::Copy for TCP_CONNECTION_OFFLOAD_STATE {}
-impl ::core::clone::Clone for TCP_CONNECTION_OFFLOAD_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TCP_CONNECTION_OFFLOAD_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TCP_CONNECTION_OFFLOAD_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2418,19 +2187,8 @@ impl ::core::fmt::Debug for TCP_CONNECTION_OFFLOAD_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TCP_ESTATS_TYPE(pub i32);
-impl ::core::marker::Copy for TCP_ESTATS_TYPE {}
-impl ::core::clone::Clone for TCP_ESTATS_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TCP_ESTATS_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TCP_ESTATS_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2440,19 +2198,8 @@ impl ::core::fmt::Debug for TCP_ESTATS_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TCP_RTO_ALGORITHM(pub i32);
-impl ::core::marker::Copy for TCP_RTO_ALGORITHM {}
-impl ::core::clone::Clone for TCP_RTO_ALGORITHM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TCP_RTO_ALGORITHM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TCP_RTO_ALGORITHM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2462,19 +2209,8 @@ impl ::core::fmt::Debug for TCP_RTO_ALGORITHM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TCP_SOFT_ERROR(pub i32);
-impl ::core::marker::Copy for TCP_SOFT_ERROR {}
-impl ::core::clone::Clone for TCP_SOFT_ERROR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TCP_SOFT_ERROR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TCP_SOFT_ERROR {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2484,19 +2220,8 @@ impl ::core::fmt::Debug for TCP_SOFT_ERROR {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TCP_TABLE_CLASS(pub i32);
-impl ::core::marker::Copy for TCP_TABLE_CLASS {}
-impl ::core::clone::Clone for TCP_TABLE_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TCP_TABLE_CLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TCP_TABLE_CLASS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2506,19 +2231,8 @@ impl ::core::fmt::Debug for TCP_TABLE_CLASS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UDP_TABLE_CLASS(pub i32);
-impl ::core::marker::Copy for UDP_TABLE_CLASS {}
-impl ::core::clone::Clone for UDP_TABLE_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UDP_TABLE_CLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for UDP_TABLE_CLASS {
     type TypeKind = ::windows_core::CopyType;
 }

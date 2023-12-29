@@ -1104,19 +1104,8 @@ pub const EOC_NewObject: EOC_ChangeType = EOC_ChangeType(0i32);
 pub const EventObjectChange: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd0565000_9df4_11d1_a281_00c04fca0aa7);
 pub const EventObjectChange2: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbb07bacd_cd56_4e63_a8ff_cbf0355fb9f4);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EOC_ChangeType(pub i32);
-impl ::core::marker::Copy for EOC_ChangeType {}
-impl ::core::clone::Clone for EOC_ChangeType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EOC_ChangeType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EOC_ChangeType {
     type TypeKind = ::windows_core::CopyType;
 }

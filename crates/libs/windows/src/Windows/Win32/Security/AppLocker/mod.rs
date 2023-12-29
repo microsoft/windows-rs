@@ -145,19 +145,8 @@ pub const SaferPolicyEvaluateUserScope: SAFER_POLICY_INFO_CLASS = SAFER_POLICY_I
 pub const SaferPolicyLevelList: SAFER_POLICY_INFO_CLASS = SAFER_POLICY_INFO_CLASS(1i32);
 pub const SaferPolicyScopeFlags: SAFER_POLICY_INFO_CLASS = SAFER_POLICY_INFO_CLASS(5i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS(pub u32);
-impl ::core::marker::Copy for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {}
-impl ::core::clone::Clone for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -200,19 +189,8 @@ impl ::core::ops::Not for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SAFER_IDENTIFICATION_TYPES(pub i32);
-impl ::core::marker::Copy for SAFER_IDENTIFICATION_TYPES {}
-impl ::core::clone::Clone for SAFER_IDENTIFICATION_TYPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SAFER_IDENTIFICATION_TYPES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SAFER_IDENTIFICATION_TYPES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -222,19 +200,8 @@ impl ::core::fmt::Debug for SAFER_IDENTIFICATION_TYPES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SAFER_OBJECT_INFO_CLASS(pub i32);
-impl ::core::marker::Copy for SAFER_OBJECT_INFO_CLASS {}
-impl ::core::clone::Clone for SAFER_OBJECT_INFO_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SAFER_OBJECT_INFO_CLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SAFER_OBJECT_INFO_CLASS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -244,19 +211,8 @@ impl ::core::fmt::Debug for SAFER_OBJECT_INFO_CLASS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SAFER_POLICY_INFO_CLASS(pub i32);
-impl ::core::marker::Copy for SAFER_POLICY_INFO_CLASS {}
-impl ::core::clone::Clone for SAFER_POLICY_INFO_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SAFER_POLICY_INFO_CLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SAFER_POLICY_INFO_CLASS {
     type TypeKind = ::windows_core::CopyType;
 }

@@ -359,19 +359,8 @@ pub const WSC_SECURITY_PROVIDER_NONE: WSC_SECURITY_PROVIDER = WSC_SECURITY_PROVI
 pub const WSC_SECURITY_PROVIDER_SERVICE: WSC_SECURITY_PROVIDER = WSC_SECURITY_PROVIDER(64i32);
 pub const WSC_SECURITY_PROVIDER_USER_ACCOUNT_CONTROL: WSC_SECURITY_PROVIDER = WSC_SECURITY_PROVIDER(32i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SECURITY_PRODUCT_TYPE(pub i32);
-impl ::core::marker::Copy for SECURITY_PRODUCT_TYPE {}
-impl ::core::clone::Clone for SECURITY_PRODUCT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SECURITY_PRODUCT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SECURITY_PRODUCT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -381,19 +370,8 @@ impl ::core::fmt::Debug for SECURITY_PRODUCT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WSC_SECURITY_PRODUCT_STATE(pub i32);
-impl ::core::marker::Copy for WSC_SECURITY_PRODUCT_STATE {}
-impl ::core::clone::Clone for WSC_SECURITY_PRODUCT_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WSC_SECURITY_PRODUCT_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WSC_SECURITY_PRODUCT_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -403,19 +381,8 @@ impl ::core::fmt::Debug for WSC_SECURITY_PRODUCT_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WSC_SECURITY_PRODUCT_SUBSTATUS(pub i32);
-impl ::core::marker::Copy for WSC_SECURITY_PRODUCT_SUBSTATUS {}
-impl ::core::clone::Clone for WSC_SECURITY_PRODUCT_SUBSTATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WSC_SECURITY_PRODUCT_SUBSTATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WSC_SECURITY_PRODUCT_SUBSTATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -425,19 +392,8 @@ impl ::core::fmt::Debug for WSC_SECURITY_PRODUCT_SUBSTATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WSC_SECURITY_PROVIDER(pub i32);
-impl ::core::marker::Copy for WSC_SECURITY_PROVIDER {}
-impl ::core::clone::Clone for WSC_SECURITY_PROVIDER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WSC_SECURITY_PROVIDER {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WSC_SECURITY_PROVIDER {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -447,19 +403,8 @@ impl ::core::fmt::Debug for WSC_SECURITY_PROVIDER {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WSC_SECURITY_PROVIDER_HEALTH(pub i32);
-impl ::core::marker::Copy for WSC_SECURITY_PROVIDER_HEALTH {}
-impl ::core::clone::Clone for WSC_SECURITY_PROVIDER_HEALTH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WSC_SECURITY_PROVIDER_HEALTH {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WSC_SECURITY_PROVIDER_HEALTH {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -469,19 +414,8 @@ impl ::core::fmt::Debug for WSC_SECURITY_PROVIDER_HEALTH {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WSC_SECURITY_SIGNATURE_STATUS(pub i32);
-impl ::core::marker::Copy for WSC_SECURITY_SIGNATURE_STATUS {}
-impl ::core::clone::Clone for WSC_SECURITY_SIGNATURE_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WSC_SECURITY_SIGNATURE_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WSC_SECURITY_SIGNATURE_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }

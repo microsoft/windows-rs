@@ -420,23 +420,12 @@ impl ::windows_core::RuntimeName for PackageInstallResult {
 }
 ::windows_core::imp::interface_hierarchy!(PackageInstallResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EnterpriseEnrollmentStatus(pub i32);
 impl EnterpriseEnrollmentStatus {
     pub const Success: Self = Self(0i32);
     pub const CancelledByUser: Self = Self(1i32);
     pub const UnknownFailure: Self = Self(2i32);
-}
-impl ::core::marker::Copy for EnterpriseEnrollmentStatus {}
-impl ::core::clone::Clone for EnterpriseEnrollmentStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EnterpriseEnrollmentStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for EnterpriseEnrollmentStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -450,24 +439,13 @@ impl ::windows_core::RuntimeType for EnterpriseEnrollmentStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Phone.Management.Deployment.EnterpriseEnrollmentStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EnterpriseStatus(pub i32);
 impl EnterpriseStatus {
     pub const Enrolled: Self = Self(0i32);
     pub const Disabled: Self = Self(1i32);
     pub const Revoked: Self = Self(2i32);
     pub const Expired: Self = Self(3i32);
-}
-impl ::core::marker::Copy for EnterpriseStatus {}
-impl ::core::clone::Clone for EnterpriseStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EnterpriseStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for EnterpriseStatus {
     type TypeKind = ::windows_core::CopyType;

@@ -464,24 +464,13 @@ impl ::windows_core::RuntimeName for PdfPageRenderOptions {
 unsafe impl ::core::marker::Send for PdfPageRenderOptions {}
 unsafe impl ::core::marker::Sync for PdfPageRenderOptions {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PdfPageRotation(pub i32);
 impl PdfPageRotation {
     pub const Normal: Self = Self(0i32);
     pub const Rotate90: Self = Self(1i32);
     pub const Rotate180: Self = Self(2i32);
     pub const Rotate270: Self = Self(3i32);
-}
-impl ::core::marker::Copy for PdfPageRotation {}
-impl ::core::clone::Clone for PdfPageRotation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PdfPageRotation {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PdfPageRotation {
     type TypeKind = ::windows_core::CopyType;

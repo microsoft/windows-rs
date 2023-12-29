@@ -1515,21 +1515,10 @@ impl ::windows_core::RuntimeName for WindowTabThumbnailRequestedEventArgs {
 unsafe impl ::core::marker::Send for WindowTabThumbnailRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for WindowTabThumbnailRequestedEventArgs {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SecurityAppKind(pub i32);
 impl SecurityAppKind {
     pub const WebProtection: Self = Self(0i32);
-}
-impl ::core::marker::Copy for SecurityAppKind {}
-impl ::core::clone::Clone for SecurityAppKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SecurityAppKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SecurityAppKind {
     type TypeKind = ::windows_core::CopyType;
@@ -1543,22 +1532,11 @@ impl ::windows_core::RuntimeType for SecurityAppKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Shell.SecurityAppKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SecurityAppState(pub i32);
 impl SecurityAppState {
     pub const Disabled: Self = Self(0i32);
     pub const Enabled: Self = Self(1i32);
-}
-impl ::core::marker::Copy for SecurityAppState {}
-impl ::core::clone::Clone for SecurityAppState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SecurityAppState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SecurityAppState {
     type TypeKind = ::windows_core::CopyType;
@@ -1572,24 +1550,13 @@ impl ::windows_core::RuntimeType for SecurityAppState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Shell.SecurityAppState;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SecurityAppSubstatus(pub i32);
 impl SecurityAppSubstatus {
     pub const Undetermined: Self = Self(0i32);
     pub const NoActionNeeded: Self = Self(1i32);
     pub const ActionRecommended: Self = Self(2i32);
     pub const ActionNeeded: Self = Self(3i32);
-}
-impl ::core::marker::Copy for SecurityAppSubstatus {}
-impl ::core::clone::Clone for SecurityAppSubstatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SecurityAppSubstatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SecurityAppSubstatus {
     type TypeKind = ::windows_core::CopyType;
@@ -1603,23 +1570,12 @@ impl ::windows_core::RuntimeType for SecurityAppSubstatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Shell.SecurityAppSubstatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ShareWindowCommand(pub i32);
 impl ShareWindowCommand {
     pub const None: Self = Self(0i32);
     pub const StartSharing: Self = Self(1i32);
     pub const StopSharing: Self = Self(2i32);
-}
-impl ::core::marker::Copy for ShareWindowCommand {}
-impl ::core::clone::Clone for ShareWindowCommand {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ShareWindowCommand {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ShareWindowCommand {
     type TypeKind = ::windows_core::CopyType;

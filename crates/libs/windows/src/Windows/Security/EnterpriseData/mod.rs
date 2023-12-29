@@ -1732,7 +1732,7 @@ impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for ThreadN
 unsafe impl ::core::marker::Send for ThreadNetworkContext {}
 unsafe impl ::core::marker::Sync for ThreadNetworkContext {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DataProtectionStatus(pub i32);
 impl DataProtectionStatus {
     pub const ProtectedToOtherIdentity: Self = Self(0i32);
@@ -1741,17 +1741,6 @@ impl DataProtectionStatus {
     pub const Unprotected: Self = Self(3i32);
     pub const LicenseExpired: Self = Self(4i32);
     pub const AccessSuspended: Self = Self(5i32);
-}
-impl ::core::marker::Copy for DataProtectionStatus {}
-impl ::core::clone::Clone for DataProtectionStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DataProtectionStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DataProtectionStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -1765,24 +1754,13 @@ impl ::windows_core::RuntimeType for DataProtectionStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.EnterpriseData.DataProtectionStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EnforcementLevel(pub i32);
 impl EnforcementLevel {
     pub const NoProtection: Self = Self(0i32);
     pub const Silent: Self = Self(1i32);
     pub const Override: Self = Self(2i32);
     pub const Block: Self = Self(3i32);
-}
-impl ::core::marker::Copy for EnforcementLevel {}
-impl ::core::clone::Clone for EnforcementLevel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EnforcementLevel {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for EnforcementLevel {
     type TypeKind = ::windows_core::CopyType;
@@ -1796,7 +1774,7 @@ impl ::windows_core::RuntimeType for EnforcementLevel {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.EnterpriseData.EnforcementLevel;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FileProtectionStatus(pub i32);
 impl FileProtectionStatus {
     pub const Undetermined: Self = Self(0i32);
@@ -1812,17 +1790,6 @@ impl FileProtectionStatus {
     pub const AccessSuspended: Self = Self(9i32);
     pub const FileInUse: Self = Self(10i32);
 }
-impl ::core::marker::Copy for FileProtectionStatus {}
-impl ::core::clone::Clone for FileProtectionStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FileProtectionStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FileProtectionStatus {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1835,7 +1802,7 @@ impl ::windows_core::RuntimeType for FileProtectionStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.EnterpriseData.FileProtectionStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ProtectedImportExportStatus(pub i32);
 impl ProtectedImportExportStatus {
     pub const Ok: Self = Self(0i32);
@@ -1846,17 +1813,6 @@ impl ProtectedImportExportStatus {
     pub const ProtectedToOtherIdentity: Self = Self(5i32);
     pub const LicenseExpired: Self = Self(6i32);
     pub const AccessSuspended: Self = Self(7i32);
-}
-impl ::core::marker::Copy for ProtectedImportExportStatus {}
-impl ::core::clone::Clone for ProtectedImportExportStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ProtectedImportExportStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ProtectedImportExportStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -1870,24 +1826,13 @@ impl ::windows_core::RuntimeType for ProtectedImportExportStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.EnterpriseData.ProtectedImportExportStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ProtectionPolicyAuditAction(pub i32);
 impl ProtectionPolicyAuditAction {
     pub const Decrypt: Self = Self(0i32);
     pub const CopyToLocation: Self = Self(1i32);
     pub const SendToRecipient: Self = Self(2i32);
     pub const Other: Self = Self(3i32);
-}
-impl ::core::marker::Copy for ProtectionPolicyAuditAction {}
-impl ::core::clone::Clone for ProtectionPolicyAuditAction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ProtectionPolicyAuditAction {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ProtectionPolicyAuditAction {
     type TypeKind = ::windows_core::CopyType;
@@ -1901,23 +1846,12 @@ impl ::windows_core::RuntimeType for ProtectionPolicyAuditAction {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.EnterpriseData.ProtectionPolicyAuditAction;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ProtectionPolicyEvaluationResult(pub i32);
 impl ProtectionPolicyEvaluationResult {
     pub const Allowed: Self = Self(0i32);
     pub const Blocked: Self = Self(1i32);
     pub const ConsentRequired: Self = Self(2i32);
-}
-impl ::core::marker::Copy for ProtectionPolicyEvaluationResult {}
-impl ::core::clone::Clone for ProtectionPolicyEvaluationResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ProtectionPolicyEvaluationResult {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ProtectionPolicyEvaluationResult {
     type TypeKind = ::windows_core::CopyType;
@@ -1931,22 +1865,11 @@ impl ::windows_core::RuntimeType for ProtectionPolicyEvaluationResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.EnterpriseData.ProtectionPolicyEvaluationResult;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ProtectionPolicyRequestAccessBehavior(pub i32);
 impl ProtectionPolicyRequestAccessBehavior {
     pub const Decrypt: Self = Self(0i32);
     pub const TreatOverridePolicyAsBlock: Self = Self(1i32);
-}
-impl ::core::marker::Copy for ProtectionPolicyRequestAccessBehavior {}
-impl ::core::clone::Clone for ProtectionPolicyRequestAccessBehavior {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ProtectionPolicyRequestAccessBehavior {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ProtectionPolicyRequestAccessBehavior {
     type TypeKind = ::windows_core::CopyType;

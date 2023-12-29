@@ -775,19 +775,8 @@ pub const STD_INPUT_HANDLE: STD_HANDLE = STD_HANDLE(4294967286u32);
 pub const STD_OUTPUT_HANDLE: STD_HANDLE = STD_HANDLE(4294967285u32);
 pub const WINDOW_BUFFER_SIZE_EVENT: u32 = 4u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CONSOLE_CHARACTER_ATTRIBUTES(pub u16);
-impl ::core::marker::Copy for CONSOLE_CHARACTER_ATTRIBUTES {}
-impl ::core::clone::Clone for CONSOLE_CHARACTER_ATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CONSOLE_CHARACTER_ATTRIBUTES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CONSOLE_CHARACTER_ATTRIBUTES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -830,19 +819,8 @@ impl ::core::ops::Not for CONSOLE_CHARACTER_ATTRIBUTES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CONSOLE_MODE(pub u32);
-impl ::core::marker::Copy for CONSOLE_MODE {}
-impl ::core::clone::Clone for CONSOLE_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CONSOLE_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CONSOLE_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -885,19 +863,8 @@ impl ::core::ops::Not for CONSOLE_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct STD_HANDLE(pub u32);
-impl ::core::marker::Copy for STD_HANDLE {}
-impl ::core::clone::Clone for STD_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for STD_HANDLE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for STD_HANDLE {
     type TypeKind = ::windows_core::CopyType;
 }

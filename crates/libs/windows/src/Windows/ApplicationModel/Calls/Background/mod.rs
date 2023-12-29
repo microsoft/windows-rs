@@ -429,23 +429,12 @@ impl ::windows_core::RuntimeName for PhoneNewVoicemailMessageTriggerDetails {
 unsafe impl ::core::marker::Send for PhoneNewVoicemailMessageTriggerDetails {}
 unsafe impl ::core::marker::Sync for PhoneNewVoicemailMessageTriggerDetails {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PhoneCallBlockedReason(pub i32);
 impl PhoneCallBlockedReason {
     pub const InCallBlockingList: Self = Self(0i32);
     pub const PrivateNumber: Self = Self(1i32);
     pub const UnknownNumber: Self = Self(2i32);
-}
-impl ::core::marker::Copy for PhoneCallBlockedReason {}
-impl ::core::clone::Clone for PhoneCallBlockedReason {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhoneCallBlockedReason {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PhoneCallBlockedReason {
     type TypeKind = ::windows_core::CopyType;
@@ -461,7 +450,7 @@ impl ::windows_core::RuntimeType for PhoneCallBlockedReason {
 #[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PhoneIncomingCallDismissedReason(pub i32);
 #[cfg(feature = "deprecated")]
 impl PhoneIncomingCallDismissedReason {
@@ -469,20 +458,6 @@ impl PhoneIncomingCallDismissedReason {
     pub const CallRejected: Self = Self(1i32);
     pub const TextReply: Self = Self(2i32);
     pub const ConnectionLost: Self = Self(3i32);
-}
-#[cfg(feature = "deprecated")]
-impl ::core::marker::Copy for PhoneIncomingCallDismissedReason {}
-#[cfg(feature = "deprecated")]
-impl ::core::clone::Clone for PhoneIncomingCallDismissedReason {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::default::Default for PhoneIncomingCallDismissedReason {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 #[cfg(feature = "deprecated")]
 impl ::windows_core::TypeKind for PhoneIncomingCallDismissedReason {
@@ -499,23 +474,12 @@ impl ::windows_core::RuntimeType for PhoneIncomingCallDismissedReason {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.Background.PhoneIncomingCallDismissedReason;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PhoneLineChangeKind(pub i32);
 impl PhoneLineChangeKind {
     pub const Added: Self = Self(0i32);
     pub const Removed: Self = Self(1i32);
     pub const PropertiesChanged: Self = Self(2i32);
-}
-impl ::core::marker::Copy for PhoneLineChangeKind {}
-impl ::core::clone::Clone for PhoneLineChangeKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhoneLineChangeKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PhoneLineChangeKind {
     type TypeKind = ::windows_core::CopyType;
@@ -529,7 +493,7 @@ impl ::windows_core::RuntimeType for PhoneLineChangeKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.Background.PhoneLineChangeKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PhoneLineProperties(pub u32);
 impl PhoneLineProperties {
     pub const None: Self = Self(0u32);
@@ -542,17 +506,6 @@ impl PhoneLineProperties {
     pub const NetworkState: Self = Self(64u32);
     pub const Transport: Self = Self(128u32);
     pub const Voicemail: Self = Self(256u32);
-}
-impl ::core::marker::Copy for PhoneLineProperties {}
-impl ::core::clone::Clone for PhoneLineProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhoneLineProperties {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PhoneLineProperties {
     type TypeKind = ::windows_core::CopyType;
@@ -599,7 +552,7 @@ impl ::windows_core::RuntimeType for PhoneLineProperties {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.Background.PhoneLineProperties;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PhoneTriggerType(pub i32);
 impl PhoneTriggerType {
     pub const NewVoicemailMessage: Self = Self(0i32);
@@ -610,17 +563,6 @@ impl PhoneTriggerType {
     pub const CallBlocked: Self = Self(5i32);
     pub const IncomingCallDismissed: Self = Self(6i32);
     pub const IncomingCallNotification: Self = Self(7i32);
-}
-impl ::core::marker::Copy for PhoneTriggerType {}
-impl ::core::clone::Clone for PhoneTriggerType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhoneTriggerType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PhoneTriggerType {
     type TypeKind = ::windows_core::CopyType;

@@ -20005,19 +20005,8 @@ pub const wszSECUREDATTRIBUTES: ::windows_core::PCWSTR = ::windows_core::w!("Sig
 pub const wszSERVICE_NAME: ::windows_core::PCWSTR = ::windows_core::w!("CertSvc");
 pub const wszzDEFAULTSIGNEDATTRIBUTES: ::windows_core::PCWSTR = ::windows_core::w!("RequesterName\u{0}");
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ADDED_CERT_TYPE(pub i32);
-impl ::core::marker::Copy for ADDED_CERT_TYPE {}
-impl ::core::clone::Clone for ADDED_CERT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADDED_CERT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ADDED_CERT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -20027,19 +20016,8 @@ impl ::core::fmt::Debug for ADDED_CERT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AlgorithmFlags(pub i32);
-impl ::core::marker::Copy for AlgorithmFlags {}
-impl ::core::clone::Clone for AlgorithmFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AlgorithmFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AlgorithmFlags {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -20049,19 +20027,8 @@ impl ::core::fmt::Debug for AlgorithmFlags {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AlgorithmOperationFlags(pub i32);
-impl ::core::marker::Copy for AlgorithmOperationFlags {}
-impl ::core::clone::Clone for AlgorithmOperationFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AlgorithmOperationFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AlgorithmOperationFlags {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -20071,19 +20038,8 @@ impl ::core::fmt::Debug for AlgorithmOperationFlags {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AlgorithmType(pub i32);
-impl ::core::marker::Copy for AlgorithmType {}
-impl ::core::clone::Clone for AlgorithmType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AlgorithmType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AlgorithmType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -20093,19 +20049,8 @@ impl ::core::fmt::Debug for AlgorithmType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AlternativeNameType(pub i32);
-impl ::core::marker::Copy for AlternativeNameType {}
-impl ::core::clone::Clone for AlternativeNameType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AlternativeNameType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AlternativeNameType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -20115,19 +20060,8 @@ impl ::core::fmt::Debug for AlternativeNameType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CERTADMIN_GET_ROLES_FLAGS(pub u32);
-impl ::core::marker::Copy for CERTADMIN_GET_ROLES_FLAGS {}
-impl ::core::clone::Clone for CERTADMIN_GET_ROLES_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CERTADMIN_GET_ROLES_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CERTADMIN_GET_ROLES_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -20170,19 +20104,8 @@ impl ::core::ops::Not for CERTADMIN_GET_ROLES_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CERTENROLL_OBJECTID(pub i32);
-impl ::core::marker::Copy for CERTENROLL_OBJECTID {}
-impl ::core::clone::Clone for CERTENROLL_OBJECTID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CERTENROLL_OBJECTID {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CERTENROLL_OBJECTID {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -20192,19 +20115,8 @@ impl ::core::fmt::Debug for CERTENROLL_OBJECTID {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CERTENROLL_PROPERTYID(pub i32);
-impl ::core::marker::Copy for CERTENROLL_PROPERTYID {}
-impl ::core::clone::Clone for CERTENROLL_PROPERTYID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CERTENROLL_PROPERTYID {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CERTENROLL_PROPERTYID {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -20214,19 +20126,8 @@ impl ::core::fmt::Debug for CERTENROLL_PROPERTYID {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CERT_ALT_NAME(pub i32);
-impl ::core::marker::Copy for CERT_ALT_NAME {}
-impl ::core::clone::Clone for CERT_ALT_NAME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CERT_ALT_NAME {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CERT_ALT_NAME {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -20236,19 +20137,8 @@ impl ::core::fmt::Debug for CERT_ALT_NAME {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CERT_CREATE_REQUEST_FLAGS(pub i32);
-impl ::core::marker::Copy for CERT_CREATE_REQUEST_FLAGS {}
-impl ::core::clone::Clone for CERT_CREATE_REQUEST_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CERT_CREATE_REQUEST_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CERT_CREATE_REQUEST_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -20258,19 +20148,8 @@ impl ::core::fmt::Debug for CERT_CREATE_REQUEST_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CERT_DELETE_ROW_FLAGS(pub i32);
-impl ::core::marker::Copy for CERT_DELETE_ROW_FLAGS {}
-impl ::core::clone::Clone for CERT_DELETE_ROW_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CERT_DELETE_ROW_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CERT_DELETE_ROW_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -20280,19 +20159,8 @@ impl ::core::fmt::Debug for CERT_DELETE_ROW_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CERT_EXIT_EVENT_MASK(pub u32);
-impl ::core::marker::Copy for CERT_EXIT_EVENT_MASK {}
-impl ::core::clone::Clone for CERT_EXIT_EVENT_MASK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CERT_EXIT_EVENT_MASK {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CERT_EXIT_EVENT_MASK {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -20335,19 +20203,8 @@ impl ::core::ops::Not for CERT_EXIT_EVENT_MASK {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CERT_GET_CONFIG_FLAGS(pub i32);
-impl ::core::marker::Copy for CERT_GET_CONFIG_FLAGS {}
-impl ::core::clone::Clone for CERT_GET_CONFIG_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CERT_GET_CONFIG_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CERT_GET_CONFIG_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -20357,19 +20214,8 @@ impl ::core::fmt::Debug for CERT_GET_CONFIG_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CERT_IMPORT_FLAGS(pub i32);
-impl ::core::marker::Copy for CERT_IMPORT_FLAGS {}
-impl ::core::clone::Clone for CERT_IMPORT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CERT_IMPORT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CERT_IMPORT_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -20379,19 +20225,8 @@ impl ::core::fmt::Debug for CERT_IMPORT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CERT_PROPERTY_TYPE(pub i32);
-impl ::core::marker::Copy for CERT_PROPERTY_TYPE {}
-impl ::core::clone::Clone for CERT_PROPERTY_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CERT_PROPERTY_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CERT_PROPERTY_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -20401,19 +20236,8 @@ impl ::core::fmt::Debug for CERT_PROPERTY_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CERT_REQUEST_OUT_TYPE(pub i32);
-impl ::core::marker::Copy for CERT_REQUEST_OUT_TYPE {}
-impl ::core::clone::Clone for CERT_REQUEST_OUT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CERT_REQUEST_OUT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CERT_REQUEST_OUT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -20423,19 +20247,8 @@ impl ::core::fmt::Debug for CERT_REQUEST_OUT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CERT_VIEW_COLUMN_INDEX(pub i32);
-impl ::core::marker::Copy for CERT_VIEW_COLUMN_INDEX {}
-impl ::core::clone::Clone for CERT_VIEW_COLUMN_INDEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CERT_VIEW_COLUMN_INDEX {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CERT_VIEW_COLUMN_INDEX {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -20445,19 +20258,8 @@ impl ::core::fmt::Debug for CERT_VIEW_COLUMN_INDEX {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CERT_VIEW_SEEK_OPERATOR_FLAGS(pub i32);
-impl ::core::marker::Copy for CERT_VIEW_SEEK_OPERATOR_FLAGS {}
-impl ::core::clone::Clone for CERT_VIEW_SEEK_OPERATOR_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CERT_VIEW_SEEK_OPERATOR_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CERT_VIEW_SEEK_OPERATOR_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -20467,19 +20269,8 @@ impl ::core::fmt::Debug for CERT_VIEW_SEEK_OPERATOR_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CRLRevocationReason(pub i32);
-impl ::core::marker::Copy for CRLRevocationReason {}
-impl ::core::clone::Clone for CRLRevocationReason {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CRLRevocationReason {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CRLRevocationReason {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -20489,19 +20280,8 @@ impl ::core::fmt::Debug for CRLRevocationReason {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CR_DISP(pub u32);
-impl ::core::marker::Copy for CR_DISP {}
-impl ::core::clone::Clone for CR_DISP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CR_DISP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CR_DISP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -20511,19 +20291,8 @@ impl ::core::fmt::Debug for CR_DISP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CSBACKUP_TYPE(pub u32);
-impl ::core::marker::Copy for CSBACKUP_TYPE {}
-impl ::core::clone::Clone for CSBACKUP_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CSBACKUP_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CSBACKUP_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -20533,19 +20302,8 @@ impl ::core::fmt::Debug for CSBACKUP_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CVRC_COLUMN(pub i32);
-impl ::core::marker::Copy for CVRC_COLUMN {}
-impl ::core::clone::Clone for CVRC_COLUMN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CVRC_COLUMN {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CVRC_COLUMN {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -20555,19 +20313,8 @@ impl ::core::fmt::Debug for CVRC_COLUMN {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CVRC_TABLE(pub i32);
-impl ::core::marker::Copy for CVRC_TABLE {}
-impl ::core::clone::Clone for CVRC_TABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CVRC_TABLE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CVRC_TABLE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -20577,19 +20324,8 @@ impl ::core::fmt::Debug for CVRC_TABLE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CommitTemplateFlags(pub i32);
-impl ::core::marker::Copy for CommitTemplateFlags {}
-impl ::core::clone::Clone for CommitTemplateFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CommitTemplateFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CommitTemplateFlags {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -20599,19 +20335,8 @@ impl ::core::fmt::Debug for CommitTemplateFlags {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DelayRetryAction(pub i32);
-impl ::core::marker::Copy for DelayRetryAction {}
-impl ::core::clone::Clone for DelayRetryAction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DelayRetryAction {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DelayRetryAction {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -20621,19 +20346,8 @@ impl ::core::fmt::Debug for DelayRetryAction {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ENUM_CATYPES(pub i32);
-impl ::core::marker::Copy for ENUM_CATYPES {}
-impl ::core::clone::Clone for ENUM_CATYPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ENUM_CATYPES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ENUM_CATYPES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -20643,19 +20357,8 @@ impl ::core::fmt::Debug for ENUM_CATYPES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ENUM_CERT_COLUMN_VALUE_FLAGS(pub i32);
-impl ::core::marker::Copy for ENUM_CERT_COLUMN_VALUE_FLAGS {}
-impl ::core::clone::Clone for ENUM_CERT_COLUMN_VALUE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ENUM_CERT_COLUMN_VALUE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ENUM_CERT_COLUMN_VALUE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -20665,19 +20368,8 @@ impl ::core::fmt::Debug for ENUM_CERT_COLUMN_VALUE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EncodingType(pub i32);
-impl ::core::marker::Copy for EncodingType {}
-impl ::core::clone::Clone for EncodingType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EncodingType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EncodingType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -20687,19 +20379,8 @@ impl ::core::fmt::Debug for EncodingType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EnrollmentCAProperty(pub i32);
-impl ::core::marker::Copy for EnrollmentCAProperty {}
-impl ::core::clone::Clone for EnrollmentCAProperty {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EnrollmentCAProperty {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EnrollmentCAProperty {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -20709,19 +20390,8 @@ impl ::core::fmt::Debug for EnrollmentCAProperty {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EnrollmentDisplayStatus(pub i32);
-impl ::core::marker::Copy for EnrollmentDisplayStatus {}
-impl ::core::clone::Clone for EnrollmentDisplayStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EnrollmentDisplayStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EnrollmentDisplayStatus {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -20731,19 +20401,8 @@ impl ::core::fmt::Debug for EnrollmentDisplayStatus {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EnrollmentEnrollStatus(pub i32);
-impl ::core::marker::Copy for EnrollmentEnrollStatus {}
-impl ::core::clone::Clone for EnrollmentEnrollStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EnrollmentEnrollStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EnrollmentEnrollStatus {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -20753,19 +20412,8 @@ impl ::core::fmt::Debug for EnrollmentEnrollStatus {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EnrollmentPolicyFlags(pub i32);
-impl ::core::marker::Copy for EnrollmentPolicyFlags {}
-impl ::core::clone::Clone for EnrollmentPolicyFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EnrollmentPolicyFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EnrollmentPolicyFlags {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -20775,19 +20423,8 @@ impl ::core::fmt::Debug for EnrollmentPolicyFlags {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EnrollmentPolicyServerPropertyFlags(pub i32);
-impl ::core::marker::Copy for EnrollmentPolicyServerPropertyFlags {}
-impl ::core::clone::Clone for EnrollmentPolicyServerPropertyFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EnrollmentPolicyServerPropertyFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EnrollmentPolicyServerPropertyFlags {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -20797,19 +20434,8 @@ impl ::core::fmt::Debug for EnrollmentPolicyServerPropertyFlags {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EnrollmentSelectionStatus(pub i32);
-impl ::core::marker::Copy for EnrollmentSelectionStatus {}
-impl ::core::clone::Clone for EnrollmentSelectionStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EnrollmentSelectionStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EnrollmentSelectionStatus {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -20819,19 +20445,8 @@ impl ::core::fmt::Debug for EnrollmentSelectionStatus {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EnrollmentTemplateProperty(pub i32);
-impl ::core::marker::Copy for EnrollmentTemplateProperty {}
-impl ::core::clone::Clone for EnrollmentTemplateProperty {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EnrollmentTemplateProperty {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EnrollmentTemplateProperty {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -20841,19 +20456,8 @@ impl ::core::fmt::Debug for EnrollmentTemplateProperty {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FULL_RESPONSE_PROPERTY_ID(pub i32);
-impl ::core::marker::Copy for FULL_RESPONSE_PROPERTY_ID {}
-impl ::core::clone::Clone for FULL_RESPONSE_PROPERTY_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FULL_RESPONSE_PROPERTY_ID {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FULL_RESPONSE_PROPERTY_ID {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -20863,19 +20467,8 @@ impl ::core::fmt::Debug for FULL_RESPONSE_PROPERTY_ID {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ImportPFXFlags(pub i32);
-impl ::core::marker::Copy for ImportPFXFlags {}
-impl ::core::clone::Clone for ImportPFXFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ImportPFXFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ImportPFXFlags {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -20885,19 +20478,8 @@ impl ::core::fmt::Debug for ImportPFXFlags {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InnerRequestLevel(pub i32);
-impl ::core::marker::Copy for InnerRequestLevel {}
-impl ::core::clone::Clone for InnerRequestLevel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InnerRequestLevel {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for InnerRequestLevel {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -20907,19 +20489,8 @@ impl ::core::fmt::Debug for InnerRequestLevel {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InstallResponseRestrictionFlags(pub i32);
-impl ::core::marker::Copy for InstallResponseRestrictionFlags {}
-impl ::core::clone::Clone for InstallResponseRestrictionFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InstallResponseRestrictionFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for InstallResponseRestrictionFlags {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -20929,19 +20500,8 @@ impl ::core::fmt::Debug for InstallResponseRestrictionFlags {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct KeyAttestationClaimType(pub i32);
-impl ::core::marker::Copy for KeyAttestationClaimType {}
-impl ::core::clone::Clone for KeyAttestationClaimType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KeyAttestationClaimType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for KeyAttestationClaimType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -20951,19 +20511,8 @@ impl ::core::fmt::Debug for KeyAttestationClaimType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct KeyIdentifierHashAlgorithm(pub i32);
-impl ::core::marker::Copy for KeyIdentifierHashAlgorithm {}
-impl ::core::clone::Clone for KeyIdentifierHashAlgorithm {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KeyIdentifierHashAlgorithm {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for KeyIdentifierHashAlgorithm {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -20973,19 +20522,8 @@ impl ::core::fmt::Debug for KeyIdentifierHashAlgorithm {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OCSPRequestFlag(pub i32);
-impl ::core::marker::Copy for OCSPRequestFlag {}
-impl ::core::clone::Clone for OCSPRequestFlag {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OCSPRequestFlag {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OCSPRequestFlag {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -20995,19 +20533,8 @@ impl ::core::fmt::Debug for OCSPRequestFlag {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OCSPSigningFlag(pub i32);
-impl ::core::marker::Copy for OCSPSigningFlag {}
-impl ::core::clone::Clone for OCSPSigningFlag {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OCSPSigningFlag {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OCSPSigningFlag {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -21017,19 +20544,8 @@ impl ::core::fmt::Debug for OCSPSigningFlag {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ObjectIdGroupId(pub i32);
-impl ::core::marker::Copy for ObjectIdGroupId {}
-impl ::core::clone::Clone for ObjectIdGroupId {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ObjectIdGroupId {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ObjectIdGroupId {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -21039,19 +20555,8 @@ impl ::core::fmt::Debug for ObjectIdGroupId {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ObjectIdPublicKeyFlags(pub i32);
-impl ::core::marker::Copy for ObjectIdPublicKeyFlags {}
-impl ::core::clone::Clone for ObjectIdPublicKeyFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ObjectIdPublicKeyFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ObjectIdPublicKeyFlags {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -21061,19 +20566,8 @@ impl ::core::fmt::Debug for ObjectIdPublicKeyFlags {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PENDING_REQUEST_DESIRED_PROPERTY(pub i32);
-impl ::core::marker::Copy for PENDING_REQUEST_DESIRED_PROPERTY {}
-impl ::core::clone::Clone for PENDING_REQUEST_DESIRED_PROPERTY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PENDING_REQUEST_DESIRED_PROPERTY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PENDING_REQUEST_DESIRED_PROPERTY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -21083,19 +20577,8 @@ impl ::core::fmt::Debug for PENDING_REQUEST_DESIRED_PROPERTY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PFXExportOptions(pub i32);
-impl ::core::marker::Copy for PFXExportOptions {}
-impl ::core::clone::Clone for PFXExportOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PFXExportOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PFXExportOptions {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -21105,19 +20588,8 @@ impl ::core::fmt::Debug for PFXExportOptions {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct Pkcs10AllowedSignatureTypes(pub i32);
-impl ::core::marker::Copy for Pkcs10AllowedSignatureTypes {}
-impl ::core::clone::Clone for Pkcs10AllowedSignatureTypes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for Pkcs10AllowedSignatureTypes {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for Pkcs10AllowedSignatureTypes {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -21127,19 +20599,8 @@ impl ::core::fmt::Debug for Pkcs10AllowedSignatureTypes {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PolicyQualifierType(pub i32);
-impl ::core::marker::Copy for PolicyQualifierType {}
-impl ::core::clone::Clone for PolicyQualifierType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PolicyQualifierType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PolicyQualifierType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -21149,19 +20610,8 @@ impl ::core::fmt::Debug for PolicyQualifierType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PolicyServerUrlFlags(pub i32);
-impl ::core::marker::Copy for PolicyServerUrlFlags {}
-impl ::core::clone::Clone for PolicyServerUrlFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PolicyServerUrlFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PolicyServerUrlFlags {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -21171,19 +20621,8 @@ impl ::core::fmt::Debug for PolicyServerUrlFlags {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PolicyServerUrlPropertyID(pub i32);
-impl ::core::marker::Copy for PolicyServerUrlPropertyID {}
-impl ::core::clone::Clone for PolicyServerUrlPropertyID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PolicyServerUrlPropertyID {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PolicyServerUrlPropertyID {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -21193,19 +20632,8 @@ impl ::core::fmt::Debug for PolicyServerUrlPropertyID {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RequestClientInfoClientId(pub i32);
-impl ::core::marker::Copy for RequestClientInfoClientId {}
-impl ::core::clone::Clone for RequestClientInfoClientId {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RequestClientInfoClientId {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RequestClientInfoClientId {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -21215,19 +20643,8 @@ impl ::core::fmt::Debug for RequestClientInfoClientId {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WebEnrollmentFlags(pub i32);
-impl ::core::marker::Copy for WebEnrollmentFlags {}
-impl ::core::clone::Clone for WebEnrollmentFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WebEnrollmentFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WebEnrollmentFlags {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -21237,19 +20654,8 @@ impl ::core::fmt::Debug for WebEnrollmentFlags {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WebSecurityLevel(pub i32);
-impl ::core::marker::Copy for WebSecurityLevel {}
-impl ::core::clone::Clone for WebSecurityLevel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WebSecurityLevel {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WebSecurityLevel {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -21259,19 +20665,8 @@ impl ::core::fmt::Debug for WebSecurityLevel {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct X500NameFlags(pub i32);
-impl ::core::marker::Copy for X500NameFlags {}
-impl ::core::clone::Clone for X500NameFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for X500NameFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for X500NameFlags {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -21281,19 +20676,8 @@ impl ::core::fmt::Debug for X500NameFlags {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct X509CertificateEnrollmentContext(pub i32);
-impl ::core::marker::Copy for X509CertificateEnrollmentContext {}
-impl ::core::clone::Clone for X509CertificateEnrollmentContext {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for X509CertificateEnrollmentContext {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for X509CertificateEnrollmentContext {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -21303,19 +20687,8 @@ impl ::core::fmt::Debug for X509CertificateEnrollmentContext {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct X509CertificateTemplateEnrollmentFlag(pub i32);
-impl ::core::marker::Copy for X509CertificateTemplateEnrollmentFlag {}
-impl ::core::clone::Clone for X509CertificateTemplateEnrollmentFlag {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for X509CertificateTemplateEnrollmentFlag {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for X509CertificateTemplateEnrollmentFlag {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -21325,19 +20698,8 @@ impl ::core::fmt::Debug for X509CertificateTemplateEnrollmentFlag {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct X509CertificateTemplateGeneralFlag(pub i32);
-impl ::core::marker::Copy for X509CertificateTemplateGeneralFlag {}
-impl ::core::clone::Clone for X509CertificateTemplateGeneralFlag {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for X509CertificateTemplateGeneralFlag {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for X509CertificateTemplateGeneralFlag {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -21347,19 +20709,8 @@ impl ::core::fmt::Debug for X509CertificateTemplateGeneralFlag {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct X509CertificateTemplatePrivateKeyFlag(pub i32);
-impl ::core::marker::Copy for X509CertificateTemplatePrivateKeyFlag {}
-impl ::core::clone::Clone for X509CertificateTemplatePrivateKeyFlag {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for X509CertificateTemplatePrivateKeyFlag {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for X509CertificateTemplatePrivateKeyFlag {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -21369,19 +20720,8 @@ impl ::core::fmt::Debug for X509CertificateTemplatePrivateKeyFlag {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct X509CertificateTemplateSubjectNameFlag(pub i32);
-impl ::core::marker::Copy for X509CertificateTemplateSubjectNameFlag {}
-impl ::core::clone::Clone for X509CertificateTemplateSubjectNameFlag {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for X509CertificateTemplateSubjectNameFlag {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for X509CertificateTemplateSubjectNameFlag {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -21391,19 +20731,8 @@ impl ::core::fmt::Debug for X509CertificateTemplateSubjectNameFlag {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct X509EnrollmentAuthFlags(pub i32);
-impl ::core::marker::Copy for X509EnrollmentAuthFlags {}
-impl ::core::clone::Clone for X509EnrollmentAuthFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for X509EnrollmentAuthFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for X509EnrollmentAuthFlags {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -21413,19 +20742,8 @@ impl ::core::fmt::Debug for X509EnrollmentAuthFlags {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct X509EnrollmentPolicyExportFlags(pub i32);
-impl ::core::marker::Copy for X509EnrollmentPolicyExportFlags {}
-impl ::core::clone::Clone for X509EnrollmentPolicyExportFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for X509EnrollmentPolicyExportFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for X509EnrollmentPolicyExportFlags {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -21435,19 +20753,8 @@ impl ::core::fmt::Debug for X509EnrollmentPolicyExportFlags {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct X509EnrollmentPolicyLoadOption(pub i32);
-impl ::core::marker::Copy for X509EnrollmentPolicyLoadOption {}
-impl ::core::clone::Clone for X509EnrollmentPolicyLoadOption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for X509EnrollmentPolicyLoadOption {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for X509EnrollmentPolicyLoadOption {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -21457,19 +20764,8 @@ impl ::core::fmt::Debug for X509EnrollmentPolicyLoadOption {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct X509HardwareKeyUsageFlags(pub i32);
-impl ::core::marker::Copy for X509HardwareKeyUsageFlags {}
-impl ::core::clone::Clone for X509HardwareKeyUsageFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for X509HardwareKeyUsageFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for X509HardwareKeyUsageFlags {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -21479,19 +20775,8 @@ impl ::core::fmt::Debug for X509HardwareKeyUsageFlags {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct X509KeyParametersExportType(pub i32);
-impl ::core::marker::Copy for X509KeyParametersExportType {}
-impl ::core::clone::Clone for X509KeyParametersExportType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for X509KeyParametersExportType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for X509KeyParametersExportType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -21501,19 +20786,8 @@ impl ::core::fmt::Debug for X509KeyParametersExportType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct X509KeySpec(pub i32);
-impl ::core::marker::Copy for X509KeySpec {}
-impl ::core::clone::Clone for X509KeySpec {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for X509KeySpec {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for X509KeySpec {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -21523,19 +20797,8 @@ impl ::core::fmt::Debug for X509KeySpec {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct X509KeyUsageFlags(pub i32);
-impl ::core::marker::Copy for X509KeyUsageFlags {}
-impl ::core::clone::Clone for X509KeyUsageFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for X509KeyUsageFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for X509KeyUsageFlags {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -21545,19 +20808,8 @@ impl ::core::fmt::Debug for X509KeyUsageFlags {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct X509PrivateKeyExportFlags(pub i32);
-impl ::core::marker::Copy for X509PrivateKeyExportFlags {}
-impl ::core::clone::Clone for X509PrivateKeyExportFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for X509PrivateKeyExportFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for X509PrivateKeyExportFlags {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -21567,19 +20819,8 @@ impl ::core::fmt::Debug for X509PrivateKeyExportFlags {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct X509PrivateKeyProtection(pub i32);
-impl ::core::marker::Copy for X509PrivateKeyProtection {}
-impl ::core::clone::Clone for X509PrivateKeyProtection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for X509PrivateKeyProtection {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for X509PrivateKeyProtection {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -21589,19 +20830,8 @@ impl ::core::fmt::Debug for X509PrivateKeyProtection {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct X509PrivateKeyUsageFlags(pub i32);
-impl ::core::marker::Copy for X509PrivateKeyUsageFlags {}
-impl ::core::clone::Clone for X509PrivateKeyUsageFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for X509PrivateKeyUsageFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for X509PrivateKeyUsageFlags {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -21611,19 +20841,8 @@ impl ::core::fmt::Debug for X509PrivateKeyUsageFlags {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct X509PrivateKeyVerify(pub i32);
-impl ::core::marker::Copy for X509PrivateKeyVerify {}
-impl ::core::clone::Clone for X509PrivateKeyVerify {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for X509PrivateKeyVerify {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for X509PrivateKeyVerify {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -21633,19 +20852,8 @@ impl ::core::fmt::Debug for X509PrivateKeyVerify {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct X509ProviderType(pub i32);
-impl ::core::marker::Copy for X509ProviderType {}
-impl ::core::clone::Clone for X509ProviderType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for X509ProviderType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for X509ProviderType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -21655,19 +20863,8 @@ impl ::core::fmt::Debug for X509ProviderType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct X509RequestInheritOptions(pub i32);
-impl ::core::marker::Copy for X509RequestInheritOptions {}
-impl ::core::clone::Clone for X509RequestInheritOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for X509RequestInheritOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for X509RequestInheritOptions {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -21677,19 +20874,8 @@ impl ::core::fmt::Debug for X509RequestInheritOptions {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct X509RequestType(pub i32);
-impl ::core::marker::Copy for X509RequestType {}
-impl ::core::clone::Clone for X509RequestType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for X509RequestType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for X509RequestType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -21699,19 +20885,8 @@ impl ::core::fmt::Debug for X509RequestType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct X509SCEPDisposition(pub i32);
-impl ::core::marker::Copy for X509SCEPDisposition {}
-impl ::core::clone::Clone for X509SCEPDisposition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for X509SCEPDisposition {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for X509SCEPDisposition {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -21721,19 +20896,8 @@ impl ::core::fmt::Debug for X509SCEPDisposition {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct X509SCEPFailInfo(pub i32);
-impl ::core::marker::Copy for X509SCEPFailInfo {}
-impl ::core::clone::Clone for X509SCEPFailInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for X509SCEPFailInfo {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for X509SCEPFailInfo {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -21743,19 +20907,8 @@ impl ::core::fmt::Debug for X509SCEPFailInfo {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct X509SCEPMessageType(pub i32);
-impl ::core::marker::Copy for X509SCEPMessageType {}
-impl ::core::clone::Clone for X509SCEPMessageType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for X509SCEPMessageType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for X509SCEPMessageType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -21765,19 +20918,8 @@ impl ::core::fmt::Debug for X509SCEPMessageType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct X509SCEPProcessMessageFlags(pub i32);
-impl ::core::marker::Copy for X509SCEPProcessMessageFlags {}
-impl ::core::clone::Clone for X509SCEPProcessMessageFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for X509SCEPProcessMessageFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for X509SCEPProcessMessageFlags {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -21787,19 +20929,8 @@ impl ::core::fmt::Debug for X509SCEPProcessMessageFlags {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XEKL_KEYSIZE(pub i32);
-impl ::core::marker::Copy for XEKL_KEYSIZE {}
-impl ::core::clone::Clone for XEKL_KEYSIZE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XEKL_KEYSIZE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XEKL_KEYSIZE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -21809,19 +20940,8 @@ impl ::core::fmt::Debug for XEKL_KEYSIZE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct XEKL_KEYSPEC(pub i32);
-impl ::core::marker::Copy for XEKL_KEYSPEC {}
-impl ::core::clone::Clone for XEKL_KEYSPEC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XEKL_KEYSPEC {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for XEKL_KEYSPEC {
     type TypeKind = ::windows_core::CopyType;
 }

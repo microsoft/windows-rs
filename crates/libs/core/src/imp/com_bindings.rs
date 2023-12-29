@@ -32,19 +32,8 @@ where
 }
 pub const AGILEREFERENCE_DEFAULT: AgileReferenceOptions = AgileReferenceOptions(0i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AgileReferenceOptions(pub i32);
-impl ::core::marker::Copy for AgileReferenceOptions {}
-impl ::core::clone::Clone for AgileReferenceOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AgileReferenceOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AgileReferenceOptions {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -952,7 +941,7 @@ impl ::core::default::Default for Point {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PropertyType(pub i32);
 impl PropertyType {
     pub const Empty: Self = Self(0i32);
@@ -996,17 +985,6 @@ impl PropertyType {
     pub const SizeArray: Self = Self(1042i32);
     pub const RectArray: Self = Self(1043i32);
     pub const OtherTypeArray: Self = Self(1044i32);
-}
-impl ::core::marker::Copy for PropertyType {}
-impl ::core::clone::Clone for PropertyType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PropertyType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PropertyType {
     type TypeKind = ::windows_core::CopyType;

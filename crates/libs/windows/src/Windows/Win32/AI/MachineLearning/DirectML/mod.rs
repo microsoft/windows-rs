@@ -916,19 +916,8 @@ pub const DML_TENSOR_FLAG_OWNED_BY_DML: DML_TENSOR_FLAGS = DML_TENSOR_FLAGS(1i32
 pub const DML_TENSOR_TYPE_BUFFER: DML_TENSOR_TYPE = DML_TENSOR_TYPE(1i32);
 pub const DML_TENSOR_TYPE_INVALID: DML_TENSOR_TYPE = DML_TENSOR_TYPE(0i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DML_AXIS_DIRECTION(pub i32);
-impl ::core::marker::Copy for DML_AXIS_DIRECTION {}
-impl ::core::clone::Clone for DML_AXIS_DIRECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DML_AXIS_DIRECTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DML_AXIS_DIRECTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -938,19 +927,8 @@ impl ::core::fmt::Debug for DML_AXIS_DIRECTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DML_BINDING_TYPE(pub i32);
-impl ::core::marker::Copy for DML_BINDING_TYPE {}
-impl ::core::clone::Clone for DML_BINDING_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DML_BINDING_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DML_BINDING_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -960,19 +938,8 @@ impl ::core::fmt::Debug for DML_BINDING_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DML_CONVOLUTION_DIRECTION(pub i32);
-impl ::core::marker::Copy for DML_CONVOLUTION_DIRECTION {}
-impl ::core::clone::Clone for DML_CONVOLUTION_DIRECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DML_CONVOLUTION_DIRECTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DML_CONVOLUTION_DIRECTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -982,19 +949,8 @@ impl ::core::fmt::Debug for DML_CONVOLUTION_DIRECTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DML_CONVOLUTION_MODE(pub i32);
-impl ::core::marker::Copy for DML_CONVOLUTION_MODE {}
-impl ::core::clone::Clone for DML_CONVOLUTION_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DML_CONVOLUTION_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DML_CONVOLUTION_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1004,19 +960,8 @@ impl ::core::fmt::Debug for DML_CONVOLUTION_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DML_CREATE_DEVICE_FLAGS(pub i32);
-impl ::core::marker::Copy for DML_CREATE_DEVICE_FLAGS {}
-impl ::core::clone::Clone for DML_CREATE_DEVICE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DML_CREATE_DEVICE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DML_CREATE_DEVICE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1059,19 +1004,8 @@ impl ::core::ops::Not for DML_CREATE_DEVICE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DML_DEPTH_SPACE_ORDER(pub i32);
-impl ::core::marker::Copy for DML_DEPTH_SPACE_ORDER {}
-impl ::core::clone::Clone for DML_DEPTH_SPACE_ORDER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DML_DEPTH_SPACE_ORDER {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DML_DEPTH_SPACE_ORDER {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1081,19 +1015,8 @@ impl ::core::fmt::Debug for DML_DEPTH_SPACE_ORDER {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DML_EXECUTION_FLAGS(pub i32);
-impl ::core::marker::Copy for DML_EXECUTION_FLAGS {}
-impl ::core::clone::Clone for DML_EXECUTION_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DML_EXECUTION_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DML_EXECUTION_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1136,19 +1059,8 @@ impl ::core::ops::Not for DML_EXECUTION_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DML_FEATURE(pub i32);
-impl ::core::marker::Copy for DML_FEATURE {}
-impl ::core::clone::Clone for DML_FEATURE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DML_FEATURE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DML_FEATURE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1158,19 +1070,8 @@ impl ::core::fmt::Debug for DML_FEATURE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DML_FEATURE_LEVEL(pub i32);
-impl ::core::marker::Copy for DML_FEATURE_LEVEL {}
-impl ::core::clone::Clone for DML_FEATURE_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DML_FEATURE_LEVEL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DML_FEATURE_LEVEL {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1180,19 +1081,8 @@ impl ::core::fmt::Debug for DML_FEATURE_LEVEL {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DML_GRAPH_EDGE_TYPE(pub i32);
-impl ::core::marker::Copy for DML_GRAPH_EDGE_TYPE {}
-impl ::core::clone::Clone for DML_GRAPH_EDGE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DML_GRAPH_EDGE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DML_GRAPH_EDGE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1202,19 +1092,8 @@ impl ::core::fmt::Debug for DML_GRAPH_EDGE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DML_GRAPH_NODE_TYPE(pub i32);
-impl ::core::marker::Copy for DML_GRAPH_NODE_TYPE {}
-impl ::core::clone::Clone for DML_GRAPH_NODE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DML_GRAPH_NODE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DML_GRAPH_NODE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1224,19 +1103,8 @@ impl ::core::fmt::Debug for DML_GRAPH_NODE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DML_INTERPOLATION_MODE(pub i32);
-impl ::core::marker::Copy for DML_INTERPOLATION_MODE {}
-impl ::core::clone::Clone for DML_INTERPOLATION_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DML_INTERPOLATION_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DML_INTERPOLATION_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1246,19 +1114,8 @@ impl ::core::fmt::Debug for DML_INTERPOLATION_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DML_IS_INFINITY_MODE(pub i32);
-impl ::core::marker::Copy for DML_IS_INFINITY_MODE {}
-impl ::core::clone::Clone for DML_IS_INFINITY_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DML_IS_INFINITY_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DML_IS_INFINITY_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1268,19 +1125,8 @@ impl ::core::fmt::Debug for DML_IS_INFINITY_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DML_MATRIX_TRANSFORM(pub i32);
-impl ::core::marker::Copy for DML_MATRIX_TRANSFORM {}
-impl ::core::clone::Clone for DML_MATRIX_TRANSFORM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DML_MATRIX_TRANSFORM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DML_MATRIX_TRANSFORM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1290,19 +1136,8 @@ impl ::core::fmt::Debug for DML_MATRIX_TRANSFORM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DML_OPERATOR_TYPE(pub i32);
-impl ::core::marker::Copy for DML_OPERATOR_TYPE {}
-impl ::core::clone::Clone for DML_OPERATOR_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DML_OPERATOR_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DML_OPERATOR_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1312,19 +1147,8 @@ impl ::core::fmt::Debug for DML_OPERATOR_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DML_PADDING_MODE(pub i32);
-impl ::core::marker::Copy for DML_PADDING_MODE {}
-impl ::core::clone::Clone for DML_PADDING_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DML_PADDING_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DML_PADDING_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1334,19 +1158,8 @@ impl ::core::fmt::Debug for DML_PADDING_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DML_RANDOM_GENERATOR_TYPE(pub i32);
-impl ::core::marker::Copy for DML_RANDOM_GENERATOR_TYPE {}
-impl ::core::clone::Clone for DML_RANDOM_GENERATOR_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DML_RANDOM_GENERATOR_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DML_RANDOM_GENERATOR_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1356,19 +1169,8 @@ impl ::core::fmt::Debug for DML_RANDOM_GENERATOR_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DML_RECURRENT_NETWORK_DIRECTION(pub i32);
-impl ::core::marker::Copy for DML_RECURRENT_NETWORK_DIRECTION {}
-impl ::core::clone::Clone for DML_RECURRENT_NETWORK_DIRECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DML_RECURRENT_NETWORK_DIRECTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DML_RECURRENT_NETWORK_DIRECTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1378,19 +1180,8 @@ impl ::core::fmt::Debug for DML_RECURRENT_NETWORK_DIRECTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DML_REDUCE_FUNCTION(pub i32);
-impl ::core::marker::Copy for DML_REDUCE_FUNCTION {}
-impl ::core::clone::Clone for DML_REDUCE_FUNCTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DML_REDUCE_FUNCTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DML_REDUCE_FUNCTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1400,19 +1191,8 @@ impl ::core::fmt::Debug for DML_REDUCE_FUNCTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DML_ROUNDING_MODE(pub i32);
-impl ::core::marker::Copy for DML_ROUNDING_MODE {}
-impl ::core::clone::Clone for DML_ROUNDING_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DML_ROUNDING_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DML_ROUNDING_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1422,19 +1202,8 @@ impl ::core::fmt::Debug for DML_ROUNDING_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DML_TENSOR_DATA_TYPE(pub i32);
-impl ::core::marker::Copy for DML_TENSOR_DATA_TYPE {}
-impl ::core::clone::Clone for DML_TENSOR_DATA_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DML_TENSOR_DATA_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DML_TENSOR_DATA_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1444,19 +1213,8 @@ impl ::core::fmt::Debug for DML_TENSOR_DATA_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DML_TENSOR_FLAGS(pub i32);
-impl ::core::marker::Copy for DML_TENSOR_FLAGS {}
-impl ::core::clone::Clone for DML_TENSOR_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DML_TENSOR_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DML_TENSOR_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1499,19 +1257,8 @@ impl ::core::ops::Not for DML_TENSOR_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DML_TENSOR_TYPE(pub i32);
-impl ::core::marker::Copy for DML_TENSOR_TYPE {}
-impl ::core::clone::Clone for DML_TENSOR_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DML_TENSOR_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DML_TENSOR_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }

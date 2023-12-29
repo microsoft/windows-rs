@@ -310,19 +310,8 @@ pub const szOID_CATALOG_LIST: ::windows_core::PCSTR = ::windows_core::s!("1.3.6.
 pub const szOID_CATALOG_LIST_MEMBER: ::windows_core::PCSTR = ::windows_core::s!("1.3.6.1.4.1.311.12.1.2");
 pub const szOID_CATALOG_LIST_MEMBER2: ::windows_core::PCSTR = ::windows_core::s!("1.3.6.1.4.1.311.12.1.3");
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CRYPTCAT_OPEN_FLAGS(pub u32);
-impl ::core::marker::Copy for CRYPTCAT_OPEN_FLAGS {}
-impl ::core::clone::Clone for CRYPTCAT_OPEN_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CRYPTCAT_OPEN_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CRYPTCAT_OPEN_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -365,19 +354,8 @@ impl ::core::ops::Not for CRYPTCAT_OPEN_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CRYPTCAT_VERSION(pub u32);
-impl ::core::marker::Copy for CRYPTCAT_VERSION {}
-impl ::core::clone::Clone for CRYPTCAT_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CRYPTCAT_VERSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CRYPTCAT_VERSION {
     type TypeKind = ::windows_core::CopyType;
 }

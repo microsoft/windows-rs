@@ -2896,19 +2896,8 @@ pub const PFD_TYPE_COLORINDEX: PFD_PIXEL_TYPE = PFD_PIXEL_TYPE(1u8);
 pub const PFD_TYPE_RGBA: PFD_PIXEL_TYPE = PFD_PIXEL_TYPE(0u8);
 pub const PFD_UNDERLAY_PLANE: PFD_LAYER_TYPE = PFD_LAYER_TYPE(-1i8);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PFD_FLAGS(pub u32);
-impl ::core::marker::Copy for PFD_FLAGS {}
-impl ::core::clone::Clone for PFD_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PFD_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PFD_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2951,19 +2940,8 @@ impl ::core::ops::Not for PFD_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PFD_LAYER_TYPE(pub i8);
-impl ::core::marker::Copy for PFD_LAYER_TYPE {}
-impl ::core::clone::Clone for PFD_LAYER_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PFD_LAYER_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PFD_LAYER_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2973,19 +2951,8 @@ impl ::core::fmt::Debug for PFD_LAYER_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PFD_PIXEL_TYPE(pub u8);
-impl ::core::marker::Copy for PFD_PIXEL_TYPE {}
-impl ::core::clone::Clone for PFD_PIXEL_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PFD_PIXEL_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PFD_PIXEL_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }

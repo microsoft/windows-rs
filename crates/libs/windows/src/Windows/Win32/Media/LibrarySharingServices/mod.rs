@@ -341,19 +341,8 @@ pub const DEVICE_AUTHORIZATION_DENIED: WindowsMediaLibrarySharingDeviceAuthoriza
 pub const DEVICE_AUTHORIZATION_UNKNOWN: WindowsMediaLibrarySharingDeviceAuthorizationStatus = WindowsMediaLibrarySharingDeviceAuthorizationStatus(0i32);
 pub const WindowsMediaLibrarySharingServices: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xad581b00_7b64_4e59_a38d_d2c5bf51ddb3);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WindowsMediaLibrarySharingDeviceAuthorizationStatus(pub i32);
-impl ::core::marker::Copy for WindowsMediaLibrarySharingDeviceAuthorizationStatus {}
-impl ::core::clone::Clone for WindowsMediaLibrarySharingDeviceAuthorizationStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WindowsMediaLibrarySharingDeviceAuthorizationStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WindowsMediaLibrarySharingDeviceAuthorizationStatus {
     type TypeKind = ::windows_core::CopyType;
 }

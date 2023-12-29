@@ -4641,7 +4641,7 @@ impl ::windows_core::RuntimeName for UserWatcher {
 unsafe impl ::core::marker::Send for UserWatcher {}
 unsafe impl ::core::marker::Sync for UserWatcher {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AppDiagnosticInfoWatcherStatus(pub i32);
 impl AppDiagnosticInfoWatcherStatus {
     pub const Created: Self = Self(0i32);
@@ -4650,17 +4650,6 @@ impl AppDiagnosticInfoWatcherStatus {
     pub const Stopping: Self = Self(3i32);
     pub const Stopped: Self = Self(4i32);
     pub const Aborted: Self = Self(5i32);
-}
-impl ::core::marker::Copy for AppDiagnosticInfoWatcherStatus {}
-impl ::core::clone::Clone for AppDiagnosticInfoWatcherStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AppDiagnosticInfoWatcherStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AppDiagnosticInfoWatcherStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -4674,24 +4663,13 @@ impl ::windows_core::RuntimeType for AppDiagnosticInfoWatcherStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.AppDiagnosticInfoWatcherStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AppMemoryUsageLevel(pub i32);
 impl AppMemoryUsageLevel {
     pub const Low: Self = Self(0i32);
     pub const Medium: Self = Self(1i32);
     pub const High: Self = Self(2i32);
     pub const OverLimit: Self = Self(3i32);
-}
-impl ::core::marker::Copy for AppMemoryUsageLevel {}
-impl ::core::clone::Clone for AppMemoryUsageLevel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AppMemoryUsageLevel {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AppMemoryUsageLevel {
     type TypeKind = ::windows_core::CopyType;
@@ -4705,23 +4683,12 @@ impl ::windows_core::RuntimeType for AppMemoryUsageLevel {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.AppMemoryUsageLevel;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AppResourceGroupEnergyQuotaState(pub i32);
 impl AppResourceGroupEnergyQuotaState {
     pub const Unknown: Self = Self(0i32);
     pub const Over: Self = Self(1i32);
     pub const Under: Self = Self(2i32);
-}
-impl ::core::marker::Copy for AppResourceGroupEnergyQuotaState {}
-impl ::core::clone::Clone for AppResourceGroupEnergyQuotaState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AppResourceGroupEnergyQuotaState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AppResourceGroupEnergyQuotaState {
     type TypeKind = ::windows_core::CopyType;
@@ -4735,7 +4702,7 @@ impl ::windows_core::RuntimeType for AppResourceGroupEnergyQuotaState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.AppResourceGroupEnergyQuotaState;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AppResourceGroupExecutionState(pub i32);
 impl AppResourceGroupExecutionState {
     pub const Unknown: Self = Self(0i32);
@@ -4743,17 +4710,6 @@ impl AppResourceGroupExecutionState {
     pub const Suspending: Self = Self(2i32);
     pub const Suspended: Self = Self(3i32);
     pub const NotRunning: Self = Self(4i32);
-}
-impl ::core::marker::Copy for AppResourceGroupExecutionState {}
-impl ::core::clone::Clone for AppResourceGroupExecutionState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AppResourceGroupExecutionState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AppResourceGroupExecutionState {
     type TypeKind = ::windows_core::CopyType;
@@ -4767,7 +4723,7 @@ impl ::windows_core::RuntimeType for AppResourceGroupExecutionState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.AppResourceGroupExecutionState;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AppResourceGroupInfoWatcherStatus(pub i32);
 impl AppResourceGroupInfoWatcherStatus {
     pub const Created: Self = Self(0i32);
@@ -4776,17 +4732,6 @@ impl AppResourceGroupInfoWatcherStatus {
     pub const Stopping: Self = Self(3i32);
     pub const Stopped: Self = Self(4i32);
     pub const Aborted: Self = Self(5i32);
-}
-impl ::core::marker::Copy for AppResourceGroupInfoWatcherStatus {}
-impl ::core::clone::Clone for AppResourceGroupInfoWatcherStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AppResourceGroupInfoWatcherStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AppResourceGroupInfoWatcherStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -4800,23 +4745,12 @@ impl ::windows_core::RuntimeType for AppResourceGroupInfoWatcherStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.AppResourceGroupInfoWatcherStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AutoUpdateTimeZoneStatus(pub i32);
 impl AutoUpdateTimeZoneStatus {
     pub const Attempted: Self = Self(0i32);
     pub const TimedOut: Self = Self(1i32);
     pub const Failed: Self = Self(2i32);
-}
-impl ::core::marker::Copy for AutoUpdateTimeZoneStatus {}
-impl ::core::clone::Clone for AutoUpdateTimeZoneStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AutoUpdateTimeZoneStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AutoUpdateTimeZoneStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -4830,24 +4764,13 @@ impl ::windows_core::RuntimeType for AutoUpdateTimeZoneStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.AutoUpdateTimeZoneStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DiagnosticAccessStatus(pub i32);
 impl DiagnosticAccessStatus {
     pub const Unspecified: Self = Self(0i32);
     pub const Denied: Self = Self(1i32);
     pub const Limited: Self = Self(2i32);
     pub const Allowed: Self = Self(3i32);
-}
-impl ::core::marker::Copy for DiagnosticAccessStatus {}
-impl ::core::clone::Clone for DiagnosticAccessStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DiagnosticAccessStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DiagnosticAccessStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -4861,23 +4784,12 @@ impl ::windows_core::RuntimeType for DiagnosticAccessStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.DiagnosticAccessStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DispatcherQueuePriority(pub i32);
 impl DispatcherQueuePriority {
     pub const Low: Self = Self(-10i32);
     pub const Normal: Self = Self(0i32);
     pub const High: Self = Self(10i32);
-}
-impl ::core::marker::Copy for DispatcherQueuePriority {}
-impl ::core::clone::Clone for DispatcherQueuePriority {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DispatcherQueuePriority {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DispatcherQueuePriority {
     type TypeKind = ::windows_core::CopyType;
@@ -4891,7 +4803,7 @@ impl ::windows_core::RuntimeType for DispatcherQueuePriority {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.DispatcherQueuePriority;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct LaunchFileStatus(pub i32);
 impl LaunchFileStatus {
     pub const Success: Self = Self(0i32);
@@ -4899,17 +4811,6 @@ impl LaunchFileStatus {
     pub const DeniedByPolicy: Self = Self(2i32);
     pub const FileTypeNotSupported: Self = Self(3i32);
     pub const Unknown: Self = Self(4i32);
-}
-impl ::core::marker::Copy for LaunchFileStatus {}
-impl ::core::clone::Clone for LaunchFileStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for LaunchFileStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for LaunchFileStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -4923,7 +4824,7 @@ impl ::windows_core::RuntimeType for LaunchFileStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.LaunchFileStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct LaunchQuerySupportStatus(pub i32);
 impl LaunchQuerySupportStatus {
     pub const Available: Self = Self(0i32);
@@ -4931,17 +4832,6 @@ impl LaunchQuerySupportStatus {
     pub const AppUnavailable: Self = Self(2i32);
     pub const NotSupported: Self = Self(3i32);
     pub const Unknown: Self = Self(4i32);
-}
-impl ::core::marker::Copy for LaunchQuerySupportStatus {}
-impl ::core::clone::Clone for LaunchQuerySupportStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for LaunchQuerySupportStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for LaunchQuerySupportStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -4955,22 +4845,11 @@ impl ::windows_core::RuntimeType for LaunchQuerySupportStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.LaunchQuerySupportStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct LaunchQuerySupportType(pub i32);
 impl LaunchQuerySupportType {
     pub const Uri: Self = Self(0i32);
     pub const UriForResults: Self = Self(1i32);
-}
-impl ::core::marker::Copy for LaunchQuerySupportType {}
-impl ::core::clone::Clone for LaunchQuerySupportType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for LaunchQuerySupportType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for LaunchQuerySupportType {
     type TypeKind = ::windows_core::CopyType;
@@ -4984,24 +4863,13 @@ impl ::windows_core::RuntimeType for LaunchQuerySupportType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.LaunchQuerySupportType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct LaunchUriStatus(pub i32);
 impl LaunchUriStatus {
     pub const Success: Self = Self(0i32);
     pub const AppUnavailable: Self = Self(1i32);
     pub const ProtocolUnavailable: Self = Self(2i32);
     pub const Unknown: Self = Self(3i32);
-}
-impl ::core::marker::Copy for LaunchUriStatus {}
-impl ::core::clone::Clone for LaunchUriStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for LaunchUriStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for LaunchUriStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -5015,22 +4883,11 @@ impl ::windows_core::RuntimeType for LaunchUriStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.LaunchUriStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PowerState(pub i32);
 impl PowerState {
     pub const ConnectedStandby: Self = Self(0i32);
     pub const SleepS3: Self = Self(1i32);
-}
-impl ::core::marker::Copy for PowerState {}
-impl ::core::clone::Clone for PowerState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PowerState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PowerState {
     type TypeKind = ::windows_core::CopyType;
@@ -5044,7 +4901,7 @@ impl ::windows_core::RuntimeType for PowerState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.PowerState;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ProcessorArchitecture(pub i32);
 impl ProcessorArchitecture {
     pub const X86: Self = Self(0i32);
@@ -5054,17 +4911,6 @@ impl ProcessorArchitecture {
     pub const Arm64: Self = Self(12i32);
     pub const X86OnArm64: Self = Self(14i32);
     pub const Unknown: Self = Self(65535i32);
-}
-impl ::core::marker::Copy for ProcessorArchitecture {}
-impl ::core::clone::Clone for ProcessorArchitecture {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ProcessorArchitecture {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ProcessorArchitecture {
     type TypeKind = ::windows_core::CopyType;
@@ -5078,7 +4924,7 @@ impl ::windows_core::RuntimeType for ProcessorArchitecture {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.ProcessorArchitecture;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RemoteLaunchUriStatus(pub i32);
 impl RemoteLaunchUriStatus {
     pub const Unknown: Self = Self(0i32);
@@ -5089,17 +4935,6 @@ impl RemoteLaunchUriStatus {
     pub const ValueSetTooLarge: Self = Self(5i32);
     pub const DeniedByLocalSystem: Self = Self(6i32);
     pub const DeniedByRemoteSystem: Self = Self(7i32);
-}
-impl ::core::marker::Copy for RemoteLaunchUriStatus {}
-impl ::core::clone::Clone for RemoteLaunchUriStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RemoteLaunchUriStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for RemoteLaunchUriStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -5113,22 +4948,11 @@ impl ::windows_core::RuntimeType for RemoteLaunchUriStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.RemoteLaunchUriStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ShutdownKind(pub i32);
 impl ShutdownKind {
     pub const Shutdown: Self = Self(0i32);
     pub const Restart: Self = Self(1i32);
-}
-impl ::core::marker::Copy for ShutdownKind {}
-impl ::core::clone::Clone for ShutdownKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ShutdownKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ShutdownKind {
     type TypeKind = ::windows_core::CopyType;
@@ -5142,23 +4966,12 @@ impl ::windows_core::RuntimeType for ShutdownKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.ShutdownKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UserAgeConsentGroup(pub i32);
 impl UserAgeConsentGroup {
     pub const Child: Self = Self(0i32);
     pub const Minor: Self = Self(1i32);
     pub const Adult: Self = Self(2i32);
-}
-impl ::core::marker::Copy for UserAgeConsentGroup {}
-impl ::core::clone::Clone for UserAgeConsentGroup {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UserAgeConsentGroup {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for UserAgeConsentGroup {
     type TypeKind = ::windows_core::CopyType;
@@ -5172,7 +4985,7 @@ impl ::windows_core::RuntimeType for UserAgeConsentGroup {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.UserAgeConsentGroup;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UserAgeConsentResult(pub i32);
 impl UserAgeConsentResult {
     pub const NotEnforced: Self = Self(0i32);
@@ -5180,17 +4993,6 @@ impl UserAgeConsentResult {
     pub const NotIncluded: Self = Self(2i32);
     pub const Unknown: Self = Self(3i32);
     pub const Ambiguous: Self = Self(4i32);
-}
-impl ::core::marker::Copy for UserAgeConsentResult {}
-impl ::core::clone::Clone for UserAgeConsentResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UserAgeConsentResult {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for UserAgeConsentResult {
     type TypeKind = ::windows_core::CopyType;
@@ -5204,23 +5006,12 @@ impl ::windows_core::RuntimeType for UserAgeConsentResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.UserAgeConsentResult;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UserAuthenticationStatus(pub i32);
 impl UserAuthenticationStatus {
     pub const Unauthenticated: Self = Self(0i32);
     pub const LocallyAuthenticated: Self = Self(1i32);
     pub const RemotelyAuthenticated: Self = Self(2i32);
-}
-impl ::core::marker::Copy for UserAuthenticationStatus {}
-impl ::core::clone::Clone for UserAuthenticationStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UserAuthenticationStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for UserAuthenticationStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -5234,24 +5025,13 @@ impl ::windows_core::RuntimeType for UserAuthenticationStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.UserAuthenticationStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UserPictureSize(pub i32);
 impl UserPictureSize {
     pub const Size64x64: Self = Self(0i32);
     pub const Size208x208: Self = Self(1i32);
     pub const Size424x424: Self = Self(2i32);
     pub const Size1080x1080: Self = Self(3i32);
-}
-impl ::core::marker::Copy for UserPictureSize {}
-impl ::core::clone::Clone for UserPictureSize {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UserPictureSize {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for UserPictureSize {
     type TypeKind = ::windows_core::CopyType;
@@ -5265,7 +5045,7 @@ impl ::windows_core::RuntimeType for UserPictureSize {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.UserPictureSize;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UserType(pub i32);
 impl UserType {
     pub const LocalUser: Self = Self(0i32);
@@ -5273,17 +5053,6 @@ impl UserType {
     pub const LocalGuest: Self = Self(2i32);
     pub const RemoteGuest: Self = Self(3i32);
     pub const SystemManaged: Self = Self(4i32);
-}
-impl ::core::marker::Copy for UserType {}
-impl ::core::clone::Clone for UserType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UserType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for UserType {
     type TypeKind = ::windows_core::CopyType;
@@ -5297,7 +5066,7 @@ impl ::windows_core::RuntimeType for UserType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.UserType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UserWatcherStatus(pub i32);
 impl UserWatcherStatus {
     pub const Created: Self = Self(0i32);
@@ -5306,17 +5075,6 @@ impl UserWatcherStatus {
     pub const Stopping: Self = Self(3i32);
     pub const Stopped: Self = Self(4i32);
     pub const Aborted: Self = Self(5i32);
-}
-impl ::core::marker::Copy for UserWatcherStatus {}
-impl ::core::clone::Clone for UserWatcherStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UserWatcherStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for UserWatcherStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -5330,22 +5088,11 @@ impl ::windows_core::RuntimeType for UserWatcherStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.UserWatcherStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UserWatcherUpdateKind(pub i32);
 impl UserWatcherUpdateKind {
     pub const Properties: Self = Self(0i32);
     pub const Picture: Self = Self(1i32);
-}
-impl ::core::marker::Copy for UserWatcherUpdateKind {}
-impl ::core::clone::Clone for UserWatcherUpdateKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UserWatcherUpdateKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for UserWatcherUpdateKind {
     type TypeKind = ::windows_core::CopyType;
@@ -5359,7 +5106,7 @@ impl ::windows_core::RuntimeType for UserWatcherUpdateKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.UserWatcherUpdateKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VirtualKey(pub i32);
 impl VirtualKey {
     pub const None: Self = Self(0i32);
@@ -5535,17 +5282,6 @@ impl VirtualKey {
     pub const GamepadRightThumbstickRight: Self = Self(217i32);
     pub const GamepadRightThumbstickLeft: Self = Self(218i32);
 }
-impl ::core::marker::Copy for VirtualKey {}
-impl ::core::clone::Clone for VirtualKey {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VirtualKey {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for VirtualKey {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5558,7 +5294,7 @@ impl ::windows_core::RuntimeType for VirtualKey {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.VirtualKey;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VirtualKeyModifiers(pub u32);
 impl VirtualKeyModifiers {
     pub const None: Self = Self(0u32);
@@ -5566,17 +5302,6 @@ impl VirtualKeyModifiers {
     pub const Menu: Self = Self(2u32);
     pub const Shift: Self = Self(4u32);
     pub const Windows: Self = Self(8u32);
-}
-impl ::core::marker::Copy for VirtualKeyModifiers {}
-impl ::core::clone::Clone for VirtualKeyModifiers {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VirtualKeyModifiers {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for VirtualKeyModifiers {
     type TypeKind = ::windows_core::CopyType;

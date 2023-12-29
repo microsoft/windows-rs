@@ -962,19 +962,8 @@ pub const WdmUsbPowerSystemUnspecified: WDMUSB_POWER_STATE = WDMUSB_POWER_STATE(
 pub const WdmUsbPowerSystemWorking: WDMUSB_POWER_STATE = WDMUSB_POWER_STATE(101i32);
 pub const WinUSB_TestGuid: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xda812bff_12c3_46a2_8e2b_dbd3b7834c43);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PIPE_TYPE(pub i32);
-impl ::core::marker::Copy for PIPE_TYPE {}
-impl ::core::clone::Clone for PIPE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PIPE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PIPE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -984,19 +973,8 @@ impl ::core::fmt::Debug for PIPE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RAW_PIPE_TYPE(pub i32);
-impl ::core::marker::Copy for RAW_PIPE_TYPE {}
-impl ::core::clone::Clone for RAW_PIPE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RAW_PIPE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RAW_PIPE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1006,19 +984,8 @@ impl ::core::fmt::Debug for RAW_PIPE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct USBD_ENDPOINT_OFFLOAD_MODE(pub i32);
-impl ::core::marker::Copy for USBD_ENDPOINT_OFFLOAD_MODE {}
-impl ::core::clone::Clone for USBD_ENDPOINT_OFFLOAD_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for USBD_ENDPOINT_OFFLOAD_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for USBD_ENDPOINT_OFFLOAD_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1028,19 +995,8 @@ impl ::core::fmt::Debug for USBD_ENDPOINT_OFFLOAD_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct USBD_PIPE_TYPE(pub i32);
-impl ::core::marker::Copy for USBD_PIPE_TYPE {}
-impl ::core::clone::Clone for USBD_PIPE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for USBD_PIPE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for USBD_PIPE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1050,19 +1006,8 @@ impl ::core::fmt::Debug for USBD_PIPE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct USBFN_BUS_SPEED(pub i32);
-impl ::core::marker::Copy for USBFN_BUS_SPEED {}
-impl ::core::clone::Clone for USBFN_BUS_SPEED {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for USBFN_BUS_SPEED {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for USBFN_BUS_SPEED {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1072,19 +1017,8 @@ impl ::core::fmt::Debug for USBFN_BUS_SPEED {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct USBFN_DEVICE_STATE(pub i32);
-impl ::core::marker::Copy for USBFN_DEVICE_STATE {}
-impl ::core::clone::Clone for USBFN_DEVICE_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for USBFN_DEVICE_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for USBFN_DEVICE_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1094,19 +1028,8 @@ impl ::core::fmt::Debug for USBFN_DEVICE_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct USBFN_DIRECTION(pub i32);
-impl ::core::marker::Copy for USBFN_DIRECTION {}
-impl ::core::clone::Clone for USBFN_DIRECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for USBFN_DIRECTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for USBFN_DIRECTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1116,19 +1039,8 @@ impl ::core::fmt::Debug for USBFN_DIRECTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct USBFN_EVENT(pub i32);
-impl ::core::marker::Copy for USBFN_EVENT {}
-impl ::core::clone::Clone for USBFN_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for USBFN_EVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for USBFN_EVENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1138,19 +1050,8 @@ impl ::core::fmt::Debug for USBFN_EVENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct USBFN_PORT_TYPE(pub i32);
-impl ::core::marker::Copy for USBFN_PORT_TYPE {}
-impl ::core::clone::Clone for USBFN_PORT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for USBFN_PORT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for USBFN_PORT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1160,19 +1061,8 @@ impl ::core::fmt::Debug for USBFN_PORT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct USB_CONNECTION_STATUS(pub i32);
-impl ::core::marker::Copy for USB_CONNECTION_STATUS {}
-impl ::core::clone::Clone for USB_CONNECTION_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for USB_CONNECTION_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for USB_CONNECTION_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1182,19 +1072,8 @@ impl ::core::fmt::Debug for USB_CONNECTION_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct USB_CONTROLLER_FLAVOR(pub i32);
-impl ::core::marker::Copy for USB_CONTROLLER_FLAVOR {}
-impl ::core::clone::Clone for USB_CONTROLLER_FLAVOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for USB_CONTROLLER_FLAVOR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for USB_CONTROLLER_FLAVOR {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1204,19 +1083,8 @@ impl ::core::fmt::Debug for USB_CONTROLLER_FLAVOR {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct USB_DEVICE_SPEED(pub i32);
-impl ::core::marker::Copy for USB_DEVICE_SPEED {}
-impl ::core::clone::Clone for USB_DEVICE_SPEED {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for USB_DEVICE_SPEED {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for USB_DEVICE_SPEED {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1226,19 +1094,8 @@ impl ::core::fmt::Debug for USB_DEVICE_SPEED {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct USB_DEVICE_TYPE(pub i32);
-impl ::core::marker::Copy for USB_DEVICE_TYPE {}
-impl ::core::clone::Clone for USB_DEVICE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for USB_DEVICE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for USB_DEVICE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1248,19 +1105,8 @@ impl ::core::fmt::Debug for USB_DEVICE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct USB_HUB_NODE(pub i32);
-impl ::core::marker::Copy for USB_HUB_NODE {}
-impl ::core::clone::Clone for USB_HUB_NODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for USB_HUB_NODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for USB_HUB_NODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1270,19 +1116,8 @@ impl ::core::fmt::Debug for USB_HUB_NODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct USB_HUB_TYPE(pub i32);
-impl ::core::marker::Copy for USB_HUB_TYPE {}
-impl ::core::clone::Clone for USB_HUB_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for USB_HUB_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for USB_HUB_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1292,19 +1127,8 @@ impl ::core::fmt::Debug for USB_HUB_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct USB_NOTIFICATION_TYPE(pub i32);
-impl ::core::marker::Copy for USB_NOTIFICATION_TYPE {}
-impl ::core::clone::Clone for USB_NOTIFICATION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for USB_NOTIFICATION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for USB_NOTIFICATION_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1314,19 +1138,8 @@ impl ::core::fmt::Debug for USB_NOTIFICATION_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct USB_USER_ERROR_CODE(pub i32);
-impl ::core::marker::Copy for USB_USER_ERROR_CODE {}
-impl ::core::clone::Clone for USB_USER_ERROR_CODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for USB_USER_ERROR_CODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for USB_USER_ERROR_CODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1336,19 +1149,8 @@ impl ::core::fmt::Debug for USB_USER_ERROR_CODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct USB_WMI_DEVICE_NODE_TYPE(pub i32);
-impl ::core::marker::Copy for USB_WMI_DEVICE_NODE_TYPE {}
-impl ::core::clone::Clone for USB_WMI_DEVICE_NODE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for USB_WMI_DEVICE_NODE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for USB_WMI_DEVICE_NODE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1358,19 +1160,8 @@ impl ::core::fmt::Debug for USB_WMI_DEVICE_NODE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WDMUSB_POWER_STATE(pub i32);
-impl ::core::marker::Copy for WDMUSB_POWER_STATE {}
-impl ::core::clone::Clone for WDMUSB_POWER_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WDMUSB_POWER_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WDMUSB_POWER_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1380,19 +1171,8 @@ impl ::core::fmt::Debug for WDMUSB_POWER_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WINUSB_PIPE_POLICY(pub u32);
-impl ::core::marker::Copy for WINUSB_PIPE_POLICY {}
-impl ::core::clone::Clone for WINUSB_PIPE_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WINUSB_PIPE_POLICY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WINUSB_PIPE_POLICY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1402,19 +1182,8 @@ impl ::core::fmt::Debug for WINUSB_PIPE_POLICY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WINUSB_POWER_POLICY(pub u32);
-impl ::core::marker::Copy for WINUSB_POWER_POLICY {}
-impl ::core::clone::Clone for WINUSB_POWER_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WINUSB_POWER_POLICY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WINUSB_POWER_POLICY {
     type TypeKind = ::windows_core::CopyType;
 }

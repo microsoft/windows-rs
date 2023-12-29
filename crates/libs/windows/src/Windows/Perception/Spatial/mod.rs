@@ -1863,22 +1863,11 @@ impl ::windows_core::RuntimeName for SpatialStationaryFrameOfReference {
 unsafe impl ::core::marker::Send for SpatialStationaryFrameOfReference {}
 unsafe impl ::core::marker::Sync for SpatialStationaryFrameOfReference {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SpatialAnchorExportPurpose(pub i32);
 impl SpatialAnchorExportPurpose {
     pub const Relocalization: Self = Self(0i32);
     pub const Sharing: Self = Self(1i32);
-}
-impl ::core::marker::Copy for SpatialAnchorExportPurpose {}
-impl ::core::clone::Clone for SpatialAnchorExportPurpose {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpatialAnchorExportPurpose {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SpatialAnchorExportPurpose {
     type TypeKind = ::windows_core::CopyType;
@@ -1892,7 +1881,7 @@ impl ::windows_core::RuntimeType for SpatialAnchorExportPurpose {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Perception.Spatial.SpatialAnchorExportPurpose;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SpatialEntityWatcherStatus(pub i32);
 impl SpatialEntityWatcherStatus {
     pub const Created: Self = Self(0i32);
@@ -1901,17 +1890,6 @@ impl SpatialEntityWatcherStatus {
     pub const Stopping: Self = Self(3i32);
     pub const Stopped: Self = Self(4i32);
     pub const Aborted: Self = Self(5i32);
-}
-impl ::core::marker::Copy for SpatialEntityWatcherStatus {}
-impl ::core::clone::Clone for SpatialEntityWatcherStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpatialEntityWatcherStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SpatialEntityWatcherStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -1925,7 +1903,7 @@ impl ::windows_core::RuntimeType for SpatialEntityWatcherStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Perception.Spatial.SpatialEntityWatcherStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SpatialLocatability(pub i32);
 impl SpatialLocatability {
     pub const Unavailable: Self = Self(0i32);
@@ -1933,17 +1911,6 @@ impl SpatialLocatability {
     pub const PositionalTrackingActivating: Self = Self(2i32);
     pub const PositionalTrackingActive: Self = Self(3i32);
     pub const PositionalTrackingInhibited: Self = Self(4i32);
-}
-impl ::core::marker::Copy for SpatialLocatability {}
-impl ::core::clone::Clone for SpatialLocatability {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpatialLocatability {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SpatialLocatability {
     type TypeKind = ::windows_core::CopyType;
@@ -1957,22 +1924,11 @@ impl ::windows_core::RuntimeType for SpatialLocatability {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Perception.Spatial.SpatialLocatability;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SpatialLookDirectionRange(pub i32);
 impl SpatialLookDirectionRange {
     pub const ForwardOnly: Self = Self(0i32);
     pub const Omnidirectional: Self = Self(1i32);
-}
-impl ::core::marker::Copy for SpatialLookDirectionRange {}
-impl ::core::clone::Clone for SpatialLookDirectionRange {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpatialLookDirectionRange {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SpatialLookDirectionRange {
     type TypeKind = ::windows_core::CopyType;
@@ -1986,22 +1942,11 @@ impl ::windows_core::RuntimeType for SpatialLookDirectionRange {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Perception.Spatial.SpatialLookDirectionRange;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SpatialMovementRange(pub i32);
 impl SpatialMovementRange {
     pub const NoMovement: Self = Self(0i32);
     pub const Bounded: Self = Self(1i32);
-}
-impl ::core::marker::Copy for SpatialMovementRange {}
-impl ::core::clone::Clone for SpatialMovementRange {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpatialMovementRange {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SpatialMovementRange {
     type TypeKind = ::windows_core::CopyType;
@@ -2015,24 +1960,13 @@ impl ::windows_core::RuntimeType for SpatialMovementRange {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Perception.Spatial.SpatialMovementRange;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SpatialPerceptionAccessStatus(pub i32);
 impl SpatialPerceptionAccessStatus {
     pub const Unspecified: Self = Self(0i32);
     pub const Allowed: Self = Self(1i32);
     pub const DeniedByUser: Self = Self(2i32);
     pub const DeniedBySystem: Self = Self(3i32);
-}
-impl ::core::marker::Copy for SpatialPerceptionAccessStatus {}
-impl ::core::clone::Clone for SpatialPerceptionAccessStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpatialPerceptionAccessStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SpatialPerceptionAccessStatus {
     type TypeKind = ::windows_core::CopyType;

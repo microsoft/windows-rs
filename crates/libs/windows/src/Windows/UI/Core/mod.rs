@@ -4190,23 +4190,12 @@ impl ::windows_core::RuntimeName for WindowSizeChangedEventArgs {
 ::windows_core::imp::interface_hierarchy!(WindowSizeChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<ICoreWindowEventArgs> for WindowSizeChangedEventArgs {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AppViewBackButtonVisibility(pub i32);
 impl AppViewBackButtonVisibility {
     pub const Visible: Self = Self(0i32);
     pub const Collapsed: Self = Self(1i32);
     pub const Disabled: Self = Self(2i32);
-}
-impl ::core::marker::Copy for AppViewBackButtonVisibility {}
-impl ::core::clone::Clone for AppViewBackButtonVisibility {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AppViewBackButtonVisibility {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AppViewBackButtonVisibility {
     type TypeKind = ::windows_core::CopyType;
@@ -4220,7 +4209,7 @@ impl ::windows_core::RuntimeType for AppViewBackButtonVisibility {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.AppViewBackButtonVisibility;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CoreAcceleratorKeyEventType(pub i32);
 impl CoreAcceleratorKeyEventType {
     pub const Character: Self = Self(2i32);
@@ -4232,17 +4221,6 @@ impl CoreAcceleratorKeyEventType {
     pub const SystemKeyDown: Self = Self(4i32);
     pub const SystemKeyUp: Self = Self(5i32);
     pub const UnicodeCharacter: Self = Self(8i32);
-}
-impl ::core::marker::Copy for CoreAcceleratorKeyEventType {}
-impl ::core::clone::Clone for CoreAcceleratorKeyEventType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CoreAcceleratorKeyEventType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CoreAcceleratorKeyEventType {
     type TypeKind = ::windows_core::CopyType;
@@ -4256,7 +4234,7 @@ impl ::windows_core::RuntimeType for CoreAcceleratorKeyEventType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreAcceleratorKeyEventType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CoreCursorType(pub i32);
 impl CoreCursorType {
     pub const Arrow: Self = Self(0i32);
@@ -4276,17 +4254,6 @@ impl CoreCursorType {
     pub const Pin: Self = Self(14i32);
     pub const Person: Self = Self(15i32);
 }
-impl ::core::marker::Copy for CoreCursorType {}
-impl ::core::clone::Clone for CoreCursorType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CoreCursorType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CoreCursorType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4299,24 +4266,13 @@ impl ::windows_core::RuntimeType for CoreCursorType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreCursorType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CoreDispatcherPriority(pub i32);
 impl CoreDispatcherPriority {
     pub const Idle: Self = Self(-2i32);
     pub const Low: Self = Self(-1i32);
     pub const Normal: Self = Self(0i32);
     pub const High: Self = Self(1i32);
-}
-impl ::core::marker::Copy for CoreDispatcherPriority {}
-impl ::core::clone::Clone for CoreDispatcherPriority {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CoreDispatcherPriority {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CoreDispatcherPriority {
     type TypeKind = ::windows_core::CopyType;
@@ -4330,7 +4286,7 @@ impl ::windows_core::RuntimeType for CoreDispatcherPriority {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreDispatcherPriority;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CoreIndependentInputFilters(pub u32);
 impl CoreIndependentInputFilters {
     pub const None: Self = Self(0u32);
@@ -4339,17 +4295,6 @@ impl CoreIndependentInputFilters {
     pub const MouseHover: Self = Self(4u32);
     pub const PenWithBarrel: Self = Self(8u32);
     pub const PenInverted: Self = Self(16u32);
-}
-impl ::core::marker::Copy for CoreIndependentInputFilters {}
-impl ::core::clone::Clone for CoreIndependentInputFilters {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CoreIndependentInputFilters {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CoreIndependentInputFilters {
     type TypeKind = ::windows_core::CopyType;
@@ -4396,24 +4341,13 @@ impl ::windows_core::RuntimeType for CoreIndependentInputFilters {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreIndependentInputFilters;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CoreInputDeviceTypes(pub u32);
 impl CoreInputDeviceTypes {
     pub const None: Self = Self(0u32);
     pub const Touch: Self = Self(1u32);
     pub const Pen: Self = Self(2u32);
     pub const Mouse: Self = Self(4u32);
-}
-impl ::core::marker::Copy for CoreInputDeviceTypes {}
-impl ::core::clone::Clone for CoreInputDeviceTypes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CoreInputDeviceTypes {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CoreInputDeviceTypes {
     type TypeKind = ::windows_core::CopyType;
@@ -4460,24 +4394,13 @@ impl ::windows_core::RuntimeType for CoreInputDeviceTypes {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreInputDeviceTypes;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CoreProcessEventsOption(pub i32);
 impl CoreProcessEventsOption {
     pub const ProcessOneAndAllPending: Self = Self(0i32);
     pub const ProcessOneIfPresent: Self = Self(1i32);
     pub const ProcessUntilQuit: Self = Self(2i32);
     pub const ProcessAllIfPresent: Self = Self(3i32);
-}
-impl ::core::marker::Copy for CoreProcessEventsOption {}
-impl ::core::clone::Clone for CoreProcessEventsOption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CoreProcessEventsOption {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CoreProcessEventsOption {
     type TypeKind = ::windows_core::CopyType;
@@ -4491,22 +4414,11 @@ impl ::windows_core::RuntimeType for CoreProcessEventsOption {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreProcessEventsOption;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CoreProximityEvaluationScore(pub i32);
 impl CoreProximityEvaluationScore {
     pub const Closest: Self = Self(0i32);
     pub const Farthest: Self = Self(2147483647i32);
-}
-impl ::core::marker::Copy for CoreProximityEvaluationScore {}
-impl ::core::clone::Clone for CoreProximityEvaluationScore {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CoreProximityEvaluationScore {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CoreProximityEvaluationScore {
     type TypeKind = ::windows_core::CopyType;
@@ -4520,23 +4432,12 @@ impl ::windows_core::RuntimeType for CoreProximityEvaluationScore {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreProximityEvaluationScore;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CoreVirtualKeyStates(pub u32);
 impl CoreVirtualKeyStates {
     pub const None: Self = Self(0u32);
     pub const Down: Self = Self(1u32);
     pub const Locked: Self = Self(2u32);
-}
-impl ::core::marker::Copy for CoreVirtualKeyStates {}
-impl ::core::clone::Clone for CoreVirtualKeyStates {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CoreVirtualKeyStates {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CoreVirtualKeyStates {
     type TypeKind = ::windows_core::CopyType;
@@ -4583,24 +4484,13 @@ impl ::windows_core::RuntimeType for CoreVirtualKeyStates {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreVirtualKeyStates;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CoreWindowActivationMode(pub i32);
 impl CoreWindowActivationMode {
     pub const None: Self = Self(0i32);
     pub const Deactivated: Self = Self(1i32);
     pub const ActivatedNotForeground: Self = Self(2i32);
     pub const ActivatedInForeground: Self = Self(3i32);
-}
-impl ::core::marker::Copy for CoreWindowActivationMode {}
-impl ::core::clone::Clone for CoreWindowActivationMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CoreWindowActivationMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CoreWindowActivationMode {
     type TypeKind = ::windows_core::CopyType;
@@ -4614,23 +4504,12 @@ impl ::windows_core::RuntimeType for CoreWindowActivationMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreWindowActivationMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CoreWindowActivationState(pub i32);
 impl CoreWindowActivationState {
     pub const CodeActivated: Self = Self(0i32);
     pub const Deactivated: Self = Self(1i32);
     pub const PointerActivated: Self = Self(2i32);
-}
-impl ::core::marker::Copy for CoreWindowActivationState {}
-impl ::core::clone::Clone for CoreWindowActivationState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CoreWindowActivationState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CoreWindowActivationState {
     type TypeKind = ::windows_core::CopyType;
@@ -4644,22 +4523,11 @@ impl ::windows_core::RuntimeType for CoreWindowActivationState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreWindowActivationState;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CoreWindowFlowDirection(pub i32);
 impl CoreWindowFlowDirection {
     pub const LeftToRight: Self = Self(0i32);
     pub const RightToLeft: Self = Self(1i32);
-}
-impl ::core::marker::Copy for CoreWindowFlowDirection {}
-impl ::core::clone::Clone for CoreWindowFlowDirection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CoreWindowFlowDirection {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CoreWindowFlowDirection {
     type TypeKind = ::windows_core::CopyType;

@@ -1228,19 +1228,8 @@ pub const WAPClientServiceClassID_UUID16: u32 = 4372u32;
 pub const WAPServiceClassID_UUID16: u32 = 4371u32;
 pub const WSP_PROTOCOL_UUID16: u32 = 14u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AUTHENTICATION_REQUIREMENTS(pub i32);
-impl ::core::marker::Copy for AUTHENTICATION_REQUIREMENTS {}
-impl ::core::clone::Clone for AUTHENTICATION_REQUIREMENTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AUTHENTICATION_REQUIREMENTS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AUTHENTICATION_REQUIREMENTS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1250,19 +1239,8 @@ impl ::core::fmt::Debug for AUTHENTICATION_REQUIREMENTS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BLUETOOTH_AUTHENTICATION_METHOD(pub i32);
-impl ::core::marker::Copy for BLUETOOTH_AUTHENTICATION_METHOD {}
-impl ::core::clone::Clone for BLUETOOTH_AUTHENTICATION_METHOD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BLUETOOTH_AUTHENTICATION_METHOD {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for BLUETOOTH_AUTHENTICATION_METHOD {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1272,19 +1250,8 @@ impl ::core::fmt::Debug for BLUETOOTH_AUTHENTICATION_METHOD {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BLUETOOTH_AUTHENTICATION_REQUIREMENTS(pub i32);
-impl ::core::marker::Copy for BLUETOOTH_AUTHENTICATION_REQUIREMENTS {}
-impl ::core::clone::Clone for BLUETOOTH_AUTHENTICATION_REQUIREMENTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BLUETOOTH_AUTHENTICATION_REQUIREMENTS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for BLUETOOTH_AUTHENTICATION_REQUIREMENTS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1294,19 +1261,8 @@ impl ::core::fmt::Debug for BLUETOOTH_AUTHENTICATION_REQUIREMENTS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BLUETOOTH_IO_CAPABILITY(pub i32);
-impl ::core::marker::Copy for BLUETOOTH_IO_CAPABILITY {}
-impl ::core::clone::Clone for BLUETOOTH_IO_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BLUETOOTH_IO_CAPABILITY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for BLUETOOTH_IO_CAPABILITY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1316,19 +1272,8 @@ impl ::core::fmt::Debug for BLUETOOTH_IO_CAPABILITY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BTH_LE_GATT_DESCRIPTOR_TYPE(pub i32);
-impl ::core::marker::Copy for BTH_LE_GATT_DESCRIPTOR_TYPE {}
-impl ::core::clone::Clone for BTH_LE_GATT_DESCRIPTOR_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BTH_LE_GATT_DESCRIPTOR_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for BTH_LE_GATT_DESCRIPTOR_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1338,19 +1283,8 @@ impl ::core::fmt::Debug for BTH_LE_GATT_DESCRIPTOR_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BTH_LE_GATT_EVENT_TYPE(pub i32);
-impl ::core::marker::Copy for BTH_LE_GATT_EVENT_TYPE {}
-impl ::core::clone::Clone for BTH_LE_GATT_EVENT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BTH_LE_GATT_EVENT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for BTH_LE_GATT_EVENT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1360,19 +1294,8 @@ impl ::core::fmt::Debug for BTH_LE_GATT_EVENT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct IO_CAPABILITY(pub i32);
-impl ::core::marker::Copy for IO_CAPABILITY {}
-impl ::core::clone::Clone for IO_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for IO_CAPABILITY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for IO_CAPABILITY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1382,19 +1305,8 @@ impl ::core::fmt::Debug for IO_CAPABILITY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NodeContainerType(pub i32);
-impl ::core::marker::Copy for NodeContainerType {}
-impl ::core::clone::Clone for NodeContainerType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NodeContainerType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for NodeContainerType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1404,19 +1316,8 @@ impl ::core::fmt::Debug for NodeContainerType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SDP_SPECIFICTYPE(pub i32);
-impl ::core::marker::Copy for SDP_SPECIFICTYPE {}
-impl ::core::clone::Clone for SDP_SPECIFICTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SDP_SPECIFICTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SDP_SPECIFICTYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1426,19 +1327,8 @@ impl ::core::fmt::Debug for SDP_SPECIFICTYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SDP_TYPE(pub i32);
-impl ::core::marker::Copy for SDP_TYPE {}
-impl ::core::clone::Clone for SDP_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SDP_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SDP_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }

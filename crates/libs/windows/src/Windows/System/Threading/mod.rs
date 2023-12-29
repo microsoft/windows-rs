@@ -176,22 +176,11 @@ impl ::windows_core::RuntimeName for ThreadPoolTimer {
 unsafe impl ::core::marker::Send for ThreadPoolTimer {}
 unsafe impl ::core::marker::Sync for ThreadPoolTimer {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WorkItemOptions(pub u32);
 impl WorkItemOptions {
     pub const None: Self = Self(0u32);
     pub const TimeSliced: Self = Self(1u32);
-}
-impl ::core::marker::Copy for WorkItemOptions {}
-impl ::core::clone::Clone for WorkItemOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WorkItemOptions {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for WorkItemOptions {
     type TypeKind = ::windows_core::CopyType;
@@ -238,23 +227,12 @@ impl ::windows_core::RuntimeType for WorkItemOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Threading.WorkItemOptions;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WorkItemPriority(pub i32);
 impl WorkItemPriority {
     pub const Low: Self = Self(-1i32);
     pub const Normal: Self = Self(0i32);
     pub const High: Self = Self(1i32);
-}
-impl ::core::marker::Copy for WorkItemPriority {}
-impl ::core::clone::Clone for WorkItemPriority {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WorkItemPriority {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for WorkItemPriority {
     type TypeKind = ::windows_core::CopyType;

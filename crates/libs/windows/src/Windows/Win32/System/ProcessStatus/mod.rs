@@ -392,19 +392,8 @@ pub const LIST_MODULES_ALL: ENUM_PROCESS_MODULES_EX_FLAGS = ENUM_PROCESS_MODULES
 pub const LIST_MODULES_DEFAULT: ENUM_PROCESS_MODULES_EX_FLAGS = ENUM_PROCESS_MODULES_EX_FLAGS(0u32);
 pub const PSAPI_VERSION: u32 = 2u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ENUM_PROCESS_MODULES_EX_FLAGS(pub u32);
-impl ::core::marker::Copy for ENUM_PROCESS_MODULES_EX_FLAGS {}
-impl ::core::clone::Clone for ENUM_PROCESS_MODULES_EX_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ENUM_PROCESS_MODULES_EX_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ENUM_PROCESS_MODULES_EX_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }

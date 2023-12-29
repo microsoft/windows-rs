@@ -2520,7 +2520,7 @@ impl ::windows_core::RuntimeName for DisplayWireFormat {
 unsafe impl ::core::marker::Send for DisplayWireFormat {}
 unsafe impl ::core::marker::Sync for DisplayWireFormat {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DisplayBitsPerChannel(pub u32);
 impl DisplayBitsPerChannel {
     pub const None: Self = Self(0u32);
@@ -2530,17 +2530,6 @@ impl DisplayBitsPerChannel {
     pub const Bpc12: Self = Self(8u32);
     pub const Bpc14: Self = Self(16u32);
     pub const Bpc16: Self = Self(32u32);
-}
-impl ::core::marker::Copy for DisplayBitsPerChannel {}
-impl ::core::clone::Clone for DisplayBitsPerChannel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DisplayBitsPerChannel {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DisplayBitsPerChannel {
     type TypeKind = ::windows_core::CopyType;
@@ -2587,21 +2576,10 @@ impl ::windows_core::RuntimeType for DisplayBitsPerChannel {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayBitsPerChannel;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DisplayDeviceCapability(pub i32);
 impl DisplayDeviceCapability {
     pub const FlipOverride: Self = Self(0i32);
-}
-impl ::core::marker::Copy for DisplayDeviceCapability {}
-impl ::core::clone::Clone for DisplayDeviceCapability {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DisplayDeviceCapability {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DisplayDeviceCapability {
     type TypeKind = ::windows_core::CopyType;
@@ -2615,23 +2593,12 @@ impl ::windows_core::RuntimeType for DisplayDeviceCapability {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayDeviceCapability;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DisplayManagerOptions(pub u32);
 impl DisplayManagerOptions {
     pub const None: Self = Self(0u32);
     pub const EnforceSourceOwnership: Self = Self(1u32);
     pub const VirtualRefreshRateAware: Self = Self(2u32);
-}
-impl ::core::marker::Copy for DisplayManagerOptions {}
-impl ::core::clone::Clone for DisplayManagerOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DisplayManagerOptions {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DisplayManagerOptions {
     type TypeKind = ::windows_core::CopyType;
@@ -2678,7 +2645,7 @@ impl ::windows_core::RuntimeType for DisplayManagerOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayManagerOptions;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DisplayManagerResult(pub i32);
 impl DisplayManagerResult {
     pub const Success: Self = Self(0i32);
@@ -2686,17 +2653,6 @@ impl DisplayManagerResult {
     pub const TargetAccessDenied: Self = Self(2i32);
     pub const TargetStale: Self = Self(3i32);
     pub const RemoteSessionNotSupported: Self = Self(4i32);
-}
-impl ::core::marker::Copy for DisplayManagerResult {}
-impl ::core::clone::Clone for DisplayManagerResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DisplayManagerResult {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DisplayManagerResult {
     type TypeKind = ::windows_core::CopyType;
@@ -2710,22 +2666,11 @@ impl ::windows_core::RuntimeType for DisplayManagerResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayManagerResult;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DisplayModeQueryOptions(pub u32);
 impl DisplayModeQueryOptions {
     pub const None: Self = Self(0u32);
     pub const OnlyPreferredResolution: Self = Self(1u32);
-}
-impl ::core::marker::Copy for DisplayModeQueryOptions {}
-impl ::core::clone::Clone for DisplayModeQueryOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DisplayModeQueryOptions {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DisplayModeQueryOptions {
     type TypeKind = ::windows_core::CopyType;
@@ -2772,7 +2717,7 @@ impl ::windows_core::RuntimeType for DisplayModeQueryOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayModeQueryOptions;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DisplayPathScaling(pub i32);
 impl DisplayPathScaling {
     pub const Identity: Self = Self(0i32);
@@ -2781,17 +2726,6 @@ impl DisplayPathScaling {
     pub const AspectRatioStretched: Self = Self(3i32);
     pub const Custom: Self = Self(4i32);
     pub const DriverPreferred: Self = Self(5i32);
-}
-impl ::core::marker::Copy for DisplayPathScaling {}
-impl ::core::clone::Clone for DisplayPathScaling {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DisplayPathScaling {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DisplayPathScaling {
     type TypeKind = ::windows_core::CopyType;
@@ -2805,7 +2739,7 @@ impl ::windows_core::RuntimeType for DisplayPathScaling {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayPathScaling;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DisplayPathStatus(pub i32);
 impl DisplayPathStatus {
     pub const Unknown: Self = Self(0i32);
@@ -2814,17 +2748,6 @@ impl DisplayPathStatus {
     pub const Failed: Self = Self(3i32);
     pub const FailedAsync: Self = Self(4i32);
     pub const InvalidatedAsync: Self = Self(5i32);
-}
-impl ::core::marker::Copy for DisplayPathStatus {}
-impl ::core::clone::Clone for DisplayPathStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DisplayPathStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DisplayPathStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -2838,7 +2761,7 @@ impl ::windows_core::RuntimeType for DisplayPathStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayPathStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DisplayPresentStatus(pub i32);
 impl DisplayPresentStatus {
     pub const Success: Self = Self(0i32);
@@ -2847,17 +2770,6 @@ impl DisplayPresentStatus {
     pub const SourceInvalid: Self = Self(3i32);
     pub const DeviceInvalid: Self = Self(4i32);
     pub const UnknownFailure: Self = Self(5i32);
-}
-impl ::core::marker::Copy for DisplayPresentStatus {}
-impl ::core::clone::Clone for DisplayPresentStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DisplayPresentStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DisplayPresentStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -2871,24 +2783,13 @@ impl ::windows_core::RuntimeType for DisplayPresentStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayPresentStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DisplayRotation(pub i32);
 impl DisplayRotation {
     pub const None: Self = Self(0i32);
     pub const Clockwise90Degrees: Self = Self(1i32);
     pub const Clockwise180Degrees: Self = Self(2i32);
     pub const Clockwise270Degrees: Self = Self(3i32);
-}
-impl ::core::marker::Copy for DisplayRotation {}
-impl ::core::clone::Clone for DisplayRotation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DisplayRotation {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DisplayRotation {
     type TypeKind = ::windows_core::CopyType;
@@ -2902,22 +2803,11 @@ impl ::windows_core::RuntimeType for DisplayRotation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayRotation;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DisplayScanoutOptions(pub u32);
 impl DisplayScanoutOptions {
     pub const None: Self = Self(0u32);
     pub const AllowTearing: Self = Self(2u32);
-}
-impl ::core::marker::Copy for DisplayScanoutOptions {}
-impl ::core::clone::Clone for DisplayScanoutOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DisplayScanoutOptions {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DisplayScanoutOptions {
     type TypeKind = ::windows_core::CopyType;
@@ -2964,7 +2854,7 @@ impl ::windows_core::RuntimeType for DisplayScanoutOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayScanoutOptions;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DisplaySourceStatus(pub i32);
 impl DisplaySourceStatus {
     pub const Active: Self = Self(0i32);
@@ -2972,17 +2862,6 @@ impl DisplaySourceStatus {
     pub const Invalid: Self = Self(2i32);
     pub const OwnedByAnotherDevice: Self = Self(3i32);
     pub const Unowned: Self = Self(4i32);
-}
-impl ::core::marker::Copy for DisplaySourceStatus {}
-impl ::core::clone::Clone for DisplaySourceStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DisplaySourceStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DisplaySourceStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -2996,24 +2875,13 @@ impl ::windows_core::RuntimeType for DisplaySourceStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplaySourceStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DisplayStateApplyOptions(pub u32);
 impl DisplayStateApplyOptions {
     pub const None: Self = Self(0u32);
     pub const FailIfStateChanged: Self = Self(1u32);
     pub const ForceReapply: Self = Self(2u32);
     pub const ForceModeEnumeration: Self = Self(4u32);
-}
-impl ::core::marker::Copy for DisplayStateApplyOptions {}
-impl ::core::clone::Clone for DisplayStateApplyOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DisplayStateApplyOptions {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DisplayStateApplyOptions {
     type TypeKind = ::windows_core::CopyType;
@@ -3060,23 +2928,12 @@ impl ::windows_core::RuntimeType for DisplayStateApplyOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayStateApplyOptions;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DisplayStateFunctionalizeOptions(pub u32);
 impl DisplayStateFunctionalizeOptions {
     pub const None: Self = Self(0u32);
     pub const FailIfStateChanged: Self = Self(1u32);
     pub const ValidateTopologyOnly: Self = Self(2u32);
-}
-impl ::core::marker::Copy for DisplayStateFunctionalizeOptions {}
-impl ::core::clone::Clone for DisplayStateFunctionalizeOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DisplayStateFunctionalizeOptions {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DisplayStateFunctionalizeOptions {
     type TypeKind = ::windows_core::CopyType;
@@ -3123,7 +2980,7 @@ impl ::windows_core::RuntimeType for DisplayStateFunctionalizeOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayStateFunctionalizeOptions;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DisplayStateOperationStatus(pub i32);
 impl DisplayStateOperationStatus {
     pub const Success: Self = Self(0i32);
@@ -3134,17 +2991,6 @@ impl DisplayStateOperationStatus {
     pub const TooManyPathsForAdapter: Self = Self(5i32);
     pub const ModesNotSupported: Self = Self(6i32);
     pub const RemoteSessionNotSupported: Self = Self(7i32);
-}
-impl ::core::marker::Copy for DisplayStateOperationStatus {}
-impl ::core::clone::Clone for DisplayStateOperationStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DisplayStateOperationStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DisplayStateOperationStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -3158,24 +3004,13 @@ impl ::windows_core::RuntimeType for DisplayStateOperationStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayStateOperationStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DisplayTargetPersistence(pub i32);
 impl DisplayTargetPersistence {
     pub const None: Self = Self(0i32);
     pub const BootPersisted: Self = Self(1i32);
     pub const TemporaryPersisted: Self = Self(2i32);
     pub const PathPersisted: Self = Self(3i32);
-}
-impl ::core::marker::Copy for DisplayTargetPersistence {}
-impl ::core::clone::Clone for DisplayTargetPersistence {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DisplayTargetPersistence {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DisplayTargetPersistence {
     type TypeKind = ::windows_core::CopyType;
@@ -3189,22 +3024,11 @@ impl ::windows_core::RuntimeType for DisplayTargetPersistence {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayTargetPersistence;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DisplayTaskSignalKind(pub i32);
 impl DisplayTaskSignalKind {
     pub const OnPresentFlipAway: Self = Self(0i32);
     pub const OnPresentFlipTo: Self = Self(1i32);
-}
-impl ::core::marker::Copy for DisplayTaskSignalKind {}
-impl ::core::clone::Clone for DisplayTaskSignalKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DisplayTaskSignalKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DisplayTaskSignalKind {
     type TypeKind = ::windows_core::CopyType;
@@ -3218,23 +3042,12 @@ impl ::windows_core::RuntimeType for DisplayTaskSignalKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayTaskSignalKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DisplayWireFormatColorSpace(pub i32);
 impl DisplayWireFormatColorSpace {
     pub const BT709: Self = Self(0i32);
     pub const BT2020: Self = Self(1i32);
     pub const ProfileDefinedWideColorGamut: Self = Self(2i32);
-}
-impl ::core::marker::Copy for DisplayWireFormatColorSpace {}
-impl ::core::clone::Clone for DisplayWireFormatColorSpace {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DisplayWireFormatColorSpace {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DisplayWireFormatColorSpace {
     type TypeKind = ::windows_core::CopyType;
@@ -3248,22 +3061,11 @@ impl ::windows_core::RuntimeType for DisplayWireFormatColorSpace {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayWireFormatColorSpace;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DisplayWireFormatEotf(pub i32);
 impl DisplayWireFormatEotf {
     pub const Sdr: Self = Self(0i32);
     pub const HdrSmpte2084: Self = Self(1i32);
-}
-impl ::core::marker::Copy for DisplayWireFormatEotf {}
-impl ::core::clone::Clone for DisplayWireFormatEotf {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DisplayWireFormatEotf {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DisplayWireFormatEotf {
     type TypeKind = ::windows_core::CopyType;
@@ -3277,24 +3079,13 @@ impl ::windows_core::RuntimeType for DisplayWireFormatEotf {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayWireFormatEotf;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DisplayWireFormatHdrMetadata(pub i32);
 impl DisplayWireFormatHdrMetadata {
     pub const None: Self = Self(0i32);
     pub const Hdr10: Self = Self(1i32);
     pub const Hdr10Plus: Self = Self(2i32);
     pub const DolbyVisionLowLatency: Self = Self(3i32);
-}
-impl ::core::marker::Copy for DisplayWireFormatHdrMetadata {}
-impl ::core::clone::Clone for DisplayWireFormatHdrMetadata {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DisplayWireFormatHdrMetadata {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DisplayWireFormatHdrMetadata {
     type TypeKind = ::windows_core::CopyType;
@@ -3308,7 +3099,7 @@ impl ::windows_core::RuntimeType for DisplayWireFormatHdrMetadata {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayWireFormatHdrMetadata;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DisplayWireFormatPixelEncoding(pub i32);
 impl DisplayWireFormatPixelEncoding {
     pub const Rgb444: Self = Self(0i32);
@@ -3316,17 +3107,6 @@ impl DisplayWireFormatPixelEncoding {
     pub const Ycc422: Self = Self(2i32);
     pub const Ycc420: Self = Self(3i32);
     pub const Intensity: Self = Self(4i32);
-}
-impl ::core::marker::Copy for DisplayWireFormatPixelEncoding {}
-impl ::core::clone::Clone for DisplayWireFormatPixelEncoding {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DisplayWireFormatPixelEncoding {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DisplayWireFormatPixelEncoding {
     type TypeKind = ::windows_core::CopyType;

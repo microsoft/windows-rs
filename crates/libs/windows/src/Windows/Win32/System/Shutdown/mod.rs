@@ -214,19 +214,8 @@ pub const SNAPSHOT_POLICY_ALWAYS: u32 = 1u32;
 pub const SNAPSHOT_POLICY_NEVER: u32 = 0u32;
 pub const SNAPSHOT_POLICY_UNPLANNED: u32 = 2u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EXIT_WINDOWS_FLAGS(pub u32);
-impl ::core::marker::Copy for EXIT_WINDOWS_FLAGS {}
-impl ::core::clone::Clone for EXIT_WINDOWS_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EXIT_WINDOWS_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EXIT_WINDOWS_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -269,19 +258,8 @@ impl ::core::ops::Not for EXIT_WINDOWS_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SHUTDOWN_FLAGS(pub u32);
-impl ::core::marker::Copy for SHUTDOWN_FLAGS {}
-impl ::core::clone::Clone for SHUTDOWN_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SHUTDOWN_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SHUTDOWN_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -324,19 +302,8 @@ impl ::core::ops::Not for SHUTDOWN_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SHUTDOWN_REASON(pub u32);
-impl ::core::marker::Copy for SHUTDOWN_REASON {}
-impl ::core::clone::Clone for SHUTDOWN_REASON {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SHUTDOWN_REASON {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SHUTDOWN_REASON {
     type TypeKind = ::windows_core::CopyType;
 }

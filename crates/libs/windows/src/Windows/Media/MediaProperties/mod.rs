@@ -2709,24 +2709,13 @@ impl ::windows_core::RuntimeName for Vp9ProfileIds {
     const NAME: &'static str = "Windows.Media.MediaProperties.Vp9ProfileIds";
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AudioEncodingQuality(pub i32);
 impl AudioEncodingQuality {
     pub const Auto: Self = Self(0i32);
     pub const High: Self = Self(1i32);
     pub const Medium: Self = Self(2i32);
     pub const Low: Self = Self(3i32);
-}
-impl ::core::marker::Copy for AudioEncodingQuality {}
-impl ::core::clone::Clone for AudioEncodingQuality {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AudioEncodingQuality {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AudioEncodingQuality {
     type TypeKind = ::windows_core::CopyType;
@@ -2740,23 +2729,12 @@ impl ::windows_core::RuntimeType for AudioEncodingQuality {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.AudioEncodingQuality;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MediaMirroringOptions(pub u32);
 impl MediaMirroringOptions {
     pub const None: Self = Self(0u32);
     pub const Horizontal: Self = Self(1u32);
     pub const Vertical: Self = Self(2u32);
-}
-impl ::core::marker::Copy for MediaMirroringOptions {}
-impl ::core::clone::Clone for MediaMirroringOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MediaMirroringOptions {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MediaMirroringOptions {
     type TypeKind = ::windows_core::CopyType;
@@ -2803,23 +2781,12 @@ impl ::windows_core::RuntimeType for MediaMirroringOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.MediaMirroringOptions;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MediaPixelFormat(pub i32);
 impl MediaPixelFormat {
     pub const Nv12: Self = Self(0i32);
     pub const Bgra8: Self = Self(1i32);
     pub const P010: Self = Self(2i32);
-}
-impl ::core::marker::Copy for MediaPixelFormat {}
-impl ::core::clone::Clone for MediaPixelFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MediaPixelFormat {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MediaPixelFormat {
     type TypeKind = ::windows_core::CopyType;
@@ -2833,24 +2800,13 @@ impl ::windows_core::RuntimeType for MediaPixelFormat {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.MediaPixelFormat;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MediaRotation(pub i32);
 impl MediaRotation {
     pub const None: Self = Self(0i32);
     pub const Clockwise90Degrees: Self = Self(1i32);
     pub const Clockwise180Degrees: Self = Self(2i32);
     pub const Clockwise270Degrees: Self = Self(3i32);
-}
-impl ::core::marker::Copy for MediaRotation {}
-impl ::core::clone::Clone for MediaRotation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MediaRotation {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MediaRotation {
     type TypeKind = ::windows_core::CopyType;
@@ -2864,22 +2820,11 @@ impl ::windows_core::RuntimeType for MediaRotation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.MediaRotation;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MediaThumbnailFormat(pub i32);
 impl MediaThumbnailFormat {
     pub const Bmp: Self = Self(0i32);
     pub const Bgra8: Self = Self(1i32);
-}
-impl ::core::marker::Copy for MediaThumbnailFormat {}
-impl ::core::clone::Clone for MediaThumbnailFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MediaThumbnailFormat {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MediaThumbnailFormat {
     type TypeKind = ::windows_core::CopyType;
@@ -2893,23 +2838,12 @@ impl ::windows_core::RuntimeType for MediaThumbnailFormat {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.MediaThumbnailFormat;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SphericalVideoFrameFormat(pub i32);
 impl SphericalVideoFrameFormat {
     pub const None: Self = Self(0i32);
     pub const Unsupported: Self = Self(1i32);
     pub const Equirectangular: Self = Self(2i32);
-}
-impl ::core::marker::Copy for SphericalVideoFrameFormat {}
-impl ::core::clone::Clone for SphericalVideoFrameFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SphericalVideoFrameFormat {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SphericalVideoFrameFormat {
     type TypeKind = ::windows_core::CopyType;
@@ -2923,23 +2857,12 @@ impl ::windows_core::RuntimeType for SphericalVideoFrameFormat {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.SphericalVideoFrameFormat;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct StereoscopicVideoPackingMode(pub i32);
 impl StereoscopicVideoPackingMode {
     pub const None: Self = Self(0i32);
     pub const SideBySide: Self = Self(1i32);
     pub const TopBottom: Self = Self(2i32);
-}
-impl ::core::marker::Copy for StereoscopicVideoPackingMode {}
-impl ::core::clone::Clone for StereoscopicVideoPackingMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for StereoscopicVideoPackingMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for StereoscopicVideoPackingMode {
     type TypeKind = ::windows_core::CopyType;
@@ -2953,7 +2876,7 @@ impl ::windows_core::RuntimeType for StereoscopicVideoPackingMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.StereoscopicVideoPackingMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VideoEncodingQuality(pub i32);
 impl VideoEncodingQuality {
     pub const Auto: Self = Self(0i32);
@@ -2966,17 +2889,6 @@ impl VideoEncodingQuality {
     pub const Qvga: Self = Self(7i32);
     pub const Uhd2160p: Self = Self(8i32);
     pub const Uhd4320p: Self = Self(9i32);
-}
-impl ::core::marker::Copy for VideoEncodingQuality {}
-impl ::core::clone::Clone for VideoEncodingQuality {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VideoEncodingQuality {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for VideoEncodingQuality {
     type TypeKind = ::windows_core::CopyType;

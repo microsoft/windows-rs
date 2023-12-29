@@ -2858,23 +2858,12 @@ impl ::windows_core::RuntimeName for TargetApplicationChosenEventArgs {
 unsafe impl ::core::marker::Send for TargetApplicationChosenEventArgs {}
 unsafe impl ::core::marker::Sync for TargetApplicationChosenEventArgs {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ClipboardHistoryItemsResultStatus(pub i32);
 impl ClipboardHistoryItemsResultStatus {
     pub const Success: Self = Self(0i32);
     pub const AccessDenied: Self = Self(1i32);
     pub const ClipboardHistoryDisabled: Self = Self(2i32);
-}
-impl ::core::marker::Copy for ClipboardHistoryItemsResultStatus {}
-impl ::core::clone::Clone for ClipboardHistoryItemsResultStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ClipboardHistoryItemsResultStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ClipboardHistoryItemsResultStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -2888,24 +2877,13 @@ impl ::windows_core::RuntimeType for ClipboardHistoryItemsResultStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.DataTransfer.ClipboardHistoryItemsResultStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DataPackageOperation(pub u32);
 impl DataPackageOperation {
     pub const None: Self = Self(0u32);
     pub const Copy: Self = Self(1u32);
     pub const Move: Self = Self(2u32);
     pub const Link: Self = Self(4u32);
-}
-impl ::core::marker::Copy for DataPackageOperation {}
-impl ::core::clone::Clone for DataPackageOperation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DataPackageOperation {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DataPackageOperation {
     type TypeKind = ::windows_core::CopyType;
@@ -2952,23 +2930,12 @@ impl ::windows_core::RuntimeType for DataPackageOperation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.DataTransfer.DataPackageOperation;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SetHistoryItemAsContentStatus(pub i32);
 impl SetHistoryItemAsContentStatus {
     pub const Success: Self = Self(0i32);
     pub const AccessDenied: Self = Self(1i32);
     pub const ItemDeleted: Self = Self(2i32);
-}
-impl ::core::marker::Copy for SetHistoryItemAsContentStatus {}
-impl ::core::clone::Clone for SetHistoryItemAsContentStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SetHistoryItemAsContentStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SetHistoryItemAsContentStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -2982,23 +2949,12 @@ impl ::windows_core::RuntimeType for SetHistoryItemAsContentStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.DataTransfer.SetHistoryItemAsContentStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ShareUITheme(pub i32);
 impl ShareUITheme {
     pub const Default: Self = Self(0i32);
     pub const Light: Self = Self(1i32);
     pub const Dark: Self = Self(2i32);
-}
-impl ::core::marker::Copy for ShareUITheme {}
-impl ::core::clone::Clone for ShareUITheme {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ShareUITheme {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ShareUITheme {
     type TypeKind = ::windows_core::CopyType;

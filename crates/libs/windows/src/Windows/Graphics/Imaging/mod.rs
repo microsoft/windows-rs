@@ -2166,23 +2166,12 @@ impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for Softwar
 unsafe impl ::core::marker::Send for SoftwareBitmap {}
 unsafe impl ::core::marker::Sync for SoftwareBitmap {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BitmapAlphaMode(pub i32);
 impl BitmapAlphaMode {
     pub const Premultiplied: Self = Self(0i32);
     pub const Straight: Self = Self(1i32);
     pub const Ignore: Self = Self(2i32);
-}
-impl ::core::marker::Copy for BitmapAlphaMode {}
-impl ::core::clone::Clone for BitmapAlphaMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BitmapAlphaMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for BitmapAlphaMode {
     type TypeKind = ::windows_core::CopyType;
@@ -2196,23 +2185,12 @@ impl ::windows_core::RuntimeType for BitmapAlphaMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.BitmapAlphaMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BitmapBufferAccessMode(pub i32);
 impl BitmapBufferAccessMode {
     pub const Read: Self = Self(0i32);
     pub const ReadWrite: Self = Self(1i32);
     pub const Write: Self = Self(2i32);
-}
-impl ::core::marker::Copy for BitmapBufferAccessMode {}
-impl ::core::clone::Clone for BitmapBufferAccessMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BitmapBufferAccessMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for BitmapBufferAccessMode {
     type TypeKind = ::windows_core::CopyType;
@@ -2226,23 +2204,12 @@ impl ::windows_core::RuntimeType for BitmapBufferAccessMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.BitmapBufferAccessMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BitmapFlip(pub i32);
 impl BitmapFlip {
     pub const None: Self = Self(0i32);
     pub const Horizontal: Self = Self(1i32);
     pub const Vertical: Self = Self(2i32);
-}
-impl ::core::marker::Copy for BitmapFlip {}
-impl ::core::clone::Clone for BitmapFlip {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BitmapFlip {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for BitmapFlip {
     type TypeKind = ::windows_core::CopyType;
@@ -2256,24 +2223,13 @@ impl ::windows_core::RuntimeType for BitmapFlip {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.BitmapFlip;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BitmapInterpolationMode(pub i32);
 impl BitmapInterpolationMode {
     pub const NearestNeighbor: Self = Self(0i32);
     pub const Linear: Self = Self(1i32);
     pub const Cubic: Self = Self(2i32);
     pub const Fant: Self = Self(3i32);
-}
-impl ::core::marker::Copy for BitmapInterpolationMode {}
-impl ::core::clone::Clone for BitmapInterpolationMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BitmapInterpolationMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for BitmapInterpolationMode {
     type TypeKind = ::windows_core::CopyType;
@@ -2287,7 +2243,7 @@ impl ::windows_core::RuntimeType for BitmapInterpolationMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.BitmapInterpolationMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BitmapPixelFormat(pub i32);
 impl BitmapPixelFormat {
     pub const Unknown: Self = Self(0i32);
@@ -2299,17 +2255,6 @@ impl BitmapPixelFormat {
     pub const Nv12: Self = Self(103i32);
     pub const P010: Self = Self(104i32);
     pub const Yuy2: Self = Self(107i32);
-}
-impl ::core::marker::Copy for BitmapPixelFormat {}
-impl ::core::clone::Clone for BitmapPixelFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BitmapPixelFormat {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for BitmapPixelFormat {
     type TypeKind = ::windows_core::CopyType;
@@ -2323,24 +2268,13 @@ impl ::windows_core::RuntimeType for BitmapPixelFormat {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.BitmapPixelFormat;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BitmapRotation(pub i32);
 impl BitmapRotation {
     pub const None: Self = Self(0i32);
     pub const Clockwise90Degrees: Self = Self(1i32);
     pub const Clockwise180Degrees: Self = Self(2i32);
     pub const Clockwise270Degrees: Self = Self(3i32);
-}
-impl ::core::marker::Copy for BitmapRotation {}
-impl ::core::clone::Clone for BitmapRotation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BitmapRotation {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for BitmapRotation {
     type TypeKind = ::windows_core::CopyType;
@@ -2354,22 +2288,11 @@ impl ::windows_core::RuntimeType for BitmapRotation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.BitmapRotation;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ColorManagementMode(pub i32);
 impl ColorManagementMode {
     pub const DoNotColorManage: Self = Self(0i32);
     pub const ColorManageToSRgb: Self = Self(1i32);
-}
-impl ::core::marker::Copy for ColorManagementMode {}
-impl ::core::clone::Clone for ColorManagementMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ColorManagementMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ColorManagementMode {
     type TypeKind = ::windows_core::CopyType;
@@ -2383,22 +2306,11 @@ impl ::windows_core::RuntimeType for ColorManagementMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.ColorManagementMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ExifOrientationMode(pub i32);
 impl ExifOrientationMode {
     pub const IgnoreExifOrientation: Self = Self(0i32);
     pub const RespectExifOrientation: Self = Self(1i32);
-}
-impl ::core::marker::Copy for ExifOrientationMode {}
-impl ::core::clone::Clone for ExifOrientationMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ExifOrientationMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ExifOrientationMode {
     type TypeKind = ::windows_core::CopyType;
@@ -2412,24 +2324,13 @@ impl ::windows_core::RuntimeType for ExifOrientationMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.ExifOrientationMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct JpegSubsamplingMode(pub i32);
 impl JpegSubsamplingMode {
     pub const Default: Self = Self(0i32);
     pub const Y4Cb2Cr0: Self = Self(1i32);
     pub const Y4Cb2Cr2: Self = Self(2i32);
     pub const Y4Cb4Cr4: Self = Self(3i32);
-}
-impl ::core::marker::Copy for JpegSubsamplingMode {}
-impl ::core::clone::Clone for JpegSubsamplingMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for JpegSubsamplingMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for JpegSubsamplingMode {
     type TypeKind = ::windows_core::CopyType;
@@ -2443,7 +2344,7 @@ impl ::windows_core::RuntimeType for JpegSubsamplingMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.JpegSubsamplingMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PngFilterMode(pub i32);
 impl PngFilterMode {
     pub const Automatic: Self = Self(0i32);
@@ -2453,17 +2354,6 @@ impl PngFilterMode {
     pub const Average: Self = Self(4i32);
     pub const Paeth: Self = Self(5i32);
     pub const Adaptive: Self = Self(6i32);
-}
-impl ::core::marker::Copy for PngFilterMode {}
-impl ::core::clone::Clone for PngFilterMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PngFilterMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PngFilterMode {
     type TypeKind = ::windows_core::CopyType;
@@ -2477,7 +2367,7 @@ impl ::windows_core::RuntimeType for PngFilterMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.PngFilterMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TiffCompressionMode(pub i32);
 impl TiffCompressionMode {
     pub const Automatic: Self = Self(0i32);
@@ -2488,17 +2378,6 @@ impl TiffCompressionMode {
     pub const Rle: Self = Self(5i32);
     pub const Zip: Self = Self(6i32);
     pub const LzwhDifferencing: Self = Self(7i32);
-}
-impl ::core::marker::Copy for TiffCompressionMode {}
-impl ::core::clone::Clone for TiffCompressionMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TiffCompressionMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for TiffCompressionMode {
     type TypeKind = ::windows_core::CopyType;

@@ -280,22 +280,11 @@ impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for PwmPin 
 unsafe impl ::core::marker::Send for PwmPin {}
 unsafe impl ::core::marker::Sync for PwmPin {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PwmPulsePolarity(pub i32);
 impl PwmPulsePolarity {
     pub const ActiveHigh: Self = Self(0i32);
     pub const ActiveLow: Self = Self(1i32);
-}
-impl ::core::marker::Copy for PwmPulsePolarity {}
-impl ::core::clone::Clone for PwmPulsePolarity {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PwmPulsePolarity {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PwmPulsePolarity {
     type TypeKind = ::windows_core::CopyType;

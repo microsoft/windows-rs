@@ -8891,19 +8891,8 @@ pub const ePRONFLAG_USED: SPPRONUNCIATIONFLAGS = SPPRONUNCIATIONFLAGS(1i32);
 pub const eWORDTYPE_ADDED: SPWORDTYPE = SPWORDTYPE(1i32);
 pub const eWORDTYPE_DELETED: SPWORDTYPE = SPWORDTYPE(2i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPIDSPRG(pub i32);
-impl ::core::marker::Copy for DISPIDSPRG {}
-impl ::core::clone::Clone for DISPIDSPRG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPIDSPRG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPIDSPRG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8913,19 +8902,8 @@ impl ::core::fmt::Debug for DISPIDSPRG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPIDSPTSI(pub i32);
-impl ::core::marker::Copy for DISPIDSPTSI {}
-impl ::core::clone::Clone for DISPIDSPTSI {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPIDSPTSI {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPIDSPTSI {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8935,19 +8913,8 @@ impl ::core::fmt::Debug for DISPIDSPTSI {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_SpeechAudio(pub i32);
-impl ::core::marker::Copy for DISPID_SpeechAudio {}
-impl ::core::clone::Clone for DISPID_SpeechAudio {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechAudio {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_SpeechAudio {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8957,19 +8924,8 @@ impl ::core::fmt::Debug for DISPID_SpeechAudio {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_SpeechAudioBufferInfo(pub i32);
-impl ::core::marker::Copy for DISPID_SpeechAudioBufferInfo {}
-impl ::core::clone::Clone for DISPID_SpeechAudioBufferInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechAudioBufferInfo {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_SpeechAudioBufferInfo {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8979,19 +8935,8 @@ impl ::core::fmt::Debug for DISPID_SpeechAudioBufferInfo {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_SpeechAudioFormat(pub i32);
-impl ::core::marker::Copy for DISPID_SpeechAudioFormat {}
-impl ::core::clone::Clone for DISPID_SpeechAudioFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechAudioFormat {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_SpeechAudioFormat {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9001,19 +8946,8 @@ impl ::core::fmt::Debug for DISPID_SpeechAudioFormat {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_SpeechAudioStatus(pub i32);
-impl ::core::marker::Copy for DISPID_SpeechAudioStatus {}
-impl ::core::clone::Clone for DISPID_SpeechAudioStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechAudioStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_SpeechAudioStatus {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9023,19 +8957,8 @@ impl ::core::fmt::Debug for DISPID_SpeechAudioStatus {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_SpeechBaseStream(pub i32);
-impl ::core::marker::Copy for DISPID_SpeechBaseStream {}
-impl ::core::clone::Clone for DISPID_SpeechBaseStream {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechBaseStream {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_SpeechBaseStream {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9045,19 +8968,8 @@ impl ::core::fmt::Debug for DISPID_SpeechBaseStream {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_SpeechCustomStream(pub i32);
-impl ::core::marker::Copy for DISPID_SpeechCustomStream {}
-impl ::core::clone::Clone for DISPID_SpeechCustomStream {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechCustomStream {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_SpeechCustomStream {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9067,19 +8979,8 @@ impl ::core::fmt::Debug for DISPID_SpeechCustomStream {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_SpeechDataKey(pub i32);
-impl ::core::marker::Copy for DISPID_SpeechDataKey {}
-impl ::core::clone::Clone for DISPID_SpeechDataKey {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechDataKey {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_SpeechDataKey {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9089,19 +8990,8 @@ impl ::core::fmt::Debug for DISPID_SpeechDataKey {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_SpeechFileStream(pub i32);
-impl ::core::marker::Copy for DISPID_SpeechFileStream {}
-impl ::core::clone::Clone for DISPID_SpeechFileStream {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechFileStream {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_SpeechFileStream {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9111,19 +9001,8 @@ impl ::core::fmt::Debug for DISPID_SpeechFileStream {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_SpeechGrammarRule(pub i32);
-impl ::core::marker::Copy for DISPID_SpeechGrammarRule {}
-impl ::core::clone::Clone for DISPID_SpeechGrammarRule {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechGrammarRule {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_SpeechGrammarRule {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9133,19 +9012,8 @@ impl ::core::fmt::Debug for DISPID_SpeechGrammarRule {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_SpeechGrammarRuleState(pub i32);
-impl ::core::marker::Copy for DISPID_SpeechGrammarRuleState {}
-impl ::core::clone::Clone for DISPID_SpeechGrammarRuleState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechGrammarRuleState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_SpeechGrammarRuleState {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9155,19 +9023,8 @@ impl ::core::fmt::Debug for DISPID_SpeechGrammarRuleState {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_SpeechGrammarRuleStateTransition(pub i32);
-impl ::core::marker::Copy for DISPID_SpeechGrammarRuleStateTransition {}
-impl ::core::clone::Clone for DISPID_SpeechGrammarRuleStateTransition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechGrammarRuleStateTransition {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_SpeechGrammarRuleStateTransition {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9177,19 +9034,8 @@ impl ::core::fmt::Debug for DISPID_SpeechGrammarRuleStateTransition {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_SpeechGrammarRuleStateTransitions(pub i32);
-impl ::core::marker::Copy for DISPID_SpeechGrammarRuleStateTransitions {}
-impl ::core::clone::Clone for DISPID_SpeechGrammarRuleStateTransitions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechGrammarRuleStateTransitions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_SpeechGrammarRuleStateTransitions {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9199,19 +9045,8 @@ impl ::core::fmt::Debug for DISPID_SpeechGrammarRuleStateTransitions {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_SpeechGrammarRules(pub i32);
-impl ::core::marker::Copy for DISPID_SpeechGrammarRules {}
-impl ::core::clone::Clone for DISPID_SpeechGrammarRules {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechGrammarRules {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_SpeechGrammarRules {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9221,19 +9056,8 @@ impl ::core::fmt::Debug for DISPID_SpeechGrammarRules {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_SpeechLexicon(pub i32);
-impl ::core::marker::Copy for DISPID_SpeechLexicon {}
-impl ::core::clone::Clone for DISPID_SpeechLexicon {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechLexicon {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_SpeechLexicon {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9243,19 +9067,8 @@ impl ::core::fmt::Debug for DISPID_SpeechLexicon {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_SpeechLexiconProns(pub i32);
-impl ::core::marker::Copy for DISPID_SpeechLexiconProns {}
-impl ::core::clone::Clone for DISPID_SpeechLexiconProns {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechLexiconProns {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_SpeechLexiconProns {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9265,19 +9078,8 @@ impl ::core::fmt::Debug for DISPID_SpeechLexiconProns {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_SpeechLexiconPronunciation(pub i32);
-impl ::core::marker::Copy for DISPID_SpeechLexiconPronunciation {}
-impl ::core::clone::Clone for DISPID_SpeechLexiconPronunciation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechLexiconPronunciation {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_SpeechLexiconPronunciation {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9287,19 +9089,8 @@ impl ::core::fmt::Debug for DISPID_SpeechLexiconPronunciation {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_SpeechLexiconWord(pub i32);
-impl ::core::marker::Copy for DISPID_SpeechLexiconWord {}
-impl ::core::clone::Clone for DISPID_SpeechLexiconWord {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechLexiconWord {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_SpeechLexiconWord {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9309,19 +9100,8 @@ impl ::core::fmt::Debug for DISPID_SpeechLexiconWord {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_SpeechLexiconWords(pub i32);
-impl ::core::marker::Copy for DISPID_SpeechLexiconWords {}
-impl ::core::clone::Clone for DISPID_SpeechLexiconWords {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechLexiconWords {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_SpeechLexiconWords {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9331,19 +9111,8 @@ impl ::core::fmt::Debug for DISPID_SpeechLexiconWords {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_SpeechMMSysAudio(pub i32);
-impl ::core::marker::Copy for DISPID_SpeechMMSysAudio {}
-impl ::core::clone::Clone for DISPID_SpeechMMSysAudio {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechMMSysAudio {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_SpeechMMSysAudio {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9353,19 +9122,8 @@ impl ::core::fmt::Debug for DISPID_SpeechMMSysAudio {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_SpeechMemoryStream(pub i32);
-impl ::core::marker::Copy for DISPID_SpeechMemoryStream {}
-impl ::core::clone::Clone for DISPID_SpeechMemoryStream {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechMemoryStream {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_SpeechMemoryStream {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9375,19 +9133,8 @@ impl ::core::fmt::Debug for DISPID_SpeechMemoryStream {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_SpeechObjectToken(pub i32);
-impl ::core::marker::Copy for DISPID_SpeechObjectToken {}
-impl ::core::clone::Clone for DISPID_SpeechObjectToken {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechObjectToken {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_SpeechObjectToken {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9397,19 +9144,8 @@ impl ::core::fmt::Debug for DISPID_SpeechObjectToken {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_SpeechObjectTokenCategory(pub i32);
-impl ::core::marker::Copy for DISPID_SpeechObjectTokenCategory {}
-impl ::core::clone::Clone for DISPID_SpeechObjectTokenCategory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechObjectTokenCategory {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_SpeechObjectTokenCategory {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9419,19 +9155,8 @@ impl ::core::fmt::Debug for DISPID_SpeechObjectTokenCategory {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_SpeechObjectTokens(pub i32);
-impl ::core::marker::Copy for DISPID_SpeechObjectTokens {}
-impl ::core::clone::Clone for DISPID_SpeechObjectTokens {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechObjectTokens {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_SpeechObjectTokens {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9441,19 +9166,8 @@ impl ::core::fmt::Debug for DISPID_SpeechObjectTokens {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_SpeechPhoneConverter(pub i32);
-impl ::core::marker::Copy for DISPID_SpeechPhoneConverter {}
-impl ::core::clone::Clone for DISPID_SpeechPhoneConverter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechPhoneConverter {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_SpeechPhoneConverter {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9463,19 +9177,8 @@ impl ::core::fmt::Debug for DISPID_SpeechPhoneConverter {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_SpeechPhraseAlternate(pub i32);
-impl ::core::marker::Copy for DISPID_SpeechPhraseAlternate {}
-impl ::core::clone::Clone for DISPID_SpeechPhraseAlternate {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechPhraseAlternate {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_SpeechPhraseAlternate {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9485,19 +9188,8 @@ impl ::core::fmt::Debug for DISPID_SpeechPhraseAlternate {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_SpeechPhraseAlternates(pub i32);
-impl ::core::marker::Copy for DISPID_SpeechPhraseAlternates {}
-impl ::core::clone::Clone for DISPID_SpeechPhraseAlternates {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechPhraseAlternates {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_SpeechPhraseAlternates {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9507,19 +9199,8 @@ impl ::core::fmt::Debug for DISPID_SpeechPhraseAlternates {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_SpeechPhraseBuilder(pub i32);
-impl ::core::marker::Copy for DISPID_SpeechPhraseBuilder {}
-impl ::core::clone::Clone for DISPID_SpeechPhraseBuilder {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechPhraseBuilder {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_SpeechPhraseBuilder {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9529,19 +9210,8 @@ impl ::core::fmt::Debug for DISPID_SpeechPhraseBuilder {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_SpeechPhraseElement(pub i32);
-impl ::core::marker::Copy for DISPID_SpeechPhraseElement {}
-impl ::core::clone::Clone for DISPID_SpeechPhraseElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechPhraseElement {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_SpeechPhraseElement {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9551,19 +9221,8 @@ impl ::core::fmt::Debug for DISPID_SpeechPhraseElement {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_SpeechPhraseElements(pub i32);
-impl ::core::marker::Copy for DISPID_SpeechPhraseElements {}
-impl ::core::clone::Clone for DISPID_SpeechPhraseElements {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechPhraseElements {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_SpeechPhraseElements {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9573,19 +9232,8 @@ impl ::core::fmt::Debug for DISPID_SpeechPhraseElements {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_SpeechPhraseInfo(pub i32);
-impl ::core::marker::Copy for DISPID_SpeechPhraseInfo {}
-impl ::core::clone::Clone for DISPID_SpeechPhraseInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechPhraseInfo {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_SpeechPhraseInfo {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9595,19 +9243,8 @@ impl ::core::fmt::Debug for DISPID_SpeechPhraseInfo {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_SpeechPhraseProperties(pub i32);
-impl ::core::marker::Copy for DISPID_SpeechPhraseProperties {}
-impl ::core::clone::Clone for DISPID_SpeechPhraseProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechPhraseProperties {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_SpeechPhraseProperties {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9617,19 +9254,8 @@ impl ::core::fmt::Debug for DISPID_SpeechPhraseProperties {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_SpeechPhraseProperty(pub i32);
-impl ::core::marker::Copy for DISPID_SpeechPhraseProperty {}
-impl ::core::clone::Clone for DISPID_SpeechPhraseProperty {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechPhraseProperty {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_SpeechPhraseProperty {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9639,19 +9265,8 @@ impl ::core::fmt::Debug for DISPID_SpeechPhraseProperty {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_SpeechPhraseReplacement(pub i32);
-impl ::core::marker::Copy for DISPID_SpeechPhraseReplacement {}
-impl ::core::clone::Clone for DISPID_SpeechPhraseReplacement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechPhraseReplacement {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_SpeechPhraseReplacement {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9661,19 +9276,8 @@ impl ::core::fmt::Debug for DISPID_SpeechPhraseReplacement {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_SpeechPhraseReplacements(pub i32);
-impl ::core::marker::Copy for DISPID_SpeechPhraseReplacements {}
-impl ::core::clone::Clone for DISPID_SpeechPhraseReplacements {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechPhraseReplacements {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_SpeechPhraseReplacements {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9683,19 +9287,8 @@ impl ::core::fmt::Debug for DISPID_SpeechPhraseReplacements {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_SpeechPhraseRule(pub i32);
-impl ::core::marker::Copy for DISPID_SpeechPhraseRule {}
-impl ::core::clone::Clone for DISPID_SpeechPhraseRule {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechPhraseRule {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_SpeechPhraseRule {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9705,19 +9298,8 @@ impl ::core::fmt::Debug for DISPID_SpeechPhraseRule {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_SpeechPhraseRules(pub i32);
-impl ::core::marker::Copy for DISPID_SpeechPhraseRules {}
-impl ::core::clone::Clone for DISPID_SpeechPhraseRules {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechPhraseRules {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_SpeechPhraseRules {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9727,19 +9309,8 @@ impl ::core::fmt::Debug for DISPID_SpeechPhraseRules {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_SpeechRecoContext(pub i32);
-impl ::core::marker::Copy for DISPID_SpeechRecoContext {}
-impl ::core::clone::Clone for DISPID_SpeechRecoContext {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechRecoContext {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_SpeechRecoContext {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9749,19 +9320,8 @@ impl ::core::fmt::Debug for DISPID_SpeechRecoContext {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_SpeechRecoContextEvents(pub i32);
-impl ::core::marker::Copy for DISPID_SpeechRecoContextEvents {}
-impl ::core::clone::Clone for DISPID_SpeechRecoContextEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechRecoContextEvents {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_SpeechRecoContextEvents {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9771,19 +9331,8 @@ impl ::core::fmt::Debug for DISPID_SpeechRecoContextEvents {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_SpeechRecoResult(pub i32);
-impl ::core::marker::Copy for DISPID_SpeechRecoResult {}
-impl ::core::clone::Clone for DISPID_SpeechRecoResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechRecoResult {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_SpeechRecoResult {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9793,19 +9342,8 @@ impl ::core::fmt::Debug for DISPID_SpeechRecoResult {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_SpeechRecoResult2(pub i32);
-impl ::core::marker::Copy for DISPID_SpeechRecoResult2 {}
-impl ::core::clone::Clone for DISPID_SpeechRecoResult2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechRecoResult2 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_SpeechRecoResult2 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9815,19 +9353,8 @@ impl ::core::fmt::Debug for DISPID_SpeechRecoResult2 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_SpeechRecoResultTimes(pub i32);
-impl ::core::marker::Copy for DISPID_SpeechRecoResultTimes {}
-impl ::core::clone::Clone for DISPID_SpeechRecoResultTimes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechRecoResultTimes {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_SpeechRecoResultTimes {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9837,19 +9364,8 @@ impl ::core::fmt::Debug for DISPID_SpeechRecoResultTimes {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_SpeechRecognizer(pub i32);
-impl ::core::marker::Copy for DISPID_SpeechRecognizer {}
-impl ::core::clone::Clone for DISPID_SpeechRecognizer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechRecognizer {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_SpeechRecognizer {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9859,19 +9375,8 @@ impl ::core::fmt::Debug for DISPID_SpeechRecognizer {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_SpeechRecognizerStatus(pub i32);
-impl ::core::marker::Copy for DISPID_SpeechRecognizerStatus {}
-impl ::core::clone::Clone for DISPID_SpeechRecognizerStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechRecognizerStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_SpeechRecognizerStatus {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9881,19 +9386,8 @@ impl ::core::fmt::Debug for DISPID_SpeechRecognizerStatus {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_SpeechVoice(pub i32);
-impl ::core::marker::Copy for DISPID_SpeechVoice {}
-impl ::core::clone::Clone for DISPID_SpeechVoice {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechVoice {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_SpeechVoice {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9903,19 +9397,8 @@ impl ::core::fmt::Debug for DISPID_SpeechVoice {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_SpeechVoiceEvent(pub i32);
-impl ::core::marker::Copy for DISPID_SpeechVoiceEvent {}
-impl ::core::clone::Clone for DISPID_SpeechVoiceEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechVoiceEvent {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_SpeechVoiceEvent {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9925,19 +9408,8 @@ impl ::core::fmt::Debug for DISPID_SpeechVoiceEvent {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_SpeechVoiceStatus(pub i32);
-impl ::core::marker::Copy for DISPID_SpeechVoiceStatus {}
-impl ::core::clone::Clone for DISPID_SpeechVoiceStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechVoiceStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_SpeechVoiceStatus {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9947,19 +9419,8 @@ impl ::core::fmt::Debug for DISPID_SpeechVoiceStatus {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_SpeechWaveFormatEx(pub i32);
-impl ::core::marker::Copy for DISPID_SpeechWaveFormatEx {}
-impl ::core::clone::Clone for DISPID_SpeechWaveFormatEx {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechWaveFormatEx {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_SpeechWaveFormatEx {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9969,19 +9430,8 @@ impl ::core::fmt::Debug for DISPID_SpeechWaveFormatEx {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DISPID_SpeechXMLRecoResult(pub i32);
-impl ::core::marker::Copy for DISPID_SpeechXMLRecoResult {}
-impl ::core::clone::Clone for DISPID_SpeechXMLRecoResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DISPID_SpeechXMLRecoResult {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DISPID_SpeechXMLRecoResult {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9991,19 +9441,8 @@ impl ::core::fmt::Debug for DISPID_SpeechXMLRecoResult {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PHONETICALPHABET(pub i32);
-impl ::core::marker::Copy for PHONETICALPHABET {}
-impl ::core::clone::Clone for PHONETICALPHABET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PHONETICALPHABET {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PHONETICALPHABET {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10013,19 +9452,8 @@ impl ::core::fmt::Debug for PHONETICALPHABET {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SPADAPTATIONRELEVANCE(pub i32);
-impl ::core::marker::Copy for SPADAPTATIONRELEVANCE {}
-impl ::core::clone::Clone for SPADAPTATIONRELEVANCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SPADAPTATIONRELEVANCE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SPADAPTATIONRELEVANCE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10035,19 +9463,8 @@ impl ::core::fmt::Debug for SPADAPTATIONRELEVANCE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SPADAPTATIONSETTINGS(pub i32);
-impl ::core::marker::Copy for SPADAPTATIONSETTINGS {}
-impl ::core::clone::Clone for SPADAPTATIONSETTINGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SPADAPTATIONSETTINGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SPADAPTATIONSETTINGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10057,19 +9474,8 @@ impl ::core::fmt::Debug for SPADAPTATIONSETTINGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SPAUDIOOPTIONS(pub i32);
-impl ::core::marker::Copy for SPAUDIOOPTIONS {}
-impl ::core::clone::Clone for SPAUDIOOPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SPAUDIOOPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SPAUDIOOPTIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10079,19 +9485,8 @@ impl ::core::fmt::Debug for SPAUDIOOPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SPAUDIOSTATE(pub i32);
-impl ::core::marker::Copy for SPAUDIOSTATE {}
-impl ::core::clone::Clone for SPAUDIOSTATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SPAUDIOSTATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SPAUDIOSTATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10101,19 +9496,8 @@ impl ::core::fmt::Debug for SPAUDIOSTATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SPBOOKMARKOPTIONS(pub i32);
-impl ::core::marker::Copy for SPBOOKMARKOPTIONS {}
-impl ::core::clone::Clone for SPBOOKMARKOPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SPBOOKMARKOPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SPBOOKMARKOPTIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10123,19 +9507,8 @@ impl ::core::fmt::Debug for SPBOOKMARKOPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SPCFGRULEATTRIBUTES(pub i32);
-impl ::core::marker::Copy for SPCFGRULEATTRIBUTES {}
-impl ::core::clone::Clone for SPCFGRULEATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SPCFGRULEATTRIBUTES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SPCFGRULEATTRIBUTES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10145,19 +9518,8 @@ impl ::core::fmt::Debug for SPCFGRULEATTRIBUTES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SPCOMMITFLAGS(pub i32);
-impl ::core::marker::Copy for SPCOMMITFLAGS {}
-impl ::core::clone::Clone for SPCOMMITFLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SPCOMMITFLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SPCOMMITFLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10167,19 +9529,8 @@ impl ::core::fmt::Debug for SPCOMMITFLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SPCONTEXTSTATE(pub i32);
-impl ::core::marker::Copy for SPCONTEXTSTATE {}
-impl ::core::clone::Clone for SPCONTEXTSTATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SPCONTEXTSTATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SPCONTEXTSTATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10189,19 +9540,8 @@ impl ::core::fmt::Debug for SPCONTEXTSTATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SPDATAKEYLOCATION(pub i32);
-impl ::core::marker::Copy for SPDATAKEYLOCATION {}
-impl ::core::clone::Clone for SPDATAKEYLOCATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SPDATAKEYLOCATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SPDATAKEYLOCATION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10211,19 +9551,8 @@ impl ::core::fmt::Debug for SPDATAKEYLOCATION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SPDISPLAYATTRIBUTES(pub i32);
-impl ::core::marker::Copy for SPDISPLAYATTRIBUTES {}
-impl ::core::clone::Clone for SPDISPLAYATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SPDISPLAYATTRIBUTES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SPDISPLAYATTRIBUTES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10233,19 +9562,8 @@ impl ::core::fmt::Debug for SPDISPLAYATTRIBUTES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SPEAKFLAGS(pub i32);
-impl ::core::marker::Copy for SPEAKFLAGS {}
-impl ::core::clone::Clone for SPEAKFLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SPEAKFLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SPEAKFLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10255,19 +9573,8 @@ impl ::core::fmt::Debug for SPEAKFLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SPENDSRSTREAMFLAGS(pub i32);
-impl ::core::marker::Copy for SPENDSRSTREAMFLAGS {}
-impl ::core::clone::Clone for SPENDSRSTREAMFLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SPENDSRSTREAMFLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SPENDSRSTREAMFLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10277,19 +9584,8 @@ impl ::core::fmt::Debug for SPENDSRSTREAMFLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SPEVENTENUM(pub i32);
-impl ::core::marker::Copy for SPEVENTENUM {}
-impl ::core::clone::Clone for SPEVENTENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SPEVENTENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SPEVENTENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10299,19 +9595,8 @@ impl ::core::fmt::Debug for SPEVENTENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SPEVENTLPARAMTYPE(pub i32);
-impl ::core::marker::Copy for SPEVENTLPARAMTYPE {}
-impl ::core::clone::Clone for SPEVENTLPARAMTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SPEVENTLPARAMTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SPEVENTLPARAMTYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10321,19 +9606,8 @@ impl ::core::fmt::Debug for SPEVENTLPARAMTYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SPFILEMODE(pub i32);
-impl ::core::marker::Copy for SPFILEMODE {}
-impl ::core::clone::Clone for SPFILEMODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SPFILEMODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SPFILEMODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10343,19 +9617,8 @@ impl ::core::fmt::Debug for SPFILEMODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SPGRAMMAROPTIONS(pub i32);
-impl ::core::marker::Copy for SPGRAMMAROPTIONS {}
-impl ::core::clone::Clone for SPGRAMMAROPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SPGRAMMAROPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SPGRAMMAROPTIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10365,19 +9628,8 @@ impl ::core::fmt::Debug for SPGRAMMAROPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SPGRAMMARSTATE(pub i32);
-impl ::core::marker::Copy for SPGRAMMARSTATE {}
-impl ::core::clone::Clone for SPGRAMMARSTATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SPGRAMMARSTATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SPGRAMMARSTATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10387,19 +9639,8 @@ impl ::core::fmt::Debug for SPGRAMMARSTATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SPGRAMMARWORDTYPE(pub i32);
-impl ::core::marker::Copy for SPGRAMMARWORDTYPE {}
-impl ::core::clone::Clone for SPGRAMMARWORDTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SPGRAMMARWORDTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SPGRAMMARWORDTYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10409,19 +9650,8 @@ impl ::core::fmt::Debug for SPGRAMMARWORDTYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SPINTERFERENCE(pub i32);
-impl ::core::marker::Copy for SPINTERFERENCE {}
-impl ::core::clone::Clone for SPINTERFERENCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SPINTERFERENCE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SPINTERFERENCE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10431,19 +9661,8 @@ impl ::core::fmt::Debug for SPINTERFERENCE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SPLEXICONTYPE(pub i32);
-impl ::core::marker::Copy for SPLEXICONTYPE {}
-impl ::core::clone::Clone for SPLEXICONTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SPLEXICONTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SPLEXICONTYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10453,19 +9672,8 @@ impl ::core::fmt::Debug for SPLEXICONTYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SPLOADOPTIONS(pub i32);
-impl ::core::marker::Copy for SPLOADOPTIONS {}
-impl ::core::clone::Clone for SPLOADOPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SPLOADOPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SPLOADOPTIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10475,19 +9683,8 @@ impl ::core::fmt::Debug for SPLOADOPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SPMATCHINGMODE(pub i32);
-impl ::core::marker::Copy for SPMATCHINGMODE {}
-impl ::core::clone::Clone for SPMATCHINGMODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SPMATCHINGMODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SPMATCHINGMODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10497,19 +9694,8 @@ impl ::core::fmt::Debug for SPMATCHINGMODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SPPARTOFSPEECH(pub i32);
-impl ::core::marker::Copy for SPPARTOFSPEECH {}
-impl ::core::clone::Clone for SPPARTOFSPEECH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SPPARTOFSPEECH {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SPPARTOFSPEECH {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10519,19 +9705,8 @@ impl ::core::fmt::Debug for SPPARTOFSPEECH {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SPPHRASEPROPERTYUNIONTYPE(pub i32);
-impl ::core::marker::Copy for SPPHRASEPROPERTYUNIONTYPE {}
-impl ::core::clone::Clone for SPPHRASEPROPERTYUNIONTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SPPHRASEPROPERTYUNIONTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SPPHRASEPROPERTYUNIONTYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10541,19 +9716,8 @@ impl ::core::fmt::Debug for SPPHRASEPROPERTYUNIONTYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SPPHRASERNG(pub i32);
-impl ::core::marker::Copy for SPPHRASERNG {}
-impl ::core::clone::Clone for SPPHRASERNG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SPPHRASERNG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SPPHRASERNG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10563,19 +9727,8 @@ impl ::core::fmt::Debug for SPPHRASERNG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SPPRONUNCIATIONFLAGS(pub i32);
-impl ::core::marker::Copy for SPPRONUNCIATIONFLAGS {}
-impl ::core::clone::Clone for SPPRONUNCIATIONFLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SPPRONUNCIATIONFLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SPPRONUNCIATIONFLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10585,19 +9738,8 @@ impl ::core::fmt::Debug for SPPRONUNCIATIONFLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SPRECOEVENTFLAGS(pub i32);
-impl ::core::marker::Copy for SPRECOEVENTFLAGS {}
-impl ::core::clone::Clone for SPRECOEVENTFLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SPRECOEVENTFLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SPRECOEVENTFLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10607,19 +9749,8 @@ impl ::core::fmt::Debug for SPRECOEVENTFLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SPRECOSTATE(pub i32);
-impl ::core::marker::Copy for SPRECOSTATE {}
-impl ::core::clone::Clone for SPRECOSTATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SPRECOSTATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SPRECOSTATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10629,19 +9760,8 @@ impl ::core::fmt::Debug for SPRECOSTATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SPRULESTATE(pub i32);
-impl ::core::marker::Copy for SPRULESTATE {}
-impl ::core::clone::Clone for SPRULESTATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SPRULESTATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SPRULESTATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10651,19 +9771,8 @@ impl ::core::fmt::Debug for SPRULESTATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SPRUNSTATE(pub i32);
-impl ::core::marker::Copy for SPRUNSTATE {}
-impl ::core::clone::Clone for SPRUNSTATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SPRUNSTATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SPRUNSTATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10673,19 +9782,8 @@ impl ::core::fmt::Debug for SPRUNSTATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SPSEMANTICFORMAT(pub i32);
-impl ::core::marker::Copy for SPSEMANTICFORMAT {}
-impl ::core::clone::Clone for SPSEMANTICFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SPSEMANTICFORMAT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SPSEMANTICFORMAT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10695,19 +9793,8 @@ impl ::core::fmt::Debug for SPSEMANTICFORMAT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SPSHORTCUTTYPE(pub i32);
-impl ::core::marker::Copy for SPSHORTCUTTYPE {}
-impl ::core::clone::Clone for SPSHORTCUTTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SPSHORTCUTTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SPSHORTCUTTYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10717,19 +9804,8 @@ impl ::core::fmt::Debug for SPSHORTCUTTYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SPSTREAMFORMAT(pub i32);
-impl ::core::marker::Copy for SPSTREAMFORMAT {}
-impl ::core::clone::Clone for SPSTREAMFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SPSTREAMFORMAT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SPSTREAMFORMAT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10739,19 +9815,8 @@ impl ::core::fmt::Debug for SPSTREAMFORMAT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SPSTREAMFORMATTYPE(pub i32);
-impl ::core::marker::Copy for SPSTREAMFORMATTYPE {}
-impl ::core::clone::Clone for SPSTREAMFORMATTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SPSTREAMFORMATTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SPSTREAMFORMATTYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10761,19 +9826,8 @@ impl ::core::fmt::Debug for SPSTREAMFORMATTYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SPVACTIONS(pub i32);
-impl ::core::marker::Copy for SPVACTIONS {}
-impl ::core::clone::Clone for SPVACTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SPVACTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SPVACTIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10783,19 +9837,8 @@ impl ::core::fmt::Debug for SPVACTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SPVALUETYPE(pub i32);
-impl ::core::marker::Copy for SPVALUETYPE {}
-impl ::core::clone::Clone for SPVALUETYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SPVALUETYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SPVALUETYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10805,19 +9848,8 @@ impl ::core::fmt::Debug for SPVALUETYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SPVFEATURE(pub i32);
-impl ::core::marker::Copy for SPVFEATURE {}
-impl ::core::clone::Clone for SPVFEATURE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SPVFEATURE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SPVFEATURE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10827,19 +9859,8 @@ impl ::core::fmt::Debug for SPVFEATURE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SPVISEMES(pub i32);
-impl ::core::marker::Copy for SPVISEMES {}
-impl ::core::clone::Clone for SPVISEMES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SPVISEMES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SPVISEMES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10849,19 +9870,8 @@ impl ::core::fmt::Debug for SPVISEMES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SPVLIMITS(pub i32);
-impl ::core::marker::Copy for SPVLIMITS {}
-impl ::core::clone::Clone for SPVLIMITS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SPVLIMITS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SPVLIMITS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10871,19 +9881,8 @@ impl ::core::fmt::Debug for SPVLIMITS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SPVPRIORITY(pub i32);
-impl ::core::marker::Copy for SPVPRIORITY {}
-impl ::core::clone::Clone for SPVPRIORITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SPVPRIORITY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SPVPRIORITY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10893,19 +9892,8 @@ impl ::core::fmt::Debug for SPVPRIORITY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SPWORDPRONOUNCEABLE(pub i32);
-impl ::core::marker::Copy for SPWORDPRONOUNCEABLE {}
-impl ::core::clone::Clone for SPWORDPRONOUNCEABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SPWORDPRONOUNCEABLE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SPWORDPRONOUNCEABLE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10915,19 +9903,8 @@ impl ::core::fmt::Debug for SPWORDPRONOUNCEABLE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SPWORDTYPE(pub i32);
-impl ::core::marker::Copy for SPWORDTYPE {}
-impl ::core::clone::Clone for SPWORDTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SPWORDTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SPWORDTYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10937,19 +9914,8 @@ impl ::core::fmt::Debug for SPWORDTYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SPXMLRESULTOPTIONS(pub i32);
-impl ::core::marker::Copy for SPXMLRESULTOPTIONS {}
-impl ::core::clone::Clone for SPXMLRESULTOPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SPXMLRESULTOPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SPXMLRESULTOPTIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10959,19 +9925,8 @@ impl ::core::fmt::Debug for SPXMLRESULTOPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SpeechAudioFormatType(pub i32);
-impl ::core::marker::Copy for SpeechAudioFormatType {}
-impl ::core::clone::Clone for SpeechAudioFormatType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpeechAudioFormatType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SpeechAudioFormatType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -10981,19 +9936,8 @@ impl ::core::fmt::Debug for SpeechAudioFormatType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SpeechAudioState(pub i32);
-impl ::core::marker::Copy for SpeechAudioState {}
-impl ::core::clone::Clone for SpeechAudioState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpeechAudioState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SpeechAudioState {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11003,19 +9947,8 @@ impl ::core::fmt::Debug for SpeechAudioState {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SpeechBookmarkOptions(pub i32);
-impl ::core::marker::Copy for SpeechBookmarkOptions {}
-impl ::core::clone::Clone for SpeechBookmarkOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpeechBookmarkOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SpeechBookmarkOptions {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11025,19 +9958,8 @@ impl ::core::fmt::Debug for SpeechBookmarkOptions {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SpeechDataKeyLocation(pub i32);
-impl ::core::marker::Copy for SpeechDataKeyLocation {}
-impl ::core::clone::Clone for SpeechDataKeyLocation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpeechDataKeyLocation {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SpeechDataKeyLocation {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11047,19 +9969,8 @@ impl ::core::fmt::Debug for SpeechDataKeyLocation {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SpeechDiscardType(pub i32);
-impl ::core::marker::Copy for SpeechDiscardType {}
-impl ::core::clone::Clone for SpeechDiscardType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpeechDiscardType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SpeechDiscardType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11069,19 +9980,8 @@ impl ::core::fmt::Debug for SpeechDiscardType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SpeechDisplayAttributes(pub i32);
-impl ::core::marker::Copy for SpeechDisplayAttributes {}
-impl ::core::clone::Clone for SpeechDisplayAttributes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpeechDisplayAttributes {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SpeechDisplayAttributes {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11091,19 +9991,8 @@ impl ::core::fmt::Debug for SpeechDisplayAttributes {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SpeechEmulationCompareFlags(pub i32);
-impl ::core::marker::Copy for SpeechEmulationCompareFlags {}
-impl ::core::clone::Clone for SpeechEmulationCompareFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpeechEmulationCompareFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SpeechEmulationCompareFlags {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11113,19 +10002,8 @@ impl ::core::fmt::Debug for SpeechEmulationCompareFlags {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SpeechEngineConfidence(pub i32);
-impl ::core::marker::Copy for SpeechEngineConfidence {}
-impl ::core::clone::Clone for SpeechEngineConfidence {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpeechEngineConfidence {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SpeechEngineConfidence {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11135,19 +10013,8 @@ impl ::core::fmt::Debug for SpeechEngineConfidence {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SpeechFormatType(pub i32);
-impl ::core::marker::Copy for SpeechFormatType {}
-impl ::core::clone::Clone for SpeechFormatType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpeechFormatType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SpeechFormatType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11157,19 +10024,8 @@ impl ::core::fmt::Debug for SpeechFormatType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SpeechGrammarRuleStateTransitionType(pub i32);
-impl ::core::marker::Copy for SpeechGrammarRuleStateTransitionType {}
-impl ::core::clone::Clone for SpeechGrammarRuleStateTransitionType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpeechGrammarRuleStateTransitionType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SpeechGrammarRuleStateTransitionType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11179,19 +10035,8 @@ impl ::core::fmt::Debug for SpeechGrammarRuleStateTransitionType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SpeechGrammarState(pub i32);
-impl ::core::marker::Copy for SpeechGrammarState {}
-impl ::core::clone::Clone for SpeechGrammarState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpeechGrammarState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SpeechGrammarState {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11201,19 +10046,8 @@ impl ::core::fmt::Debug for SpeechGrammarState {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SpeechGrammarWordType(pub i32);
-impl ::core::marker::Copy for SpeechGrammarWordType {}
-impl ::core::clone::Clone for SpeechGrammarWordType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpeechGrammarWordType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SpeechGrammarWordType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11223,19 +10057,8 @@ impl ::core::fmt::Debug for SpeechGrammarWordType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SpeechInterference(pub i32);
-impl ::core::marker::Copy for SpeechInterference {}
-impl ::core::clone::Clone for SpeechInterference {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpeechInterference {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SpeechInterference {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11245,19 +10068,8 @@ impl ::core::fmt::Debug for SpeechInterference {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SpeechLexiconType(pub i32);
-impl ::core::marker::Copy for SpeechLexiconType {}
-impl ::core::clone::Clone for SpeechLexiconType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpeechLexiconType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SpeechLexiconType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11267,19 +10079,8 @@ impl ::core::fmt::Debug for SpeechLexiconType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SpeechLoadOption(pub i32);
-impl ::core::marker::Copy for SpeechLoadOption {}
-impl ::core::clone::Clone for SpeechLoadOption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpeechLoadOption {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SpeechLoadOption {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11289,19 +10090,8 @@ impl ::core::fmt::Debug for SpeechLoadOption {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SpeechPartOfSpeech(pub i32);
-impl ::core::marker::Copy for SpeechPartOfSpeech {}
-impl ::core::clone::Clone for SpeechPartOfSpeech {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpeechPartOfSpeech {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SpeechPartOfSpeech {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11311,19 +10101,8 @@ impl ::core::fmt::Debug for SpeechPartOfSpeech {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SpeechRecoContextState(pub i32);
-impl ::core::marker::Copy for SpeechRecoContextState {}
-impl ::core::clone::Clone for SpeechRecoContextState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpeechRecoContextState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SpeechRecoContextState {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11333,19 +10112,8 @@ impl ::core::fmt::Debug for SpeechRecoContextState {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SpeechRecoEvents(pub i32);
-impl ::core::marker::Copy for SpeechRecoEvents {}
-impl ::core::clone::Clone for SpeechRecoEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpeechRecoEvents {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SpeechRecoEvents {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11355,19 +10123,8 @@ impl ::core::fmt::Debug for SpeechRecoEvents {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SpeechRecognitionType(pub i32);
-impl ::core::marker::Copy for SpeechRecognitionType {}
-impl ::core::clone::Clone for SpeechRecognitionType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpeechRecognitionType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SpeechRecognitionType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11377,19 +10134,8 @@ impl ::core::fmt::Debug for SpeechRecognitionType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SpeechRecognizerState(pub i32);
-impl ::core::marker::Copy for SpeechRecognizerState {}
-impl ::core::clone::Clone for SpeechRecognizerState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpeechRecognizerState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SpeechRecognizerState {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11399,19 +10145,8 @@ impl ::core::fmt::Debug for SpeechRecognizerState {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SpeechRetainedAudioOptions(pub i32);
-impl ::core::marker::Copy for SpeechRetainedAudioOptions {}
-impl ::core::clone::Clone for SpeechRetainedAudioOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpeechRetainedAudioOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SpeechRetainedAudioOptions {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11421,19 +10156,8 @@ impl ::core::fmt::Debug for SpeechRetainedAudioOptions {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SpeechRuleAttributes(pub i32);
-impl ::core::marker::Copy for SpeechRuleAttributes {}
-impl ::core::clone::Clone for SpeechRuleAttributes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpeechRuleAttributes {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SpeechRuleAttributes {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11443,19 +10167,8 @@ impl ::core::fmt::Debug for SpeechRuleAttributes {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SpeechRuleState(pub i32);
-impl ::core::marker::Copy for SpeechRuleState {}
-impl ::core::clone::Clone for SpeechRuleState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpeechRuleState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SpeechRuleState {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11465,19 +10178,8 @@ impl ::core::fmt::Debug for SpeechRuleState {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SpeechRunState(pub i32);
-impl ::core::marker::Copy for SpeechRunState {}
-impl ::core::clone::Clone for SpeechRunState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpeechRunState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SpeechRunState {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11487,19 +10189,8 @@ impl ::core::fmt::Debug for SpeechRunState {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SpeechSpecialTransitionType(pub i32);
-impl ::core::marker::Copy for SpeechSpecialTransitionType {}
-impl ::core::clone::Clone for SpeechSpecialTransitionType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpeechSpecialTransitionType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SpeechSpecialTransitionType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11509,19 +10200,8 @@ impl ::core::fmt::Debug for SpeechSpecialTransitionType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SpeechStreamFileMode(pub i32);
-impl ::core::marker::Copy for SpeechStreamFileMode {}
-impl ::core::clone::Clone for SpeechStreamFileMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpeechStreamFileMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SpeechStreamFileMode {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11531,19 +10211,8 @@ impl ::core::fmt::Debug for SpeechStreamFileMode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SpeechStreamSeekPositionType(pub u32);
-impl ::core::marker::Copy for SpeechStreamSeekPositionType {}
-impl ::core::clone::Clone for SpeechStreamSeekPositionType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpeechStreamSeekPositionType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SpeechStreamSeekPositionType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11553,19 +10222,8 @@ impl ::core::fmt::Debug for SpeechStreamSeekPositionType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SpeechTokenContext(pub u32);
-impl ::core::marker::Copy for SpeechTokenContext {}
-impl ::core::clone::Clone for SpeechTokenContext {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpeechTokenContext {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SpeechTokenContext {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11575,19 +10233,8 @@ impl ::core::fmt::Debug for SpeechTokenContext {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SpeechTokenShellFolder(pub i32);
-impl ::core::marker::Copy for SpeechTokenShellFolder {}
-impl ::core::clone::Clone for SpeechTokenShellFolder {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpeechTokenShellFolder {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SpeechTokenShellFolder {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11597,19 +10244,8 @@ impl ::core::fmt::Debug for SpeechTokenShellFolder {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SpeechVisemeFeature(pub i32);
-impl ::core::marker::Copy for SpeechVisemeFeature {}
-impl ::core::clone::Clone for SpeechVisemeFeature {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpeechVisemeFeature {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SpeechVisemeFeature {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11619,19 +10255,8 @@ impl ::core::fmt::Debug for SpeechVisemeFeature {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SpeechVisemeType(pub i32);
-impl ::core::marker::Copy for SpeechVisemeType {}
-impl ::core::clone::Clone for SpeechVisemeType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpeechVisemeType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SpeechVisemeType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11641,19 +10266,8 @@ impl ::core::fmt::Debug for SpeechVisemeType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SpeechVoiceEvents(pub i32);
-impl ::core::marker::Copy for SpeechVoiceEvents {}
-impl ::core::clone::Clone for SpeechVoiceEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpeechVoiceEvents {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SpeechVoiceEvents {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11663,19 +10277,8 @@ impl ::core::fmt::Debug for SpeechVoiceEvents {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SpeechVoicePriority(pub i32);
-impl ::core::marker::Copy for SpeechVoicePriority {}
-impl ::core::clone::Clone for SpeechVoicePriority {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpeechVoicePriority {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SpeechVoicePriority {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11685,19 +10288,8 @@ impl ::core::fmt::Debug for SpeechVoicePriority {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SpeechVoiceSpeakFlags(pub i32);
-impl ::core::marker::Copy for SpeechVoiceSpeakFlags {}
-impl ::core::clone::Clone for SpeechVoiceSpeakFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpeechVoiceSpeakFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SpeechVoiceSpeakFlags {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11707,19 +10299,8 @@ impl ::core::fmt::Debug for SpeechVoiceSpeakFlags {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SpeechWordPronounceable(pub i32);
-impl ::core::marker::Copy for SpeechWordPronounceable {}
-impl ::core::clone::Clone for SpeechWordPronounceable {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpeechWordPronounceable {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SpeechWordPronounceable {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -11729,19 +10310,8 @@ impl ::core::fmt::Debug for SpeechWordPronounceable {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SpeechWordType(pub i32);
-impl ::core::marker::Copy for SpeechWordType {}
-impl ::core::clone::Clone for SpeechWordType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpeechWordType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SpeechWordType {
     type TypeKind = ::windows_core::CopyType;
 }

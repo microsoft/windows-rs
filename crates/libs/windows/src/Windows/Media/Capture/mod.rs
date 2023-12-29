@@ -8478,23 +8478,12 @@ impl ::windows_core::RuntimeName for VideoStreamConfiguration {
 unsafe impl ::core::marker::Send for VideoStreamConfiguration {}
 unsafe impl ::core::marker::Sync for VideoStreamConfiguration {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AppBroadcastCameraCaptureState(pub i32);
 impl AppBroadcastCameraCaptureState {
     pub const Stopped: Self = Self(0i32);
     pub const Started: Self = Self(1i32);
     pub const Failed: Self = Self(2i32);
-}
-impl ::core::marker::Copy for AppBroadcastCameraCaptureState {}
-impl ::core::clone::Clone for AppBroadcastCameraCaptureState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AppBroadcastCameraCaptureState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AppBroadcastCameraCaptureState {
     type TypeKind = ::windows_core::CopyType;
@@ -8508,7 +8497,7 @@ impl ::windows_core::RuntimeType for AppBroadcastCameraCaptureState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppBroadcastCameraCaptureState;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AppBroadcastCameraOverlayLocation(pub i32);
 impl AppBroadcastCameraOverlayLocation {
     pub const TopLeft: Self = Self(0i32);
@@ -8520,17 +8509,6 @@ impl AppBroadcastCameraOverlayLocation {
     pub const BottomLeft: Self = Self(6i32);
     pub const BottomCenter: Self = Self(7i32);
     pub const BottomRight: Self = Self(8i32);
-}
-impl ::core::marker::Copy for AppBroadcastCameraOverlayLocation {}
-impl ::core::clone::Clone for AppBroadcastCameraOverlayLocation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AppBroadcastCameraOverlayLocation {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AppBroadcastCameraOverlayLocation {
     type TypeKind = ::windows_core::CopyType;
@@ -8544,23 +8522,12 @@ impl ::windows_core::RuntimeType for AppBroadcastCameraOverlayLocation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppBroadcastCameraOverlayLocation;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AppBroadcastCameraOverlaySize(pub i32);
 impl AppBroadcastCameraOverlaySize {
     pub const Small: Self = Self(0i32);
     pub const Medium: Self = Self(1i32);
     pub const Large: Self = Self(2i32);
-}
-impl ::core::marker::Copy for AppBroadcastCameraOverlaySize {}
-impl ::core::clone::Clone for AppBroadcastCameraOverlaySize {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AppBroadcastCameraOverlaySize {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AppBroadcastCameraOverlaySize {
     type TypeKind = ::windows_core::CopyType;
@@ -8574,22 +8541,11 @@ impl ::windows_core::RuntimeType for AppBroadcastCameraOverlaySize {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppBroadcastCameraOverlaySize;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AppBroadcastCaptureTargetType(pub i32);
 impl AppBroadcastCaptureTargetType {
     pub const AppView: Self = Self(0i32);
     pub const EntireDisplay: Self = Self(1i32);
-}
-impl ::core::marker::Copy for AppBroadcastCaptureTargetType {}
-impl ::core::clone::Clone for AppBroadcastCaptureTargetType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AppBroadcastCaptureTargetType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AppBroadcastCaptureTargetType {
     type TypeKind = ::windows_core::CopyType;
@@ -8603,24 +8559,13 @@ impl ::windows_core::RuntimeType for AppBroadcastCaptureTargetType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppBroadcastCaptureTargetType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AppBroadcastExitBroadcastModeReason(pub i32);
 impl AppBroadcastExitBroadcastModeReason {
     pub const NormalExit: Self = Self(0i32);
     pub const UserCanceled: Self = Self(1i32);
     pub const AuthorizationFail: Self = Self(2i32);
     pub const ForegroundAppActivated: Self = Self(3i32);
-}
-impl ::core::marker::Copy for AppBroadcastExitBroadcastModeReason {}
-impl ::core::clone::Clone for AppBroadcastExitBroadcastModeReason {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AppBroadcastExitBroadcastModeReason {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AppBroadcastExitBroadcastModeReason {
     type TypeKind = ::windows_core::CopyType;
@@ -8634,23 +8579,12 @@ impl ::windows_core::RuntimeType for AppBroadcastExitBroadcastModeReason {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppBroadcastExitBroadcastModeReason;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AppBroadcastMicrophoneCaptureState(pub i32);
 impl AppBroadcastMicrophoneCaptureState {
     pub const Stopped: Self = Self(0i32);
     pub const Started: Self = Self(1i32);
     pub const Failed: Self = Self(2i32);
-}
-impl ::core::marker::Copy for AppBroadcastMicrophoneCaptureState {}
-impl ::core::clone::Clone for AppBroadcastMicrophoneCaptureState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AppBroadcastMicrophoneCaptureState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AppBroadcastMicrophoneCaptureState {
     type TypeKind = ::windows_core::CopyType;
@@ -8664,7 +8598,7 @@ impl ::windows_core::RuntimeType for AppBroadcastMicrophoneCaptureState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppBroadcastMicrophoneCaptureState;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AppBroadcastPlugInState(pub i32);
 impl AppBroadcastPlugInState {
     pub const Unknown: Self = Self(0i32);
@@ -8674,17 +8608,6 @@ impl AppBroadcastPlugInState {
     pub const ProviderSignInRequired: Self = Self(4i32);
     pub const InBandwidthTest: Self = Self(5i32);
     pub const ReadyToBroadcast: Self = Self(6i32);
-}
-impl ::core::marker::Copy for AppBroadcastPlugInState {}
-impl ::core::clone::Clone for AppBroadcastPlugInState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AppBroadcastPlugInState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AppBroadcastPlugInState {
     type TypeKind = ::windows_core::CopyType;
@@ -8698,23 +8621,12 @@ impl ::windows_core::RuntimeType for AppBroadcastPlugInState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppBroadcastPlugInState;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AppBroadcastPreviewState(pub i32);
 impl AppBroadcastPreviewState {
     pub const Started: Self = Self(0i32);
     pub const Stopped: Self = Self(1i32);
     pub const Failed: Self = Self(2i32);
-}
-impl ::core::marker::Copy for AppBroadcastPreviewState {}
-impl ::core::clone::Clone for AppBroadcastPreviewState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AppBroadcastPreviewState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AppBroadcastPreviewState {
     type TypeKind = ::windows_core::CopyType;
@@ -8728,7 +8640,7 @@ impl ::windows_core::RuntimeType for AppBroadcastPreviewState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppBroadcastPreviewState;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AppBroadcastSignInResult(pub i32);
 impl AppBroadcastSignInResult {
     pub const Success: Self = Self(0i32);
@@ -8736,17 +8648,6 @@ impl AppBroadcastSignInResult {
     pub const Unauthorized: Self = Self(2i32);
     pub const ServiceUnavailable: Self = Self(3i32);
     pub const Unknown: Self = Self(4i32);
-}
-impl ::core::marker::Copy for AppBroadcastSignInResult {}
-impl ::core::clone::Clone for AppBroadcastSignInResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AppBroadcastSignInResult {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AppBroadcastSignInResult {
     type TypeKind = ::windows_core::CopyType;
@@ -8760,7 +8661,7 @@ impl ::windows_core::RuntimeType for AppBroadcastSignInResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppBroadcastSignInResult;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AppBroadcastSignInState(pub i32);
 impl AppBroadcastSignInState {
     pub const NotSignedIn: Self = Self(0i32);
@@ -8768,17 +8669,6 @@ impl AppBroadcastSignInState {
     pub const MicrosoftSignInComplete: Self = Self(2i32);
     pub const OAuthSignInInProgress: Self = Self(3i32);
     pub const OAuthSignInComplete: Self = Self(4i32);
-}
-impl ::core::marker::Copy for AppBroadcastSignInState {}
-impl ::core::clone::Clone for AppBroadcastSignInState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AppBroadcastSignInState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AppBroadcastSignInState {
     type TypeKind = ::windows_core::CopyType;
@@ -8792,7 +8682,7 @@ impl ::windows_core::RuntimeType for AppBroadcastSignInState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppBroadcastSignInState;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AppBroadcastStreamState(pub i32);
 impl AppBroadcastStreamState {
     pub const Initializing: Self = Self(0i32);
@@ -8800,17 +8690,6 @@ impl AppBroadcastStreamState {
     pub const Started: Self = Self(2i32);
     pub const Paused: Self = Self(3i32);
     pub const Terminated: Self = Self(4i32);
-}
-impl ::core::marker::Copy for AppBroadcastStreamState {}
-impl ::core::clone::Clone for AppBroadcastStreamState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AppBroadcastStreamState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AppBroadcastStreamState {
     type TypeKind = ::windows_core::CopyType;
@@ -8824,7 +8703,7 @@ impl ::windows_core::RuntimeType for AppBroadcastStreamState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppBroadcastStreamState;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AppBroadcastTerminationReason(pub i32);
 impl AppBroadcastTerminationReason {
     pub const NormalTermination: Self = Self(0i32);
@@ -8838,17 +8717,6 @@ impl AppBroadcastTerminationReason {
     pub const BackgroundTaskTerminated: Self = Self(8i32);
     pub const BackgroundTaskUnresponsive: Self = Self(9i32);
 }
-impl ::core::marker::Copy for AppBroadcastTerminationReason {}
-impl ::core::clone::Clone for AppBroadcastTerminationReason {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AppBroadcastTerminationReason {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AppBroadcastTerminationReason {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -8861,22 +8729,11 @@ impl ::windows_core::RuntimeType for AppBroadcastTerminationReason {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppBroadcastTerminationReason;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AppBroadcastVideoEncodingBitrateMode(pub i32);
 impl AppBroadcastVideoEncodingBitrateMode {
     pub const Custom: Self = Self(0i32);
     pub const Auto: Self = Self(1i32);
-}
-impl ::core::marker::Copy for AppBroadcastVideoEncodingBitrateMode {}
-impl ::core::clone::Clone for AppBroadcastVideoEncodingBitrateMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AppBroadcastVideoEncodingBitrateMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AppBroadcastVideoEncodingBitrateMode {
     type TypeKind = ::windows_core::CopyType;
@@ -8890,22 +8747,11 @@ impl ::windows_core::RuntimeType for AppBroadcastVideoEncodingBitrateMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppBroadcastVideoEncodingBitrateMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AppBroadcastVideoEncodingResolutionMode(pub i32);
 impl AppBroadcastVideoEncodingResolutionMode {
     pub const Custom: Self = Self(0i32);
     pub const Auto: Self = Self(1i32);
-}
-impl ::core::marker::Copy for AppBroadcastVideoEncodingResolutionMode {}
-impl ::core::clone::Clone for AppBroadcastVideoEncodingResolutionMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AppBroadcastVideoEncodingResolutionMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AppBroadcastVideoEncodingResolutionMode {
     type TypeKind = ::windows_core::CopyType;
@@ -8919,22 +8765,11 @@ impl ::windows_core::RuntimeType for AppBroadcastVideoEncodingResolutionMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppBroadcastVideoEncodingResolutionMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AppCaptureHistoricalBufferLengthUnit(pub i32);
 impl AppCaptureHistoricalBufferLengthUnit {
     pub const Megabytes: Self = Self(0i32);
     pub const Seconds: Self = Self(1i32);
-}
-impl ::core::marker::Copy for AppCaptureHistoricalBufferLengthUnit {}
-impl ::core::clone::Clone for AppCaptureHistoricalBufferLengthUnit {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AppCaptureHistoricalBufferLengthUnit {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AppCaptureHistoricalBufferLengthUnit {
     type TypeKind = ::windows_core::CopyType;
@@ -8948,22 +8783,11 @@ impl ::windows_core::RuntimeType for AppCaptureHistoricalBufferLengthUnit {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppCaptureHistoricalBufferLengthUnit;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AppCaptureMetadataPriority(pub i32);
 impl AppCaptureMetadataPriority {
     pub const Informational: Self = Self(0i32);
     pub const Important: Self = Self(1i32);
-}
-impl ::core::marker::Copy for AppCaptureMetadataPriority {}
-impl ::core::clone::Clone for AppCaptureMetadataPriority {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AppCaptureMetadataPriority {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AppCaptureMetadataPriority {
     type TypeKind = ::windows_core::CopyType;
@@ -8977,23 +8801,12 @@ impl ::windows_core::RuntimeType for AppCaptureMetadataPriority {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppCaptureMetadataPriority;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AppCaptureMicrophoneCaptureState(pub i32);
 impl AppCaptureMicrophoneCaptureState {
     pub const Stopped: Self = Self(0i32);
     pub const Started: Self = Self(1i32);
     pub const Failed: Self = Self(2i32);
-}
-impl ::core::marker::Copy for AppCaptureMicrophoneCaptureState {}
-impl ::core::clone::Clone for AppCaptureMicrophoneCaptureState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AppCaptureMicrophoneCaptureState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AppCaptureMicrophoneCaptureState {
     type TypeKind = ::windows_core::CopyType;
@@ -9007,23 +8820,12 @@ impl ::windows_core::RuntimeType for AppCaptureMicrophoneCaptureState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppCaptureMicrophoneCaptureState;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AppCaptureRecordingState(pub i32);
 impl AppCaptureRecordingState {
     pub const InProgress: Self = Self(0i32);
     pub const Completed: Self = Self(1i32);
     pub const Failed: Self = Self(2i32);
-}
-impl ::core::marker::Copy for AppCaptureRecordingState {}
-impl ::core::clone::Clone for AppCaptureRecordingState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AppCaptureRecordingState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AppCaptureRecordingState {
     type TypeKind = ::windows_core::CopyType;
@@ -9037,23 +8839,12 @@ impl ::windows_core::RuntimeType for AppCaptureRecordingState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppCaptureRecordingState;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AppCaptureVideoEncodingBitrateMode(pub i32);
 impl AppCaptureVideoEncodingBitrateMode {
     pub const Custom: Self = Self(0i32);
     pub const High: Self = Self(1i32);
     pub const Standard: Self = Self(2i32);
-}
-impl ::core::marker::Copy for AppCaptureVideoEncodingBitrateMode {}
-impl ::core::clone::Clone for AppCaptureVideoEncodingBitrateMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AppCaptureVideoEncodingBitrateMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AppCaptureVideoEncodingBitrateMode {
     type TypeKind = ::windows_core::CopyType;
@@ -9067,22 +8858,11 @@ impl ::windows_core::RuntimeType for AppCaptureVideoEncodingBitrateMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppCaptureVideoEncodingBitrateMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AppCaptureVideoEncodingFrameRateMode(pub i32);
 impl AppCaptureVideoEncodingFrameRateMode {
     pub const Standard: Self = Self(0i32);
     pub const High: Self = Self(1i32);
-}
-impl ::core::marker::Copy for AppCaptureVideoEncodingFrameRateMode {}
-impl ::core::clone::Clone for AppCaptureVideoEncodingFrameRateMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AppCaptureVideoEncodingFrameRateMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AppCaptureVideoEncodingFrameRateMode {
     type TypeKind = ::windows_core::CopyType;
@@ -9096,23 +8876,12 @@ impl ::windows_core::RuntimeType for AppCaptureVideoEncodingFrameRateMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppCaptureVideoEncodingFrameRateMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AppCaptureVideoEncodingResolutionMode(pub i32);
 impl AppCaptureVideoEncodingResolutionMode {
     pub const Custom: Self = Self(0i32);
     pub const High: Self = Self(1i32);
     pub const Standard: Self = Self(2i32);
-}
-impl ::core::marker::Copy for AppCaptureVideoEncodingResolutionMode {}
-impl ::core::clone::Clone for AppCaptureVideoEncodingResolutionMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AppCaptureVideoEncodingResolutionMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for AppCaptureVideoEncodingResolutionMode {
     type TypeKind = ::windows_core::CopyType;
@@ -9126,7 +8895,7 @@ impl ::windows_core::RuntimeType for AppCaptureVideoEncodingResolutionMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppCaptureVideoEncodingResolutionMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CameraCaptureUIMaxPhotoResolution(pub i32);
 impl CameraCaptureUIMaxPhotoResolution {
     pub const HighestAvailable: Self = Self(0i32);
@@ -9135,17 +8904,6 @@ impl CameraCaptureUIMaxPhotoResolution {
     pub const MediumXga: Self = Self(3i32);
     pub const Large3M: Self = Self(4i32);
     pub const VeryLarge5M: Self = Self(5i32);
-}
-impl ::core::marker::Copy for CameraCaptureUIMaxPhotoResolution {}
-impl ::core::clone::Clone for CameraCaptureUIMaxPhotoResolution {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CameraCaptureUIMaxPhotoResolution {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CameraCaptureUIMaxPhotoResolution {
     type TypeKind = ::windows_core::CopyType;
@@ -9159,24 +8917,13 @@ impl ::windows_core::RuntimeType for CameraCaptureUIMaxPhotoResolution {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.CameraCaptureUIMaxPhotoResolution;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CameraCaptureUIMaxVideoResolution(pub i32);
 impl CameraCaptureUIMaxVideoResolution {
     pub const HighestAvailable: Self = Self(0i32);
     pub const LowDefinition: Self = Self(1i32);
     pub const StandardDefinition: Self = Self(2i32);
     pub const HighDefinition: Self = Self(3i32);
-}
-impl ::core::marker::Copy for CameraCaptureUIMaxVideoResolution {}
-impl ::core::clone::Clone for CameraCaptureUIMaxVideoResolution {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CameraCaptureUIMaxVideoResolution {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CameraCaptureUIMaxVideoResolution {
     type TypeKind = ::windows_core::CopyType;
@@ -9190,23 +8937,12 @@ impl ::windows_core::RuntimeType for CameraCaptureUIMaxVideoResolution {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.CameraCaptureUIMaxVideoResolution;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CameraCaptureUIMode(pub i32);
 impl CameraCaptureUIMode {
     pub const PhotoOrVideo: Self = Self(0i32);
     pub const Photo: Self = Self(1i32);
     pub const Video: Self = Self(2i32);
-}
-impl ::core::marker::Copy for CameraCaptureUIMode {}
-impl ::core::clone::Clone for CameraCaptureUIMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CameraCaptureUIMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CameraCaptureUIMode {
     type TypeKind = ::windows_core::CopyType;
@@ -9220,23 +8956,12 @@ impl ::windows_core::RuntimeType for CameraCaptureUIMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.CameraCaptureUIMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CameraCaptureUIPhotoFormat(pub i32);
 impl CameraCaptureUIPhotoFormat {
     pub const Jpeg: Self = Self(0i32);
     pub const Png: Self = Self(1i32);
     pub const JpegXR: Self = Self(2i32);
-}
-impl ::core::marker::Copy for CameraCaptureUIPhotoFormat {}
-impl ::core::clone::Clone for CameraCaptureUIPhotoFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CameraCaptureUIPhotoFormat {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CameraCaptureUIPhotoFormat {
     type TypeKind = ::windows_core::CopyType;
@@ -9250,22 +8975,11 @@ impl ::windows_core::RuntimeType for CameraCaptureUIPhotoFormat {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.CameraCaptureUIPhotoFormat;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CameraCaptureUIVideoFormat(pub i32);
 impl CameraCaptureUIVideoFormat {
     pub const Mp4: Self = Self(0i32);
     pub const Wmv: Self = Self(1i32);
-}
-impl ::core::marker::Copy for CameraCaptureUIVideoFormat {}
-impl ::core::clone::Clone for CameraCaptureUIVideoFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CameraCaptureUIVideoFormat {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CameraCaptureUIVideoFormat {
     type TypeKind = ::windows_core::CopyType;
@@ -9279,22 +8993,11 @@ impl ::windows_core::RuntimeType for CameraCaptureUIVideoFormat {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.CameraCaptureUIVideoFormat;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ForegroundActivationArgument(pub i32);
 impl ForegroundActivationArgument {
     pub const SignInRequired: Self = Self(0i32);
     pub const MoreSettings: Self = Self(1i32);
-}
-impl ::core::marker::Copy for ForegroundActivationArgument {}
-impl ::core::clone::Clone for ForegroundActivationArgument {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ForegroundActivationArgument {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ForegroundActivationArgument {
     type TypeKind = ::windows_core::CopyType;
@@ -9308,7 +9011,7 @@ impl ::windows_core::RuntimeType for ForegroundActivationArgument {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.ForegroundActivationArgument;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GameBarCommand(pub i32);
 impl GameBarCommand {
     pub const OpenGameBar: Self = Self(0i32);
@@ -9326,17 +9029,6 @@ impl GameBarCommand {
     pub const ToggleCameraCapture: Self = Self(12i32);
     pub const ToggleRecordingIndicator: Self = Self(13i32);
 }
-impl ::core::marker::Copy for GameBarCommand {}
-impl ::core::clone::Clone for GameBarCommand {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GameBarCommand {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for GameBarCommand {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9349,23 +9041,12 @@ impl ::windows_core::RuntimeType for GameBarCommand {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.GameBarCommand;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GameBarCommandOrigin(pub i32);
 impl GameBarCommandOrigin {
     pub const ShortcutKey: Self = Self(0i32);
     pub const Cortana: Self = Self(1i32);
     pub const AppCommand: Self = Self(2i32);
-}
-impl ::core::marker::Copy for GameBarCommandOrigin {}
-impl ::core::clone::Clone for GameBarCommandOrigin {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GameBarCommandOrigin {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for GameBarCommandOrigin {
     type TypeKind = ::windows_core::CopyType;
@@ -9379,22 +9060,11 @@ impl ::windows_core::RuntimeType for GameBarCommandOrigin {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.GameBarCommandOrigin;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GameBarServicesDisplayMode(pub i32);
 impl GameBarServicesDisplayMode {
     pub const Windowed: Self = Self(0i32);
     pub const FullScreenExclusive: Self = Self(1i32);
-}
-impl ::core::marker::Copy for GameBarServicesDisplayMode {}
-impl ::core::clone::Clone for GameBarServicesDisplayMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GameBarServicesDisplayMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for GameBarServicesDisplayMode {
     type TypeKind = ::windows_core::CopyType;
@@ -9408,7 +9078,7 @@ impl ::windows_core::RuntimeType for GameBarServicesDisplayMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.GameBarServicesDisplayMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct GameBarTargetCapturePolicy(pub i32);
 impl GameBarTargetCapturePolicy {
     pub const EnabledBySystem: Self = Self(0i32);
@@ -9416,17 +9086,6 @@ impl GameBarTargetCapturePolicy {
     pub const NotEnabled: Self = Self(2i32);
     pub const ProhibitedBySystem: Self = Self(3i32);
     pub const ProhibitedByPublisher: Self = Self(4i32);
-}
-impl ::core::marker::Copy for GameBarTargetCapturePolicy {}
-impl ::core::clone::Clone for GameBarTargetCapturePolicy {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GameBarTargetCapturePolicy {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for GameBarTargetCapturePolicy {
     type TypeKind = ::windows_core::CopyType;
@@ -9440,7 +9099,7 @@ impl ::windows_core::RuntimeType for GameBarTargetCapturePolicy {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.GameBarTargetCapturePolicy;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct KnownVideoProfile(pub i32);
 impl KnownVideoProfile {
     pub const VideoRecording: Self = Self(0i32);
@@ -9455,17 +9114,6 @@ impl KnownVideoProfile {
     pub const VideoHdr8: Self = Self(9i32);
     pub const CompressedCamera: Self = Self(10i32);
 }
-impl ::core::marker::Copy for KnownVideoProfile {}
-impl ::core::clone::Clone for KnownVideoProfile {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KnownVideoProfile {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for KnownVideoProfile {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -9478,22 +9126,11 @@ impl ::windows_core::RuntimeType for KnownVideoProfile {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.KnownVideoProfile;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MediaCaptureDeviceExclusiveControlReleaseMode(pub i32);
 impl MediaCaptureDeviceExclusiveControlReleaseMode {
     pub const OnDispose: Self = Self(0i32);
     pub const OnAllStreamsStopped: Self = Self(1i32);
-}
-impl ::core::marker::Copy for MediaCaptureDeviceExclusiveControlReleaseMode {}
-impl ::core::clone::Clone for MediaCaptureDeviceExclusiveControlReleaseMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MediaCaptureDeviceExclusiveControlReleaseMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MediaCaptureDeviceExclusiveControlReleaseMode {
     type TypeKind = ::windows_core::CopyType;
@@ -9507,22 +9144,11 @@ impl ::windows_core::RuntimeType for MediaCaptureDeviceExclusiveControlReleaseMo
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.MediaCaptureDeviceExclusiveControlReleaseMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MediaCaptureDeviceExclusiveControlStatus(pub i32);
 impl MediaCaptureDeviceExclusiveControlStatus {
     pub const ExclusiveControlAvailable: Self = Self(0i32);
     pub const SharedReadOnlyAvailable: Self = Self(1i32);
-}
-impl ::core::marker::Copy for MediaCaptureDeviceExclusiveControlStatus {}
-impl ::core::clone::Clone for MediaCaptureDeviceExclusiveControlStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MediaCaptureDeviceExclusiveControlStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MediaCaptureDeviceExclusiveControlStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -9536,22 +9162,11 @@ impl ::windows_core::RuntimeType for MediaCaptureDeviceExclusiveControlStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.MediaCaptureDeviceExclusiveControlStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MediaCaptureMemoryPreference(pub i32);
 impl MediaCaptureMemoryPreference {
     pub const Auto: Self = Self(0i32);
     pub const Cpu: Self = Self(1i32);
-}
-impl ::core::marker::Copy for MediaCaptureMemoryPreference {}
-impl ::core::clone::Clone for MediaCaptureMemoryPreference {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MediaCaptureMemoryPreference {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MediaCaptureMemoryPreference {
     type TypeKind = ::windows_core::CopyType;
@@ -9565,22 +9180,11 @@ impl ::windows_core::RuntimeType for MediaCaptureMemoryPreference {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.MediaCaptureMemoryPreference;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MediaCaptureSharingMode(pub i32);
 impl MediaCaptureSharingMode {
     pub const ExclusiveControl: Self = Self(0i32);
     pub const SharedReadOnly: Self = Self(1i32);
-}
-impl ::core::marker::Copy for MediaCaptureSharingMode {}
-impl ::core::clone::Clone for MediaCaptureSharingMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MediaCaptureSharingMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MediaCaptureSharingMode {
     type TypeKind = ::windows_core::CopyType;
@@ -9594,22 +9198,11 @@ impl ::windows_core::RuntimeType for MediaCaptureSharingMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.MediaCaptureSharingMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MediaCaptureThermalStatus(pub i32);
 impl MediaCaptureThermalStatus {
     pub const Normal: Self = Self(0i32);
     pub const Overheated: Self = Self(1i32);
-}
-impl ::core::marker::Copy for MediaCaptureThermalStatus {}
-impl ::core::clone::Clone for MediaCaptureThermalStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MediaCaptureThermalStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MediaCaptureThermalStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -9623,7 +9216,7 @@ impl ::windows_core::RuntimeType for MediaCaptureThermalStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.MediaCaptureThermalStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MediaCategory(pub i32);
 impl MediaCategory {
     pub const Other: Self = Self(0i32);
@@ -9634,17 +9227,6 @@ impl MediaCategory {
     pub const FarFieldSpeech: Self = Self(5i32);
     pub const UniformSpeech: Self = Self(6i32);
     pub const VoiceTyping: Self = Self(7i32);
-}
-impl ::core::marker::Copy for MediaCategory {}
-impl ::core::clone::Clone for MediaCategory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MediaCategory {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MediaCategory {
     type TypeKind = ::windows_core::CopyType;
@@ -9658,7 +9240,7 @@ impl ::windows_core::RuntimeType for MediaCategory {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.MediaCategory;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MediaStreamType(pub i32);
 impl MediaStreamType {
     pub const VideoPreview: Self = Self(0i32);
@@ -9666,17 +9248,6 @@ impl MediaStreamType {
     pub const Audio: Self = Self(2i32);
     pub const Photo: Self = Self(3i32);
     pub const Metadata: Self = Self(4i32);
-}
-impl ::core::marker::Copy for MediaStreamType {}
-impl ::core::clone::Clone for MediaStreamType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MediaStreamType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MediaStreamType {
     type TypeKind = ::windows_core::CopyType;
@@ -9690,23 +9261,12 @@ impl ::windows_core::RuntimeType for MediaStreamType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.MediaStreamType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PhotoCaptureSource(pub i32);
 impl PhotoCaptureSource {
     pub const Auto: Self = Self(0i32);
     pub const VideoPreview: Self = Self(1i32);
     pub const Photo: Self = Self(2i32);
-}
-impl ::core::marker::Copy for PhotoCaptureSource {}
-impl ::core::clone::Clone for PhotoCaptureSource {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhotoCaptureSource {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PhotoCaptureSource {
     type TypeKind = ::windows_core::CopyType;
@@ -9720,24 +9280,13 @@ impl ::windows_core::RuntimeType for PhotoCaptureSource {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.PhotoCaptureSource;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PowerlineFrequency(pub i32);
 impl PowerlineFrequency {
     pub const Disabled: Self = Self(0i32);
     pub const FiftyHertz: Self = Self(1i32);
     pub const SixtyHertz: Self = Self(2i32);
     pub const Auto: Self = Self(3i32);
-}
-impl ::core::marker::Copy for PowerlineFrequency {}
-impl ::core::clone::Clone for PowerlineFrequency {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PowerlineFrequency {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PowerlineFrequency {
     type TypeKind = ::windows_core::CopyType;
@@ -9751,23 +9300,12 @@ impl ::windows_core::RuntimeType for PowerlineFrequency {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.PowerlineFrequency;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct StreamingCaptureMode(pub i32);
 impl StreamingCaptureMode {
     pub const AudioAndVideo: Self = Self(0i32);
     pub const Audio: Self = Self(1i32);
     pub const Video: Self = Self(2i32);
-}
-impl ::core::marker::Copy for StreamingCaptureMode {}
-impl ::core::clone::Clone for StreamingCaptureMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for StreamingCaptureMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for StreamingCaptureMode {
     type TypeKind = ::windows_core::CopyType;
@@ -9781,7 +9319,7 @@ impl ::windows_core::RuntimeType for StreamingCaptureMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.StreamingCaptureMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VideoDeviceCharacteristic(pub i32);
 impl VideoDeviceCharacteristic {
     pub const AllStreamsIndependent: Self = Self(0i32);
@@ -9789,17 +9327,6 @@ impl VideoDeviceCharacteristic {
     pub const PreviewPhotoStreamsIdentical: Self = Self(2i32);
     pub const RecordPhotoStreamsIdentical: Self = Self(3i32);
     pub const AllStreamsIdentical: Self = Self(4i32);
-}
-impl ::core::marker::Copy for VideoDeviceCharacteristic {}
-impl ::core::clone::Clone for VideoDeviceCharacteristic {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VideoDeviceCharacteristic {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for VideoDeviceCharacteristic {
     type TypeKind = ::windows_core::CopyType;
@@ -9813,24 +9340,13 @@ impl ::windows_core::RuntimeType for VideoDeviceCharacteristic {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.VideoDeviceCharacteristic;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VideoRotation(pub i32);
 impl VideoRotation {
     pub const None: Self = Self(0i32);
     pub const Clockwise90Degrees: Self = Self(1i32);
     pub const Clockwise180Degrees: Self = Self(2i32);
     pub const Clockwise270Degrees: Self = Self(3i32);
-}
-impl ::core::marker::Copy for VideoRotation {}
-impl ::core::clone::Clone for VideoRotation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VideoRotation {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for VideoRotation {
     type TypeKind = ::windows_core::CopyType;

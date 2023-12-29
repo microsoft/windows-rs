@@ -807,19 +807,8 @@ pub const ServiceSharedDirectoryPersistentState: SERVICE_SHARED_DIRECTORY_TYPE =
 pub const ServiceSharedRegistryPersistentState: SERVICE_SHARED_REGISTRY_STATE_TYPE = SERVICE_SHARED_REGISTRY_STATE_TYPE(0i32);
 pub const USER_POLICY_PRESENT_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x54fb46c8_f089_464c_b1fd_59d1b62c3b50);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ENUM_SERVICE_STATE(pub u32);
-impl ::core::marker::Copy for ENUM_SERVICE_STATE {}
-impl ::core::clone::Clone for ENUM_SERVICE_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ENUM_SERVICE_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ENUM_SERVICE_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -829,19 +818,8 @@ impl ::core::fmt::Debug for ENUM_SERVICE_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ENUM_SERVICE_TYPE(pub u32);
-impl ::core::marker::Copy for ENUM_SERVICE_TYPE {}
-impl ::core::clone::Clone for ENUM_SERVICE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ENUM_SERVICE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ENUM_SERVICE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -884,19 +862,8 @@ impl ::core::ops::Not for ENUM_SERVICE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SC_ACTION_TYPE(pub i32);
-impl ::core::marker::Copy for SC_ACTION_TYPE {}
-impl ::core::clone::Clone for SC_ACTION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SC_ACTION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SC_ACTION_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -906,19 +873,8 @@ impl ::core::fmt::Debug for SC_ACTION_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SC_ENUM_TYPE(pub i32);
-impl ::core::marker::Copy for SC_ENUM_TYPE {}
-impl ::core::clone::Clone for SC_ENUM_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SC_ENUM_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SC_ENUM_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -928,19 +884,8 @@ impl ::core::fmt::Debug for SC_ENUM_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SC_EVENT_TYPE(pub i32);
-impl ::core::marker::Copy for SC_EVENT_TYPE {}
-impl ::core::clone::Clone for SC_EVENT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SC_EVENT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SC_EVENT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -950,19 +895,8 @@ impl ::core::fmt::Debug for SC_EVENT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SC_STATUS_TYPE(pub i32);
-impl ::core::marker::Copy for SC_STATUS_TYPE {}
-impl ::core::clone::Clone for SC_STATUS_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SC_STATUS_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SC_STATUS_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -972,19 +906,8 @@ impl ::core::fmt::Debug for SC_STATUS_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SERVICE_CONFIG(pub u32);
-impl ::core::marker::Copy for SERVICE_CONFIG {}
-impl ::core::clone::Clone for SERVICE_CONFIG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SERVICE_CONFIG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SERVICE_CONFIG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -994,19 +917,8 @@ impl ::core::fmt::Debug for SERVICE_CONFIG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SERVICE_DIRECTORY_TYPE(pub i32);
-impl ::core::marker::Copy for SERVICE_DIRECTORY_TYPE {}
-impl ::core::clone::Clone for SERVICE_DIRECTORY_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SERVICE_DIRECTORY_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SERVICE_DIRECTORY_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1016,19 +928,8 @@ impl ::core::fmt::Debug for SERVICE_DIRECTORY_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SERVICE_ERROR(pub u32);
-impl ::core::marker::Copy for SERVICE_ERROR {}
-impl ::core::clone::Clone for SERVICE_ERROR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SERVICE_ERROR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SERVICE_ERROR {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1038,19 +939,8 @@ impl ::core::fmt::Debug for SERVICE_ERROR {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SERVICE_NOTIFY(pub u32);
-impl ::core::marker::Copy for SERVICE_NOTIFY {}
-impl ::core::clone::Clone for SERVICE_NOTIFY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SERVICE_NOTIFY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SERVICE_NOTIFY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1093,19 +983,8 @@ impl ::core::ops::Not for SERVICE_NOTIFY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SERVICE_REGISTRY_STATE_TYPE(pub i32);
-impl ::core::marker::Copy for SERVICE_REGISTRY_STATE_TYPE {}
-impl ::core::clone::Clone for SERVICE_REGISTRY_STATE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SERVICE_REGISTRY_STATE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SERVICE_REGISTRY_STATE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1115,19 +994,8 @@ impl ::core::fmt::Debug for SERVICE_REGISTRY_STATE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SERVICE_RUNS_IN_PROCESS(pub u32);
-impl ::core::marker::Copy for SERVICE_RUNS_IN_PROCESS {}
-impl ::core::clone::Clone for SERVICE_RUNS_IN_PROCESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SERVICE_RUNS_IN_PROCESS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SERVICE_RUNS_IN_PROCESS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1137,19 +1005,8 @@ impl ::core::fmt::Debug for SERVICE_RUNS_IN_PROCESS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SERVICE_SHARED_DIRECTORY_TYPE(pub i32);
-impl ::core::marker::Copy for SERVICE_SHARED_DIRECTORY_TYPE {}
-impl ::core::clone::Clone for SERVICE_SHARED_DIRECTORY_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SERVICE_SHARED_DIRECTORY_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SERVICE_SHARED_DIRECTORY_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1159,19 +1016,8 @@ impl ::core::fmt::Debug for SERVICE_SHARED_DIRECTORY_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SERVICE_SHARED_REGISTRY_STATE_TYPE(pub i32);
-impl ::core::marker::Copy for SERVICE_SHARED_REGISTRY_STATE_TYPE {}
-impl ::core::clone::Clone for SERVICE_SHARED_REGISTRY_STATE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SERVICE_SHARED_REGISTRY_STATE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SERVICE_SHARED_REGISTRY_STATE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1181,19 +1027,8 @@ impl ::core::fmt::Debug for SERVICE_SHARED_REGISTRY_STATE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SERVICE_START_TYPE(pub u32);
-impl ::core::marker::Copy for SERVICE_START_TYPE {}
-impl ::core::clone::Clone for SERVICE_START_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SERVICE_START_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SERVICE_START_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1203,19 +1038,8 @@ impl ::core::fmt::Debug for SERVICE_START_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SERVICE_STATUS_CURRENT_STATE(pub u32);
-impl ::core::marker::Copy for SERVICE_STATUS_CURRENT_STATE {}
-impl ::core::clone::Clone for SERVICE_STATUS_CURRENT_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SERVICE_STATUS_CURRENT_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SERVICE_STATUS_CURRENT_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1225,19 +1049,8 @@ impl ::core::fmt::Debug for SERVICE_STATUS_CURRENT_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SERVICE_TRIGGER_ACTION(pub u32);
-impl ::core::marker::Copy for SERVICE_TRIGGER_ACTION {}
-impl ::core::clone::Clone for SERVICE_TRIGGER_ACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SERVICE_TRIGGER_ACTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SERVICE_TRIGGER_ACTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1247,19 +1060,8 @@ impl ::core::fmt::Debug for SERVICE_TRIGGER_ACTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE(pub u32);
-impl ::core::marker::Copy for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE {}
-impl ::core::clone::Clone for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1269,19 +1071,8 @@ impl ::core::fmt::Debug for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SERVICE_TRIGGER_TYPE(pub u32);
-impl ::core::marker::Copy for SERVICE_TRIGGER_TYPE {}
-impl ::core::clone::Clone for SERVICE_TRIGGER_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SERVICE_TRIGGER_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SERVICE_TRIGGER_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }

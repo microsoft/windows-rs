@@ -2261,6 +2261,7 @@ pub type SECPKG_NAME_TYPE = i32;
 pub type SECPKG_PACKAGE_CHANGE_TYPE = u32;
 pub type SECPKG_SESSIONINFO_TYPE = i32;
 #[repr(transparent)]
+#[derive(::core::marker::Copy, ::core::clone::Clone)]
 pub struct SECURITY_LOGON_TYPE(pub i32);
 impl SECURITY_LOGON_TYPE {
     pub const UndefinedLogonType: Self = Self(0i32);
@@ -2276,12 +2277,6 @@ impl SECURITY_LOGON_TYPE {
     pub const CachedInteractive: Self = Self(11i32);
     pub const CachedRemoteInteractive: Self = Self(12i32);
     pub const CachedUnlock: Self = Self(13i32);
-}
-impl ::core::marker::Copy for SECURITY_LOGON_TYPE {}
-impl ::core::clone::Clone for SECURITY_LOGON_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
 }
 pub type SECURITY_PACKAGE_OPTIONS_TYPE = u32;
 pub type SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT = i32;

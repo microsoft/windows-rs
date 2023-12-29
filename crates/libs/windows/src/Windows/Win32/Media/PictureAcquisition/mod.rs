@@ -872,19 +872,8 @@ pub const PhotoProgressDialog: ::windows_core::GUID = ::windows_core::GUID::from
 pub const USER_INPUT_DEFAULT: USER_INPUT_STRING_TYPE = USER_INPUT_STRING_TYPE(0i32);
 pub const USER_INPUT_PATH_ELEMENT: USER_INPUT_STRING_TYPE = USER_INPUT_STRING_TYPE(1i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DEVICE_SELECTION_DEVICE_TYPE(pub i32);
-impl ::core::marker::Copy for DEVICE_SELECTION_DEVICE_TYPE {}
-impl ::core::clone::Clone for DEVICE_SELECTION_DEVICE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DEVICE_SELECTION_DEVICE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DEVICE_SELECTION_DEVICE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -894,19 +883,8 @@ impl ::core::fmt::Debug for DEVICE_SELECTION_DEVICE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ERROR_ADVISE_MESSAGE_TYPE(pub i32);
-impl ::core::marker::Copy for ERROR_ADVISE_MESSAGE_TYPE {}
-impl ::core::clone::Clone for ERROR_ADVISE_MESSAGE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ERROR_ADVISE_MESSAGE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ERROR_ADVISE_MESSAGE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -916,19 +894,8 @@ impl ::core::fmt::Debug for ERROR_ADVISE_MESSAGE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ERROR_ADVISE_RESULT(pub i32);
-impl ::core::marker::Copy for ERROR_ADVISE_RESULT {}
-impl ::core::clone::Clone for ERROR_ADVISE_RESULT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ERROR_ADVISE_RESULT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ERROR_ADVISE_RESULT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -938,19 +905,8 @@ impl ::core::fmt::Debug for ERROR_ADVISE_RESULT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PROGRESS_DIALOG_CHECKBOX_ID(pub i32);
-impl ::core::marker::Copy for PROGRESS_DIALOG_CHECKBOX_ID {}
-impl ::core::clone::Clone for PROGRESS_DIALOG_CHECKBOX_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PROGRESS_DIALOG_CHECKBOX_ID {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PROGRESS_DIALOG_CHECKBOX_ID {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -960,19 +916,8 @@ impl ::core::fmt::Debug for PROGRESS_DIALOG_CHECKBOX_ID {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PROGRESS_DIALOG_IMAGE_TYPE(pub i32);
-impl ::core::marker::Copy for PROGRESS_DIALOG_IMAGE_TYPE {}
-impl ::core::clone::Clone for PROGRESS_DIALOG_IMAGE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PROGRESS_DIALOG_IMAGE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PROGRESS_DIALOG_IMAGE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -982,19 +927,8 @@ impl ::core::fmt::Debug for PROGRESS_DIALOG_IMAGE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct USER_INPUT_STRING_TYPE(pub i32);
-impl ::core::marker::Copy for USER_INPUT_STRING_TYPE {}
-impl ::core::clone::Clone for USER_INPUT_STRING_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for USER_INPUT_STRING_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for USER_INPUT_STRING_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }

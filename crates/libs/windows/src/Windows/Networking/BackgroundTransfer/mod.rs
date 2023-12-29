@@ -2420,22 +2420,11 @@ impl ::windows_core::CanTryInto<IBackgroundTransferOperationPriority> for Upload
 unsafe impl ::core::marker::Send for UploadOperation {}
 unsafe impl ::core::marker::Sync for UploadOperation {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BackgroundTransferBehavior(pub i32);
 impl BackgroundTransferBehavior {
     pub const Parallel: Self = Self(0i32);
     pub const Serialized: Self = Self(1i32);
-}
-impl ::core::marker::Copy for BackgroundTransferBehavior {}
-impl ::core::clone::Clone for BackgroundTransferBehavior {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BackgroundTransferBehavior {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for BackgroundTransferBehavior {
     type TypeKind = ::windows_core::CopyType;
@@ -2449,23 +2438,12 @@ impl ::windows_core::RuntimeType for BackgroundTransferBehavior {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.BackgroundTransfer.BackgroundTransferBehavior;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BackgroundTransferCostPolicy(pub i32);
 impl BackgroundTransferCostPolicy {
     pub const Default: Self = Self(0i32);
     pub const UnrestrictedOnly: Self = Self(1i32);
     pub const Always: Self = Self(2i32);
-}
-impl ::core::marker::Copy for BackgroundTransferCostPolicy {}
-impl ::core::clone::Clone for BackgroundTransferCostPolicy {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BackgroundTransferCostPolicy {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for BackgroundTransferCostPolicy {
     type TypeKind = ::windows_core::CopyType;
@@ -2479,23 +2457,12 @@ impl ::windows_core::RuntimeType for BackgroundTransferCostPolicy {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.BackgroundTransfer.BackgroundTransferCostPolicy;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BackgroundTransferPriority(pub i32);
 impl BackgroundTransferPriority {
     pub const Default: Self = Self(0i32);
     pub const High: Self = Self(1i32);
     pub const Low: Self = Self(2i32);
-}
-impl ::core::marker::Copy for BackgroundTransferPriority {}
-impl ::core::clone::Clone for BackgroundTransferPriority {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BackgroundTransferPriority {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for BackgroundTransferPriority {
     type TypeKind = ::windows_core::CopyType;
@@ -2509,7 +2476,7 @@ impl ::windows_core::RuntimeType for BackgroundTransferPriority {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.BackgroundTransfer.BackgroundTransferPriority;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BackgroundTransferStatus(pub i32);
 impl BackgroundTransferStatus {
     pub const Idle: Self = Self(0i32);
@@ -2522,17 +2489,6 @@ impl BackgroundTransferStatus {
     pub const Error: Self = Self(7i32);
     pub const PausedRecoverableWebErrorStatus: Self = Self(8i32);
     pub const PausedSystemPolicy: Self = Self(32i32);
-}
-impl ::core::marker::Copy for BackgroundTransferStatus {}
-impl ::core::clone::Clone for BackgroundTransferStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BackgroundTransferStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for BackgroundTransferStatus {
     type TypeKind = ::windows_core::CopyType;

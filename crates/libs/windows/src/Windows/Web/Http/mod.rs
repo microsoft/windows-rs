@@ -2733,22 +2733,11 @@ impl ::windows_core::CanTryInto<super::super::Foundation::IStringable> for HttpT
 unsafe impl ::core::marker::Send for HttpTransportInformation {}
 unsafe impl ::core::marker::Sync for HttpTransportInformation {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HttpCompletionOption(pub i32);
 impl HttpCompletionOption {
     pub const ResponseContentRead: Self = Self(0i32);
     pub const ResponseHeadersRead: Self = Self(1i32);
-}
-impl ::core::marker::Copy for HttpCompletionOption {}
-impl ::core::clone::Clone for HttpCompletionOption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HttpCompletionOption {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for HttpCompletionOption {
     type TypeKind = ::windows_core::CopyType;
@@ -2762,7 +2751,7 @@ impl ::windows_core::RuntimeType for HttpCompletionOption {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Http.HttpCompletionOption;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HttpProgressStage(pub i32);
 impl HttpProgressStage {
     pub const None: Self = Self(0i32);
@@ -2776,17 +2765,6 @@ impl HttpProgressStage {
     pub const ReceivingHeaders: Self = Self(80i32);
     pub const ReceivingContent: Self = Self(90i32);
 }
-impl ::core::marker::Copy for HttpProgressStage {}
-impl ::core::clone::Clone for HttpProgressStage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HttpProgressStage {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HttpProgressStage {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2799,23 +2777,12 @@ impl ::windows_core::RuntimeType for HttpProgressStage {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Http.HttpProgressStage;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HttpResponseMessageSource(pub i32);
 impl HttpResponseMessageSource {
     pub const None: Self = Self(0i32);
     pub const Cache: Self = Self(1i32);
     pub const Network: Self = Self(2i32);
-}
-impl ::core::marker::Copy for HttpResponseMessageSource {}
-impl ::core::clone::Clone for HttpResponseMessageSource {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HttpResponseMessageSource {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for HttpResponseMessageSource {
     type TypeKind = ::windows_core::CopyType;
@@ -2829,7 +2796,7 @@ impl ::windows_core::RuntimeType for HttpResponseMessageSource {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Http.HttpResponseMessageSource;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HttpStatusCode(pub i32);
 impl HttpStatusCode {
     pub const None: Self = Self(0i32);
@@ -2891,17 +2858,6 @@ impl HttpStatusCode {
     pub const NotExtended: Self = Self(510i32);
     pub const NetworkAuthenticationRequired: Self = Self(511i32);
 }
-impl ::core::marker::Copy for HttpStatusCode {}
-impl ::core::clone::Clone for HttpStatusCode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HttpStatusCode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for HttpStatusCode {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2914,24 +2870,13 @@ impl ::windows_core::RuntimeType for HttpStatusCode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Http.HttpStatusCode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct HttpVersion(pub i32);
 impl HttpVersion {
     pub const None: Self = Self(0i32);
     pub const Http10: Self = Self(1i32);
     pub const Http11: Self = Self(2i32);
     pub const Http20: Self = Self(3i32);
-}
-impl ::core::marker::Copy for HttpVersion {}
-impl ::core::clone::Clone for HttpVersion {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HttpVersion {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for HttpVersion {
     type TypeKind = ::windows_core::CopyType;

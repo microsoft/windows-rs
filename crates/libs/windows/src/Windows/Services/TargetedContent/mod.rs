@@ -1112,23 +1112,12 @@ impl ::windows_core::RuntimeName for TargetedContentValue {
 unsafe impl ::core::marker::Send for TargetedContentValue {}
 unsafe impl ::core::marker::Sync for TargetedContentValue {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TargetedContentAppInstallationState(pub i32);
 impl TargetedContentAppInstallationState {
     pub const NotApplicable: Self = Self(0i32);
     pub const NotInstalled: Self = Self(1i32);
     pub const Installed: Self = Self(2i32);
-}
-impl ::core::marker::Copy for TargetedContentAppInstallationState {}
-impl ::core::clone::Clone for TargetedContentAppInstallationState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TargetedContentAppInstallationState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for TargetedContentAppInstallationState {
     type TypeKind = ::windows_core::CopyType;
@@ -1142,23 +1131,12 @@ impl ::windows_core::RuntimeType for TargetedContentAppInstallationState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.TargetedContent.TargetedContentAppInstallationState;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TargetedContentAvailability(pub i32);
 impl TargetedContentAvailability {
     pub const None: Self = Self(0i32);
     pub const Partial: Self = Self(1i32);
     pub const All: Self = Self(2i32);
-}
-impl ::core::marker::Copy for TargetedContentAvailability {}
-impl ::core::clone::Clone for TargetedContentAvailability {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TargetedContentAvailability {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for TargetedContentAvailability {
     type TypeKind = ::windows_core::CopyType;
@@ -1172,7 +1150,7 @@ impl ::windows_core::RuntimeType for TargetedContentAvailability {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.TargetedContent.TargetedContentAvailability;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TargetedContentInteraction(pub i32);
 impl TargetedContentInteraction {
     pub const Impression: Self = Self(0i32);
@@ -1189,17 +1167,6 @@ impl TargetedContentInteraction {
     pub const Conversion: Self = Self(11i32);
     pub const Opportunity: Self = Self(12i32);
 }
-impl ::core::marker::Copy for TargetedContentInteraction {}
-impl ::core::clone::Clone for TargetedContentInteraction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TargetedContentInteraction {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TargetedContentInteraction {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1212,23 +1179,12 @@ impl ::windows_core::RuntimeType for TargetedContentInteraction {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.TargetedContent.TargetedContentInteraction;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TargetedContentObjectKind(pub i32);
 impl TargetedContentObjectKind {
     pub const Collection: Self = Self(0i32);
     pub const Item: Self = Self(1i32);
     pub const Value: Self = Self(2i32);
-}
-impl ::core::marker::Copy for TargetedContentObjectKind {}
-impl ::core::clone::Clone for TargetedContentObjectKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TargetedContentObjectKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for TargetedContentObjectKind {
     type TypeKind = ::windows_core::CopyType;
@@ -1242,7 +1198,7 @@ impl ::windows_core::RuntimeType for TargetedContentObjectKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.TargetedContent.TargetedContentObjectKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TargetedContentValueKind(pub i32);
 impl TargetedContentValueKind {
     pub const String: Self = Self(0i32);
@@ -1259,17 +1215,6 @@ impl TargetedContentValueKind {
     pub const Files: Self = Self(11i32);
     pub const ImageFiles: Self = Self(12i32);
     pub const Actions: Self = Self(13i32);
-}
-impl ::core::marker::Copy for TargetedContentValueKind {}
-impl ::core::clone::Clone for TargetedContentValueKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TargetedContentValueKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for TargetedContentValueKind {
     type TypeKind = ::windows_core::CopyType;

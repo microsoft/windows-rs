@@ -44,19 +44,8 @@ pub const WINDOWS_BOOT: u32 = 9u32;
 pub const WINDOWS_SHUTDOWN: u32 = 8u32;
 pub const WINDOWS_UPDATE: u32 = 17u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RESTOREPOINTINFO_EVENT_TYPE(pub u32);
-impl ::core::marker::Copy for RESTOREPOINTINFO_EVENT_TYPE {}
-impl ::core::clone::Clone for RESTOREPOINTINFO_EVENT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RESTOREPOINTINFO_EVENT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RESTOREPOINTINFO_EVENT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -66,19 +55,8 @@ impl ::core::fmt::Debug for RESTOREPOINTINFO_EVENT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct RESTOREPOINTINFO_TYPE(pub u32);
-impl ::core::marker::Copy for RESTOREPOINTINFO_TYPE {}
-impl ::core::clone::Clone for RESTOREPOINTINFO_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RESTOREPOINTINFO_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for RESTOREPOINTINFO_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }

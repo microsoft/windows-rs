@@ -3850,19 +3850,8 @@ pub const SYNC_STATE_SYNCING: u32 = 5u32;
 pub const SYNC_STATE_SYNCNOTRUN: u32 = 1u32;
 pub const WPD_CATEGORY_ENHANCED_STORAGE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ACT_AUTHORIZATION_STATE_VALUE(pub i32);
-impl ::core::marker::Copy for ACT_AUTHORIZATION_STATE_VALUE {}
-impl ::core::clone::Clone for ACT_AUTHORIZATION_STATE_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ACT_AUTHORIZATION_STATE_VALUE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ACT_AUTHORIZATION_STATE_VALUE {
     type TypeKind = ::windows_core::CopyType;
 }

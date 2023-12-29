@@ -3542,24 +3542,13 @@ impl ::windows_core::CanTryInto<super::CompositionObject> for VisualInteractionS
 unsafe impl ::core::marker::Send for VisualInteractionSource {}
 unsafe impl ::core::marker::Sync for VisualInteractionSource {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InteractionBindingAxisModes(pub u32);
 impl InteractionBindingAxisModes {
     pub const None: Self = Self(0u32);
     pub const PositionX: Self = Self(1u32);
     pub const PositionY: Self = Self(2u32);
     pub const Scale: Self = Self(4u32);
-}
-impl ::core::marker::Copy for InteractionBindingAxisModes {}
-impl ::core::clone::Clone for InteractionBindingAxisModes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InteractionBindingAxisModes {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for InteractionBindingAxisModes {
     type TypeKind = ::windows_core::CopyType;
@@ -3606,23 +3595,12 @@ impl ::windows_core::RuntimeType for InteractionBindingAxisModes {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.InteractionBindingAxisModes;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InteractionChainingMode(pub i32);
 impl InteractionChainingMode {
     pub const Auto: Self = Self(0i32);
     pub const Always: Self = Self(1i32);
     pub const Never: Self = Self(2i32);
-}
-impl ::core::marker::Copy for InteractionChainingMode {}
-impl ::core::clone::Clone for InteractionChainingMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InteractionChainingMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for InteractionChainingMode {
     type TypeKind = ::windows_core::CopyType;
@@ -3636,23 +3614,12 @@ impl ::windows_core::RuntimeType for InteractionChainingMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.InteractionChainingMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InteractionSourceMode(pub i32);
 impl InteractionSourceMode {
     pub const Disabled: Self = Self(0i32);
     pub const EnabledWithInertia: Self = Self(1i32);
     pub const EnabledWithoutInertia: Self = Self(2i32);
-}
-impl ::core::marker::Copy for InteractionSourceMode {}
-impl ::core::clone::Clone for InteractionSourceMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InteractionSourceMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for InteractionSourceMode {
     type TypeKind = ::windows_core::CopyType;
@@ -3666,22 +3633,11 @@ impl ::windows_core::RuntimeType for InteractionSourceMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.InteractionSourceMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InteractionSourceRedirectionMode(pub i32);
 impl InteractionSourceRedirectionMode {
     pub const Disabled: Self = Self(0i32);
     pub const Enabled: Self = Self(1i32);
-}
-impl ::core::marker::Copy for InteractionSourceRedirectionMode {}
-impl ::core::clone::Clone for InteractionSourceRedirectionMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InteractionSourceRedirectionMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for InteractionSourceRedirectionMode {
     type TypeKind = ::windows_core::CopyType;
@@ -3695,22 +3651,11 @@ impl ::windows_core::RuntimeType for InteractionSourceRedirectionMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.InteractionSourceRedirectionMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InteractionTrackerClampingOption(pub i32);
 impl InteractionTrackerClampingOption {
     pub const Auto: Self = Self(0i32);
     pub const Disabled: Self = Self(1i32);
-}
-impl ::core::marker::Copy for InteractionTrackerClampingOption {}
-impl ::core::clone::Clone for InteractionTrackerClampingOption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InteractionTrackerClampingOption {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for InteractionTrackerClampingOption {
     type TypeKind = ::windows_core::CopyType;
@@ -3724,22 +3669,11 @@ impl ::windows_core::RuntimeType for InteractionTrackerClampingOption {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.InteractionTrackerClampingOption;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InteractionTrackerPositionUpdateOption(pub i32);
 impl InteractionTrackerPositionUpdateOption {
     pub const Default: Self = Self(0i32);
     pub const AllowActiveCustomScaleAnimation: Self = Self(1i32);
-}
-impl ::core::marker::Copy for InteractionTrackerPositionUpdateOption {}
-impl ::core::clone::Clone for InteractionTrackerPositionUpdateOption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InteractionTrackerPositionUpdateOption {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for InteractionTrackerPositionUpdateOption {
     type TypeKind = ::windows_core::CopyType;
@@ -3753,24 +3687,13 @@ impl ::windows_core::RuntimeType for InteractionTrackerPositionUpdateOption {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.InteractionTrackerPositionUpdateOption;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VisualInteractionSourceRedirectionMode(pub i32);
 impl VisualInteractionSourceRedirectionMode {
     pub const Off: Self = Self(0i32);
     pub const CapableTouchpadOnly: Self = Self(1i32);
     pub const PointerWheelOnly: Self = Self(2i32);
     pub const CapableTouchpadAndPointerWheel: Self = Self(3i32);
-}
-impl ::core::marker::Copy for VisualInteractionSourceRedirectionMode {}
-impl ::core::clone::Clone for VisualInteractionSourceRedirectionMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VisualInteractionSourceRedirectionMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for VisualInteractionSourceRedirectionMode {
     type TypeKind = ::windows_core::CopyType;

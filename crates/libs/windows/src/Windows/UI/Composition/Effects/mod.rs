@@ -166,22 +166,11 @@ impl ::windows_core::CanTryInto<super::super::super::Graphics::Effects::IGraphic
 unsafe impl ::core::marker::Send for SceneLightingEffect {}
 unsafe impl ::core::marker::Sync for SceneLightingEffect {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SceneLightingEffectReflectanceModel(pub i32);
 impl SceneLightingEffectReflectanceModel {
     pub const BlinnPhong: Self = Self(0i32);
     pub const PhysicallyBasedBlinnPhong: Self = Self(1i32);
-}
-impl ::core::marker::Copy for SceneLightingEffectReflectanceModel {}
-impl ::core::clone::Clone for SceneLightingEffectReflectanceModel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SceneLightingEffectReflectanceModel {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SceneLightingEffectReflectanceModel {
     type TypeKind = ::windows_core::CopyType;

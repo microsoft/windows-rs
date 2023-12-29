@@ -142,19 +142,8 @@ pub const WC_MAGNIFIER: ::windows_core::PCWSTR = ::windows_core::w!("Magnifier")
 pub const WC_MAGNIFIERA: ::windows_core::PCSTR = ::windows_core::s!("Magnifier");
 pub const WC_MAGNIFIERW: ::windows_core::PCWSTR = ::windows_core::w!("Magnifier");
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MW_FILTERMODE(pub u32);
-impl ::core::marker::Copy for MW_FILTERMODE {}
-impl ::core::clone::Clone for MW_FILTERMODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MW_FILTERMODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MW_FILTERMODE {
     type TypeKind = ::windows_core::CopyType;
 }

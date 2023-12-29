@@ -512,19 +512,8 @@ pub const SideShowPropVariantCollection: ::windows_core::GUID = ::windows_core::
 pub const SideShowSession: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe20543b9_f785_4ea2_981e_c4ffa76bbc7c);
 pub const VERSION_1_WINDOWS_7: u32 = 0u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SCF_BUTTON_IDS(pub i32);
-impl ::core::marker::Copy for SCF_BUTTON_IDS {}
-impl ::core::clone::Clone for SCF_BUTTON_IDS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SCF_BUTTON_IDS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SCF_BUTTON_IDS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -534,19 +523,8 @@ impl ::core::fmt::Debug for SCF_BUTTON_IDS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SCF_EVENT_IDS(pub i32);
-impl ::core::marker::Copy for SCF_EVENT_IDS {}
-impl ::core::clone::Clone for SCF_EVENT_IDS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SCF_EVENT_IDS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SCF_EVENT_IDS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -556,19 +534,8 @@ impl ::core::fmt::Debug for SCF_EVENT_IDS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SIDESHOW_COLOR_TYPE(pub i32);
-impl ::core::marker::Copy for SIDESHOW_COLOR_TYPE {}
-impl ::core::clone::Clone for SIDESHOW_COLOR_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SIDESHOW_COLOR_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SIDESHOW_COLOR_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -578,19 +545,8 @@ impl ::core::fmt::Debug for SIDESHOW_COLOR_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SIDESHOW_SCREEN_TYPE(pub i32);
-impl ::core::marker::Copy for SIDESHOW_SCREEN_TYPE {}
-impl ::core::clone::Clone for SIDESHOW_SCREEN_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SIDESHOW_SCREEN_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SIDESHOW_SCREEN_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }

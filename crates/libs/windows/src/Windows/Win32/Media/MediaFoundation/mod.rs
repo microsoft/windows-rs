@@ -28062,19 +28062,8 @@ pub const g_wszWMCPSupportedVBRModes: ::windows_core::PCWSTR = ::windows_core::w
 pub const msoBegin: MFBYTESTREAM_SEEK_ORIGIN = MFBYTESTREAM_SEEK_ORIGIN(0i32);
 pub const msoCurrent: MFBYTESTREAM_SEEK_ORIGIN = MFBYTESTREAM_SEEK_ORIGIN(1i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AEC_INPUT_STREAM(pub i32);
-impl ::core::marker::Copy for AEC_INPUT_STREAM {}
-impl ::core::clone::Clone for AEC_INPUT_STREAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AEC_INPUT_STREAM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AEC_INPUT_STREAM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -28084,19 +28073,8 @@ impl ::core::fmt::Debug for AEC_INPUT_STREAM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AEC_SYSTEM_MODE(pub i32);
-impl ::core::marker::Copy for AEC_SYSTEM_MODE {}
-impl ::core::clone::Clone for AEC_SYSTEM_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AEC_SYSTEM_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AEC_SYSTEM_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -28106,19 +28084,8 @@ impl ::core::fmt::Debug for AEC_SYSTEM_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AEC_VAD_MODE(pub i32);
-impl ::core::marker::Copy for AEC_VAD_MODE {}
-impl ::core::clone::Clone for AEC_VAD_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AEC_VAD_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AEC_VAD_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -28128,19 +28095,8 @@ impl ::core::fmt::Debug for AEC_VAD_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ASF_SELECTION_STATUS(pub i32);
-impl ::core::marker::Copy for ASF_SELECTION_STATUS {}
-impl ::core::clone::Clone for ASF_SELECTION_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ASF_SELECTION_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ASF_SELECTION_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -28150,19 +28106,8 @@ impl ::core::fmt::Debug for ASF_SELECTION_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ASF_STATUSFLAGS(pub i32);
-impl ::core::marker::Copy for ASF_STATUSFLAGS {}
-impl ::core::clone::Clone for ASF_STATUSFLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ASF_STATUSFLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ASF_STATUSFLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -28172,19 +28117,8 @@ impl ::core::fmt::Debug for ASF_STATUSFLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_BITSTREAM_ENCRYPTION_TYPE(pub i32);
-impl ::core::marker::Copy for D3D12_BITSTREAM_ENCRYPTION_TYPE {}
-impl ::core::clone::Clone for D3D12_BITSTREAM_ENCRYPTION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_BITSTREAM_ENCRYPTION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_BITSTREAM_ENCRYPTION_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -28194,19 +28128,8 @@ impl ::core::fmt::Debug for D3D12_BITSTREAM_ENCRYPTION_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_FEATURE_VIDEO(pub i32);
-impl ::core::marker::Copy for D3D12_FEATURE_VIDEO {}
-impl ::core::clone::Clone for D3D12_FEATURE_VIDEO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_FEATURE_VIDEO {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_FEATURE_VIDEO {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -28216,19 +28139,8 @@ impl ::core::fmt::Debug for D3D12_FEATURE_VIDEO {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_DECODE_ARGUMENT_TYPE(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_DECODE_ARGUMENT_TYPE {}
-impl ::core::clone::Clone for D3D12_VIDEO_DECODE_ARGUMENT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_DECODE_ARGUMENT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_DECODE_ARGUMENT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -28238,19 +28150,8 @@ impl ::core::fmt::Debug for D3D12_VIDEO_DECODE_ARGUMENT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS {}
-impl ::core::clone::Clone for D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -28293,19 +28194,8 @@ impl ::core::ops::Not for D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAGS(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAGS {}
-impl ::core::clone::Clone for D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -28348,19 +28238,8 @@ impl ::core::ops::Not for D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT {}
-impl ::core::clone::Clone for D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -28370,19 +28249,8 @@ impl ::core::fmt::Debug for D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS {}
-impl ::core::clone::Clone for D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -28425,19 +28293,8 @@ impl ::core::ops::Not for D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_DECODE_STATUS(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_DECODE_STATUS {}
-impl ::core::clone::Clone for D3D12_VIDEO_DECODE_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_DECODE_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_DECODE_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -28447,19 +28304,8 @@ impl ::core::fmt::Debug for D3D12_VIDEO_DECODE_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_DECODE_SUPPORT_FLAGS(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_DECODE_SUPPORT_FLAGS {}
-impl ::core::clone::Clone for D3D12_VIDEO_DECODE_SUPPORT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_DECODE_SUPPORT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_DECODE_SUPPORT_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -28502,19 +28348,8 @@ impl ::core::ops::Not for D3D12_VIDEO_DECODE_SUPPORT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_DECODE_TIER(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_DECODE_TIER {}
-impl ::core::clone::Clone for D3D12_VIDEO_DECODE_TIER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_DECODE_TIER {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_DECODE_TIER {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -28524,19 +28359,8 @@ impl ::core::fmt::Debug for D3D12_VIDEO_DECODE_TIER {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_ENCODER_AV1_COMP_PREDICTION_TYPE(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_AV1_COMP_PREDICTION_TYPE {}
-impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_AV1_COMP_PREDICTION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_ENCODER_AV1_COMP_PREDICTION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_COMP_PREDICTION_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -28546,19 +28370,8 @@ impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_AV1_COMP_PREDICTION_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS {}
-impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -28601,19 +28414,8 @@ impl ::core::ops::Not for D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_VALIDATION_FLAGS(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_VALIDATION_FLAGS {}
-impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_VALIDATION_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_VALIDATION_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_VALIDATION_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -28656,19 +28458,8 @@ impl ::core::ops::Not for D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE {}
-impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -28678,19 +28469,8 @@ impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE_FLAGS(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE_FLAGS {}
-impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -28733,19 +28513,8 @@ impl ::core::ops::Not for D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS {}
-impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -28755,19 +28524,8 @@ impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS_FLAGS(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS_FLAGS {}
-impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -28810,19 +28568,8 @@ impl ::core::ops::Not for D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_ENCODER_AV1_LEVELS(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_AV1_LEVELS {}
-impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_AV1_LEVELS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_ENCODER_AV1_LEVELS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_LEVELS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -28832,19 +28579,8 @@ impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_AV1_LEVELS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAGS(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAGS {}
-impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -28887,19 +28623,8 @@ impl ::core::ops::Not for D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES_FLAGS(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES_FLAGS {}
-impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -28942,19 +28667,8 @@ impl ::core::ops::Not for D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_ENCODER_AV1_PROFILE(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_AV1_PROFILE {}
-impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_AV1_PROFILE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_ENCODER_AV1_PROFILE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_PROFILE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -28964,19 +28678,8 @@ impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_AV1_PROFILE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION {}
-impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -28986,19 +28689,8 @@ impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRAN
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION_FLAGS(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION_FLAGS {}
-impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -29041,19 +28733,8 @@ impl ::core::ops::Not for D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSF
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_ENCODER_AV1_RESTORATION_SUPPORT_FLAGS(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_AV1_RESTORATION_SUPPORT_FLAGS {}
-impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_AV1_RESTORATION_SUPPORT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_ENCODER_AV1_RESTORATION_SUPPORT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_RESTORATION_SUPPORT_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -29096,19 +28777,8 @@ impl ::core::ops::Not for D3D12_VIDEO_ENCODER_AV1_RESTORATION_SUPPORT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_ENCODER_AV1_RESTORATION_TILESIZE(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_AV1_RESTORATION_TILESIZE {}
-impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_AV1_RESTORATION_TILESIZE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_ENCODER_AV1_RESTORATION_TILESIZE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_RESTORATION_TILESIZE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -29118,19 +28788,8 @@ impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_AV1_RESTORATION_TILESIZE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_ENCODER_AV1_RESTORATION_TYPE(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_AV1_RESTORATION_TYPE {}
-impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_AV1_RESTORATION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_ENCODER_AV1_RESTORATION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_RESTORATION_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -29140,19 +28799,8 @@ impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_AV1_RESTORATION_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_BLOCK_SIZE(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_BLOCK_SIZE {}
-impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_BLOCK_SIZE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_BLOCK_SIZE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_BLOCK_SIZE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -29162,19 +28810,8 @@ impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_BLOCK_SIZE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE {}
-impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -29184,19 +28821,8 @@ impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAGS(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAGS {}
-impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -29239,19 +28865,8 @@ impl ::core::ops::Not for D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_ENCODER_AV1_TIER(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_AV1_TIER {}
-impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_AV1_TIER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_ENCODER_AV1_TIER {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_TIER {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -29261,19 +28876,8 @@ impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_AV1_TIER {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_ENCODER_AV1_TX_MODE(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_AV1_TX_MODE {}
-impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_AV1_TX_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_ENCODER_AV1_TX_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_TX_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -29283,19 +28887,8 @@ impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_AV1_TX_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_ENCODER_AV1_TX_MODE_FLAGS(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_AV1_TX_MODE_FLAGS {}
-impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_AV1_TX_MODE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_ENCODER_AV1_TX_MODE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_TX_MODE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -29338,19 +28931,8 @@ impl ::core::ops::Not for D3D12_VIDEO_ENCODER_AV1_TX_MODE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_ENCODER_CODEC(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_CODEC {}
-impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_CODEC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_ENCODER_CODEC {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_ENCODER_CODEC {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -29360,19 +28942,8 @@ impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_CODEC {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_DIRECT_MODES(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_DIRECT_MODES {}
-impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_DIRECT_MODES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_DIRECT_MODES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_DIRECT_MODES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -29382,19 +28953,8 @@ impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_DIRECT_
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS {}
-impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -29437,19 +28997,8 @@ impl ::core::ops::Not for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODES(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODES {}
-impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -29459,19 +29008,8 @@ impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS {}
-impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -29514,19 +29052,8 @@ impl ::core::ops::Not for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DE
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE {}
-impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -29536,19 +29063,8 @@ impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE 
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS {}
-impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -29591,19 +29107,8 @@ impl ::core::ops::Not for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE {}
-impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -29613,19 +29118,8 @@ impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE 
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS {}
-impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -29668,19 +29162,8 @@ impl ::core::ops::Not for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_F
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS {}
-impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -29723,19 +29206,8 @@ impl ::core::ops::Not for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_F
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS {}
-impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -29778,19 +29250,8 @@ impl ::core::ops::Not for D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_ENCODER_FLAGS(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_FLAGS {}
-impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_ENCODER_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_ENCODER_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -29833,19 +29294,8 @@ impl ::core::ops::Not for D3D12_VIDEO_ENCODER_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE {}
-impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -29855,19 +29305,8 @@ impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_ENCODER_FRAME_TYPE_H264(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_FRAME_TYPE_H264 {}
-impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_FRAME_TYPE_H264 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_ENCODER_FRAME_TYPE_H264 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_ENCODER_FRAME_TYPE_H264 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -29877,19 +29316,8 @@ impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_FRAME_TYPE_H264 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC {}
-impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -29899,19 +29327,8 @@ impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_ENCODER_HEAP_FLAGS(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_HEAP_FLAGS {}
-impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_HEAP_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_ENCODER_HEAP_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_ENCODER_HEAP_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -29954,19 +29371,8 @@ impl ::core::ops::Not for D3D12_VIDEO_ENCODER_HEAP_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE {}
-impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -29976,19 +29382,8 @@ impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_ENCODER_LEVELS_H264(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_LEVELS_H264 {}
-impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_LEVELS_H264 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_ENCODER_LEVELS_H264 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_ENCODER_LEVELS_H264 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -29998,19 +29393,8 @@ impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_LEVELS_H264 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_ENCODER_LEVELS_HEVC(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_LEVELS_HEVC {}
-impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_LEVELS_HEVC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_ENCODER_LEVELS_HEVC {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_ENCODER_LEVELS_HEVC {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -30020,19 +29404,8 @@ impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_LEVELS_HEVC {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE {}
-impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -30042,19 +29415,8 @@ impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAGS(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAGS {}
-impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -30097,19 +29459,8 @@ impl ::core::ops::Not for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FL
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS {}
-impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -30152,19 +29503,8 @@ impl ::core::ops::Not for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FL
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS {}
-impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -30207,19 +29547,8 @@ impl ::core::ops::Not for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_ENCODER_PROFILE_H264(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_PROFILE_H264 {}
-impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_PROFILE_H264 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_ENCODER_PROFILE_H264 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_ENCODER_PROFILE_H264 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -30229,19 +29558,8 @@ impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_PROFILE_H264 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_ENCODER_PROFILE_HEVC(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_PROFILE_HEVC {}
-impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_PROFILE_HEVC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_ENCODER_PROFILE_HEVC {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_ENCODER_PROFILE_HEVC {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -30251,19 +29569,8 @@ impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_PROFILE_HEVC {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS {}
-impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -30306,19 +29613,8 @@ impl ::core::ops::Not for D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE {}
-impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -30328,19 +29624,8 @@ impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS {}
-impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -30383,19 +29668,8 @@ impl ::core::ops::Not for D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_ENCODER_SUPPORT_FLAGS(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_SUPPORT_FLAGS {}
-impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_SUPPORT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_ENCODER_SUPPORT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_ENCODER_SUPPORT_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -30438,19 +29712,8 @@ impl ::core::ops::Not for D3D12_VIDEO_ENCODER_SUPPORT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_ENCODER_TIER_HEVC(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_TIER_HEVC {}
-impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_TIER_HEVC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_ENCODER_TIER_HEVC {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_ENCODER_TIER_HEVC {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -30460,19 +29723,8 @@ impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_TIER_HEVC {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_ENCODER_VALIDATION_FLAGS(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_VALIDATION_FLAGS {}
-impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_VALIDATION_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_ENCODER_VALIDATION_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_ENCODER_VALIDATION_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -30515,19 +29767,8 @@ impl ::core::ops::Not for D3D12_VIDEO_ENCODER_VALIDATION_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS {}
-impl ::core::clone::Clone for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -30570,19 +29811,8 @@ impl ::core::ops::Not for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE {}
-impl ::core::clone::Clone for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -30592,19 +29822,8 @@ impl ::core::fmt::Debug for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE {}
-impl ::core::clone::Clone for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -30614,19 +29833,8 @@ impl ::core::fmt::Debug for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_FIELD_TYPE(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_FIELD_TYPE {}
-impl ::core::clone::Clone for D3D12_VIDEO_FIELD_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_FIELD_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_FIELD_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -30636,19 +29844,8 @@ impl ::core::fmt::Debug for D3D12_VIDEO_FIELD_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_FRAME_CODED_INTERLACE_TYPE(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_FRAME_CODED_INTERLACE_TYPE {}
-impl ::core::clone::Clone for D3D12_VIDEO_FRAME_CODED_INTERLACE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_FRAME_CODED_INTERLACE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_FRAME_CODED_INTERLACE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -30658,19 +29855,8 @@ impl ::core::fmt::Debug for D3D12_VIDEO_FRAME_CODED_INTERLACE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_FRAME_STEREO_FORMAT(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_FRAME_STEREO_FORMAT {}
-impl ::core::clone::Clone for D3D12_VIDEO_FRAME_STEREO_FORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_FRAME_STEREO_FORMAT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_FRAME_STEREO_FORMAT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -30680,19 +29866,8 @@ impl ::core::fmt::Debug for D3D12_VIDEO_FRAME_STEREO_FORMAT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE {}
-impl ::core::clone::Clone for D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -30702,19 +29877,8 @@ impl ::core::fmt::Debug for D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAGS(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAGS {}
-impl ::core::clone::Clone for D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -30757,19 +29921,8 @@ impl ::core::ops::Not for D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION {}
-impl ::core::clone::Clone for D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -30779,19 +29932,8 @@ impl ::core::fmt::Debug for D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAGS(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAGS {}
-impl ::core::clone::Clone for D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -30834,19 +29976,8 @@ impl ::core::ops::Not for D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE {}
-impl ::core::clone::Clone for D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -30856,19 +29987,8 @@ impl ::core::fmt::Debug for D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS(pub u32);
-impl ::core::marker::Copy for D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS {}
-impl ::core::clone::Clone for D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -30911,19 +30031,8 @@ impl ::core::ops::Not for D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS(pub u32);
-impl ::core::marker::Copy for D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS {}
-impl ::core::clone::Clone for D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -30966,19 +30075,8 @@ impl ::core::ops::Not for D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_PROCESS_FEATURE_FLAGS(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_PROCESS_FEATURE_FLAGS {}
-impl ::core::clone::Clone for D3D12_VIDEO_PROCESS_FEATURE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_PROCESS_FEATURE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_PROCESS_FEATURE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -31021,19 +30119,8 @@ impl ::core::ops::Not for D3D12_VIDEO_PROCESS_FEATURE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_PROCESS_FILTER(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_PROCESS_FILTER {}
-impl ::core::clone::Clone for D3D12_VIDEO_PROCESS_FILTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_PROCESS_FILTER {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_PROCESS_FILTER {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -31043,19 +30130,8 @@ impl ::core::fmt::Debug for D3D12_VIDEO_PROCESS_FILTER {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_PROCESS_FILTER_FLAGS(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_PROCESS_FILTER_FLAGS {}
-impl ::core::clone::Clone for D3D12_VIDEO_PROCESS_FILTER_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_PROCESS_FILTER_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_PROCESS_FILTER_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -31098,19 +30174,8 @@ impl ::core::ops::Not for D3D12_VIDEO_PROCESS_FILTER_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS {}
-impl ::core::clone::Clone for D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -31153,19 +30218,8 @@ impl ::core::ops::Not for D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_PROCESS_ORIENTATION(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_PROCESS_ORIENTATION {}
-impl ::core::clone::Clone for D3D12_VIDEO_PROCESS_ORIENTATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_PROCESS_ORIENTATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_PROCESS_ORIENTATION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -31175,19 +30229,8 @@ impl ::core::fmt::Debug for D3D12_VIDEO_PROCESS_ORIENTATION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_PROCESS_SUPPORT_FLAGS(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_PROCESS_SUPPORT_FLAGS {}
-impl ::core::clone::Clone for D3D12_VIDEO_PROCESS_SUPPORT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_PROCESS_SUPPORT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_PROCESS_SUPPORT_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -31230,19 +30273,8 @@ impl ::core::ops::Not for D3D12_VIDEO_PROCESS_SUPPORT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS {}
-impl ::core::clone::Clone for D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -31285,19 +30317,8 @@ impl ::core::ops::Not for D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct D3D12_VIDEO_SCALE_SUPPORT_FLAGS(pub i32);
-impl ::core::marker::Copy for D3D12_VIDEO_SCALE_SUPPORT_FLAGS {}
-impl ::core::clone::Clone for D3D12_VIDEO_SCALE_SUPPORT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D3D12_VIDEO_SCALE_SUPPORT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for D3D12_VIDEO_SCALE_SUPPORT_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -31340,19 +30361,8 @@ impl ::core::ops::Not for D3D12_VIDEO_SCALE_SUPPORT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXVA2_BufferfType(pub i32);
-impl ::core::marker::Copy for DXVA2_BufferfType {}
-impl ::core::clone::Clone for DXVA2_BufferfType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXVA2_BufferfType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXVA2_BufferfType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -31362,19 +30372,8 @@ impl ::core::fmt::Debug for DXVA2_BufferfType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXVA2_DeinterlaceTech(pub i32);
-impl ::core::marker::Copy for DXVA2_DeinterlaceTech {}
-impl ::core::clone::Clone for DXVA2_DeinterlaceTech {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXVA2_DeinterlaceTech {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXVA2_DeinterlaceTech {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -31384,19 +30383,8 @@ impl ::core::fmt::Debug for DXVA2_DeinterlaceTech {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXVA2_DestData(pub i32);
-impl ::core::marker::Copy for DXVA2_DestData {}
-impl ::core::clone::Clone for DXVA2_DestData {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXVA2_DestData {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXVA2_DestData {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -31406,19 +30394,8 @@ impl ::core::fmt::Debug for DXVA2_DestData {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXVA2_DetailFilterTech(pub i32);
-impl ::core::marker::Copy for DXVA2_DetailFilterTech {}
-impl ::core::clone::Clone for DXVA2_DetailFilterTech {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXVA2_DetailFilterTech {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXVA2_DetailFilterTech {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -31428,19 +30405,8 @@ impl ::core::fmt::Debug for DXVA2_DetailFilterTech {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXVA2_FilterType(pub i32);
-impl ::core::marker::Copy for DXVA2_FilterType {}
-impl ::core::clone::Clone for DXVA2_FilterType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXVA2_FilterType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXVA2_FilterType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -31450,19 +30416,8 @@ impl ::core::fmt::Debug for DXVA2_FilterType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXVA2_NoiseFilterTech(pub i32);
-impl ::core::marker::Copy for DXVA2_NoiseFilterTech {}
-impl ::core::clone::Clone for DXVA2_NoiseFilterTech {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXVA2_NoiseFilterTech {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXVA2_NoiseFilterTech {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -31472,19 +30427,8 @@ impl ::core::fmt::Debug for DXVA2_NoiseFilterTech {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXVA2_NominalRange(pub i32);
-impl ::core::marker::Copy for DXVA2_NominalRange {}
-impl ::core::clone::Clone for DXVA2_NominalRange {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXVA2_NominalRange {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXVA2_NominalRange {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -31494,19 +30438,8 @@ impl ::core::fmt::Debug for DXVA2_NominalRange {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXVA2_ProcAmp(pub i32);
-impl ::core::marker::Copy for DXVA2_ProcAmp {}
-impl ::core::clone::Clone for DXVA2_ProcAmp {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXVA2_ProcAmp {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXVA2_ProcAmp {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -31516,19 +30449,8 @@ impl ::core::fmt::Debug for DXVA2_ProcAmp {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXVA2_SampleData(pub i32);
-impl ::core::marker::Copy for DXVA2_SampleData {}
-impl ::core::clone::Clone for DXVA2_SampleData {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXVA2_SampleData {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXVA2_SampleData {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -31538,19 +30460,8 @@ impl ::core::fmt::Debug for DXVA2_SampleData {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXVA2_SampleFormat(pub i32);
-impl ::core::marker::Copy for DXVA2_SampleFormat {}
-impl ::core::clone::Clone for DXVA2_SampleFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXVA2_SampleFormat {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXVA2_SampleFormat {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -31560,19 +30471,8 @@ impl ::core::fmt::Debug for DXVA2_SampleFormat {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXVA2_SurfaceType(pub i32);
-impl ::core::marker::Copy for DXVA2_SurfaceType {}
-impl ::core::clone::Clone for DXVA2_SurfaceType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXVA2_SurfaceType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXVA2_SurfaceType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -31582,19 +30482,8 @@ impl ::core::fmt::Debug for DXVA2_SurfaceType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXVA2_VPDev(pub i32);
-impl ::core::marker::Copy for DXVA2_VPDev {}
-impl ::core::clone::Clone for DXVA2_VPDev {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXVA2_VPDev {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXVA2_VPDev {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -31604,19 +30493,8 @@ impl ::core::fmt::Debug for DXVA2_VPDev {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXVA2_VideoChromaSubSampling(pub i32);
-impl ::core::marker::Copy for DXVA2_VideoChromaSubSampling {}
-impl ::core::clone::Clone for DXVA2_VideoChromaSubSampling {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXVA2_VideoChromaSubSampling {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXVA2_VideoChromaSubSampling {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -31626,19 +30504,8 @@ impl ::core::fmt::Debug for DXVA2_VideoChromaSubSampling {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXVA2_VideoLighting(pub i32);
-impl ::core::marker::Copy for DXVA2_VideoLighting {}
-impl ::core::clone::Clone for DXVA2_VideoLighting {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXVA2_VideoLighting {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXVA2_VideoLighting {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -31648,19 +30515,8 @@ impl ::core::fmt::Debug for DXVA2_VideoLighting {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXVA2_VideoPrimaries(pub i32);
-impl ::core::marker::Copy for DXVA2_VideoPrimaries {}
-impl ::core::clone::Clone for DXVA2_VideoPrimaries {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXVA2_VideoPrimaries {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXVA2_VideoPrimaries {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -31670,19 +30526,8 @@ impl ::core::fmt::Debug for DXVA2_VideoPrimaries {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXVA2_VideoProcess(pub i32);
-impl ::core::marker::Copy for DXVA2_VideoProcess {}
-impl ::core::clone::Clone for DXVA2_VideoProcess {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXVA2_VideoProcess {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXVA2_VideoProcess {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -31692,19 +30537,8 @@ impl ::core::fmt::Debug for DXVA2_VideoProcess {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXVA2_VideoRenderTargetType(pub i32);
-impl ::core::marker::Copy for DXVA2_VideoRenderTargetType {}
-impl ::core::clone::Clone for DXVA2_VideoRenderTargetType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXVA2_VideoRenderTargetType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXVA2_VideoRenderTargetType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -31714,19 +30548,8 @@ impl ::core::fmt::Debug for DXVA2_VideoRenderTargetType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXVA2_VideoTransferFunction(pub i32);
-impl ::core::marker::Copy for DXVA2_VideoTransferFunction {}
-impl ::core::clone::Clone for DXVA2_VideoTransferFunction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXVA2_VideoTransferFunction {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXVA2_VideoTransferFunction {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -31736,19 +30559,8 @@ impl ::core::fmt::Debug for DXVA2_VideoTransferFunction {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXVA2_VideoTransferMatrix(pub i32);
-impl ::core::marker::Copy for DXVA2_VideoTransferMatrix {}
-impl ::core::clone::Clone for DXVA2_VideoTransferMatrix {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXVA2_VideoTransferMatrix {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXVA2_VideoTransferMatrix {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -31758,19 +30570,8 @@ impl ::core::fmt::Debug for DXVA2_VideoTransferMatrix {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXVAHD_ALPHA_FILL_MODE(pub i32);
-impl ::core::marker::Copy for DXVAHD_ALPHA_FILL_MODE {}
-impl ::core::clone::Clone for DXVAHD_ALPHA_FILL_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXVAHD_ALPHA_FILL_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXVAHD_ALPHA_FILL_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -31780,19 +30581,8 @@ impl ::core::fmt::Debug for DXVAHD_ALPHA_FILL_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXVAHD_BLT_STATE(pub i32);
-impl ::core::marker::Copy for DXVAHD_BLT_STATE {}
-impl ::core::clone::Clone for DXVAHD_BLT_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXVAHD_BLT_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXVAHD_BLT_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -31802,19 +30592,8 @@ impl ::core::fmt::Debug for DXVAHD_BLT_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXVAHD_DEVICE_CAPS(pub i32);
-impl ::core::marker::Copy for DXVAHD_DEVICE_CAPS {}
-impl ::core::clone::Clone for DXVAHD_DEVICE_CAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXVAHD_DEVICE_CAPS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXVAHD_DEVICE_CAPS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -31824,19 +30603,8 @@ impl ::core::fmt::Debug for DXVAHD_DEVICE_CAPS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXVAHD_DEVICE_TYPE(pub i32);
-impl ::core::marker::Copy for DXVAHD_DEVICE_TYPE {}
-impl ::core::clone::Clone for DXVAHD_DEVICE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXVAHD_DEVICE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXVAHD_DEVICE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -31846,19 +30614,8 @@ impl ::core::fmt::Debug for DXVAHD_DEVICE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXVAHD_DEVICE_USAGE(pub i32);
-impl ::core::marker::Copy for DXVAHD_DEVICE_USAGE {}
-impl ::core::clone::Clone for DXVAHD_DEVICE_USAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXVAHD_DEVICE_USAGE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXVAHD_DEVICE_USAGE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -31868,19 +30625,8 @@ impl ::core::fmt::Debug for DXVAHD_DEVICE_USAGE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXVAHD_FEATURE_CAPS(pub i32);
-impl ::core::marker::Copy for DXVAHD_FEATURE_CAPS {}
-impl ::core::clone::Clone for DXVAHD_FEATURE_CAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXVAHD_FEATURE_CAPS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXVAHD_FEATURE_CAPS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -31890,19 +30636,8 @@ impl ::core::fmt::Debug for DXVAHD_FEATURE_CAPS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXVAHD_FILTER(pub i32);
-impl ::core::marker::Copy for DXVAHD_FILTER {}
-impl ::core::clone::Clone for DXVAHD_FILTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXVAHD_FILTER {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXVAHD_FILTER {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -31912,19 +30647,8 @@ impl ::core::fmt::Debug for DXVAHD_FILTER {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXVAHD_FILTER_CAPS(pub i32);
-impl ::core::marker::Copy for DXVAHD_FILTER_CAPS {}
-impl ::core::clone::Clone for DXVAHD_FILTER_CAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXVAHD_FILTER_CAPS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXVAHD_FILTER_CAPS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -31934,19 +30658,8 @@ impl ::core::fmt::Debug for DXVAHD_FILTER_CAPS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXVAHD_FRAME_FORMAT(pub i32);
-impl ::core::marker::Copy for DXVAHD_FRAME_FORMAT {}
-impl ::core::clone::Clone for DXVAHD_FRAME_FORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXVAHD_FRAME_FORMAT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXVAHD_FRAME_FORMAT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -31956,19 +30669,8 @@ impl ::core::fmt::Debug for DXVAHD_FRAME_FORMAT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXVAHD_INPUT_FORMAT_CAPS(pub i32);
-impl ::core::marker::Copy for DXVAHD_INPUT_FORMAT_CAPS {}
-impl ::core::clone::Clone for DXVAHD_INPUT_FORMAT_CAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXVAHD_INPUT_FORMAT_CAPS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXVAHD_INPUT_FORMAT_CAPS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -31978,19 +30680,8 @@ impl ::core::fmt::Debug for DXVAHD_INPUT_FORMAT_CAPS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXVAHD_ITELECINE_CAPS(pub i32);
-impl ::core::marker::Copy for DXVAHD_ITELECINE_CAPS {}
-impl ::core::clone::Clone for DXVAHD_ITELECINE_CAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXVAHD_ITELECINE_CAPS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXVAHD_ITELECINE_CAPS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -32000,19 +30691,8 @@ impl ::core::fmt::Debug for DXVAHD_ITELECINE_CAPS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXVAHD_OUTPUT_RATE(pub i32);
-impl ::core::marker::Copy for DXVAHD_OUTPUT_RATE {}
-impl ::core::clone::Clone for DXVAHD_OUTPUT_RATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXVAHD_OUTPUT_RATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXVAHD_OUTPUT_RATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -32022,19 +30702,8 @@ impl ::core::fmt::Debug for DXVAHD_OUTPUT_RATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXVAHD_PROCESSOR_CAPS(pub i32);
-impl ::core::marker::Copy for DXVAHD_PROCESSOR_CAPS {}
-impl ::core::clone::Clone for DXVAHD_PROCESSOR_CAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXVAHD_PROCESSOR_CAPS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXVAHD_PROCESSOR_CAPS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -32044,19 +30713,8 @@ impl ::core::fmt::Debug for DXVAHD_PROCESSOR_CAPS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXVAHD_STREAM_STATE(pub i32);
-impl ::core::marker::Copy for DXVAHD_STREAM_STATE {}
-impl ::core::clone::Clone for DXVAHD_STREAM_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXVAHD_STREAM_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXVAHD_STREAM_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -32066,19 +30724,8 @@ impl ::core::fmt::Debug for DXVAHD_STREAM_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXVAHD_SURFACE_TYPE(pub i32);
-impl ::core::marker::Copy for DXVAHD_SURFACE_TYPE {}
-impl ::core::clone::Clone for DXVAHD_SURFACE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXVAHD_SURFACE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXVAHD_SURFACE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -32088,19 +30735,8 @@ impl ::core::fmt::Debug for DXVAHD_SURFACE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXVA_DeinterlaceTech(pub i32);
-impl ::core::marker::Copy for DXVA_DeinterlaceTech {}
-impl ::core::clone::Clone for DXVA_DeinterlaceTech {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXVA_DeinterlaceTech {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXVA_DeinterlaceTech {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -32110,19 +30746,8 @@ impl ::core::fmt::Debug for DXVA_DeinterlaceTech {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXVA_DestinationFlags(pub i32);
-impl ::core::marker::Copy for DXVA_DestinationFlags {}
-impl ::core::clone::Clone for DXVA_DestinationFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXVA_DestinationFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXVA_DestinationFlags {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -32132,19 +30757,8 @@ impl ::core::fmt::Debug for DXVA_DestinationFlags {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXVA_NominalRange(pub i32);
-impl ::core::marker::Copy for DXVA_NominalRange {}
-impl ::core::clone::Clone for DXVA_NominalRange {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXVA_NominalRange {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXVA_NominalRange {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -32154,19 +30768,8 @@ impl ::core::fmt::Debug for DXVA_NominalRange {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXVA_ProcAmpControlProp(pub i32);
-impl ::core::marker::Copy for DXVA_ProcAmpControlProp {}
-impl ::core::clone::Clone for DXVA_ProcAmpControlProp {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXVA_ProcAmpControlProp {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXVA_ProcAmpControlProp {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -32176,19 +30779,8 @@ impl ::core::fmt::Debug for DXVA_ProcAmpControlProp {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXVA_SampleFlags(pub i32);
-impl ::core::marker::Copy for DXVA_SampleFlags {}
-impl ::core::clone::Clone for DXVA_SampleFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXVA_SampleFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXVA_SampleFlags {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -32198,19 +30790,8 @@ impl ::core::fmt::Debug for DXVA_SampleFlags {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXVA_SampleFormat(pub i32);
-impl ::core::marker::Copy for DXVA_SampleFormat {}
-impl ::core::clone::Clone for DXVA_SampleFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXVA_SampleFormat {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXVA_SampleFormat {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -32220,19 +30801,8 @@ impl ::core::fmt::Debug for DXVA_SampleFormat {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXVA_VideoChromaSubsampling(pub i32);
-impl ::core::marker::Copy for DXVA_VideoChromaSubsampling {}
-impl ::core::clone::Clone for DXVA_VideoChromaSubsampling {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXVA_VideoChromaSubsampling {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXVA_VideoChromaSubsampling {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -32242,19 +30812,8 @@ impl ::core::fmt::Debug for DXVA_VideoChromaSubsampling {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXVA_VideoLighting(pub i32);
-impl ::core::marker::Copy for DXVA_VideoLighting {}
-impl ::core::clone::Clone for DXVA_VideoLighting {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXVA_VideoLighting {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXVA_VideoLighting {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -32264,19 +30823,8 @@ impl ::core::fmt::Debug for DXVA_VideoLighting {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXVA_VideoPrimaries(pub i32);
-impl ::core::marker::Copy for DXVA_VideoPrimaries {}
-impl ::core::clone::Clone for DXVA_VideoPrimaries {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXVA_VideoPrimaries {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXVA_VideoPrimaries {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -32286,19 +30834,8 @@ impl ::core::fmt::Debug for DXVA_VideoPrimaries {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXVA_VideoProcessCaps(pub i32);
-impl ::core::marker::Copy for DXVA_VideoProcessCaps {}
-impl ::core::clone::Clone for DXVA_VideoProcessCaps {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXVA_VideoProcessCaps {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXVA_VideoProcessCaps {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -32308,19 +30845,8 @@ impl ::core::fmt::Debug for DXVA_VideoProcessCaps {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXVA_VideoTransferFunction(pub i32);
-impl ::core::marker::Copy for DXVA_VideoTransferFunction {}
-impl ::core::clone::Clone for DXVA_VideoTransferFunction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXVA_VideoTransferFunction {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXVA_VideoTransferFunction {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -32330,19 +30856,8 @@ impl ::core::fmt::Debug for DXVA_VideoTransferFunction {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DXVA_VideoTransferMatrix(pub i32);
-impl ::core::marker::Copy for DXVA_VideoTransferMatrix {}
-impl ::core::clone::Clone for DXVA_VideoTransferMatrix {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXVA_VideoTransferMatrix {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DXVA_VideoTransferMatrix {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -32352,19 +30867,8 @@ impl ::core::fmt::Debug for DXVA_VideoTransferMatrix {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DeviceStreamState(pub i32);
-impl ::core::marker::Copy for DeviceStreamState {}
-impl ::core::clone::Clone for DeviceStreamState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DeviceStreamState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DeviceStreamState {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -32374,19 +30878,8 @@ impl ::core::fmt::Debug for DeviceStreamState {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EAllocationType(pub i32);
-impl ::core::marker::Copy for EAllocationType {}
-impl ::core::clone::Clone for EAllocationType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EAllocationType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EAllocationType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -32396,19 +30889,8 @@ impl ::core::fmt::Debug for EAllocationType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EVRFilterConfigPrefs(pub i32);
-impl ::core::marker::Copy for EVRFilterConfigPrefs {}
-impl ::core::clone::Clone for EVRFilterConfigPrefs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EVRFilterConfigPrefs {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EVRFilterConfigPrefs {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -32418,19 +30900,8 @@ impl ::core::fmt::Debug for EVRFilterConfigPrefs {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FILE_ACCESSMODE(pub i32);
-impl ::core::marker::Copy for FILE_ACCESSMODE {}
-impl ::core::clone::Clone for FILE_ACCESSMODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FILE_ACCESSMODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FILE_ACCESSMODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -32440,19 +30911,8 @@ impl ::core::fmt::Debug for FILE_ACCESSMODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct FILE_OPENMODE(pub i32);
-impl ::core::marker::Copy for FILE_OPENMODE {}
-impl ::core::clone::Clone for FILE_OPENMODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FILE_OPENMODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for FILE_OPENMODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -32462,19 +30922,8 @@ impl ::core::fmt::Debug for FILE_OPENMODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct KSMETHOD_OPMVIDEOOUTPUT(pub i32);
-impl ::core::marker::Copy for KSMETHOD_OPMVIDEOOUTPUT {}
-impl ::core::clone::Clone for KSMETHOD_OPMVIDEOOUTPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSMETHOD_OPMVIDEOOUTPUT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for KSMETHOD_OPMVIDEOOUTPUT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -32484,19 +30933,8 @@ impl ::core::fmt::Debug for KSMETHOD_OPMVIDEOOUTPUT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS(pub u32);
-impl ::core::marker::Copy for MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS {}
-impl ::core::clone::Clone for MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -32506,19 +30944,8 @@ impl ::core::fmt::Debug for MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF2DBuffer_LockFlags(pub i32);
-impl ::core::marker::Copy for MF2DBuffer_LockFlags {}
-impl ::core::clone::Clone for MF2DBuffer_LockFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF2DBuffer_LockFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF2DBuffer_LockFlags {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -32528,19 +30955,8 @@ impl ::core::fmt::Debug for MF2DBuffer_LockFlags {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF3DVideoOutputType(pub i32);
-impl ::core::marker::Copy for MF3DVideoOutputType {}
-impl ::core::clone::Clone for MF3DVideoOutputType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF3DVideoOutputType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF3DVideoOutputType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -32550,19 +30966,8 @@ impl ::core::fmt::Debug for MF3DVideoOutputType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFASF_INDEXER_FLAGS(pub i32);
-impl ::core::marker::Copy for MFASF_INDEXER_FLAGS {}
-impl ::core::clone::Clone for MFASF_INDEXER_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFASF_INDEXER_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFASF_INDEXER_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -32572,19 +30977,8 @@ impl ::core::fmt::Debug for MFASF_INDEXER_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFASF_MULTIPLEXERFLAGS(pub i32);
-impl ::core::marker::Copy for MFASF_MULTIPLEXERFLAGS {}
-impl ::core::clone::Clone for MFASF_MULTIPLEXERFLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFASF_MULTIPLEXERFLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFASF_MULTIPLEXERFLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -32594,19 +30988,8 @@ impl ::core::fmt::Debug for MFASF_MULTIPLEXERFLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFASF_SPLITTERFLAGS(pub i32);
-impl ::core::marker::Copy for MFASF_SPLITTERFLAGS {}
-impl ::core::clone::Clone for MFASF_SPLITTERFLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFASF_SPLITTERFLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFASF_SPLITTERFLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -32616,19 +30999,8 @@ impl ::core::fmt::Debug for MFASF_SPLITTERFLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFASF_STREAMSELECTOR_FLAGS(pub i32);
-impl ::core::marker::Copy for MFASF_STREAMSELECTOR_FLAGS {}
-impl ::core::clone::Clone for MFASF_STREAMSELECTOR_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFASF_STREAMSELECTOR_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFASF_STREAMSELECTOR_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -32638,19 +31010,8 @@ impl ::core::fmt::Debug for MFASF_STREAMSELECTOR_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFASYNC_WORKQUEUE_TYPE(pub i32);
-impl ::core::marker::Copy for MFASYNC_WORKQUEUE_TYPE {}
-impl ::core::clone::Clone for MFASYNC_WORKQUEUE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFASYNC_WORKQUEUE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFASYNC_WORKQUEUE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -32660,19 +31021,8 @@ impl ::core::fmt::Debug for MFASYNC_WORKQUEUE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFAudioConstriction(pub i32);
-impl ::core::marker::Copy for MFAudioConstriction {}
-impl ::core::clone::Clone for MFAudioConstriction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFAudioConstriction {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFAudioConstriction {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -32682,19 +31032,8 @@ impl ::core::fmt::Debug for MFAudioConstriction {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFBYTESTREAM_SEEK_ORIGIN(pub i32);
-impl ::core::marker::Copy for MFBYTESTREAM_SEEK_ORIGIN {}
-impl ::core::clone::Clone for MFBYTESTREAM_SEEK_ORIGIN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFBYTESTREAM_SEEK_ORIGIN {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFBYTESTREAM_SEEK_ORIGIN {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -32704,19 +31043,8 @@ impl ::core::fmt::Debug for MFBYTESTREAM_SEEK_ORIGIN {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFCLOCK_CHARACTERISTICS_FLAGS(pub i32);
-impl ::core::marker::Copy for MFCLOCK_CHARACTERISTICS_FLAGS {}
-impl ::core::clone::Clone for MFCLOCK_CHARACTERISTICS_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFCLOCK_CHARACTERISTICS_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFCLOCK_CHARACTERISTICS_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -32726,19 +31054,8 @@ impl ::core::fmt::Debug for MFCLOCK_CHARACTERISTICS_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFCLOCK_RELATIONAL_FLAGS(pub i32);
-impl ::core::marker::Copy for MFCLOCK_RELATIONAL_FLAGS {}
-impl ::core::clone::Clone for MFCLOCK_RELATIONAL_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFCLOCK_RELATIONAL_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFCLOCK_RELATIONAL_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -32748,19 +31065,8 @@ impl ::core::fmt::Debug for MFCLOCK_RELATIONAL_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFCLOCK_STATE(pub i32);
-impl ::core::marker::Copy for MFCLOCK_STATE {}
-impl ::core::clone::Clone for MFCLOCK_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFCLOCK_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFCLOCK_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -32770,19 +31076,8 @@ impl ::core::fmt::Debug for MFCLOCK_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFCameraIntrinsic_DistortionModelType(pub i32);
-impl ::core::marker::Copy for MFCameraIntrinsic_DistortionModelType {}
-impl ::core::clone::Clone for MFCameraIntrinsic_DistortionModelType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFCameraIntrinsic_DistortionModelType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFCameraIntrinsic_DistortionModelType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -32792,19 +31087,8 @@ impl ::core::fmt::Debug for MFCameraIntrinsic_DistortionModelType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFCameraOcclusionState(pub i32);
-impl ::core::marker::Copy for MFCameraOcclusionState {}
-impl ::core::clone::Clone for MFCameraOcclusionState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFCameraOcclusionState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFCameraOcclusionState {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -32847,19 +31131,8 @@ impl ::core::ops::Not for MFCameraOcclusionState {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFDepthMeasurement(pub i32);
-impl ::core::marker::Copy for MFDepthMeasurement {}
-impl ::core::clone::Clone for MFDepthMeasurement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFDepthMeasurement {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFDepthMeasurement {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -32869,19 +31142,8 @@ impl ::core::fmt::Debug for MFDepthMeasurement {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFFrameSourceTypes(pub i32);
-impl ::core::marker::Copy for MFFrameSourceTypes {}
-impl ::core::clone::Clone for MFFrameSourceTypes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFFrameSourceTypes {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFFrameSourceTypes {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -32891,19 +31153,8 @@ impl ::core::fmt::Debug for MFFrameSourceTypes {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFMEDIASOURCE_CHARACTERISTICS(pub i32);
-impl ::core::marker::Copy for MFMEDIASOURCE_CHARACTERISTICS {}
-impl ::core::clone::Clone for MFMEDIASOURCE_CHARACTERISTICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFMEDIASOURCE_CHARACTERISTICS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFMEDIASOURCE_CHARACTERISTICS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -32913,19 +31164,8 @@ impl ::core::fmt::Debug for MFMEDIASOURCE_CHARACTERISTICS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFNETSOURCE_CACHE_STATE(pub i32);
-impl ::core::marker::Copy for MFNETSOURCE_CACHE_STATE {}
-impl ::core::clone::Clone for MFNETSOURCE_CACHE_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFNETSOURCE_CACHE_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFNETSOURCE_CACHE_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -32935,19 +31175,8 @@ impl ::core::fmt::Debug for MFNETSOURCE_CACHE_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFNETSOURCE_PROTOCOL_TYPE(pub i32);
-impl ::core::marker::Copy for MFNETSOURCE_PROTOCOL_TYPE {}
-impl ::core::clone::Clone for MFNETSOURCE_PROTOCOL_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFNETSOURCE_PROTOCOL_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFNETSOURCE_PROTOCOL_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -32957,19 +31186,8 @@ impl ::core::fmt::Debug for MFNETSOURCE_PROTOCOL_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFNETSOURCE_STATISTICS_IDS(pub i32);
-impl ::core::marker::Copy for MFNETSOURCE_STATISTICS_IDS {}
-impl ::core::clone::Clone for MFNETSOURCE_STATISTICS_IDS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFNETSOURCE_STATISTICS_IDS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFNETSOURCE_STATISTICS_IDS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -32979,19 +31197,8 @@ impl ::core::fmt::Debug for MFNETSOURCE_STATISTICS_IDS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFNETSOURCE_TRANSPORT_TYPE(pub i32);
-impl ::core::marker::Copy for MFNETSOURCE_TRANSPORT_TYPE {}
-impl ::core::clone::Clone for MFNETSOURCE_TRANSPORT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFNETSOURCE_TRANSPORT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFNETSOURCE_TRANSPORT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -33001,19 +31208,8 @@ impl ::core::fmt::Debug for MFNETSOURCE_TRANSPORT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFNET_PROXYSETTINGS(pub i32);
-impl ::core::marker::Copy for MFNET_PROXYSETTINGS {}
-impl ::core::clone::Clone for MFNET_PROXYSETTINGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFNET_PROXYSETTINGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFNET_PROXYSETTINGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -33023,19 +31219,8 @@ impl ::core::fmt::Debug for MFNET_PROXYSETTINGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFNetAuthenticationFlags(pub i32);
-impl ::core::marker::Copy for MFNetAuthenticationFlags {}
-impl ::core::clone::Clone for MFNetAuthenticationFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFNetAuthenticationFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFNetAuthenticationFlags {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -33045,19 +31230,8 @@ impl ::core::fmt::Debug for MFNetAuthenticationFlags {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFNetCredentialOptions(pub i32);
-impl ::core::marker::Copy for MFNetCredentialOptions {}
-impl ::core::clone::Clone for MFNetCredentialOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFNetCredentialOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFNetCredentialOptions {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -33067,19 +31241,8 @@ impl ::core::fmt::Debug for MFNetCredentialOptions {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFNetCredentialRequirements(pub i32);
-impl ::core::marker::Copy for MFNetCredentialRequirements {}
-impl ::core::clone::Clone for MFNetCredentialRequirements {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFNetCredentialRequirements {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFNetCredentialRequirements {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -33089,19 +31252,8 @@ impl ::core::fmt::Debug for MFNetCredentialRequirements {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFNominalRange(pub i32);
-impl ::core::marker::Copy for MFNominalRange {}
-impl ::core::clone::Clone for MFNominalRange {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFNominalRange {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFNominalRange {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -33111,19 +31263,8 @@ impl ::core::fmt::Debug for MFNominalRange {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFPMPSESSION_CREATION_FLAGS(pub i32);
-impl ::core::marker::Copy for MFPMPSESSION_CREATION_FLAGS {}
-impl ::core::clone::Clone for MFPMPSESSION_CREATION_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFPMPSESSION_CREATION_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFPMPSESSION_CREATION_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -33133,19 +31274,8 @@ impl ::core::fmt::Debug for MFPMPSESSION_CREATION_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFPOLICYMANAGER_ACTION(pub i32);
-impl ::core::marker::Copy for MFPOLICYMANAGER_ACTION {}
-impl ::core::clone::Clone for MFPOLICYMANAGER_ACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFPOLICYMANAGER_ACTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFPOLICYMANAGER_ACTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -33155,19 +31285,8 @@ impl ::core::fmt::Debug for MFPOLICYMANAGER_ACTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFP_CREATION_OPTIONS(pub i32);
-impl ::core::marker::Copy for MFP_CREATION_OPTIONS {}
-impl ::core::clone::Clone for MFP_CREATION_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFP_CREATION_OPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFP_CREATION_OPTIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -33177,19 +31296,8 @@ impl ::core::fmt::Debug for MFP_CREATION_OPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFP_EVENT_TYPE(pub i32);
-impl ::core::marker::Copy for MFP_EVENT_TYPE {}
-impl ::core::clone::Clone for MFP_EVENT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFP_EVENT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFP_EVENT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -33199,19 +31307,8 @@ impl ::core::fmt::Debug for MFP_EVENT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFP_MEDIAPLAYER_STATE(pub i32);
-impl ::core::marker::Copy for MFP_MEDIAPLAYER_STATE {}
-impl ::core::clone::Clone for MFP_MEDIAPLAYER_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFP_MEDIAPLAYER_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFP_MEDIAPLAYER_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -33221,19 +31318,8 @@ impl ::core::fmt::Debug for MFP_MEDIAPLAYER_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFRATE_DIRECTION(pub i32);
-impl ::core::marker::Copy for MFRATE_DIRECTION {}
-impl ::core::clone::Clone for MFRATE_DIRECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFRATE_DIRECTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFRATE_DIRECTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -33243,19 +31329,8 @@ impl ::core::fmt::Debug for MFRATE_DIRECTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFSESSION_GETFULLTOPOLOGY_FLAGS(pub i32);
-impl ::core::marker::Copy for MFSESSION_GETFULLTOPOLOGY_FLAGS {}
-impl ::core::clone::Clone for MFSESSION_GETFULLTOPOLOGY_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFSESSION_GETFULLTOPOLOGY_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFSESSION_GETFULLTOPOLOGY_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -33265,19 +31340,8 @@ impl ::core::fmt::Debug for MFSESSION_GETFULLTOPOLOGY_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFSESSION_SETTOPOLOGY_FLAGS(pub i32);
-impl ::core::marker::Copy for MFSESSION_SETTOPOLOGY_FLAGS {}
-impl ::core::clone::Clone for MFSESSION_SETTOPOLOGY_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFSESSION_SETTOPOLOGY_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFSESSION_SETTOPOLOGY_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -33287,19 +31351,8 @@ impl ::core::fmt::Debug for MFSESSION_SETTOPOLOGY_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFSHUTDOWN_STATUS(pub i32);
-impl ::core::marker::Copy for MFSHUTDOWN_STATUS {}
-impl ::core::clone::Clone for MFSHUTDOWN_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFSHUTDOWN_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFSHUTDOWN_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -33309,19 +31362,8 @@ impl ::core::fmt::Debug for MFSHUTDOWN_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFSINK_WMDRMACTION(pub i32);
-impl ::core::marker::Copy for MFSINK_WMDRMACTION {}
-impl ::core::clone::Clone for MFSINK_WMDRMACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFSINK_WMDRMACTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFSINK_WMDRMACTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -33331,19 +31373,8 @@ impl ::core::fmt::Debug for MFSINK_WMDRMACTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFSTREAMSINK_MARKER_TYPE(pub i32);
-impl ::core::marker::Copy for MFSTREAMSINK_MARKER_TYPE {}
-impl ::core::clone::Clone for MFSTREAMSINK_MARKER_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFSTREAMSINK_MARKER_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFSTREAMSINK_MARKER_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -33353,19 +31384,8 @@ impl ::core::fmt::Debug for MFSTREAMSINK_MARKER_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFSampleAllocatorUsage(pub i32);
-impl ::core::marker::Copy for MFSampleAllocatorUsage {}
-impl ::core::clone::Clone for MFSampleAllocatorUsage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFSampleAllocatorUsage {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFSampleAllocatorUsage {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -33375,19 +31395,8 @@ impl ::core::fmt::Debug for MFSampleAllocatorUsage {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFSampleEncryptionProtectionScheme(pub i32);
-impl ::core::marker::Copy for MFSampleEncryptionProtectionScheme {}
-impl ::core::clone::Clone for MFSampleEncryptionProtectionScheme {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFSampleEncryptionProtectionScheme {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFSampleEncryptionProtectionScheme {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -33397,19 +31406,8 @@ impl ::core::fmt::Debug for MFSampleEncryptionProtectionScheme {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFSensorDeviceMode(pub i32);
-impl ::core::marker::Copy for MFSensorDeviceMode {}
-impl ::core::clone::Clone for MFSensorDeviceMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFSensorDeviceMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFSensorDeviceMode {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -33419,19 +31417,8 @@ impl ::core::fmt::Debug for MFSensorDeviceMode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFSensorDeviceType(pub i32);
-impl ::core::marker::Copy for MFSensorDeviceType {}
-impl ::core::clone::Clone for MFSensorDeviceType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFSensorDeviceType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFSensorDeviceType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -33441,19 +31428,8 @@ impl ::core::fmt::Debug for MFSensorDeviceType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFSensorStreamType(pub i32);
-impl ::core::marker::Copy for MFSensorStreamType {}
-impl ::core::clone::Clone for MFSensorStreamType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFSensorStreamType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFSensorStreamType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -33463,19 +31439,8 @@ impl ::core::fmt::Debug for MFSensorStreamType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFSequencerTopologyFlags(pub i32);
-impl ::core::marker::Copy for MFSequencerTopologyFlags {}
-impl ::core::clone::Clone for MFSequencerTopologyFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFSequencerTopologyFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFSequencerTopologyFlags {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -33485,19 +31450,8 @@ impl ::core::fmt::Debug for MFSequencerTopologyFlags {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFStandardVideoFormat(pub i32);
-impl ::core::marker::Copy for MFStandardVideoFormat {}
-impl ::core::clone::Clone for MFStandardVideoFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFStandardVideoFormat {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFStandardVideoFormat {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -33507,19 +31461,8 @@ impl ::core::fmt::Debug for MFStandardVideoFormat {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFTIMER_FLAGS(pub i32);
-impl ::core::marker::Copy for MFTIMER_FLAGS {}
-impl ::core::clone::Clone for MFTIMER_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFTIMER_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFTIMER_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -33529,19 +31472,8 @@ impl ::core::fmt::Debug for MFTIMER_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFTOPOLOGY_DXVA_MODE(pub i32);
-impl ::core::marker::Copy for MFTOPOLOGY_DXVA_MODE {}
-impl ::core::clone::Clone for MFTOPOLOGY_DXVA_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFTOPOLOGY_DXVA_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFTOPOLOGY_DXVA_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -33551,19 +31483,8 @@ impl ::core::fmt::Debug for MFTOPOLOGY_DXVA_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFTOPOLOGY_HARDWARE_MODE(pub i32);
-impl ::core::marker::Copy for MFTOPOLOGY_HARDWARE_MODE {}
-impl ::core::clone::Clone for MFTOPOLOGY_HARDWARE_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFTOPOLOGY_HARDWARE_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFTOPOLOGY_HARDWARE_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -33573,19 +31494,8 @@ impl ::core::fmt::Debug for MFTOPOLOGY_HARDWARE_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFT_AUDIO_DECODER_DEGRADATION_REASON(pub i32);
-impl ::core::marker::Copy for MFT_AUDIO_DECODER_DEGRADATION_REASON {}
-impl ::core::clone::Clone for MFT_AUDIO_DECODER_DEGRADATION_REASON {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFT_AUDIO_DECODER_DEGRADATION_REASON {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFT_AUDIO_DECODER_DEGRADATION_REASON {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -33595,19 +31505,8 @@ impl ::core::fmt::Debug for MFT_AUDIO_DECODER_DEGRADATION_REASON {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFT_AUDIO_DECODER_DEGRADATION_TYPE(pub i32);
-impl ::core::marker::Copy for MFT_AUDIO_DECODER_DEGRADATION_TYPE {}
-impl ::core::clone::Clone for MFT_AUDIO_DECODER_DEGRADATION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFT_AUDIO_DECODER_DEGRADATION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFT_AUDIO_DECODER_DEGRADATION_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -33617,19 +31516,8 @@ impl ::core::fmt::Debug for MFT_AUDIO_DECODER_DEGRADATION_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFT_DRAIN_TYPE(pub i32);
-impl ::core::marker::Copy for MFT_DRAIN_TYPE {}
-impl ::core::clone::Clone for MFT_DRAIN_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFT_DRAIN_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFT_DRAIN_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -33639,19 +31527,8 @@ impl ::core::fmt::Debug for MFT_DRAIN_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFT_ENUM_FLAG(pub i32);
-impl ::core::marker::Copy for MFT_ENUM_FLAG {}
-impl ::core::clone::Clone for MFT_ENUM_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFT_ENUM_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFT_ENUM_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -33694,19 +31571,8 @@ impl ::core::ops::Not for MFT_ENUM_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFT_MESSAGE_TYPE(pub i32);
-impl ::core::marker::Copy for MFT_MESSAGE_TYPE {}
-impl ::core::clone::Clone for MFT_MESSAGE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFT_MESSAGE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFT_MESSAGE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -33716,19 +31582,8 @@ impl ::core::fmt::Debug for MFT_MESSAGE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFVP_MESSAGE_TYPE(pub i32);
-impl ::core::marker::Copy for MFVP_MESSAGE_TYPE {}
-impl ::core::clone::Clone for MFVP_MESSAGE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFVP_MESSAGE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFVP_MESSAGE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -33738,19 +31593,8 @@ impl ::core::fmt::Debug for MFVP_MESSAGE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFVideo3DFormat(pub i32);
-impl ::core::marker::Copy for MFVideo3DFormat {}
-impl ::core::clone::Clone for MFVideo3DFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFVideo3DFormat {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFVideo3DFormat {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -33760,19 +31604,8 @@ impl ::core::fmt::Debug for MFVideo3DFormat {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFVideo3DSampleFormat(pub i32);
-impl ::core::marker::Copy for MFVideo3DSampleFormat {}
-impl ::core::clone::Clone for MFVideo3DSampleFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFVideo3DSampleFormat {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFVideo3DSampleFormat {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -33782,19 +31615,8 @@ impl ::core::fmt::Debug for MFVideo3DSampleFormat {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFVideoAlphaBitmapFlags(pub i32);
-impl ::core::marker::Copy for MFVideoAlphaBitmapFlags {}
-impl ::core::clone::Clone for MFVideoAlphaBitmapFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFVideoAlphaBitmapFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFVideoAlphaBitmapFlags {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -33804,19 +31626,8 @@ impl ::core::fmt::Debug for MFVideoAlphaBitmapFlags {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFVideoAspectRatioMode(pub i32);
-impl ::core::marker::Copy for MFVideoAspectRatioMode {}
-impl ::core::clone::Clone for MFVideoAspectRatioMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFVideoAspectRatioMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFVideoAspectRatioMode {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -33826,19 +31637,8 @@ impl ::core::fmt::Debug for MFVideoAspectRatioMode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFVideoChromaSubsampling(pub i32);
-impl ::core::marker::Copy for MFVideoChromaSubsampling {}
-impl ::core::clone::Clone for MFVideoChromaSubsampling {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFVideoChromaSubsampling {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFVideoChromaSubsampling {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -33848,19 +31648,8 @@ impl ::core::fmt::Debug for MFVideoChromaSubsampling {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFVideoDRMFlags(pub i32);
-impl ::core::marker::Copy for MFVideoDRMFlags {}
-impl ::core::clone::Clone for MFVideoDRMFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFVideoDRMFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFVideoDRMFlags {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -33870,19 +31659,8 @@ impl ::core::fmt::Debug for MFVideoDRMFlags {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFVideoDSPMode(pub i32);
-impl ::core::marker::Copy for MFVideoDSPMode {}
-impl ::core::clone::Clone for MFVideoDSPMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFVideoDSPMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFVideoDSPMode {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -33892,19 +31670,8 @@ impl ::core::fmt::Debug for MFVideoDSPMode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFVideoFlags(pub i32);
-impl ::core::marker::Copy for MFVideoFlags {}
-impl ::core::clone::Clone for MFVideoFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFVideoFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFVideoFlags {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -33914,19 +31681,8 @@ impl ::core::fmt::Debug for MFVideoFlags {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFVideoInterlaceMode(pub i32);
-impl ::core::marker::Copy for MFVideoInterlaceMode {}
-impl ::core::clone::Clone for MFVideoInterlaceMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFVideoInterlaceMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFVideoInterlaceMode {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -33936,19 +31692,8 @@ impl ::core::fmt::Debug for MFVideoInterlaceMode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFVideoLighting(pub i32);
-impl ::core::marker::Copy for MFVideoLighting {}
-impl ::core::clone::Clone for MFVideoLighting {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFVideoLighting {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFVideoLighting {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -33958,19 +31703,8 @@ impl ::core::fmt::Debug for MFVideoLighting {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFVideoMixPrefs(pub i32);
-impl ::core::marker::Copy for MFVideoMixPrefs {}
-impl ::core::clone::Clone for MFVideoMixPrefs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFVideoMixPrefs {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFVideoMixPrefs {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -33980,19 +31714,8 @@ impl ::core::fmt::Debug for MFVideoMixPrefs {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFVideoPadFlags(pub i32);
-impl ::core::marker::Copy for MFVideoPadFlags {}
-impl ::core::clone::Clone for MFVideoPadFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFVideoPadFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFVideoPadFlags {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -34002,19 +31725,8 @@ impl ::core::fmt::Debug for MFVideoPadFlags {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFVideoPrimaries(pub i32);
-impl ::core::marker::Copy for MFVideoPrimaries {}
-impl ::core::clone::Clone for MFVideoPrimaries {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFVideoPrimaries {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFVideoPrimaries {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -34024,19 +31736,8 @@ impl ::core::fmt::Debug for MFVideoPrimaries {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFVideoRenderPrefs(pub i32);
-impl ::core::marker::Copy for MFVideoRenderPrefs {}
-impl ::core::clone::Clone for MFVideoRenderPrefs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFVideoRenderPrefs {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFVideoRenderPrefs {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -34046,19 +31747,8 @@ impl ::core::fmt::Debug for MFVideoRenderPrefs {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFVideoRotationFormat(pub i32);
-impl ::core::marker::Copy for MFVideoRotationFormat {}
-impl ::core::clone::Clone for MFVideoRotationFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFVideoRotationFormat {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFVideoRotationFormat {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -34068,19 +31758,8 @@ impl ::core::fmt::Debug for MFVideoRotationFormat {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFVideoSphericalFormat(pub i32);
-impl ::core::marker::Copy for MFVideoSphericalFormat {}
-impl ::core::clone::Clone for MFVideoSphericalFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFVideoSphericalFormat {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFVideoSphericalFormat {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -34090,19 +31769,8 @@ impl ::core::fmt::Debug for MFVideoSphericalFormat {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFVideoSphericalProjectionMode(pub i32);
-impl ::core::marker::Copy for MFVideoSphericalProjectionMode {}
-impl ::core::clone::Clone for MFVideoSphericalProjectionMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFVideoSphericalProjectionMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFVideoSphericalProjectionMode {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -34112,19 +31780,8 @@ impl ::core::fmt::Debug for MFVideoSphericalProjectionMode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFVideoSrcContentHintFlags(pub i32);
-impl ::core::marker::Copy for MFVideoSrcContentHintFlags {}
-impl ::core::clone::Clone for MFVideoSrcContentHintFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFVideoSrcContentHintFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFVideoSrcContentHintFlags {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -34134,19 +31791,8 @@ impl ::core::fmt::Debug for MFVideoSrcContentHintFlags {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFVideoTransferFunction(pub i32);
-impl ::core::marker::Copy for MFVideoTransferFunction {}
-impl ::core::clone::Clone for MFVideoTransferFunction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFVideoTransferFunction {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFVideoTransferFunction {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -34156,19 +31802,8 @@ impl ::core::fmt::Debug for MFVideoTransferFunction {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFVideoTransferMatrix(pub i32);
-impl ::core::marker::Copy for MFVideoTransferMatrix {}
-impl ::core::clone::Clone for MFVideoTransferMatrix {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFVideoTransferMatrix {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFVideoTransferMatrix {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -34178,19 +31813,8 @@ impl ::core::fmt::Debug for MFVideoTransferMatrix {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFVirtualCameraAccess(pub i32);
-impl ::core::marker::Copy for MFVirtualCameraAccess {}
-impl ::core::clone::Clone for MFVirtualCameraAccess {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFVirtualCameraAccess {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFVirtualCameraAccess {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -34200,19 +31824,8 @@ impl ::core::fmt::Debug for MFVirtualCameraAccess {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFVirtualCameraLifetime(pub i32);
-impl ::core::marker::Copy for MFVirtualCameraLifetime {}
-impl ::core::clone::Clone for MFVirtualCameraLifetime {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFVirtualCameraLifetime {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFVirtualCameraLifetime {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -34222,19 +31835,8 @@ impl ::core::fmt::Debug for MFVirtualCameraLifetime {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFVirtualCameraType(pub i32);
-impl ::core::marker::Copy for MFVirtualCameraType {}
-impl ::core::clone::Clone for MFVirtualCameraType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFVirtualCameraType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFVirtualCameraType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -34244,19 +31846,8 @@ impl ::core::fmt::Debug for MFVirtualCameraType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MFWaveFormatExConvertFlags(pub i32);
-impl ::core::marker::Copy for MFWaveFormatExConvertFlags {}
-impl ::core::clone::Clone for MFWaveFormatExConvertFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MFWaveFormatExConvertFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MFWaveFormatExConvertFlags {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -34266,19 +31857,8 @@ impl ::core::fmt::Debug for MFWaveFormatExConvertFlags {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_ACTIVATE_CUSTOM_MIXER(pub i32);
-impl ::core::marker::Copy for MF_ACTIVATE_CUSTOM_MIXER {}
-impl ::core::clone::Clone for MF_ACTIVATE_CUSTOM_MIXER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_ACTIVATE_CUSTOM_MIXER {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_ACTIVATE_CUSTOM_MIXER {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -34288,19 +31868,8 @@ impl ::core::fmt::Debug for MF_ACTIVATE_CUSTOM_MIXER {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_ACTIVATE_CUSTOM_PRESENTER(pub i32);
-impl ::core::marker::Copy for MF_ACTIVATE_CUSTOM_PRESENTER {}
-impl ::core::clone::Clone for MF_ACTIVATE_CUSTOM_PRESENTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_ACTIVATE_CUSTOM_PRESENTER {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_ACTIVATE_CUSTOM_PRESENTER {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -34310,19 +31879,8 @@ impl ::core::fmt::Debug for MF_ACTIVATE_CUSTOM_PRESENTER {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_ATTRIBUTES_MATCH_TYPE(pub i32);
-impl ::core::marker::Copy for MF_ATTRIBUTES_MATCH_TYPE {}
-impl ::core::clone::Clone for MF_ATTRIBUTES_MATCH_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_ATTRIBUTES_MATCH_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_ATTRIBUTES_MATCH_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -34332,19 +31890,8 @@ impl ::core::fmt::Debug for MF_ATTRIBUTES_MATCH_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_ATTRIBUTE_SERIALIZE_OPTIONS(pub i32);
-impl ::core::marker::Copy for MF_ATTRIBUTE_SERIALIZE_OPTIONS {}
-impl ::core::clone::Clone for MF_ATTRIBUTE_SERIALIZE_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_ATTRIBUTE_SERIALIZE_OPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_ATTRIBUTE_SERIALIZE_OPTIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -34354,19 +31901,8 @@ impl ::core::fmt::Debug for MF_ATTRIBUTE_SERIALIZE_OPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_ATTRIBUTE_TYPE(pub i32);
-impl ::core::marker::Copy for MF_ATTRIBUTE_TYPE {}
-impl ::core::clone::Clone for MF_ATTRIBUTE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_ATTRIBUTE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_ATTRIBUTE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -34376,19 +31912,8 @@ impl ::core::fmt::Debug for MF_ATTRIBUTE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_AUVRHP_ROOMMODEL(pub i32);
-impl ::core::marker::Copy for MF_AUVRHP_ROOMMODEL {}
-impl ::core::clone::Clone for MF_AUVRHP_ROOMMODEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_AUVRHP_ROOMMODEL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_AUVRHP_ROOMMODEL {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -34398,19 +31923,8 @@ impl ::core::fmt::Debug for MF_AUVRHP_ROOMMODEL {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_CAMERA_CONTROL_CONFIGURATION_TYPE(pub i32);
-impl ::core::marker::Copy for MF_CAMERA_CONTROL_CONFIGURATION_TYPE {}
-impl ::core::clone::Clone for MF_CAMERA_CONTROL_CONFIGURATION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_CAMERA_CONTROL_CONFIGURATION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_CAMERA_CONTROL_CONFIGURATION_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -34420,19 +31934,8 @@ impl ::core::fmt::Debug for MF_CAMERA_CONTROL_CONFIGURATION_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_CAPTURE_ENGINE_AUDIO_PROCESSING_MODE(pub i32);
-impl ::core::marker::Copy for MF_CAPTURE_ENGINE_AUDIO_PROCESSING_MODE {}
-impl ::core::clone::Clone for MF_CAPTURE_ENGINE_AUDIO_PROCESSING_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_CAPTURE_ENGINE_AUDIO_PROCESSING_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_CAPTURE_ENGINE_AUDIO_PROCESSING_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -34442,19 +31945,8 @@ impl ::core::fmt::Debug for MF_CAPTURE_ENGINE_AUDIO_PROCESSING_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_CAPTURE_ENGINE_DEVICE_TYPE(pub i32);
-impl ::core::marker::Copy for MF_CAPTURE_ENGINE_DEVICE_TYPE {}
-impl ::core::clone::Clone for MF_CAPTURE_ENGINE_DEVICE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_CAPTURE_ENGINE_DEVICE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_CAPTURE_ENGINE_DEVICE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -34464,19 +31956,8 @@ impl ::core::fmt::Debug for MF_CAPTURE_ENGINE_DEVICE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE(pub i32);
-impl ::core::marker::Copy for MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE {}
-impl ::core::clone::Clone for MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -34486,19 +31967,8 @@ impl ::core::fmt::Debug for MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_CAPTURE_ENGINE_SINK_TYPE(pub i32);
-impl ::core::marker::Copy for MF_CAPTURE_ENGINE_SINK_TYPE {}
-impl ::core::clone::Clone for MF_CAPTURE_ENGINE_SINK_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_CAPTURE_ENGINE_SINK_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_CAPTURE_ENGINE_SINK_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -34508,19 +31978,8 @@ impl ::core::fmt::Debug for MF_CAPTURE_ENGINE_SINK_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_CAPTURE_ENGINE_SOURCE(pub u32);
-impl ::core::marker::Copy for MF_CAPTURE_ENGINE_SOURCE {}
-impl ::core::clone::Clone for MF_CAPTURE_ENGINE_SOURCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_CAPTURE_ENGINE_SOURCE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_CAPTURE_ENGINE_SOURCE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -34530,19 +31989,8 @@ impl ::core::fmt::Debug for MF_CAPTURE_ENGINE_SOURCE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_CAPTURE_ENGINE_STREAM_CATEGORY(pub i32);
-impl ::core::marker::Copy for MF_CAPTURE_ENGINE_STREAM_CATEGORY {}
-impl ::core::clone::Clone for MF_CAPTURE_ENGINE_STREAM_CATEGORY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_CAPTURE_ENGINE_STREAM_CATEGORY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_CAPTURE_ENGINE_STREAM_CATEGORY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -34552,19 +32000,8 @@ impl ::core::fmt::Debug for MF_CAPTURE_ENGINE_STREAM_CATEGORY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_CONNECT_METHOD(pub i32);
-impl ::core::marker::Copy for MF_CONNECT_METHOD {}
-impl ::core::clone::Clone for MF_CONNECT_METHOD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_CONNECT_METHOD {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_CONNECT_METHOD {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -34574,19 +32011,8 @@ impl ::core::fmt::Debug for MF_CONNECT_METHOD {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_CROSS_ORIGIN_POLICY(pub i32);
-impl ::core::marker::Copy for MF_CROSS_ORIGIN_POLICY {}
-impl ::core::clone::Clone for MF_CROSS_ORIGIN_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_CROSS_ORIGIN_POLICY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_CROSS_ORIGIN_POLICY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -34596,19 +32022,8 @@ impl ::core::fmt::Debug for MF_CROSS_ORIGIN_POLICY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_CUSTOM_DECODE_UNIT_TYPE(pub i32);
-impl ::core::marker::Copy for MF_CUSTOM_DECODE_UNIT_TYPE {}
-impl ::core::clone::Clone for MF_CUSTOM_DECODE_UNIT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_CUSTOM_DECODE_UNIT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_CUSTOM_DECODE_UNIT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -34618,19 +32033,8 @@ impl ::core::fmt::Debug for MF_CUSTOM_DECODE_UNIT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_EVENT_TYPE(pub i32);
-impl ::core::marker::Copy for MF_EVENT_TYPE {}
-impl ::core::clone::Clone for MF_EVENT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_EVENT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_EVENT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -34640,19 +32044,8 @@ impl ::core::fmt::Debug for MF_EVENT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_FILE_ACCESSMODE(pub i32);
-impl ::core::marker::Copy for MF_FILE_ACCESSMODE {}
-impl ::core::clone::Clone for MF_FILE_ACCESSMODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_FILE_ACCESSMODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_FILE_ACCESSMODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -34662,19 +32055,8 @@ impl ::core::fmt::Debug for MF_FILE_ACCESSMODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_FILE_FLAGS(pub i32);
-impl ::core::marker::Copy for MF_FILE_FLAGS {}
-impl ::core::clone::Clone for MF_FILE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_FILE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_FILE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -34684,19 +32066,8 @@ impl ::core::fmt::Debug for MF_FILE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_FILE_OPENMODE(pub i32);
-impl ::core::marker::Copy for MF_FILE_OPENMODE {}
-impl ::core::clone::Clone for MF_FILE_OPENMODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_FILE_OPENMODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_FILE_OPENMODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -34706,19 +32077,8 @@ impl ::core::fmt::Debug for MF_FILE_OPENMODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_HDCP_STATUS(pub i32);
-impl ::core::marker::Copy for MF_HDCP_STATUS {}
-impl ::core::clone::Clone for MF_HDCP_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_HDCP_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_HDCP_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -34728,19 +32088,8 @@ impl ::core::fmt::Debug for MF_HDCP_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_MEDIAKEYSESSION_MESSAGETYPE(pub i32);
-impl ::core::marker::Copy for MF_MEDIAKEYSESSION_MESSAGETYPE {}
-impl ::core::clone::Clone for MF_MEDIAKEYSESSION_MESSAGETYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_MEDIAKEYSESSION_MESSAGETYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_MEDIAKEYSESSION_MESSAGETYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -34750,19 +32099,8 @@ impl ::core::fmt::Debug for MF_MEDIAKEYSESSION_MESSAGETYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_MEDIAKEYSESSION_TYPE(pub i32);
-impl ::core::marker::Copy for MF_MEDIAKEYSESSION_TYPE {}
-impl ::core::clone::Clone for MF_MEDIAKEYSESSION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_MEDIAKEYSESSION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_MEDIAKEYSESSION_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -34772,19 +32110,8 @@ impl ::core::fmt::Debug for MF_MEDIAKEYSESSION_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_MEDIAKEYS_REQUIREMENT(pub i32);
-impl ::core::marker::Copy for MF_MEDIAKEYS_REQUIREMENT {}
-impl ::core::clone::Clone for MF_MEDIAKEYS_REQUIREMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_MEDIAKEYS_REQUIREMENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_MEDIAKEYS_REQUIREMENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -34794,19 +32121,8 @@ impl ::core::fmt::Debug for MF_MEDIAKEYS_REQUIREMENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_MEDIAKEY_STATUS(pub i32);
-impl ::core::marker::Copy for MF_MEDIAKEY_STATUS {}
-impl ::core::clone::Clone for MF_MEDIAKEY_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_MEDIAKEY_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_MEDIAKEY_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -34816,19 +32132,8 @@ impl ::core::fmt::Debug for MF_MEDIAKEY_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_MEDIA_ENGINE_CANPLAY(pub i32);
-impl ::core::marker::Copy for MF_MEDIA_ENGINE_CANPLAY {}
-impl ::core::clone::Clone for MF_MEDIA_ENGINE_CANPLAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_MEDIA_ENGINE_CANPLAY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_MEDIA_ENGINE_CANPLAY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -34838,19 +32143,8 @@ impl ::core::fmt::Debug for MF_MEDIA_ENGINE_CANPLAY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_MEDIA_ENGINE_CREATEFLAGS(pub i32);
-impl ::core::marker::Copy for MF_MEDIA_ENGINE_CREATEFLAGS {}
-impl ::core::clone::Clone for MF_MEDIA_ENGINE_CREATEFLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_MEDIA_ENGINE_CREATEFLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_MEDIA_ENGINE_CREATEFLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -34860,19 +32154,8 @@ impl ::core::fmt::Debug for MF_MEDIA_ENGINE_CREATEFLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_MEDIA_ENGINE_ERR(pub i32);
-impl ::core::marker::Copy for MF_MEDIA_ENGINE_ERR {}
-impl ::core::clone::Clone for MF_MEDIA_ENGINE_ERR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_MEDIA_ENGINE_ERR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_MEDIA_ENGINE_ERR {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -34882,19 +32165,8 @@ impl ::core::fmt::Debug for MF_MEDIA_ENGINE_ERR {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_MEDIA_ENGINE_EVENT(pub i32);
-impl ::core::marker::Copy for MF_MEDIA_ENGINE_EVENT {}
-impl ::core::clone::Clone for MF_MEDIA_ENGINE_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_MEDIA_ENGINE_EVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_MEDIA_ENGINE_EVENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -34904,19 +32176,8 @@ impl ::core::fmt::Debug for MF_MEDIA_ENGINE_EVENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_MEDIA_ENGINE_EXTENSION_TYPE(pub i32);
-impl ::core::marker::Copy for MF_MEDIA_ENGINE_EXTENSION_TYPE {}
-impl ::core::clone::Clone for MF_MEDIA_ENGINE_EXTENSION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_MEDIA_ENGINE_EXTENSION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_MEDIA_ENGINE_EXTENSION_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -34926,19 +32187,8 @@ impl ::core::fmt::Debug for MF_MEDIA_ENGINE_EXTENSION_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_MEDIA_ENGINE_FRAME_PROTECTION_FLAGS(pub i32);
-impl ::core::marker::Copy for MF_MEDIA_ENGINE_FRAME_PROTECTION_FLAGS {}
-impl ::core::clone::Clone for MF_MEDIA_ENGINE_FRAME_PROTECTION_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_MEDIA_ENGINE_FRAME_PROTECTION_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_MEDIA_ENGINE_FRAME_PROTECTION_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -34948,19 +32198,8 @@ impl ::core::fmt::Debug for MF_MEDIA_ENGINE_FRAME_PROTECTION_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_MEDIA_ENGINE_KEYERR(pub i32);
-impl ::core::marker::Copy for MF_MEDIA_ENGINE_KEYERR {}
-impl ::core::clone::Clone for MF_MEDIA_ENGINE_KEYERR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_MEDIA_ENGINE_KEYERR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_MEDIA_ENGINE_KEYERR {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -34970,19 +32209,8 @@ impl ::core::fmt::Debug for MF_MEDIA_ENGINE_KEYERR {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_MEDIA_ENGINE_NETWORK(pub i32);
-impl ::core::marker::Copy for MF_MEDIA_ENGINE_NETWORK {}
-impl ::core::clone::Clone for MF_MEDIA_ENGINE_NETWORK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_MEDIA_ENGINE_NETWORK {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_MEDIA_ENGINE_NETWORK {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -34992,19 +32220,8 @@ impl ::core::fmt::Debug for MF_MEDIA_ENGINE_NETWORK {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_MEDIA_ENGINE_OPM_STATUS(pub i32);
-impl ::core::marker::Copy for MF_MEDIA_ENGINE_OPM_STATUS {}
-impl ::core::clone::Clone for MF_MEDIA_ENGINE_OPM_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_MEDIA_ENGINE_OPM_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_MEDIA_ENGINE_OPM_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -35014,19 +32231,8 @@ impl ::core::fmt::Debug for MF_MEDIA_ENGINE_OPM_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_MEDIA_ENGINE_PRELOAD(pub i32);
-impl ::core::marker::Copy for MF_MEDIA_ENGINE_PRELOAD {}
-impl ::core::clone::Clone for MF_MEDIA_ENGINE_PRELOAD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_MEDIA_ENGINE_PRELOAD {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_MEDIA_ENGINE_PRELOAD {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -35036,19 +32242,8 @@ impl ::core::fmt::Debug for MF_MEDIA_ENGINE_PRELOAD {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_MEDIA_ENGINE_PROTECTION_FLAGS(pub i32);
-impl ::core::marker::Copy for MF_MEDIA_ENGINE_PROTECTION_FLAGS {}
-impl ::core::clone::Clone for MF_MEDIA_ENGINE_PROTECTION_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_MEDIA_ENGINE_PROTECTION_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_MEDIA_ENGINE_PROTECTION_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -35058,19 +32253,8 @@ impl ::core::fmt::Debug for MF_MEDIA_ENGINE_PROTECTION_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_MEDIA_ENGINE_READY(pub i32);
-impl ::core::marker::Copy for MF_MEDIA_ENGINE_READY {}
-impl ::core::clone::Clone for MF_MEDIA_ENGINE_READY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_MEDIA_ENGINE_READY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_MEDIA_ENGINE_READY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -35080,19 +32264,8 @@ impl ::core::fmt::Debug for MF_MEDIA_ENGINE_READY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_MEDIA_ENGINE_S3D_PACKING_MODE(pub i32);
-impl ::core::marker::Copy for MF_MEDIA_ENGINE_S3D_PACKING_MODE {}
-impl ::core::clone::Clone for MF_MEDIA_ENGINE_S3D_PACKING_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_MEDIA_ENGINE_S3D_PACKING_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_MEDIA_ENGINE_S3D_PACKING_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -35102,19 +32275,8 @@ impl ::core::fmt::Debug for MF_MEDIA_ENGINE_S3D_PACKING_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_MEDIA_ENGINE_SEEK_MODE(pub i32);
-impl ::core::marker::Copy for MF_MEDIA_ENGINE_SEEK_MODE {}
-impl ::core::clone::Clone for MF_MEDIA_ENGINE_SEEK_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_MEDIA_ENGINE_SEEK_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_MEDIA_ENGINE_SEEK_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -35124,19 +32286,8 @@ impl ::core::fmt::Debug for MF_MEDIA_ENGINE_SEEK_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_MEDIA_ENGINE_STATISTIC(pub i32);
-impl ::core::marker::Copy for MF_MEDIA_ENGINE_STATISTIC {}
-impl ::core::clone::Clone for MF_MEDIA_ENGINE_STATISTIC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_MEDIA_ENGINE_STATISTIC {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_MEDIA_ENGINE_STATISTIC {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -35146,19 +32297,8 @@ impl ::core::fmt::Debug for MF_MEDIA_ENGINE_STATISTIC {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_MEDIA_ENGINE_STREAMTYPE_FAILED(pub i32);
-impl ::core::marker::Copy for MF_MEDIA_ENGINE_STREAMTYPE_FAILED {}
-impl ::core::clone::Clone for MF_MEDIA_ENGINE_STREAMTYPE_FAILED {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_MEDIA_ENGINE_STREAMTYPE_FAILED {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_MEDIA_ENGINE_STREAMTYPE_FAILED {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -35168,19 +32308,8 @@ impl ::core::fmt::Debug for MF_MEDIA_ENGINE_STREAMTYPE_FAILED {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_MEDIA_SHARING_ENGINE_EVENT(pub i32);
-impl ::core::marker::Copy for MF_MEDIA_SHARING_ENGINE_EVENT {}
-impl ::core::clone::Clone for MF_MEDIA_SHARING_ENGINE_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_MEDIA_SHARING_ENGINE_EVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_MEDIA_SHARING_ENGINE_EVENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -35190,19 +32319,8 @@ impl ::core::fmt::Debug for MF_MEDIA_SHARING_ENGINE_EVENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_MSE_APPEND_MODE(pub i32);
-impl ::core::marker::Copy for MF_MSE_APPEND_MODE {}
-impl ::core::clone::Clone for MF_MSE_APPEND_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_MSE_APPEND_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_MSE_APPEND_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -35212,19 +32330,8 @@ impl ::core::fmt::Debug for MF_MSE_APPEND_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_MSE_ERROR(pub i32);
-impl ::core::marker::Copy for MF_MSE_ERROR {}
-impl ::core::clone::Clone for MF_MSE_ERROR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_MSE_ERROR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_MSE_ERROR {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -35234,19 +32341,8 @@ impl ::core::fmt::Debug for MF_MSE_ERROR {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_MSE_OPUS_SUPPORT_TYPE(pub i32);
-impl ::core::marker::Copy for MF_MSE_OPUS_SUPPORT_TYPE {}
-impl ::core::clone::Clone for MF_MSE_OPUS_SUPPORT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_MSE_OPUS_SUPPORT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_MSE_OPUS_SUPPORT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -35256,19 +32352,8 @@ impl ::core::fmt::Debug for MF_MSE_OPUS_SUPPORT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_MSE_READY(pub i32);
-impl ::core::marker::Copy for MF_MSE_READY {}
-impl ::core::clone::Clone for MF_MSE_READY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_MSE_READY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_MSE_READY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -35278,19 +32363,8 @@ impl ::core::fmt::Debug for MF_MSE_READY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_MSE_VP9_SUPPORT_TYPE(pub i32);
-impl ::core::marker::Copy for MF_MSE_VP9_SUPPORT_TYPE {}
-impl ::core::clone::Clone for MF_MSE_VP9_SUPPORT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_MSE_VP9_SUPPORT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_MSE_VP9_SUPPORT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -35300,19 +32374,8 @@ impl ::core::fmt::Debug for MF_MSE_VP9_SUPPORT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_MT_D3D_RESOURCE_VERSION_ENUM(pub i32);
-impl ::core::marker::Copy for MF_MT_D3D_RESOURCE_VERSION_ENUM {}
-impl ::core::clone::Clone for MF_MT_D3D_RESOURCE_VERSION_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_MT_D3D_RESOURCE_VERSION_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_MT_D3D_RESOURCE_VERSION_ENUM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -35322,19 +32385,8 @@ impl ::core::fmt::Debug for MF_MT_D3D_RESOURCE_VERSION_ENUM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_OBJECT_TYPE(pub i32);
-impl ::core::marker::Copy for MF_OBJECT_TYPE {}
-impl ::core::clone::Clone for MF_OBJECT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_OBJECT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_OBJECT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -35344,19 +32396,8 @@ impl ::core::fmt::Debug for MF_OBJECT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_OPM_ACP_PROTECTION_LEVEL(pub i32);
-impl ::core::marker::Copy for MF_OPM_ACP_PROTECTION_LEVEL {}
-impl ::core::clone::Clone for MF_OPM_ACP_PROTECTION_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_OPM_ACP_PROTECTION_LEVEL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_OPM_ACP_PROTECTION_LEVEL {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -35366,19 +32407,8 @@ impl ::core::fmt::Debug for MF_OPM_ACP_PROTECTION_LEVEL {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_OPM_CGMSA_PROTECTION_LEVEL(pub i32);
-impl ::core::marker::Copy for MF_OPM_CGMSA_PROTECTION_LEVEL {}
-impl ::core::clone::Clone for MF_OPM_CGMSA_PROTECTION_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_OPM_CGMSA_PROTECTION_LEVEL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_OPM_CGMSA_PROTECTION_LEVEL {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -35388,19 +32418,8 @@ impl ::core::fmt::Debug for MF_OPM_CGMSA_PROTECTION_LEVEL {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_PLUGIN_CONTROL_POLICY(pub i32);
-impl ::core::marker::Copy for MF_PLUGIN_CONTROL_POLICY {}
-impl ::core::clone::Clone for MF_PLUGIN_CONTROL_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_PLUGIN_CONTROL_POLICY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_PLUGIN_CONTROL_POLICY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -35410,19 +32429,8 @@ impl ::core::fmt::Debug for MF_PLUGIN_CONTROL_POLICY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_Plugin_Type(pub i32);
-impl ::core::marker::Copy for MF_Plugin_Type {}
-impl ::core::clone::Clone for MF_Plugin_Type {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_Plugin_Type {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_Plugin_Type {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -35432,19 +32440,8 @@ impl ::core::fmt::Debug for MF_Plugin_Type {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_QUALITY_ADVISE_FLAGS(pub i32);
-impl ::core::marker::Copy for MF_QUALITY_ADVISE_FLAGS {}
-impl ::core::clone::Clone for MF_QUALITY_ADVISE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_QUALITY_ADVISE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_QUALITY_ADVISE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -35454,19 +32451,8 @@ impl ::core::fmt::Debug for MF_QUALITY_ADVISE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_QUALITY_DROP_MODE(pub i32);
-impl ::core::marker::Copy for MF_QUALITY_DROP_MODE {}
-impl ::core::clone::Clone for MF_QUALITY_DROP_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_QUALITY_DROP_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_QUALITY_DROP_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -35476,19 +32462,8 @@ impl ::core::fmt::Debug for MF_QUALITY_DROP_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_QUALITY_LEVEL(pub i32);
-impl ::core::marker::Copy for MF_QUALITY_LEVEL {}
-impl ::core::clone::Clone for MF_QUALITY_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_QUALITY_LEVEL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_QUALITY_LEVEL {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -35498,19 +32473,8 @@ impl ::core::fmt::Debug for MF_QUALITY_LEVEL {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_RESOLUTION_FLAGS(pub i32);
-impl ::core::marker::Copy for MF_RESOLUTION_FLAGS {}
-impl ::core::clone::Clone for MF_RESOLUTION_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_RESOLUTION_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_RESOLUTION_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -35553,19 +32517,8 @@ impl ::core::ops::Not for MF_RESOLUTION_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_SERVICE_LOOKUP_TYPE(pub i32);
-impl ::core::marker::Copy for MF_SERVICE_LOOKUP_TYPE {}
-impl ::core::clone::Clone for MF_SERVICE_LOOKUP_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_SERVICE_LOOKUP_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_SERVICE_LOOKUP_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -35575,19 +32528,8 @@ impl ::core::fmt::Debug for MF_SERVICE_LOOKUP_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_SHARING_ENGINE_EVENT(pub i32);
-impl ::core::marker::Copy for MF_SHARING_ENGINE_EVENT {}
-impl ::core::clone::Clone for MF_SHARING_ENGINE_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_SHARING_ENGINE_EVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_SHARING_ENGINE_EVENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -35597,19 +32539,8 @@ impl ::core::fmt::Debug for MF_SHARING_ENGINE_EVENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_SINK_WRITER_CONSTANTS(pub u32);
-impl ::core::marker::Copy for MF_SINK_WRITER_CONSTANTS {}
-impl ::core::clone::Clone for MF_SINK_WRITER_CONSTANTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_SINK_WRITER_CONSTANTS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_SINK_WRITER_CONSTANTS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -35619,19 +32550,8 @@ impl ::core::fmt::Debug for MF_SINK_WRITER_CONSTANTS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_SOURCE_READER_CONSTANTS(pub i32);
-impl ::core::marker::Copy for MF_SOURCE_READER_CONSTANTS {}
-impl ::core::clone::Clone for MF_SOURCE_READER_CONSTANTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_SOURCE_READER_CONSTANTS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_SOURCE_READER_CONSTANTS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -35641,19 +32561,8 @@ impl ::core::fmt::Debug for MF_SOURCE_READER_CONSTANTS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_SOURCE_READER_CONTROL_FLAG(pub i32);
-impl ::core::marker::Copy for MF_SOURCE_READER_CONTROL_FLAG {}
-impl ::core::clone::Clone for MF_SOURCE_READER_CONTROL_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_SOURCE_READER_CONTROL_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_SOURCE_READER_CONTROL_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -35696,19 +32605,8 @@ impl ::core::ops::Not for MF_SOURCE_READER_CONTROL_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_SOURCE_READER_CURRENT_TYPE_CONSTANTS(pub i32);
-impl ::core::marker::Copy for MF_SOURCE_READER_CURRENT_TYPE_CONSTANTS {}
-impl ::core::clone::Clone for MF_SOURCE_READER_CURRENT_TYPE_CONSTANTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_SOURCE_READER_CURRENT_TYPE_CONSTANTS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_SOURCE_READER_CURRENT_TYPE_CONSTANTS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -35718,19 +32616,8 @@ impl ::core::fmt::Debug for MF_SOURCE_READER_CURRENT_TYPE_CONSTANTS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_SOURCE_READER_FLAG(pub i32);
-impl ::core::marker::Copy for MF_SOURCE_READER_FLAG {}
-impl ::core::clone::Clone for MF_SOURCE_READER_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_SOURCE_READER_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_SOURCE_READER_FLAG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -35773,19 +32660,8 @@ impl ::core::ops::Not for MF_SOURCE_READER_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_STREAM_STATE(pub i32);
-impl ::core::marker::Copy for MF_STREAM_STATE {}
-impl ::core::clone::Clone for MF_STREAM_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_STREAM_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_STREAM_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -35795,19 +32671,8 @@ impl ::core::fmt::Debug for MF_STREAM_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_TIMED_TEXT_ALIGNMENT(pub i32);
-impl ::core::marker::Copy for MF_TIMED_TEXT_ALIGNMENT {}
-impl ::core::clone::Clone for MF_TIMED_TEXT_ALIGNMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_TIMED_TEXT_ALIGNMENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_TIMED_TEXT_ALIGNMENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -35817,19 +32682,8 @@ impl ::core::fmt::Debug for MF_TIMED_TEXT_ALIGNMENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_TIMED_TEXT_BOUTEN_POSITION(pub i32);
-impl ::core::marker::Copy for MF_TIMED_TEXT_BOUTEN_POSITION {}
-impl ::core::clone::Clone for MF_TIMED_TEXT_BOUTEN_POSITION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_TIMED_TEXT_BOUTEN_POSITION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_TIMED_TEXT_BOUTEN_POSITION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -35839,19 +32693,8 @@ impl ::core::fmt::Debug for MF_TIMED_TEXT_BOUTEN_POSITION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_TIMED_TEXT_BOUTEN_TYPE(pub i32);
-impl ::core::marker::Copy for MF_TIMED_TEXT_BOUTEN_TYPE {}
-impl ::core::clone::Clone for MF_TIMED_TEXT_BOUTEN_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_TIMED_TEXT_BOUTEN_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_TIMED_TEXT_BOUTEN_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -35861,19 +32704,8 @@ impl ::core::fmt::Debug for MF_TIMED_TEXT_BOUTEN_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_TIMED_TEXT_CUE_EVENT(pub i32);
-impl ::core::marker::Copy for MF_TIMED_TEXT_CUE_EVENT {}
-impl ::core::clone::Clone for MF_TIMED_TEXT_CUE_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_TIMED_TEXT_CUE_EVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_TIMED_TEXT_CUE_EVENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -35883,19 +32715,8 @@ impl ::core::fmt::Debug for MF_TIMED_TEXT_CUE_EVENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_TIMED_TEXT_DECORATION(pub i32);
-impl ::core::marker::Copy for MF_TIMED_TEXT_DECORATION {}
-impl ::core::clone::Clone for MF_TIMED_TEXT_DECORATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_TIMED_TEXT_DECORATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_TIMED_TEXT_DECORATION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -35905,19 +32726,8 @@ impl ::core::fmt::Debug for MF_TIMED_TEXT_DECORATION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_TIMED_TEXT_DISPLAY_ALIGNMENT(pub i32);
-impl ::core::marker::Copy for MF_TIMED_TEXT_DISPLAY_ALIGNMENT {}
-impl ::core::clone::Clone for MF_TIMED_TEXT_DISPLAY_ALIGNMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_TIMED_TEXT_DISPLAY_ALIGNMENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_TIMED_TEXT_DISPLAY_ALIGNMENT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -35927,19 +32737,8 @@ impl ::core::fmt::Debug for MF_TIMED_TEXT_DISPLAY_ALIGNMENT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_TIMED_TEXT_ERROR_CODE(pub i32);
-impl ::core::marker::Copy for MF_TIMED_TEXT_ERROR_CODE {}
-impl ::core::clone::Clone for MF_TIMED_TEXT_ERROR_CODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_TIMED_TEXT_ERROR_CODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_TIMED_TEXT_ERROR_CODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -35949,19 +32748,8 @@ impl ::core::fmt::Debug for MF_TIMED_TEXT_ERROR_CODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_TIMED_TEXT_FONT_STYLE(pub i32);
-impl ::core::marker::Copy for MF_TIMED_TEXT_FONT_STYLE {}
-impl ::core::clone::Clone for MF_TIMED_TEXT_FONT_STYLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_TIMED_TEXT_FONT_STYLE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_TIMED_TEXT_FONT_STYLE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -35971,19 +32759,8 @@ impl ::core::fmt::Debug for MF_TIMED_TEXT_FONT_STYLE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_TIMED_TEXT_RUBY_ALIGN(pub i32);
-impl ::core::marker::Copy for MF_TIMED_TEXT_RUBY_ALIGN {}
-impl ::core::clone::Clone for MF_TIMED_TEXT_RUBY_ALIGN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_TIMED_TEXT_RUBY_ALIGN {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_TIMED_TEXT_RUBY_ALIGN {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -35993,19 +32770,8 @@ impl ::core::fmt::Debug for MF_TIMED_TEXT_RUBY_ALIGN {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_TIMED_TEXT_RUBY_POSITION(pub i32);
-impl ::core::marker::Copy for MF_TIMED_TEXT_RUBY_POSITION {}
-impl ::core::clone::Clone for MF_TIMED_TEXT_RUBY_POSITION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_TIMED_TEXT_RUBY_POSITION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_TIMED_TEXT_RUBY_POSITION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -36015,19 +32781,8 @@ impl ::core::fmt::Debug for MF_TIMED_TEXT_RUBY_POSITION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_TIMED_TEXT_RUBY_RESERVE(pub i32);
-impl ::core::marker::Copy for MF_TIMED_TEXT_RUBY_RESERVE {}
-impl ::core::clone::Clone for MF_TIMED_TEXT_RUBY_RESERVE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_TIMED_TEXT_RUBY_RESERVE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_TIMED_TEXT_RUBY_RESERVE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -36037,19 +32792,8 @@ impl ::core::fmt::Debug for MF_TIMED_TEXT_RUBY_RESERVE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_TIMED_TEXT_SCROLL_MODE(pub i32);
-impl ::core::marker::Copy for MF_TIMED_TEXT_SCROLL_MODE {}
-impl ::core::clone::Clone for MF_TIMED_TEXT_SCROLL_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_TIMED_TEXT_SCROLL_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_TIMED_TEXT_SCROLL_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -36059,19 +32803,8 @@ impl ::core::fmt::Debug for MF_TIMED_TEXT_SCROLL_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_TIMED_TEXT_TRACK_KIND(pub i32);
-impl ::core::marker::Copy for MF_TIMED_TEXT_TRACK_KIND {}
-impl ::core::clone::Clone for MF_TIMED_TEXT_TRACK_KIND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_TIMED_TEXT_TRACK_KIND {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_TIMED_TEXT_TRACK_KIND {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -36081,19 +32814,8 @@ impl ::core::fmt::Debug for MF_TIMED_TEXT_TRACK_KIND {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_TIMED_TEXT_TRACK_READY_STATE(pub i32);
-impl ::core::marker::Copy for MF_TIMED_TEXT_TRACK_READY_STATE {}
-impl ::core::clone::Clone for MF_TIMED_TEXT_TRACK_READY_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_TIMED_TEXT_TRACK_READY_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_TIMED_TEXT_TRACK_READY_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -36103,19 +32825,8 @@ impl ::core::fmt::Debug for MF_TIMED_TEXT_TRACK_READY_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_TIMED_TEXT_UNIT_TYPE(pub i32);
-impl ::core::marker::Copy for MF_TIMED_TEXT_UNIT_TYPE {}
-impl ::core::clone::Clone for MF_TIMED_TEXT_UNIT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_TIMED_TEXT_UNIT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_TIMED_TEXT_UNIT_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -36125,19 +32836,8 @@ impl ::core::fmt::Debug for MF_TIMED_TEXT_UNIT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_TIMED_TEXT_WRITING_MODE(pub i32);
-impl ::core::marker::Copy for MF_TIMED_TEXT_WRITING_MODE {}
-impl ::core::clone::Clone for MF_TIMED_TEXT_WRITING_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_TIMED_TEXT_WRITING_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_TIMED_TEXT_WRITING_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -36147,19 +32847,8 @@ impl ::core::fmt::Debug for MF_TIMED_TEXT_WRITING_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_TOPOLOGY_RESOLUTION_STATUS_FLAGS(pub i32);
-impl ::core::marker::Copy for MF_TOPOLOGY_RESOLUTION_STATUS_FLAGS {}
-impl ::core::clone::Clone for MF_TOPOLOGY_RESOLUTION_STATUS_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_TOPOLOGY_RESOLUTION_STATUS_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_TOPOLOGY_RESOLUTION_STATUS_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -36169,19 +32858,8 @@ impl ::core::fmt::Debug for MF_TOPOLOGY_RESOLUTION_STATUS_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_TOPOLOGY_TYPE(pub i32);
-impl ::core::marker::Copy for MF_TOPOLOGY_TYPE {}
-impl ::core::clone::Clone for MF_TOPOLOGY_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_TOPOLOGY_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_TOPOLOGY_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -36191,19 +32869,8 @@ impl ::core::fmt::Debug for MF_TOPOLOGY_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_TOPONODE_DRAIN_MODE(pub i32);
-impl ::core::marker::Copy for MF_TOPONODE_DRAIN_MODE {}
-impl ::core::clone::Clone for MF_TOPONODE_DRAIN_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_TOPONODE_DRAIN_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_TOPONODE_DRAIN_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -36213,19 +32880,8 @@ impl ::core::fmt::Debug for MF_TOPONODE_DRAIN_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_TOPONODE_FLUSH_MODE(pub i32);
-impl ::core::marker::Copy for MF_TOPONODE_FLUSH_MODE {}
-impl ::core::clone::Clone for MF_TOPONODE_FLUSH_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_TOPONODE_FLUSH_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_TOPONODE_FLUSH_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -36235,19 +32891,8 @@ impl ::core::fmt::Debug for MF_TOPONODE_FLUSH_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_TOPOSTATUS(pub i32);
-impl ::core::marker::Copy for MF_TOPOSTATUS {}
-impl ::core::clone::Clone for MF_TOPOSTATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_TOPOSTATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_TOPOSTATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -36257,19 +32902,8 @@ impl ::core::fmt::Debug for MF_TOPOSTATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_TRANSCODE_ADJUST_PROFILE_FLAGS(pub i32);
-impl ::core::marker::Copy for MF_TRANSCODE_ADJUST_PROFILE_FLAGS {}
-impl ::core::clone::Clone for MF_TRANSCODE_ADJUST_PROFILE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_TRANSCODE_ADJUST_PROFILE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_TRANSCODE_ADJUST_PROFILE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -36279,19 +32913,8 @@ impl ::core::fmt::Debug for MF_TRANSCODE_ADJUST_PROFILE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_TRANSCODE_TOPOLOGYMODE_FLAGS(pub i32);
-impl ::core::marker::Copy for MF_TRANSCODE_TOPOLOGYMODE_FLAGS {}
-impl ::core::clone::Clone for MF_TRANSCODE_TOPOLOGYMODE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_TRANSCODE_TOPOLOGYMODE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_TRANSCODE_TOPOLOGYMODE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -36301,19 +32924,8 @@ impl ::core::fmt::Debug for MF_TRANSCODE_TOPOLOGYMODE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_URL_TRUST_STATUS(pub i32);
-impl ::core::marker::Copy for MF_URL_TRUST_STATUS {}
-impl ::core::clone::Clone for MF_URL_TRUST_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_URL_TRUST_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_URL_TRUST_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -36323,19 +32935,8 @@ impl ::core::fmt::Debug for MF_URL_TRUST_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_VIDEO_PROCESSOR_ALGORITHM_TYPE(pub i32);
-impl ::core::marker::Copy for MF_VIDEO_PROCESSOR_ALGORITHM_TYPE {}
-impl ::core::clone::Clone for MF_VIDEO_PROCESSOR_ALGORITHM_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_VIDEO_PROCESSOR_ALGORITHM_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_VIDEO_PROCESSOR_ALGORITHM_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -36345,19 +32946,8 @@ impl ::core::fmt::Debug for MF_VIDEO_PROCESSOR_ALGORITHM_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_VIDEO_PROCESSOR_MIRROR(pub i32);
-impl ::core::marker::Copy for MF_VIDEO_PROCESSOR_MIRROR {}
-impl ::core::clone::Clone for MF_VIDEO_PROCESSOR_MIRROR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_VIDEO_PROCESSOR_MIRROR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_VIDEO_PROCESSOR_MIRROR {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -36367,19 +32957,8 @@ impl ::core::fmt::Debug for MF_VIDEO_PROCESSOR_MIRROR {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MF_VIDEO_PROCESSOR_ROTATION(pub i32);
-impl ::core::marker::Copy for MF_VIDEO_PROCESSOR_ROTATION {}
-impl ::core::clone::Clone for MF_VIDEO_PROCESSOR_ROTATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MF_VIDEO_PROCESSOR_ROTATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MF_VIDEO_PROCESSOR_ROTATION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -36389,19 +32968,8 @@ impl ::core::fmt::Debug for MF_VIDEO_PROCESSOR_ROTATION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MIC_ARRAY_MODE(pub i32);
-impl ::core::marker::Copy for MIC_ARRAY_MODE {}
-impl ::core::clone::Clone for MIC_ARRAY_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MIC_ARRAY_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MIC_ARRAY_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -36411,19 +32979,8 @@ impl ::core::fmt::Debug for MIC_ARRAY_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MPEG2VIDEOINFO_FLAGS(pub u32);
-impl ::core::marker::Copy for MPEG2VIDEOINFO_FLAGS {}
-impl ::core::clone::Clone for MPEG2VIDEOINFO_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MPEG2VIDEOINFO_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MPEG2VIDEOINFO_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -36466,19 +33023,8 @@ impl ::core::ops::Not for MPEG2VIDEOINFO_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OPM_ACP_PROTECTION_LEVEL(pub i32);
-impl ::core::marker::Copy for OPM_ACP_PROTECTION_LEVEL {}
-impl ::core::clone::Clone for OPM_ACP_PROTECTION_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OPM_ACP_PROTECTION_LEVEL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OPM_ACP_PROTECTION_LEVEL {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -36488,19 +33034,8 @@ impl ::core::fmt::Debug for OPM_ACP_PROTECTION_LEVEL {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OPM_BUS_TYPE(pub i32);
-impl ::core::marker::Copy for OPM_BUS_TYPE {}
-impl ::core::clone::Clone for OPM_BUS_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OPM_BUS_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OPM_BUS_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -36510,19 +33045,8 @@ impl ::core::fmt::Debug for OPM_BUS_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OPM_CGMSA(pub i32);
-impl ::core::marker::Copy for OPM_CGMSA {}
-impl ::core::clone::Clone for OPM_CGMSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OPM_CGMSA {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OPM_CGMSA {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -36532,19 +33056,8 @@ impl ::core::fmt::Debug for OPM_CGMSA {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OPM_CONNECTOR_TYPE(pub i32);
-impl ::core::marker::Copy for OPM_CONNECTOR_TYPE {}
-impl ::core::clone::Clone for OPM_CONNECTOR_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OPM_CONNECTOR_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OPM_CONNECTOR_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -36554,19 +33067,8 @@ impl ::core::fmt::Debug for OPM_CONNECTOR_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OPM_DPCP_PROTECTION_LEVEL(pub i32);
-impl ::core::marker::Copy for OPM_DPCP_PROTECTION_LEVEL {}
-impl ::core::clone::Clone for OPM_DPCP_PROTECTION_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OPM_DPCP_PROTECTION_LEVEL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OPM_DPCP_PROTECTION_LEVEL {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -36576,19 +33078,8 @@ impl ::core::fmt::Debug for OPM_DPCP_PROTECTION_LEVEL {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OPM_DVI_CHARACTERISTIC(pub i32);
-impl ::core::marker::Copy for OPM_DVI_CHARACTERISTIC {}
-impl ::core::clone::Clone for OPM_DVI_CHARACTERISTIC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OPM_DVI_CHARACTERISTIC {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OPM_DVI_CHARACTERISTIC {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -36598,19 +33089,8 @@ impl ::core::fmt::Debug for OPM_DVI_CHARACTERISTIC {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OPM_HDCP_FLAGS(pub i32);
-impl ::core::marker::Copy for OPM_HDCP_FLAGS {}
-impl ::core::clone::Clone for OPM_HDCP_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OPM_HDCP_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OPM_HDCP_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -36653,19 +33133,8 @@ impl ::core::ops::Not for OPM_HDCP_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OPM_HDCP_PROTECTION_LEVEL(pub i32);
-impl ::core::marker::Copy for OPM_HDCP_PROTECTION_LEVEL {}
-impl ::core::clone::Clone for OPM_HDCP_PROTECTION_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OPM_HDCP_PROTECTION_LEVEL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OPM_HDCP_PROTECTION_LEVEL {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -36675,19 +33144,8 @@ impl ::core::fmt::Debug for OPM_HDCP_PROTECTION_LEVEL {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OPM_HDCP_STATUS(pub i32);
-impl ::core::marker::Copy for OPM_HDCP_STATUS {}
-impl ::core::clone::Clone for OPM_HDCP_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OPM_HDCP_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OPM_HDCP_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -36697,19 +33155,8 @@ impl ::core::fmt::Debug for OPM_HDCP_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OPM_HDCP_TYPE(pub i32);
-impl ::core::marker::Copy for OPM_HDCP_TYPE {}
-impl ::core::clone::Clone for OPM_HDCP_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OPM_HDCP_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OPM_HDCP_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -36719,19 +33166,8 @@ impl ::core::fmt::Debug for OPM_HDCP_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OPM_IMAGE_ASPECT_RATIO_EN300294(pub i32);
-impl ::core::marker::Copy for OPM_IMAGE_ASPECT_RATIO_EN300294 {}
-impl ::core::clone::Clone for OPM_IMAGE_ASPECT_RATIO_EN300294 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OPM_IMAGE_ASPECT_RATIO_EN300294 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OPM_IMAGE_ASPECT_RATIO_EN300294 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -36741,19 +33177,8 @@ impl ::core::fmt::Debug for OPM_IMAGE_ASPECT_RATIO_EN300294 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OPM_OUTPUT_HARDWARE_PROTECTION(pub i32);
-impl ::core::marker::Copy for OPM_OUTPUT_HARDWARE_PROTECTION {}
-impl ::core::clone::Clone for OPM_OUTPUT_HARDWARE_PROTECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OPM_OUTPUT_HARDWARE_PROTECTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OPM_OUTPUT_HARDWARE_PROTECTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -36763,19 +33188,8 @@ impl ::core::fmt::Debug for OPM_OUTPUT_HARDWARE_PROTECTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OPM_PROTECTION_STANDARD_TYPE(pub u32);
-impl ::core::marker::Copy for OPM_PROTECTION_STANDARD_TYPE {}
-impl ::core::clone::Clone for OPM_PROTECTION_STANDARD_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OPM_PROTECTION_STANDARD_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OPM_PROTECTION_STANDARD_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -36785,19 +33199,8 @@ impl ::core::fmt::Debug for OPM_PROTECTION_STANDARD_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OPM_PROTECTION_TYPE(pub i32);
-impl ::core::marker::Copy for OPM_PROTECTION_TYPE {}
-impl ::core::clone::Clone for OPM_PROTECTION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OPM_PROTECTION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OPM_PROTECTION_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -36807,19 +33210,8 @@ impl ::core::fmt::Debug for OPM_PROTECTION_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OPM_STATUS(pub i32);
-impl ::core::marker::Copy for OPM_STATUS {}
-impl ::core::clone::Clone for OPM_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OPM_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OPM_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -36829,19 +33221,8 @@ impl ::core::fmt::Debug for OPM_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OPM_TYPE(pub i32);
-impl ::core::marker::Copy for OPM_TYPE {}
-impl ::core::clone::Clone for OPM_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OPM_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OPM_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -36851,19 +33232,8 @@ impl ::core::fmt::Debug for OPM_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL(pub i32);
-impl ::core::marker::Copy for OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL {}
-impl ::core::clone::Clone for OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -36873,19 +33243,8 @@ impl ::core::fmt::Debug for OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct OPM_VIDEO_OUTPUT_SEMANTICS(pub i32);
-impl ::core::marker::Copy for OPM_VIDEO_OUTPUT_SEMANTICS {}
-impl ::core::clone::Clone for OPM_VIDEO_OUTPUT_SEMANTICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OPM_VIDEO_OUTPUT_SEMANTICS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for OPM_VIDEO_OUTPUT_SEMANTICS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -36895,19 +33254,8 @@ impl ::core::fmt::Debug for OPM_VIDEO_OUTPUT_SEMANTICS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PLAYTO_SOURCE_CREATEFLAGS(pub i32);
-impl ::core::marker::Copy for PLAYTO_SOURCE_CREATEFLAGS {}
-impl ::core::clone::Clone for PLAYTO_SOURCE_CREATEFLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PLAYTO_SOURCE_CREATEFLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PLAYTO_SOURCE_CREATEFLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -36950,19 +33298,8 @@ impl ::core::ops::Not for PLAYTO_SOURCE_CREATEFLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SAMPLE_PROTECTION_VERSION(pub i32);
-impl ::core::marker::Copy for SAMPLE_PROTECTION_VERSION {}
-impl ::core::clone::Clone for SAMPLE_PROTECTION_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SAMPLE_PROTECTION_VERSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SAMPLE_PROTECTION_VERSION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -36972,19 +33309,8 @@ impl ::core::fmt::Debug for SAMPLE_PROTECTION_VERSION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SEEK_ORIGIN(pub i32);
-impl ::core::marker::Copy for SEEK_ORIGIN {}
-impl ::core::clone::Clone for SEEK_ORIGIN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SEEK_ORIGIN {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SEEK_ORIGIN {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -36994,19 +33320,8 @@ impl ::core::fmt::Debug for SEEK_ORIGIN {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TOC_POS_TYPE(pub i32);
-impl ::core::marker::Copy for TOC_POS_TYPE {}
-impl ::core::clone::Clone for TOC_POS_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TOC_POS_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for TOC_POS_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -37016,19 +33331,8 @@ impl ::core::fmt::Debug for TOC_POS_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WMT_PROP_DATATYPE(pub i32);
-impl ::core::marker::Copy for WMT_PROP_DATATYPE {}
-impl ::core::clone::Clone for WMT_PROP_DATATYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMT_PROP_DATATYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WMT_PROP_DATATYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -37038,19 +33342,8 @@ impl ::core::fmt::Debug for WMT_PROP_DATATYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WMV_DYNAMIC_FLAGS(pub i32);
-impl ::core::marker::Copy for WMV_DYNAMIC_FLAGS {}
-impl ::core::clone::Clone for WMV_DYNAMIC_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMV_DYNAMIC_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WMV_DYNAMIC_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -37060,19 +33353,8 @@ impl ::core::fmt::Debug for WMV_DYNAMIC_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct _MFP_CREDENTIAL_FLAGS(pub i32);
-impl ::core::marker::Copy for _MFP_CREDENTIAL_FLAGS {}
-impl ::core::clone::Clone for _MFP_CREDENTIAL_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for _MFP_CREDENTIAL_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for _MFP_CREDENTIAL_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -37082,19 +33364,8 @@ impl ::core::fmt::Debug for _MFP_CREDENTIAL_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct _MFP_MEDIAITEM_CHARACTERISTICS(pub i32);
-impl ::core::marker::Copy for _MFP_MEDIAITEM_CHARACTERISTICS {}
-impl ::core::clone::Clone for _MFP_MEDIAITEM_CHARACTERISTICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for _MFP_MEDIAITEM_CHARACTERISTICS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for _MFP_MEDIAITEM_CHARACTERISTICS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -37104,19 +33375,8 @@ impl ::core::fmt::Debug for _MFP_MEDIAITEM_CHARACTERISTICS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct _MFT_INPUT_DATA_BUFFER_FLAGS(pub i32);
-impl ::core::marker::Copy for _MFT_INPUT_DATA_BUFFER_FLAGS {}
-impl ::core::clone::Clone for _MFT_INPUT_DATA_BUFFER_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for _MFT_INPUT_DATA_BUFFER_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for _MFT_INPUT_DATA_BUFFER_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -37126,19 +33386,8 @@ impl ::core::fmt::Debug for _MFT_INPUT_DATA_BUFFER_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct _MFT_INPUT_STATUS_FLAGS(pub i32);
-impl ::core::marker::Copy for _MFT_INPUT_STATUS_FLAGS {}
-impl ::core::clone::Clone for _MFT_INPUT_STATUS_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for _MFT_INPUT_STATUS_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for _MFT_INPUT_STATUS_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -37148,19 +33397,8 @@ impl ::core::fmt::Debug for _MFT_INPUT_STATUS_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct _MFT_INPUT_STREAM_INFO_FLAGS(pub i32);
-impl ::core::marker::Copy for _MFT_INPUT_STREAM_INFO_FLAGS {}
-impl ::core::clone::Clone for _MFT_INPUT_STREAM_INFO_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for _MFT_INPUT_STREAM_INFO_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for _MFT_INPUT_STREAM_INFO_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -37170,19 +33408,8 @@ impl ::core::fmt::Debug for _MFT_INPUT_STREAM_INFO_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct _MFT_OUTPUT_DATA_BUFFER_FLAGS(pub i32);
-impl ::core::marker::Copy for _MFT_OUTPUT_DATA_BUFFER_FLAGS {}
-impl ::core::clone::Clone for _MFT_OUTPUT_DATA_BUFFER_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for _MFT_OUTPUT_DATA_BUFFER_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for _MFT_OUTPUT_DATA_BUFFER_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -37192,19 +33419,8 @@ impl ::core::fmt::Debug for _MFT_OUTPUT_DATA_BUFFER_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct _MFT_OUTPUT_STATUS_FLAGS(pub i32);
-impl ::core::marker::Copy for _MFT_OUTPUT_STATUS_FLAGS {}
-impl ::core::clone::Clone for _MFT_OUTPUT_STATUS_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for _MFT_OUTPUT_STATUS_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for _MFT_OUTPUT_STATUS_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -37214,19 +33430,8 @@ impl ::core::fmt::Debug for _MFT_OUTPUT_STATUS_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct _MFT_OUTPUT_STREAM_INFO_FLAGS(pub i32);
-impl ::core::marker::Copy for _MFT_OUTPUT_STREAM_INFO_FLAGS {}
-impl ::core::clone::Clone for _MFT_OUTPUT_STREAM_INFO_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for _MFT_OUTPUT_STREAM_INFO_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for _MFT_OUTPUT_STREAM_INFO_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -37236,19 +33441,8 @@ impl ::core::fmt::Debug for _MFT_OUTPUT_STREAM_INFO_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct _MFT_PROCESS_OUTPUT_FLAGS(pub i32);
-impl ::core::marker::Copy for _MFT_PROCESS_OUTPUT_FLAGS {}
-impl ::core::clone::Clone for _MFT_PROCESS_OUTPUT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for _MFT_PROCESS_OUTPUT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for _MFT_PROCESS_OUTPUT_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -37258,19 +33452,8 @@ impl ::core::fmt::Debug for _MFT_PROCESS_OUTPUT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct _MFT_PROCESS_OUTPUT_STATUS(pub i32);
-impl ::core::marker::Copy for _MFT_PROCESS_OUTPUT_STATUS {}
-impl ::core::clone::Clone for _MFT_PROCESS_OUTPUT_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for _MFT_PROCESS_OUTPUT_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for _MFT_PROCESS_OUTPUT_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -37280,19 +33463,8 @@ impl ::core::fmt::Debug for _MFT_PROCESS_OUTPUT_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct _MFT_SET_TYPE_FLAGS(pub i32);
-impl ::core::marker::Copy for _MFT_SET_TYPE_FLAGS {}
-impl ::core::clone::Clone for _MFT_SET_TYPE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for _MFT_SET_TYPE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for _MFT_SET_TYPE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -37302,19 +33474,8 @@ impl ::core::fmt::Debug for _MFT_SET_TYPE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVAudioChannelConfig(pub i32);
-impl ::core::marker::Copy for eAVAudioChannelConfig {}
-impl ::core::clone::Clone for eAVAudioChannelConfig {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVAudioChannelConfig {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVAudioChannelConfig {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -37324,19 +33485,8 @@ impl ::core::fmt::Debug for eAVAudioChannelConfig {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVDDSurroundMode(pub i32);
-impl ::core::marker::Copy for eAVDDSurroundMode {}
-impl ::core::clone::Clone for eAVDDSurroundMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVDDSurroundMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVDDSurroundMode {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -37346,19 +33496,8 @@ impl ::core::fmt::Debug for eAVDDSurroundMode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVDSPLoudnessEqualization(pub i32);
-impl ::core::marker::Copy for eAVDSPLoudnessEqualization {}
-impl ::core::clone::Clone for eAVDSPLoudnessEqualization {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVDSPLoudnessEqualization {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVDSPLoudnessEqualization {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -37368,19 +33507,8 @@ impl ::core::fmt::Debug for eAVDSPLoudnessEqualization {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVDSPSpeakerFill(pub i32);
-impl ::core::marker::Copy for eAVDSPSpeakerFill {}
-impl ::core::clone::Clone for eAVDSPSpeakerFill {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVDSPSpeakerFill {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVDSPSpeakerFill {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -37390,19 +33518,8 @@ impl ::core::fmt::Debug for eAVDSPSpeakerFill {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVDecAACDownmixMode(pub i32);
-impl ::core::marker::Copy for eAVDecAACDownmixMode {}
-impl ::core::clone::Clone for eAVDecAACDownmixMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVDecAACDownmixMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVDecAACDownmixMode {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -37412,19 +33529,8 @@ impl ::core::fmt::Debug for eAVDecAACDownmixMode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVDecAudioDualMono(pub i32);
-impl ::core::marker::Copy for eAVDecAudioDualMono {}
-impl ::core::clone::Clone for eAVDecAudioDualMono {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVDecAudioDualMono {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVDecAudioDualMono {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -37434,19 +33540,8 @@ impl ::core::fmt::Debug for eAVDecAudioDualMono {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVDecAudioDualMonoReproMode(pub i32);
-impl ::core::marker::Copy for eAVDecAudioDualMonoReproMode {}
-impl ::core::clone::Clone for eAVDecAudioDualMonoReproMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVDecAudioDualMonoReproMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVDecAudioDualMonoReproMode {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -37456,19 +33551,8 @@ impl ::core::fmt::Debug for eAVDecAudioDualMonoReproMode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVDecDDMatrixDecodingMode(pub i32);
-impl ::core::marker::Copy for eAVDecDDMatrixDecodingMode {}
-impl ::core::clone::Clone for eAVDecDDMatrixDecodingMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVDecDDMatrixDecodingMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVDecDDMatrixDecodingMode {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -37478,19 +33562,8 @@ impl ::core::fmt::Debug for eAVDecDDMatrixDecodingMode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVDecDDOperationalMode(pub i32);
-impl ::core::marker::Copy for eAVDecDDOperationalMode {}
-impl ::core::clone::Clone for eAVDecDDOperationalMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVDecDDOperationalMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVDecDDOperationalMode {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -37500,19 +33573,8 @@ impl ::core::fmt::Debug for eAVDecDDOperationalMode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVDecDDStereoDownMixMode(pub i32);
-impl ::core::marker::Copy for eAVDecDDStereoDownMixMode {}
-impl ::core::clone::Clone for eAVDecDDStereoDownMixMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVDecDDStereoDownMixMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVDecDDStereoDownMixMode {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -37522,19 +33584,8 @@ impl ::core::fmt::Debug for eAVDecDDStereoDownMixMode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVDecHEAACDynamicRangeControl(pub i32);
-impl ::core::marker::Copy for eAVDecHEAACDynamicRangeControl {}
-impl ::core::clone::Clone for eAVDecHEAACDynamicRangeControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVDecHEAACDynamicRangeControl {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVDecHEAACDynamicRangeControl {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -37544,19 +33595,8 @@ impl ::core::fmt::Debug for eAVDecHEAACDynamicRangeControl {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVDecVideoCodecType(pub i32);
-impl ::core::marker::Copy for eAVDecVideoCodecType {}
-impl ::core::clone::Clone for eAVDecVideoCodecType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVDecVideoCodecType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVDecVideoCodecType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -37566,19 +33606,8 @@ impl ::core::fmt::Debug for eAVDecVideoCodecType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVDecVideoDXVABusEncryption(pub i32);
-impl ::core::marker::Copy for eAVDecVideoDXVABusEncryption {}
-impl ::core::clone::Clone for eAVDecVideoDXVABusEncryption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVDecVideoDXVABusEncryption {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVDecVideoDXVABusEncryption {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -37588,19 +33617,8 @@ impl ::core::fmt::Debug for eAVDecVideoDXVABusEncryption {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVDecVideoDXVAMode(pub i32);
-impl ::core::marker::Copy for eAVDecVideoDXVAMode {}
-impl ::core::clone::Clone for eAVDecVideoDXVAMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVDecVideoDXVAMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVDecVideoDXVAMode {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -37610,19 +33628,8 @@ impl ::core::fmt::Debug for eAVDecVideoDXVAMode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVDecVideoH264ErrorConcealment(pub i32);
-impl ::core::marker::Copy for eAVDecVideoH264ErrorConcealment {}
-impl ::core::clone::Clone for eAVDecVideoH264ErrorConcealment {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVDecVideoH264ErrorConcealment {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVDecVideoH264ErrorConcealment {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -37632,19 +33639,8 @@ impl ::core::fmt::Debug for eAVDecVideoH264ErrorConcealment {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVDecVideoInputScanType(pub i32);
-impl ::core::marker::Copy for eAVDecVideoInputScanType {}
-impl ::core::clone::Clone for eAVDecVideoInputScanType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVDecVideoInputScanType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVDecVideoInputScanType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -37654,19 +33650,8 @@ impl ::core::fmt::Debug for eAVDecVideoInputScanType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVDecVideoMPEG2ErrorConcealment(pub i32);
-impl ::core::marker::Copy for eAVDecVideoMPEG2ErrorConcealment {}
-impl ::core::clone::Clone for eAVDecVideoMPEG2ErrorConcealment {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVDecVideoMPEG2ErrorConcealment {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVDecVideoMPEG2ErrorConcealment {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -37676,19 +33661,8 @@ impl ::core::fmt::Debug for eAVDecVideoMPEG2ErrorConcealment {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVDecVideoSWPowerLevel(pub i32);
-impl ::core::marker::Copy for eAVDecVideoSWPowerLevel {}
-impl ::core::clone::Clone for eAVDecVideoSWPowerLevel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVDecVideoSWPowerLevel {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVDecVideoSWPowerLevel {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -37698,19 +33672,8 @@ impl ::core::fmt::Debug for eAVDecVideoSWPowerLevel {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVDecVideoSoftwareDeinterlaceMode(pub i32);
-impl ::core::marker::Copy for eAVDecVideoSoftwareDeinterlaceMode {}
-impl ::core::clone::Clone for eAVDecVideoSoftwareDeinterlaceMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVDecVideoSoftwareDeinterlaceMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVDecVideoSoftwareDeinterlaceMode {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -37720,19 +33683,8 @@ impl ::core::fmt::Debug for eAVDecVideoSoftwareDeinterlaceMode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVEncAV1PictureType(pub i32);
-impl ::core::marker::Copy for eAVEncAV1PictureType {}
-impl ::core::clone::Clone for eAVEncAV1PictureType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVEncAV1PictureType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVEncAV1PictureType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -37742,19 +33694,8 @@ impl ::core::fmt::Debug for eAVEncAV1PictureType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVEncAV1VLevel(pub i32);
-impl ::core::marker::Copy for eAVEncAV1VLevel {}
-impl ::core::clone::Clone for eAVEncAV1VLevel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVEncAV1VLevel {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVEncAV1VLevel {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -37764,19 +33705,8 @@ impl ::core::fmt::Debug for eAVEncAV1VLevel {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVEncAV1VProfile(pub i32);
-impl ::core::marker::Copy for eAVEncAV1VProfile {}
-impl ::core::clone::Clone for eAVEncAV1VProfile {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVEncAV1VProfile {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVEncAV1VProfile {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -37786,19 +33716,8 @@ impl ::core::fmt::Debug for eAVEncAV1VProfile {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVEncAdaptiveMode(pub i32);
-impl ::core::marker::Copy for eAVEncAdaptiveMode {}
-impl ::core::clone::Clone for eAVEncAdaptiveMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVEncAdaptiveMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVEncAdaptiveMode {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -37808,19 +33727,8 @@ impl ::core::fmt::Debug for eAVEncAdaptiveMode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVEncAudioDualMono(pub i32);
-impl ::core::marker::Copy for eAVEncAudioDualMono {}
-impl ::core::clone::Clone for eAVEncAudioDualMono {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVEncAudioDualMono {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVEncAudioDualMono {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -37830,19 +33738,8 @@ impl ::core::fmt::Debug for eAVEncAudioDualMono {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVEncAudioInputContent(pub i32);
-impl ::core::marker::Copy for eAVEncAudioInputContent {}
-impl ::core::clone::Clone for eAVEncAudioInputContent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVEncAudioInputContent {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVEncAudioInputContent {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -37852,19 +33749,8 @@ impl ::core::fmt::Debug for eAVEncAudioInputContent {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVEncChromaEncodeMode(pub i32);
-impl ::core::marker::Copy for eAVEncChromaEncodeMode {}
-impl ::core::clone::Clone for eAVEncChromaEncodeMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVEncChromaEncodeMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVEncChromaEncodeMode {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -37874,19 +33760,8 @@ impl ::core::fmt::Debug for eAVEncChromaEncodeMode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVEncCommonRateControlMode(pub i32);
-impl ::core::marker::Copy for eAVEncCommonRateControlMode {}
-impl ::core::clone::Clone for eAVEncCommonRateControlMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVEncCommonRateControlMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVEncCommonRateControlMode {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -37896,19 +33771,8 @@ impl ::core::fmt::Debug for eAVEncCommonRateControlMode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVEncCommonStreamEndHandling(pub i32);
-impl ::core::marker::Copy for eAVEncCommonStreamEndHandling {}
-impl ::core::clone::Clone for eAVEncCommonStreamEndHandling {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVEncCommonStreamEndHandling {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVEncCommonStreamEndHandling {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -37918,19 +33782,8 @@ impl ::core::fmt::Debug for eAVEncCommonStreamEndHandling {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVEncDDAtoDConverterType(pub i32);
-impl ::core::marker::Copy for eAVEncDDAtoDConverterType {}
-impl ::core::clone::Clone for eAVEncDDAtoDConverterType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVEncDDAtoDConverterType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVEncDDAtoDConverterType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -37940,19 +33793,8 @@ impl ::core::fmt::Debug for eAVEncDDAtoDConverterType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVEncDDDynamicRangeCompressionControl(pub i32);
-impl ::core::marker::Copy for eAVEncDDDynamicRangeCompressionControl {}
-impl ::core::clone::Clone for eAVEncDDDynamicRangeCompressionControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVEncDDDynamicRangeCompressionControl {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVEncDDDynamicRangeCompressionControl {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -37962,19 +33804,8 @@ impl ::core::fmt::Debug for eAVEncDDDynamicRangeCompressionControl {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVEncDDHeadphoneMode(pub i32);
-impl ::core::marker::Copy for eAVEncDDHeadphoneMode {}
-impl ::core::clone::Clone for eAVEncDDHeadphoneMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVEncDDHeadphoneMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVEncDDHeadphoneMode {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -37984,19 +33815,8 @@ impl ::core::fmt::Debug for eAVEncDDHeadphoneMode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVEncDDPreferredStereoDownMixMode(pub i32);
-impl ::core::marker::Copy for eAVEncDDPreferredStereoDownMixMode {}
-impl ::core::clone::Clone for eAVEncDDPreferredStereoDownMixMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVEncDDPreferredStereoDownMixMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVEncDDPreferredStereoDownMixMode {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -38006,19 +33826,8 @@ impl ::core::fmt::Debug for eAVEncDDPreferredStereoDownMixMode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVEncDDProductionRoomType(pub i32);
-impl ::core::marker::Copy for eAVEncDDProductionRoomType {}
-impl ::core::clone::Clone for eAVEncDDProductionRoomType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVEncDDProductionRoomType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVEncDDProductionRoomType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -38028,19 +33837,8 @@ impl ::core::fmt::Debug for eAVEncDDProductionRoomType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVEncDDService(pub i32);
-impl ::core::marker::Copy for eAVEncDDService {}
-impl ::core::clone::Clone for eAVEncDDService {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVEncDDService {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVEncDDService {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -38050,19 +33848,8 @@ impl ::core::fmt::Debug for eAVEncDDService {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVEncDDSurroundExMode(pub i32);
-impl ::core::marker::Copy for eAVEncDDSurroundExMode {}
-impl ::core::clone::Clone for eAVEncDDSurroundExMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVEncDDSurroundExMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVEncDDSurroundExMode {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -38072,19 +33859,8 @@ impl ::core::fmt::Debug for eAVEncDDSurroundExMode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVEncH263PictureType(pub i32);
-impl ::core::marker::Copy for eAVEncH263PictureType {}
-impl ::core::clone::Clone for eAVEncH263PictureType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVEncH263PictureType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVEncH263PictureType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -38094,19 +33870,8 @@ impl ::core::fmt::Debug for eAVEncH263PictureType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVEncH263VLevel(pub i32);
-impl ::core::marker::Copy for eAVEncH263VLevel {}
-impl ::core::clone::Clone for eAVEncH263VLevel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVEncH263VLevel {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVEncH263VLevel {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -38116,19 +33881,8 @@ impl ::core::fmt::Debug for eAVEncH263VLevel {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVEncH263VProfile(pub i32);
-impl ::core::marker::Copy for eAVEncH263VProfile {}
-impl ::core::clone::Clone for eAVEncH263VProfile {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVEncH263VProfile {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVEncH263VProfile {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -38138,19 +33892,8 @@ impl ::core::fmt::Debug for eAVEncH263VProfile {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVEncH264PictureType(pub i32);
-impl ::core::marker::Copy for eAVEncH264PictureType {}
-impl ::core::clone::Clone for eAVEncH264PictureType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVEncH264PictureType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVEncH264PictureType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -38160,19 +33903,8 @@ impl ::core::fmt::Debug for eAVEncH264PictureType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVEncH264VLevel(pub i32);
-impl ::core::marker::Copy for eAVEncH264VLevel {}
-impl ::core::clone::Clone for eAVEncH264VLevel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVEncH264VLevel {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVEncH264VLevel {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -38182,19 +33914,8 @@ impl ::core::fmt::Debug for eAVEncH264VLevel {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVEncH264VProfile(pub i32);
-impl ::core::marker::Copy for eAVEncH264VProfile {}
-impl ::core::clone::Clone for eAVEncH264VProfile {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVEncH264VProfile {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVEncH264VProfile {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -38204,19 +33925,8 @@ impl ::core::fmt::Debug for eAVEncH264VProfile {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVEncH265VLevel(pub i32);
-impl ::core::marker::Copy for eAVEncH265VLevel {}
-impl ::core::clone::Clone for eAVEncH265VLevel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVEncH265VLevel {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVEncH265VLevel {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -38226,19 +33936,8 @@ impl ::core::fmt::Debug for eAVEncH265VLevel {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVEncH265VProfile(pub i32);
-impl ::core::marker::Copy for eAVEncH265VProfile {}
-impl ::core::clone::Clone for eAVEncH265VProfile {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVEncH265VProfile {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVEncH265VProfile {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -38248,19 +33947,8 @@ impl ::core::fmt::Debug for eAVEncH265VProfile {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVEncInputVideoSystem(pub i32);
-impl ::core::marker::Copy for eAVEncInputVideoSystem {}
-impl ::core::clone::Clone for eAVEncInputVideoSystem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVEncInputVideoSystem {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVEncInputVideoSystem {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -38270,19 +33958,8 @@ impl ::core::fmt::Debug for eAVEncInputVideoSystem {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVEncMPACodingMode(pub i32);
-impl ::core::marker::Copy for eAVEncMPACodingMode {}
-impl ::core::clone::Clone for eAVEncMPACodingMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVEncMPACodingMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVEncMPACodingMode {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -38292,19 +33969,8 @@ impl ::core::fmt::Debug for eAVEncMPACodingMode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVEncMPAEmphasisType(pub i32);
-impl ::core::marker::Copy for eAVEncMPAEmphasisType {}
-impl ::core::clone::Clone for eAVEncMPAEmphasisType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVEncMPAEmphasisType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVEncMPAEmphasisType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -38314,19 +33980,8 @@ impl ::core::fmt::Debug for eAVEncMPAEmphasisType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVEncMPALayer(pub i32);
-impl ::core::marker::Copy for eAVEncMPALayer {}
-impl ::core::clone::Clone for eAVEncMPALayer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVEncMPALayer {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVEncMPALayer {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -38336,19 +33991,8 @@ impl ::core::fmt::Debug for eAVEncMPALayer {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVEncMPVFrameFieldMode(pub i32);
-impl ::core::marker::Copy for eAVEncMPVFrameFieldMode {}
-impl ::core::clone::Clone for eAVEncMPVFrameFieldMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVEncMPVFrameFieldMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVEncMPVFrameFieldMode {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -38358,19 +34002,8 @@ impl ::core::fmt::Debug for eAVEncMPVFrameFieldMode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVEncMPVIntraVLCTable(pub i32);
-impl ::core::marker::Copy for eAVEncMPVIntraVLCTable {}
-impl ::core::clone::Clone for eAVEncMPVIntraVLCTable {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVEncMPVIntraVLCTable {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVEncMPVIntraVLCTable {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -38380,19 +34013,8 @@ impl ::core::fmt::Debug for eAVEncMPVIntraVLCTable {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVEncMPVLevel(pub i32);
-impl ::core::marker::Copy for eAVEncMPVLevel {}
-impl ::core::clone::Clone for eAVEncMPVLevel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVEncMPVLevel {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVEncMPVLevel {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -38402,19 +34024,8 @@ impl ::core::fmt::Debug for eAVEncMPVLevel {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVEncMPVProfile(pub i32);
-impl ::core::marker::Copy for eAVEncMPVProfile {}
-impl ::core::clone::Clone for eAVEncMPVProfile {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVEncMPVProfile {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVEncMPVProfile {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -38424,19 +34035,8 @@ impl ::core::fmt::Debug for eAVEncMPVProfile {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVEncMPVQScaleType(pub i32);
-impl ::core::marker::Copy for eAVEncMPVQScaleType {}
-impl ::core::clone::Clone for eAVEncMPVQScaleType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVEncMPVQScaleType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVEncMPVQScaleType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -38446,19 +34046,8 @@ impl ::core::fmt::Debug for eAVEncMPVQScaleType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVEncMPVScanPattern(pub i32);
-impl ::core::marker::Copy for eAVEncMPVScanPattern {}
-impl ::core::clone::Clone for eAVEncMPVScanPattern {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVEncMPVScanPattern {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVEncMPVScanPattern {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -38468,19 +34057,8 @@ impl ::core::fmt::Debug for eAVEncMPVScanPattern {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVEncMPVSceneDetection(pub i32);
-impl ::core::marker::Copy for eAVEncMPVSceneDetection {}
-impl ::core::clone::Clone for eAVEncMPVSceneDetection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVEncMPVSceneDetection {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVEncMPVSceneDetection {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -38490,19 +34068,8 @@ impl ::core::fmt::Debug for eAVEncMPVSceneDetection {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVEncMuxOutput(pub i32);
-impl ::core::marker::Copy for eAVEncMuxOutput {}
-impl ::core::clone::Clone for eAVEncMuxOutput {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVEncMuxOutput {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVEncMuxOutput {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -38512,19 +34079,8 @@ impl ::core::fmt::Debug for eAVEncMuxOutput {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVEncVP9VProfile(pub i32);
-impl ::core::marker::Copy for eAVEncVP9VProfile {}
-impl ::core::clone::Clone for eAVEncVP9VProfile {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVEncVP9VProfile {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVEncVP9VProfile {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -38534,19 +34090,8 @@ impl ::core::fmt::Debug for eAVEncVP9VProfile {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVEncVideoChromaResolution(pub i32);
-impl ::core::marker::Copy for eAVEncVideoChromaResolution {}
-impl ::core::clone::Clone for eAVEncVideoChromaResolution {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVEncVideoChromaResolution {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVEncVideoChromaResolution {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -38556,19 +34101,8 @@ impl ::core::fmt::Debug for eAVEncVideoChromaResolution {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVEncVideoChromaSubsampling(pub i32);
-impl ::core::marker::Copy for eAVEncVideoChromaSubsampling {}
-impl ::core::clone::Clone for eAVEncVideoChromaSubsampling {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVEncVideoChromaSubsampling {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVEncVideoChromaSubsampling {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -38578,19 +34112,8 @@ impl ::core::fmt::Debug for eAVEncVideoChromaSubsampling {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVEncVideoColorLighting(pub i32);
-impl ::core::marker::Copy for eAVEncVideoColorLighting {}
-impl ::core::clone::Clone for eAVEncVideoColorLighting {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVEncVideoColorLighting {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVEncVideoColorLighting {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -38600,19 +34123,8 @@ impl ::core::fmt::Debug for eAVEncVideoColorLighting {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVEncVideoColorNominalRange(pub i32);
-impl ::core::marker::Copy for eAVEncVideoColorNominalRange {}
-impl ::core::clone::Clone for eAVEncVideoColorNominalRange {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVEncVideoColorNominalRange {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVEncVideoColorNominalRange {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -38622,19 +34134,8 @@ impl ::core::fmt::Debug for eAVEncVideoColorNominalRange {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVEncVideoColorPrimaries(pub i32);
-impl ::core::marker::Copy for eAVEncVideoColorPrimaries {}
-impl ::core::clone::Clone for eAVEncVideoColorPrimaries {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVEncVideoColorPrimaries {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVEncVideoColorPrimaries {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -38644,19 +34145,8 @@ impl ::core::fmt::Debug for eAVEncVideoColorPrimaries {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVEncVideoColorTransferFunction(pub i32);
-impl ::core::marker::Copy for eAVEncVideoColorTransferFunction {}
-impl ::core::clone::Clone for eAVEncVideoColorTransferFunction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVEncVideoColorTransferFunction {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVEncVideoColorTransferFunction {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -38666,19 +34156,8 @@ impl ::core::fmt::Debug for eAVEncVideoColorTransferFunction {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVEncVideoColorTransferMatrix(pub i32);
-impl ::core::marker::Copy for eAVEncVideoColorTransferMatrix {}
-impl ::core::clone::Clone for eAVEncVideoColorTransferMatrix {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVEncVideoColorTransferMatrix {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVEncVideoColorTransferMatrix {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -38688,19 +34167,8 @@ impl ::core::fmt::Debug for eAVEncVideoColorTransferMatrix {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVEncVideoContentType(pub i32);
-impl ::core::marker::Copy for eAVEncVideoContentType {}
-impl ::core::clone::Clone for eAVEncVideoContentType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVEncVideoContentType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVEncVideoContentType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -38710,19 +34178,8 @@ impl ::core::fmt::Debug for eAVEncVideoContentType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVEncVideoFilmContent(pub i32);
-impl ::core::marker::Copy for eAVEncVideoFilmContent {}
-impl ::core::clone::Clone for eAVEncVideoFilmContent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVEncVideoFilmContent {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVEncVideoFilmContent {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -38732,19 +34189,8 @@ impl ::core::fmt::Debug for eAVEncVideoFilmContent {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVEncVideoOutputFrameRateConversion(pub i32);
-impl ::core::marker::Copy for eAVEncVideoOutputFrameRateConversion {}
-impl ::core::clone::Clone for eAVEncVideoOutputFrameRateConversion {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVEncVideoOutputFrameRateConversion {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVEncVideoOutputFrameRateConversion {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -38754,19 +34200,8 @@ impl ::core::fmt::Debug for eAVEncVideoOutputFrameRateConversion {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVEncVideoOutputScanType(pub i32);
-impl ::core::marker::Copy for eAVEncVideoOutputScanType {}
-impl ::core::clone::Clone for eAVEncVideoOutputScanType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVEncVideoOutputScanType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVEncVideoOutputScanType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -38776,19 +34211,8 @@ impl ::core::fmt::Debug for eAVEncVideoOutputScanType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVEncVideoSourceScanType(pub i32);
-impl ::core::marker::Copy for eAVEncVideoSourceScanType {}
-impl ::core::clone::Clone for eAVEncVideoSourceScanType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVEncVideoSourceScanType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVEncVideoSourceScanType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -38798,19 +34222,8 @@ impl ::core::fmt::Debug for eAVEncVideoSourceScanType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVFastDecodeMode(pub i32);
-impl ::core::marker::Copy for eAVFastDecodeMode {}
-impl ::core::clone::Clone for eAVFastDecodeMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVFastDecodeMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVFastDecodeMode {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -38820,19 +34233,8 @@ impl ::core::fmt::Debug for eAVFastDecodeMode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eAVScenarioInfo(pub i32);
-impl ::core::marker::Copy for eAVScenarioInfo {}
-impl ::core::clone::Clone for eAVScenarioInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eAVScenarioInfo {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eAVScenarioInfo {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -38842,19 +34244,8 @@ impl ::core::fmt::Debug for eAVScenarioInfo {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct eVideoEncoderDisplayContentType(pub i32);
-impl ::core::marker::Copy for eVideoEncoderDisplayContentType {}
-impl ::core::clone::Clone for eVideoEncoderDisplayContentType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for eVideoEncoderDisplayContentType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for eVideoEncoderDisplayContentType {
     type TypeKind = ::windows_core::CopyType;
 }

@@ -108,19 +108,8 @@ pub const WSB_OB_ET_STRING: WSB_OB_STATUS_ENTRY_PAIR_TYPE = WSB_OB_STATUS_ENTRY_
 pub const WSB_OB_ET_TIME: WSB_OB_STATUS_ENTRY_PAIR_TYPE = WSB_OB_STATUS_ENTRY_PAIR_TYPE(4i32);
 pub const WSB_OB_ET_UNDEFINED: WSB_OB_STATUS_ENTRY_PAIR_TYPE = WSB_OB_STATUS_ENTRY_PAIR_TYPE(0i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WSB_OB_STATUS_ENTRY_PAIR_TYPE(pub i32);
-impl ::core::marker::Copy for WSB_OB_STATUS_ENTRY_PAIR_TYPE {}
-impl ::core::clone::Clone for WSB_OB_STATUS_ENTRY_PAIR_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WSB_OB_STATUS_ENTRY_PAIR_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WSB_OB_STATUS_ENTRY_PAIR_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }

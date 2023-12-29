@@ -3897,19 +3897,8 @@ pub const PackagePathType_MachineExternal: PackagePathType = PackagePathType(3i3
 pub const PackagePathType_Mutable: PackagePathType = PackagePathType(1i32);
 pub const PackagePathType_UserExternal: PackagePathType = PackagePathType(4i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct APPX_BUNDLE_FOOTPRINT_FILE_TYPE(pub i32);
-impl ::core::marker::Copy for APPX_BUNDLE_FOOTPRINT_FILE_TYPE {}
-impl ::core::clone::Clone for APPX_BUNDLE_FOOTPRINT_FILE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for APPX_BUNDLE_FOOTPRINT_FILE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for APPX_BUNDLE_FOOTPRINT_FILE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3919,19 +3908,8 @@ impl ::core::fmt::Debug for APPX_BUNDLE_FOOTPRINT_FILE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE(pub i32);
-impl ::core::marker::Copy for APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE {}
-impl ::core::clone::Clone for APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3941,19 +3919,8 @@ impl ::core::fmt::Debug for APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct APPX_CAPABILITIES(pub i32);
-impl ::core::marker::Copy for APPX_CAPABILITIES {}
-impl ::core::clone::Clone for APPX_CAPABILITIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for APPX_CAPABILITIES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for APPX_CAPABILITIES {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3996,19 +3963,8 @@ impl ::core::ops::Not for APPX_CAPABILITIES {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct APPX_CAPABILITY_CLASS_TYPE(pub i32);
-impl ::core::marker::Copy for APPX_CAPABILITY_CLASS_TYPE {}
-impl ::core::clone::Clone for APPX_CAPABILITY_CLASS_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for APPX_CAPABILITY_CLASS_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for APPX_CAPABILITY_CLASS_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4018,19 +3974,8 @@ impl ::core::fmt::Debug for APPX_CAPABILITY_CLASS_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct APPX_COMPRESSION_OPTION(pub i32);
-impl ::core::marker::Copy for APPX_COMPRESSION_OPTION {}
-impl ::core::clone::Clone for APPX_COMPRESSION_OPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for APPX_COMPRESSION_OPTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for APPX_COMPRESSION_OPTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4040,19 +3985,8 @@ impl ::core::fmt::Debug for APPX_COMPRESSION_OPTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct APPX_ENCRYPTED_PACKAGE_OPTIONS(pub i32);
-impl ::core::marker::Copy for APPX_ENCRYPTED_PACKAGE_OPTIONS {}
-impl ::core::clone::Clone for APPX_ENCRYPTED_PACKAGE_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for APPX_ENCRYPTED_PACKAGE_OPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for APPX_ENCRYPTED_PACKAGE_OPTIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4095,19 +4029,8 @@ impl ::core::ops::Not for APPX_ENCRYPTED_PACKAGE_OPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct APPX_FOOTPRINT_FILE_TYPE(pub i32);
-impl ::core::marker::Copy for APPX_FOOTPRINT_FILE_TYPE {}
-impl ::core::clone::Clone for APPX_FOOTPRINT_FILE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for APPX_FOOTPRINT_FILE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for APPX_FOOTPRINT_FILE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4117,19 +4040,8 @@ impl ::core::fmt::Debug for APPX_FOOTPRINT_FILE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct APPX_PACKAGE_ARCHITECTURE(pub i32);
-impl ::core::marker::Copy for APPX_PACKAGE_ARCHITECTURE {}
-impl ::core::clone::Clone for APPX_PACKAGE_ARCHITECTURE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for APPX_PACKAGE_ARCHITECTURE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for APPX_PACKAGE_ARCHITECTURE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4139,19 +4051,8 @@ impl ::core::fmt::Debug for APPX_PACKAGE_ARCHITECTURE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct APPX_PACKAGE_ARCHITECTURE2(pub i32);
-impl ::core::marker::Copy for APPX_PACKAGE_ARCHITECTURE2 {}
-impl ::core::clone::Clone for APPX_PACKAGE_ARCHITECTURE2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for APPX_PACKAGE_ARCHITECTURE2 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for APPX_PACKAGE_ARCHITECTURE2 {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4161,19 +4062,8 @@ impl ::core::fmt::Debug for APPX_PACKAGE_ARCHITECTURE2 {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS(pub i32);
-impl ::core::marker::Copy for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS {}
-impl ::core::clone::Clone for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4216,19 +4106,8 @@ impl ::core::ops::Not for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION(pub i32);
-impl ::core::marker::Copy for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION {}
-impl ::core::clone::Clone for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4238,19 +4117,8 @@ impl ::core::fmt::Debug for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct APPX_PACKAGING_CONTEXT_CHANGE_TYPE(pub i32);
-impl ::core::marker::Copy for APPX_PACKAGING_CONTEXT_CHANGE_TYPE {}
-impl ::core::clone::Clone for APPX_PACKAGING_CONTEXT_CHANGE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for APPX_PACKAGING_CONTEXT_CHANGE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for APPX_PACKAGING_CONTEXT_CHANGE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4260,19 +4128,8 @@ impl ::core::fmt::Debug for APPX_PACKAGING_CONTEXT_CHANGE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AddPackageDependencyOptions(pub i32);
-impl ::core::marker::Copy for AddPackageDependencyOptions {}
-impl ::core::clone::Clone for AddPackageDependencyOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AddPackageDependencyOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AddPackageDependencyOptions {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4315,19 +4172,8 @@ impl ::core::ops::Not for AddPackageDependencyOptions {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AppPolicyClrCompat(pub i32);
-impl ::core::marker::Copy for AppPolicyClrCompat {}
-impl ::core::clone::Clone for AppPolicyClrCompat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AppPolicyClrCompat {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AppPolicyClrCompat {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4337,19 +4183,8 @@ impl ::core::fmt::Debug for AppPolicyClrCompat {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AppPolicyCreateFileAccess(pub i32);
-impl ::core::marker::Copy for AppPolicyCreateFileAccess {}
-impl ::core::clone::Clone for AppPolicyCreateFileAccess {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AppPolicyCreateFileAccess {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AppPolicyCreateFileAccess {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4359,19 +4194,8 @@ impl ::core::fmt::Debug for AppPolicyCreateFileAccess {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AppPolicyLifecycleManagement(pub i32);
-impl ::core::marker::Copy for AppPolicyLifecycleManagement {}
-impl ::core::clone::Clone for AppPolicyLifecycleManagement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AppPolicyLifecycleManagement {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AppPolicyLifecycleManagement {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4381,19 +4205,8 @@ impl ::core::fmt::Debug for AppPolicyLifecycleManagement {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AppPolicyMediaFoundationCodecLoading(pub i32);
-impl ::core::marker::Copy for AppPolicyMediaFoundationCodecLoading {}
-impl ::core::clone::Clone for AppPolicyMediaFoundationCodecLoading {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AppPolicyMediaFoundationCodecLoading {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AppPolicyMediaFoundationCodecLoading {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4403,19 +4216,8 @@ impl ::core::fmt::Debug for AppPolicyMediaFoundationCodecLoading {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AppPolicyProcessTerminationMethod(pub i32);
-impl ::core::marker::Copy for AppPolicyProcessTerminationMethod {}
-impl ::core::clone::Clone for AppPolicyProcessTerminationMethod {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AppPolicyProcessTerminationMethod {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AppPolicyProcessTerminationMethod {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4425,19 +4227,8 @@ impl ::core::fmt::Debug for AppPolicyProcessTerminationMethod {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AppPolicyShowDeveloperDiagnostic(pub i32);
-impl ::core::marker::Copy for AppPolicyShowDeveloperDiagnostic {}
-impl ::core::clone::Clone for AppPolicyShowDeveloperDiagnostic {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AppPolicyShowDeveloperDiagnostic {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AppPolicyShowDeveloperDiagnostic {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4447,19 +4238,8 @@ impl ::core::fmt::Debug for AppPolicyShowDeveloperDiagnostic {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AppPolicyThreadInitializationType(pub i32);
-impl ::core::marker::Copy for AppPolicyThreadInitializationType {}
-impl ::core::clone::Clone for AppPolicyThreadInitializationType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AppPolicyThreadInitializationType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AppPolicyThreadInitializationType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4469,19 +4249,8 @@ impl ::core::fmt::Debug for AppPolicyThreadInitializationType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AppPolicyWindowingModel(pub i32);
-impl ::core::marker::Copy for AppPolicyWindowingModel {}
-impl ::core::clone::Clone for AppPolicyWindowingModel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AppPolicyWindowingModel {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AppPolicyWindowingModel {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4491,19 +4260,8 @@ impl ::core::fmt::Debug for AppPolicyWindowingModel {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CreatePackageDependencyOptions(pub i32);
-impl ::core::marker::Copy for CreatePackageDependencyOptions {}
-impl ::core::clone::Clone for CreatePackageDependencyOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CreatePackageDependencyOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CreatePackageDependencyOptions {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4546,19 +4304,8 @@ impl ::core::ops::Not for CreatePackageDependencyOptions {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DX_FEATURE_LEVEL(pub i32);
-impl ::core::marker::Copy for DX_FEATURE_LEVEL {}
-impl ::core::clone::Clone for DX_FEATURE_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DX_FEATURE_LEVEL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DX_FEATURE_LEVEL {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4568,19 +4315,8 @@ impl ::core::fmt::Debug for DX_FEATURE_LEVEL {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PackageDependencyLifetimeKind(pub i32);
-impl ::core::marker::Copy for PackageDependencyLifetimeKind {}
-impl ::core::clone::Clone for PackageDependencyLifetimeKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PackageDependencyLifetimeKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PackageDependencyLifetimeKind {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4590,19 +4326,8 @@ impl ::core::fmt::Debug for PackageDependencyLifetimeKind {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PackageDependencyProcessorArchitectures(pub i32);
-impl ::core::marker::Copy for PackageDependencyProcessorArchitectures {}
-impl ::core::clone::Clone for PackageDependencyProcessorArchitectures {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PackageDependencyProcessorArchitectures {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PackageDependencyProcessorArchitectures {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4645,19 +4370,8 @@ impl ::core::ops::Not for PackageDependencyProcessorArchitectures {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PackageOrigin(pub i32);
-impl ::core::marker::Copy for PackageOrigin {}
-impl ::core::clone::Clone for PackageOrigin {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PackageOrigin {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PackageOrigin {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4667,19 +4381,8 @@ impl ::core::fmt::Debug for PackageOrigin {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PackagePathType(pub i32);
-impl ::core::marker::Copy for PackagePathType {}
-impl ::core::clone::Clone for PackagePathType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PackagePathType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PackagePathType {
     type TypeKind = ::windows_core::CopyType;
 }

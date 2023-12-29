@@ -236,19 +236,8 @@ pub const SELCERT_THUMBPRINT: u32 = 107u32;
 pub const SELCERT_VALIDITY: u32 = 104u32;
 pub const szCERT_CERTIFICATE_ACTION_VERIFY: ::windows_core::PCSTR = ::windows_core::s!("{7801ebd0-cf4b-11d0-851f-0060979387ea}");
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CERT_SELECT_STRUCT_FLAGS(pub u32);
-impl ::core::marker::Copy for CERT_SELECT_STRUCT_FLAGS {}
-impl ::core::clone::Clone for CERT_SELECT_STRUCT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CERT_SELECT_STRUCT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CERT_SELECT_STRUCT_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -291,19 +280,8 @@ impl ::core::ops::Not for CERT_SELECT_STRUCT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CERT_VIEWPROPERTIES_STRUCT_FLAGS(pub u32);
-impl ::core::marker::Copy for CERT_VIEWPROPERTIES_STRUCT_FLAGS {}
-impl ::core::clone::Clone for CERT_VIEWPROPERTIES_STRUCT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CERT_VIEWPROPERTIES_STRUCT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CERT_VIEWPROPERTIES_STRUCT_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -346,19 +324,8 @@ impl ::core::ops::Not for CERT_VIEWPROPERTIES_STRUCT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CRYPTUI_VIEWCERTIFICATE_FLAGS(pub u32);
-impl ::core::marker::Copy for CRYPTUI_VIEWCERTIFICATE_FLAGS {}
-impl ::core::clone::Clone for CRYPTUI_VIEWCERTIFICATE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CRYPTUI_VIEWCERTIFICATE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CRYPTUI_VIEWCERTIFICATE_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -401,19 +368,8 @@ impl ::core::ops::Not for CRYPTUI_VIEWCERTIFICATE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE(pub u32);
-impl ::core::marker::Copy for CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE {}
-impl ::core::clone::Clone for CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -423,19 +379,8 @@ impl ::core::fmt::Debug for CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN(pub u32);
-impl ::core::marker::Copy for CRYPTUI_WIZ_DIGITAL_SIGN {}
-impl ::core::clone::Clone for CRYPTUI_WIZ_DIGITAL_SIGN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CRYPTUI_WIZ_DIGITAL_SIGN {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CRYPTUI_WIZ_DIGITAL_SIGN {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -445,19 +390,8 @@ impl ::core::fmt::Debug for CRYPTUI_WIZ_DIGITAL_SIGN {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_PVK_OPTION(pub u32);
-impl ::core::marker::Copy for CRYPTUI_WIZ_DIGITAL_SIGN_PVK_OPTION {}
-impl ::core::clone::Clone for CRYPTUI_WIZ_DIGITAL_SIGN_PVK_OPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CRYPTUI_WIZ_DIGITAL_SIGN_PVK_OPTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CRYPTUI_WIZ_DIGITAL_SIGN_PVK_OPTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -467,19 +401,8 @@ impl ::core::fmt::Debug for CRYPTUI_WIZ_DIGITAL_SIGN_PVK_OPTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE(pub u32);
-impl ::core::marker::Copy for CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE {}
-impl ::core::clone::Clone for CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -489,19 +412,8 @@ impl ::core::fmt::Debug for CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT(pub u32);
-impl ::core::marker::Copy for CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT {}
-impl ::core::clone::Clone for CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -511,19 +423,8 @@ impl ::core::fmt::Debug for CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CRYPTUI_WIZ_EXPORT_FORMAT(pub u32);
-impl ::core::marker::Copy for CRYPTUI_WIZ_EXPORT_FORMAT {}
-impl ::core::clone::Clone for CRYPTUI_WIZ_EXPORT_FORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CRYPTUI_WIZ_EXPORT_FORMAT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CRYPTUI_WIZ_EXPORT_FORMAT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -533,19 +434,8 @@ impl ::core::fmt::Debug for CRYPTUI_WIZ_EXPORT_FORMAT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CRYPTUI_WIZ_EXPORT_SUBJECT(pub u32);
-impl ::core::marker::Copy for CRYPTUI_WIZ_EXPORT_SUBJECT {}
-impl ::core::clone::Clone for CRYPTUI_WIZ_EXPORT_SUBJECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CRYPTUI_WIZ_EXPORT_SUBJECT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CRYPTUI_WIZ_EXPORT_SUBJECT {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -555,19 +445,8 @@ impl ::core::fmt::Debug for CRYPTUI_WIZ_EXPORT_SUBJECT {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CRYPTUI_WIZ_FLAGS(pub u32);
-impl ::core::marker::Copy for CRYPTUI_WIZ_FLAGS {}
-impl ::core::clone::Clone for CRYPTUI_WIZ_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CRYPTUI_WIZ_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CRYPTUI_WIZ_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -610,19 +489,8 @@ impl ::core::ops::Not for CRYPTUI_WIZ_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION(pub u32);
-impl ::core::marker::Copy for CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION {}
-impl ::core::clone::Clone for CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -632,19 +500,8 @@ impl ::core::fmt::Debug for CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CTL_MODIFY_REQUEST_OPERATION(pub u32);
-impl ::core::marker::Copy for CTL_MODIFY_REQUEST_OPERATION {}
-impl ::core::clone::Clone for CTL_MODIFY_REQUEST_OPERATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CTL_MODIFY_REQUEST_OPERATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for CTL_MODIFY_REQUEST_OPERATION {
     type TypeKind = ::windows_core::CopyType;
 }

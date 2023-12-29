@@ -1421,7 +1421,7 @@ impl ::windows_core::RuntimeName for BluetoothLEManufacturerData {
 unsafe impl ::core::marker::Send for BluetoothLEManufacturerData {}
 unsafe impl ::core::marker::Sync for BluetoothLEManufacturerData {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BluetoothLEAdvertisementFlags(pub u32);
 impl BluetoothLEAdvertisementFlags {
     pub const None: Self = Self(0u32);
@@ -1430,17 +1430,6 @@ impl BluetoothLEAdvertisementFlags {
     pub const ClassicNotSupported: Self = Self(4u32);
     pub const DualModeControllerCapable: Self = Self(8u32);
     pub const DualModeHostCapable: Self = Self(16u32);
-}
-impl ::core::marker::Copy for BluetoothLEAdvertisementFlags {}
-impl ::core::clone::Clone for BluetoothLEAdvertisementFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BluetoothLEAdvertisementFlags {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for BluetoothLEAdvertisementFlags {
     type TypeKind = ::windows_core::CopyType;
@@ -1487,7 +1476,7 @@ impl ::windows_core::RuntimeType for BluetoothLEAdvertisementFlags {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementFlags;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BluetoothLEAdvertisementPublisherStatus(pub i32);
 impl BluetoothLEAdvertisementPublisherStatus {
     pub const Created: Self = Self(0i32);
@@ -1496,17 +1485,6 @@ impl BluetoothLEAdvertisementPublisherStatus {
     pub const Stopping: Self = Self(3i32);
     pub const Stopped: Self = Self(4i32);
     pub const Aborted: Self = Self(5i32);
-}
-impl ::core::marker::Copy for BluetoothLEAdvertisementPublisherStatus {}
-impl ::core::clone::Clone for BluetoothLEAdvertisementPublisherStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BluetoothLEAdvertisementPublisherStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for BluetoothLEAdvertisementPublisherStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -1520,7 +1498,7 @@ impl ::windows_core::RuntimeType for BluetoothLEAdvertisementPublisherStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementPublisherStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BluetoothLEAdvertisementType(pub i32);
 impl BluetoothLEAdvertisementType {
     pub const ConnectableUndirected: Self = Self(0i32);
@@ -1529,17 +1507,6 @@ impl BluetoothLEAdvertisementType {
     pub const NonConnectableUndirected: Self = Self(3i32);
     pub const ScanResponse: Self = Self(4i32);
     pub const Extended: Self = Self(5i32);
-}
-impl ::core::marker::Copy for BluetoothLEAdvertisementType {}
-impl ::core::clone::Clone for BluetoothLEAdvertisementType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BluetoothLEAdvertisementType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for BluetoothLEAdvertisementType {
     type TypeKind = ::windows_core::CopyType;
@@ -1553,7 +1520,7 @@ impl ::windows_core::RuntimeType for BluetoothLEAdvertisementType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BluetoothLEAdvertisementWatcherStatus(pub i32);
 impl BluetoothLEAdvertisementWatcherStatus {
     pub const Created: Self = Self(0i32);
@@ -1561,17 +1528,6 @@ impl BluetoothLEAdvertisementWatcherStatus {
     pub const Stopping: Self = Self(2i32);
     pub const Stopped: Self = Self(3i32);
     pub const Aborted: Self = Self(4i32);
-}
-impl ::core::marker::Copy for BluetoothLEAdvertisementWatcherStatus {}
-impl ::core::clone::Clone for BluetoothLEAdvertisementWatcherStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BluetoothLEAdvertisementWatcherStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for BluetoothLEAdvertisementWatcherStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -1585,23 +1541,12 @@ impl ::windows_core::RuntimeType for BluetoothLEAdvertisementWatcherStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementWatcherStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct BluetoothLEScanningMode(pub i32);
 impl BluetoothLEScanningMode {
     pub const Passive: Self = Self(0i32);
     pub const Active: Self = Self(1i32);
     pub const None: Self = Self(2i32);
-}
-impl ::core::marker::Copy for BluetoothLEScanningMode {}
-impl ::core::clone::Clone for BluetoothLEScanningMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BluetoothLEScanningMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for BluetoothLEScanningMode {
     type TypeKind = ::windows_core::CopyType;

@@ -604,19 +604,8 @@ pub const SNMP_TRAP_LINKDOWN: u32 = 2u32;
 pub const SNMP_TRAP_LINKUP: u32 = 3u32;
 pub const SNMP_TRAP_WARMSTART: u32 = 1u32;
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SNMP_API_TRANSLATE_MODE(pub u32);
-impl ::core::marker::Copy for SNMP_API_TRANSLATE_MODE {}
-impl ::core::clone::Clone for SNMP_API_TRANSLATE_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SNMP_API_TRANSLATE_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SNMP_API_TRANSLATE_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -626,19 +615,8 @@ impl ::core::fmt::Debug for SNMP_API_TRANSLATE_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SNMP_ERROR(pub u32);
-impl ::core::marker::Copy for SNMP_ERROR {}
-impl ::core::clone::Clone for SNMP_ERROR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SNMP_ERROR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SNMP_ERROR {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -648,19 +626,8 @@ impl ::core::fmt::Debug for SNMP_ERROR {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SNMP_ERROR_STATUS(pub u32);
-impl ::core::marker::Copy for SNMP_ERROR_STATUS {}
-impl ::core::clone::Clone for SNMP_ERROR_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SNMP_ERROR_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SNMP_ERROR_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -670,19 +637,8 @@ impl ::core::fmt::Debug for SNMP_ERROR_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SNMP_EXTENSION_REQUEST_TYPE(pub u32);
-impl ::core::marker::Copy for SNMP_EXTENSION_REQUEST_TYPE {}
-impl ::core::clone::Clone for SNMP_EXTENSION_REQUEST_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SNMP_EXTENSION_REQUEST_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SNMP_EXTENSION_REQUEST_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -692,19 +648,8 @@ impl ::core::fmt::Debug for SNMP_EXTENSION_REQUEST_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SNMP_GENERICTRAP(pub u32);
-impl ::core::marker::Copy for SNMP_GENERICTRAP {}
-impl ::core::clone::Clone for SNMP_GENERICTRAP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SNMP_GENERICTRAP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SNMP_GENERICTRAP {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -714,19 +659,8 @@ impl ::core::fmt::Debug for SNMP_GENERICTRAP {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SNMP_LOG(pub i32);
-impl ::core::marker::Copy for SNMP_LOG {}
-impl ::core::clone::Clone for SNMP_LOG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SNMP_LOG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SNMP_LOG {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -736,19 +670,8 @@ impl ::core::fmt::Debug for SNMP_LOG {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SNMP_OUTPUT_LOG_TYPE(pub u32);
-impl ::core::marker::Copy for SNMP_OUTPUT_LOG_TYPE {}
-impl ::core::clone::Clone for SNMP_OUTPUT_LOG_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SNMP_OUTPUT_LOG_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SNMP_OUTPUT_LOG_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -758,19 +681,8 @@ impl ::core::fmt::Debug for SNMP_OUTPUT_LOG_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SNMP_PDU_TYPE(pub u32);
-impl ::core::marker::Copy for SNMP_PDU_TYPE {}
-impl ::core::clone::Clone for SNMP_PDU_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SNMP_PDU_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SNMP_PDU_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -780,19 +692,8 @@ impl ::core::fmt::Debug for SNMP_PDU_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SNMP_STATUS(pub u32);
-impl ::core::marker::Copy for SNMP_STATUS {}
-impl ::core::clone::Clone for SNMP_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SNMP_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SNMP_STATUS {
     type TypeKind = ::windows_core::CopyType;
 }

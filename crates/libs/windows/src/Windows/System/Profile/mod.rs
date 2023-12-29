@@ -991,24 +991,13 @@ impl ::windows_core::RuntimeName for WindowsIntegrityPolicy {
     const NAME: &'static str = "Windows.System.Profile.WindowsIntegrityPolicy";
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PlatformDataCollectionLevel(pub i32);
 impl PlatformDataCollectionLevel {
     pub const Security: Self = Self(0i32);
     pub const Basic: Self = Self(1i32);
     pub const Enhanced: Self = Self(2i32);
     pub const Full: Self = Self(3i32);
-}
-impl ::core::marker::Copy for PlatformDataCollectionLevel {}
-impl ::core::clone::Clone for PlatformDataCollectionLevel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PlatformDataCollectionLevel {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PlatformDataCollectionLevel {
     type TypeKind = ::windows_core::CopyType;
@@ -1022,24 +1011,13 @@ impl ::windows_core::RuntimeType for PlatformDataCollectionLevel {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Profile.PlatformDataCollectionLevel;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SystemIdentificationSource(pub i32);
 impl SystemIdentificationSource {
     pub const None: Self = Self(0i32);
     pub const Tpm: Self = Self(1i32);
     pub const Uefi: Self = Self(2i32);
     pub const Registry: Self = Self(3i32);
-}
-impl ::core::marker::Copy for SystemIdentificationSource {}
-impl ::core::clone::Clone for SystemIdentificationSource {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SystemIdentificationSource {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SystemIdentificationSource {
     type TypeKind = ::windows_core::CopyType;
@@ -1053,23 +1031,12 @@ impl ::windows_core::RuntimeType for SystemIdentificationSource {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Profile.SystemIdentificationSource;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SystemOutOfBoxExperienceState(pub i32);
 impl SystemOutOfBoxExperienceState {
     pub const NotStarted: Self = Self(0i32);
     pub const InProgress: Self = Self(1i32);
     pub const Completed: Self = Self(2i32);
-}
-impl ::core::marker::Copy for SystemOutOfBoxExperienceState {}
-impl ::core::clone::Clone for SystemOutOfBoxExperienceState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SystemOutOfBoxExperienceState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for SystemOutOfBoxExperienceState {
     type TypeKind = ::windows_core::CopyType;
@@ -1083,22 +1050,11 @@ impl ::windows_core::RuntimeType for SystemOutOfBoxExperienceState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Profile.SystemOutOfBoxExperienceState;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UnsupportedAppRequirementReasons(pub u32);
 impl UnsupportedAppRequirementReasons {
     pub const Unknown: Self = Self(0u32);
     pub const DeniedBySystem: Self = Self(1u32);
-}
-impl ::core::marker::Copy for UnsupportedAppRequirementReasons {}
-impl ::core::clone::Clone for UnsupportedAppRequirementReasons {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UnsupportedAppRequirementReasons {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for UnsupportedAppRequirementReasons {
     type TypeKind = ::windows_core::CopyType;

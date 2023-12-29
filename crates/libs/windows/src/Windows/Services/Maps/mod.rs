@@ -1933,7 +1933,7 @@ impl ::windows_core::RuntimeName for PlaceInfoCreateOptions {
 unsafe impl ::core::marker::Send for PlaceInfoCreateOptions {}
 unsafe impl ::core::marker::Sync for PlaceInfoCreateOptions {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ManeuverWarningKind(pub i32);
 impl ManeuverWarningKind {
     pub const None: Self = Self(0i32);
@@ -1973,17 +1973,6 @@ impl ManeuverWarningKind {
     pub const UnscheduledConstruction: Self = Self(34i32);
     pub const Weather: Self = Self(35i32);
 }
-impl ::core::marker::Copy for ManeuverWarningKind {}
-impl ::core::clone::Clone for ManeuverWarningKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ManeuverWarningKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ManeuverWarningKind {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -1996,7 +1985,7 @@ impl ::windows_core::RuntimeType for ManeuverWarningKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.ManeuverWarningKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ManeuverWarningSeverity(pub i32);
 impl ManeuverWarningSeverity {
     pub const None: Self = Self(0i32);
@@ -2004,17 +1993,6 @@ impl ManeuverWarningSeverity {
     pub const Minor: Self = Self(2i32);
     pub const Moderate: Self = Self(3i32);
     pub const Serious: Self = Self(4i32);
-}
-impl ::core::marker::Copy for ManeuverWarningSeverity {}
-impl ::core::clone::Clone for ManeuverWarningSeverity {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ManeuverWarningSeverity {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ManeuverWarningSeverity {
     type TypeKind = ::windows_core::CopyType;
@@ -2028,22 +2006,11 @@ impl ::windows_core::RuntimeType for ManeuverWarningSeverity {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.ManeuverWarningSeverity;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MapLocationDesiredAccuracy(pub i32);
 impl MapLocationDesiredAccuracy {
     pub const High: Self = Self(0i32);
     pub const Low: Self = Self(1i32);
-}
-impl ::core::marker::Copy for MapLocationDesiredAccuracy {}
-impl ::core::clone::Clone for MapLocationDesiredAccuracy {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MapLocationDesiredAccuracy {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MapLocationDesiredAccuracy {
     type TypeKind = ::windows_core::CopyType;
@@ -2057,7 +2024,7 @@ impl ::windows_core::RuntimeType for MapLocationDesiredAccuracy {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapLocationDesiredAccuracy;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MapLocationFinderStatus(pub i32);
 impl MapLocationFinderStatus {
     pub const Success: Self = Self(0i32);
@@ -2067,17 +2034,6 @@ impl MapLocationFinderStatus {
     pub const IndexFailure: Self = Self(4i32);
     pub const NetworkFailure: Self = Self(5i32);
     pub const NotSupported: Self = Self(6i32);
-}
-impl ::core::marker::Copy for MapLocationFinderStatus {}
-impl ::core::clone::Clone for MapLocationFinderStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MapLocationFinderStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MapLocationFinderStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -2091,23 +2047,12 @@ impl ::windows_core::RuntimeType for MapLocationFinderStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapLocationFinderStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MapManeuverNotices(pub u32);
 impl MapManeuverNotices {
     pub const None: Self = Self(0u32);
     pub const Toll: Self = Self(1u32);
     pub const Unpaved: Self = Self(2u32);
-}
-impl ::core::marker::Copy for MapManeuverNotices {}
-impl ::core::clone::Clone for MapManeuverNotices {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MapManeuverNotices {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MapManeuverNotices {
     type TypeKind = ::windows_core::CopyType;
@@ -2154,7 +2099,7 @@ impl ::windows_core::RuntimeType for MapManeuverNotices {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapManeuverNotices;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MapRouteFinderStatus(pub i32);
 impl MapRouteFinderStatus {
     pub const Success: Self = Self(0i32);
@@ -2168,17 +2113,6 @@ impl MapRouteFinderStatus {
     pub const NetworkFailure: Self = Self(8i32);
     pub const NotSupported: Self = Self(9i32);
 }
-impl ::core::marker::Copy for MapRouteFinderStatus {}
-impl ::core::clone::Clone for MapRouteFinderStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MapRouteFinderStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MapRouteFinderStatus {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2191,7 +2125,7 @@ impl ::windows_core::RuntimeType for MapRouteFinderStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapRouteFinderStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MapRouteManeuverKind(pub i32);
 impl MapRouteManeuverKind {
     pub const None: Self = Self(0i32);
@@ -2220,17 +2154,6 @@ impl MapRouteManeuverKind {
     pub const TrafficCircleRight: Self = Self(23i32);
     pub const TakeFerry: Self = Self(24i32);
 }
-impl ::core::marker::Copy for MapRouteManeuverKind {}
-impl ::core::clone::Clone for MapRouteManeuverKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MapRouteManeuverKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MapRouteManeuverKind {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -2243,24 +2166,13 @@ impl ::windows_core::RuntimeType for MapRouteManeuverKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapRouteManeuverKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MapRouteOptimization(pub i32);
 impl MapRouteOptimization {
     pub const Time: Self = Self(0i32);
     pub const Distance: Self = Self(1i32);
     pub const TimeWithTraffic: Self = Self(2i32);
     pub const Scenic: Self = Self(3i32);
-}
-impl ::core::marker::Copy for MapRouteOptimization {}
-impl ::core::clone::Clone for MapRouteOptimization {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MapRouteOptimization {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MapRouteOptimization {
     type TypeKind = ::windows_core::CopyType;
@@ -2274,7 +2186,7 @@ impl ::windows_core::RuntimeType for MapRouteOptimization {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapRouteOptimization;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MapRouteRestrictions(pub u32);
 impl MapRouteRestrictions {
     pub const None: Self = Self(0u32);
@@ -2284,17 +2196,6 @@ impl MapRouteRestrictions {
     pub const Tunnels: Self = Self(8u32);
     pub const DirtRoads: Self = Self(16u32);
     pub const Motorail: Self = Self(32u32);
-}
-impl ::core::marker::Copy for MapRouteRestrictions {}
-impl ::core::clone::Clone for MapRouteRestrictions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MapRouteRestrictions {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MapRouteRestrictions {
     type TypeKind = ::windows_core::CopyType;
@@ -2341,22 +2242,11 @@ impl ::windows_core::RuntimeType for MapRouteRestrictions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapRouteRestrictions;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MapServiceDataUsagePreference(pub i32);
 impl MapServiceDataUsagePreference {
     pub const Default: Self = Self(0i32);
     pub const OfflineMapDataOnly: Self = Self(1i32);
-}
-impl ::core::marker::Copy for MapServiceDataUsagePreference {}
-impl ::core::clone::Clone for MapServiceDataUsagePreference {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MapServiceDataUsagePreference {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for MapServiceDataUsagePreference {
     type TypeKind = ::windows_core::CopyType;
@@ -2370,7 +2260,7 @@ impl ::windows_core::RuntimeType for MapServiceDataUsagePreference {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapServiceDataUsagePreference;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TrafficCongestion(pub i32);
 impl TrafficCongestion {
     pub const Unknown: Self = Self(0i32);
@@ -2378,17 +2268,6 @@ impl TrafficCongestion {
     pub const Mild: Self = Self(2i32);
     pub const Medium: Self = Self(3i32);
     pub const Heavy: Self = Self(4i32);
-}
-impl ::core::marker::Copy for TrafficCongestion {}
-impl ::core::clone::Clone for TrafficCongestion {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TrafficCongestion {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for TrafficCongestion {
     type TypeKind = ::windows_core::CopyType;
@@ -2402,22 +2281,11 @@ impl ::windows_core::RuntimeType for TrafficCongestion {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.TrafficCongestion;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WaypointKind(pub i32);
 impl WaypointKind {
     pub const Stop: Self = Self(0i32);
     pub const Via: Self = Self(1i32);
-}
-impl ::core::marker::Copy for WaypointKind {}
-impl ::core::clone::Clone for WaypointKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WaypointKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for WaypointKind {
     type TypeKind = ::windows_core::CopyType;

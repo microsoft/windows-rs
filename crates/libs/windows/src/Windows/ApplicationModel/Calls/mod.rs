@@ -3412,22 +3412,11 @@ impl ::windows_core::RuntimeName for VoipPhoneCall {
 unsafe impl ::core::marker::Send for VoipPhoneCall {}
 unsafe impl ::core::marker::Sync for VoipPhoneCall {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CellularDtmfMode(pub i32);
 impl CellularDtmfMode {
     pub const Continuous: Self = Self(0i32);
     pub const Burst: Self = Self(1i32);
-}
-impl ::core::marker::Copy for CellularDtmfMode {}
-impl ::core::clone::Clone for CellularDtmfMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CellularDtmfMode {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for CellularDtmfMode {
     type TypeKind = ::windows_core::CopyType;
@@ -3441,7 +3430,7 @@ impl ::windows_core::RuntimeType for CellularDtmfMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.CellularDtmfMode;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DtmfKey(pub i32);
 impl DtmfKey {
     pub const D0: Self = Self(0i32);
@@ -3457,17 +3446,6 @@ impl DtmfKey {
     pub const Star: Self = Self(10i32);
     pub const Pound: Self = Self(11i32);
 }
-impl ::core::marker::Copy for DtmfKey {}
-impl ::core::clone::Clone for DtmfKey {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DtmfKey {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DtmfKey {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3480,22 +3458,11 @@ impl ::windows_core::RuntimeType for DtmfKey {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.DtmfKey;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DtmfToneAudioPlayback(pub i32);
 impl DtmfToneAudioPlayback {
     pub const Play: Self = Self(0i32);
     pub const DoNotPlay: Self = Self(1i32);
-}
-impl ::core::marker::Copy for DtmfToneAudioPlayback {}
-impl ::core::clone::Clone for DtmfToneAudioPlayback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DtmfToneAudioPlayback {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for DtmfToneAudioPlayback {
     type TypeKind = ::windows_core::CopyType;
@@ -3509,23 +3476,12 @@ impl ::windows_core::RuntimeType for DtmfToneAudioPlayback {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.DtmfToneAudioPlayback;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PhoneAudioRoutingEndpoint(pub i32);
 impl PhoneAudioRoutingEndpoint {
     pub const Default: Self = Self(0i32);
     pub const Bluetooth: Self = Self(1i32);
     pub const Speakerphone: Self = Self(2i32);
-}
-impl ::core::marker::Copy for PhoneAudioRoutingEndpoint {}
-impl ::core::clone::Clone for PhoneAudioRoutingEndpoint {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhoneAudioRoutingEndpoint {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PhoneAudioRoutingEndpoint {
     type TypeKind = ::windows_core::CopyType;
@@ -3539,23 +3495,12 @@ impl ::windows_core::RuntimeType for PhoneAudioRoutingEndpoint {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneAudioRoutingEndpoint;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PhoneCallAudioDevice(pub i32);
 impl PhoneCallAudioDevice {
     pub const Unknown: Self = Self(0i32);
     pub const LocalDevice: Self = Self(1i32);
     pub const RemoteDevice: Self = Self(2i32);
-}
-impl ::core::marker::Copy for PhoneCallAudioDevice {}
-impl ::core::clone::Clone for PhoneCallAudioDevice {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhoneCallAudioDevice {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PhoneCallAudioDevice {
     type TypeKind = ::windows_core::CopyType;
@@ -3569,23 +3514,12 @@ impl ::windows_core::RuntimeType for PhoneCallAudioDevice {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallAudioDevice;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PhoneCallDirection(pub i32);
 impl PhoneCallDirection {
     pub const Unknown: Self = Self(0i32);
     pub const Incoming: Self = Self(1i32);
     pub const Outgoing: Self = Self(2i32);
-}
-impl ::core::marker::Copy for PhoneCallDirection {}
-impl ::core::clone::Clone for PhoneCallDirection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhoneCallDirection {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PhoneCallDirection {
     type TypeKind = ::windows_core::CopyType;
@@ -3599,22 +3533,11 @@ impl ::windows_core::RuntimeType for PhoneCallDirection {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallDirection;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PhoneCallHistoryEntryMedia(pub i32);
 impl PhoneCallHistoryEntryMedia {
     pub const Audio: Self = Self(0i32);
     pub const Video: Self = Self(1i32);
-}
-impl ::core::marker::Copy for PhoneCallHistoryEntryMedia {}
-impl ::core::clone::Clone for PhoneCallHistoryEntryMedia {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhoneCallHistoryEntryMedia {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PhoneCallHistoryEntryMedia {
     type TypeKind = ::windows_core::CopyType;
@@ -3628,22 +3551,11 @@ impl ::windows_core::RuntimeType for PhoneCallHistoryEntryMedia {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallHistoryEntryMedia;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PhoneCallHistoryEntryOtherAppReadAccess(pub i32);
 impl PhoneCallHistoryEntryOtherAppReadAccess {
     pub const Full: Self = Self(0i32);
     pub const SystemOnly: Self = Self(1i32);
-}
-impl ::core::marker::Copy for PhoneCallHistoryEntryOtherAppReadAccess {}
-impl ::core::clone::Clone for PhoneCallHistoryEntryOtherAppReadAccess {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhoneCallHistoryEntryOtherAppReadAccess {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PhoneCallHistoryEntryOtherAppReadAccess {
     type TypeKind = ::windows_core::CopyType;
@@ -3657,24 +3569,13 @@ impl ::windows_core::RuntimeType for PhoneCallHistoryEntryOtherAppReadAccess {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallHistoryEntryOtherAppReadAccess;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PhoneCallHistoryEntryQueryDesiredMedia(pub u32);
 impl PhoneCallHistoryEntryQueryDesiredMedia {
     pub const None: Self = Self(0u32);
     pub const Audio: Self = Self(1u32);
     pub const Video: Self = Self(2u32);
     pub const All: Self = Self(4294967295u32);
-}
-impl ::core::marker::Copy for PhoneCallHistoryEntryQueryDesiredMedia {}
-impl ::core::clone::Clone for PhoneCallHistoryEntryQueryDesiredMedia {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhoneCallHistoryEntryQueryDesiredMedia {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PhoneCallHistoryEntryQueryDesiredMedia {
     type TypeKind = ::windows_core::CopyType;
@@ -3721,22 +3622,11 @@ impl ::windows_core::RuntimeType for PhoneCallHistoryEntryQueryDesiredMedia {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallHistoryEntryQueryDesiredMedia;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PhoneCallHistoryEntryRawAddressKind(pub i32);
 impl PhoneCallHistoryEntryRawAddressKind {
     pub const PhoneNumber: Self = Self(0i32);
     pub const Custom: Self = Self(1i32);
-}
-impl ::core::marker::Copy for PhoneCallHistoryEntryRawAddressKind {}
-impl ::core::clone::Clone for PhoneCallHistoryEntryRawAddressKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhoneCallHistoryEntryRawAddressKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PhoneCallHistoryEntryRawAddressKind {
     type TypeKind = ::windows_core::CopyType;
@@ -3750,22 +3640,11 @@ impl ::windows_core::RuntimeType for PhoneCallHistoryEntryRawAddressKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallHistoryEntryRawAddressKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PhoneCallHistorySourceIdKind(pub i32);
 impl PhoneCallHistorySourceIdKind {
     pub const CellularPhoneLineId: Self = Self(0i32);
     pub const PackageFamilyName: Self = Self(1i32);
-}
-impl ::core::marker::Copy for PhoneCallHistorySourceIdKind {}
-impl ::core::clone::Clone for PhoneCallHistorySourceIdKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhoneCallHistorySourceIdKind {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PhoneCallHistorySourceIdKind {
     type TypeKind = ::windows_core::CopyType;
@@ -3779,23 +3658,12 @@ impl ::windows_core::RuntimeType for PhoneCallHistorySourceIdKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallHistorySourceIdKind;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PhoneCallHistoryStoreAccessType(pub i32);
 impl PhoneCallHistoryStoreAccessType {
     pub const AppEntriesReadWrite: Self = Self(0i32);
     pub const AllEntriesLimitedReadWrite: Self = Self(1i32);
     pub const AllEntriesReadWrite: Self = Self(2i32);
-}
-impl ::core::marker::Copy for PhoneCallHistoryStoreAccessType {}
-impl ::core::clone::Clone for PhoneCallHistoryStoreAccessType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhoneCallHistoryStoreAccessType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PhoneCallHistoryStoreAccessType {
     type TypeKind = ::windows_core::CopyType;
@@ -3809,23 +3677,12 @@ impl ::windows_core::RuntimeType for PhoneCallHistoryStoreAccessType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallHistoryStoreAccessType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PhoneCallMedia(pub i32);
 impl PhoneCallMedia {
     pub const Audio: Self = Self(0i32);
     pub const AudioAndVideo: Self = Self(1i32);
     pub const AudioAndRealTimeText: Self = Self(2i32);
-}
-impl ::core::marker::Copy for PhoneCallMedia {}
-impl ::core::clone::Clone for PhoneCallMedia {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhoneCallMedia {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PhoneCallMedia {
     type TypeKind = ::windows_core::CopyType;
@@ -3839,7 +3696,7 @@ impl ::windows_core::RuntimeType for PhoneCallMedia {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallMedia;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PhoneCallOperationStatus(pub i32);
 impl PhoneCallOperationStatus {
     pub const Succeeded: Self = Self(0i32);
@@ -3847,17 +3704,6 @@ impl PhoneCallOperationStatus {
     pub const TimedOut: Self = Self(2i32);
     pub const ConnectionLost: Self = Self(3i32);
     pub const InvalidCallState: Self = Self(4i32);
-}
-impl ::core::marker::Copy for PhoneCallOperationStatus {}
-impl ::core::clone::Clone for PhoneCallOperationStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhoneCallOperationStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PhoneCallOperationStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -3871,7 +3717,7 @@ impl ::windows_core::RuntimeType for PhoneCallOperationStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallOperationStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PhoneCallStatus(pub i32);
 impl PhoneCallStatus {
     pub const Lost: Self = Self(0i32);
@@ -3880,17 +3726,6 @@ impl PhoneCallStatus {
     pub const Talking: Self = Self(3i32);
     pub const Held: Self = Self(4i32);
     pub const Ended: Self = Self(5i32);
-}
-impl ::core::marker::Copy for PhoneCallStatus {}
-impl ::core::clone::Clone for PhoneCallStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhoneCallStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PhoneCallStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -3904,24 +3739,13 @@ impl ::windows_core::RuntimeType for PhoneCallStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PhoneLineNetworkOperatorDisplayTextLocation(pub i32);
 impl PhoneLineNetworkOperatorDisplayTextLocation {
     pub const Default: Self = Self(0i32);
     pub const Tile: Self = Self(1i32);
     pub const Dialer: Self = Self(2i32);
     pub const InCallUI: Self = Self(3i32);
-}
-impl ::core::marker::Copy for PhoneLineNetworkOperatorDisplayTextLocation {}
-impl ::core::clone::Clone for PhoneLineNetworkOperatorDisplayTextLocation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhoneLineNetworkOperatorDisplayTextLocation {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PhoneLineNetworkOperatorDisplayTextLocation {
     type TypeKind = ::windows_core::CopyType;
@@ -3935,7 +3759,7 @@ impl ::windows_core::RuntimeType for PhoneLineNetworkOperatorDisplayTextLocation
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneLineNetworkOperatorDisplayTextLocation;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PhoneLineOperationStatus(pub i32);
 impl PhoneLineOperationStatus {
     pub const Succeeded: Self = Self(0i32);
@@ -3943,17 +3767,6 @@ impl PhoneLineOperationStatus {
     pub const TimedOut: Self = Self(2i32);
     pub const ConnectionLost: Self = Self(3i32);
     pub const InvalidCallState: Self = Self(4i32);
-}
-impl ::core::marker::Copy for PhoneLineOperationStatus {}
-impl ::core::clone::Clone for PhoneLineOperationStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhoneLineOperationStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PhoneLineOperationStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -3967,23 +3780,12 @@ impl ::windows_core::RuntimeType for PhoneLineOperationStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneLineOperationStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PhoneLineTransport(pub i32);
 impl PhoneLineTransport {
     pub const Cellular: Self = Self(0i32);
     pub const VoipApp: Self = Self(1i32);
     pub const Bluetooth: Self = Self(2i32);
-}
-impl ::core::marker::Copy for PhoneLineTransport {}
-impl ::core::clone::Clone for PhoneLineTransport {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhoneLineTransport {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PhoneLineTransport {
     type TypeKind = ::windows_core::CopyType;
@@ -3997,24 +3799,13 @@ impl ::windows_core::RuntimeType for PhoneLineTransport {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneLineTransport;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PhoneLineWatcherStatus(pub i32);
 impl PhoneLineWatcherStatus {
     pub const Created: Self = Self(0i32);
     pub const Started: Self = Self(1i32);
     pub const EnumerationCompleted: Self = Self(2i32);
     pub const Stopped: Self = Self(3i32);
-}
-impl ::core::marker::Copy for PhoneLineWatcherStatus {}
-impl ::core::clone::Clone for PhoneLineWatcherStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhoneLineWatcherStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PhoneLineWatcherStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -4028,7 +3819,7 @@ impl ::windows_core::RuntimeType for PhoneLineWatcherStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneLineWatcherStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PhoneNetworkState(pub i32);
 impl PhoneNetworkState {
     pub const Unknown: Self = Self(0i32);
@@ -4039,17 +3830,6 @@ impl PhoneNetworkState {
     pub const Home: Self = Self(5i32);
     pub const RoamingInternational: Self = Self(6i32);
     pub const RoamingDomestic: Self = Self(7i32);
-}
-impl ::core::marker::Copy for PhoneNetworkState {}
-impl ::core::clone::Clone for PhoneNetworkState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhoneNetworkState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PhoneNetworkState {
     type TypeKind = ::windows_core::CopyType;
@@ -4063,7 +3843,7 @@ impl ::windows_core::RuntimeType for PhoneNetworkState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneNetworkState;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PhoneSimState(pub i32);
 impl PhoneSimState {
     pub const Unknown: Self = Self(0i32);
@@ -4074,17 +3854,6 @@ impl PhoneSimState {
     pub const NotInserted: Self = Self(5i32);
     pub const Invalid: Self = Self(6i32);
     pub const Disabled: Self = Self(7i32);
-}
-impl ::core::marker::Copy for PhoneSimState {}
-impl ::core::clone::Clone for PhoneSimState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhoneSimState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PhoneSimState {
     type TypeKind = ::windows_core::CopyType;
@@ -4098,23 +3867,12 @@ impl ::windows_core::RuntimeType for PhoneSimState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneSimState;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PhoneVoicemailType(pub i32);
 impl PhoneVoicemailType {
     pub const None: Self = Self(0i32);
     pub const Traditional: Self = Self(1i32);
     pub const Visual: Self = Self(2i32);
-}
-impl ::core::marker::Copy for PhoneVoicemailType {}
-impl ::core::clone::Clone for PhoneVoicemailType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhoneVoicemailType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for PhoneVoicemailType {
     type TypeKind = ::windows_core::CopyType;
@@ -4128,23 +3886,12 @@ impl ::windows_core::RuntimeType for PhoneVoicemailType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneVoicemailType;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct TransportDeviceAudioRoutingStatus(pub i32);
 impl TransportDeviceAudioRoutingStatus {
     pub const Unknown: Self = Self(0i32);
     pub const CanRouteToLocalDevice: Self = Self(1i32);
     pub const CannotRouteToLocalDevice: Self = Self(2i32);
-}
-impl ::core::marker::Copy for TransportDeviceAudioRoutingStatus {}
-impl ::core::clone::Clone for TransportDeviceAudioRoutingStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TransportDeviceAudioRoutingStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for TransportDeviceAudioRoutingStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -4158,23 +3905,12 @@ impl ::windows_core::RuntimeType for TransportDeviceAudioRoutingStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.TransportDeviceAudioRoutingStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VoipPhoneCallMedia(pub u32);
 impl VoipPhoneCallMedia {
     pub const None: Self = Self(0u32);
     pub const Audio: Self = Self(1u32);
     pub const Video: Self = Self(2u32);
-}
-impl ::core::marker::Copy for VoipPhoneCallMedia {}
-impl ::core::clone::Clone for VoipPhoneCallMedia {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VoipPhoneCallMedia {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for VoipPhoneCallMedia {
     type TypeKind = ::windows_core::CopyType;
@@ -4221,7 +3957,7 @@ impl ::windows_core::RuntimeType for VoipPhoneCallMedia {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.VoipPhoneCallMedia;u4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VoipPhoneCallRejectReason(pub i32);
 impl VoipPhoneCallRejectReason {
     pub const UserIgnored: Self = Self(0i32);
@@ -4229,17 +3965,6 @@ impl VoipPhoneCallRejectReason {
     pub const OtherIncomingCall: Self = Self(2i32);
     pub const EmergencyCallExists: Self = Self(3i32);
     pub const InvalidCallState: Self = Self(4i32);
-}
-impl ::core::marker::Copy for VoipPhoneCallRejectReason {}
-impl ::core::clone::Clone for VoipPhoneCallRejectReason {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VoipPhoneCallRejectReason {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for VoipPhoneCallRejectReason {
     type TypeKind = ::windows_core::CopyType;
@@ -4253,22 +3978,11 @@ impl ::windows_core::RuntimeType for VoipPhoneCallRejectReason {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.VoipPhoneCallRejectReason;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VoipPhoneCallResourceReservationStatus(pub i32);
 impl VoipPhoneCallResourceReservationStatus {
     pub const Success: Self = Self(0i32);
     pub const ResourcesNotAvailable: Self = Self(1i32);
-}
-impl ::core::marker::Copy for VoipPhoneCallResourceReservationStatus {}
-impl ::core::clone::Clone for VoipPhoneCallResourceReservationStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VoipPhoneCallResourceReservationStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for VoipPhoneCallResourceReservationStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -4282,7 +3996,7 @@ impl ::windows_core::RuntimeType for VoipPhoneCallResourceReservationStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.VoipPhoneCallResourceReservationStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct VoipPhoneCallState(pub i32);
 impl VoipPhoneCallState {
     pub const Ended: Self = Self(0i32);
@@ -4290,17 +4004,6 @@ impl VoipPhoneCallState {
     pub const Active: Self = Self(2i32);
     pub const Incoming: Self = Self(3i32);
     pub const Outgoing: Self = Self(4i32);
-}
-impl ::core::marker::Copy for VoipPhoneCallState {}
-impl ::core::clone::Clone for VoipPhoneCallState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VoipPhoneCallState {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for VoipPhoneCallState {
     type TypeKind = ::windows_core::CopyType;

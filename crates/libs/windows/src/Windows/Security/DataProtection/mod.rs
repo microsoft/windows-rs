@@ -306,23 +306,12 @@ impl ::windows_core::RuntimeName for UserDataStorageItemProtectionInfo {
 unsafe impl ::core::marker::Send for UserDataStorageItemProtectionInfo {}
 unsafe impl ::core::marker::Sync for UserDataStorageItemProtectionInfo {}
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UserDataAvailability(pub i32);
 impl UserDataAvailability {
     pub const Always: Self = Self(0i32);
     pub const AfterFirstUnlock: Self = Self(1i32);
     pub const WhileUnlocked: Self = Self(2i32);
-}
-impl ::core::marker::Copy for UserDataAvailability {}
-impl ::core::clone::Clone for UserDataAvailability {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UserDataAvailability {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for UserDataAvailability {
     type TypeKind = ::windows_core::CopyType;
@@ -336,22 +325,11 @@ impl ::windows_core::RuntimeType for UserDataAvailability {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.DataProtection.UserDataAvailability;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UserDataBufferUnprotectStatus(pub i32);
 impl UserDataBufferUnprotectStatus {
     pub const Succeeded: Self = Self(0i32);
     pub const Unavailable: Self = Self(1i32);
-}
-impl ::core::marker::Copy for UserDataBufferUnprotectStatus {}
-impl ::core::clone::Clone for UserDataBufferUnprotectStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UserDataBufferUnprotectStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for UserDataBufferUnprotectStatus {
     type TypeKind = ::windows_core::CopyType;
@@ -365,23 +343,12 @@ impl ::windows_core::RuntimeType for UserDataBufferUnprotectStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.DataProtection.UserDataBufferUnprotectStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct UserDataStorageItemProtectionStatus(pub i32);
 impl UserDataStorageItemProtectionStatus {
     pub const Succeeded: Self = Self(0i32);
     pub const NotProtectable: Self = Self(1i32);
     pub const DataUnavailable: Self = Self(2i32);
-}
-impl ::core::marker::Copy for UserDataStorageItemProtectionStatus {}
-impl ::core::clone::Clone for UserDataStorageItemProtectionStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UserDataStorageItemProtectionStatus {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for UserDataStorageItemProtectionStatus {
     type TypeKind = ::windows_core::CopyType;

@@ -4826,19 +4826,8 @@ pub const eConsole: ERole = ERole(0i32);
 pub const eMultimedia: ERole = ERole(1i32);
 pub const eRender: EDataFlow = EDataFlow(0i32);
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AMBISONICS_CHANNEL_ORDERING(pub i32);
-impl ::core::marker::Copy for AMBISONICS_CHANNEL_ORDERING {}
-impl ::core::clone::Clone for AMBISONICS_CHANNEL_ORDERING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AMBISONICS_CHANNEL_ORDERING {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AMBISONICS_CHANNEL_ORDERING {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4848,19 +4837,8 @@ impl ::core::fmt::Debug for AMBISONICS_CHANNEL_ORDERING {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AMBISONICS_NORMALIZATION(pub i32);
-impl ::core::marker::Copy for AMBISONICS_NORMALIZATION {}
-impl ::core::clone::Clone for AMBISONICS_NORMALIZATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AMBISONICS_NORMALIZATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AMBISONICS_NORMALIZATION {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4870,19 +4848,8 @@ impl ::core::fmt::Debug for AMBISONICS_NORMALIZATION {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AMBISONICS_TYPE(pub i32);
-impl ::core::marker::Copy for AMBISONICS_TYPE {}
-impl ::core::clone::Clone for AMBISONICS_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AMBISONICS_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AMBISONICS_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4892,19 +4859,8 @@ impl ::core::fmt::Debug for AMBISONICS_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AUDCLNT_SHAREMODE(pub i32);
-impl ::core::marker::Copy for AUDCLNT_SHAREMODE {}
-impl ::core::clone::Clone for AUDCLNT_SHAREMODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AUDCLNT_SHAREMODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AUDCLNT_SHAREMODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4914,19 +4870,8 @@ impl ::core::fmt::Debug for AUDCLNT_SHAREMODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AUDCLNT_STREAMOPTIONS(pub i32);
-impl ::core::marker::Copy for AUDCLNT_STREAMOPTIONS {}
-impl ::core::clone::Clone for AUDCLNT_STREAMOPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AUDCLNT_STREAMOPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AUDCLNT_STREAMOPTIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4969,19 +4914,8 @@ impl ::core::ops::Not for AUDCLNT_STREAMOPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AUDIOCLIENT_ACTIVATION_TYPE(pub i32);
-impl ::core::marker::Copy for AUDIOCLIENT_ACTIVATION_TYPE {}
-impl ::core::clone::Clone for AUDIOCLIENT_ACTIVATION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AUDIOCLIENT_ACTIVATION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AUDIOCLIENT_ACTIVATION_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -4991,19 +4925,8 @@ impl ::core::fmt::Debug for AUDIOCLIENT_ACTIVATION_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AUDIO_DUCKING_OPTIONS(pub i32);
-impl ::core::marker::Copy for AUDIO_DUCKING_OPTIONS {}
-impl ::core::clone::Clone for AUDIO_DUCKING_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AUDIO_DUCKING_OPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AUDIO_DUCKING_OPTIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5046,19 +4969,8 @@ impl ::core::ops::Not for AUDIO_DUCKING_OPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AUDIO_EFFECT_STATE(pub i32);
-impl ::core::marker::Copy for AUDIO_EFFECT_STATE {}
-impl ::core::clone::Clone for AUDIO_EFFECT_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AUDIO_EFFECT_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AUDIO_EFFECT_STATE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5068,19 +4980,8 @@ impl ::core::fmt::Debug for AUDIO_EFFECT_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AUDIO_STREAM_CATEGORY(pub i32);
-impl ::core::marker::Copy for AUDIO_STREAM_CATEGORY {}
-impl ::core::clone::Clone for AUDIO_STREAM_CATEGORY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AUDIO_STREAM_CATEGORY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AUDIO_STREAM_CATEGORY {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5090,19 +4991,8 @@ impl ::core::fmt::Debug for AUDIO_STREAM_CATEGORY {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE(pub i32);
-impl ::core::marker::Copy for AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE {}
-impl ::core::clone::Clone for AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5112,19 +5002,8 @@ impl ::core::fmt::Debug for AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AudioObjectType(pub i32);
-impl ::core::marker::Copy for AudioObjectType {}
-impl ::core::clone::Clone for AudioObjectType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AudioObjectType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AudioObjectType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5167,19 +5046,8 @@ impl ::core::ops::Not for AudioObjectType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AudioSessionDisconnectReason(pub i32);
-impl ::core::marker::Copy for AudioSessionDisconnectReason {}
-impl ::core::clone::Clone for AudioSessionDisconnectReason {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AudioSessionDisconnectReason {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AudioSessionDisconnectReason {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5189,19 +5057,8 @@ impl ::core::fmt::Debug for AudioSessionDisconnectReason {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AudioSessionState(pub i32);
-impl ::core::marker::Copy for AudioSessionState {}
-impl ::core::clone::Clone for AudioSessionState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AudioSessionState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AudioSessionState {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5211,19 +5068,8 @@ impl ::core::fmt::Debug for AudioSessionState {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AudioStateMonitorSoundLevel(pub i32);
-impl ::core::marker::Copy for AudioStateMonitorSoundLevel {}
-impl ::core::clone::Clone for AudioStateMonitorSoundLevel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AudioStateMonitorSoundLevel {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for AudioStateMonitorSoundLevel {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5233,7 +5079,7 @@ impl ::core::fmt::Debug for AudioStateMonitorSoundLevel {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ConnectorType(pub i32);
 impl ConnectorType {
     pub const Unknown_Connector: Self = Self(0i32);
@@ -5242,17 +5088,6 @@ impl ConnectorType {
     pub const Software_IO: Self = Self(3i32);
     pub const Software_Fixed: Self = Self(4i32);
     pub const Network: Self = Self(5i32);
-}
-impl ::core::marker::Copy for ConnectorType {}
-impl ::core::clone::Clone for ConnectorType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ConnectorType {
-    fn default() -> Self {
-        Self(0)
-    }
 }
 impl ::windows_core::TypeKind for ConnectorType {
     type TypeKind = ::windows_core::CopyType;
@@ -5263,19 +5098,8 @@ impl ::core::fmt::Debug for ConnectorType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct DataFlow(pub i32);
-impl ::core::marker::Copy for DataFlow {}
-impl ::core::clone::Clone for DataFlow {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DataFlow {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for DataFlow {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5285,19 +5109,8 @@ impl ::core::fmt::Debug for DataFlow {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EDataFlow(pub i32);
-impl ::core::marker::Copy for EDataFlow {}
-impl ::core::clone::Clone for EDataFlow {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EDataFlow {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EDataFlow {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5307,19 +5120,8 @@ impl ::core::fmt::Debug for EDataFlow {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct ERole(pub i32);
-impl ::core::marker::Copy for ERole {}
-impl ::core::clone::Clone for ERole {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ERole {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for ERole {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5329,19 +5131,8 @@ impl ::core::fmt::Debug for ERole {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EndpointFormFactor(pub i32);
-impl ::core::marker::Copy for EndpointFormFactor {}
-impl ::core::clone::Clone for EndpointFormFactor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EndpointFormFactor {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for EndpointFormFactor {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5351,19 +5142,8 @@ impl ::core::fmt::Debug for EndpointFormFactor {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MIDI_WAVE_OPEN_TYPE(pub u32);
-impl ::core::marker::Copy for MIDI_WAVE_OPEN_TYPE {}
-impl ::core::clone::Clone for MIDI_WAVE_OPEN_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MIDI_WAVE_OPEN_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MIDI_WAVE_OPEN_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5406,19 +5186,8 @@ impl ::core::ops::Not for MIDI_WAVE_OPEN_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct MIXERLINE_COMPONENTTYPE(pub u32);
-impl ::core::marker::Copy for MIXERLINE_COMPONENTTYPE {}
-impl ::core::clone::Clone for MIXERLINE_COMPONENTTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MIXERLINE_COMPONENTTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for MIXERLINE_COMPONENTTYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5428,19 +5197,8 @@ impl ::core::fmt::Debug for MIXERLINE_COMPONENTTYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PROCESS_LOOPBACK_MODE(pub i32);
-impl ::core::marker::Copy for PROCESS_LOOPBACK_MODE {}
-impl ::core::clone::Clone for PROCESS_LOOPBACK_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PROCESS_LOOPBACK_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PROCESS_LOOPBACK_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5450,19 +5208,8 @@ impl ::core::fmt::Debug for PROCESS_LOOPBACK_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PartType(pub i32);
-impl ::core::marker::Copy for PartType {}
-impl ::core::clone::Clone for PartType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PartType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for PartType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5472,19 +5219,8 @@ impl ::core::fmt::Debug for PartType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SND_FLAGS(pub u32);
-impl ::core::marker::Copy for SND_FLAGS {}
-impl ::core::clone::Clone for SND_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SND_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SND_FLAGS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5527,19 +5263,8 @@ impl ::core::ops::Not for SND_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SPATIAL_AUDIO_STREAM_OPTIONS(pub i32);
-impl ::core::marker::Copy for SPATIAL_AUDIO_STREAM_OPTIONS {}
-impl ::core::clone::Clone for SPATIAL_AUDIO_STREAM_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SPATIAL_AUDIO_STREAM_OPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SPATIAL_AUDIO_STREAM_OPTIONS {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5582,19 +5307,8 @@ impl ::core::ops::Not for SPATIAL_AUDIO_STREAM_OPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SpatialAudioHrtfDirectivityType(pub i32);
-impl ::core::marker::Copy for SpatialAudioHrtfDirectivityType {}
-impl ::core::clone::Clone for SpatialAudioHrtfDirectivityType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpatialAudioHrtfDirectivityType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SpatialAudioHrtfDirectivityType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5604,19 +5318,8 @@ impl ::core::fmt::Debug for SpatialAudioHrtfDirectivityType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SpatialAudioHrtfDistanceDecayType(pub i32);
-impl ::core::marker::Copy for SpatialAudioHrtfDistanceDecayType {}
-impl ::core::clone::Clone for SpatialAudioHrtfDistanceDecayType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpatialAudioHrtfDistanceDecayType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SpatialAudioHrtfDistanceDecayType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5626,19 +5329,8 @@ impl ::core::fmt::Debug for SpatialAudioHrtfDistanceDecayType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SpatialAudioHrtfEnvironmentType(pub i32);
-impl ::core::marker::Copy for SpatialAudioHrtfEnvironmentType {}
-impl ::core::clone::Clone for SpatialAudioHrtfEnvironmentType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpatialAudioHrtfEnvironmentType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SpatialAudioHrtfEnvironmentType {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5648,19 +5340,8 @@ impl ::core::fmt::Debug for SpatialAudioHrtfEnvironmentType {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SpatialAudioMetadataCopyMode(pub i32);
-impl ::core::marker::Copy for SpatialAudioMetadataCopyMode {}
-impl ::core::clone::Clone for SpatialAudioMetadataCopyMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpatialAudioMetadataCopyMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SpatialAudioMetadataCopyMode {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5670,19 +5351,8 @@ impl ::core::fmt::Debug for SpatialAudioMetadataCopyMode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct SpatialAudioMetadataWriterOverflowMode(pub i32);
-impl ::core::marker::Copy for SpatialAudioMetadataWriterOverflowMode {}
-impl ::core::clone::Clone for SpatialAudioMetadataWriterOverflowMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpatialAudioMetadataWriterOverflowMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for SpatialAudioMetadataWriterOverflowMode {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -5692,19 +5362,8 @@ impl ::core::fmt::Debug for SpatialAudioMetadataWriterOverflowMode {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct _AUDCLNT_BUFFERFLAGS(pub i32);
-impl ::core::marker::Copy for _AUDCLNT_BUFFERFLAGS {}
-impl ::core::clone::Clone for _AUDCLNT_BUFFERFLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for _AUDCLNT_BUFFERFLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for _AUDCLNT_BUFFERFLAGS {
     type TypeKind = ::windows_core::CopyType;
 }

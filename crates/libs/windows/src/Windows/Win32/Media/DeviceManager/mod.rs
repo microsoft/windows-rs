@@ -3696,19 +3696,8 @@ pub const g_wszWMDMYear: ::windows_core::PCWSTR = ::windows_core::w!("WMDM/Year"
 pub const g_wszWMDMediaClassPrimaryID: ::windows_core::PCWSTR = ::windows_core::w!("WMDM/MediaClassPrimaryID");
 pub const g_wszWPDPassthroughPropertyValues: ::windows_core::PCWSTR = ::windows_core::w!("WPD/PassthroughPropertyValues");
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WMDMMessage(pub i32);
-impl ::core::marker::Copy for WMDMMessage {}
-impl ::core::clone::Clone for WMDMMessage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMDMMessage {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WMDMMessage {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3718,19 +3707,8 @@ impl ::core::fmt::Debug for WMDMMessage {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WMDM_ENUM_PROP_VALID_VALUES_FORM(pub i32);
-impl ::core::marker::Copy for WMDM_ENUM_PROP_VALID_VALUES_FORM {}
-impl ::core::clone::Clone for WMDM_ENUM_PROP_VALID_VALUES_FORM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMDM_ENUM_PROP_VALID_VALUES_FORM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WMDM_ENUM_PROP_VALID_VALUES_FORM {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3740,19 +3718,8 @@ impl ::core::fmt::Debug for WMDM_ENUM_PROP_VALID_VALUES_FORM {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WMDM_FIND_SCOPE(pub i32);
-impl ::core::marker::Copy for WMDM_FIND_SCOPE {}
-impl ::core::clone::Clone for WMDM_FIND_SCOPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMDM_FIND_SCOPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WMDM_FIND_SCOPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3762,19 +3729,8 @@ impl ::core::fmt::Debug for WMDM_FIND_SCOPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WMDM_FORMATCODE(pub i32);
-impl ::core::marker::Copy for WMDM_FORMATCODE {}
-impl ::core::clone::Clone for WMDM_FORMATCODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMDM_FORMATCODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WMDM_FORMATCODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3784,19 +3740,8 @@ impl ::core::fmt::Debug for WMDM_FORMATCODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WMDM_SESSION_TYPE(pub i32);
-impl ::core::marker::Copy for WMDM_SESSION_TYPE {}
-impl ::core::clone::Clone for WMDM_SESSION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMDM_SESSION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WMDM_SESSION_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3806,19 +3751,8 @@ impl ::core::fmt::Debug for WMDM_SESSION_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WMDM_STORAGE_ENUM_MODE(pub i32);
-impl ::core::marker::Copy for WMDM_STORAGE_ENUM_MODE {}
-impl ::core::clone::Clone for WMDM_STORAGE_ENUM_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMDM_STORAGE_ENUM_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WMDM_STORAGE_ENUM_MODE {
     type TypeKind = ::windows_core::CopyType;
 }
@@ -3828,19 +3762,8 @@ impl ::core::fmt::Debug for WMDM_STORAGE_ENUM_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct WMDM_TAG_DATATYPE(pub i32);
-impl ::core::marker::Copy for WMDM_TAG_DATATYPE {}
-impl ::core::clone::Clone for WMDM_TAG_DATATYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMDM_TAG_DATATYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 impl ::windows_core::TypeKind for WMDM_TAG_DATATYPE {
     type TypeKind = ::windows_core::CopyType;
 }
