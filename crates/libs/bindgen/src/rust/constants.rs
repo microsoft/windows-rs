@@ -83,10 +83,7 @@ pub fn writer(writer: &Writer, def: metadata::Field) -> TokenStream {
 }
 
 fn initializer(writer: &Writer, def: metadata::Field) -> Option<TokenStream> {
-    let Some(value) = constant(def) else {
-        return None;
-    };
-
+    let value = constant(def)?;
     let mut input = value.as_str();
 
     let metadata::Type::TypeDef(def, _) = def.ty(None) else {

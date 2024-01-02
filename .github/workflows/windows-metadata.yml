@@ -1,0 +1,30 @@
+name: windows-metadata
+
+on:
+  pull_request:
+  push:
+    paths-ignore:
+      - '.github/ISSUE_TEMPLATE/**'
+    branches:
+      - master
+
+env:
+  RUSTFLAGS: -Dwarnings
+
+jobs:
+  cargo_sys:
+    name: Check
+    strategy:
+      matrix:
+        rust: [1.64.0, stable, nightly]
+        runs-on:
+          - windows-latest
+          - ubuntu-latest
+    runs-on: ${{ matrix.runs-on }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Prepare
+        run: rustup update --no-self-update ${{ matrix.rust }} && rustup default ${{ matrix.rust }}
+      - name: Check
+        run: cargo check -p windows-metadata --all-features

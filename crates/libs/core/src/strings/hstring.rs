@@ -83,11 +83,7 @@ impl HSTRING {
     }
 
     fn get_header(&self) -> Option<&Header> {
-        if let Some(header) = &self.0 {
-            unsafe { Some(header.as_ref()) }
-        } else {
-            None
-        }
+        self.0.map(|header| unsafe { header.as_ref() })
     }
 }
 
