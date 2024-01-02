@@ -1,5 +1,4 @@
 use super::*;
-type Result<T> = std::result::Result<T, ()>;
 
 pub struct File {
     pub reader: *const Reader,
@@ -45,16 +44,12 @@ unsafe impl Sync for File {}
 
 impl File {
     pub fn new(bytes: Vec<u8>) -> Option<Self> {
-        Self::ok(bytes).ok()
-    }
-
-    fn ok(bytes: Vec<u8>) -> Result<Self> {
         let mut result = File { bytes, reader: std::ptr::null(), strings: 0, blobs: 0, tables: Default::default() };
 
         let dos = result.bytes.view_as::<IMAGE_DOS_HEADER>(0)?;
 
         if dos.e_magic != IMAGE_DOS_SIGNATURE || result.bytes.copy_as::<u32>(dos.e_lfanew as usize)? != IMAGE_NT_SIGNATURE {
-            return Err(());
+            return None;
         }
 
         let file_offset = dos.e_lfanew as usize + std::mem::size_of::<u32>();
@@ -71,20 +66,20 @@ impl File {
                 let optional = result.bytes.view_as::<IMAGE_OPTIONAL_HEADER64>(optional_offset)?;
                 (optional.DataDirectory[IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR as usize].VirtualAddress, result.bytes.view_as_slice_of::<IMAGE_SECTION_HEADER>(optional_offset + std::mem::size_of::<IMAGE_OPTIONAL_HEADER64>(), file.NumberOfSections as usize)?)
             }
-            _ => return Err(()),
+            _ => return None,
         };
 
         let clr = result.bytes.view_as::<IMAGE_COR20_HEADER>(offset_from_rva(section_from_rva(sections, com_virtual_address)?, com_virtual_address))?;
 
         if clr.cb != std::mem::size_of::<IMAGE_COR20_HEADER>() as u32 {
-            return Err(());
+            return None;
         }
 
         let metadata_offset = offset_from_rva(section_from_rva(sections, clr.MetaData.VirtualAddress)?, clr.MetaData.VirtualAddress);
         let metadata = result.bytes.view_as::<METADATA_HEADER>(metadata_offset)?;
 
         if metadata.signature != METADATA_SIGNATURE {
-            return Err(());
+            return None;
         }
 
         // The METADATA_HEADER struct is not a fixed size so have to offset a little more carefully.
@@ -306,7 +301,7 @@ impl File {
         result.tables[NestedClass::TABLE].set_data(&mut view);
         result.tables[GenericParam::TABLE].set_data(&mut view);
 
-        Ok(result)
+        Some(result)
     }
 
     pub fn usize(&self, row: usize, table: usize, column: usize) -> usize {
@@ -356,8 +351,8 @@ impl File {
     }
 }
 
-fn section_from_rva(sections: &[IMAGE_SECTION_HEADER], rva: u32) -> Result<&IMAGE_SECTION_HEADER> {
-    sections.iter().find(|&s| rva >= s.VirtualAddress && rva < s.VirtualAddress + unsafe { s.Misc.VirtualSize }).ok_or(())
+fn section_from_rva(sections: &[IMAGE_SECTION_HEADER], rva: u32) -> Option<&IMAGE_SECTION_HEADER> {
+    sections.iter().find(|&s| rva >= s.VirtualAddress && rva < s.VirtualAddress + unsafe { s.Misc.VirtualSize })
 }
 
 fn offset_from_rva(section: &IMAGE_SECTION_HEADER, rva: u32) -> usize {
@@ -365,55 +360,55 @@ fn offset_from_rva(section: &IMAGE_SECTION_HEADER, rva: u32) -> usize {
 }
 
 trait View {
-    fn view_as<T>(&self, offset: usize) -> Result<&T>;
-    fn view_as_slice_of<T>(&self, offset: usize, len: usize) -> Result<&[T]>;
-    fn copy_as<T: Copy>(&self, offset: usize) -> Result<T>;
-    fn view_as_str(&self, offset: usize) -> Result<&[u8]>;
-    fn is_proper_length<T>(&self, offset: usize) -> Result<()>;
-    fn is_proper_length_and_alignment<T>(&self, offset: usize, count: usize) -> Result<*const T>;
+    fn view_as<T>(&self, offset: usize) -> Option<&T>;
+    fn view_as_slice_of<T>(&self, offset: usize, len: usize) -> Option<&[T]>;
+    fn copy_as<T: Copy>(&self, offset: usize) -> Option<T>;
+    fn view_as_str(&self, offset: usize) -> Option<&[u8]>;
+    fn is_proper_length<T>(&self, offset: usize) -> Option<()>;
+    fn is_proper_length_and_alignment<T>(&self, offset: usize, count: usize) -> Option<*const T>;
 }
 
 impl View for [u8] {
-    fn view_as<T>(&self, offset: usize) -> Result<&T> {
-        unsafe { Ok(&*self.is_proper_length_and_alignment(offset, 1)?) }
+    fn view_as<T>(&self, offset: usize) -> Option<&T> {
+        unsafe { Some(&*self.is_proper_length_and_alignment(offset, 1)?) }
     }
 
-    fn view_as_slice_of<T>(&self, offset: usize, len: usize) -> Result<&[T]> {
-        unsafe { Ok(std::slice::from_raw_parts(self.is_proper_length_and_alignment(offset, len)?, len)) }
+    fn view_as_slice_of<T>(&self, offset: usize, len: usize) -> Option<&[T]> {
+        unsafe { Some(std::slice::from_raw_parts(self.is_proper_length_and_alignment(offset, len)?, len)) }
     }
 
-    fn copy_as<T>(&self, offset: usize) -> Result<T> {
+    fn copy_as<T>(&self, offset: usize) -> Option<T> {
         self.is_proper_length::<T>(offset)?;
 
         unsafe {
             let mut data = std::mem::MaybeUninit::zeroed().assume_init();
             std::ptr::copy_nonoverlapping(self[offset..].as_ptr(), &mut data as *mut T as *mut u8, std::mem::size_of::<T>());
-            Ok(data)
+            Some(data)
         }
     }
 
-    fn view_as_str(&self, offset: usize) -> Result<&[u8]> {
+    fn view_as_str(&self, offset: usize) -> Option<&[u8]> {
         let buffer = &self[offset..];
-        let index = buffer.iter().position(|c| *c == b'\0').ok_or(())?;
-        Ok(&self[offset..offset + index])
+        let index = buffer.iter().position(|c| *c == b'\0')?;
+        Some(&self[offset..offset + index])
     }
 
-    fn is_proper_length<T>(&self, offset: usize) -> Result<()> {
+    fn is_proper_length<T>(&self, offset: usize) -> Option<()> {
         if offset + std::mem::size_of::<T>() <= self.len() {
-            Ok(())
+            Some(())
         } else {
-            Err(())
+            None
         }
     }
 
-    fn is_proper_length_and_alignment<T>(&self, offset: usize, count: usize) -> Result<*const T> {
+    fn is_proper_length_and_alignment<T>(&self, offset: usize, count: usize) -> Option<*const T> {
         self.is_proper_length::<T>(offset * count)?;
         let ptr = &self[offset] as *const u8 as *const T;
 
         if ptr.align_offset(std::mem::align_of::<T>()) == 0 {
-            Ok(ptr)
+            Some(ptr)
         } else {
-            Err(())
+            None
         }
     }
 }
