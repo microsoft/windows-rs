@@ -16,7 +16,7 @@ jobs:
     name: Check
     strategy:
       matrix:
-        rust: [1.64.0, stable, nightly]
+        rust: [1.70.0, stable, nightly]
         runs-on:
           - windows-latest
           - ubuntu-latest
