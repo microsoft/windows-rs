@@ -1,6 +1,8 @@
 fn main() {
-    let target = std::env::var("TARGET").unwrap();
-    if target != "x86_64-pc-windows-msvc" && target != "x86_64-uwp-windows-msvc" {
+    let family = std::env::var("CARGO_CFG_TARGET_FAMILY").unwrap();
+    let arch = std::env::var("CARGO_CFG_TARGET_ARCH").unwrap();
+    let env = std::env::var("CARGO_CFG_TARGET_ENV").unwrap();
+    if family != "windows" || arch != "x86_64" || env != "msvc" {
         return;
     }
 
