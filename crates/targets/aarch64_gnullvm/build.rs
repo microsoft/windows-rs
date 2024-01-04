@@ -1,6 +1,9 @@
 fn main() {
+    let family = std::env::var("CARGO_CFG_TARGET_FAMILY").unwrap();
+    let arch = std::env::var("CARGO_CFG_TARGET_ARCH").unwrap();
+    let env = std::env::var("CARGO_CFG_TARGET_ENV").unwrap();
     let target = std::env::var("TARGET").unwrap();
-    if target != "aarch64-pc-windows-gnullvm" {
+    if family != "windows" || arch != "aarch64" || env != "gnu" || !target.ends_with("-gnullvm") {
         return;
     }
 
