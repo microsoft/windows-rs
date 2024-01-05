@@ -28,7 +28,7 @@ impl IFindSimilarResults_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IFindSimilarResults as ::windows_core::ComInterface>::IID
+        iid == &<IFindSimilarResults as ::windows_core::Interface>::IID
     }
 }
 pub trait IRdcComparator_Impl: Sized {
@@ -45,7 +45,7 @@ impl IRdcComparator_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Process: Process::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRdcComparator as ::windows_core::ComInterface>::IID
+        iid == &<IRdcComparator as ::windows_core::Interface>::IID
     }
 }
 pub trait IRdcFileReader_Impl: Sized {
@@ -91,7 +91,7 @@ impl IRdcFileReader_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRdcFileReader as ::windows_core::ComInterface>::IID
+        iid == &<IRdcFileReader as ::windows_core::Interface>::IID
     }
 }
 pub trait IRdcFileWriter_Impl: Sized + IRdcFileReader_Impl {
@@ -131,7 +131,7 @@ impl IRdcFileWriter_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRdcFileWriter as ::windows_core::ComInterface>::IID || iid == &<IRdcFileReader as ::windows_core::ComInterface>::IID
+        iid == &<IRdcFileWriter as ::windows_core::Interface>::IID || iid == &<IRdcFileReader as ::windows_core::Interface>::IID
     }
 }
 pub trait IRdcGenerator_Impl: Sized {
@@ -164,7 +164,7 @@ impl IRdcGenerator_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRdcGenerator as ::windows_core::ComInterface>::IID
+        iid == &<IRdcGenerator as ::windows_core::Interface>::IID
     }
 }
 pub trait IRdcGeneratorFilterMaxParameters_Impl: Sized {
@@ -217,7 +217,7 @@ impl IRdcGeneratorFilterMaxParameters_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRdcGeneratorFilterMaxParameters as ::windows_core::ComInterface>::IID
+        iid == &<IRdcGeneratorFilterMaxParameters as ::windows_core::Interface>::IID
     }
 }
 pub trait IRdcGeneratorParameters_Impl: Sized {
@@ -270,7 +270,7 @@ impl IRdcGeneratorParameters_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRdcGeneratorParameters as ::windows_core::ComInterface>::IID
+        iid == &<IRdcGeneratorParameters as ::windows_core::Interface>::IID
     }
 }
 pub trait IRdcLibrary_Impl: Sized {
@@ -368,7 +368,7 @@ impl IRdcLibrary_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRdcLibrary as ::windows_core::ComInterface>::IID
+        iid == &<IRdcLibrary as ::windows_core::Interface>::IID
     }
 }
 pub trait IRdcSignatureReader_Impl: Sized {
@@ -401,7 +401,7 @@ impl IRdcSignatureReader_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRdcSignatureReader as ::windows_core::ComInterface>::IID
+        iid == &<IRdcSignatureReader as ::windows_core::Interface>::IID
     }
 }
 pub trait IRdcSimilarityGenerator_Impl: Sized {
@@ -434,7 +434,7 @@ impl IRdcSimilarityGenerator_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRdcSimilarityGenerator as ::windows_core::ComInterface>::IID
+        iid == &<IRdcSimilarityGenerator as ::windows_core::Interface>::IID
     }
 }
 pub trait ISimilarity_Impl: Sized {
@@ -520,7 +520,7 @@ impl ISimilarity_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISimilarity as ::windows_core::ComInterface>::IID
+        iid == &<ISimilarity as ::windows_core::Interface>::IID
     }
 }
 pub trait ISimilarityFileIdTable_Impl: Sized {
@@ -606,7 +606,7 @@ impl ISimilarityFileIdTable_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISimilarityFileIdTable as ::windows_core::ComInterface>::IID
+        iid == &<ISimilarityFileIdTable as ::windows_core::Interface>::IID
     }
 }
 pub trait ISimilarityReportProgress_Impl: Sized {
@@ -623,7 +623,7 @@ impl ISimilarityReportProgress_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ReportProgress: ReportProgress::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISimilarityReportProgress as ::windows_core::ComInterface>::IID
+        iid == &<ISimilarityReportProgress as ::windows_core::Interface>::IID
     }
 }
 pub trait ISimilarityTableDumpState_Impl: Sized {
@@ -640,7 +640,7 @@ impl ISimilarityTableDumpState_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetNextData: GetNextData::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISimilarityTableDumpState as ::windows_core::ComInterface>::IID
+        iid == &<ISimilarityTableDumpState as ::windows_core::Interface>::IID
     }
 }
 pub trait ISimilarityTraitsMappedView_Impl: Sized {
@@ -687,7 +687,7 @@ impl ISimilarityTraitsMappedView_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISimilarityTraitsMappedView as ::windows_core::ComInterface>::IID
+        iid == &<ISimilarityTraitsMappedView as ::windows_core::Interface>::IID
     }
 }
 pub trait ISimilarityTraitsMapping_Impl: Sized {
@@ -773,7 +773,7 @@ impl ISimilarityTraitsMapping_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISimilarityTraitsMapping as ::windows_core::ComInterface>::IID
+        iid == &<ISimilarityTraitsMapping as ::windows_core::Interface>::IID
     }
 }
 pub trait ISimilarityTraitsTable_Impl: Sized {
@@ -859,6 +859,6 @@ impl ISimilarityTraitsTable_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISimilarityTraitsTable as ::windows_core::ComInterface>::IID
+        iid == &<ISimilarityTraitsTable as ::windows_core::Interface>::IID
     }
 }

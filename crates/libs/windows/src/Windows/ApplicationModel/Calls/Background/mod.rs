@@ -1,13 +1,4 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPhoneCallBlockedTriggerDetails(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPhoneCallBlockedTriggerDetails {
-    type Vtable = IPhoneCallBlockedTriggerDetails_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPhoneCallBlockedTriggerDetails {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa4a690a2_e4c1_427f_864e_e470477ddb67);
-}
+::windows_core::imp::com_interface!(IPhoneCallBlockedTriggerDetails, IPhoneCallBlockedTriggerDetails_Vtbl, 0xa4a690a2_e4c1_427f_864e_e470477ddb67);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhoneCallBlockedTriggerDetails_Vtbl {
@@ -16,19 +7,13 @@ pub struct IPhoneCallBlockedTriggerDetails_Vtbl {
     pub LineId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
     pub CallBlockedReason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PhoneCallBlockedReason) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
 #[cfg(feature = "deprecated")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPhoneCallOriginDataRequestTriggerDetails(::windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows_core::Interface for IPhoneCallOriginDataRequestTriggerDetails {
-    type Vtable = IPhoneCallOriginDataRequestTriggerDetails_Vtbl;
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows_core::ComInterface for IPhoneCallOriginDataRequestTriggerDetails {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6e9b5b3f_c54b_4e82_4cc9_e329a4184592);
-}
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"deprecated\"`"]
+    IPhoneCallOriginDataRequestTriggerDetails,
+    IPhoneCallOriginDataRequestTriggerDetails_Vtbl,
+    0x6e9b5b3f_c54b_4e82_4cc9_e329a4184592
+);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -43,19 +28,13 @@ pub struct IPhoneCallOriginDataRequestTriggerDetails_Vtbl {
     #[cfg(not(feature = "deprecated"))]
     PhoneNumber: usize,
 }
-#[doc(hidden)]
 #[cfg(feature = "deprecated")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPhoneIncomingCallDismissedTriggerDetails(::windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows_core::Interface for IPhoneIncomingCallDismissedTriggerDetails {
-    type Vtable = IPhoneIncomingCallDismissedTriggerDetails_Vtbl;
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows_core::ComInterface for IPhoneIncomingCallDismissedTriggerDetails {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbad30276_83b6_5732_9c38_0c206546196a);
-}
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"deprecated\"`"]
+    IPhoneIncomingCallDismissedTriggerDetails,
+    IPhoneIncomingCallDismissedTriggerDetails_Vtbl,
+    0xbad30276_83b6_5732_9c38_0c206546196a
+);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -86,16 +65,7 @@ pub struct IPhoneIncomingCallDismissedTriggerDetails_Vtbl {
     #[cfg(not(feature = "deprecated"))]
     Reason: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPhoneIncomingCallNotificationTriggerDetails(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPhoneIncomingCallNotificationTriggerDetails {
-    type Vtable = IPhoneIncomingCallNotificationTriggerDetails_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPhoneIncomingCallNotificationTriggerDetails {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2b0e6044_9b32_5d42_8222_d2812e39fb21);
-}
+::windows_core::imp::com_interface!(IPhoneIncomingCallNotificationTriggerDetails, IPhoneIncomingCallNotificationTriggerDetails_Vtbl, 0x2b0e6044_9b32_5d42_8222_d2812e39fb21);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhoneIncomingCallNotificationTriggerDetails_Vtbl {
@@ -103,16 +73,7 @@ pub struct IPhoneIncomingCallNotificationTriggerDetails_Vtbl {
     pub LineId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
     pub CallId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPhoneLineChangedTriggerDetails(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPhoneLineChangedTriggerDetails {
-    type Vtable = IPhoneLineChangedTriggerDetails_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPhoneLineChangedTriggerDetails {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc6d321e7_d11d_40d8_b2b7_e40a01d66249);
-}
+::windows_core::imp::com_interface!(IPhoneLineChangedTriggerDetails, IPhoneLineChangedTriggerDetails_Vtbl, 0xc6d321e7_d11d_40d8_b2b7_e40a01d66249);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhoneLineChangedTriggerDetails_Vtbl {
@@ -121,16 +82,7 @@ pub struct IPhoneLineChangedTriggerDetails_Vtbl {
     pub ChangeType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PhoneLineChangeKind) -> ::windows_core::HRESULT,
     pub HasLinePropertyChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lineproperty: PhoneLineProperties, result__: *mut bool) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPhoneNewVoicemailMessageTriggerDetails(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPhoneNewVoicemailMessageTriggerDetails {
-    type Vtable = IPhoneNewVoicemailMessageTriggerDetails_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPhoneNewVoicemailMessageTriggerDetails {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x13a8c01b_b831_48d3_8ba9_8d22a6580dcf);
-}
+::windows_core::imp::com_interface!(IPhoneNewVoicemailMessageTriggerDetails, IPhoneNewVoicemailMessageTriggerDetails_Vtbl, 0x13a8c01b_b831_48d3_8ba9_8d22a6580dcf);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhoneNewVoicemailMessageTriggerDetails_Vtbl {
@@ -142,6 +94,7 @@ pub struct IPhoneNewVoicemailMessageTriggerDetails_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PhoneCallBlockedTriggerDetails(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(PhoneCallBlockedTriggerDetails, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl PhoneCallBlockedTriggerDetails {
     pub fn PhoneNumber(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -170,14 +123,11 @@ impl ::windows_core::RuntimeType for PhoneCallBlockedTriggerDetails {
 }
 unsafe impl ::windows_core::Interface for PhoneCallBlockedTriggerDetails {
     type Vtable = IPhoneCallBlockedTriggerDetails_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for PhoneCallBlockedTriggerDetails {
-    const IID: ::windows_core::GUID = <IPhoneCallBlockedTriggerDetails as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPhoneCallBlockedTriggerDetails as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for PhoneCallBlockedTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.Background.PhoneCallBlockedTriggerDetails";
 }
-::windows_core::imp::interface_hierarchy!(PhoneCallBlockedTriggerDetails, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PhoneCallBlockedTriggerDetails {}
 unsafe impl ::core::marker::Sync for PhoneCallBlockedTriggerDetails {}
 #[doc = "Required features: `\"deprecated\"`"]
@@ -185,6 +135,8 @@ unsafe impl ::core::marker::Sync for PhoneCallBlockedTriggerDetails {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PhoneCallOriginDataRequestTriggerDetails(::windows_core::IUnknown);
+#[cfg(feature = "deprecated")]
+::windows_core::imp::interface_hierarchy!(PhoneCallOriginDataRequestTriggerDetails, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl PhoneCallOriginDataRequestTriggerDetails {
     #[doc = "Required features: `\"deprecated\"`"]
@@ -213,17 +165,12 @@ impl ::windows_core::RuntimeType for PhoneCallOriginDataRequestTriggerDetails {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows_core::Interface for PhoneCallOriginDataRequestTriggerDetails {
     type Vtable = IPhoneCallOriginDataRequestTriggerDetails_Vtbl;
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows_core::ComInterface for PhoneCallOriginDataRequestTriggerDetails {
-    const IID: ::windows_core::GUID = <IPhoneCallOriginDataRequestTriggerDetails as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPhoneCallOriginDataRequestTriggerDetails as ::windows_core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows_core::RuntimeName for PhoneCallOriginDataRequestTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.Background.PhoneCallOriginDataRequestTriggerDetails";
 }
-#[cfg(feature = "deprecated")]
-::windows_core::imp::interface_hierarchy!(PhoneCallOriginDataRequestTriggerDetails, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for PhoneCallOriginDataRequestTriggerDetails {}
 #[cfg(feature = "deprecated")]
@@ -233,6 +180,8 @@ unsafe impl ::core::marker::Sync for PhoneCallOriginDataRequestTriggerDetails {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PhoneIncomingCallDismissedTriggerDetails(::windows_core::IUnknown);
+#[cfg(feature = "deprecated")]
+::windows_core::imp::interface_hierarchy!(PhoneIncomingCallDismissedTriggerDetails, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl PhoneIncomingCallDismissedTriggerDetails {
     #[doc = "Required features: `\"deprecated\"`"]
@@ -297,17 +246,12 @@ impl ::windows_core::RuntimeType for PhoneIncomingCallDismissedTriggerDetails {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows_core::Interface for PhoneIncomingCallDismissedTriggerDetails {
     type Vtable = IPhoneIncomingCallDismissedTriggerDetails_Vtbl;
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows_core::ComInterface for PhoneIncomingCallDismissedTriggerDetails {
-    const IID: ::windows_core::GUID = <IPhoneIncomingCallDismissedTriggerDetails as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPhoneIncomingCallDismissedTriggerDetails as ::windows_core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows_core::RuntimeName for PhoneIncomingCallDismissedTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.Background.PhoneIncomingCallDismissedTriggerDetails";
 }
-#[cfg(feature = "deprecated")]
-::windows_core::imp::interface_hierarchy!(PhoneIncomingCallDismissedTriggerDetails, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for PhoneIncomingCallDismissedTriggerDetails {}
 #[cfg(feature = "deprecated")]
@@ -315,6 +259,7 @@ unsafe impl ::core::marker::Sync for PhoneIncomingCallDismissedTriggerDetails {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PhoneIncomingCallNotificationTriggerDetails(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(PhoneIncomingCallNotificationTriggerDetails, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl PhoneIncomingCallNotificationTriggerDetails {
     pub fn LineId(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let this = self;
@@ -336,19 +281,17 @@ impl ::windows_core::RuntimeType for PhoneIncomingCallNotificationTriggerDetails
 }
 unsafe impl ::windows_core::Interface for PhoneIncomingCallNotificationTriggerDetails {
     type Vtable = IPhoneIncomingCallNotificationTriggerDetails_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for PhoneIncomingCallNotificationTriggerDetails {
-    const IID: ::windows_core::GUID = <IPhoneIncomingCallNotificationTriggerDetails as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPhoneIncomingCallNotificationTriggerDetails as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for PhoneIncomingCallNotificationTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.Background.PhoneIncomingCallNotificationTriggerDetails";
 }
-::windows_core::imp::interface_hierarchy!(PhoneIncomingCallNotificationTriggerDetails, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PhoneIncomingCallNotificationTriggerDetails {}
 unsafe impl ::core::marker::Sync for PhoneIncomingCallNotificationTriggerDetails {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PhoneLineChangedTriggerDetails(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(PhoneLineChangedTriggerDetails, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl PhoneLineChangedTriggerDetails {
     pub fn LineId(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let this = self;
@@ -377,19 +320,17 @@ impl ::windows_core::RuntimeType for PhoneLineChangedTriggerDetails {
 }
 unsafe impl ::windows_core::Interface for PhoneLineChangedTriggerDetails {
     type Vtable = IPhoneLineChangedTriggerDetails_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for PhoneLineChangedTriggerDetails {
-    const IID: ::windows_core::GUID = <IPhoneLineChangedTriggerDetails as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPhoneLineChangedTriggerDetails as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for PhoneLineChangedTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.Background.PhoneLineChangedTriggerDetails";
 }
-::windows_core::imp::interface_hierarchy!(PhoneLineChangedTriggerDetails, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PhoneLineChangedTriggerDetails {}
 unsafe impl ::core::marker::Sync for PhoneLineChangedTriggerDetails {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PhoneNewVoicemailMessageTriggerDetails(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(PhoneNewVoicemailMessageTriggerDetails, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl PhoneNewVoicemailMessageTriggerDetails {
     pub fn LineId(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let this = self;
@@ -418,14 +359,11 @@ impl ::windows_core::RuntimeType for PhoneNewVoicemailMessageTriggerDetails {
 }
 unsafe impl ::windows_core::Interface for PhoneNewVoicemailMessageTriggerDetails {
     type Vtable = IPhoneNewVoicemailMessageTriggerDetails_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for PhoneNewVoicemailMessageTriggerDetails {
-    const IID: ::windows_core::GUID = <IPhoneNewVoicemailMessageTriggerDetails as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPhoneNewVoicemailMessageTriggerDetails as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for PhoneNewVoicemailMessageTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.Background.PhoneNewVoicemailMessageTriggerDetails";
 }
-::windows_core::imp::interface_hierarchy!(PhoneNewVoicemailMessageTriggerDetails, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PhoneNewVoicemailMessageTriggerDetails {}
 unsafe impl ::core::marker::Sync for PhoneNewVoicemailMessageTriggerDetails {}
 #[repr(transparent)]

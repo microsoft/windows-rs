@@ -1,13 +1,4 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IVariablePhotoCapturedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IVariablePhotoCapturedEventArgs {
-    type Vtable = IVariablePhotoCapturedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IVariablePhotoCapturedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd1eb4c5c_1b53_4e4a_8b5c_db7887ac949b);
-}
+::windows_core::imp::com_interface!(IVariablePhotoCapturedEventArgs, IVariablePhotoCapturedEventArgs_Vtbl, 0xd1eb4c5c_1b53_4e4a_8b5c_db7887ac949b);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVariablePhotoCapturedEventArgs_Vtbl {
@@ -17,16 +8,7 @@ pub struct IVariablePhotoCapturedEventArgs_Vtbl {
     pub UsedFrameControllerIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub CapturedFrameControlValues: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IVariablePhotoSequenceCapture(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IVariablePhotoSequenceCapture {
-    type Vtable = IVariablePhotoSequenceCapture_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IVariablePhotoSequenceCapture {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd0112d1d_031e_4041_a6d6_bd742476a8ee);
-}
+::windows_core::imp::com_interface!(IVariablePhotoSequenceCapture, IVariablePhotoSequenceCapture_Vtbl, 0xd0112d1d_031e_4041_a6d6_bd742476a8ee);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVariablePhotoSequenceCapture_Vtbl {
@@ -39,16 +21,7 @@ pub struct IVariablePhotoSequenceCapture_Vtbl {
     pub Stopped: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     pub RemoveStopped: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IVariablePhotoSequenceCapture2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IVariablePhotoSequenceCapture2 {
-    type Vtable = IVariablePhotoSequenceCapture2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IVariablePhotoSequenceCapture2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfe2c62bc_50b0_43e3_917c_e3b92798942f);
-}
+::windows_core::imp::com_interface!(IVariablePhotoSequenceCapture2, IVariablePhotoSequenceCapture2_Vtbl, 0xfe2c62bc_50b0_43e3_917c_e3b92798942f);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVariablePhotoSequenceCapture2_Vtbl {
@@ -58,6 +31,7 @@ pub struct IVariablePhotoSequenceCapture2_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VariablePhotoCapturedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(VariablePhotoCapturedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl VariablePhotoCapturedEventArgs {
     pub fn Frame(&self) -> ::windows_core::Result<super::CapturedFrame> {
         let this = self;
@@ -93,19 +67,17 @@ impl ::windows_core::RuntimeType for VariablePhotoCapturedEventArgs {
 }
 unsafe impl ::windows_core::Interface for VariablePhotoCapturedEventArgs {
     type Vtable = IVariablePhotoCapturedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for VariablePhotoCapturedEventArgs {
-    const IID: ::windows_core::GUID = <IVariablePhotoCapturedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IVariablePhotoCapturedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for VariablePhotoCapturedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.Core.VariablePhotoCapturedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(VariablePhotoCapturedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for VariablePhotoCapturedEventArgs {}
 unsafe impl ::core::marker::Sync for VariablePhotoCapturedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VariablePhotoSequenceCapture(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(VariablePhotoSequenceCapture, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl VariablePhotoSequenceCapture {
     pub fn StartAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -157,7 +129,7 @@ impl VariablePhotoSequenceCapture {
         unsafe { (::windows_core::Interface::vtable(this).RemoveStopped)(::windows_core::Interface::as_raw(this), token).ok() }
     }
     pub fn UpdateSettingsAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
-        let this = &::windows_core::ComInterface::cast::<IVariablePhotoSequenceCapture2>(self)?;
+        let this = &::windows_core::Interface::cast::<IVariablePhotoSequenceCapture2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).UpdateSettingsAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -169,11 +141,8 @@ impl ::windows_core::RuntimeType for VariablePhotoSequenceCapture {
 }
 unsafe impl ::windows_core::Interface for VariablePhotoSequenceCapture {
     type Vtable = IVariablePhotoSequenceCapture_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for VariablePhotoSequenceCapture {
-    const IID: ::windows_core::GUID = <IVariablePhotoSequenceCapture as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IVariablePhotoSequenceCapture as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for VariablePhotoSequenceCapture {
     const NAME: &'static str = "Windows.Media.Capture.Core.VariablePhotoSequenceCapture";
 }
-::windows_core::imp::interface_hierarchy!(VariablePhotoSequenceCapture, ::windows_core::IUnknown, ::windows_core::IInspectable);

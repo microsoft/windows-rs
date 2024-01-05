@@ -71,9 +71,8 @@ where
     ::windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceUnblockBackup(pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE) -> ::windows_core::HRESULT);
     FhServiceUnblockBackup(pipe.into_param().abi()).ok()
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IFhConfigMgr(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IFhConfigMgr, IFhConfigMgr_Vtbl, 0x6a5fea5b_bf8f_4ee5_b8c3_44d8a0d7331c);
+::windows_core::imp::interface_hierarchy!(IFhConfigMgr, ::windows_core::IUnknown);
 impl IFhConfigMgr {
     pub unsafe fn LoadConfiguration(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).LoadConfiguration)(::windows_core::Interface::as_raw(self)).ok()
@@ -143,13 +142,6 @@ impl IFhConfigMgr {
         (::windows_core::Interface::vtable(self).QueryProtectionStatus)(::windows_core::Interface::as_raw(self), protectionstate, ::core::mem::transmute(protecteduntiltime)).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IFhConfigMgr, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IFhConfigMgr {
-    type Vtable = IFhConfigMgr_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IFhConfigMgr {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6a5fea5b_bf8f_4ee5_b8c3_44d8a0d7331c);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFhConfigMgr_Vtbl {
@@ -169,9 +161,8 @@ pub struct IFhConfigMgr_Vtbl {
     pub ChangeDefaultTargetRecommendation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, recommend: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
     pub QueryProtectionStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, protectionstate: *mut u32, protecteduntiltime: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IFhReassociation(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IFhReassociation, IFhReassociation_Vtbl, 0x6544a28a_f68d_47ac_91ef_16b2b36aa3ee);
+::windows_core::imp::interface_hierarchy!(IFhReassociation, ::windows_core::IUnknown);
 impl IFhReassociation {
     pub unsafe fn ValidateTarget<P0>(&self, targeturl: P0) -> ::windows_core::Result<FH_DEVICE_VALIDATION_RESULT>
     where
@@ -199,13 +190,6 @@ impl IFhReassociation {
         (::windows_core::Interface::vtable(self).PerformReassociation)(::windows_core::Interface::as_raw(self), overwriteifexists.into_param().abi()).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IFhReassociation, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IFhReassociation {
-    type Vtable = IFhReassociation_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IFhReassociation {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6544a28a_f68d_47ac_91ef_16b2b36aa3ee);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFhReassociation_Vtbl {
@@ -216,9 +200,8 @@ pub struct IFhReassociation_Vtbl {
     pub SelectConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32) -> ::windows_core::HRESULT,
     pub PerformReassociation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, overwriteifexists: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IFhScopeIterator(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IFhScopeIterator, IFhScopeIterator_Vtbl, 0x3197abce_532a_44c6_8615_f3666566a720);
+::windows_core::imp::interface_hierarchy!(IFhScopeIterator, ::windows_core::IUnknown);
 impl IFhScopeIterator {
     pub unsafe fn MoveToNextItem(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).MoveToNextItem)(::windows_core::Interface::as_raw(self)).ok()
@@ -228,13 +211,6 @@ impl IFhScopeIterator {
         (::windows_core::Interface::vtable(self).GetItem)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IFhScopeIterator, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IFhScopeIterator {
-    type Vtable = IFhScopeIterator_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IFhScopeIterator {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3197abce_532a_44c6_8615_f3666566a720);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFhScopeIterator_Vtbl {
@@ -242,9 +218,8 @@ pub struct IFhScopeIterator_Vtbl {
     pub MoveToNextItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, item: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IFhTarget(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IFhTarget, IFhTarget_Vtbl, 0xd87965fd_2bad_4657_bd3b_9567eb300ced);
+::windows_core::imp::interface_hierarchy!(IFhTarget, ::windows_core::IUnknown);
 impl IFhTarget {
     pub unsafe fn GetStringProperty(&self, propertytype: FH_TARGET_PROPERTY_TYPE) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
@@ -254,13 +229,6 @@ impl IFhTarget {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumericalProperty)(::windows_core::Interface::as_raw(self), propertytype, &mut result__).from_abi(result__)
     }
-}
-::windows_core::imp::interface_hierarchy!(IFhTarget, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IFhTarget {
-    type Vtable = IFhTarget_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IFhTarget {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd87965fd_2bad_4657_bd3b_9567eb300ced);
 }
 #[repr(C)]
 #[doc(hidden)]

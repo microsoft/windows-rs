@@ -519,7 +519,7 @@ impl ITextCharacterFormat_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITextCharacterFormat as ::windows_core::ComInterface>::IID
+        iid == &<ITextCharacterFormat as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Storage_Streams\"`"]
@@ -816,7 +816,7 @@ impl ITextDocument_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITextDocument as ::windows_core::ComInterface>::IID
+        iid == &<ITextDocument as ::windows_core::Interface>::IID
     }
 }
 pub trait ITextParagraphFormat_Impl: Sized {
@@ -1312,7 +1312,7 @@ impl ITextParagraphFormat_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITextParagraphFormat as ::windows_core::ComInterface>::IID
+        iid == &<ITextParagraphFormat as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Storage_Streams\"`"]
@@ -1851,7 +1851,7 @@ impl ITextRange_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITextRange as ::windows_core::ComInterface>::IID
+        iid == &<ITextRange as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Storage_Streams\"`"]
@@ -1988,6 +1988,6 @@ impl ITextSelection_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITextSelection as ::windows_core::ComInterface>::IID
+        iid == &<ITextSelection as ::windows_core::Interface>::IID
     }
 }

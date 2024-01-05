@@ -63,6 +63,6 @@ impl IMediaEncodingProperties_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMediaEncodingProperties as ::windows_core::ComInterface>::IID
+        iid == &<IMediaEncodingProperties as ::windows_core::Interface>::IID
     }
 }

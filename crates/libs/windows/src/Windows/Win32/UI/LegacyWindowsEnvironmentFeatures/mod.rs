@@ -1,6 +1,5 @@
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IADesktopP2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IADesktopP2, IADesktopP2_Vtbl, 0xb22754e2_4574_11d1_9888_006097deacf9);
+::windows_core::imp::interface_hierarchy!(IADesktopP2, ::windows_core::IUnknown);
 impl IADesktopP2 {
     pub unsafe fn ReReadWallpaper(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ReReadWallpaper)(::windows_core::Interface::as_raw(self)).ok()
@@ -20,13 +19,6 @@ impl IADesktopP2 {
         (::windows_core::Interface::vtable(self).MakeDynamicChanges)(::windows_core::Interface::as_raw(self), poleobj.into_param().abi()).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IADesktopP2, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IADesktopP2 {
-    type Vtable = IADesktopP2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IADesktopP2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb22754e2_4574_11d1_9888_006097deacf9);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IADesktopP2_Vtbl {
@@ -39,9 +31,8 @@ pub struct IADesktopP2_Vtbl {
     #[cfg(not(feature = "Win32_System_Ole"))]
     MakeDynamicChanges: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IActiveDesktopP(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IActiveDesktopP, IActiveDesktopP_Vtbl, 0x52502ee0_ec80_11d0_89ab_00c04fc2972d);
+::windows_core::imp::interface_hierarchy!(IActiveDesktopP, ::windows_core::IUnknown);
 impl IActiveDesktopP {
     pub unsafe fn SetSafeMode(&self, dwflags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetSafeMode)(::windows_core::Interface::as_raw(self), dwflags).ok()
@@ -59,13 +50,6 @@ impl IActiveDesktopP {
         (::windows_core::Interface::vtable(self).GetScheme)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pwszschemename), pdwcchbuffer, dwflags).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IActiveDesktopP, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IActiveDesktopP {
-    type Vtable = IActiveDesktopP_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IActiveDesktopP {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x52502ee0_ec80_11d0_89ab_00c04fc2972d);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActiveDesktopP_Vtbl {
@@ -75,9 +59,8 @@ pub struct IActiveDesktopP_Vtbl {
     pub SetScheme: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszschemename: ::windows_core::PCWSTR, dwflags: u32) -> ::windows_core::HRESULT,
     pub GetScheme: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszschemename: ::windows_core::PWSTR, pdwcchbuffer: *mut u32, dwflags: u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IBriefcaseInitiator(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IBriefcaseInitiator, IBriefcaseInitiator_Vtbl, 0x99180164_da16_101a_935c_444553540000);
+::windows_core::imp::interface_hierarchy!(IBriefcaseInitiator, ::windows_core::IUnknown);
 impl IBriefcaseInitiator {
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -88,13 +71,6 @@ impl IBriefcaseInitiator {
         (::windows_core::Interface::vtable(self).IsMonikerInBriefcase)(::windows_core::Interface::as_raw(self), pmk.into_param().abi()).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IBriefcaseInitiator, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IBriefcaseInitiator {
-    type Vtable = IBriefcaseInitiator_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IBriefcaseInitiator {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x99180164_da16_101a_935c_444553540000);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBriefcaseInitiator_Vtbl {
@@ -104,9 +80,8 @@ pub struct IBriefcaseInitiator_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     IsMonikerInBriefcase: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IEmptyVolumeCache(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IEmptyVolumeCache, IEmptyVolumeCache_Vtbl, 0x8fce5227_04da_11d1_a004_00805f8abe06);
+::windows_core::imp::interface_hierarchy!(IEmptyVolumeCache, ::windows_core::IUnknown);
 impl IEmptyVolumeCache {
     #[doc = "Required features: `\"Win32_System_Registry\"`"]
     #[cfg(feature = "Win32_System_Registry")]
@@ -140,13 +115,6 @@ impl IEmptyVolumeCache {
         (::windows_core::Interface::vtable(self).Deactivate)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IEmptyVolumeCache, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IEmptyVolumeCache {
-    type Vtable = IEmptyVolumeCache_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IEmptyVolumeCache {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8fce5227_04da_11d1_a004_00805f8abe06);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEmptyVolumeCache_Vtbl {
@@ -160,9 +128,8 @@ pub struct IEmptyVolumeCache_Vtbl {
     pub ShowProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND) -> ::windows_core::HRESULT,
     pub Deactivate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwflags: *mut EMPTY_VOLUME_CACHE_FLAGS) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IEmptyVolumeCache2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IEmptyVolumeCache2, IEmptyVolumeCache2_Vtbl, 0x02b7e3ba_4db3_11d2_b2d9_00c04f8eec8c);
+::windows_core::imp::interface_hierarchy!(IEmptyVolumeCache2, ::windows_core::IUnknown, IEmptyVolumeCache);
 impl IEmptyVolumeCache2 {
     #[doc = "Required features: `\"Win32_System_Registry\"`"]
     #[cfg(feature = "Win32_System_Registry")]
@@ -206,13 +173,6 @@ impl IEmptyVolumeCache2 {
         (::windows_core::Interface::vtable(self).InitializeEx)(::windows_core::Interface::as_raw(self), hkregkey.into_param().abi(), pcwszvolume.into_param().abi(), pcwszkeyname.into_param().abi(), ppwszdisplayname, ppwszdescription, ppwszbtntext, pdwflags).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IEmptyVolumeCache2, ::windows_core::IUnknown, IEmptyVolumeCache);
-unsafe impl ::windows_core::Interface for IEmptyVolumeCache2 {
-    type Vtable = IEmptyVolumeCache2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IEmptyVolumeCache2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x02b7e3ba_4db3_11d2_b2d9_00c04f8eec8c);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEmptyVolumeCache2_Vtbl {
@@ -222,9 +182,8 @@ pub struct IEmptyVolumeCache2_Vtbl {
     #[cfg(not(feature = "Win32_System_Registry"))]
     InitializeEx: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IEmptyVolumeCacheCallBack(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IEmptyVolumeCacheCallBack, IEmptyVolumeCacheCallBack_Vtbl, 0x6e793361_73c6_11d0_8469_00aa00442901);
+::windows_core::imp::interface_hierarchy!(IEmptyVolumeCacheCallBack, ::windows_core::IUnknown);
 impl IEmptyVolumeCacheCallBack {
     pub unsafe fn ScanProgress<P0>(&self, dwlspaceused: u64, dwflags: u32, pcwszstatus: P0) -> ::windows_core::Result<()>
     where
@@ -239,13 +198,6 @@ impl IEmptyVolumeCacheCallBack {
         (::windows_core::Interface::vtable(self).PurgeProgress)(::windows_core::Interface::as_raw(self), dwlspacefreed, dwlspacetofree, dwflags, pcwszstatus.into_param().abi()).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IEmptyVolumeCacheCallBack, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IEmptyVolumeCacheCallBack {
-    type Vtable = IEmptyVolumeCacheCallBack_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IEmptyVolumeCacheCallBack {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6e793361_73c6_11d0_8469_00aa00442901);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEmptyVolumeCacheCallBack_Vtbl {
@@ -253,9 +205,8 @@ pub struct IEmptyVolumeCacheCallBack_Vtbl {
     pub ScanProgress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlspaceused: u64, dwflags: u32, pcwszstatus: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
     pub PurgeProgress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlspacefreed: u64, dwlspacetofree: u64, dwflags: u32, pcwszstatus: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IReconcilableObject(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IReconcilableObject, IReconcilableObject_Vtbl, 0x99180162_da16_101a_935c_444553540000);
+::windows_core::imp::interface_hierarchy!(IReconcilableObject, ::windows_core::IUnknown);
 impl IReconcilableObject {
     #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -273,13 +224,6 @@ impl IReconcilableObject {
         (::windows_core::Interface::vtable(self).GetProgressFeedbackMaxEstimate)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IReconcilableObject, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IReconcilableObject {
-    type Vtable = IReconcilableObject_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IReconcilableObject {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x99180162_da16_101a_935c_444553540000);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IReconcilableObject_Vtbl {
@@ -290,9 +234,8 @@ pub struct IReconcilableObject_Vtbl {
     Reconcile: usize,
     pub GetProgressFeedbackMaxEstimate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulprogressmax: *mut u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IReconcileInitiator(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IReconcileInitiator, IReconcileInitiator_Vtbl, 0x99180161_da16_101a_935c_444553540000);
+::windows_core::imp::interface_hierarchy!(IReconcileInitiator, ::windows_core::IUnknown);
 impl IReconcileInitiator {
     pub unsafe fn SetAbortCallback<P0>(&self, punkforabort: P0) -> ::windows_core::Result<()>
     where
@@ -303,13 +246,6 @@ impl IReconcileInitiator {
     pub unsafe fn SetProgressFeedback(&self, ulprogress: u32, ulprogressmax: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetProgressFeedback)(::windows_core::Interface::as_raw(self), ulprogress, ulprogressmax).ok()
     }
-}
-::windows_core::imp::interface_hierarchy!(IReconcileInitiator, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IReconcileInitiator {
-    type Vtable = IReconcileInitiator_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IReconcileInitiator {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x99180161_da16_101a_935c_444553540000);
 }
 #[repr(C)]
 #[doc(hidden)]

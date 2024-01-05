@@ -1,13 +1,4 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IApplicationProfileStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IApplicationProfileStatics {
-    type Vtable = IApplicationProfileStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IApplicationProfileStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd5008ab4_7e7a_11e1_a7f2_b0a14824019b);
-}
+::windows_core::imp::com_interface!(IApplicationProfileStatics, IApplicationProfileStatics_Vtbl, 0xd5008ab4_7e7a_11e1_a7f2_b0a14824019b);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationProfileStatics_Vtbl {

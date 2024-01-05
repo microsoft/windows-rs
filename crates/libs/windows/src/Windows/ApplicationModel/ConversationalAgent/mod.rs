@@ -1,13 +1,4 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IActivationSignalDetectionConfiguration(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IActivationSignalDetectionConfiguration {
-    type Vtable = IActivationSignalDetectionConfiguration_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IActivationSignalDetectionConfiguration {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x40d8be16_5217_581c_9ab2_ce9b2f2e8e00);
-}
+::windows_core::imp::com_interface!(IActivationSignalDetectionConfiguration, IActivationSignalDetectionConfiguration_Vtbl, 0x40d8be16_5217_581c_9ab2_ce9b2f2e8e00);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActivationSignalDetectionConfiguration_Vtbl {
@@ -55,16 +46,7 @@ pub struct IActivationSignalDetectionConfiguration_Vtbl {
     pub ClearTrainingData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub ClearTrainingDataAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IActivationSignalDetectionConfiguration2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IActivationSignalDetectionConfiguration2 {
-    type Vtable = IActivationSignalDetectionConfiguration2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IActivationSignalDetectionConfiguration2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x71d9b022_562c_57ce_a78b_8b4ff0145bab);
-}
+::windows_core::imp::com_interface!(IActivationSignalDetectionConfiguration2, IActivationSignalDetectionConfiguration2_Vtbl, 0x71d9b022_562c_57ce_a78b_8b4ff0145bab);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActivationSignalDetectionConfiguration2_Vtbl {
@@ -81,16 +63,7 @@ pub struct IActivationSignalDetectionConfiguration2_Vtbl {
     pub SetEnabledWithResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool, result__: *mut ActivationSignalDetectionConfigurationStateChangeResult) -> ::windows_core::HRESULT,
     pub TrainingStepCompletionMaxAllowedTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IActivationSignalDetectionConfigurationCreationResult(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IActivationSignalDetectionConfigurationCreationResult {
-    type Vtable = IActivationSignalDetectionConfigurationCreationResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IActivationSignalDetectionConfigurationCreationResult {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4c89bc1b_8d12_5e48_a71c_7f6bc1cd66e0);
-}
+::windows_core::imp::com_interface!(IActivationSignalDetectionConfigurationCreationResult, IActivationSignalDetectionConfigurationCreationResult_Vtbl, 0x4c89bc1b_8d12_5e48_a71c_7f6bc1cd66e0);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActivationSignalDetectionConfigurationCreationResult_Vtbl {
@@ -98,16 +71,7 @@ pub struct IActivationSignalDetectionConfigurationCreationResult_Vtbl {
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ActivationSignalDetectionConfigurationCreationStatus) -> ::windows_core::HRESULT,
     pub Configuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IActivationSignalDetector(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IActivationSignalDetector {
-    type Vtable = IActivationSignalDetector_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IActivationSignalDetector {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb5bf345f_a4d0_5b2b_8e65_b3c55ee756ff);
-}
+::windows_core::imp::com_interface!(IActivationSignalDetector, IActivationSignalDetector_Vtbl, 0xb5bf345f_a4d0_5b2b_8e65_b3c55ee756ff);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActivationSignalDetector_Vtbl {
@@ -150,16 +114,7 @@ pub struct IActivationSignalDetector_Vtbl {
     pub RemoveConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signalid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, modelid: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub RemoveConfigurationAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signalid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, modelid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IActivationSignalDetector2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IActivationSignalDetector2 {
-    type Vtable = IActivationSignalDetector2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IActivationSignalDetector2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc7e2490a_baa5_59d2_85d1_ba42f7cf78c9);
-}
+::windows_core::imp::com_interface!(IActivationSignalDetector2, IActivationSignalDetector2_Vtbl, 0xc7e2490a_baa5_59d2_85d1_ba42f7cf78c9);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActivationSignalDetector2_Vtbl {
@@ -178,16 +133,7 @@ pub struct IActivationSignalDetector2_Vtbl {
     pub RemoveConfigurationWithResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signalid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, modelid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut ActivationSignalDetectionConfigurationRemovalResult) -> ::windows_core::HRESULT,
     pub DetectorId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IConversationalAgentDetectorManager(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IConversationalAgentDetectorManager {
-    type Vtable = IConversationalAgentDetectorManager_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IConversationalAgentDetectorManager {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xde94fbb0_597a_5df8_8cfb_9dbb583ba3ff);
-}
+::windows_core::imp::com_interface!(IConversationalAgentDetectorManager, IConversationalAgentDetectorManager_Vtbl, 0xde94fbb0_597a_5df8_8cfb_9dbb583ba3ff);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConversationalAgentDetectorManager_Vtbl {
@@ -209,16 +155,7 @@ pub struct IConversationalAgentDetectorManager_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     GetActivationSignalDetectorsAsync: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IConversationalAgentDetectorManager2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IConversationalAgentDetectorManager2 {
-    type Vtable = IConversationalAgentDetectorManager2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IConversationalAgentDetectorManager2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x84610f31_d7f3_52fe_9311_c9eb4e3eb30a);
-}
+::windows_core::imp::com_interface!(IConversationalAgentDetectorManager2, IConversationalAgentDetectorManager2_Vtbl, 0x84610f31_d7f3_52fe_9311_c9eb4e3eb30a);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConversationalAgentDetectorManager2_Vtbl {
@@ -226,32 +163,14 @@ pub struct IConversationalAgentDetectorManager2_Vtbl {
     pub GetActivationSignalDetectorFromId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, detectorid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetActivationSignalDetectorFromIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, detectorid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IConversationalAgentDetectorManagerStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IConversationalAgentDetectorManagerStatics {
-    type Vtable = IConversationalAgentDetectorManagerStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IConversationalAgentDetectorManagerStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x36a8d283_fa0e_5693_8489_0fb2f0ab40d3);
-}
+::windows_core::imp::com_interface!(IConversationalAgentDetectorManagerStatics, IConversationalAgentDetectorManagerStatics_Vtbl, 0x36a8d283_fa0e_5693_8489_0fb2f0ab40d3);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConversationalAgentDetectorManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Default: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IConversationalAgentSession(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IConversationalAgentSession {
-    type Vtable = IConversationalAgentSession_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IConversationalAgentSession {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdaaae09a_b7ba_57e5_ad13_df520f9b6fa7);
-}
+::windows_core::imp::com_interface!(IConversationalAgentSession, IConversationalAgentSession_Vtbl, 0xdaaae09a_b7ba_57e5_ad13_df520f9b6fa7);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConversationalAgentSession_Vtbl {
@@ -303,16 +222,7 @@ pub struct IConversationalAgentSession_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     GetSupportedSignalModelIds: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IConversationalAgentSession2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IConversationalAgentSession2 {
-    type Vtable = IConversationalAgentSession2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IConversationalAgentSession2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa7a9fbf9_ac78_57ff_9596_acc7a1c9a607);
-}
+::windows_core::imp::com_interface!(IConversationalAgentSession2, IConversationalAgentSession2_Vtbl, 0xa7a9fbf9_ac78_57ff_9596_acc7a1c9a607);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConversationalAgentSession2_Vtbl {
@@ -330,31 +240,13 @@ pub struct IConversationalAgentSession2_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     GetMissingPrerequisitesAsync: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IConversationalAgentSessionInterruptedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IConversationalAgentSessionInterruptedEventArgs {
-    type Vtable = IConversationalAgentSessionInterruptedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IConversationalAgentSessionInterruptedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9766591f_f63d_5d3e_9bf2_bd0760552686);
-}
+::windows_core::imp::com_interface!(IConversationalAgentSessionInterruptedEventArgs, IConversationalAgentSessionInterruptedEventArgs_Vtbl, 0x9766591f_f63d_5d3e_9bf2_bd0760552686);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConversationalAgentSessionInterruptedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IConversationalAgentSessionStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IConversationalAgentSessionStatics {
-    type Vtable = IConversationalAgentSessionStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IConversationalAgentSessionStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa005166e_e954_576e_be04_11b8ed10f37b);
-}
+::windows_core::imp::com_interface!(IConversationalAgentSessionStatics, IConversationalAgentSessionStatics_Vtbl, 0xa005166e_e954_576e_be04_11b8ed10f37b);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConversationalAgentSessionStatics_Vtbl {
@@ -362,16 +254,7 @@ pub struct IConversationalAgentSessionStatics_Vtbl {
     pub GetCurrentSessionAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetCurrentSessionSync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IConversationalAgentSignal(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IConversationalAgentSignal {
-    type Vtable = IConversationalAgentSignal_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IConversationalAgentSignal {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x20ed25f7_b120_51f2_8603_265d6a47f232);
-}
+::windows_core::imp::com_interface!(IConversationalAgentSignal, IConversationalAgentSignal_Vtbl, 0x20ed25f7_b120_51f2_8603_265d6a47f232);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConversationalAgentSignal_Vtbl {
@@ -389,16 +272,7 @@ pub struct IConversationalAgentSignal_Vtbl {
     pub SignalEnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
     pub SetSignalEnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IConversationalAgentSignal2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IConversationalAgentSignal2 {
-    type Vtable = IConversationalAgentSignal2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IConversationalAgentSignal2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd0cc7ba9_9a7b_5c34_880e_b6146c904ecb);
-}
+::windows_core::imp::com_interface!(IConversationalAgentSignal2, IConversationalAgentSignal2_Vtbl, 0xd0cc7ba9_9a7b_5c34_880e_b6146c904ecb);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConversationalAgentSignal2_Vtbl {
@@ -406,63 +280,27 @@ pub struct IConversationalAgentSignal2_Vtbl {
     pub DetectorId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub DetectorKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ActivationSignalDetectorKind) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IConversationalAgentSignalDetectedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IConversationalAgentSignalDetectedEventArgs {
-    type Vtable = IConversationalAgentSignalDetectedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IConversationalAgentSignalDetectedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4d57eb8f_f88a_599b_91d3_d604876708bc);
-}
+::windows_core::imp::com_interface!(IConversationalAgentSignalDetectedEventArgs, IConversationalAgentSignalDetectedEventArgs_Vtbl, 0x4d57eb8f_f88a_599b_91d3_d604876708bc);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConversationalAgentSignalDetectedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IConversationalAgentSystemStateChangedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IConversationalAgentSystemStateChangedEventArgs {
-    type Vtable = IConversationalAgentSystemStateChangedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IConversationalAgentSystemStateChangedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1c2c6e3e_2785_59a7_8e71_38adeef79928);
-}
+::windows_core::imp::com_interface!(IConversationalAgentSystemStateChangedEventArgs, IConversationalAgentSystemStateChangedEventArgs_Vtbl, 0x1c2c6e3e_2785_59a7_8e71_38adeef79928);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConversationalAgentSystemStateChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SystemStateChangeType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ConversationalAgentSystemStateChangeType) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDetectionConfigurationAvailabilityChangedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDetectionConfigurationAvailabilityChangedEventArgs {
-    type Vtable = IDetectionConfigurationAvailabilityChangedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDetectionConfigurationAvailabilityChangedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5129c9fb_4be8_5f14_af2b_88d62b1b4462);
-}
+::windows_core::imp::com_interface!(IDetectionConfigurationAvailabilityChangedEventArgs, IDetectionConfigurationAvailabilityChangedEventArgs_Vtbl, 0x5129c9fb_4be8_5f14_af2b_88d62b1b4462);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDetectionConfigurationAvailabilityChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Kind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DetectionConfigurationAvailabilityChangeKind) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDetectionConfigurationAvailabilityInfo(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDetectionConfigurationAvailabilityInfo {
-    type Vtable = IDetectionConfigurationAvailabilityInfo_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDetectionConfigurationAvailabilityInfo {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb5affeb0_40f0_5398_b838_91979c2c6208);
-}
+::windows_core::imp::com_interface!(IDetectionConfigurationAvailabilityInfo, IDetectionConfigurationAvailabilityInfo_Vtbl, 0xb5affeb0_40f0_5398_b838_91979c2c6208);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDetectionConfigurationAvailabilityInfo_Vtbl {
@@ -472,16 +310,7 @@ pub struct IDetectionConfigurationAvailabilityInfo_Vtbl {
     pub HasPermission: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub HasLockScreenPermission: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDetectionConfigurationAvailabilityInfo2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDetectionConfigurationAvailabilityInfo2 {
-    type Vtable = IDetectionConfigurationAvailabilityInfo2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDetectionConfigurationAvailabilityInfo2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x30e06433_38b3_5c4b_84c3_62b6e685b2ff);
-}
+::windows_core::imp::com_interface!(IDetectionConfigurationAvailabilityInfo2, IDetectionConfigurationAvailabilityInfo2_Vtbl, 0x30e06433_38b3_5c4b_84c3_62b6e685b2ff);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDetectionConfigurationAvailabilityInfo2_Vtbl {
@@ -494,6 +323,8 @@ pub struct IDetectionConfigurationAvailabilityInfo2_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ActivationSignalDetectionConfiguration(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(ActivationSignalDetectionConfiguration, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(ActivationSignalDetectionConfiguration, super::super::Foundation::IClosable);
 impl ActivationSignalDetectionConfiguration {
     pub fn SignalId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -559,21 +390,21 @@ impl ActivationSignalDetectionConfiguration {
     #[cfg(feature = "Storage_Streams")]
     pub fn SetModelData<P0>(&self, datatype: &::windows_core::HSTRING, data: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IInputStream>,
+        P0: ::windows_core::IntoParam<super::super::Storage::Streams::IInputStream>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetModelData)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(datatype), data.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetModelData)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(datatype), data.into_param().abi()).ok() }
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetModelDataAsync<P0>(&self, datatype: &::windows_core::HSTRING, data: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IInputStream>,
+        P0: ::windows_core::IntoParam<super::super::Storage::Streams::IInputStream>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SetModelDataAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(datatype), data.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SetModelDataAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(datatype), data.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn GetModelDataType(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -644,24 +475,24 @@ impl ActivationSignalDetectionConfiguration {
     #[cfg(feature = "Storage_Streams")]
     pub fn ApplyTrainingData<P0>(&self, trainingdataformat: ActivationSignalDetectionTrainingDataFormat, trainingdata: P0) -> ::windows_core::Result<DetectionConfigurationTrainingStatus>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IInputStream>,
+        P0: ::windows_core::IntoParam<super::super::Storage::Streams::IInputStream>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ApplyTrainingData)(::windows_core::Interface::as_raw(this), trainingdataformat, trainingdata.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ApplyTrainingData)(::windows_core::Interface::as_raw(this), trainingdataformat, trainingdata.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn ApplyTrainingDataAsync<P0>(&self, trainingdataformat: ActivationSignalDetectionTrainingDataFormat, trainingdata: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<DetectionConfigurationTrainingStatus>>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IInputStream>,
+        P0: ::windows_core::IntoParam<super::super::Storage::Streams::IInputStream>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ApplyTrainingDataAsync)(::windows_core::Interface::as_raw(this), trainingdataformat, trainingdata.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ApplyTrainingDataAsync)(::windows_core::Interface::as_raw(this), trainingdataformat, trainingdata.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn ClearTrainingData(&self) -> ::windows_core::Result<()> {
@@ -679,49 +510,49 @@ impl ActivationSignalDetectionConfiguration {
     #[cfg(feature = "Storage_Streams")]
     pub fn SetModelDataWithResult<P0>(&self, datatype: &::windows_core::HSTRING, data: P0) -> ::windows_core::Result<ActivationSignalDetectionConfigurationSetModelDataResult>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IInputStream>,
+        P0: ::windows_core::IntoParam<super::super::Storage::Streams::IInputStream>,
     {
-        let this = &::windows_core::ComInterface::cast::<IActivationSignalDetectionConfiguration2>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivationSignalDetectionConfiguration2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SetModelDataWithResult)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(datatype), data.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SetModelDataWithResult)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(datatype), data.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetModelDataWithResultAsync<P0>(&self, datatype: &::windows_core::HSTRING, data: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfigurationSetModelDataResult>>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IInputStream>,
+        P0: ::windows_core::IntoParam<super::super::Storage::Streams::IInputStream>,
     {
-        let this = &::windows_core::ComInterface::cast::<IActivationSignalDetectionConfiguration2>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivationSignalDetectionConfiguration2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SetModelDataWithResultAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(datatype), data.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SetModelDataWithResultAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(datatype), data.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn SetEnabledWithResultAsync(&self, value: bool) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfigurationStateChangeResult>> {
-        let this = &::windows_core::ComInterface::cast::<IActivationSignalDetectionConfiguration2>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivationSignalDetectionConfiguration2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SetEnabledWithResultAsync)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     pub fn SetEnabledWithResult(&self, value: bool) -> ::windows_core::Result<ActivationSignalDetectionConfigurationStateChangeResult> {
-        let this = &::windows_core::ComInterface::cast::<IActivationSignalDetectionConfiguration2>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivationSignalDetectionConfiguration2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SetEnabledWithResult)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     pub fn TrainingStepCompletionMaxAllowedTime(&self) -> ::windows_core::Result<u32> {
-        let this = &::windows_core::ComInterface::cast::<IActivationSignalDetectionConfiguration2>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivationSignalDetectionConfiguration2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TrainingStepCompletionMaxAllowedTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Close(&self) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
+        let this = &::windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
 }
@@ -730,20 +561,17 @@ impl ::windows_core::RuntimeType for ActivationSignalDetectionConfiguration {
 }
 unsafe impl ::windows_core::Interface for ActivationSignalDetectionConfiguration {
     type Vtable = IActivationSignalDetectionConfiguration_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ActivationSignalDetectionConfiguration {
-    const IID: ::windows_core::GUID = <IActivationSignalDetectionConfiguration as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IActivationSignalDetectionConfiguration as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for ActivationSignalDetectionConfiguration {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfiguration";
 }
-::windows_core::imp::interface_hierarchy!(ActivationSignalDetectionConfiguration, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for ActivationSignalDetectionConfiguration {}
 unsafe impl ::core::marker::Send for ActivationSignalDetectionConfiguration {}
 unsafe impl ::core::marker::Sync for ActivationSignalDetectionConfiguration {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ActivationSignalDetectionConfigurationCreationResult(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(ActivationSignalDetectionConfigurationCreationResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ActivationSignalDetectionConfigurationCreationResult {
     pub fn Status(&self) -> ::windows_core::Result<ActivationSignalDetectionConfigurationCreationStatus> {
         let this = self;
@@ -765,19 +593,17 @@ impl ::windows_core::RuntimeType for ActivationSignalDetectionConfigurationCreat
 }
 unsafe impl ::windows_core::Interface for ActivationSignalDetectionConfigurationCreationResult {
     type Vtable = IActivationSignalDetectionConfigurationCreationResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ActivationSignalDetectionConfigurationCreationResult {
-    const IID: ::windows_core::GUID = <IActivationSignalDetectionConfigurationCreationResult as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IActivationSignalDetectionConfigurationCreationResult as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for ActivationSignalDetectionConfigurationCreationResult {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationCreationResult";
 }
-::windows_core::imp::interface_hierarchy!(ActivationSignalDetectionConfigurationCreationResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for ActivationSignalDetectionConfigurationCreationResult {}
 unsafe impl ::core::marker::Sync for ActivationSignalDetectionConfigurationCreationResult {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ActivationSignalDetector(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(ActivationSignalDetector, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ActivationSignalDetector {
     pub fn ProviderId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -902,7 +728,7 @@ impl ActivationSignalDetector {
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAvailableModelIdsForSignalIdAsync(&self, signalid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>>> {
-        let this = &::windows_core::ComInterface::cast::<IActivationSignalDetector2>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivationSignalDetector2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetAvailableModelIdsForSignalIdAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(signalid), &mut result__).from_abi(result__)
@@ -911,42 +737,42 @@ impl ActivationSignalDetector {
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAvailableModelIdsForSignalId(&self, signalid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
-        let this = &::windows_core::ComInterface::cast::<IActivationSignalDetector2>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivationSignalDetector2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetAvailableModelIdsForSignalId)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(signalid), &mut result__).from_abi(result__)
         }
     }
     pub fn CreateConfigurationWithResultAsync(&self, signalid: &::windows_core::HSTRING, modelid: &::windows_core::HSTRING, displayname: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfigurationCreationResult>> {
-        let this = &::windows_core::ComInterface::cast::<IActivationSignalDetector2>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivationSignalDetector2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateConfigurationWithResultAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(signalid), ::core::mem::transmute_copy(modelid), ::core::mem::transmute_copy(displayname), &mut result__).from_abi(result__)
         }
     }
     pub fn CreateConfigurationWithResult(&self, signalid: &::windows_core::HSTRING, modelid: &::windows_core::HSTRING, displayname: &::windows_core::HSTRING) -> ::windows_core::Result<ActivationSignalDetectionConfigurationCreationResult> {
-        let this = &::windows_core::ComInterface::cast::<IActivationSignalDetector2>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivationSignalDetector2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateConfigurationWithResult)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(signalid), ::core::mem::transmute_copy(modelid), ::core::mem::transmute_copy(displayname), &mut result__).from_abi(result__)
         }
     }
     pub fn RemoveConfigurationWithResultAsync(&self, signalid: &::windows_core::HSTRING, modelid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfigurationRemovalResult>> {
-        let this = &::windows_core::ComInterface::cast::<IActivationSignalDetector2>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivationSignalDetector2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RemoveConfigurationWithResultAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(signalid), ::core::mem::transmute_copy(modelid), &mut result__).from_abi(result__)
         }
     }
     pub fn RemoveConfigurationWithResult(&self, signalid: &::windows_core::HSTRING, modelid: &::windows_core::HSTRING) -> ::windows_core::Result<ActivationSignalDetectionConfigurationRemovalResult> {
-        let this = &::windows_core::ComInterface::cast::<IActivationSignalDetector2>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivationSignalDetector2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RemoveConfigurationWithResult)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(signalid), ::core::mem::transmute_copy(modelid), &mut result__).from_abi(result__)
         }
     }
     pub fn DetectorId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<IActivationSignalDetector2>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivationSignalDetector2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DetectorId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -958,19 +784,17 @@ impl ::windows_core::RuntimeType for ActivationSignalDetector {
 }
 unsafe impl ::windows_core::Interface for ActivationSignalDetector {
     type Vtable = IActivationSignalDetector_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ActivationSignalDetector {
-    const IID: ::windows_core::GUID = <IActivationSignalDetector as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IActivationSignalDetector as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for ActivationSignalDetector {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetector";
 }
-::windows_core::imp::interface_hierarchy!(ActivationSignalDetector, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for ActivationSignalDetector {}
 unsafe impl ::core::marker::Sync for ActivationSignalDetector {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ConversationalAgentDetectorManager(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(ConversationalAgentDetectorManager, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ConversationalAgentDetectorManager {
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
@@ -1009,14 +833,14 @@ impl ConversationalAgentDetectorManager {
         }
     }
     pub fn GetActivationSignalDetectorFromId(&self, detectorid: &::windows_core::HSTRING) -> ::windows_core::Result<ActivationSignalDetector> {
-        let this = &::windows_core::ComInterface::cast::<IConversationalAgentDetectorManager2>(self)?;
+        let this = &::windows_core::Interface::cast::<IConversationalAgentDetectorManager2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetActivationSignalDetectorFromId)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(detectorid), &mut result__).from_abi(result__)
         }
     }
     pub fn GetActivationSignalDetectorFromIdAsync(&self, detectorid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ActivationSignalDetector>> {
-        let this = &::windows_core::ComInterface::cast::<IConversationalAgentDetectorManager2>(self)?;
+        let this = &::windows_core::Interface::cast::<IConversationalAgentDetectorManager2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetActivationSignalDetectorFromIdAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(detectorid), &mut result__).from_abi(result__)
@@ -1039,22 +863,21 @@ impl ::windows_core::RuntimeType for ConversationalAgentDetectorManager {
 }
 unsafe impl ::windows_core::Interface for ConversationalAgentDetectorManager {
     type Vtable = IConversationalAgentDetectorManager_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ConversationalAgentDetectorManager {
-    const IID: ::windows_core::GUID = <IConversationalAgentDetectorManager as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IConversationalAgentDetectorManager as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for ConversationalAgentDetectorManager {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ConversationalAgentDetectorManager";
 }
-::windows_core::imp::interface_hierarchy!(ConversationalAgentDetectorManager, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for ConversationalAgentDetectorManager {}
 unsafe impl ::core::marker::Sync for ConversationalAgentDetectorManager {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ConversationalAgentSession(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(ConversationalAgentSession, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(ConversationalAgentSession, super::super::Foundation::IClosable);
 impl ConversationalAgentSession {
     pub fn Close(&self) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
+        let this = &::windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn SessionInterrupted<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
@@ -1310,34 +1133,34 @@ impl ConversationalAgentSession {
         }
     }
     pub fn RequestActivationAsync(&self, activationkind: ConversationalAgentActivationKind) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ConversationalAgentActivationResult>> {
-        let this = &::windows_core::ComInterface::cast::<IConversationalAgentSession2>(self)?;
+        let this = &::windows_core::Interface::cast::<IConversationalAgentSession2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestActivationAsync)(::windows_core::Interface::as_raw(this), activationkind, &mut result__).from_abi(result__)
         }
     }
     pub fn RequestActivation(&self, activationkind: ConversationalAgentActivationKind) -> ::windows_core::Result<ConversationalAgentActivationResult> {
-        let this = &::windows_core::ComInterface::cast::<IConversationalAgentSession2>(self)?;
+        let this = &::windows_core::Interface::cast::<IConversationalAgentSession2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestActivation)(::windows_core::Interface::as_raw(this), activationkind, &mut result__).from_abi(result__)
         }
     }
     pub fn SetSupportLockScreenActivationAsync(&self, lockscreenactivationsupported: bool) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
-        let this = &::windows_core::ComInterface::cast::<IConversationalAgentSession2>(self)?;
+        let this = &::windows_core::Interface::cast::<IConversationalAgentSession2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SetSupportLockScreenActivationAsync)(::windows_core::Interface::as_raw(this), lockscreenactivationsupported, &mut result__).from_abi(result__)
         }
     }
     pub fn SetSupportLockScreenActivation(&self, lockscreenactivationsupported: bool) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<IConversationalAgentSession2>(self)?;
+        let this = &::windows_core::Interface::cast::<IConversationalAgentSession2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetSupportLockScreenActivation)(::windows_core::Interface::as_raw(this), lockscreenactivationsupported).ok() }
     }
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetMissingPrerequisites(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<ConversationalAgentVoiceActivationPrerequisiteKind>> {
-        let this = &::windows_core::ComInterface::cast::<IConversationalAgentSession2>(self)?;
+        let this = &::windows_core::Interface::cast::<IConversationalAgentSession2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetMissingPrerequisites)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -1346,7 +1169,7 @@ impl ConversationalAgentSession {
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetMissingPrerequisitesAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ConversationalAgentVoiceActivationPrerequisiteKind>>> {
-        let this = &::windows_core::ComInterface::cast::<IConversationalAgentSession2>(self)?;
+        let this = &::windows_core::Interface::cast::<IConversationalAgentSession2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetMissingPrerequisitesAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -1375,39 +1198,34 @@ impl ::windows_core::RuntimeType for ConversationalAgentSession {
 }
 unsafe impl ::windows_core::Interface for ConversationalAgentSession {
     type Vtable = IConversationalAgentSession_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ConversationalAgentSession {
-    const IID: ::windows_core::GUID = <IConversationalAgentSession as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IConversationalAgentSession as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for ConversationalAgentSession {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSession";
 }
-::windows_core::imp::interface_hierarchy!(ConversationalAgentSession, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for ConversationalAgentSession {}
 unsafe impl ::core::marker::Send for ConversationalAgentSession {}
 unsafe impl ::core::marker::Sync for ConversationalAgentSession {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ConversationalAgentSessionInterruptedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(ConversationalAgentSessionInterruptedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ConversationalAgentSessionInterruptedEventArgs {}
 impl ::windows_core::RuntimeType for ConversationalAgentSessionInterruptedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for ConversationalAgentSessionInterruptedEventArgs {
     type Vtable = IConversationalAgentSessionInterruptedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ConversationalAgentSessionInterruptedEventArgs {
-    const IID: ::windows_core::GUID = <IConversationalAgentSessionInterruptedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IConversationalAgentSessionInterruptedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for ConversationalAgentSessionInterruptedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSessionInterruptedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(ConversationalAgentSessionInterruptedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for ConversationalAgentSessionInterruptedEventArgs {}
 unsafe impl ::core::marker::Sync for ConversationalAgentSessionInterruptedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ConversationalAgentSignal(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(ConversationalAgentSignal, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ConversationalAgentSignal {
     pub fn IsSignalVerificationRequired(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -1479,14 +1297,14 @@ impl ConversationalAgentSignal {
         unsafe { (::windows_core::Interface::vtable(this).SetSignalEnd)(::windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn DetectorId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<IConversationalAgentSignal2>(self)?;
+        let this = &::windows_core::Interface::cast::<IConversationalAgentSignal2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DetectorId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DetectorKind(&self) -> ::windows_core::Result<ActivationSignalDetectorKind> {
-        let this = &::windows_core::ComInterface::cast::<IConversationalAgentSignal2>(self)?;
+        let this = &::windows_core::Interface::cast::<IConversationalAgentSignal2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DetectorKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -1498,38 +1316,34 @@ impl ::windows_core::RuntimeType for ConversationalAgentSignal {
 }
 unsafe impl ::windows_core::Interface for ConversationalAgentSignal {
     type Vtable = IConversationalAgentSignal_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ConversationalAgentSignal {
-    const IID: ::windows_core::GUID = <IConversationalAgentSignal as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IConversationalAgentSignal as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for ConversationalAgentSignal {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSignal";
 }
-::windows_core::imp::interface_hierarchy!(ConversationalAgentSignal, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for ConversationalAgentSignal {}
 unsafe impl ::core::marker::Sync for ConversationalAgentSignal {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ConversationalAgentSignalDetectedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(ConversationalAgentSignalDetectedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ConversationalAgentSignalDetectedEventArgs {}
 impl ::windows_core::RuntimeType for ConversationalAgentSignalDetectedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for ConversationalAgentSignalDetectedEventArgs {
     type Vtable = IConversationalAgentSignalDetectedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ConversationalAgentSignalDetectedEventArgs {
-    const IID: ::windows_core::GUID = <IConversationalAgentSignalDetectedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IConversationalAgentSignalDetectedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for ConversationalAgentSignalDetectedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSignalDetectedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(ConversationalAgentSignalDetectedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for ConversationalAgentSignalDetectedEventArgs {}
 unsafe impl ::core::marker::Sync for ConversationalAgentSignalDetectedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ConversationalAgentSystemStateChangedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(ConversationalAgentSystemStateChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ConversationalAgentSystemStateChangedEventArgs {
     pub fn SystemStateChangeType(&self) -> ::windows_core::Result<ConversationalAgentSystemStateChangeType> {
         let this = self;
@@ -1544,19 +1358,17 @@ impl ::windows_core::RuntimeType for ConversationalAgentSystemStateChangedEventA
 }
 unsafe impl ::windows_core::Interface for ConversationalAgentSystemStateChangedEventArgs {
     type Vtable = IConversationalAgentSystemStateChangedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ConversationalAgentSystemStateChangedEventArgs {
-    const IID: ::windows_core::GUID = <IConversationalAgentSystemStateChangedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IConversationalAgentSystemStateChangedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for ConversationalAgentSystemStateChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSystemStateChangedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(ConversationalAgentSystemStateChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for ConversationalAgentSystemStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for ConversationalAgentSystemStateChangedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DetectionConfigurationAvailabilityChangedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(DetectionConfigurationAvailabilityChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl DetectionConfigurationAvailabilityChangedEventArgs {
     pub fn Kind(&self) -> ::windows_core::Result<DetectionConfigurationAvailabilityChangeKind> {
         let this = self;
@@ -1571,19 +1383,17 @@ impl ::windows_core::RuntimeType for DetectionConfigurationAvailabilityChangedEv
 }
 unsafe impl ::windows_core::Interface for DetectionConfigurationAvailabilityChangedEventArgs {
     type Vtable = IDetectionConfigurationAvailabilityChangedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for DetectionConfigurationAvailabilityChangedEventArgs {
-    const IID: ::windows_core::GUID = <IDetectionConfigurationAvailabilityChangedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IDetectionConfigurationAvailabilityChangedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for DetectionConfigurationAvailabilityChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationAvailabilityChangedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(DetectionConfigurationAvailabilityChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for DetectionConfigurationAvailabilityChangedEventArgs {}
 unsafe impl ::core::marker::Sync for DetectionConfigurationAvailabilityChangedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DetectionConfigurationAvailabilityInfo(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(DetectionConfigurationAvailabilityInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl DetectionConfigurationAvailabilityInfo {
     pub fn IsEnabled(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -1616,7 +1426,7 @@ impl DetectionConfigurationAvailabilityInfo {
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn UnavailableSystemResources(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<SignalDetectorResourceKind>> {
-        let this = &::windows_core::ComInterface::cast::<IDetectionConfigurationAvailabilityInfo2>(self)?;
+        let this = &::windows_core::Interface::cast::<IDetectionConfigurationAvailabilityInfo2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).UnavailableSystemResources)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -1628,14 +1438,11 @@ impl ::windows_core::RuntimeType for DetectionConfigurationAvailabilityInfo {
 }
 unsafe impl ::windows_core::Interface for DetectionConfigurationAvailabilityInfo {
     type Vtable = IDetectionConfigurationAvailabilityInfo_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for DetectionConfigurationAvailabilityInfo {
-    const IID: ::windows_core::GUID = <IDetectionConfigurationAvailabilityInfo as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IDetectionConfigurationAvailabilityInfo as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for DetectionConfigurationAvailabilityInfo {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationAvailabilityInfo";
 }
-::windows_core::imp::interface_hierarchy!(DetectionConfigurationAvailabilityInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for DetectionConfigurationAvailabilityInfo {}
 unsafe impl ::core::marker::Sync for DetectionConfigurationAvailabilityInfo {}
 #[repr(transparent)]

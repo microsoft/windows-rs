@@ -784,9 +784,8 @@ pub unsafe fn XLATEOBJ_piVector(pxlo: *mut XLATEOBJ) -> *mut u32 {
     ::windows_targets::link!("gdi32.dll" "system" fn XLATEOBJ_piVector(pxlo : *mut XLATEOBJ) -> *mut u32);
     XLATEOBJ_piVector(pxlo)
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ICloneViewHelper(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(ICloneViewHelper, ICloneViewHelper_Vtbl, 0xf6a3d4c4_5632_4d83_b0a1_fb88712b1eb7);
+::windows_core::imp::interface_hierarchy!(ICloneViewHelper, ::windows_core::IUnknown);
 impl ICloneViewHelper {
     pub unsafe fn GetConnectedIDs<P0>(&self, wszadaptorname: P0, pulcount: *mut u32, pulid: *mut u32, ulflags: u32) -> ::windows_core::Result<()>
     where
@@ -813,13 +812,6 @@ impl ICloneViewHelper {
         (::windows_core::Interface::vtable(self).Commit)(::windows_core::Interface::as_raw(self), ffinalcall.into_param().abi()).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(ICloneViewHelper, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ICloneViewHelper {
-    type Vtable = ICloneViewHelper_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ICloneViewHelper {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf6a3d4c4_5632_4d83_b0a1_fb88712b1eb7);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICloneViewHelper_Vtbl {
@@ -829,9 +821,8 @@ pub struct ICloneViewHelper_Vtbl {
     pub SetActiveTopology: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszadaptorname: ::windows_core::PCWSTR, ulsourceid: u32, ulcount: u32, pultargetid: *const u32) -> ::windows_core::HRESULT,
     pub Commit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ffinalcall: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IViewHelper(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IViewHelper, IViewHelper_Vtbl, 0xe85ccef5_aaaa_47f0_b5e3_61f7aecdc4c1);
+::windows_core::imp::interface_hierarchy!(IViewHelper, ::windows_core::IUnknown);
 impl IViewHelper {
     pub unsafe fn GetConnectedIDs<P0>(&self, wszadaptorname: P0, pulcount: *mut u32, pulid: *mut u32, ulflags: u32) -> ::windows_core::Result<()>
     where
@@ -866,13 +857,6 @@ impl IViewHelper {
     pub unsafe fn GetProceedOnNewConfiguration(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetProceedOnNewConfiguration)(::windows_core::Interface::as_raw(self)).ok()
     }
-}
-::windows_core::imp::interface_hierarchy!(IViewHelper, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IViewHelper {
-    type Vtable = IViewHelper_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IViewHelper {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe85ccef5_aaaa_47f0_b5e3_61f7aecdc4c1);
 }
 #[repr(C)]
 #[doc(hidden)]

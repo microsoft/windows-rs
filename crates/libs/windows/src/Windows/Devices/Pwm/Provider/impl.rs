@@ -110,7 +110,7 @@ impl IPwmControllerProvider_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPwmControllerProvider as ::windows_core::ComInterface>::IID
+        iid == &<IPwmControllerProvider as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Foundation_Collections\"`"]
@@ -140,6 +140,6 @@ impl IPwmProvider_Vtbl {
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, IPwmProvider, OFFSET>(), GetControllers: GetControllers::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPwmProvider as ::windows_core::ComInterface>::IID
+        iid == &<IPwmProvider as ::windows_core::Interface>::IID
     }
 }

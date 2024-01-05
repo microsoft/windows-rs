@@ -1,28 +1,10 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IApplicationDataManager(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IApplicationDataManager {
-    type Vtable = IApplicationDataManager_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IApplicationDataManager {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x74d10432_2e99_4000_9a3a_64307e858129);
-}
+::windows_core::imp::com_interface!(IApplicationDataManager, IApplicationDataManager_Vtbl, 0x74d10432_2e99_4000_9a3a_64307e858129);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationDataManager_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IApplicationDataManagerStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IApplicationDataManagerStatics {
-    type Vtable = IApplicationDataManagerStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IApplicationDataManagerStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1e1862e3_698e_49a1_9752_dee94925b9b3);
-}
+::windows_core::imp::com_interface!(IApplicationDataManagerStatics, IApplicationDataManagerStatics_Vtbl, 0x1e1862e3_698e_49a1_9752_dee94925b9b3);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApplicationDataManagerStatics_Vtbl {
@@ -35,6 +17,7 @@ pub struct IApplicationDataManagerStatics_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ApplicationDataManager(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(ApplicationDataManager, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ApplicationDataManager {
     #[doc = "Required features: `\"Storage\"`"]
     #[cfg(feature = "Storage")]
@@ -55,13 +38,10 @@ impl ::windows_core::RuntimeType for ApplicationDataManager {
 }
 unsafe impl ::windows_core::Interface for ApplicationDataManager {
     type Vtable = IApplicationDataManager_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ApplicationDataManager {
-    const IID: ::windows_core::GUID = <IApplicationDataManager as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IApplicationDataManager as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for ApplicationDataManager {
     const NAME: &'static str = "Windows.Management.Core.ApplicationDataManager";
 }
-::windows_core::imp::interface_hierarchy!(ApplicationDataManager, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for ApplicationDataManager {}
 unsafe impl ::core::marker::Sync for ApplicationDataManager {}

@@ -71,7 +71,7 @@ impl IMediaCue_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMediaCue as ::windows_core::ComInterface>::IID
+        iid == &<IMediaCue as ::windows_core::Interface>::IID
     }
 }
 pub trait IMediaSource_Impl: Sized {}
@@ -83,7 +83,7 @@ impl IMediaSource_Vtbl {
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, IMediaSource, OFFSET>() }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMediaSource as ::windows_core::ComInterface>::IID
+        iid == &<IMediaSource as ::windows_core::Interface>::IID
     }
 }
 pub trait IMediaStreamDescriptor_Impl: Sized {
@@ -153,7 +153,7 @@ impl IMediaStreamDescriptor_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMediaStreamDescriptor as ::windows_core::ComInterface>::IID
+        iid == &<IMediaStreamDescriptor as ::windows_core::Interface>::IID
     }
 }
 pub trait IMediaStreamDescriptor2_Impl: Sized + IMediaStreamDescriptor_Impl {
@@ -189,7 +189,7 @@ impl IMediaStreamDescriptor2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMediaStreamDescriptor2 as ::windows_core::ComInterface>::IID
+        iid == &<IMediaStreamDescriptor2 as ::windows_core::Interface>::IID
     }
 }
 pub trait IMediaTrack_Impl: Sized {
@@ -266,7 +266,7 @@ impl IMediaTrack_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMediaTrack as ::windows_core::ComInterface>::IID
+        iid == &<IMediaTrack as ::windows_core::Interface>::IID
     }
 }
 pub trait ISingleSelectMediaTrackList_Impl: Sized {
@@ -321,7 +321,7 @@ impl ISingleSelectMediaTrackList_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISingleSelectMediaTrackList as ::windows_core::ComInterface>::IID
+        iid == &<ISingleSelectMediaTrackList as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Foundation_Collections\"`"]
@@ -354,6 +354,6 @@ impl ITimedMetadataTrackProvider_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITimedMetadataTrackProvider as ::windows_core::ComInterface>::IID
+        iid == &<ITimedMetadataTrackProvider as ::windows_core::Interface>::IID
     }
 }

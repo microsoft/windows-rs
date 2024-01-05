@@ -1,13 +1,4 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IContentRestrictionsBrowsePolicy(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IContentRestrictionsBrowsePolicy {
-    type Vtable = IContentRestrictionsBrowsePolicy_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IContentRestrictionsBrowsePolicy {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8c0133a4_442e_461a_8757_fad2f5bd37e4);
-}
+::windows_core::imp::com_interface!(IContentRestrictionsBrowsePolicy, IContentRestrictionsBrowsePolicy_Vtbl, 0x8c0133a4_442e_461a_8757_fad2f5bd37e4);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContentRestrictionsBrowsePolicy_Vtbl {
@@ -16,16 +7,7 @@ pub struct IContentRestrictionsBrowsePolicy_Vtbl {
     pub MaxBrowsableAgeRating: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub PreferredAgeRating: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRatedContentDescription(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IRatedContentDescription {
-    type Vtable = IRatedContentDescription_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRatedContentDescription {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x694866df_66b2_4dc3_96b1_f090eedee255);
-}
+::windows_core::imp::com_interface!(IRatedContentDescription, IRatedContentDescription_Vtbl, 0x694866df_66b2_4dc3_96b1_f090eedee255);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRatedContentDescription_Vtbl {
@@ -53,32 +35,14 @@ pub struct IRatedContentDescription_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     SetRatings: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRatedContentDescriptionFactory(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IRatedContentDescriptionFactory {
-    type Vtable = IRatedContentDescriptionFactory_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRatedContentDescriptionFactory {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2e38df62_9b90_4fa6_89c1_4b8d2ffb3573);
-}
+::windows_core::imp::com_interface!(IRatedContentDescriptionFactory, IRatedContentDescriptionFactory_Vtbl, 0x2e38df62_9b90_4fa6_89c1_4b8d2ffb3573);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRatedContentDescriptionFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ::std::mem::MaybeUninit<::windows_core::HSTRING>, title: ::std::mem::MaybeUninit<::windows_core::HSTRING>, category: RatedContentCategory, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRatedContentRestrictions(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IRatedContentRestrictions {
-    type Vtable = IRatedContentRestrictions_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRatedContentRestrictions {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3f7f23cb_ba07_4401_a49d_8b9222205723);
-}
+::windows_core::imp::com_interface!(IRatedContentRestrictions, IRatedContentRestrictions_Vtbl, 0x3f7f23cb_ba07_4401_a49d_8b9222205723);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRatedContentRestrictions_Vtbl {
@@ -89,16 +53,7 @@ pub struct IRatedContentRestrictions_Vtbl {
     pub RestrictionsChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     pub RemoveRestrictionsChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRatedContentRestrictionsFactory(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IRatedContentRestrictionsFactory {
-    type Vtable = IRatedContentRestrictionsFactory_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRatedContentRestrictionsFactory {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfb4b2996_c3bd_4910_9619_97cfd0694d56);
-}
+::windows_core::imp::com_interface!(IRatedContentRestrictionsFactory, IRatedContentRestrictionsFactory_Vtbl, 0xfb4b2996_c3bd_4910_9619_97cfd0694d56);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRatedContentRestrictionsFactory_Vtbl {
@@ -108,6 +63,7 @@ pub struct IRatedContentRestrictionsFactory_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ContentRestrictionsBrowsePolicy(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(ContentRestrictionsBrowsePolicy, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ContentRestrictionsBrowsePolicy {
     pub fn GeographicRegion(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -136,19 +92,17 @@ impl ::windows_core::RuntimeType for ContentRestrictionsBrowsePolicy {
 }
 unsafe impl ::windows_core::Interface for ContentRestrictionsBrowsePolicy {
     type Vtable = IContentRestrictionsBrowsePolicy_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ContentRestrictionsBrowsePolicy {
-    const IID: ::windows_core::GUID = <IContentRestrictionsBrowsePolicy as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IContentRestrictionsBrowsePolicy as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for ContentRestrictionsBrowsePolicy {
     const NAME: &'static str = "Windows.Media.ContentRestrictions.ContentRestrictionsBrowsePolicy";
 }
-::windows_core::imp::interface_hierarchy!(ContentRestrictionsBrowsePolicy, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for ContentRestrictionsBrowsePolicy {}
 unsafe impl ::core::marker::Sync for ContentRestrictionsBrowsePolicy {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RatedContentDescription(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(RatedContentDescription, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl RatedContentDescription {
     pub fn Id(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -185,10 +139,10 @@ impl RatedContentDescription {
     #[cfg(feature = "Storage_Streams")]
     pub fn SetImage<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IRandomAccessStreamReference>,
+        P0: ::windows_core::IntoParam<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetImage)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetImage)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn Category(&self) -> ::windows_core::Result<RatedContentCategory> {
         let this = self;
@@ -214,10 +168,10 @@ impl RatedContentDescription {
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetRatings<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetRatings)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetRatings)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn Create(id: &::windows_core::HSTRING, title: &::windows_core::HSTRING, category: RatedContentCategory) -> ::windows_core::Result<RatedContentDescription> {
         Self::IRatedContentDescriptionFactory(|this| unsafe {
@@ -236,19 +190,17 @@ impl ::windows_core::RuntimeType for RatedContentDescription {
 }
 unsafe impl ::windows_core::Interface for RatedContentDescription {
     type Vtable = IRatedContentDescription_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for RatedContentDescription {
-    const IID: ::windows_core::GUID = <IRatedContentDescription as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IRatedContentDescription as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for RatedContentDescription {
     const NAME: &'static str = "Windows.Media.ContentRestrictions.RatedContentDescription";
 }
-::windows_core::imp::interface_hierarchy!(RatedContentDescription, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for RatedContentDescription {}
 unsafe impl ::core::marker::Sync for RatedContentDescription {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RatedContentRestrictions(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(RatedContentRestrictions, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl RatedContentRestrictions {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -315,14 +267,11 @@ impl ::windows_core::RuntimeType for RatedContentRestrictions {
 }
 unsafe impl ::windows_core::Interface for RatedContentRestrictions {
     type Vtable = IRatedContentRestrictions_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for RatedContentRestrictions {
-    const IID: ::windows_core::GUID = <IRatedContentRestrictions as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IRatedContentRestrictions as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for RatedContentRestrictions {
     const NAME: &'static str = "Windows.Media.ContentRestrictions.RatedContentRestrictions";
 }
-::windows_core::imp::interface_hierarchy!(RatedContentRestrictions, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for RatedContentRestrictions {}
 unsafe impl ::core::marker::Sync for RatedContentRestrictions {}
 #[repr(transparent)]

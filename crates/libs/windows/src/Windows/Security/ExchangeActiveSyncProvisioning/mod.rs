@@ -1,13 +1,4 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IEasClientDeviceInformation(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IEasClientDeviceInformation {
-    type Vtable = IEasClientDeviceInformation_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IEasClientDeviceInformation {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x54dfd981_1968_4ca3_b958_e595d16505eb);
-}
+::windows_core::imp::com_interface!(IEasClientDeviceInformation, IEasClientDeviceInformation_Vtbl, 0x54dfd981_1968_4ca3_b958_e595d16505eb);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEasClientDeviceInformation_Vtbl {
@@ -19,16 +10,7 @@ pub struct IEasClientDeviceInformation_Vtbl {
     pub SystemProductName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub SystemSku: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IEasClientDeviceInformation2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IEasClientDeviceInformation2 {
-    type Vtable = IEasClientDeviceInformation2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IEasClientDeviceInformation2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xffb35923_bb26_4d6a_81bc_165aee0ad754);
-}
+::windows_core::imp::com_interface!(IEasClientDeviceInformation2, IEasClientDeviceInformation2_Vtbl, 0xffb35923_bb26_4d6a_81bc_165aee0ad754);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEasClientDeviceInformation2_Vtbl {
@@ -36,16 +18,7 @@ pub struct IEasClientDeviceInformation2_Vtbl {
     pub SystemHardwareVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub SystemFirmwareVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IEasClientSecurityPolicy(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IEasClientSecurityPolicy {
-    type Vtable = IEasClientSecurityPolicy_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IEasClientSecurityPolicy {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x45b72362_dfba_4a9b_aced_6fe2adcb6420);
-}
+::windows_core::imp::com_interface!(IEasClientSecurityPolicy, IEasClientSecurityPolicy_Vtbl, 0x45b72362_dfba_4a9b_aced_6fe2adcb6420);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEasClientSecurityPolicy_Vtbl {
@@ -69,16 +42,7 @@ pub struct IEasClientSecurityPolicy_Vtbl {
     pub CheckCompliance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub ApplyAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IEasComplianceResults(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IEasComplianceResults {
-    type Vtable = IEasComplianceResults_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IEasComplianceResults {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x463c299c_7f19_4c66_b403_cb45dd57a2b3);
-}
+::windows_core::imp::com_interface!(IEasComplianceResults, IEasComplianceResults_Vtbl, 0x463c299c_7f19_4c66_b403_cb45dd57a2b3);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEasComplianceResults_Vtbl {
@@ -93,16 +57,7 @@ pub struct IEasComplianceResults_Vtbl {
     pub MaxPasswordFailedAttemptsResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut EasMaxPasswordFailedAttemptsResult) -> ::windows_core::HRESULT,
     pub MaxInactivityTimeLockResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut EasMaxInactivityTimeLockResult) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IEasComplianceResults2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IEasComplianceResults2 {
-    type Vtable = IEasComplianceResults2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IEasComplianceResults2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2fbe60c9_1aa8_47f5_88bb_cb3ef0bffb15);
-}
+::windows_core::imp::com_interface!(IEasComplianceResults2, IEasComplianceResults2_Vtbl, 0x2fbe60c9_1aa8_47f5_88bb_cb3ef0bffb15);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEasComplianceResults2_Vtbl {
@@ -112,6 +67,7 @@ pub struct IEasComplianceResults2_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EasClientDeviceInformation(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(EasClientDeviceInformation, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl EasClientDeviceInformation {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -163,14 +119,14 @@ impl EasClientDeviceInformation {
         }
     }
     pub fn SystemHardwareVersion(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<IEasClientDeviceInformation2>(self)?;
+        let this = &::windows_core::Interface::cast::<IEasClientDeviceInformation2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SystemHardwareVersion)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SystemFirmwareVersion(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<IEasClientDeviceInformation2>(self)?;
+        let this = &::windows_core::Interface::cast::<IEasClientDeviceInformation2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SystemFirmwareVersion)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -182,17 +138,15 @@ impl ::windows_core::RuntimeType for EasClientDeviceInformation {
 }
 unsafe impl ::windows_core::Interface for EasClientDeviceInformation {
     type Vtable = IEasClientDeviceInformation_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for EasClientDeviceInformation {
-    const IID: ::windows_core::GUID = <IEasClientDeviceInformation as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IEasClientDeviceInformation as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for EasClientDeviceInformation {
     const NAME: &'static str = "Windows.Security.ExchangeActiveSyncProvisioning.EasClientDeviceInformation";
 }
-::windows_core::imp::interface_hierarchy!(EasClientDeviceInformation, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EasClientSecurityPolicy(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(EasClientSecurityPolicy, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl EasClientSecurityPolicy {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -309,17 +263,15 @@ impl ::windows_core::RuntimeType for EasClientSecurityPolicy {
 }
 unsafe impl ::windows_core::Interface for EasClientSecurityPolicy {
     type Vtable = IEasClientSecurityPolicy_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for EasClientSecurityPolicy {
-    const IID: ::windows_core::GUID = <IEasClientSecurityPolicy as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IEasClientSecurityPolicy as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for EasClientSecurityPolicy {
     const NAME: &'static str = "Windows.Security.ExchangeActiveSyncProvisioning.EasClientSecurityPolicy";
 }
-::windows_core::imp::interface_hierarchy!(EasClientSecurityPolicy, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EasComplianceResults(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(EasComplianceResults, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl EasComplianceResults {
     pub fn Compliant(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -385,7 +337,7 @@ impl EasComplianceResults {
         }
     }
     pub fn EncryptionProviderType(&self) -> ::windows_core::Result<EasEncryptionProviderType> {
-        let this = &::windows_core::ComInterface::cast::<IEasComplianceResults2>(self)?;
+        let this = &::windows_core::Interface::cast::<IEasComplianceResults2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).EncryptionProviderType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -397,14 +349,11 @@ impl ::windows_core::RuntimeType for EasComplianceResults {
 }
 unsafe impl ::windows_core::Interface for EasComplianceResults {
     type Vtable = IEasComplianceResults_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for EasComplianceResults {
-    const IID: ::windows_core::GUID = <IEasComplianceResults as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IEasComplianceResults as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for EasComplianceResults {
     const NAME: &'static str = "Windows.Security.ExchangeActiveSyncProvisioning.EasComplianceResults";
 }
-::windows_core::imp::interface_hierarchy!(EasComplianceResults, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct EasDisallowConvenienceLogonResult(pub i32);

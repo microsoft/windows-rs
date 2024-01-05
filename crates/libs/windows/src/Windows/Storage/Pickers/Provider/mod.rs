@@ -1,13 +1,4 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IFileOpenPickerUI(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IFileOpenPickerUI {
-    type Vtable = IFileOpenPickerUI_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IFileOpenPickerUI {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdda45a10_f9d4_40c4_8af5_c5b6b5a61d1d);
-}
+::windows_core::imp::com_interface!(IFileOpenPickerUI, IFileOpenPickerUI_Vtbl, 0xdda45a10_f9d4_40c4_8af5_c5b6b5a61d1d);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFileOpenPickerUI_Vtbl {
@@ -35,19 +26,13 @@ pub struct IFileOpenPickerUI_Vtbl {
     pub Closing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     pub RemoveClosing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
 #[cfg(feature = "deprecated")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IFileRemovedEventArgs(::windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows_core::Interface for IFileRemovedEventArgs {
-    type Vtable = IFileRemovedEventArgs_Vtbl;
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows_core::ComInterface for IFileRemovedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x13043da7_7fca_4c2b_9eca_6890f9f00185);
-}
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"deprecated\"`"]
+    IFileRemovedEventArgs,
+    IFileRemovedEventArgs_Vtbl,
+    0x13043da7_7fca_4c2b_9eca_6890f9f00185
+);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -58,16 +43,7 @@ pub struct IFileRemovedEventArgs_Vtbl {
     #[cfg(not(feature = "deprecated"))]
     Id: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IFileSavePickerUI(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IFileSavePickerUI {
-    type Vtable = IFileSavePickerUI_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IFileSavePickerUI {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9656c1e7_3e56_43cc_8a39_33c73d9d542b);
-}
+::windows_core::imp::com_interface!(IFileSavePickerUI, IFileSavePickerUI_Vtbl, 0x9656c1e7_3e56_43cc_8a39_33c73d9d542b);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFileSavePickerUI_Vtbl {
@@ -86,32 +62,14 @@ pub struct IFileSavePickerUI_Vtbl {
     pub TargetFileRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     pub RemoveTargetFileRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPickerClosingDeferral(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPickerClosingDeferral {
-    type Vtable = IPickerClosingDeferral_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPickerClosingDeferral {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7af7f71e_1a67_4a31_ae80_e907708a619b);
-}
+::windows_core::imp::com_interface!(IPickerClosingDeferral, IPickerClosingDeferral_Vtbl, 0x7af7f71e_1a67_4a31_ae80_e907708a619b);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPickerClosingDeferral_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPickerClosingEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPickerClosingEventArgs {
-    type Vtable = IPickerClosingEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPickerClosingEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7e59f224_b332_4f12_8b9f_a8c2f06b32cd);
-}
+::windows_core::imp::com_interface!(IPickerClosingEventArgs, IPickerClosingEventArgs_Vtbl, 0x7e59f224_b332_4f12_8b9f_a8c2f06b32cd);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPickerClosingEventArgs_Vtbl {
@@ -119,16 +77,7 @@ pub struct IPickerClosingEventArgs_Vtbl {
     pub ClosingOperation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub IsCanceled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPickerClosingOperation(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPickerClosingOperation {
-    type Vtable = IPickerClosingOperation_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPickerClosingOperation {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4ce9fb84_beee_4e39_a773_fc5f0eae328d);
-}
+::windows_core::imp::com_interface!(IPickerClosingOperation, IPickerClosingOperation_Vtbl, 0x4ce9fb84_beee_4e39_a773_fc5f0eae328d);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPickerClosingOperation_Vtbl {
@@ -136,16 +85,7 @@ pub struct IPickerClosingOperation_Vtbl {
     pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Deadline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ITargetFileRequest(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ITargetFileRequest {
-    type Vtable = ITargetFileRequest_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ITargetFileRequest {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x42bd3355_7f88_478b_8e81_690b20340678);
-}
+::windows_core::imp::com_interface!(ITargetFileRequest, ITargetFileRequest_Vtbl, 0x42bd3355_7f88_478b_8e81_690b20340678);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITargetFileRequest_Vtbl {
@@ -154,32 +94,14 @@ pub struct ITargetFileRequest_Vtbl {
     pub SetTargetFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ITargetFileRequestDeferral(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ITargetFileRequestDeferral {
-    type Vtable = ITargetFileRequestDeferral_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ITargetFileRequestDeferral {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4aee9d91_bf15_4da9_95f6_f6b7d558225b);
-}
+::windows_core::imp::com_interface!(ITargetFileRequestDeferral, ITargetFileRequestDeferral_Vtbl, 0x4aee9d91_bf15_4da9_95f6_f6b7d558225b);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITargetFileRequestDeferral_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ITargetFileRequestedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ITargetFileRequestedEventArgs {
-    type Vtable = ITargetFileRequestedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ITargetFileRequestedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb163dbc1_1b51_4c89_a591_0fd40b3c57c9);
-}
+::windows_core::imp::com_interface!(ITargetFileRequestedEventArgs, ITargetFileRequestedEventArgs_Vtbl, 0xb163dbc1_1b51_4c89_a591_0fd40b3c57c9);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITargetFileRequestedEventArgs_Vtbl {
@@ -189,15 +111,16 @@ pub struct ITargetFileRequestedEventArgs_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct FileOpenPickerUI(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(FileOpenPickerUI, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl FileOpenPickerUI {
     pub fn AddFile<P0>(&self, id: &::windows_core::HSTRING, file: P0) -> ::windows_core::Result<AddFileResult>
     where
-        P0: ::windows_core::TryIntoParam<super::super::IStorageFile>,
+        P0: ::windows_core::IntoParam<super::super::IStorageFile>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AddFile)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(id), file.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AddFile)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(id), file.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn RemoveFile(&self, id: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
@@ -213,12 +136,12 @@ impl FileOpenPickerUI {
     }
     pub fn CanAddFile<P0>(&self, file: P0) -> ::windows_core::Result<bool>
     where
-        P0: ::windows_core::TryIntoParam<super::super::IStorageFile>,
+        P0: ::windows_core::IntoParam<super::super::IStorageFile>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CanAddFile)(::windows_core::Interface::as_raw(this), file.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CanAddFile)(::windows_core::Interface::as_raw(this), file.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"Foundation_Collections\"`"]
@@ -293,19 +216,18 @@ impl ::windows_core::RuntimeType for FileOpenPickerUI {
 }
 unsafe impl ::windows_core::Interface for FileOpenPickerUI {
     type Vtable = IFileOpenPickerUI_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for FileOpenPickerUI {
-    const IID: ::windows_core::GUID = <IFileOpenPickerUI as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IFileOpenPickerUI as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for FileOpenPickerUI {
     const NAME: &'static str = "Windows.Storage.Pickers.Provider.FileOpenPickerUI";
 }
-::windows_core::imp::interface_hierarchy!(FileOpenPickerUI, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct FileRemovedEventArgs(::windows_core::IUnknown);
+#[cfg(feature = "deprecated")]
+::windows_core::imp::interface_hierarchy!(FileRemovedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl FileRemovedEventArgs {
     #[doc = "Required features: `\"deprecated\"`"]
@@ -325,20 +247,16 @@ impl ::windows_core::RuntimeType for FileRemovedEventArgs {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows_core::Interface for FileRemovedEventArgs {
     type Vtable = IFileRemovedEventArgs_Vtbl;
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows_core::ComInterface for FileRemovedEventArgs {
-    const IID: ::windows_core::GUID = <IFileRemovedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IFileRemovedEventArgs as ::windows_core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows_core::RuntimeName for FileRemovedEventArgs {
     const NAME: &'static str = "Windows.Storage.Pickers.Provider.FileRemovedEventArgs";
 }
-#[cfg(feature = "deprecated")]
-::windows_core::imp::interface_hierarchy!(FileRemovedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct FileSavePickerUI(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(FileSavePickerUI, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl FileSavePickerUI {
     pub fn Title(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -415,17 +333,15 @@ impl ::windows_core::RuntimeType for FileSavePickerUI {
 }
 unsafe impl ::windows_core::Interface for FileSavePickerUI {
     type Vtable = IFileSavePickerUI_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for FileSavePickerUI {
-    const IID: ::windows_core::GUID = <IFileSavePickerUI as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IFileSavePickerUI as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for FileSavePickerUI {
     const NAME: &'static str = "Windows.Storage.Pickers.Provider.FileSavePickerUI";
 }
-::windows_core::imp::interface_hierarchy!(FileSavePickerUI, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PickerClosingDeferral(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(PickerClosingDeferral, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl PickerClosingDeferral {
     pub fn Complete(&self) -> ::windows_core::Result<()> {
         let this = self;
@@ -437,17 +353,15 @@ impl ::windows_core::RuntimeType for PickerClosingDeferral {
 }
 unsafe impl ::windows_core::Interface for PickerClosingDeferral {
     type Vtable = IPickerClosingDeferral_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for PickerClosingDeferral {
-    const IID: ::windows_core::GUID = <IPickerClosingDeferral as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPickerClosingDeferral as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for PickerClosingDeferral {
     const NAME: &'static str = "Windows.Storage.Pickers.Provider.PickerClosingDeferral";
 }
-::windows_core::imp::interface_hierarchy!(PickerClosingDeferral, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PickerClosingEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(PickerClosingEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl PickerClosingEventArgs {
     pub fn ClosingOperation(&self) -> ::windows_core::Result<PickerClosingOperation> {
         let this = self;
@@ -469,17 +383,15 @@ impl ::windows_core::RuntimeType for PickerClosingEventArgs {
 }
 unsafe impl ::windows_core::Interface for PickerClosingEventArgs {
     type Vtable = IPickerClosingEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for PickerClosingEventArgs {
-    const IID: ::windows_core::GUID = <IPickerClosingEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPickerClosingEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for PickerClosingEventArgs {
     const NAME: &'static str = "Windows.Storage.Pickers.Provider.PickerClosingEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(PickerClosingEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PickerClosingOperation(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(PickerClosingOperation, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl PickerClosingOperation {
     pub fn GetDeferral(&self) -> ::windows_core::Result<PickerClosingDeferral> {
         let this = self;
@@ -501,17 +413,15 @@ impl ::windows_core::RuntimeType for PickerClosingOperation {
 }
 unsafe impl ::windows_core::Interface for PickerClosingOperation {
     type Vtable = IPickerClosingOperation_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for PickerClosingOperation {
-    const IID: ::windows_core::GUID = <IPickerClosingOperation as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPickerClosingOperation as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for PickerClosingOperation {
     const NAME: &'static str = "Windows.Storage.Pickers.Provider.PickerClosingOperation";
 }
-::windows_core::imp::interface_hierarchy!(PickerClosingOperation, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TargetFileRequest(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(TargetFileRequest, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl TargetFileRequest {
     pub fn TargetFile(&self) -> ::windows_core::Result<super::super::IStorageFile> {
         let this = self;
@@ -522,10 +432,10 @@ impl TargetFileRequest {
     }
     pub fn SetTargetFile<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::IStorageFile>,
+        P0: ::windows_core::IntoParam<super::super::IStorageFile>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetTargetFile)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetTargetFile)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn GetDeferral(&self) -> ::windows_core::Result<TargetFileRequestDeferral> {
         let this = self;
@@ -540,17 +450,15 @@ impl ::windows_core::RuntimeType for TargetFileRequest {
 }
 unsafe impl ::windows_core::Interface for TargetFileRequest {
     type Vtable = ITargetFileRequest_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for TargetFileRequest {
-    const IID: ::windows_core::GUID = <ITargetFileRequest as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ITargetFileRequest as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for TargetFileRequest {
     const NAME: &'static str = "Windows.Storage.Pickers.Provider.TargetFileRequest";
 }
-::windows_core::imp::interface_hierarchy!(TargetFileRequest, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TargetFileRequestDeferral(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(TargetFileRequestDeferral, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl TargetFileRequestDeferral {
     pub fn Complete(&self) -> ::windows_core::Result<()> {
         let this = self;
@@ -562,17 +470,15 @@ impl ::windows_core::RuntimeType for TargetFileRequestDeferral {
 }
 unsafe impl ::windows_core::Interface for TargetFileRequestDeferral {
     type Vtable = ITargetFileRequestDeferral_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for TargetFileRequestDeferral {
-    const IID: ::windows_core::GUID = <ITargetFileRequestDeferral as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ITargetFileRequestDeferral as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for TargetFileRequestDeferral {
     const NAME: &'static str = "Windows.Storage.Pickers.Provider.TargetFileRequestDeferral";
 }
-::windows_core::imp::interface_hierarchy!(TargetFileRequestDeferral, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TargetFileRequestedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(TargetFileRequestedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl TargetFileRequestedEventArgs {
     pub fn Request(&self) -> ::windows_core::Result<TargetFileRequest> {
         let this = self;
@@ -587,14 +493,11 @@ impl ::windows_core::RuntimeType for TargetFileRequestedEventArgs {
 }
 unsafe impl ::windows_core::Interface for TargetFileRequestedEventArgs {
     type Vtable = ITargetFileRequestedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for TargetFileRequestedEventArgs {
-    const IID: ::windows_core::GUID = <ITargetFileRequestedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ITargetFileRequestedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for TargetFileRequestedEventArgs {
     const NAME: &'static str = "Windows.Storage.Pickers.Provider.TargetFileRequestedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(TargetFileRequestedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AddFileResult(pub i32);

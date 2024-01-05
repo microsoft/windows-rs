@@ -52,7 +52,7 @@ impl INumberFormatter_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<INumberFormatter as ::windows_core::ComInterface>::IID
+        iid == &<INumberFormatter as ::windows_core::Interface>::IID
     }
 }
 pub trait INumberFormatter2_Impl: Sized {
@@ -109,7 +109,7 @@ impl INumberFormatter2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<INumberFormatter2 as ::windows_core::ComInterface>::IID
+        iid == &<INumberFormatter2 as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Foundation_Collections\"`"]
@@ -285,7 +285,7 @@ impl INumberFormatterOptions_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<INumberFormatterOptions as ::windows_core::ComInterface>::IID
+        iid == &<INumberFormatterOptions as ::windows_core::Interface>::IID
     }
 }
 pub trait INumberParser_Impl: Sized {
@@ -342,7 +342,7 @@ impl INumberParser_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<INumberParser as ::windows_core::ComInterface>::IID
+        iid == &<INumberParser as ::windows_core::Interface>::IID
     }
 }
 pub trait INumberRounder_Impl: Sized {
@@ -435,7 +435,7 @@ impl INumberRounder_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<INumberRounder as ::windows_core::ComInterface>::IID
+        iid == &<INumberRounder as ::windows_core::Interface>::IID
     }
 }
 pub trait INumberRounderOption_Impl: Sized {
@@ -471,7 +471,7 @@ impl INumberRounderOption_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<INumberRounderOption as ::windows_core::ComInterface>::IID
+        iid == &<INumberRounderOption as ::windows_core::Interface>::IID
     }
 }
 pub trait ISignedZeroOption_Impl: Sized {
@@ -506,7 +506,7 @@ impl ISignedZeroOption_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISignedZeroOption as ::windows_core::ComInterface>::IID
+        iid == &<ISignedZeroOption as ::windows_core::Interface>::IID
     }
 }
 pub trait ISignificantDigitsOption_Impl: Sized {
@@ -541,6 +541,6 @@ impl ISignificantDigitsOption_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISignificantDigitsOption as ::windows_core::ComInterface>::IID
+        iid == &<ISignificantDigitsOption as ::windows_core::Interface>::IID
     }
 }

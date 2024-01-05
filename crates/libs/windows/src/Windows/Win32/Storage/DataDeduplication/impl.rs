@@ -12,7 +12,7 @@ impl IDedupBackupSupport_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), RestoreFiles: RestoreFiles::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDedupBackupSupport as ::windows_core::ComInterface>::IID
+        iid == &<IDedupBackupSupport as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -63,7 +63,7 @@ impl IDedupChunkLibrary_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDedupChunkLibrary as ::windows_core::ComInterface>::IID
+        iid == &<IDedupChunkLibrary as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -212,7 +212,7 @@ impl IDedupDataPort_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDedupDataPort as ::windows_core::ComInterface>::IID
+        iid == &<IDedupDataPort as ::windows_core::Interface>::IID
     }
 }
 pub trait IDedupDataPortManager_Impl: Sized {
@@ -258,7 +258,7 @@ impl IDedupDataPortManager_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDedupDataPortManager as ::windows_core::ComInterface>::IID
+        iid == &<IDedupDataPortManager as ::windows_core::Interface>::IID
     }
 }
 pub trait IDedupIterateChunksHash32_Impl: Sized {
@@ -299,7 +299,7 @@ impl IDedupIterateChunksHash32_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDedupIterateChunksHash32 as ::windows_core::ComInterface>::IID
+        iid == &<IDedupIterateChunksHash32 as ::windows_core::Interface>::IID
     }
 }
 pub trait IDedupReadFileCallback_Impl: Sized {
@@ -333,6 +333,6 @@ impl IDedupReadFileCallback_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDedupReadFileCallback as ::windows_core::ComInterface>::IID
+        iid == &<IDedupReadFileCallback as ::windows_core::Interface>::IID
     }
 }

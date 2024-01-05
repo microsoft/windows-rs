@@ -4,80 +4,35 @@ pub mod Core;
 #[cfg(feature = "ApplicationModel_Resources_Management")]
 #[doc = "Required features: `\"ApplicationModel_Resources_Management\"`"]
 pub mod Management;
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IResourceLoader(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IResourceLoader {
-    type Vtable = IResourceLoader_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IResourceLoader {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x08524908_16ef_45ad_a602_293637d7e61a);
-}
+::windows_core::imp::com_interface!(IResourceLoader, IResourceLoader_Vtbl, 0x08524908_16ef_45ad_a602_293637d7e61a);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IResourceLoader_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resource: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IResourceLoader2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IResourceLoader2 {
-    type Vtable = IResourceLoader2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IResourceLoader2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x10eb6ec6_8138_48c1_bc65_e1f14207367c);
-}
+::windows_core::imp::com_interface!(IResourceLoader2, IResourceLoader2_Vtbl, 0x10eb6ec6_8138_48c1_bc65_e1f14207367c);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IResourceLoader2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetStringForUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IResourceLoaderFactory(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IResourceLoaderFactory {
-    type Vtable = IResourceLoaderFactory_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IResourceLoaderFactory {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc33a3603_69dc_4285_a077_d5c0e47ccbe8);
-}
+::windows_core::imp::com_interface!(IResourceLoaderFactory, IResourceLoaderFactory_Vtbl, 0xc33a3603_69dc_4285_a077_d5c0e47ccbe8);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IResourceLoaderFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateResourceLoaderByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IResourceLoaderStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IResourceLoaderStatics {
-    type Vtable = IResourceLoaderStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IResourceLoaderStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbf777ce1_19c8_49c2_953c_47e9227b334e);
-}
+::windows_core::imp::com_interface!(IResourceLoaderStatics, IResourceLoaderStatics_Vtbl, 0xbf777ce1_19c8_49c2_953c_47e9227b334e);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IResourceLoaderStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetStringForReference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IResourceLoaderStatics2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IResourceLoaderStatics2 {
-    type Vtable = IResourceLoaderStatics2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IResourceLoaderStatics2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0cc04141_6466_4989_9494_0b82dfc53f1f);
-}
+::windows_core::imp::com_interface!(IResourceLoaderStatics2, IResourceLoaderStatics2_Vtbl, 0x0cc04141_6466_4989_9494_0b82dfc53f1f);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IResourceLoaderStatics2_Vtbl {
@@ -87,16 +42,7 @@ pub struct IResourceLoaderStatics2_Vtbl {
     pub GetForViewIndependentUse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetForViewIndependentUseWithName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IResourceLoaderStatics3(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IResourceLoaderStatics3 {
-    type Vtable = IResourceLoaderStatics3_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IResourceLoaderStatics3 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x64609dfb_64ac_491b_8100_0e558d61c1d0);
-}
+::windows_core::imp::com_interface!(IResourceLoaderStatics3, IResourceLoaderStatics3_Vtbl, 0x64609dfb_64ac_491b_8100_0e558d61c1d0);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IResourceLoaderStatics3_Vtbl {
@@ -106,16 +52,7 @@ pub struct IResourceLoaderStatics3_Vtbl {
     #[cfg(not(feature = "UI"))]
     GetForUIContext: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IResourceLoaderStatics4(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IResourceLoaderStatics4 {
-    type Vtable = IResourceLoaderStatics4_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IResourceLoaderStatics4 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9fb36c32_6c8c_4316_962e_909539b5c259);
-}
+::windows_core::imp::com_interface!(IResourceLoaderStatics4, IResourceLoaderStatics4_Vtbl, 0x9fb36c32_6c8c_4316_962e_909539b5c259);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IResourceLoaderStatics4_Vtbl {
@@ -125,6 +62,7 @@ pub struct IResourceLoaderStatics4_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ResourceLoader(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(ResourceLoader, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ResourceLoader {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -144,7 +82,7 @@ impl ResourceLoader {
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::Uri>,
     {
-        let this = &::windows_core::ComInterface::cast::<IResourceLoader2>(self)?;
+        let this = &::windows_core::Interface::cast::<IResourceLoader2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetStringForUri)(::windows_core::Interface::as_raw(this), uri.into_param().abi(), &mut result__).from_abi(result__)
@@ -237,13 +175,10 @@ impl ::windows_core::RuntimeType for ResourceLoader {
 }
 unsafe impl ::windows_core::Interface for ResourceLoader {
     type Vtable = IResourceLoader_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ResourceLoader {
-    const IID: ::windows_core::GUID = <IResourceLoader as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IResourceLoader as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for ResourceLoader {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.ResourceLoader";
 }
-::windows_core::imp::interface_hierarchy!(ResourceLoader, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for ResourceLoader {}
 unsafe impl ::core::marker::Sync for ResourceLoader {}

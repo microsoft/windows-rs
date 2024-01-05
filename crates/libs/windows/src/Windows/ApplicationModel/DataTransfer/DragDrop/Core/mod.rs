@@ -1,13 +1,4 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ICoreDragDropManager(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ICoreDragDropManager {
-    type Vtable = ICoreDragDropManager_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ICoreDragDropManager {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7d56d344_8464_4faf_aa49_37ea6e2d7bd1);
-}
+::windows_core::imp::com_interface!(ICoreDragDropManager, ICoreDragDropManager_Vtbl, 0x7d56d344_8464_4faf_aa49_37ea6e2d7bd1);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreDragDropManager_Vtbl {
@@ -17,32 +8,14 @@ pub struct ICoreDragDropManager_Vtbl {
     pub AreConcurrentOperationsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub SetAreConcurrentOperationsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ICoreDragDropManagerStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ICoreDragDropManagerStatics {
-    type Vtable = ICoreDragDropManagerStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ICoreDragDropManagerStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9542fdca_da12_4c1c_8d06_041db29733c3);
-}
+::windows_core::imp::com_interface!(ICoreDragDropManagerStatics, ICoreDragDropManagerStatics_Vtbl, 0x9542fdca_da12_4c1c_8d06_041db29733c3);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreDragDropManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ICoreDragInfo(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ICoreDragInfo {
-    type Vtable = ICoreDragInfo_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ICoreDragInfo {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x48353a8b_cb50_464e_9575_cd4e3a7ab028);
-}
+::windows_core::imp::com_interface!(ICoreDragInfo, ICoreDragInfo_Vtbl, 0x48353a8b_cb50_464e_9575_cd4e3a7ab028);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreDragInfo_Vtbl {
@@ -51,32 +24,14 @@ pub struct ICoreDragInfo_Vtbl {
     pub Modifiers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::DragDropModifiers) -> ::windows_core::HRESULT,
     pub Position: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Point) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ICoreDragInfo2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ICoreDragInfo2 {
-    type Vtable = ICoreDragInfo2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ICoreDragInfo2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc54691e5_e6fb_4d74_b4b1_8a3c17f25e9e);
-}
+::windows_core::imp::com_interface!(ICoreDragInfo2, ICoreDragInfo2_Vtbl, 0xc54691e5_e6fb_4d74_b4b1_8a3c17f25e9e);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreDragInfo2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AllowedOperations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::DataPackageOperation) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ICoreDragOperation(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ICoreDragOperation {
-    type Vtable = ICoreDragOperation_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ICoreDragOperation {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcc06de4f_6db0_4e62_ab1b_a74a02dc6d85);
-}
+::windows_core::imp::com_interface!(ICoreDragOperation, ICoreDragOperation_Vtbl, 0xcc06de4f_6db0_4e62_ab1b_a74a02dc6d85);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreDragOperation_Vtbl {
@@ -95,16 +50,7 @@ pub struct ICoreDragOperation_Vtbl {
     pub SetDragUIContentMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: CoreDragUIContentMode) -> ::windows_core::HRESULT,
     pub StartAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ICoreDragOperation2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ICoreDragOperation2 {
-    type Vtable = ICoreDragOperation2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ICoreDragOperation2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x824b1e2c_d99a_4fc3_8507_6c182f33b46a);
-}
+::windows_core::imp::com_interface!(ICoreDragOperation2, ICoreDragOperation2_Vtbl, 0x824b1e2c_d99a_4fc3_8507_6c182f33b46a);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreDragOperation2_Vtbl {
@@ -112,16 +58,7 @@ pub struct ICoreDragOperation2_Vtbl {
     pub AllowedOperations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::DataPackageOperation) -> ::windows_core::HRESULT,
     pub SetAllowedOperations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::DataPackageOperation) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ICoreDragUIOverride(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ICoreDragUIOverride {
-    type Vtable = ICoreDragUIOverride_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ICoreDragUIOverride {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x89a85064_3389_4f4f_8897_7e8a3ffb3c93);
-}
+::windows_core::imp::com_interface!(ICoreDragUIOverride, ICoreDragUIOverride_Vtbl, 0x89a85064_3389_4f4f_8897_7e8a3ffb3c93);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreDragUIOverride_Vtbl {
@@ -144,9 +81,8 @@ pub struct ICoreDragUIOverride_Vtbl {
     pub SetIsGlyphVisible: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
     pub Clear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ICoreDropOperationTarget(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(ICoreDropOperationTarget, ICoreDropOperationTarget_Vtbl, 0xd9126196_4c5b_417d_bb37_76381def8db4);
+::windows_core::imp::interface_hierarchy!(ICoreDropOperationTarget, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ICoreDropOperationTarget {
     pub fn EnterAsync<P0, P1>(&self, draginfo: P0, draguioverride: P1) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>>
     where
@@ -191,15 +127,8 @@ impl ICoreDropOperationTarget {
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(ICoreDropOperationTarget, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for ICoreDropOperationTarget {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for ICoreDropOperationTarget {
-    type Vtable = ICoreDropOperationTarget_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ICoreDropOperationTarget {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd9126196_4c5b_417d_bb37_76381def8db4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -210,16 +139,7 @@ pub struct ICoreDropOperationTarget_Vtbl {
     pub LeaveAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, draginfo: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub DropAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, draginfo: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ICoreDropOperationTargetRequestedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ICoreDropOperationTargetRequestedEventArgs {
-    type Vtable = ICoreDropOperationTargetRequestedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ICoreDropOperationTargetRequestedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2aca929a_5e28_4ea6_829e_29134e665d6d);
-}
+::windows_core::imp::com_interface!(ICoreDropOperationTargetRequestedEventArgs, ICoreDropOperationTargetRequestedEventArgs_Vtbl, 0x2aca929a_5e28_4ea6_829e_29134e665d6d);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreDropOperationTargetRequestedEventArgs_Vtbl {
@@ -229,6 +149,7 @@ pub struct ICoreDropOperationTargetRequestedEventArgs_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CoreDragDropManager(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(CoreDragDropManager, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl CoreDragDropManager {
     pub fn TargetRequested<P0>(&self, value: P0) -> ::windows_core::Result<super::super::super::super::Foundation::EventRegistrationToken>
     where
@@ -272,19 +193,17 @@ impl ::windows_core::RuntimeType for CoreDragDropManager {
 }
 unsafe impl ::windows_core::Interface for CoreDragDropManager {
     type Vtable = ICoreDragDropManager_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for CoreDragDropManager {
-    const IID: ::windows_core::GUID = <ICoreDragDropManager as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ICoreDragDropManager as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for CoreDragDropManager {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragDropManager";
 }
-::windows_core::imp::interface_hierarchy!(CoreDragDropManager, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for CoreDragDropManager {}
 unsafe impl ::core::marker::Sync for CoreDragDropManager {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CoreDragInfo(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(CoreDragInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl CoreDragInfo {
     pub fn Data(&self) -> ::windows_core::Result<super::super::DataPackageView> {
         let this = self;
@@ -308,7 +227,7 @@ impl CoreDragInfo {
         }
     }
     pub fn AllowedOperations(&self) -> ::windows_core::Result<super::super::DataPackageOperation> {
-        let this = &::windows_core::ComInterface::cast::<ICoreDragInfo2>(self)?;
+        let this = &::windows_core::Interface::cast::<ICoreDragInfo2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AllowedOperations)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -320,19 +239,17 @@ impl ::windows_core::RuntimeType for CoreDragInfo {
 }
 unsafe impl ::windows_core::Interface for CoreDragInfo {
     type Vtable = ICoreDragInfo_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for CoreDragInfo {
-    const IID: ::windows_core::GUID = <ICoreDragInfo as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ICoreDragInfo as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for CoreDragInfo {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragInfo";
 }
-::windows_core::imp::interface_hierarchy!(CoreDragInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for CoreDragInfo {}
 unsafe impl ::core::marker::Sync for CoreDragInfo {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CoreDragOperation(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(CoreDragOperation, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl CoreDragOperation {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -389,14 +306,14 @@ impl CoreDragOperation {
         }
     }
     pub fn AllowedOperations(&self) -> ::windows_core::Result<super::super::DataPackageOperation> {
-        let this = &::windows_core::ComInterface::cast::<ICoreDragOperation2>(self)?;
+        let this = &::windows_core::Interface::cast::<ICoreDragOperation2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AllowedOperations)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetAllowedOperations(&self, value: super::super::DataPackageOperation) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<ICoreDragOperation2>(self)?;
+        let this = &::windows_core::Interface::cast::<ICoreDragOperation2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetAllowedOperations)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
@@ -405,19 +322,17 @@ impl ::windows_core::RuntimeType for CoreDragOperation {
 }
 unsafe impl ::windows_core::Interface for CoreDragOperation {
     type Vtable = ICoreDragOperation_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for CoreDragOperation {
-    const IID: ::windows_core::GUID = <ICoreDragOperation as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ICoreDragOperation as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for CoreDragOperation {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragOperation";
 }
-::windows_core::imp::interface_hierarchy!(CoreDragOperation, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for CoreDragOperation {}
 unsafe impl ::core::marker::Sync for CoreDragOperation {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CoreDragUIOverride(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(CoreDragUIOverride, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl CoreDragUIOverride {
     #[doc = "Required features: `\"Graphics_Imaging\"`"]
     #[cfg(feature = "Graphics_Imaging")]
@@ -491,26 +406,24 @@ impl ::windows_core::RuntimeType for CoreDragUIOverride {
 }
 unsafe impl ::windows_core::Interface for CoreDragUIOverride {
     type Vtable = ICoreDragUIOverride_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for CoreDragUIOverride {
-    const IID: ::windows_core::GUID = <ICoreDragUIOverride as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ICoreDragUIOverride as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for CoreDragUIOverride {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragUIOverride";
 }
-::windows_core::imp::interface_hierarchy!(CoreDragUIOverride, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for CoreDragUIOverride {}
 unsafe impl ::core::marker::Sync for CoreDragUIOverride {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CoreDropOperationTargetRequestedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(CoreDropOperationTargetRequestedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl CoreDropOperationTargetRequestedEventArgs {
     pub fn SetTarget<P0>(&self, target: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<ICoreDropOperationTarget>,
+        P0: ::windows_core::IntoParam<ICoreDropOperationTarget>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetTarget)(::windows_core::Interface::as_raw(this), target.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetTarget)(::windows_core::Interface::as_raw(this), target.into_param().abi()).ok() }
     }
 }
 impl ::windows_core::RuntimeType for CoreDropOperationTargetRequestedEventArgs {
@@ -518,14 +431,11 @@ impl ::windows_core::RuntimeType for CoreDropOperationTargetRequestedEventArgs {
 }
 unsafe impl ::windows_core::Interface for CoreDropOperationTargetRequestedEventArgs {
     type Vtable = ICoreDropOperationTargetRequestedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for CoreDropOperationTargetRequestedEventArgs {
-    const IID: ::windows_core::GUID = <ICoreDropOperationTargetRequestedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ICoreDropOperationTargetRequestedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for CoreDropOperationTargetRequestedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDropOperationTargetRequestedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(CoreDropOperationTargetRequestedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for CoreDropOperationTargetRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for CoreDropOperationTargetRequestedEventArgs {}
 #[repr(transparent)]

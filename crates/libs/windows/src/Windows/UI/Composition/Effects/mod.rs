@@ -1,13 +1,4 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISceneLightingEffect(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISceneLightingEffect {
-    type Vtable = ISceneLightingEffect_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISceneLightingEffect {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x91bb5e52_95d1_4f8b_9a5a_6408b24b8c6a);
-}
+::windows_core::imp::com_interface!(ISceneLightingEffect, ISceneLightingEffect_Vtbl, 0x91bb5e52_95d1_4f8b_9a5a_6408b24b8c6a);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceneLightingEffect_Vtbl {
@@ -29,16 +20,7 @@ pub struct ISceneLightingEffect_Vtbl {
     pub SpecularShine: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows_core::HRESULT,
     pub SetSpecularShine: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISceneLightingEffect2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISceneLightingEffect2 {
-    type Vtable = ISceneLightingEffect2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISceneLightingEffect2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9e270e81_72f0_4c5c_95f8_8a6e0024f409);
-}
+::windows_core::imp::com_interface!(ISceneLightingEffect2, ISceneLightingEffect2_Vtbl, 0x9e270e81_72f0_4c5c_95f8_8a6e0024f409);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceneLightingEffect2_Vtbl {
@@ -49,6 +31,9 @@ pub struct ISceneLightingEffect2_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SceneLightingEffect(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(SceneLightingEffect, ::windows_core::IUnknown, ::windows_core::IInspectable);
+#[cfg(feature = "Graphics_Effects")]
+::windows_core::imp::required_hierarchy!(SceneLightingEffect, super::super::super::Graphics::Effects::IGraphicsEffect, super::super::super::Graphics::Effects::IGraphicsEffectSource);
 impl SceneLightingEffect {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -60,7 +45,7 @@ impl SceneLightingEffect {
     #[doc = "Required features: `\"Graphics_Effects\"`"]
     #[cfg(feature = "Graphics_Effects")]
     pub fn Name(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<super::super::super::Graphics::Effects::IGraphicsEffect>(self)?;
+        let this = &::windows_core::Interface::cast::<super::super::super::Graphics::Effects::IGraphicsEffect>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Name)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -69,7 +54,7 @@ impl SceneLightingEffect {
     #[doc = "Required features: `\"Graphics_Effects\"`"]
     #[cfg(feature = "Graphics_Effects")]
     pub fn SetName(&self, name: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<super::super::super::Graphics::Effects::IGraphicsEffect>(self)?;
+        let this = &::windows_core::Interface::cast::<super::super::super::Graphics::Effects::IGraphicsEffect>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetName)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(name)).ok() }
     }
     pub fn AmbientAmount(&self) -> ::windows_core::Result<f32> {
@@ -107,10 +92,10 @@ impl SceneLightingEffect {
     #[cfg(feature = "Graphics_Effects")]
     pub fn SetNormalMapSource<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::super::Graphics::Effects::IGraphicsEffectSource>,
+        P0: ::windows_core::IntoParam<super::super::super::Graphics::Effects::IGraphicsEffectSource>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetNormalMapSource)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetNormalMapSource)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn SpecularAmount(&self) -> ::windows_core::Result<f32> {
         let this = self;
@@ -135,14 +120,14 @@ impl SceneLightingEffect {
         unsafe { (::windows_core::Interface::vtable(this).SetSpecularShine)(::windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn ReflectanceModel(&self) -> ::windows_core::Result<SceneLightingEffectReflectanceModel> {
-        let this = &::windows_core::ComInterface::cast::<ISceneLightingEffect2>(self)?;
+        let this = &::windows_core::Interface::cast::<ISceneLightingEffect2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReflectanceModel)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetReflectanceModel(&self, value: SceneLightingEffectReflectanceModel) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<ISceneLightingEffect2>(self)?;
+        let this = &::windows_core::Interface::cast::<ISceneLightingEffect2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetReflectanceModel)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
@@ -151,18 +136,11 @@ impl ::windows_core::RuntimeType for SceneLightingEffect {
 }
 unsafe impl ::windows_core::Interface for SceneLightingEffect {
     type Vtable = ISceneLightingEffect_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for SceneLightingEffect {
-    const IID: ::windows_core::GUID = <ISceneLightingEffect as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ISceneLightingEffect as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for SceneLightingEffect {
     const NAME: &'static str = "Windows.UI.Composition.Effects.SceneLightingEffect";
 }
-::windows_core::imp::interface_hierarchy!(SceneLightingEffect, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Graphics_Effects")]
-impl ::windows_core::CanTryInto<super::super::super::Graphics::Effects::IGraphicsEffect> for SceneLightingEffect {}
-#[cfg(feature = "Graphics_Effects")]
-impl ::windows_core::CanTryInto<super::super::super::Graphics::Effects::IGraphicsEffectSource> for SceneLightingEffect {}
 unsafe impl ::core::marker::Send for SceneLightingEffect {}
 unsafe impl ::core::marker::Sync for SceneLightingEffect {}
 #[repr(transparent)]

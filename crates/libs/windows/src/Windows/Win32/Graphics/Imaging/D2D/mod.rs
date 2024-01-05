@@ -1,6 +1,5 @@
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWICImageEncoder(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWICImageEncoder, IWICImageEncoder_Vtbl, 0x04c75bf8_3ce1_473b_acc5_3cc4f5e94999);
+::windows_core::imp::interface_hierarchy!(IWICImageEncoder, ::windows_core::IUnknown);
 impl IWICImageEncoder {
     #[doc = "Required features: `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -30,13 +29,6 @@ impl IWICImageEncoder {
         (::windows_core::Interface::vtable(self).WriteThumbnail)(::windows_core::Interface::as_raw(self), pimage.into_param().abi(), pencoder.into_param().abi(), pimageparameters).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IWICImageEncoder, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWICImageEncoder {
-    type Vtable = IWICImageEncoder_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWICImageEncoder {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x04c75bf8_3ce1_473b_acc5_3cc4f5e94999);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICImageEncoder_Vtbl {
@@ -54,9 +46,8 @@ pub struct IWICImageEncoder_Vtbl {
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common")))]
     WriteThumbnail: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWICImagingFactory2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWICImagingFactory2, IWICImagingFactory2_Vtbl, 0x7b816b45_1996_4476_b132_de9e247c8af0);
+::windows_core::imp::interface_hierarchy!(IWICImagingFactory2, ::windows_core::IUnknown, super::IWICImagingFactory);
 impl IWICImagingFactory2 {
     pub unsafe fn CreateDecoderFromFilename<P0>(&self, wzfilename: P0, pguidvendor: ::core::option::Option<*const ::windows_core::GUID>, dwdesiredaccess: super::super::super::Foundation::GENERIC_ACCESS_RIGHTS, metadataoptions: super::WICDecodeOptions) -> ::windows_core::Result<super::IWICBitmapDecoder>
     where
@@ -205,13 +196,6 @@ impl IWICImagingFactory2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateImageEncoder)(::windows_core::Interface::as_raw(self), pd2ddevice.into_param().abi(), &mut result__).from_abi(result__)
     }
-}
-::windows_core::imp::interface_hierarchy!(IWICImagingFactory2, ::windows_core::IUnknown, super::IWICImagingFactory);
-unsafe impl ::windows_core::Interface for IWICImagingFactory2 {
-    type Vtable = IWICImagingFactory2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWICImagingFactory2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7b816b45_1996_4476_b132_de9e247c8af0);
 }
 #[repr(C)]
 #[doc(hidden)]

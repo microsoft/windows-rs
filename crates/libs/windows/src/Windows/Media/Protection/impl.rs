@@ -36,6 +36,6 @@ impl IMediaProtectionServiceRequest_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMediaProtectionServiceRequest as ::windows_core::ComInterface>::IID
+        iid == &<IMediaProtectionServiceRequest as ::windows_core::Interface>::IID
     }
 }

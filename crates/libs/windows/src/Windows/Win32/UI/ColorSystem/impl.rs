@@ -109,7 +109,7 @@ impl IDeviceModelPlugIn_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDeviceModelPlugIn as ::windows_core::ComInterface>::IID
+        iid == &<IDeviceModelPlugIn as ::windows_core::Interface>::IID
     }
 }
 pub trait IGamutMapModelPlugIn_Impl: Sized {
@@ -136,6 +136,6 @@ impl IGamutMapModelPlugIn_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IGamutMapModelPlugIn as ::windows_core::ComInterface>::IID
+        iid == &<IGamutMapModelPlugIn as ::windows_core::Interface>::IID
     }
 }

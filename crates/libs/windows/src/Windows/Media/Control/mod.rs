@@ -1,28 +1,10 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ICurrentSessionChangedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ICurrentSessionChangedEventArgs {
-    type Vtable = ICurrentSessionChangedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ICurrentSessionChangedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6969cb39_0bfa_5fe0_8d73_09cc5e5408e1);
-}
+::windows_core::imp::com_interface!(ICurrentSessionChangedEventArgs, ICurrentSessionChangedEventArgs_Vtbl, 0x6969cb39_0bfa_5fe0_8d73_09cc5e5408e1);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICurrentSessionChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGlobalSystemMediaTransportControlsSession(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGlobalSystemMediaTransportControlsSession {
-    type Vtable = IGlobalSystemMediaTransportControlsSession_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGlobalSystemMediaTransportControlsSession {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7148c835_9b14_5ae2_ab85_dc9b1c14e1a8);
-}
+::windows_core::imp::com_interface!(IGlobalSystemMediaTransportControlsSession, IGlobalSystemMediaTransportControlsSession_Vtbl, 0x7148c835_9b14_5ae2_ab85_dc9b1c14e1a8);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGlobalSystemMediaTransportControlsSession_Vtbl {
@@ -53,16 +35,7 @@ pub struct IGlobalSystemMediaTransportControlsSession_Vtbl {
     pub MediaPropertiesChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     pub RemoveMediaPropertiesChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGlobalSystemMediaTransportControlsSessionManager(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGlobalSystemMediaTransportControlsSessionManager {
-    type Vtable = IGlobalSystemMediaTransportControlsSessionManager_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGlobalSystemMediaTransportControlsSessionManager {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcace8eac_e86e_504a_ab31_5ff8ff1bce49);
-}
+::windows_core::imp::com_interface!(IGlobalSystemMediaTransportControlsSessionManager, IGlobalSystemMediaTransportControlsSessionManager_Vtbl, 0xcace8eac_e86e_504a_ab31_5ff8ff1bce49);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGlobalSystemMediaTransportControlsSessionManager_Vtbl {
@@ -77,32 +50,14 @@ pub struct IGlobalSystemMediaTransportControlsSessionManager_Vtbl {
     pub SessionsChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     pub RemoveSessionsChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGlobalSystemMediaTransportControlsSessionManagerStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGlobalSystemMediaTransportControlsSessionManagerStatics {
-    type Vtable = IGlobalSystemMediaTransportControlsSessionManagerStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGlobalSystemMediaTransportControlsSessionManagerStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2050c4ee_11a0_57de_aed7_c97c70338245);
-}
+::windows_core::imp::com_interface!(IGlobalSystemMediaTransportControlsSessionManagerStatics, IGlobalSystemMediaTransportControlsSessionManagerStatics_Vtbl, 0x2050c4ee_11a0_57de_aed7_c97c70338245);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGlobalSystemMediaTransportControlsSessionManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub RequestAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGlobalSystemMediaTransportControlsSessionMediaProperties(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGlobalSystemMediaTransportControlsSessionMediaProperties {
-    type Vtable = IGlobalSystemMediaTransportControlsSessionMediaProperties_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGlobalSystemMediaTransportControlsSessionMediaProperties {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x68856cf6_adb4_54b2_ac16_05837907acb6);
-}
+::windows_core::imp::com_interface!(IGlobalSystemMediaTransportControlsSessionMediaProperties, IGlobalSystemMediaTransportControlsSessionMediaProperties_Vtbl, 0x68856cf6_adb4_54b2_ac16_05837907acb6);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGlobalSystemMediaTransportControlsSessionMediaProperties_Vtbl {
@@ -124,16 +79,7 @@ pub struct IGlobalSystemMediaTransportControlsSessionMediaProperties_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     Thumbnail: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGlobalSystemMediaTransportControlsSessionPlaybackControls(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGlobalSystemMediaTransportControlsSessionPlaybackControls {
-    type Vtable = IGlobalSystemMediaTransportControlsSessionPlaybackControls_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGlobalSystemMediaTransportControlsSessionPlaybackControls {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6501a3e6_bc7a_503a_bb1b_68f158f3fb03);
-}
+::windows_core::imp::com_interface!(IGlobalSystemMediaTransportControlsSessionPlaybackControls, IGlobalSystemMediaTransportControlsSessionPlaybackControls_Vtbl, 0x6501a3e6_bc7a_503a_bb1b_68f158f3fb03);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGlobalSystemMediaTransportControlsSessionPlaybackControls_Vtbl {
@@ -154,16 +100,7 @@ pub struct IGlobalSystemMediaTransportControlsSessionPlaybackControls_Vtbl {
     pub IsPlaybackRateEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub IsPlaybackPositionEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGlobalSystemMediaTransportControlsSessionPlaybackInfo(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGlobalSystemMediaTransportControlsSessionPlaybackInfo {
-    type Vtable = IGlobalSystemMediaTransportControlsSessionPlaybackInfo_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGlobalSystemMediaTransportControlsSessionPlaybackInfo {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x94b4b6cf_e8ba_51ad_87a7_c10ade106127);
-}
+::windows_core::imp::com_interface!(IGlobalSystemMediaTransportControlsSessionPlaybackInfo, IGlobalSystemMediaTransportControlsSessionPlaybackInfo_Vtbl, 0x94b4b6cf_e8ba_51ad_87a7_c10ade106127);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGlobalSystemMediaTransportControlsSessionPlaybackInfo_Vtbl {
@@ -175,16 +112,7 @@ pub struct IGlobalSystemMediaTransportControlsSessionPlaybackInfo_Vtbl {
     pub PlaybackRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub IsShuffleActive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGlobalSystemMediaTransportControlsSessionTimelineProperties(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGlobalSystemMediaTransportControlsSessionTimelineProperties {
-    type Vtable = IGlobalSystemMediaTransportControlsSessionTimelineProperties_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGlobalSystemMediaTransportControlsSessionTimelineProperties {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xede34136_6f25_588d_8ecf_ea5b6735aaa5);
-}
+::windows_core::imp::com_interface!(IGlobalSystemMediaTransportControlsSessionTimelineProperties, IGlobalSystemMediaTransportControlsSessionTimelineProperties_Vtbl, 0xede34136_6f25_588d_8ecf_ea5b6735aaa5);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGlobalSystemMediaTransportControlsSessionTimelineProperties_Vtbl {
@@ -196,61 +124,25 @@ pub struct IGlobalSystemMediaTransportControlsSessionTimelineProperties_Vtbl {
     pub Position: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
     pub LastUpdatedTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMediaPropertiesChangedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IMediaPropertiesChangedEventArgs {
-    type Vtable = IMediaPropertiesChangedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IMediaPropertiesChangedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7d3741cb_adf0_5cef_91ba_cfabcdd77678);
-}
+::windows_core::imp::com_interface!(IMediaPropertiesChangedEventArgs, IMediaPropertiesChangedEventArgs_Vtbl, 0x7d3741cb_adf0_5cef_91ba_cfabcdd77678);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaPropertiesChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPlaybackInfoChangedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPlaybackInfoChangedEventArgs {
-    type Vtable = IPlaybackInfoChangedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPlaybackInfoChangedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x786756c2_bc0d_50a5_8807_054291fef139);
-}
+::windows_core::imp::com_interface!(IPlaybackInfoChangedEventArgs, IPlaybackInfoChangedEventArgs_Vtbl, 0x786756c2_bc0d_50a5_8807_054291fef139);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlaybackInfoChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISessionsChangedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISessionsChangedEventArgs {
-    type Vtable = ISessionsChangedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISessionsChangedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbbf0cd32_42c4_5a58_b317_f34bbfbd26e0);
-}
+::windows_core::imp::com_interface!(ISessionsChangedEventArgs, ISessionsChangedEventArgs_Vtbl, 0xbbf0cd32_42c4_5a58_b317_f34bbfbd26e0);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISessionsChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ITimelinePropertiesChangedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ITimelinePropertiesChangedEventArgs {
-    type Vtable = ITimelinePropertiesChangedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ITimelinePropertiesChangedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x29033a2f_c923_5a77_bcaf_055ff415ad32);
-}
+::windows_core::imp::com_interface!(ITimelinePropertiesChangedEventArgs, ITimelinePropertiesChangedEventArgs_Vtbl, 0x29033a2f_c923_5a77_bcaf_055ff415ad32);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITimelinePropertiesChangedEventArgs_Vtbl {
@@ -259,25 +151,24 @@ pub struct ITimelinePropertiesChangedEventArgs_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CurrentSessionChangedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(CurrentSessionChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl CurrentSessionChangedEventArgs {}
 impl ::windows_core::RuntimeType for CurrentSessionChangedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for CurrentSessionChangedEventArgs {
     type Vtable = ICurrentSessionChangedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for CurrentSessionChangedEventArgs {
-    const IID: ::windows_core::GUID = <ICurrentSessionChangedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ICurrentSessionChangedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for CurrentSessionChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Control.CurrentSessionChangedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(CurrentSessionChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for CurrentSessionChangedEventArgs {}
 unsafe impl ::core::marker::Sync for CurrentSessionChangedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GlobalSystemMediaTransportControlsSession(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GlobalSystemMediaTransportControlsSession, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl GlobalSystemMediaTransportControlsSession {
     pub fn SourceAppUserModelId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -460,19 +351,17 @@ impl ::windows_core::RuntimeType for GlobalSystemMediaTransportControlsSession {
 }
 unsafe impl ::windows_core::Interface for GlobalSystemMediaTransportControlsSession {
     type Vtable = IGlobalSystemMediaTransportControlsSession_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GlobalSystemMediaTransportControlsSession {
-    const IID: ::windows_core::GUID = <IGlobalSystemMediaTransportControlsSession as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGlobalSystemMediaTransportControlsSession as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GlobalSystemMediaTransportControlsSession {
     const NAME: &'static str = "Windows.Media.Control.GlobalSystemMediaTransportControlsSession";
 }
-::windows_core::imp::interface_hierarchy!(GlobalSystemMediaTransportControlsSession, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GlobalSystemMediaTransportControlsSession {}
 unsafe impl ::core::marker::Sync for GlobalSystemMediaTransportControlsSession {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GlobalSystemMediaTransportControlsSessionManager(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GlobalSystemMediaTransportControlsSessionManager, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl GlobalSystemMediaTransportControlsSessionManager {
     pub fn GetCurrentSession(&self) -> ::windows_core::Result<GlobalSystemMediaTransportControlsSession> {
         let this = self;
@@ -535,19 +424,17 @@ impl ::windows_core::RuntimeType for GlobalSystemMediaTransportControlsSessionMa
 }
 unsafe impl ::windows_core::Interface for GlobalSystemMediaTransportControlsSessionManager {
     type Vtable = IGlobalSystemMediaTransportControlsSessionManager_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GlobalSystemMediaTransportControlsSessionManager {
-    const IID: ::windows_core::GUID = <IGlobalSystemMediaTransportControlsSessionManager as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGlobalSystemMediaTransportControlsSessionManager as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GlobalSystemMediaTransportControlsSessionManager {
     const NAME: &'static str = "Windows.Media.Control.GlobalSystemMediaTransportControlsSessionManager";
 }
-::windows_core::imp::interface_hierarchy!(GlobalSystemMediaTransportControlsSessionManager, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GlobalSystemMediaTransportControlsSessionManager {}
 unsafe impl ::core::marker::Sync for GlobalSystemMediaTransportControlsSessionManager {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GlobalSystemMediaTransportControlsSessionMediaProperties(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GlobalSystemMediaTransportControlsSessionMediaProperties, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl GlobalSystemMediaTransportControlsSessionMediaProperties {
     pub fn Title(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -629,19 +516,17 @@ impl ::windows_core::RuntimeType for GlobalSystemMediaTransportControlsSessionMe
 }
 unsafe impl ::windows_core::Interface for GlobalSystemMediaTransportControlsSessionMediaProperties {
     type Vtable = IGlobalSystemMediaTransportControlsSessionMediaProperties_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GlobalSystemMediaTransportControlsSessionMediaProperties {
-    const IID: ::windows_core::GUID = <IGlobalSystemMediaTransportControlsSessionMediaProperties as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGlobalSystemMediaTransportControlsSessionMediaProperties as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GlobalSystemMediaTransportControlsSessionMediaProperties {
     const NAME: &'static str = "Windows.Media.Control.GlobalSystemMediaTransportControlsSessionMediaProperties";
 }
-::windows_core::imp::interface_hierarchy!(GlobalSystemMediaTransportControlsSessionMediaProperties, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GlobalSystemMediaTransportControlsSessionMediaProperties {}
 unsafe impl ::core::marker::Sync for GlobalSystemMediaTransportControlsSessionMediaProperties {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GlobalSystemMediaTransportControlsSessionPlaybackControls(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GlobalSystemMediaTransportControlsSessionPlaybackControls, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl GlobalSystemMediaTransportControlsSessionPlaybackControls {
     pub fn IsPlayEnabled(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -754,19 +639,17 @@ impl ::windows_core::RuntimeType for GlobalSystemMediaTransportControlsSessionPl
 }
 unsafe impl ::windows_core::Interface for GlobalSystemMediaTransportControlsSessionPlaybackControls {
     type Vtable = IGlobalSystemMediaTransportControlsSessionPlaybackControls_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GlobalSystemMediaTransportControlsSessionPlaybackControls {
-    const IID: ::windows_core::GUID = <IGlobalSystemMediaTransportControlsSessionPlaybackControls as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGlobalSystemMediaTransportControlsSessionPlaybackControls as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GlobalSystemMediaTransportControlsSessionPlaybackControls {
     const NAME: &'static str = "Windows.Media.Control.GlobalSystemMediaTransportControlsSessionPlaybackControls";
 }
-::windows_core::imp::interface_hierarchy!(GlobalSystemMediaTransportControlsSessionPlaybackControls, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GlobalSystemMediaTransportControlsSessionPlaybackControls {}
 unsafe impl ::core::marker::Sync for GlobalSystemMediaTransportControlsSessionPlaybackControls {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GlobalSystemMediaTransportControlsSessionPlaybackInfo(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GlobalSystemMediaTransportControlsSessionPlaybackInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl GlobalSystemMediaTransportControlsSessionPlaybackInfo {
     pub fn Controls(&self) -> ::windows_core::Result<GlobalSystemMediaTransportControlsSessionPlaybackControls> {
         let this = self;
@@ -816,19 +699,17 @@ impl ::windows_core::RuntimeType for GlobalSystemMediaTransportControlsSessionPl
 }
 unsafe impl ::windows_core::Interface for GlobalSystemMediaTransportControlsSessionPlaybackInfo {
     type Vtable = IGlobalSystemMediaTransportControlsSessionPlaybackInfo_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GlobalSystemMediaTransportControlsSessionPlaybackInfo {
-    const IID: ::windows_core::GUID = <IGlobalSystemMediaTransportControlsSessionPlaybackInfo as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGlobalSystemMediaTransportControlsSessionPlaybackInfo as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GlobalSystemMediaTransportControlsSessionPlaybackInfo {
     const NAME: &'static str = "Windows.Media.Control.GlobalSystemMediaTransportControlsSessionPlaybackInfo";
 }
-::windows_core::imp::interface_hierarchy!(GlobalSystemMediaTransportControlsSessionPlaybackInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GlobalSystemMediaTransportControlsSessionPlaybackInfo {}
 unsafe impl ::core::marker::Sync for GlobalSystemMediaTransportControlsSessionPlaybackInfo {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GlobalSystemMediaTransportControlsSessionTimelineProperties(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GlobalSystemMediaTransportControlsSessionTimelineProperties, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl GlobalSystemMediaTransportControlsSessionTimelineProperties {
     pub fn StartTime(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -878,90 +759,79 @@ impl ::windows_core::RuntimeType for GlobalSystemMediaTransportControlsSessionTi
 }
 unsafe impl ::windows_core::Interface for GlobalSystemMediaTransportControlsSessionTimelineProperties {
     type Vtable = IGlobalSystemMediaTransportControlsSessionTimelineProperties_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GlobalSystemMediaTransportControlsSessionTimelineProperties {
-    const IID: ::windows_core::GUID = <IGlobalSystemMediaTransportControlsSessionTimelineProperties as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGlobalSystemMediaTransportControlsSessionTimelineProperties as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GlobalSystemMediaTransportControlsSessionTimelineProperties {
     const NAME: &'static str = "Windows.Media.Control.GlobalSystemMediaTransportControlsSessionTimelineProperties";
 }
-::windows_core::imp::interface_hierarchy!(GlobalSystemMediaTransportControlsSessionTimelineProperties, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GlobalSystemMediaTransportControlsSessionTimelineProperties {}
 unsafe impl ::core::marker::Sync for GlobalSystemMediaTransportControlsSessionTimelineProperties {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaPropertiesChangedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(MediaPropertiesChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl MediaPropertiesChangedEventArgs {}
 impl ::windows_core::RuntimeType for MediaPropertiesChangedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for MediaPropertiesChangedEventArgs {
     type Vtable = IMediaPropertiesChangedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for MediaPropertiesChangedEventArgs {
-    const IID: ::windows_core::GUID = <IMediaPropertiesChangedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IMediaPropertiesChangedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for MediaPropertiesChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Control.MediaPropertiesChangedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(MediaPropertiesChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for MediaPropertiesChangedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPropertiesChangedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PlaybackInfoChangedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(PlaybackInfoChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl PlaybackInfoChangedEventArgs {}
 impl ::windows_core::RuntimeType for PlaybackInfoChangedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for PlaybackInfoChangedEventArgs {
     type Vtable = IPlaybackInfoChangedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for PlaybackInfoChangedEventArgs {
-    const IID: ::windows_core::GUID = <IPlaybackInfoChangedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPlaybackInfoChangedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for PlaybackInfoChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Control.PlaybackInfoChangedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(PlaybackInfoChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PlaybackInfoChangedEventArgs {}
 unsafe impl ::core::marker::Sync for PlaybackInfoChangedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SessionsChangedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(SessionsChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl SessionsChangedEventArgs {}
 impl ::windows_core::RuntimeType for SessionsChangedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for SessionsChangedEventArgs {
     type Vtable = ISessionsChangedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for SessionsChangedEventArgs {
-    const IID: ::windows_core::GUID = <ISessionsChangedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ISessionsChangedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for SessionsChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Control.SessionsChangedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(SessionsChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SessionsChangedEventArgs {}
 unsafe impl ::core::marker::Sync for SessionsChangedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TimelinePropertiesChangedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(TimelinePropertiesChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl TimelinePropertiesChangedEventArgs {}
 impl ::windows_core::RuntimeType for TimelinePropertiesChangedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for TimelinePropertiesChangedEventArgs {
     type Vtable = ITimelinePropertiesChangedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for TimelinePropertiesChangedEventArgs {
-    const IID: ::windows_core::GUID = <ITimelinePropertiesChangedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ITimelinePropertiesChangedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for TimelinePropertiesChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Control.TimelinePropertiesChangedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(TimelinePropertiesChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for TimelinePropertiesChangedEventArgs {}
 unsafe impl ::core::marker::Sync for TimelinePropertiesChangedEventArgs {}
 #[repr(transparent)]

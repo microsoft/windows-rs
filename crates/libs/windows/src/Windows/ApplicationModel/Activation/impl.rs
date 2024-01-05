@@ -50,7 +50,7 @@ impl IActivatedEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IActivatedEventArgs as ::windows_core::ComInterface>::IID
+        iid == &<IActivatedEventArgs as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"System\"`"]
@@ -80,7 +80,7 @@ impl IActivatedEventArgsWithUser_Vtbl {
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, IActivatedEventArgsWithUser, OFFSET>(), User: User::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IActivatedEventArgsWithUser as ::windows_core::ComInterface>::IID
+        iid == &<IActivatedEventArgsWithUser as ::windows_core::Interface>::IID
     }
 }
 pub trait IApplicationViewActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl {
@@ -108,7 +108,7 @@ impl IApplicationViewActivatedEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IApplicationViewActivatedEventArgs as ::windows_core::ComInterface>::IID
+        iid == &<IApplicationViewActivatedEventArgs as ::windows_core::Interface>::IID
     }
 }
 pub trait IAppointmentsProviderActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl {
@@ -137,7 +137,7 @@ impl IAppointmentsProviderActivatedEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppointmentsProviderActivatedEventArgs as ::windows_core::ComInterface>::IID
+        iid == &<IAppointmentsProviderActivatedEventArgs as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"ApplicationModel_Appointments_AppointmentsProvider\"`"]
@@ -170,7 +170,7 @@ impl IAppointmentsProviderAddAppointmentActivatedEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppointmentsProviderAddAppointmentActivatedEventArgs as ::windows_core::ComInterface>::IID
+        iid == &<IAppointmentsProviderAddAppointmentActivatedEventArgs as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"ApplicationModel_Appointments_AppointmentsProvider\"`"]
@@ -203,7 +203,7 @@ impl IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppointmentsProviderRemoveAppointmentActivatedEventArgs as ::windows_core::ComInterface>::IID
+        iid == &<IAppointmentsProviderRemoveAppointmentActivatedEventArgs as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"ApplicationModel_Appointments_AppointmentsProvider\"`"]
@@ -236,7 +236,7 @@ impl IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppointmentsProviderReplaceAppointmentActivatedEventArgs as ::windows_core::ComInterface>::IID
+        iid == &<IAppointmentsProviderReplaceAppointmentActivatedEventArgs as ::windows_core::Interface>::IID
     }
 }
 pub trait IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl + IAppointmentsProviderActivatedEventArgs_Impl {
@@ -293,7 +293,7 @@ impl IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs as ::windows_core::ComInterface>::IID
+        iid == &<IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs as ::windows_core::Interface>::IID
     }
 }
 pub trait IAppointmentsProviderShowTimeFrameActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl + IAppointmentsProviderActivatedEventArgs_Impl {
@@ -334,7 +334,7 @@ impl IAppointmentsProviderShowTimeFrameActivatedEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppointmentsProviderShowTimeFrameActivatedEventArgs as ::windows_core::ComInterface>::IID
+        iid == &<IAppointmentsProviderShowTimeFrameActivatedEventArgs as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"ApplicationModel_Background\"`"]
@@ -367,7 +367,7 @@ impl IBackgroundActivatedEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IBackgroundActivatedEventArgs as ::windows_core::ComInterface>::IID
+        iid == &<IBackgroundActivatedEventArgs as ::windows_core::Interface>::IID
     }
 }
 pub trait IBarcodeScannerPreviewActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl {
@@ -396,7 +396,7 @@ impl IBarcodeScannerPreviewActivatedEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IBarcodeScannerPreviewActivatedEventArgs as ::windows_core::ComInterface>::IID
+        iid == &<IBarcodeScannerPreviewActivatedEventArgs as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Storage_Provider\"`"]
@@ -429,7 +429,7 @@ impl ICachedFileUpdaterActivatedEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICachedFileUpdaterActivatedEventArgs as ::windows_core::ComInterface>::IID
+        iid == &<ICachedFileUpdaterActivatedEventArgs as ::windows_core::Interface>::IID
     }
 }
 pub trait ICameraSettingsActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl {
@@ -472,7 +472,7 @@ impl ICameraSettingsActivatedEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICameraSettingsActivatedEventArgs as ::windows_core::ComInterface>::IID
+        iid == &<ICameraSettingsActivatedEventArgs as ::windows_core::Interface>::IID
     }
 }
 pub trait ICommandLineActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl {
@@ -501,7 +501,7 @@ impl ICommandLineActivatedEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICommandLineActivatedEventArgs as ::windows_core::ComInterface>::IID
+        iid == &<ICommandLineActivatedEventArgs as ::windows_core::Interface>::IID
     }
 }
 pub trait IContactActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl {
@@ -527,7 +527,7 @@ impl IContactActivatedEventArgs_Vtbl {
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, IContactActivatedEventArgs, OFFSET>(), Verb: Verb::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IContactActivatedEventArgs as ::windows_core::ComInterface>::IID
+        iid == &<IContactActivatedEventArgs as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"ApplicationModel_Contacts\"`"]
@@ -588,7 +588,7 @@ impl IContactCallActivatedEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IContactCallActivatedEventArgs as ::windows_core::ComInterface>::IID
+        iid == &<IContactCallActivatedEventArgs as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"ApplicationModel_Contacts\"`"]
@@ -635,7 +635,7 @@ impl IContactMapActivatedEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IContactMapActivatedEventArgs as ::windows_core::ComInterface>::IID
+        iid == &<IContactMapActivatedEventArgs as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"ApplicationModel_Contacts\"`"]
@@ -696,7 +696,7 @@ impl IContactMessageActivatedEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IContactMessageActivatedEventArgs as ::windows_core::ComInterface>::IID
+        iid == &<IContactMessageActivatedEventArgs as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"ApplicationModel_Contacts\"`"]
@@ -743,7 +743,7 @@ impl IContactPanelActivatedEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IContactPanelActivatedEventArgs as ::windows_core::ComInterface>::IID
+        iid == &<IContactPanelActivatedEventArgs as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"ApplicationModel_Contacts_Provider\"`"]
@@ -776,7 +776,7 @@ impl IContactPickerActivatedEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IContactPickerActivatedEventArgs as ::windows_core::ComInterface>::IID
+        iid == &<IContactPickerActivatedEventArgs as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"ApplicationModel_Contacts\"`"]
@@ -837,7 +837,7 @@ impl IContactPostActivatedEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IContactPostActivatedEventArgs as ::windows_core::ComInterface>::IID
+        iid == &<IContactPostActivatedEventArgs as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"ApplicationModel_Contacts\"`"]
@@ -898,7 +898,7 @@ impl IContactVideoCallActivatedEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IContactVideoCallActivatedEventArgs as ::windows_core::ComInterface>::IID
+        iid == &<IContactVideoCallActivatedEventArgs as ::windows_core::Interface>::IID
     }
 }
 pub trait IContactsProviderActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl {
@@ -924,7 +924,7 @@ impl IContactsProviderActivatedEventArgs_Vtbl {
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, IContactsProviderActivatedEventArgs, OFFSET>(), Verb: Verb::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IContactsProviderActivatedEventArgs as ::windows_core::ComInterface>::IID
+        iid == &<IContactsProviderActivatedEventArgs as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Foundation_Collections\"`"]
@@ -957,7 +957,7 @@ impl IContinuationActivatedEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IContinuationActivatedEventArgs as ::windows_core::ComInterface>::IID
+        iid == &<IContinuationActivatedEventArgs as ::windows_core::Interface>::IID
     }
 }
 pub trait IDeviceActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl {
@@ -1000,7 +1000,7 @@ impl IDeviceActivatedEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDeviceActivatedEventArgs as ::windows_core::ComInterface>::IID
+        iid == &<IDeviceActivatedEventArgs as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Devices_Enumeration\"`"]
@@ -1033,7 +1033,7 @@ impl IDevicePairingActivatedEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDevicePairingActivatedEventArgs as ::windows_core::ComInterface>::IID
+        iid == &<IDevicePairingActivatedEventArgs as ::windows_core::Interface>::IID
     }
 }
 pub trait IDialReceiverActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl + ILaunchActivatedEventArgs_Impl {
@@ -1062,7 +1062,7 @@ impl IDialReceiverActivatedEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDialReceiverActivatedEventArgs as ::windows_core::ComInterface>::IID
+        iid == &<IDialReceiverActivatedEventArgs as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Foundation_Collections\"`, `\"Storage\"`"]
@@ -1109,7 +1109,7 @@ impl IFileActivatedEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IFileActivatedEventArgs as ::windows_core::ComInterface>::IID
+        iid == &<IFileActivatedEventArgs as ::windows_core::Interface>::IID
     }
 }
 pub trait IFileActivatedEventArgsWithCallerPackageFamilyName_Impl: Sized + IActivatedEventArgs_Impl {
@@ -1138,7 +1138,7 @@ impl IFileActivatedEventArgsWithCallerPackageFamilyName_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IFileActivatedEventArgsWithCallerPackageFamilyName as ::windows_core::ComInterface>::IID
+        iid == &<IFileActivatedEventArgsWithCallerPackageFamilyName as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Foundation_Collections\"`, `\"Storage_Search\"`"]
@@ -1171,7 +1171,7 @@ impl IFileActivatedEventArgsWithNeighboringFiles_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IFileActivatedEventArgsWithNeighboringFiles as ::windows_core::ComInterface>::IID
+        iid == &<IFileActivatedEventArgsWithNeighboringFiles as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Storage_Pickers_Provider\"`"]
@@ -1204,7 +1204,7 @@ impl IFileOpenPickerActivatedEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IFileOpenPickerActivatedEventArgs as ::windows_core::ComInterface>::IID
+        iid == &<IFileOpenPickerActivatedEventArgs as ::windows_core::Interface>::IID
     }
 }
 pub trait IFileOpenPickerActivatedEventArgs2_Impl: Sized {
@@ -1233,7 +1233,7 @@ impl IFileOpenPickerActivatedEventArgs2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IFileOpenPickerActivatedEventArgs2 as ::windows_core::ComInterface>::IID
+        iid == &<IFileOpenPickerActivatedEventArgs2 as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Foundation_Collections\"`, `\"Storage\"`, `\"deprecated\"`"]
@@ -1266,7 +1266,7 @@ impl IFileOpenPickerContinuationEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IFileOpenPickerContinuationEventArgs as ::windows_core::ComInterface>::IID
+        iid == &<IFileOpenPickerContinuationEventArgs as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Storage_Pickers_Provider\"`"]
@@ -1299,7 +1299,7 @@ impl IFileSavePickerActivatedEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IFileSavePickerActivatedEventArgs as ::windows_core::ComInterface>::IID
+        iid == &<IFileSavePickerActivatedEventArgs as ::windows_core::Interface>::IID
     }
 }
 pub trait IFileSavePickerActivatedEventArgs2_Impl: Sized {
@@ -1342,7 +1342,7 @@ impl IFileSavePickerActivatedEventArgs2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IFileSavePickerActivatedEventArgs2 as ::windows_core::ComInterface>::IID
+        iid == &<IFileSavePickerActivatedEventArgs2 as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Foundation_Collections\"`, `\"Storage\"`, `\"deprecated\"`"]
@@ -1372,7 +1372,7 @@ impl IFileSavePickerContinuationEventArgs_Vtbl {
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, IFileSavePickerContinuationEventArgs, OFFSET>(), File: File::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IFileSavePickerContinuationEventArgs as ::windows_core::ComInterface>::IID
+        iid == &<IFileSavePickerContinuationEventArgs as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Foundation_Collections\"`, `\"Storage\"`, `\"deprecated\"`"]
@@ -1405,7 +1405,7 @@ impl IFolderPickerContinuationEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IFolderPickerContinuationEventArgs as ::windows_core::ComInterface>::IID
+        iid == &<IFolderPickerContinuationEventArgs as ::windows_core::Interface>::IID
     }
 }
 pub trait ILaunchActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl {
@@ -1448,7 +1448,7 @@ impl ILaunchActivatedEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ILaunchActivatedEventArgs as ::windows_core::ComInterface>::IID
+        iid == &<ILaunchActivatedEventArgs as ::windows_core::Interface>::IID
     }
 }
 pub trait ILaunchActivatedEventArgs2_Impl: Sized + IActivatedEventArgs_Impl + ILaunchActivatedEventArgs_Impl {
@@ -1477,7 +1477,7 @@ impl ILaunchActivatedEventArgs2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ILaunchActivatedEventArgs2 as ::windows_core::ComInterface>::IID
+        iid == &<ILaunchActivatedEventArgs2 as ::windows_core::Interface>::IID
     }
 }
 pub trait ILockScreenActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl {
@@ -1503,7 +1503,7 @@ impl ILockScreenActivatedEventArgs_Vtbl {
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, ILockScreenActivatedEventArgs, OFFSET>(), Info: Info::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ILockScreenActivatedEventArgs as ::windows_core::ComInterface>::IID
+        iid == &<ILockScreenActivatedEventArgs as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"ApplicationModel_Calls\"`"]
@@ -1536,7 +1536,7 @@ impl ILockScreenCallActivatedEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ILockScreenCallActivatedEventArgs as ::windows_core::ComInterface>::IID
+        iid == &<ILockScreenCallActivatedEventArgs as ::windows_core::Interface>::IID
     }
 }
 pub trait IPhoneCallActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl {
@@ -1561,7 +1561,7 @@ impl IPhoneCallActivatedEventArgs_Vtbl {
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, IPhoneCallActivatedEventArgs, OFFSET>(), LineId: LineId::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPhoneCallActivatedEventArgs as ::windows_core::ComInterface>::IID
+        iid == &<IPhoneCallActivatedEventArgs as ::windows_core::Interface>::IID
     }
 }
 pub trait IPickerReturnedActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl {
@@ -1590,7 +1590,7 @@ impl IPickerReturnedActivatedEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPickerReturnedActivatedEventArgs as ::windows_core::ComInterface>::IID
+        iid == &<IPickerReturnedActivatedEventArgs as ::windows_core::Interface>::IID
     }
 }
 pub trait IPrelaunchActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl {
@@ -1618,7 +1618,7 @@ impl IPrelaunchActivatedEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPrelaunchActivatedEventArgs as ::windows_core::ComInterface>::IID
+        iid == &<IPrelaunchActivatedEventArgs as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Devices_Printers_Extensions\"`"]
@@ -1651,7 +1651,7 @@ impl IPrint3DWorkflowActivatedEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPrint3DWorkflowActivatedEventArgs as ::windows_core::ComInterface>::IID
+        iid == &<IPrint3DWorkflowActivatedEventArgs as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Devices_Printers_Extensions\"`"]
@@ -1684,7 +1684,7 @@ impl IPrintTaskSettingsActivatedEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPrintTaskSettingsActivatedEventArgs as ::windows_core::ComInterface>::IID
+        iid == &<IPrintTaskSettingsActivatedEventArgs as ::windows_core::Interface>::IID
     }
 }
 pub trait IProtocolActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl {
@@ -1710,7 +1710,7 @@ impl IProtocolActivatedEventArgs_Vtbl {
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, IProtocolActivatedEventArgs, OFFSET>(), Uri: Uri::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IProtocolActivatedEventArgs as ::windows_core::ComInterface>::IID
+        iid == &<IProtocolActivatedEventArgs as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Foundation_Collections\"`"]
@@ -1757,7 +1757,7 @@ impl IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData as ::windows_core::ComInterface>::IID
+        iid == &<IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"System\"`"]
@@ -1790,7 +1790,7 @@ impl IProtocolForResultsActivatedEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IProtocolForResultsActivatedEventArgs as ::windows_core::ComInterface>::IID
+        iid == &<IProtocolForResultsActivatedEventArgs as ::windows_core::Interface>::IID
     }
 }
 pub trait IRestrictedLaunchActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl {
@@ -1819,7 +1819,7 @@ impl IRestrictedLaunchActivatedEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRestrictedLaunchActivatedEventArgs as ::windows_core::ComInterface>::IID
+        iid == &<IRestrictedLaunchActivatedEventArgs as ::windows_core::Interface>::IID
     }
 }
 pub trait ISearchActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl {
@@ -1862,7 +1862,7 @@ impl ISearchActivatedEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISearchActivatedEventArgs as ::windows_core::ComInterface>::IID
+        iid == &<ISearchActivatedEventArgs as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"ApplicationModel_Search\"`"]
@@ -1895,7 +1895,7 @@ impl ISearchActivatedEventArgsWithLinguisticDetails_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISearchActivatedEventArgsWithLinguisticDetails as ::windows_core::ComInterface>::IID
+        iid == &<ISearchActivatedEventArgsWithLinguisticDetails as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"ApplicationModel_DataTransfer_ShareTarget\"`"]
@@ -1928,7 +1928,7 @@ impl IShareTargetActivatedEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IShareTargetActivatedEventArgs as ::windows_core::ComInterface>::IID
+        iid == &<IShareTargetActivatedEventArgs as ::windows_core::Interface>::IID
     }
 }
 pub trait IStartupTaskActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl {
@@ -1954,7 +1954,7 @@ impl IStartupTaskActivatedEventArgs_Vtbl {
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, IStartupTaskActivatedEventArgs, OFFSET>(), TaskId: TaskId::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IStartupTaskActivatedEventArgs as ::windows_core::ComInterface>::IID
+        iid == &<IStartupTaskActivatedEventArgs as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Foundation_Collections\"`"]
@@ -2001,7 +2001,7 @@ impl IToastNotificationActivatedEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IToastNotificationActivatedEventArgs as ::windows_core::ComInterface>::IID
+        iid == &<IToastNotificationActivatedEventArgs as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"ApplicationModel_UserDataAccounts_Provider\"`"]
@@ -2034,7 +2034,7 @@ impl IUserDataAccountProviderActivatedEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUserDataAccountProviderActivatedEventArgs as ::windows_core::ComInterface>::IID
+        iid == &<IUserDataAccountProviderActivatedEventArgs as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"UI_ViewManagement\"`"]
@@ -2067,7 +2067,7 @@ impl IViewSwitcherProvider_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IViewSwitcherProvider as ::windows_core::ComInterface>::IID
+        iid == &<IViewSwitcherProvider as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Media_SpeechRecognition\"`"]
@@ -2097,7 +2097,7 @@ impl IVoiceCommandActivatedEventArgs_Vtbl {
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, IVoiceCommandActivatedEventArgs, OFFSET>(), Result: Result::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IVoiceCommandActivatedEventArgs as ::windows_core::ComInterface>::IID
+        iid == &<IVoiceCommandActivatedEventArgs as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"ApplicationModel_Wallet\"`, `\"deprecated\"`"]
@@ -2157,7 +2157,7 @@ impl IWalletActionActivatedEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWalletActionActivatedEventArgs as ::windows_core::ComInterface>::IID
+        iid == &<IWalletActionActivatedEventArgs as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Security_Authentication_Web_Provider\"`"]
@@ -2190,7 +2190,7 @@ impl IWebAccountProviderActivatedEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWebAccountProviderActivatedEventArgs as ::windows_core::ComInterface>::IID
+        iid == &<IWebAccountProviderActivatedEventArgs as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Foundation_Collections\"`, `\"Security_Authentication_Web\"`"]
@@ -2223,6 +2223,6 @@ impl IWebAuthenticationBrokerContinuationEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWebAuthenticationBrokerContinuationEventArgs as ::windows_core::ComInterface>::IID
+        iid == &<IWebAuthenticationBrokerContinuationEventArgs as ::windows_core::Interface>::IID
     }
 }

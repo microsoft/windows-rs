@@ -17,7 +17,7 @@ impl IAnimationObject_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAnimationObject as ::windows_core::ComInterface>::IID
+        iid == &<IAnimationObject as ::windows_core::Interface>::IID
     }
 }
 pub trait ICompositionAnimationBase_Impl: Sized {}
@@ -29,7 +29,7 @@ impl ICompositionAnimationBase_Vtbl {
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, ICompositionAnimationBase, OFFSET>() }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICompositionAnimationBase as ::windows_core::ComInterface>::IID
+        iid == &<ICompositionAnimationBase as ::windows_core::Interface>::IID
     }
 }
 pub trait ICompositionSupportsSystemBackdrop_Impl: Sized {
@@ -65,7 +65,7 @@ impl ICompositionSupportsSystemBackdrop_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICompositionSupportsSystemBackdrop as ::windows_core::ComInterface>::IID
+        iid == &<ICompositionSupportsSystemBackdrop as ::windows_core::Interface>::IID
     }
 }
 pub trait ICompositionSurface_Impl: Sized {}
@@ -77,7 +77,7 @@ impl ICompositionSurface_Vtbl {
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, ICompositionSurface, OFFSET>() }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICompositionSurface as ::windows_core::ComInterface>::IID
+        iid == &<ICompositionSurface as ::windows_core::Interface>::IID
     }
 }
 pub trait ICompositionSurfaceFacade_Impl: Sized {
@@ -106,7 +106,7 @@ impl ICompositionSurfaceFacade_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICompositionSurfaceFacade as ::windows_core::ComInterface>::IID
+        iid == &<ICompositionSurfaceFacade as ::windows_core::Interface>::IID
     }
 }
 pub trait IVisualElement_Impl: Sized {}
@@ -118,7 +118,7 @@ impl IVisualElement_Vtbl {
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, IVisualElement, OFFSET>() }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IVisualElement as ::windows_core::ComInterface>::IID
+        iid == &<IVisualElement as ::windows_core::Interface>::IID
     }
 }
 pub trait IVisualElement2_Impl: Sized {
@@ -147,6 +147,6 @@ impl IVisualElement2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IVisualElement2 as ::windows_core::ComInterface>::IID
+        iid == &<IVisualElement2 as ::windows_core::Interface>::IID
     }
 }

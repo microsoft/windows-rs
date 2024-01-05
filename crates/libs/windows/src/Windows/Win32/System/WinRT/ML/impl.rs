@@ -25,7 +25,7 @@ impl ILearningModelDeviceFactoryNative_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ILearningModelDeviceFactoryNative as ::windows_core::ComInterface>::IID
+        iid == &<ILearningModelDeviceFactoryNative as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_AI_MachineLearning_WinML\"`"]
@@ -52,7 +52,7 @@ impl ILearningModelOperatorProviderNative_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetRegistry: GetRegistry::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ILearningModelOperatorProviderNative as ::windows_core::ComInterface>::IID
+        iid == &<ILearningModelOperatorProviderNative as ::windows_core::Interface>::IID
     }
 }
 pub trait ILearningModelSessionOptionsNative_Impl: Sized {
@@ -72,7 +72,7 @@ impl ILearningModelSessionOptionsNative_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ILearningModelSessionOptionsNative as ::windows_core::ComInterface>::IID
+        iid == &<ILearningModelSessionOptionsNative as ::windows_core::Interface>::IID
     }
 }
 pub trait ILearningModelSessionOptionsNative1_Impl: Sized {
@@ -89,7 +89,7 @@ impl ILearningModelSessionOptionsNative1_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetIntraOpThreadSpinning: SetIntraOpThreadSpinning::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ILearningModelSessionOptionsNative1 as ::windows_core::ComInterface>::IID
+        iid == &<ILearningModelSessionOptionsNative1 as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
@@ -126,7 +126,7 @@ impl ITensorNative_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITensorNative as ::windows_core::ComInterface>::IID
+        iid == &<ITensorNative as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
@@ -147,6 +147,6 @@ impl ITensorStaticsNative_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateFromD3D12Resource: CreateFromD3D12Resource::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITensorStaticsNative as ::windows_core::ComInterface>::IID
+        iid == &<ITensorStaticsNative as ::windows_core::Interface>::IID
     }
 }

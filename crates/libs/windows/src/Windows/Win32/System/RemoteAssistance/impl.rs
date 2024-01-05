@@ -9,7 +9,7 @@ impl DRendezvousSessionEvents_Vtbl {
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<DRendezvousSessionEvents as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<DRendezvousSessionEvents as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 pub trait IRendezvousApplication_Impl: Sized {
@@ -26,7 +26,7 @@ impl IRendezvousApplication_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetRendezvousSession: SetRendezvousSession::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRendezvousApplication as ::windows_core::ComInterface>::IID
+        iid == &<IRendezvousApplication as ::windows_core::Interface>::IID
     }
 }
 pub trait IRendezvousSession_Impl: Sized {
@@ -92,6 +92,6 @@ impl IRendezvousSession_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRendezvousSession as ::windows_core::ComInterface>::IID
+        iid == &<IRendezvousSession as ::windows_core::Interface>::IID
     }
 }

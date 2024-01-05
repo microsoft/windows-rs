@@ -1,13 +1,4 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGattCharacteristic(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGattCharacteristic {
-    type Vtable = IGattCharacteristic_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGattCharacteristic {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x59cb50c1_5934_4f68_a198_eb864fa44e6b);
-}
+::windows_core::imp::com_interface!(IGattCharacteristic, IGattCharacteristic_Vtbl, 0x59cb50c1_5934_4f68_a198_eb864fa44e6b);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattCharacteristic_Vtbl {
@@ -41,16 +32,7 @@ pub struct IGattCharacteristic_Vtbl {
     pub ValueChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, valuechangedhandler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     pub RemoveValueChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, valuechangedeventcookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGattCharacteristic2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGattCharacteristic2 {
-    type Vtable = IGattCharacteristic2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGattCharacteristic2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xae1ab578_ec06_4764_b780_9835a1d35d6e);
-}
+::windows_core::imp::com_interface!(IGattCharacteristic2, IGattCharacteristic2_Vtbl, 0xae1ab578_ec06_4764_b780_9835a1d35d6e);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattCharacteristic2_Vtbl {
@@ -61,16 +43,7 @@ pub struct IGattCharacteristic2_Vtbl {
     #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
     GetAllDescriptors: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGattCharacteristic3(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGattCharacteristic3 {
-    type Vtable = IGattCharacteristic3_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGattCharacteristic3 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3f3c663e_93d4_406b_b817_db81f8ed53b3);
-}
+::windows_core::imp::com_interface!(IGattCharacteristic3, IGattCharacteristic3_Vtbl, 0x3f3c663e_93d4_406b_b817_db81f8ed53b3);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattCharacteristic3_Vtbl {
@@ -89,16 +62,7 @@ pub struct IGattCharacteristic3_Vtbl {
     WriteValueWithResultAndOptionAsync: usize,
     pub WriteClientCharacteristicConfigurationDescriptorWithResultAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clientcharacteristicconfigurationdescriptorvalue: GattClientCharacteristicConfigurationDescriptorValue, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGattCharacteristicStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGattCharacteristicStatics {
-    type Vtable = IGattCharacteristicStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGattCharacteristicStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x59cb50c3_5934_4f68_a198_eb864fa44e6b);
-}
+::windows_core::imp::com_interface!(IGattCharacteristicStatics, IGattCharacteristicStatics_Vtbl, 0x59cb50c3_5934_4f68_a198_eb864fa44e6b);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattCharacteristicStatics_Vtbl {
@@ -108,16 +72,7 @@ pub struct IGattCharacteristicStatics_Vtbl {
     #[cfg(not(feature = "deprecated"))]
     ConvertShortIdToUuid: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGattCharacteristicUuidsStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGattCharacteristicUuidsStatics {
-    type Vtable = IGattCharacteristicUuidsStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGattCharacteristicUuidsStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x58fa4586_b1de_470c_b7de_0d11ff44f4b7);
-}
+::windows_core::imp::com_interface!(IGattCharacteristicUuidsStatics, IGattCharacteristicUuidsStatics_Vtbl, 0x58fa4586_b1de_470c_b7de_0d11ff44f4b7);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattCharacteristicUuidsStatics_Vtbl {
@@ -144,16 +99,7 @@ pub struct IGattCharacteristicUuidsStatics_Vtbl {
     pub TemperatureMeasurement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
     pub TemperatureType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGattCharacteristicUuidsStatics2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGattCharacteristicUuidsStatics2 {
-    type Vtable = IGattCharacteristicUuidsStatics2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGattCharacteristicUuidsStatics2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1855b425_d46e_4a2c_9c3f_ed6dea29e7be);
-}
+::windows_core::imp::com_interface!(IGattCharacteristicUuidsStatics2, IGattCharacteristicUuidsStatics2_Vtbl, 0x1855b425_d46e_4a2c_9c3f_ed6dea29e7be);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattCharacteristicUuidsStatics2_Vtbl {
@@ -219,16 +165,7 @@ pub struct IGattCharacteristicUuidsStatics2_Vtbl {
     pub TxPowerLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
     pub UnreadAlertStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGattCharacteristicsResult(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGattCharacteristicsResult {
-    type Vtable = IGattCharacteristicsResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGattCharacteristicsResult {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1194945c_b257_4f3e_9db7_f68bc9a9aef2);
-}
+::windows_core::imp::com_interface!(IGattCharacteristicsResult, IGattCharacteristicsResult_Vtbl, 0x1194945c_b257_4f3e_9db7_f68bc9a9aef2);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattCharacteristicsResult_Vtbl {
@@ -240,16 +177,7 @@ pub struct IGattCharacteristicsResult_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     Characteristics: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGattClientNotificationResult(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGattClientNotificationResult {
-    type Vtable = IGattClientNotificationResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGattClientNotificationResult {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x506d5599_0112_419a_8e3b_ae21afabd2c2);
-}
+::windows_core::imp::com_interface!(IGattClientNotificationResult, IGattClientNotificationResult_Vtbl, 0x506d5599_0112_419a_8e3b_ae21afabd2c2);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattClientNotificationResult_Vtbl {
@@ -258,32 +186,14 @@ pub struct IGattClientNotificationResult_Vtbl {
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GattCommunicationStatus) -> ::windows_core::HRESULT,
     pub ProtocolError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGattClientNotificationResult2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGattClientNotificationResult2 {
-    type Vtable = IGattClientNotificationResult2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGattClientNotificationResult2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8faec497_45e0_497e_9582_29a1fe281ad5);
-}
+::windows_core::imp::com_interface!(IGattClientNotificationResult2, IGattClientNotificationResult2_Vtbl, 0x8faec497_45e0_497e_9582_29a1fe281ad5);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattClientNotificationResult2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub BytesSent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGattDescriptor(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGattDescriptor {
-    type Vtable = IGattDescriptor_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGattDescriptor {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x92055f2b_8084_4344_b4c2_284de19a8506);
-}
+::windows_core::imp::com_interface!(IGattDescriptor, IGattDescriptor_Vtbl, 0x92055f2b_8084_4344_b4c2_284de19a8506);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattDescriptor_Vtbl {
@@ -299,16 +209,7 @@ pub struct IGattDescriptor_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     WriteValueAsync: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGattDescriptor2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGattDescriptor2 {
-    type Vtable = IGattDescriptor2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGattDescriptor2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8f563d39_d630_406c_ba11_10cdd16b0e5e);
-}
+::windows_core::imp::com_interface!(IGattDescriptor2, IGattDescriptor2_Vtbl, 0x8f563d39_d630_406c_ba11_10cdd16b0e5e);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattDescriptor2_Vtbl {
@@ -318,16 +219,7 @@ pub struct IGattDescriptor2_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     WriteValueWithResultAsync: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGattDescriptorStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGattDescriptorStatics {
-    type Vtable = IGattDescriptorStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGattDescriptorStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x92055f2d_8084_4344_b4c2_284de19a8506);
-}
+::windows_core::imp::com_interface!(IGattDescriptorStatics, IGattDescriptorStatics_Vtbl, 0x92055f2d_8084_4344_b4c2_284de19a8506);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattDescriptorStatics_Vtbl {
@@ -337,16 +229,7 @@ pub struct IGattDescriptorStatics_Vtbl {
     #[cfg(not(feature = "deprecated"))]
     ConvertShortIdToUuid: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGattDescriptorUuidsStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGattDescriptorUuidsStatics {
-    type Vtable = IGattDescriptorUuidsStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGattDescriptorUuidsStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa6f862ce_9cfc_42f1_9185_ff37b75181d3);
-}
+::windows_core::imp::com_interface!(IGattDescriptorUuidsStatics, IGattDescriptorUuidsStatics_Vtbl, 0xa6f862ce_9cfc_42f1_9185_ff37b75181d3);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattDescriptorUuidsStatics_Vtbl {
@@ -358,16 +241,7 @@ pub struct IGattDescriptorUuidsStatics_Vtbl {
     pub ClientCharacteristicConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
     pub ServerCharacteristicConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGattDescriptorsResult(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGattDescriptorsResult {
-    type Vtable = IGattDescriptorsResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGattDescriptorsResult {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9bc091f3_95e7_4489_8d25_ff81955a57b9);
-}
+::windows_core::imp::com_interface!(IGattDescriptorsResult, IGattDescriptorsResult_Vtbl, 0x9bc091f3_95e7_4489_8d25_ff81955a57b9);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattDescriptorsResult_Vtbl {
@@ -379,16 +253,7 @@ pub struct IGattDescriptorsResult_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     Descriptors: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGattDeviceService(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGattDeviceService {
-    type Vtable = IGattDeviceService_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGattDeviceService {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xac7b7c05_b33c_47cf_990f_6b8f5577df71);
-}
+::windows_core::imp::com_interface!(IGattDeviceService, IGattDeviceService_Vtbl, 0xac7b7c05_b33c_47cf_990f_6b8f5577df71);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattDeviceService_Vtbl {
@@ -405,16 +270,7 @@ pub struct IGattDeviceService_Vtbl {
     pub Uuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
     pub AttributeHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGattDeviceService2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGattDeviceService2 {
-    type Vtable = IGattDeviceService2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGattDeviceService2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfc54520b_0b0d_4708_bae0_9ffd9489bc59);
-}
+::windows_core::imp::com_interface!(IGattDeviceService2, IGattDeviceService2_Vtbl, 0xfc54520b_0b0d_4708_bae0_9ffd9489bc59);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattDeviceService2_Vtbl {
@@ -436,16 +292,7 @@ pub struct IGattDeviceService2_Vtbl {
     #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
     GetAllIncludedServices: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGattDeviceService3(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGattDeviceService3 {
-    type Vtable = IGattDeviceService3_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGattDeviceService3 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb293a950_0c53_437c_a9b3_5c3210c6e569);
-}
+::windows_core::imp::com_interface!(IGattDeviceService3, IGattDeviceService3_Vtbl, 0xb293a950_0c53_437c_a9b3_5c3210c6e569);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattDeviceService3_Vtbl {
@@ -470,16 +317,7 @@ pub struct IGattDeviceService3_Vtbl {
     pub GetIncludedServicesForUuidAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, serviceuuid: ::windows_core::GUID, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetIncludedServicesForUuidWithCacheModeAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, serviceuuid: ::windows_core::GUID, cachemode: super::BluetoothCacheMode, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGattDeviceServiceStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGattDeviceServiceStatics {
-    type Vtable = IGattDeviceServiceStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGattDeviceServiceStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x196d0022_faad_45dc_ae5b_2ac3184e84db);
-}
+::windows_core::imp::com_interface!(IGattDeviceServiceStatics, IGattDeviceServiceStatics_Vtbl, 0x196d0022_faad_45dc_ae5b_2ac3184e84db);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattDeviceServiceStatics_Vtbl {
@@ -495,16 +333,7 @@ pub struct IGattDeviceServiceStatics_Vtbl {
     #[cfg(not(feature = "deprecated"))]
     ConvertShortIdToUuid: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGattDeviceServiceStatics2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGattDeviceServiceStatics2 {
-    type Vtable = IGattDeviceServiceStatics2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGattDeviceServiceStatics2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0604186e_24a6_4b0d_a2f2_30cc01545d25);
-}
+::windows_core::imp::com_interface!(IGattDeviceServiceStatics2, IGattDeviceServiceStatics2_Vtbl, 0x0604186e_24a6_4b0d_a2f2_30cc01545d25);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattDeviceServiceStatics2_Vtbl {
@@ -515,16 +344,7 @@ pub struct IGattDeviceServiceStatics2_Vtbl {
     pub GetDeviceSelectorForBluetoothDeviceIdAndUuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bluetoothdeviceid: *mut ::core::ffi::c_void, serviceuuid: ::windows_core::GUID, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub GetDeviceSelectorForBluetoothDeviceIdAndUuidWithCacheMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bluetoothdeviceid: *mut ::core::ffi::c_void, serviceuuid: ::windows_core::GUID, cachemode: super::BluetoothCacheMode, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGattDeviceServicesResult(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGattDeviceServicesResult {
-    type Vtable = IGattDeviceServicesResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGattDeviceServicesResult {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x171dd3ee_016d_419d_838a_576cf475a3d8);
-}
+::windows_core::imp::com_interface!(IGattDeviceServicesResult, IGattDeviceServicesResult_Vtbl, 0x171dd3ee_016d_419d_838a_576cf475a3d8);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattDeviceServicesResult_Vtbl {
@@ -536,16 +356,7 @@ pub struct IGattDeviceServicesResult_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     Services: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGattLocalCharacteristic(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGattLocalCharacteristic {
-    type Vtable = IGattLocalCharacteristic_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGattLocalCharacteristic {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaede376d_5412_4d74_92a8_8deb8526829c);
-}
+::windows_core::imp::com_interface!(IGattLocalCharacteristic, IGattLocalCharacteristic_Vtbl, 0xaede376d_5412_4d74_92a8_8deb8526829c);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattLocalCharacteristic_Vtbl {
@@ -587,16 +398,7 @@ pub struct IGattLocalCharacteristic_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     NotifyValueForSubscribedClientAsync: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGattLocalCharacteristicParameters(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGattLocalCharacteristicParameters {
-    type Vtable = IGattLocalCharacteristicParameters_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGattLocalCharacteristicParameters {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfaf73db4_4cff_44c7_8445_040e6ead0063);
-}
+::windows_core::imp::com_interface!(IGattLocalCharacteristicParameters, IGattLocalCharacteristicParameters_Vtbl, 0xfaf73db4_4cff_44c7_8445_040e6ead0063);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattLocalCharacteristicParameters_Vtbl {
@@ -622,16 +424,7 @@ pub struct IGattLocalCharacteristicParameters_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     PresentationFormats: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGattLocalCharacteristicResult(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGattLocalCharacteristicResult {
-    type Vtable = IGattLocalCharacteristicResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGattLocalCharacteristicResult {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7975de9b_0170_4397_9666_92f863f12ee6);
-}
+::windows_core::imp::com_interface!(IGattLocalCharacteristicResult, IGattLocalCharacteristicResult_Vtbl, 0x7975de9b_0170_4397_9666_92f863f12ee6);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattLocalCharacteristicResult_Vtbl {
@@ -639,16 +432,7 @@ pub struct IGattLocalCharacteristicResult_Vtbl {
     pub Characteristic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Error: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::BluetoothError) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGattLocalDescriptor(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGattLocalDescriptor {
-    type Vtable = IGattLocalDescriptor_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGattLocalDescriptor {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf48ebe06_789d_4a4b_8652_bd017b5d2fc6);
-}
+::windows_core::imp::com_interface!(IGattLocalDescriptor, IGattLocalDescriptor_Vtbl, 0xf48ebe06_789d_4a4b_8652_bd017b5d2fc6);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattLocalDescriptor_Vtbl {
@@ -665,16 +449,7 @@ pub struct IGattLocalDescriptor_Vtbl {
     pub WriteRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     pub RemoveWriteRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGattLocalDescriptorParameters(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGattLocalDescriptorParameters {
-    type Vtable = IGattLocalDescriptorParameters_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGattLocalDescriptorParameters {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5fdede6a_f3c1_4b66_8c4b_e3d2293b40e9);
-}
+::windows_core::imp::com_interface!(IGattLocalDescriptorParameters, IGattLocalDescriptorParameters_Vtbl, 0x5fdede6a_f3c1_4b66_8c4b_e3d2293b40e9);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattLocalDescriptorParameters_Vtbl {
@@ -692,16 +467,7 @@ pub struct IGattLocalDescriptorParameters_Vtbl {
     pub SetWriteProtectionLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: GattProtectionLevel) -> ::windows_core::HRESULT,
     pub WriteProtectionLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GattProtectionLevel) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGattLocalDescriptorResult(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGattLocalDescriptorResult {
-    type Vtable = IGattLocalDescriptorResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGattLocalDescriptorResult {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x375791be_321f_4366_bfc1_3bc6b82c79f8);
-}
+::windows_core::imp::com_interface!(IGattLocalDescriptorResult, IGattLocalDescriptorResult_Vtbl, 0x375791be_321f_4366_bfc1_3bc6b82c79f8);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattLocalDescriptorResult_Vtbl {
@@ -709,16 +475,7 @@ pub struct IGattLocalDescriptorResult_Vtbl {
     pub Descriptor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Error: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::BluetoothError) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGattLocalService(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGattLocalService {
-    type Vtable = IGattLocalService_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGattLocalService {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf513e258_f7f7_4902_b803_57fcc7d6fe83);
-}
+::windows_core::imp::com_interface!(IGattLocalService, IGattLocalService_Vtbl, 0xf513e258_f7f7_4902_b803_57fcc7d6fe83);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattLocalService_Vtbl {
@@ -730,16 +487,7 @@ pub struct IGattLocalService_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     Characteristics: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGattPresentationFormat(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGattPresentationFormat {
-    type Vtable = IGattPresentationFormat_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGattPresentationFormat {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x196d0021_faad_45dc_ae5b_2ac3184e84db);
-}
+::windows_core::imp::com_interface!(IGattPresentationFormat, IGattPresentationFormat_Vtbl, 0x196d0021_faad_45dc_ae5b_2ac3184e84db);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattPresentationFormat_Vtbl {
@@ -750,48 +498,21 @@ pub struct IGattPresentationFormat_Vtbl {
     pub Namespace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows_core::HRESULT,
     pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGattPresentationFormatStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGattPresentationFormatStatics {
-    type Vtable = IGattPresentationFormatStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGattPresentationFormatStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x196d0020_faad_45dc_ae5b_2ac3184e84db);
-}
+::windows_core::imp::com_interface!(IGattPresentationFormatStatics, IGattPresentationFormatStatics_Vtbl, 0x196d0020_faad_45dc_ae5b_2ac3184e84db);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattPresentationFormatStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub BluetoothSigAssignedNumbers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGattPresentationFormatStatics2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGattPresentationFormatStatics2 {
-    type Vtable = IGattPresentationFormatStatics2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGattPresentationFormatStatics2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa9c21713_b82f_435e_b634_21fd85a43c07);
-}
+::windows_core::imp::com_interface!(IGattPresentationFormatStatics2, IGattPresentationFormatStatics2_Vtbl, 0xa9c21713_b82f_435e_b634_21fd85a43c07);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattPresentationFormatStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub FromParts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, formattype: u8, exponent: i32, unit: u16, namespaceid: u8, description: u16, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGattPresentationFormatTypesStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGattPresentationFormatTypesStatics {
-    type Vtable = IGattPresentationFormatTypesStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGattPresentationFormatTypesStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfaf1ba0a_30ba_409c_bef7_cffb6d03b8fb);
-}
+::windows_core::imp::com_interface!(IGattPresentationFormatTypesStatics, IGattPresentationFormatTypesStatics_Vtbl, 0xfaf1ba0a_30ba_409c_bef7_cffb6d03b8fb);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattPresentationFormatTypesStatics_Vtbl {
@@ -824,16 +545,7 @@ pub struct IGattPresentationFormatTypesStatics_Vtbl {
     pub Utf16: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows_core::HRESULT,
     pub Struct: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGattProtocolErrorStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGattProtocolErrorStatics {
-    type Vtable = IGattProtocolErrorStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGattProtocolErrorStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xca46c5c5_0ecc_4809_bea3_cf79bc991e37);
-}
+::windows_core::imp::com_interface!(IGattProtocolErrorStatics, IGattProtocolErrorStatics_Vtbl, 0xca46c5c5_0ecc_4809_bea3_cf79bc991e37);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattProtocolErrorStatics_Vtbl {
@@ -856,16 +568,7 @@ pub struct IGattProtocolErrorStatics_Vtbl {
     pub UnsupportedGroupType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows_core::HRESULT,
     pub InsufficientResources: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGattReadClientCharacteristicConfigurationDescriptorResult(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGattReadClientCharacteristicConfigurationDescriptorResult {
-    type Vtable = IGattReadClientCharacteristicConfigurationDescriptorResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGattReadClientCharacteristicConfigurationDescriptorResult {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x63a66f09_1aea_4c4c_a50f_97bae474b348);
-}
+::windows_core::imp::com_interface!(IGattReadClientCharacteristicConfigurationDescriptorResult, IGattReadClientCharacteristicConfigurationDescriptorResult_Vtbl, 0x63a66f09_1aea_4c4c_a50f_97bae474b348);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattReadClientCharacteristicConfigurationDescriptorResult_Vtbl {
@@ -873,32 +576,14 @@ pub struct IGattReadClientCharacteristicConfigurationDescriptorResult_Vtbl {
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GattCommunicationStatus) -> ::windows_core::HRESULT,
     pub ClientCharacteristicConfigurationDescriptor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GattClientCharacteristicConfigurationDescriptorValue) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGattReadClientCharacteristicConfigurationDescriptorResult2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGattReadClientCharacteristicConfigurationDescriptorResult2 {
-    type Vtable = IGattReadClientCharacteristicConfigurationDescriptorResult2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGattReadClientCharacteristicConfigurationDescriptorResult2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1bf1a59d_ba4d_4622_8651_f4ee150d0a5d);
-}
+::windows_core::imp::com_interface!(IGattReadClientCharacteristicConfigurationDescriptorResult2, IGattReadClientCharacteristicConfigurationDescriptorResult2_Vtbl, 0x1bf1a59d_ba4d_4622_8651_f4ee150d0a5d);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattReadClientCharacteristicConfigurationDescriptorResult2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ProtocolError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGattReadRequest(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGattReadRequest {
-    type Vtable = IGattReadRequest_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGattReadRequest {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf1dd6535_6acd_42a6_a4bb_d789dae0043e);
-}
+::windows_core::imp::com_interface!(IGattReadRequest, IGattReadRequest_Vtbl, 0xf1dd6535_6acd_42a6_a4bb_d789dae0043e);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattReadRequest_Vtbl {
@@ -914,16 +599,7 @@ pub struct IGattReadRequest_Vtbl {
     RespondWithValue: usize,
     pub RespondWithProtocolError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, protocolerror: u8) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGattReadRequestedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGattReadRequestedEventArgs {
-    type Vtable = IGattReadRequestedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGattReadRequestedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x93497243_f39c_484b_8ab6_996ba486cfa3);
-}
+::windows_core::imp::com_interface!(IGattReadRequestedEventArgs, IGattReadRequestedEventArgs_Vtbl, 0x93497243_f39c_484b_8ab6_996ba486cfa3);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattReadRequestedEventArgs_Vtbl {
@@ -932,16 +608,7 @@ pub struct IGattReadRequestedEventArgs_Vtbl {
     pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetRequestAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGattReadResult(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGattReadResult {
-    type Vtable = IGattReadResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGattReadResult {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x63a66f08_1aea_4c4c_a50f_97bae474b348);
-}
+::windows_core::imp::com_interface!(IGattReadResult, IGattReadResult_Vtbl, 0x63a66f08_1aea_4c4c_a50f_97bae474b348);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattReadResult_Vtbl {
@@ -952,32 +619,14 @@ pub struct IGattReadResult_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     Value: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGattReadResult2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGattReadResult2 {
-    type Vtable = IGattReadResult2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGattReadResult2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa10f50a0_fb43_48af_baaa_638a5c6329fe);
-}
+::windows_core::imp::com_interface!(IGattReadResult2, IGattReadResult2_Vtbl, 0xa10f50a0_fb43_48af_baaa_638a5c6329fe);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattReadResult2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ProtocolError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGattReliableWriteTransaction(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGattReliableWriteTransaction {
-    type Vtable = IGattReliableWriteTransaction_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGattReliableWriteTransaction {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x63a66f07_1aea_4c4c_a50f_97bae474b348);
-}
+::windows_core::imp::com_interface!(IGattReliableWriteTransaction, IGattReliableWriteTransaction_Vtbl, 0x63a66f07_1aea_4c4c_a50f_97bae474b348);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattReliableWriteTransaction_Vtbl {
@@ -988,32 +637,14 @@ pub struct IGattReliableWriteTransaction_Vtbl {
     WriteValue: usize,
     pub CommitAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGattReliableWriteTransaction2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGattReliableWriteTransaction2 {
-    type Vtable = IGattReliableWriteTransaction2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGattReliableWriteTransaction2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x51113987_ef12_462f_9fb2_a1a43a679416);
-}
+::windows_core::imp::com_interface!(IGattReliableWriteTransaction2, IGattReliableWriteTransaction2_Vtbl, 0x51113987_ef12_462f_9fb2_a1a43a679416);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattReliableWriteTransaction2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CommitWithResultAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGattRequestStateChangedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGattRequestStateChangedEventArgs {
-    type Vtable = IGattRequestStateChangedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGattRequestStateChangedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe834d92c_27be_44b3_9d0d_4fc6e808dd3f);
-}
+::windows_core::imp::com_interface!(IGattRequestStateChangedEventArgs, IGattRequestStateChangedEventArgs_Vtbl, 0xe834d92c_27be_44b3_9d0d_4fc6e808dd3f);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattRequestStateChangedEventArgs_Vtbl {
@@ -1021,16 +652,7 @@ pub struct IGattRequestStateChangedEventArgs_Vtbl {
     pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GattRequestState) -> ::windows_core::HRESULT,
     pub Error: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::BluetoothError) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGattServiceProvider(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGattServiceProvider {
-    type Vtable = IGattServiceProvider_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGattServiceProvider {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7822b3cd_2889_4f86_a051_3f0aed1c2760);
-}
+::windows_core::imp::com_interface!(IGattServiceProvider, IGattServiceProvider_Vtbl, 0x7822b3cd_2889_4f86_a051_3f0aed1c2760);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattServiceProvider_Vtbl {
@@ -1043,16 +665,7 @@ pub struct IGattServiceProvider_Vtbl {
     pub StartAdvertisingWithParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parameters: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub StopAdvertising: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGattServiceProviderAdvertisementStatusChangedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGattServiceProviderAdvertisementStatusChangedEventArgs {
-    type Vtable = IGattServiceProviderAdvertisementStatusChangedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGattServiceProviderAdvertisementStatusChangedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x59a5aa65_fa21_4ffc_b155_04d928012686);
-}
+::windows_core::imp::com_interface!(IGattServiceProviderAdvertisementStatusChangedEventArgs, IGattServiceProviderAdvertisementStatusChangedEventArgs_Vtbl, 0x59a5aa65_fa21_4ffc_b155_04d928012686);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattServiceProviderAdvertisementStatusChangedEventArgs_Vtbl {
@@ -1060,16 +673,7 @@ pub struct IGattServiceProviderAdvertisementStatusChangedEventArgs_Vtbl {
     pub Error: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::BluetoothError) -> ::windows_core::HRESULT,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GattServiceProviderAdvertisementStatus) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGattServiceProviderAdvertisingParameters(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGattServiceProviderAdvertisingParameters {
-    type Vtable = IGattServiceProviderAdvertisingParameters_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGattServiceProviderAdvertisingParameters {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe2ce31ab_6315_4c22_9bd7_781dbc3d8d82);
-}
+::windows_core::imp::com_interface!(IGattServiceProviderAdvertisingParameters, IGattServiceProviderAdvertisingParameters_Vtbl, 0xe2ce31ab_6315_4c22_9bd7_781dbc3d8d82);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattServiceProviderAdvertisingParameters_Vtbl {
@@ -1079,16 +683,7 @@ pub struct IGattServiceProviderAdvertisingParameters_Vtbl {
     pub SetIsDiscoverable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
     pub IsDiscoverable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGattServiceProviderAdvertisingParameters2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGattServiceProviderAdvertisingParameters2 {
-    type Vtable = IGattServiceProviderAdvertisingParameters2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGattServiceProviderAdvertisingParameters2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xff68468d_ca92_4434_9743_0e90988ad879);
-}
+::windows_core::imp::com_interface!(IGattServiceProviderAdvertisingParameters2, IGattServiceProviderAdvertisingParameters2_Vtbl, 0xff68468d_ca92_4434_9743_0e90988ad879);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattServiceProviderAdvertisingParameters2_Vtbl {
@@ -1102,16 +697,7 @@ pub struct IGattServiceProviderAdvertisingParameters2_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     ServiceData: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGattServiceProviderResult(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGattServiceProviderResult {
-    type Vtable = IGattServiceProviderResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGattServiceProviderResult {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x764696d8_c53e_428c_8a48_67afe02c3ae6);
-}
+::windows_core::imp::com_interface!(IGattServiceProviderResult, IGattServiceProviderResult_Vtbl, 0x764696d8_c53e_428c_8a48_67afe02c3ae6);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattServiceProviderResult_Vtbl {
@@ -1119,32 +705,14 @@ pub struct IGattServiceProviderResult_Vtbl {
     pub Error: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::BluetoothError) -> ::windows_core::HRESULT,
     pub ServiceProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGattServiceProviderStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGattServiceProviderStatics {
-    type Vtable = IGattServiceProviderStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGattServiceProviderStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x31794063_5256_4054_a4f4_7bbe7755a57e);
-}
+::windows_core::imp::com_interface!(IGattServiceProviderStatics, IGattServiceProviderStatics_Vtbl, 0x31794063_5256_4054_a4f4_7bbe7755a57e);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattServiceProviderStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, serviceuuid: ::windows_core::GUID, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGattServiceUuidsStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGattServiceUuidsStatics {
-    type Vtable = IGattServiceUuidsStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGattServiceUuidsStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6dc57058_9aba_4417_b8f2_dce016d34ee2);
-}
+::windows_core::imp::com_interface!(IGattServiceUuidsStatics, IGattServiceUuidsStatics_Vtbl, 0x6dc57058_9aba_4417_b8f2_dce016d34ee2);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattServiceUuidsStatics_Vtbl {
@@ -1159,16 +727,7 @@ pub struct IGattServiceUuidsStatics_Vtbl {
     pub HeartRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
     pub RunningSpeedAndCadence: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGattServiceUuidsStatics2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGattServiceUuidsStatics2 {
-    type Vtable = IGattServiceUuidsStatics2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGattServiceUuidsStatics2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd2ae94f5_3d15_4f79_9c0c_eaafa675155c);
-}
+::windows_core::imp::com_interface!(IGattServiceUuidsStatics2, IGattServiceUuidsStatics2_Vtbl, 0xd2ae94f5_3d15_4f79_9c0c_eaafa675155c);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattServiceUuidsStatics2_Vtbl {
@@ -1187,16 +746,7 @@ pub struct IGattServiceUuidsStatics2_Vtbl {
     pub ScanParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
     pub TxPower: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGattSession(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGattSession {
-    type Vtable = IGattSession_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGattSession {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd23b5143_e04e_4c24_999c_9c256f9856b1);
-}
+::windows_core::imp::com_interface!(IGattSession, IGattSession_Vtbl, 0xd23b5143_e04e_4c24_999c_9c256f9856b1);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattSession_Vtbl {
@@ -1212,32 +762,14 @@ pub struct IGattSession_Vtbl {
     pub SessionStatusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     pub RemoveSessionStatusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGattSessionStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGattSessionStatics {
-    type Vtable = IGattSessionStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGattSessionStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2e65b95c_539f_4db7_82a8_73bdbbf73ebf);
-}
+::windows_core::imp::com_interface!(IGattSessionStatics, IGattSessionStatics_Vtbl, 0x2e65b95c_539f_4db7_82a8_73bdbbf73ebf);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattSessionStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub FromDeviceIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGattSessionStatusChangedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGattSessionStatusChangedEventArgs {
-    type Vtable = IGattSessionStatusChangedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGattSessionStatusChangedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7605b72e_837f_404c_ab34_3163f39ddf32);
-}
+::windows_core::imp::com_interface!(IGattSessionStatusChangedEventArgs, IGattSessionStatusChangedEventArgs_Vtbl, 0x7605b72e_837f_404c_ab34_3163f39ddf32);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattSessionStatusChangedEventArgs_Vtbl {
@@ -1245,16 +777,7 @@ pub struct IGattSessionStatusChangedEventArgs_Vtbl {
     pub Error: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::BluetoothError) -> ::windows_core::HRESULT,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GattSessionStatus) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGattSubscribedClient(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGattSubscribedClient {
-    type Vtable = IGattSubscribedClient_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGattSubscribedClient {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x736e9001_15a4_4ec2_9248_e3f20d463be9);
-}
+::windows_core::imp::com_interface!(IGattSubscribedClient, IGattSubscribedClient_Vtbl, 0x736e9001_15a4_4ec2_9248_e3f20d463be9);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattSubscribedClient_Vtbl {
@@ -1264,16 +787,7 @@ pub struct IGattSubscribedClient_Vtbl {
     pub MaxNotificationSizeChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     pub RemoveMaxNotificationSizeChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGattValueChangedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGattValueChangedEventArgs {
-    type Vtable = IGattValueChangedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGattValueChangedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd21bdb54_06e3_4ed8_a263_acfac8ba7313);
-}
+::windows_core::imp::com_interface!(IGattValueChangedEventArgs, IGattValueChangedEventArgs_Vtbl, 0xd21bdb54_06e3_4ed8_a263_acfac8ba7313);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattValueChangedEventArgs_Vtbl {
@@ -1284,16 +798,7 @@ pub struct IGattValueChangedEventArgs_Vtbl {
     CharacteristicValue: usize,
     pub Timestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGattWriteRequest(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGattWriteRequest {
-    type Vtable = IGattWriteRequest_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGattWriteRequest {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaeb6a9ed_de2f_4fc2_a9a8_94ea7844f13d);
-}
+::windows_core::imp::com_interface!(IGattWriteRequest, IGattWriteRequest_Vtbl, 0xaeb6a9ed_de2f_4fc2_a9a8_94ea7844f13d);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattWriteRequest_Vtbl {
@@ -1310,16 +815,7 @@ pub struct IGattWriteRequest_Vtbl {
     pub Respond: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub RespondWithProtocolError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, protocolerror: u8) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGattWriteRequestedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGattWriteRequestedEventArgs {
-    type Vtable = IGattWriteRequestedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGattWriteRequestedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2dec8bbe_a73a_471a_94d5_037deadd0806);
-}
+::windows_core::imp::com_interface!(IGattWriteRequestedEventArgs, IGattWriteRequestedEventArgs_Vtbl, 0x2dec8bbe_a73a_471a_94d5_037deadd0806);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattWriteRequestedEventArgs_Vtbl {
@@ -1328,16 +824,7 @@ pub struct IGattWriteRequestedEventArgs_Vtbl {
     pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetRequestAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGattWriteResult(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGattWriteResult {
-    type Vtable = IGattWriteResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGattWriteResult {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4991ddb1_cb2b_44f7_99fc_d29a2871dc9b);
-}
+::windows_core::imp::com_interface!(IGattWriteResult, IGattWriteResult_Vtbl, 0x4991ddb1_cb2b_44f7_99fc_d29a2871dc9b);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGattWriteResult_Vtbl {
@@ -1348,6 +835,7 @@ pub struct IGattWriteResult_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GattCharacteristic(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GattCharacteristic, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl GattCharacteristic {
     #[doc = "Required features: `\"Foundation_Collections\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
@@ -1424,24 +912,24 @@ impl GattCharacteristic {
     #[cfg(feature = "Storage_Streams")]
     pub fn WriteValueAsync<P0>(&self, value: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>>
     where
-        P0: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P0: ::windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).WriteValueAsync)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).WriteValueAsync)(::windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn WriteValueWithOptionAsync<P0>(&self, value: P0, writeoption: GattWriteOption) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>>
     where
-        P0: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P0: ::windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).WriteValueWithOptionAsync)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi(), writeoption, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).WriteValueWithOptionAsync)(::windows_core::Interface::as_raw(this), value.into_param().abi(), writeoption, &mut result__).from_abi(result__)
         }
     }
     pub fn ReadClientCharacteristicConfigurationDescriptorAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattReadClientCharacteristicConfigurationDescriptorResult>> {
@@ -1473,7 +961,7 @@ impl GattCharacteristic {
         unsafe { (::windows_core::Interface::vtable(this).RemoveValueChanged)(::windows_core::Interface::as_raw(this), valuechangedeventcookie).ok() }
     }
     pub fn Service(&self) -> ::windows_core::Result<GattDeviceService> {
-        let this = &::windows_core::ComInterface::cast::<IGattCharacteristic2>(self)?;
+        let this = &::windows_core::Interface::cast::<IGattCharacteristic2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Service)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -1482,35 +970,35 @@ impl GattCharacteristic {
     #[doc = "Required features: `\"Foundation_Collections\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn GetAllDescriptors(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GattDescriptor>> {
-        let this = &::windows_core::ComInterface::cast::<IGattCharacteristic2>(self)?;
+        let this = &::windows_core::Interface::cast::<IGattCharacteristic2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetAllDescriptors)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetDescriptorsAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>> {
-        let this = &::windows_core::ComInterface::cast::<IGattCharacteristic3>(self)?;
+        let this = &::windows_core::Interface::cast::<IGattCharacteristic3>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDescriptorsAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetDescriptorsWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>> {
-        let this = &::windows_core::ComInterface::cast::<IGattCharacteristic3>(self)?;
+        let this = &::windows_core::Interface::cast::<IGattCharacteristic3>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDescriptorsWithCacheModeAsync)(::windows_core::Interface::as_raw(this), cachemode, &mut result__).from_abi(result__)
         }
     }
     pub fn GetDescriptorsForUuidAsync(&self, descriptoruuid: ::windows_core::GUID) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>> {
-        let this = &::windows_core::ComInterface::cast::<IGattCharacteristic3>(self)?;
+        let this = &::windows_core::Interface::cast::<IGattCharacteristic3>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDescriptorsForUuidAsync)(::windows_core::Interface::as_raw(this), descriptoruuid, &mut result__).from_abi(result__)
         }
     }
     pub fn GetDescriptorsForUuidWithCacheModeAsync(&self, descriptoruuid: ::windows_core::GUID, cachemode: super::BluetoothCacheMode) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>> {
-        let this = &::windows_core::ComInterface::cast::<IGattCharacteristic3>(self)?;
+        let this = &::windows_core::Interface::cast::<IGattCharacteristic3>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDescriptorsForUuidWithCacheModeAsync)(::windows_core::Interface::as_raw(this), descriptoruuid, cachemode, &mut result__).from_abi(result__)
@@ -1520,28 +1008,28 @@ impl GattCharacteristic {
     #[cfg(feature = "Storage_Streams")]
     pub fn WriteValueWithResultAsync<P0>(&self, value: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattWriteResult>>
     where
-        P0: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P0: ::windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
     {
-        let this = &::windows_core::ComInterface::cast::<IGattCharacteristic3>(self)?;
+        let this = &::windows_core::Interface::cast::<IGattCharacteristic3>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).WriteValueWithResultAsync)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).WriteValueWithResultAsync)(::windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn WriteValueWithResultAndOptionAsync<P0>(&self, value: P0, writeoption: GattWriteOption) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattWriteResult>>
     where
-        P0: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P0: ::windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
     {
-        let this = &::windows_core::ComInterface::cast::<IGattCharacteristic3>(self)?;
+        let this = &::windows_core::Interface::cast::<IGattCharacteristic3>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).WriteValueWithResultAndOptionAsync)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi(), writeoption, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).WriteValueWithResultAndOptionAsync)(::windows_core::Interface::as_raw(this), value.into_param().abi(), writeoption, &mut result__).from_abi(result__)
         }
     }
     pub fn WriteClientCharacteristicConfigurationDescriptorWithResultAsync(&self, clientcharacteristicconfigurationdescriptorvalue: GattClientCharacteristicConfigurationDescriptorValue) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattWriteResult>> {
-        let this = &::windows_core::ComInterface::cast::<IGattCharacteristic3>(self)?;
+        let this = &::windows_core::Interface::cast::<IGattCharacteristic3>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).WriteClientCharacteristicConfigurationDescriptorWithResultAsync)(::windows_core::Interface::as_raw(this), clientcharacteristicconfigurationdescriptorvalue, &mut result__).from_abi(result__)
@@ -1566,14 +1054,11 @@ impl ::windows_core::RuntimeType for GattCharacteristic {
 }
 unsafe impl ::windows_core::Interface for GattCharacteristic {
     type Vtable = IGattCharacteristic_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GattCharacteristic {
-    const IID: ::windows_core::GUID = <IGattCharacteristic as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGattCharacteristic as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GattCharacteristic {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristic";
 }
-::windows_core::imp::interface_hierarchy!(GattCharacteristic, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GattCharacteristic {}
 unsafe impl ::core::marker::Sync for GattCharacteristic {}
 pub struct GattCharacteristicUuids;
@@ -2081,6 +1566,7 @@ impl ::windows_core::RuntimeName for GattCharacteristicUuids {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GattCharacteristicsResult(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GattCharacteristicsResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl GattCharacteristicsResult {
     pub fn Status(&self) -> ::windows_core::Result<GattCommunicationStatus> {
         let this = self;
@@ -2111,19 +1597,17 @@ impl ::windows_core::RuntimeType for GattCharacteristicsResult {
 }
 unsafe impl ::windows_core::Interface for GattCharacteristicsResult {
     type Vtable = IGattCharacteristicsResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GattCharacteristicsResult {
-    const IID: ::windows_core::GUID = <IGattCharacteristicsResult as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGattCharacteristicsResult as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GattCharacteristicsResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicsResult";
 }
-::windows_core::imp::interface_hierarchy!(GattCharacteristicsResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GattCharacteristicsResult {}
 unsafe impl ::core::marker::Sync for GattCharacteristicsResult {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GattClientNotificationResult(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GattClientNotificationResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl GattClientNotificationResult {
     pub fn SubscribedClient(&self) -> ::windows_core::Result<GattSubscribedClient> {
         let this = self;
@@ -2147,7 +1631,7 @@ impl GattClientNotificationResult {
         }
     }
     pub fn BytesSent(&self) -> ::windows_core::Result<u16> {
-        let this = &::windows_core::ComInterface::cast::<IGattClientNotificationResult2>(self)?;
+        let this = &::windows_core::Interface::cast::<IGattClientNotificationResult2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).BytesSent)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -2159,19 +1643,17 @@ impl ::windows_core::RuntimeType for GattClientNotificationResult {
 }
 unsafe impl ::windows_core::Interface for GattClientNotificationResult {
     type Vtable = IGattClientNotificationResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GattClientNotificationResult {
-    const IID: ::windows_core::GUID = <IGattClientNotificationResult as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGattClientNotificationResult as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GattClientNotificationResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattClientNotificationResult";
 }
-::windows_core::imp::interface_hierarchy!(GattClientNotificationResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GattClientNotificationResult {}
 unsafe impl ::core::marker::Sync for GattClientNotificationResult {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GattDescriptor(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GattDescriptor, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl GattDescriptor {
     pub fn ProtectionLevel(&self) -> ::windows_core::Result<GattProtectionLevel> {
         let this = self;
@@ -2216,24 +1698,24 @@ impl GattDescriptor {
     #[cfg(feature = "Storage_Streams")]
     pub fn WriteValueAsync<P0>(&self, value: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>>
     where
-        P0: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P0: ::windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).WriteValueAsync)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).WriteValueAsync)(::windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn WriteValueWithResultAsync<P0>(&self, value: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattWriteResult>>
     where
-        P0: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P0: ::windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
     {
-        let this = &::windows_core::ComInterface::cast::<IGattDescriptor2>(self)?;
+        let this = &::windows_core::Interface::cast::<IGattDescriptor2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).WriteValueWithResultAsync)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).WriteValueWithResultAsync)(::windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"deprecated\"`"]
@@ -2255,14 +1737,11 @@ impl ::windows_core::RuntimeType for GattDescriptor {
 }
 unsafe impl ::windows_core::Interface for GattDescriptor {
     type Vtable = IGattDescriptor_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GattDescriptor {
-    const IID: ::windows_core::GUID = <IGattDescriptor as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGattDescriptor as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GattDescriptor {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattDescriptor";
 }
-::windows_core::imp::interface_hierarchy!(GattDescriptor, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GattDescriptor {}
 unsafe impl ::core::marker::Sync for GattDescriptor {}
 pub struct GattDescriptorUuids;
@@ -2315,6 +1794,7 @@ impl ::windows_core::RuntimeName for GattDescriptorUuids {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GattDescriptorsResult(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GattDescriptorsResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl GattDescriptorsResult {
     pub fn Status(&self) -> ::windows_core::Result<GattCommunicationStatus> {
         let this = self;
@@ -2345,22 +1825,21 @@ impl ::windows_core::RuntimeType for GattDescriptorsResult {
 }
 unsafe impl ::windows_core::Interface for GattDescriptorsResult {
     type Vtable = IGattDescriptorsResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GattDescriptorsResult {
-    const IID: ::windows_core::GUID = <IGattDescriptorsResult as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGattDescriptorsResult as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GattDescriptorsResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattDescriptorsResult";
 }
-::windows_core::imp::interface_hierarchy!(GattDescriptorsResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GattDescriptorsResult {}
 unsafe impl ::core::marker::Sync for GattDescriptorsResult {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GattDeviceService(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GattDeviceService, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(GattDeviceService, super::super::super::Foundation::IClosable);
 impl GattDeviceService {
     pub fn Close(&self) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IClosable>(self)?;
+        let this = &::windows_core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
     #[doc = "Required features: `\"Foundation_Collections\"`, `\"deprecated\"`"]
@@ -2405,7 +1884,7 @@ impl GattDeviceService {
     #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn Device(&self) -> ::windows_core::Result<super::BluetoothLEDevice> {
-        let this = &::windows_core::ComInterface::cast::<IGattDeviceService2>(self)?;
+        let this = &::windows_core::Interface::cast::<IGattDeviceService2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Device)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -2414,7 +1893,7 @@ impl GattDeviceService {
     #[doc = "Required features: `\"Foundation_Collections\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn ParentServices(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GattDeviceService>> {
-        let this = &::windows_core::ComInterface::cast::<IGattDeviceService2>(self)?;
+        let this = &::windows_core::Interface::cast::<IGattDeviceService2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ParentServices)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -2423,7 +1902,7 @@ impl GattDeviceService {
     #[doc = "Required features: `\"Foundation_Collections\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn GetAllCharacteristics(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GattCharacteristic>> {
-        let this = &::windows_core::ComInterface::cast::<IGattDeviceService2>(self)?;
+        let this = &::windows_core::Interface::cast::<IGattDeviceService2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetAllCharacteristics)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -2432,7 +1911,7 @@ impl GattDeviceService {
     #[doc = "Required features: `\"Foundation_Collections\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn GetAllIncludedServices(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GattDeviceService>> {
-        let this = &::windows_core::ComInterface::cast::<IGattDeviceService2>(self)?;
+        let this = &::windows_core::Interface::cast::<IGattDeviceService2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetAllIncludedServices)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -2441,21 +1920,21 @@ impl GattDeviceService {
     #[doc = "Required features: `\"Devices_Enumeration\"`"]
     #[cfg(feature = "Devices_Enumeration")]
     pub fn DeviceAccessInformation(&self) -> ::windows_core::Result<super::super::Enumeration::DeviceAccessInformation> {
-        let this = &::windows_core::ComInterface::cast::<IGattDeviceService3>(self)?;
+        let this = &::windows_core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DeviceAccessInformation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Session(&self) -> ::windows_core::Result<GattSession> {
-        let this = &::windows_core::ComInterface::cast::<IGattDeviceService3>(self)?;
+        let this = &::windows_core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Session)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SharingMode(&self) -> ::windows_core::Result<GattSharingMode> {
-        let this = &::windows_core::ComInterface::cast::<IGattDeviceService3>(self)?;
+        let this = &::windows_core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SharingMode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -2464,70 +1943,70 @@ impl GattDeviceService {
     #[doc = "Required features: `\"Devices_Enumeration\"`"]
     #[cfg(feature = "Devices_Enumeration")]
     pub fn RequestAccessAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::Enumeration::DeviceAccessStatus>> {
-        let this = &::windows_core::ComInterface::cast::<IGattDeviceService3>(self)?;
+        let this = &::windows_core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestAccessAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn OpenAsync(&self, sharingmode: GattSharingMode) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattOpenStatus>> {
-        let this = &::windows_core::ComInterface::cast::<IGattDeviceService3>(self)?;
+        let this = &::windows_core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).OpenAsync)(::windows_core::Interface::as_raw(this), sharingmode, &mut result__).from_abi(result__)
         }
     }
     pub fn GetCharacteristicsAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>> {
-        let this = &::windows_core::ComInterface::cast::<IGattDeviceService3>(self)?;
+        let this = &::windows_core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetCharacteristicsAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetCharacteristicsWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>> {
-        let this = &::windows_core::ComInterface::cast::<IGattDeviceService3>(self)?;
+        let this = &::windows_core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetCharacteristicsWithCacheModeAsync)(::windows_core::Interface::as_raw(this), cachemode, &mut result__).from_abi(result__)
         }
     }
     pub fn GetCharacteristicsForUuidAsync(&self, characteristicuuid: ::windows_core::GUID) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>> {
-        let this = &::windows_core::ComInterface::cast::<IGattDeviceService3>(self)?;
+        let this = &::windows_core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetCharacteristicsForUuidAsync)(::windows_core::Interface::as_raw(this), characteristicuuid, &mut result__).from_abi(result__)
         }
     }
     pub fn GetCharacteristicsForUuidWithCacheModeAsync(&self, characteristicuuid: ::windows_core::GUID, cachemode: super::BluetoothCacheMode) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>> {
-        let this = &::windows_core::ComInterface::cast::<IGattDeviceService3>(self)?;
+        let this = &::windows_core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetCharacteristicsForUuidWithCacheModeAsync)(::windows_core::Interface::as_raw(this), characteristicuuid, cachemode, &mut result__).from_abi(result__)
         }
     }
     pub fn GetIncludedServicesAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>> {
-        let this = &::windows_core::ComInterface::cast::<IGattDeviceService3>(self)?;
+        let this = &::windows_core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetIncludedServicesAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetIncludedServicesWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>> {
-        let this = &::windows_core::ComInterface::cast::<IGattDeviceService3>(self)?;
+        let this = &::windows_core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetIncludedServicesWithCacheModeAsync)(::windows_core::Interface::as_raw(this), cachemode, &mut result__).from_abi(result__)
         }
     }
     pub fn GetIncludedServicesForUuidAsync(&self, serviceuuid: ::windows_core::GUID) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>> {
-        let this = &::windows_core::ComInterface::cast::<IGattDeviceService3>(self)?;
+        let this = &::windows_core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetIncludedServicesForUuidAsync)(::windows_core::Interface::as_raw(this), serviceuuid, &mut result__).from_abi(result__)
         }
     }
     pub fn GetIncludedServicesForUuidWithCacheModeAsync(&self, serviceuuid: ::windows_core::GUID, cachemode: super::BluetoothCacheMode) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>> {
-        let this = &::windows_core::ComInterface::cast::<IGattDeviceService3>(self)?;
+        let this = &::windows_core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetIncludedServicesForUuidWithCacheModeAsync)(::windows_core::Interface::as_raw(this), serviceuuid, cachemode, &mut result__).from_abi(result__)
@@ -2619,20 +2098,17 @@ impl ::windows_core::RuntimeType for GattDeviceService {
 }
 unsafe impl ::windows_core::Interface for GattDeviceService {
     type Vtable = IGattDeviceService_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GattDeviceService {
-    const IID: ::windows_core::GUID = <IGattDeviceService as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGattDeviceService as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GattDeviceService {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattDeviceService";
 }
-::windows_core::imp::interface_hierarchy!(GattDeviceService, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<super::super::super::Foundation::IClosable> for GattDeviceService {}
 unsafe impl ::core::marker::Send for GattDeviceService {}
 unsafe impl ::core::marker::Sync for GattDeviceService {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GattDeviceServicesResult(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GattDeviceServicesResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl GattDeviceServicesResult {
     pub fn Status(&self) -> ::windows_core::Result<GattCommunicationStatus> {
         let this = self;
@@ -2663,19 +2139,17 @@ impl ::windows_core::RuntimeType for GattDeviceServicesResult {
 }
 unsafe impl ::windows_core::Interface for GattDeviceServicesResult {
     type Vtable = IGattDeviceServicesResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GattDeviceServicesResult {
-    const IID: ::windows_core::GUID = <IGattDeviceServicesResult as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGattDeviceServicesResult as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GattDeviceServicesResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattDeviceServicesResult";
 }
-::windows_core::imp::interface_hierarchy!(GattDeviceServicesResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GattDeviceServicesResult {}
 unsafe impl ::core::marker::Sync for GattDeviceServicesResult {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GattLocalCharacteristic(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GattLocalCharacteristic, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl GattLocalCharacteristic {
     pub fn Uuid(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let this = self;
@@ -2804,25 +2278,25 @@ impl GattLocalCharacteristic {
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn NotifyValueAsync<P0>(&self, value: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<GattClientNotificationResult>>>
     where
-        P0: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P0: ::windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).NotifyValueAsync)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).NotifyValueAsync)(::windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn NotifyValueForSubscribedClientAsync<P0, P1>(&self, value: P0, subscribedclient: P1) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattClientNotificationResult>>
     where
-        P0: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P0: ::windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
         P1: ::windows_core::IntoParam<GattSubscribedClient>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).NotifyValueForSubscribedClientAsync)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi(), subscribedclient.into_param().abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).NotifyValueForSubscribedClientAsync)(::windows_core::Interface::as_raw(this), value.into_param().abi(), subscribedclient.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
 }
@@ -2831,19 +2305,17 @@ impl ::windows_core::RuntimeType for GattLocalCharacteristic {
 }
 unsafe impl ::windows_core::Interface for GattLocalCharacteristic {
     type Vtable = IGattLocalCharacteristic_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GattLocalCharacteristic {
-    const IID: ::windows_core::GUID = <IGattLocalCharacteristic as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGattLocalCharacteristic as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GattLocalCharacteristic {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalCharacteristic";
 }
-::windows_core::imp::interface_hierarchy!(GattLocalCharacteristic, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GattLocalCharacteristic {}
 unsafe impl ::core::marker::Sync for GattLocalCharacteristic {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GattLocalCharacteristicParameters(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GattLocalCharacteristicParameters, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl GattLocalCharacteristicParameters {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -2856,10 +2328,10 @@ impl GattLocalCharacteristicParameters {
     #[cfg(feature = "Storage_Streams")]
     pub fn SetStaticValue<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P0: ::windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetStaticValue)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetStaticValue)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
@@ -2929,19 +2401,17 @@ impl ::windows_core::RuntimeType for GattLocalCharacteristicParameters {
 }
 unsafe impl ::windows_core::Interface for GattLocalCharacteristicParameters {
     type Vtable = IGattLocalCharacteristicParameters_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GattLocalCharacteristicParameters {
-    const IID: ::windows_core::GUID = <IGattLocalCharacteristicParameters as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGattLocalCharacteristicParameters as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GattLocalCharacteristicParameters {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalCharacteristicParameters";
 }
-::windows_core::imp::interface_hierarchy!(GattLocalCharacteristicParameters, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GattLocalCharacteristicParameters {}
 unsafe impl ::core::marker::Sync for GattLocalCharacteristicParameters {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GattLocalCharacteristicResult(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GattLocalCharacteristicResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl GattLocalCharacteristicResult {
     pub fn Characteristic(&self) -> ::windows_core::Result<GattLocalCharacteristic> {
         let this = self;
@@ -2963,19 +2433,17 @@ impl ::windows_core::RuntimeType for GattLocalCharacteristicResult {
 }
 unsafe impl ::windows_core::Interface for GattLocalCharacteristicResult {
     type Vtable = IGattLocalCharacteristicResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GattLocalCharacteristicResult {
-    const IID: ::windows_core::GUID = <IGattLocalCharacteristicResult as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGattLocalCharacteristicResult as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GattLocalCharacteristicResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalCharacteristicResult";
 }
-::windows_core::imp::interface_hierarchy!(GattLocalCharacteristicResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GattLocalCharacteristicResult {}
 unsafe impl ::core::marker::Sync for GattLocalCharacteristicResult {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GattLocalDescriptor(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GattLocalDescriptor, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl GattLocalDescriptor {
     pub fn Uuid(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let this = self;
@@ -3041,19 +2509,17 @@ impl ::windows_core::RuntimeType for GattLocalDescriptor {
 }
 unsafe impl ::windows_core::Interface for GattLocalDescriptor {
     type Vtable = IGattLocalDescriptor_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GattLocalDescriptor {
-    const IID: ::windows_core::GUID = <IGattLocalDescriptor as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGattLocalDescriptor as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GattLocalDescriptor {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalDescriptor";
 }
-::windows_core::imp::interface_hierarchy!(GattLocalDescriptor, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GattLocalDescriptor {}
 unsafe impl ::core::marker::Sync for GattLocalDescriptor {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GattLocalDescriptorParameters(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GattLocalDescriptorParameters, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl GattLocalDescriptorParameters {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -3066,10 +2532,10 @@ impl GattLocalDescriptorParameters {
     #[cfg(feature = "Storage_Streams")]
     pub fn SetStaticValue<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P0: ::windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetStaticValue)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetStaticValue)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
@@ -3108,19 +2574,17 @@ impl ::windows_core::RuntimeType for GattLocalDescriptorParameters {
 }
 unsafe impl ::windows_core::Interface for GattLocalDescriptorParameters {
     type Vtable = IGattLocalDescriptorParameters_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GattLocalDescriptorParameters {
-    const IID: ::windows_core::GUID = <IGattLocalDescriptorParameters as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGattLocalDescriptorParameters as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GattLocalDescriptorParameters {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalDescriptorParameters";
 }
-::windows_core::imp::interface_hierarchy!(GattLocalDescriptorParameters, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GattLocalDescriptorParameters {}
 unsafe impl ::core::marker::Sync for GattLocalDescriptorParameters {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GattLocalDescriptorResult(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GattLocalDescriptorResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl GattLocalDescriptorResult {
     pub fn Descriptor(&self) -> ::windows_core::Result<GattLocalDescriptor> {
         let this = self;
@@ -3142,19 +2606,17 @@ impl ::windows_core::RuntimeType for GattLocalDescriptorResult {
 }
 unsafe impl ::windows_core::Interface for GattLocalDescriptorResult {
     type Vtable = IGattLocalDescriptorResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GattLocalDescriptorResult {
-    const IID: ::windows_core::GUID = <IGattLocalDescriptorResult as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGattLocalDescriptorResult as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GattLocalDescriptorResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalDescriptorResult";
 }
-::windows_core::imp::interface_hierarchy!(GattLocalDescriptorResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GattLocalDescriptorResult {}
 unsafe impl ::core::marker::Sync for GattLocalDescriptorResult {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GattLocalService(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GattLocalService, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl GattLocalService {
     pub fn Uuid(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let this = self;
@@ -3188,19 +2650,17 @@ impl ::windows_core::RuntimeType for GattLocalService {
 }
 unsafe impl ::windows_core::Interface for GattLocalService {
     type Vtable = IGattLocalService_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GattLocalService {
-    const IID: ::windows_core::GUID = <IGattLocalService as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGattLocalService as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GattLocalService {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalService";
 }
-::windows_core::imp::interface_hierarchy!(GattLocalService, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GattLocalService {}
 unsafe impl ::core::marker::Sync for GattLocalService {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GattPresentationFormat(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GattPresentationFormat, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl GattPresentationFormat {
     pub fn FormatType(&self) -> ::windows_core::Result<u8> {
         let this = self;
@@ -3265,14 +2725,11 @@ impl ::windows_core::RuntimeType for GattPresentationFormat {
 }
 unsafe impl ::windows_core::Interface for GattPresentationFormat {
     type Vtable = IGattPresentationFormat_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GattPresentationFormat {
-    const IID: ::windows_core::GUID = <IGattPresentationFormat as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGattPresentationFormat as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GattPresentationFormat {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormat";
 }
-::windows_core::imp::interface_hierarchy!(GattPresentationFormat, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GattPresentationFormat {}
 unsafe impl ::core::marker::Sync for GattPresentationFormat {}
 pub struct GattPresentationFormatTypes;
@@ -3564,6 +3021,7 @@ impl ::windows_core::RuntimeName for GattProtocolError {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GattReadClientCharacteristicConfigurationDescriptorResult(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GattReadClientCharacteristicConfigurationDescriptorResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl GattReadClientCharacteristicConfigurationDescriptorResult {
     pub fn Status(&self) -> ::windows_core::Result<GattCommunicationStatus> {
         let this = self;
@@ -3580,7 +3038,7 @@ impl GattReadClientCharacteristicConfigurationDescriptorResult {
         }
     }
     pub fn ProtocolError(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<u8>> {
-        let this = &::windows_core::ComInterface::cast::<IGattReadClientCharacteristicConfigurationDescriptorResult2>(self)?;
+        let this = &::windows_core::Interface::cast::<IGattReadClientCharacteristicConfigurationDescriptorResult2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ProtocolError)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -3592,19 +3050,17 @@ impl ::windows_core::RuntimeType for GattReadClientCharacteristicConfigurationDe
 }
 unsafe impl ::windows_core::Interface for GattReadClientCharacteristicConfigurationDescriptorResult {
     type Vtable = IGattReadClientCharacteristicConfigurationDescriptorResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GattReadClientCharacteristicConfigurationDescriptorResult {
-    const IID: ::windows_core::GUID = <IGattReadClientCharacteristicConfigurationDescriptorResult as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGattReadClientCharacteristicConfigurationDescriptorResult as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GattReadClientCharacteristicConfigurationDescriptorResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattReadClientCharacteristicConfigurationDescriptorResult";
 }
-::windows_core::imp::interface_hierarchy!(GattReadClientCharacteristicConfigurationDescriptorResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GattReadClientCharacteristicConfigurationDescriptorResult {}
 unsafe impl ::core::marker::Sync for GattReadClientCharacteristicConfigurationDescriptorResult {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GattReadRequest(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GattReadRequest, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl GattReadRequest {
     pub fn Offset(&self) -> ::windows_core::Result<u32> {
         let this = self;
@@ -3645,10 +3101,10 @@ impl GattReadRequest {
     #[cfg(feature = "Storage_Streams")]
     pub fn RespondWithValue<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P0: ::windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).RespondWithValue)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).RespondWithValue)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn RespondWithProtocolError(&self, protocolerror: u8) -> ::windows_core::Result<()> {
         let this = self;
@@ -3660,19 +3116,17 @@ impl ::windows_core::RuntimeType for GattReadRequest {
 }
 unsafe impl ::windows_core::Interface for GattReadRequest {
     type Vtable = IGattReadRequest_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GattReadRequest {
-    const IID: ::windows_core::GUID = <IGattReadRequest as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGattReadRequest as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GattReadRequest {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattReadRequest";
 }
-::windows_core::imp::interface_hierarchy!(GattReadRequest, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GattReadRequest {}
 unsafe impl ::core::marker::Sync for GattReadRequest {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GattReadRequestedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GattReadRequestedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl GattReadRequestedEventArgs {
     pub fn Session(&self) -> ::windows_core::Result<GattSession> {
         let this = self;
@@ -3701,19 +3155,17 @@ impl ::windows_core::RuntimeType for GattReadRequestedEventArgs {
 }
 unsafe impl ::windows_core::Interface for GattReadRequestedEventArgs {
     type Vtable = IGattReadRequestedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GattReadRequestedEventArgs {
-    const IID: ::windows_core::GUID = <IGattReadRequestedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGattReadRequestedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GattReadRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattReadRequestedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(GattReadRequestedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GattReadRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for GattReadRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GattReadResult(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GattReadResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl GattReadResult {
     pub fn Status(&self) -> ::windows_core::Result<GattCommunicationStatus> {
         let this = self;
@@ -3732,7 +3184,7 @@ impl GattReadResult {
         }
     }
     pub fn ProtocolError(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<u8>> {
-        let this = &::windows_core::ComInterface::cast::<IGattReadResult2>(self)?;
+        let this = &::windows_core::Interface::cast::<IGattReadResult2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ProtocolError)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -3744,19 +3196,17 @@ impl ::windows_core::RuntimeType for GattReadResult {
 }
 unsafe impl ::windows_core::Interface for GattReadResult {
     type Vtable = IGattReadResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GattReadResult {
-    const IID: ::windows_core::GUID = <IGattReadResult as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGattReadResult as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GattReadResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattReadResult";
 }
-::windows_core::imp::interface_hierarchy!(GattReadResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GattReadResult {}
 unsafe impl ::core::marker::Sync for GattReadResult {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GattReliableWriteTransaction(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GattReliableWriteTransaction, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl GattReliableWriteTransaction {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -3770,10 +3220,10 @@ impl GattReliableWriteTransaction {
     pub fn WriteValue<P0, P1>(&self, characteristic: P0, value: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<GattCharacteristic>,
-        P1: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P1: ::windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).WriteValue)(::windows_core::Interface::as_raw(this), characteristic.into_param().abi(), value.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).WriteValue)(::windows_core::Interface::as_raw(this), characteristic.into_param().abi(), value.into_param().abi()).ok() }
     }
     pub fn CommitAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>> {
         let this = self;
@@ -3783,7 +3233,7 @@ impl GattReliableWriteTransaction {
         }
     }
     pub fn CommitWithResultAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattWriteResult>> {
-        let this = &::windows_core::ComInterface::cast::<IGattReliableWriteTransaction2>(self)?;
+        let this = &::windows_core::Interface::cast::<IGattReliableWriteTransaction2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CommitWithResultAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -3795,19 +3245,17 @@ impl ::windows_core::RuntimeType for GattReliableWriteTransaction {
 }
 unsafe impl ::windows_core::Interface for GattReliableWriteTransaction {
     type Vtable = IGattReliableWriteTransaction_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GattReliableWriteTransaction {
-    const IID: ::windows_core::GUID = <IGattReliableWriteTransaction as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGattReliableWriteTransaction as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GattReliableWriteTransaction {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattReliableWriteTransaction";
 }
-::windows_core::imp::interface_hierarchy!(GattReliableWriteTransaction, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GattReliableWriteTransaction {}
 unsafe impl ::core::marker::Sync for GattReliableWriteTransaction {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GattRequestStateChangedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GattRequestStateChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl GattRequestStateChangedEventArgs {
     pub fn State(&self) -> ::windows_core::Result<GattRequestState> {
         let this = self;
@@ -3829,19 +3277,17 @@ impl ::windows_core::RuntimeType for GattRequestStateChangedEventArgs {
 }
 unsafe impl ::windows_core::Interface for GattRequestStateChangedEventArgs {
     type Vtable = IGattRequestStateChangedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GattRequestStateChangedEventArgs {
-    const IID: ::windows_core::GUID = <IGattRequestStateChangedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGattRequestStateChangedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GattRequestStateChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattRequestStateChangedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(GattRequestStateChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GattRequestStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for GattRequestStateChangedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GattServiceProvider(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GattServiceProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl GattServiceProvider {
     pub fn Service(&self) -> ::windows_core::Result<GattLocalService> {
         let this = self;
@@ -3903,19 +3349,17 @@ impl ::windows_core::RuntimeType for GattServiceProvider {
 }
 unsafe impl ::windows_core::Interface for GattServiceProvider {
     type Vtable = IGattServiceProvider_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GattServiceProvider {
-    const IID: ::windows_core::GUID = <IGattServiceProvider as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGattServiceProvider as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GattServiceProvider {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProvider";
 }
-::windows_core::imp::interface_hierarchy!(GattServiceProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GattServiceProvider {}
 unsafe impl ::core::marker::Sync for GattServiceProvider {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GattServiceProviderAdvertisementStatusChangedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GattServiceProviderAdvertisementStatusChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl GattServiceProviderAdvertisementStatusChangedEventArgs {
     pub fn Error(&self) -> ::windows_core::Result<super::BluetoothError> {
         let this = self;
@@ -3937,19 +3381,17 @@ impl ::windows_core::RuntimeType for GattServiceProviderAdvertisementStatusChang
 }
 unsafe impl ::windows_core::Interface for GattServiceProviderAdvertisementStatusChangedEventArgs {
     type Vtable = IGattServiceProviderAdvertisementStatusChangedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GattServiceProviderAdvertisementStatusChangedEventArgs {
-    const IID: ::windows_core::GUID = <IGattServiceProviderAdvertisementStatusChangedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGattServiceProviderAdvertisementStatusChangedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GattServiceProviderAdvertisementStatusChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProviderAdvertisementStatusChangedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(GattServiceProviderAdvertisementStatusChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GattServiceProviderAdvertisementStatusChangedEventArgs {}
 unsafe impl ::core::marker::Sync for GattServiceProviderAdvertisementStatusChangedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GattServiceProviderAdvertisingParameters(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GattServiceProviderAdvertisingParameters, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl GattServiceProviderAdvertisingParameters {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -3984,15 +3426,15 @@ impl GattServiceProviderAdvertisingParameters {
     #[cfg(feature = "Storage_Streams")]
     pub fn SetServiceData<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P0: ::windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
     {
-        let this = &::windows_core::ComInterface::cast::<IGattServiceProviderAdvertisingParameters2>(self)?;
-        unsafe { (::windows_core::Interface::vtable(this).SetServiceData)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+        let this = &::windows_core::Interface::cast::<IGattServiceProviderAdvertisingParameters2>(self)?;
+        unsafe { (::windows_core::Interface::vtable(this).SetServiceData)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn ServiceData(&self) -> ::windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
-        let this = &::windows_core::ComInterface::cast::<IGattServiceProviderAdvertisingParameters2>(self)?;
+        let this = &::windows_core::Interface::cast::<IGattServiceProviderAdvertisingParameters2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ServiceData)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -4004,19 +3446,17 @@ impl ::windows_core::RuntimeType for GattServiceProviderAdvertisingParameters {
 }
 unsafe impl ::windows_core::Interface for GattServiceProviderAdvertisingParameters {
     type Vtable = IGattServiceProviderAdvertisingParameters_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GattServiceProviderAdvertisingParameters {
-    const IID: ::windows_core::GUID = <IGattServiceProviderAdvertisingParameters as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGattServiceProviderAdvertisingParameters as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GattServiceProviderAdvertisingParameters {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProviderAdvertisingParameters";
 }
-::windows_core::imp::interface_hierarchy!(GattServiceProviderAdvertisingParameters, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GattServiceProviderAdvertisingParameters {}
 unsafe impl ::core::marker::Sync for GattServiceProviderAdvertisingParameters {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GattServiceProviderResult(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GattServiceProviderResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl GattServiceProviderResult {
     pub fn Error(&self) -> ::windows_core::Result<super::BluetoothError> {
         let this = self;
@@ -4038,14 +3478,11 @@ impl ::windows_core::RuntimeType for GattServiceProviderResult {
 }
 unsafe impl ::windows_core::Interface for GattServiceProviderResult {
     type Vtable = IGattServiceProviderResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GattServiceProviderResult {
-    const IID: ::windows_core::GUID = <IGattServiceProviderResult as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGattServiceProviderResult as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GattServiceProviderResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProviderResult";
 }
-::windows_core::imp::interface_hierarchy!(GattServiceProviderResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GattServiceProviderResult {}
 unsafe impl ::core::marker::Sync for GattServiceProviderResult {}
 pub struct GattServiceUuids;
@@ -4199,9 +3636,11 @@ impl ::windows_core::RuntimeName for GattServiceUuids {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GattSession(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GattSession, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(GattSession, super::super::super::Foundation::IClosable);
 impl GattSession {
     pub fn Close(&self) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IClosable>(self)?;
+        let this = &::windows_core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn DeviceId(&self) -> ::windows_core::Result<super::BluetoothDeviceId> {
@@ -4291,20 +3730,17 @@ impl ::windows_core::RuntimeType for GattSession {
 }
 unsafe impl ::windows_core::Interface for GattSession {
     type Vtable = IGattSession_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GattSession {
-    const IID: ::windows_core::GUID = <IGattSession as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGattSession as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GattSession {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattSession";
 }
-::windows_core::imp::interface_hierarchy!(GattSession, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<super::super::super::Foundation::IClosable> for GattSession {}
 unsafe impl ::core::marker::Send for GattSession {}
 unsafe impl ::core::marker::Sync for GattSession {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GattSessionStatusChangedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GattSessionStatusChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl GattSessionStatusChangedEventArgs {
     pub fn Error(&self) -> ::windows_core::Result<super::BluetoothError> {
         let this = self;
@@ -4326,19 +3762,17 @@ impl ::windows_core::RuntimeType for GattSessionStatusChangedEventArgs {
 }
 unsafe impl ::windows_core::Interface for GattSessionStatusChangedEventArgs {
     type Vtable = IGattSessionStatusChangedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GattSessionStatusChangedEventArgs {
-    const IID: ::windows_core::GUID = <IGattSessionStatusChangedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGattSessionStatusChangedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GattSessionStatusChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattSessionStatusChangedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(GattSessionStatusChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GattSessionStatusChangedEventArgs {}
 unsafe impl ::core::marker::Sync for GattSessionStatusChangedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GattSubscribedClient(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GattSubscribedClient, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl GattSubscribedClient {
     pub fn Session(&self) -> ::windows_core::Result<GattSession> {
         let this = self;
@@ -4374,19 +3808,17 @@ impl ::windows_core::RuntimeType for GattSubscribedClient {
 }
 unsafe impl ::windows_core::Interface for GattSubscribedClient {
     type Vtable = IGattSubscribedClient_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GattSubscribedClient {
-    const IID: ::windows_core::GUID = <IGattSubscribedClient as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGattSubscribedClient as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GattSubscribedClient {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattSubscribedClient";
 }
-::windows_core::imp::interface_hierarchy!(GattSubscribedClient, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GattSubscribedClient {}
 unsafe impl ::core::marker::Sync for GattSubscribedClient {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GattValueChangedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GattValueChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl GattValueChangedEventArgs {
     #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
@@ -4410,19 +3842,17 @@ impl ::windows_core::RuntimeType for GattValueChangedEventArgs {
 }
 unsafe impl ::windows_core::Interface for GattValueChangedEventArgs {
     type Vtable = IGattValueChangedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GattValueChangedEventArgs {
-    const IID: ::windows_core::GUID = <IGattValueChangedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGattValueChangedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GattValueChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattValueChangedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(GattValueChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GattValueChangedEventArgs {}
 unsafe impl ::core::marker::Sync for GattValueChangedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GattWriteRequest(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GattWriteRequest, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl GattWriteRequest {
     #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
@@ -4482,19 +3912,17 @@ impl ::windows_core::RuntimeType for GattWriteRequest {
 }
 unsafe impl ::windows_core::Interface for GattWriteRequest {
     type Vtable = IGattWriteRequest_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GattWriteRequest {
-    const IID: ::windows_core::GUID = <IGattWriteRequest as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGattWriteRequest as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GattWriteRequest {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattWriteRequest";
 }
-::windows_core::imp::interface_hierarchy!(GattWriteRequest, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GattWriteRequest {}
 unsafe impl ::core::marker::Sync for GattWriteRequest {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GattWriteRequestedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GattWriteRequestedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl GattWriteRequestedEventArgs {
     pub fn Session(&self) -> ::windows_core::Result<GattSession> {
         let this = self;
@@ -4523,19 +3951,17 @@ impl ::windows_core::RuntimeType for GattWriteRequestedEventArgs {
 }
 unsafe impl ::windows_core::Interface for GattWriteRequestedEventArgs {
     type Vtable = IGattWriteRequestedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GattWriteRequestedEventArgs {
-    const IID: ::windows_core::GUID = <IGattWriteRequestedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGattWriteRequestedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GattWriteRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattWriteRequestedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(GattWriteRequestedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GattWriteRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for GattWriteRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GattWriteResult(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GattWriteResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl GattWriteResult {
     pub fn Status(&self) -> ::windows_core::Result<GattCommunicationStatus> {
         let this = self;
@@ -4557,14 +3983,11 @@ impl ::windows_core::RuntimeType for GattWriteResult {
 }
 unsafe impl ::windows_core::Interface for GattWriteResult {
     type Vtable = IGattWriteResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GattWriteResult {
-    const IID: ::windows_core::GUID = <IGattWriteResult as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGattWriteResult as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GattWriteResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattWriteResult";
 }
-::windows_core::imp::interface_hierarchy!(GattWriteResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GattWriteResult {}
 unsafe impl ::core::marker::Sync for GattWriteResult {}
 #[repr(transparent)]

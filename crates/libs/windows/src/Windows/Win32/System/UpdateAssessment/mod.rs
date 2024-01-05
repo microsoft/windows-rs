@@ -1,18 +1,10 @@
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWaaSAssessor(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWaaSAssessor, IWaaSAssessor_Vtbl, 0x2347bbef_1a3b_45a4_902d_3e09c269b45e);
+::windows_core::imp::interface_hierarchy!(IWaaSAssessor, ::windows_core::IUnknown);
 impl IWaaSAssessor {
     pub unsafe fn GetOSUpdateAssessment(&self) -> ::windows_core::Result<OSUpdateAssessment> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOSUpdateAssessment)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-}
-::windows_core::imp::interface_hierarchy!(IWaaSAssessor, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWaaSAssessor {
-    type Vtable = IWaaSAssessor_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWaaSAssessor {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2347bbef_1a3b_45a4_902d_3e09c269b45e);
 }
 #[repr(C)]
 #[doc(hidden)]

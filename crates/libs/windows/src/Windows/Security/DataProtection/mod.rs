@@ -1,29 +1,11 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IUserDataAvailabilityStateChangedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IUserDataAvailabilityStateChangedEventArgs {
-    type Vtable = IUserDataAvailabilityStateChangedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IUserDataAvailabilityStateChangedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa76582c9_06a2_4273_a803_834c9f87fbeb);
-}
+::windows_core::imp::com_interface!(IUserDataAvailabilityStateChangedEventArgs, IUserDataAvailabilityStateChangedEventArgs_Vtbl, 0xa76582c9_06a2_4273_a803_834c9f87fbeb);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserDataAvailabilityStateChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IUserDataBufferUnprotectResult(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IUserDataBufferUnprotectResult {
-    type Vtable = IUserDataBufferUnprotectResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IUserDataBufferUnprotectResult {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8efd0e90_fa9a_46a4_a377_01cebf1e74d8);
-}
+::windows_core::imp::com_interface!(IUserDataBufferUnprotectResult, IUserDataBufferUnprotectResult_Vtbl, 0x8efd0e90_fa9a_46a4_a377_01cebf1e74d8);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserDataBufferUnprotectResult_Vtbl {
@@ -34,16 +16,7 @@ pub struct IUserDataBufferUnprotectResult_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     UnprotectedBuffer: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IUserDataProtectionManager(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IUserDataProtectionManager {
-    type Vtable = IUserDataProtectionManager_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IUserDataProtectionManager {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1f13237d_b42e_4a88_9480_0f240924c876);
-}
+::windows_core::imp::com_interface!(IUserDataProtectionManager, IUserDataProtectionManager_Vtbl, 0x1f13237d_b42e_4a88_9480_0f240924c876);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserDataProtectionManager_Vtbl {
@@ -68,16 +41,7 @@ pub struct IUserDataProtectionManager_Vtbl {
     pub DataAvailabilityStateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     pub RemoveDataAvailabilityStateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IUserDataProtectionManagerStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IUserDataProtectionManagerStatics {
-    type Vtable = IUserDataProtectionManagerStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IUserDataProtectionManagerStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x977780e8_6dce_4fae_af85_782ac2cf4572);
-}
+::windows_core::imp::com_interface!(IUserDataProtectionManagerStatics, IUserDataProtectionManagerStatics_Vtbl, 0x977780e8_6dce_4fae_af85_782ac2cf4572);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserDataProtectionManagerStatics_Vtbl {
@@ -88,16 +52,7 @@ pub struct IUserDataProtectionManagerStatics_Vtbl {
     #[cfg(not(feature = "System"))]
     TryGetForUser: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IUserDataStorageItemProtectionInfo(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IUserDataStorageItemProtectionInfo {
-    type Vtable = IUserDataStorageItemProtectionInfo_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IUserDataStorageItemProtectionInfo {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5b6680f6_e87f_40a1_b19d_a6187a0c662f);
-}
+::windows_core::imp::com_interface!(IUserDataStorageItemProtectionInfo, IUserDataStorageItemProtectionInfo_Vtbl, 0x5b6680f6_e87f_40a1_b19d_a6187a0c662f);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserDataStorageItemProtectionInfo_Vtbl {
@@ -107,6 +62,7 @@ pub struct IUserDataStorageItemProtectionInfo_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UserDataAvailabilityStateChangedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(UserDataAvailabilityStateChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl UserDataAvailabilityStateChangedEventArgs {
     pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::Foundation::Deferral> {
         let this = self;
@@ -121,19 +77,17 @@ impl ::windows_core::RuntimeType for UserDataAvailabilityStateChangedEventArgs {
 }
 unsafe impl ::windows_core::Interface for UserDataAvailabilityStateChangedEventArgs {
     type Vtable = IUserDataAvailabilityStateChangedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for UserDataAvailabilityStateChangedEventArgs {
-    const IID: ::windows_core::GUID = <IUserDataAvailabilityStateChangedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IUserDataAvailabilityStateChangedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for UserDataAvailabilityStateChangedEventArgs {
     const NAME: &'static str = "Windows.Security.DataProtection.UserDataAvailabilityStateChangedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(UserDataAvailabilityStateChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataAvailabilityStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for UserDataAvailabilityStateChangedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UserDataBufferUnprotectResult(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(UserDataBufferUnprotectResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl UserDataBufferUnprotectResult {
     pub fn Status(&self) -> ::windows_core::Result<UserDataBufferUnprotectStatus> {
         let this = self;
@@ -157,66 +111,64 @@ impl ::windows_core::RuntimeType for UserDataBufferUnprotectResult {
 }
 unsafe impl ::windows_core::Interface for UserDataBufferUnprotectResult {
     type Vtable = IUserDataBufferUnprotectResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for UserDataBufferUnprotectResult {
-    const IID: ::windows_core::GUID = <IUserDataBufferUnprotectResult as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IUserDataBufferUnprotectResult as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for UserDataBufferUnprotectResult {
     const NAME: &'static str = "Windows.Security.DataProtection.UserDataBufferUnprotectResult";
 }
-::windows_core::imp::interface_hierarchy!(UserDataBufferUnprotectResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataBufferUnprotectResult {}
 unsafe impl ::core::marker::Sync for UserDataBufferUnprotectResult {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UserDataProtectionManager(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(UserDataProtectionManager, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl UserDataProtectionManager {
     #[doc = "Required features: `\"Storage\"`"]
     #[cfg(feature = "Storage")]
     pub fn ProtectStorageItemAsync<P0>(&self, storageitem: P0, availability: UserDataAvailability) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<UserDataStorageItemProtectionStatus>>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Storage::IStorageItem>,
+        P0: ::windows_core::IntoParam<super::super::Storage::IStorageItem>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ProtectStorageItemAsync)(::windows_core::Interface::as_raw(this), storageitem.try_into_param()?.abi(), availability, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ProtectStorageItemAsync)(::windows_core::Interface::as_raw(this), storageitem.into_param().abi(), availability, &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"Storage\"`"]
     #[cfg(feature = "Storage")]
     pub fn GetStorageItemProtectionInfoAsync<P0>(&self, storageitem: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<UserDataStorageItemProtectionInfo>>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Storage::IStorageItem>,
+        P0: ::windows_core::IntoParam<super::super::Storage::IStorageItem>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetStorageItemProtectionInfoAsync)(::windows_core::Interface::as_raw(this), storageitem.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetStorageItemProtectionInfoAsync)(::windows_core::Interface::as_raw(this), storageitem.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn ProtectBufferAsync<P0>(&self, unprotectedbuffer: P0, availability: UserDataAvailability) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: ::windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ProtectBufferAsync)(::windows_core::Interface::as_raw(this), unprotectedbuffer.try_into_param()?.abi(), availability, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ProtectBufferAsync)(::windows_core::Interface::as_raw(this), unprotectedbuffer.into_param().abi(), availability, &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn UnprotectBufferAsync<P0>(&self, protectedbuffer: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<UserDataBufferUnprotectResult>>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: ::windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).UnprotectBufferAsync)(::windows_core::Interface::as_raw(this), protectedbuffer.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).UnprotectBufferAsync)(::windows_core::Interface::as_raw(this), protectedbuffer.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn IsContinuedDataAvailabilityExpected(&self, availability: UserDataAvailability) -> ::windows_core::Result<bool> {
@@ -268,19 +220,17 @@ impl ::windows_core::RuntimeType for UserDataProtectionManager {
 }
 unsafe impl ::windows_core::Interface for UserDataProtectionManager {
     type Vtable = IUserDataProtectionManager_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for UserDataProtectionManager {
-    const IID: ::windows_core::GUID = <IUserDataProtectionManager as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IUserDataProtectionManager as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for UserDataProtectionManager {
     const NAME: &'static str = "Windows.Security.DataProtection.UserDataProtectionManager";
 }
-::windows_core::imp::interface_hierarchy!(UserDataProtectionManager, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataProtectionManager {}
 unsafe impl ::core::marker::Sync for UserDataProtectionManager {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UserDataStorageItemProtectionInfo(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(UserDataStorageItemProtectionInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl UserDataStorageItemProtectionInfo {
     pub fn Availability(&self) -> ::windows_core::Result<UserDataAvailability> {
         let this = self;
@@ -295,14 +245,11 @@ impl ::windows_core::RuntimeType for UserDataStorageItemProtectionInfo {
 }
 unsafe impl ::windows_core::Interface for UserDataStorageItemProtectionInfo {
     type Vtable = IUserDataStorageItemProtectionInfo_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for UserDataStorageItemProtectionInfo {
-    const IID: ::windows_core::GUID = <IUserDataStorageItemProtectionInfo as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IUserDataStorageItemProtectionInfo as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for UserDataStorageItemProtectionInfo {
     const NAME: &'static str = "Windows.Security.DataProtection.UserDataStorageItemProtectionInfo";
 }
-::windows_core::imp::interface_hierarchy!(UserDataStorageItemProtectionInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataStorageItemProtectionInfo {}
 unsafe impl ::core::marker::Sync for UserDataStorageItemProtectionInfo {}
 #[repr(transparent)]

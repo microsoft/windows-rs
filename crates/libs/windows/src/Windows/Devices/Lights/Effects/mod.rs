@@ -1,13 +1,4 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ILampArrayBitmapEffect(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ILampArrayBitmapEffect {
-    type Vtable = ILampArrayBitmapEffect_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ILampArrayBitmapEffect {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3238e065_d877_4627_89e5_2a88f7052fa6);
-}
+::windows_core::imp::com_interface!(ILampArrayBitmapEffect, ILampArrayBitmapEffect_Vtbl, 0x3238e065_d877_4627_89e5_2a88f7052fa6);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILampArrayBitmapEffect_Vtbl {
@@ -22,32 +13,14 @@ pub struct ILampArrayBitmapEffect_Vtbl {
     pub BitmapRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     pub RemoveBitmapRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ILampArrayBitmapEffectFactory(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ILampArrayBitmapEffectFactory {
-    type Vtable = ILampArrayBitmapEffectFactory_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ILampArrayBitmapEffectFactory {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x13608090_e336_4c8f_9053_a92407ca7b1d);
-}
+::windows_core::imp::com_interface!(ILampArrayBitmapEffectFactory, ILampArrayBitmapEffectFactory_Vtbl, 0x13608090_e336_4c8f_9053_a92407ca7b1d);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILampArrayBitmapEffectFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lamparray: *mut ::core::ffi::c_void, lampIndexes_array_size: u32, lampindexes: *const i32, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ILampArrayBitmapRequestedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ILampArrayBitmapRequestedEventArgs {
-    type Vtable = ILampArrayBitmapRequestedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ILampArrayBitmapRequestedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc8b4af9e_fe63_4d51_babd_619defb454ba);
-}
+::windows_core::imp::com_interface!(ILampArrayBitmapRequestedEventArgs, ILampArrayBitmapRequestedEventArgs_Vtbl, 0xc8b4af9e_fe63_4d51_babd_619defb454ba);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILampArrayBitmapRequestedEventArgs_Vtbl {
@@ -58,16 +31,7 @@ pub struct ILampArrayBitmapRequestedEventArgs_Vtbl {
     #[cfg(not(feature = "Graphics_Imaging"))]
     UpdateBitmap: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ILampArrayBlinkEffect(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ILampArrayBlinkEffect {
-    type Vtable = ILampArrayBlinkEffect_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ILampArrayBlinkEffect {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xebbf35f6_2fc5_4bb3_b3c3_6221a7680d13);
-}
+::windows_core::imp::com_interface!(ILampArrayBlinkEffect, ILampArrayBlinkEffect_Vtbl, 0xebbf35f6_2fc5_4bb3_b3c3_6221a7680d13);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILampArrayBlinkEffect_Vtbl {
@@ -95,32 +59,14 @@ pub struct ILampArrayBlinkEffect_Vtbl {
     pub RepetitionMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut LampArrayRepetitionMode) -> ::windows_core::HRESULT,
     pub SetRepetitionMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: LampArrayRepetitionMode) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ILampArrayBlinkEffectFactory(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ILampArrayBlinkEffectFactory {
-    type Vtable = ILampArrayBlinkEffectFactory_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ILampArrayBlinkEffectFactory {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x879f1d97_9f50_49b2_a56f_013aa08d55e0);
-}
+::windows_core::imp::com_interface!(ILampArrayBlinkEffectFactory, ILampArrayBlinkEffectFactory_Vtbl, 0x879f1d97_9f50_49b2_a56f_013aa08d55e0);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILampArrayBlinkEffectFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lamparray: *mut ::core::ffi::c_void, lampIndexes_array_size: u32, lampindexes: *const i32, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ILampArrayColorRampEffect(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ILampArrayColorRampEffect {
-    type Vtable = ILampArrayColorRampEffect_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ILampArrayColorRampEffect {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2b004437_40a7_432e_a0b9_0d570c2153ff);
-}
+::windows_core::imp::com_interface!(ILampArrayColorRampEffect, ILampArrayColorRampEffect_Vtbl, 0x2b004437_40a7_432e_a0b9_0d570c2153ff);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILampArrayColorRampEffect_Vtbl {
@@ -140,32 +86,14 @@ pub struct ILampArrayColorRampEffect_Vtbl {
     pub CompletionBehavior: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut LampArrayEffectCompletionBehavior) -> ::windows_core::HRESULT,
     pub SetCompletionBehavior: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: LampArrayEffectCompletionBehavior) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ILampArrayColorRampEffectFactory(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ILampArrayColorRampEffectFactory {
-    type Vtable = ILampArrayColorRampEffectFactory_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ILampArrayColorRampEffectFactory {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x520bd133_0c74_4df5_bea7_4899e0266b0f);
-}
+::windows_core::imp::com_interface!(ILampArrayColorRampEffectFactory, ILampArrayColorRampEffectFactory_Vtbl, 0x520bd133_0c74_4df5_bea7_4899e0266b0f);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILampArrayColorRampEffectFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lamparray: *mut ::core::ffi::c_void, lampIndexes_array_size: u32, lampindexes: *const i32, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ILampArrayCustomEffect(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ILampArrayCustomEffect {
-    type Vtable = ILampArrayCustomEffect_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ILampArrayCustomEffect {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xec579170_3c34_4876_818b_5765f78b0ee4);
-}
+::windows_core::imp::com_interface!(ILampArrayCustomEffect, ILampArrayCustomEffect_Vtbl, 0xec579170_3c34_4876_818b_5765f78b0ee4);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILampArrayCustomEffect_Vtbl {
@@ -177,25 +105,15 @@ pub struct ILampArrayCustomEffect_Vtbl {
     pub UpdateRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     pub RemoveUpdateRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ILampArrayCustomEffectFactory(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ILampArrayCustomEffectFactory {
-    type Vtable = ILampArrayCustomEffectFactory_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ILampArrayCustomEffectFactory {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x68b4774d_63e5_4af0_a58b_3e535b94e8c9);
-}
+::windows_core::imp::com_interface!(ILampArrayCustomEffectFactory, ILampArrayCustomEffectFactory_Vtbl, 0x68b4774d_63e5_4af0_a58b_3e535b94e8c9);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILampArrayCustomEffectFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lamparray: *mut ::core::ffi::c_void, lampIndexes_array_size: u32, lampindexes: *const i32, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ILampArrayEffect(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(ILampArrayEffect, ILampArrayEffect_Vtbl, 0x11d45590_57fb_4546_b1ce_863107f740df);
+::windows_core::imp::interface_hierarchy!(ILampArrayEffect, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ILampArrayEffect {
     pub fn ZIndex(&self) -> ::windows_core::Result<i32> {
         let this = self;
@@ -209,15 +127,8 @@ impl ILampArrayEffect {
         unsafe { (::windows_core::Interface::vtable(this).SetZIndex)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-::windows_core::imp::interface_hierarchy!(ILampArrayEffect, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for ILampArrayEffect {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for ILampArrayEffect {
-    type Vtable = ILampArrayEffect_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ILampArrayEffect {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x11d45590_57fb_4546_b1ce_863107f740df);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -226,16 +137,7 @@ pub struct ILampArrayEffect_Vtbl {
     pub ZIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
     pub SetZIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ILampArrayEffectPlaylist(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ILampArrayEffectPlaylist {
-    type Vtable = ILampArrayEffectPlaylist_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ILampArrayEffectPlaylist {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7de58bfe_6f61_4103_98c7_d6632f7b9169);
-}
+::windows_core::imp::com_interface!(ILampArrayEffectPlaylist, ILampArrayEffectPlaylist_Vtbl, 0x7de58bfe_6f61_4103_98c7_d6632f7b9169);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILampArrayEffectPlaylist_Vtbl {
@@ -252,16 +154,7 @@ pub struct ILampArrayEffectPlaylist_Vtbl {
     pub RepetitionMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut LampArrayRepetitionMode) -> ::windows_core::HRESULT,
     pub SetRepetitionMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: LampArrayRepetitionMode) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ILampArrayEffectPlaylistStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ILampArrayEffectPlaylistStatics {
-    type Vtable = ILampArrayEffectPlaylistStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ILampArrayEffectPlaylistStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfb15235c_ea35_4c7f_a016_f3bfc6a6c47d);
-}
+::windows_core::imp::com_interface!(ILampArrayEffectPlaylistStatics, ILampArrayEffectPlaylistStatics_Vtbl, 0xfb15235c_ea35_4c7f_a016_f3bfc6a6c47d);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILampArrayEffectPlaylistStatics_Vtbl {
@@ -279,16 +172,7 @@ pub struct ILampArrayEffectPlaylistStatics_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     PauseAll: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ILampArraySolidEffect(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ILampArraySolidEffect {
-    type Vtable = ILampArraySolidEffect_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ILampArraySolidEffect {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x441f8213_43cc_4b33_80eb_c6ddde7dc8ed);
-}
+::windows_core::imp::com_interface!(ILampArraySolidEffect, ILampArraySolidEffect_Vtbl, 0x441f8213_43cc_4b33_80eb_c6ddde7dc8ed);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILampArraySolidEffect_Vtbl {
@@ -308,32 +192,14 @@ pub struct ILampArraySolidEffect_Vtbl {
     pub CompletionBehavior: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut LampArrayEffectCompletionBehavior) -> ::windows_core::HRESULT,
     pub SetCompletionBehavior: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: LampArrayEffectCompletionBehavior) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ILampArraySolidEffectFactory(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ILampArraySolidEffectFactory {
-    type Vtable = ILampArraySolidEffectFactory_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ILampArraySolidEffectFactory {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf862a32c_5576_4341_961b_aee1f13cf9dd);
-}
+::windows_core::imp::com_interface!(ILampArraySolidEffectFactory, ILampArraySolidEffectFactory_Vtbl, 0xf862a32c_5576_4341_961b_aee1f13cf9dd);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILampArraySolidEffectFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lamparray: *mut ::core::ffi::c_void, lampIndexes_array_size: u32, lampindexes: *const i32, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ILampArrayUpdateRequestedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ILampArrayUpdateRequestedEventArgs {
-    type Vtable = ILampArrayUpdateRequestedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ILampArrayUpdateRequestedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x73560d6a_576a_48af_8539_67ffa0ab3516);
-}
+::windows_core::imp::com_interface!(ILampArrayUpdateRequestedEventArgs, ILampArrayUpdateRequestedEventArgs_Vtbl, 0x73560d6a_576a_48af_8539_67ffa0ab3516);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILampArrayUpdateRequestedEventArgs_Vtbl {
@@ -359,6 +225,8 @@ pub struct ILampArrayUpdateRequestedEventArgs_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LampArrayBitmapEffect(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(LampArrayBitmapEffect, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(LampArrayBitmapEffect, ILampArrayEffect);
 impl LampArrayBitmapEffect {
     pub fn Duration(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -424,14 +292,14 @@ impl LampArrayBitmapEffect {
         })
     }
     pub fn ZIndex(&self) -> ::windows_core::Result<i32> {
-        let this = &::windows_core::ComInterface::cast::<ILampArrayEffect>(self)?;
+        let this = &::windows_core::Interface::cast::<ILampArrayEffect>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ZIndex)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetZIndex(&self, value: i32) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<ILampArrayEffect>(self)?;
+        let this = &::windows_core::Interface::cast::<ILampArrayEffect>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetZIndex)(::windows_core::Interface::as_raw(this), value).ok() }
     }
     #[doc(hidden)]
@@ -445,20 +313,17 @@ impl ::windows_core::RuntimeType for LampArrayBitmapEffect {
 }
 unsafe impl ::windows_core::Interface for LampArrayBitmapEffect {
     type Vtable = ILampArrayBitmapEffect_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for LampArrayBitmapEffect {
-    const IID: ::windows_core::GUID = <ILampArrayBitmapEffect as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ILampArrayBitmapEffect as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for LampArrayBitmapEffect {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArrayBitmapEffect";
 }
-::windows_core::imp::interface_hierarchy!(LampArrayBitmapEffect, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<ILampArrayEffect> for LampArrayBitmapEffect {}
 unsafe impl ::core::marker::Send for LampArrayBitmapEffect {}
 unsafe impl ::core::marker::Sync for LampArrayBitmapEffect {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LampArrayBitmapRequestedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(LampArrayBitmapRequestedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl LampArrayBitmapRequestedEventArgs {
     pub fn SinceStarted(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -482,19 +347,18 @@ impl ::windows_core::RuntimeType for LampArrayBitmapRequestedEventArgs {
 }
 unsafe impl ::windows_core::Interface for LampArrayBitmapRequestedEventArgs {
     type Vtable = ILampArrayBitmapRequestedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for LampArrayBitmapRequestedEventArgs {
-    const IID: ::windows_core::GUID = <ILampArrayBitmapRequestedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ILampArrayBitmapRequestedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for LampArrayBitmapRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArrayBitmapRequestedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(LampArrayBitmapRequestedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for LampArrayBitmapRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for LampArrayBitmapRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LampArrayBlinkEffect(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(LampArrayBlinkEffect, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(LampArrayBlinkEffect, ILampArrayEffect);
 impl LampArrayBlinkEffect {
     #[doc = "Required features: `\"UI\"`"]
     #[cfg(feature = "UI")]
@@ -598,14 +462,14 @@ impl LampArrayBlinkEffect {
         })
     }
     pub fn ZIndex(&self) -> ::windows_core::Result<i32> {
-        let this = &::windows_core::ComInterface::cast::<ILampArrayEffect>(self)?;
+        let this = &::windows_core::Interface::cast::<ILampArrayEffect>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ZIndex)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetZIndex(&self, value: i32) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<ILampArrayEffect>(self)?;
+        let this = &::windows_core::Interface::cast::<ILampArrayEffect>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetZIndex)(::windows_core::Interface::as_raw(this), value).ok() }
     }
     #[doc(hidden)]
@@ -619,20 +483,18 @@ impl ::windows_core::RuntimeType for LampArrayBlinkEffect {
 }
 unsafe impl ::windows_core::Interface for LampArrayBlinkEffect {
     type Vtable = ILampArrayBlinkEffect_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for LampArrayBlinkEffect {
-    const IID: ::windows_core::GUID = <ILampArrayBlinkEffect as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ILampArrayBlinkEffect as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for LampArrayBlinkEffect {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArrayBlinkEffect";
 }
-::windows_core::imp::interface_hierarchy!(LampArrayBlinkEffect, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<ILampArrayEffect> for LampArrayBlinkEffect {}
 unsafe impl ::core::marker::Send for LampArrayBlinkEffect {}
 unsafe impl ::core::marker::Sync for LampArrayBlinkEffect {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LampArrayColorRampEffect(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(LampArrayColorRampEffect, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(LampArrayColorRampEffect, ILampArrayEffect);
 impl LampArrayColorRampEffect {
     #[doc = "Required features: `\"UI\"`"]
     #[cfg(feature = "UI")]
@@ -692,14 +554,14 @@ impl LampArrayColorRampEffect {
         })
     }
     pub fn ZIndex(&self) -> ::windows_core::Result<i32> {
-        let this = &::windows_core::ComInterface::cast::<ILampArrayEffect>(self)?;
+        let this = &::windows_core::Interface::cast::<ILampArrayEffect>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ZIndex)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetZIndex(&self, value: i32) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<ILampArrayEffect>(self)?;
+        let this = &::windows_core::Interface::cast::<ILampArrayEffect>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetZIndex)(::windows_core::Interface::as_raw(this), value).ok() }
     }
     #[doc(hidden)]
@@ -713,20 +575,18 @@ impl ::windows_core::RuntimeType for LampArrayColorRampEffect {
 }
 unsafe impl ::windows_core::Interface for LampArrayColorRampEffect {
     type Vtable = ILampArrayColorRampEffect_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for LampArrayColorRampEffect {
-    const IID: ::windows_core::GUID = <ILampArrayColorRampEffect as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ILampArrayColorRampEffect as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for LampArrayColorRampEffect {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArrayColorRampEffect";
 }
-::windows_core::imp::interface_hierarchy!(LampArrayColorRampEffect, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<ILampArrayEffect> for LampArrayColorRampEffect {}
 unsafe impl ::core::marker::Send for LampArrayColorRampEffect {}
 unsafe impl ::core::marker::Sync for LampArrayColorRampEffect {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LampArrayCustomEffect(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(LampArrayCustomEffect, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(LampArrayCustomEffect, ILampArrayEffect);
 impl LampArrayCustomEffect {
     pub fn Duration(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -774,14 +634,14 @@ impl LampArrayCustomEffect {
         })
     }
     pub fn ZIndex(&self) -> ::windows_core::Result<i32> {
-        let this = &::windows_core::ComInterface::cast::<ILampArrayEffect>(self)?;
+        let this = &::windows_core::Interface::cast::<ILampArrayEffect>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ZIndex)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetZIndex(&self, value: i32) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<ILampArrayEffect>(self)?;
+        let this = &::windows_core::Interface::cast::<ILampArrayEffect>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetZIndex)(::windows_core::Interface::as_raw(this), value).ok() }
     }
     #[doc(hidden)]
@@ -795,20 +655,19 @@ impl ::windows_core::RuntimeType for LampArrayCustomEffect {
 }
 unsafe impl ::windows_core::Interface for LampArrayCustomEffect {
     type Vtable = ILampArrayCustomEffect_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for LampArrayCustomEffect {
-    const IID: ::windows_core::GUID = <ILampArrayCustomEffect as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ILampArrayCustomEffect as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for LampArrayCustomEffect {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArrayCustomEffect";
 }
-::windows_core::imp::interface_hierarchy!(LampArrayCustomEffect, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<ILampArrayEffect> for LampArrayCustomEffect {}
 unsafe impl ::core::marker::Send for LampArrayCustomEffect {}
 unsafe impl ::core::marker::Sync for LampArrayCustomEffect {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LampArrayEffectPlaylist(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(LampArrayEffectPlaylist, ::windows_core::IUnknown, ::windows_core::IInspectable);
+#[cfg(feature = "Foundation_Collections")]
+::windows_core::imp::required_hierarchy!(LampArrayEffectPlaylist, super::super::super::Foundation::Collections::IIterable::<ILampArrayEffect>, super::super::super::Foundation::Collections::IVectorView::<ILampArrayEffect>);
 impl LampArrayEffectPlaylist {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -820,7 +679,7 @@ impl LampArrayEffectPlaylist {
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IIterator<ILampArrayEffect>> {
-        let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::Collections::IIterable<ILampArrayEffect>>(self)?;
+        let this = &::windows_core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<ILampArrayEffect>>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).First)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -828,10 +687,10 @@ impl LampArrayEffectPlaylist {
     }
     pub fn Append<P0>(&self, effect: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<ILampArrayEffect>,
+        P0: ::windows_core::IntoParam<ILampArrayEffect>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).Append)(::windows_core::Interface::as_raw(this), effect.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).Append)(::windows_core::Interface::as_raw(this), effect.into_param().abi()).ok() }
     }
     pub fn OverrideZIndex(&self, zindex: i32) -> ::windows_core::Result<()> {
         let this = self;
@@ -886,30 +745,30 @@ impl LampArrayEffectPlaylist {
     #[cfg(feature = "Foundation_Collections")]
     pub fn StartAll<P0>(value: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::super::Foundation::Collections::IIterable<LampArrayEffectPlaylist>>,
+        P0: ::windows_core::IntoParam<super::super::super::Foundation::Collections::IIterable<LampArrayEffectPlaylist>>,
     {
-        Self::ILampArrayEffectPlaylistStatics(|this| unsafe { (::windows_core::Interface::vtable(this).StartAll)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() })
+        Self::ILampArrayEffectPlaylistStatics(|this| unsafe { (::windows_core::Interface::vtable(this).StartAll)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() })
     }
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn StopAll<P0>(value: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::super::Foundation::Collections::IIterable<LampArrayEffectPlaylist>>,
+        P0: ::windows_core::IntoParam<super::super::super::Foundation::Collections::IIterable<LampArrayEffectPlaylist>>,
     {
-        Self::ILampArrayEffectPlaylistStatics(|this| unsafe { (::windows_core::Interface::vtable(this).StopAll)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() })
+        Self::ILampArrayEffectPlaylistStatics(|this| unsafe { (::windows_core::Interface::vtable(this).StopAll)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() })
     }
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn PauseAll<P0>(value: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::super::Foundation::Collections::IIterable<LampArrayEffectPlaylist>>,
+        P0: ::windows_core::IntoParam<super::super::super::Foundation::Collections::IIterable<LampArrayEffectPlaylist>>,
     {
-        Self::ILampArrayEffectPlaylistStatics(|this| unsafe { (::windows_core::Interface::vtable(this).PauseAll)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() })
+        Self::ILampArrayEffectPlaylistStatics(|this| unsafe { (::windows_core::Interface::vtable(this).PauseAll)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() })
     }
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAt(&self, index: u32) -> ::windows_core::Result<ILampArrayEffect> {
-        let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::Collections::IVectorView<ILampArrayEffect>>(self)?;
+        let this = &::windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVectorView<ILampArrayEffect>>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetAt)(::windows_core::Interface::as_raw(this), index, &mut result__).from_abi(result__)
@@ -918,7 +777,7 @@ impl LampArrayEffectPlaylist {
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Size(&self) -> ::windows_core::Result<u32> {
-        let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::Collections::IVectorView<ILampArrayEffect>>(self)?;
+        let this = &::windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVectorView<ILampArrayEffect>>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Size)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -928,18 +787,18 @@ impl LampArrayEffectPlaylist {
     #[cfg(feature = "Foundation_Collections")]
     pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> ::windows_core::Result<bool>
     where
-        P0: ::windows_core::TryIntoParam<ILampArrayEffect>,
+        P0: ::windows_core::IntoParam<ILampArrayEffect>,
     {
-        let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::Collections::IVectorView<ILampArrayEffect>>(self)?;
+        let this = &::windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVectorView<ILampArrayEffect>>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).IndexOf)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi(), index, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).IndexOf)(::windows_core::Interface::as_raw(this), value.into_param().abi(), index, &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<ILampArrayEffect>]) -> ::windows_core::Result<u32> {
-        let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::Collections::IVectorView<ILampArrayEffect>>(self)?;
+        let this = &::windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVectorView<ILampArrayEffect>>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetMany)(::windows_core::Interface::as_raw(this), startindex, items.len().try_into().unwrap(), ::core::mem::transmute_copy(&items), &mut result__).from_abi(result__)
@@ -956,9 +815,7 @@ impl ::windows_core::RuntimeType for LampArrayEffectPlaylist {
 }
 unsafe impl ::windows_core::Interface for LampArrayEffectPlaylist {
     type Vtable = ILampArrayEffectPlaylist_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for LampArrayEffectPlaylist {
-    const IID: ::windows_core::GUID = <ILampArrayEffectPlaylist as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ILampArrayEffectPlaylist as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for LampArrayEffectPlaylist {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArrayEffectPlaylist";
@@ -976,29 +833,26 @@ impl ::core::iter::IntoIterator for &LampArrayEffectPlaylist {
     type Item = ILampArrayEffect;
     type IntoIter = super::super::super::Foundation::Collections::VectorViewIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        super::super::super::Foundation::Collections::VectorViewIterator::new(::windows_core::ComInterface::cast(self).ok())
+        super::super::super::Foundation::Collections::VectorViewIterator::new(::windows_core::Interface::cast(self).ok())
     }
 }
-::windows_core::imp::interface_hierarchy!(LampArrayEffectPlaylist, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Foundation_Collections")]
-impl ::windows_core::CanTryInto<super::super::super::Foundation::Collections::IIterable<ILampArrayEffect>> for LampArrayEffectPlaylist {}
-#[cfg(feature = "Foundation_Collections")]
-impl ::windows_core::CanTryInto<super::super::super::Foundation::Collections::IVectorView<ILampArrayEffect>> for LampArrayEffectPlaylist {}
 unsafe impl ::core::marker::Send for LampArrayEffectPlaylist {}
 unsafe impl ::core::marker::Sync for LampArrayEffectPlaylist {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LampArraySolidEffect(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(LampArraySolidEffect, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(LampArraySolidEffect, ILampArrayEffect);
 impl LampArraySolidEffect {
     pub fn ZIndex(&self) -> ::windows_core::Result<i32> {
-        let this = &::windows_core::ComInterface::cast::<ILampArrayEffect>(self)?;
+        let this = &::windows_core::Interface::cast::<ILampArrayEffect>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ZIndex)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetZIndex(&self, value: i32) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<ILampArrayEffect>(self)?;
+        let this = &::windows_core::Interface::cast::<ILampArrayEffect>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetZIndex)(::windows_core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "Required features: `\"UI\"`"]
@@ -1069,20 +923,17 @@ impl ::windows_core::RuntimeType for LampArraySolidEffect {
 }
 unsafe impl ::windows_core::Interface for LampArraySolidEffect {
     type Vtable = ILampArraySolidEffect_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for LampArraySolidEffect {
-    const IID: ::windows_core::GUID = <ILampArraySolidEffect as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ILampArraySolidEffect as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for LampArraySolidEffect {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArraySolidEffect";
 }
-::windows_core::imp::interface_hierarchy!(LampArraySolidEffect, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<ILampArrayEffect> for LampArraySolidEffect {}
 unsafe impl ::core::marker::Send for LampArraySolidEffect {}
 unsafe impl ::core::marker::Sync for LampArraySolidEffect {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LampArrayUpdateRequestedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(LampArrayUpdateRequestedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl LampArrayUpdateRequestedEventArgs {
     pub fn SinceStarted(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -1121,14 +972,11 @@ impl ::windows_core::RuntimeType for LampArrayUpdateRequestedEventArgs {
 }
 unsafe impl ::windows_core::Interface for LampArrayUpdateRequestedEventArgs {
     type Vtable = ILampArrayUpdateRequestedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for LampArrayUpdateRequestedEventArgs {
-    const IID: ::windows_core::GUID = <ILampArrayUpdateRequestedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ILampArrayUpdateRequestedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for LampArrayUpdateRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArrayUpdateRequestedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(LampArrayUpdateRequestedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for LampArrayUpdateRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for LampArrayUpdateRequestedEventArgs {}
 #[repr(transparent)]

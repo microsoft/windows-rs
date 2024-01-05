@@ -1,6 +1,5 @@
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ID2D1SimplifiedGeometrySink(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(ID2D1SimplifiedGeometrySink, ID2D1SimplifiedGeometrySink_Vtbl, 0x2cd9069e_12e2_11dc_9fed_001143a055f9);
+::windows_core::imp::interface_hierarchy!(ID2D1SimplifiedGeometrySink, ::windows_core::IUnknown);
 impl ID2D1SimplifiedGeometrySink {
     pub unsafe fn SetFillMode(&self, fillmode: D2D1_FILL_MODE) {
         (::windows_core::Interface::vtable(self).SetFillMode)(::windows_core::Interface::as_raw(self), fillmode)
@@ -24,15 +23,8 @@ impl ID2D1SimplifiedGeometrySink {
         (::windows_core::Interface::vtable(self).Close)(::windows_core::Interface::as_raw(self)).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(ID2D1SimplifiedGeometrySink, ::windows_core::IUnknown);
 unsafe impl ::core::marker::Send for ID2D1SimplifiedGeometrySink {}
 unsafe impl ::core::marker::Sync for ID2D1SimplifiedGeometrySink {}
-unsafe impl ::windows_core::Interface for ID2D1SimplifiedGeometrySink {
-    type Vtable = ID2D1SimplifiedGeometrySink_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ID2D1SimplifiedGeometrySink {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2cd9069e_12e2_11dc_9fed_001143a055f9);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1SimplifiedGeometrySink_Vtbl {

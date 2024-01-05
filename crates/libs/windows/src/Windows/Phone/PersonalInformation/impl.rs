@@ -203,7 +203,7 @@ impl IContactInformation_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IContactInformation as ::windows_core::ComInterface>::IID
+        iid == &<IContactInformation as ::windows_core::Interface>::IID
     }
 }
 pub trait IContactInformation2_Impl: Sized {
@@ -238,6 +238,6 @@ impl IContactInformation2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IContactInformation2 as ::windows_core::ComInterface>::IID
+        iid == &<IContactInformation2 as ::windows_core::Interface>::IID
     }
 }

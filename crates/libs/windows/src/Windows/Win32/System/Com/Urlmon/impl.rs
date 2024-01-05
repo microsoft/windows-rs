@@ -18,7 +18,7 @@ impl IBindCallbackRedirect_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Redirect: Redirect::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IBindCallbackRedirect as ::windows_core::ComInterface>::IID
+        iid == &<IBindCallbackRedirect as ::windows_core::Interface>::IID
     }
 }
 pub trait IBindHttpSecurity_Impl: Sized {
@@ -41,7 +41,7 @@ impl IBindHttpSecurity_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetIgnoreCertMask: GetIgnoreCertMask::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IBindHttpSecurity as ::windows_core::ComInterface>::IID
+        iid == &<IBindHttpSecurity as ::windows_core::Interface>::IID
     }
 }
 pub trait IBindProtocol_Impl: Sized {
@@ -64,7 +64,7 @@ impl IBindProtocol_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateBinding: CreateBinding::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IBindProtocol as ::windows_core::ComInterface>::IID
+        iid == &<IBindProtocol as ::windows_core::Interface>::IID
     }
 }
 pub trait ICatalogFileInfo_Impl: Sized {
@@ -97,7 +97,7 @@ impl ICatalogFileInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICatalogFileInfo as ::windows_core::ComInterface>::IID
+        iid == &<ICatalogFileInfo as ::windows_core::Interface>::IID
     }
 }
 pub trait ICodeInstall_Impl: Sized + IWindowForBindingUI_Impl {
@@ -114,7 +114,7 @@ impl ICodeInstall_Vtbl {
         Self { base__: IWindowForBindingUI_Vtbl::new::<Identity, Impl, OFFSET>(), OnCodeInstallProblem: OnCodeInstallProblem::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICodeInstall as ::windows_core::ComInterface>::IID || iid == &<IWindowForBindingUI as ::windows_core::ComInterface>::IID
+        iid == &<ICodeInstall as ::windows_core::Interface>::IID || iid == &<IWindowForBindingUI as ::windows_core::Interface>::IID
     }
 }
 pub trait IDataFilter_Impl: Sized {
@@ -148,7 +148,7 @@ impl IDataFilter_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDataFilter as ::windows_core::ComInterface>::IID
+        iid == &<IDataFilter as ::windows_core::Interface>::IID
     }
 }
 pub trait IEncodingFilterFactory_Impl: Sized {
@@ -187,7 +187,7 @@ impl IEncodingFilterFactory_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEncodingFilterFactory as ::windows_core::ComInterface>::IID
+        iid == &<IEncodingFilterFactory as ::windows_core::Interface>::IID
     }
 }
 pub trait IGetBindHandle_Impl: Sized {
@@ -210,7 +210,7 @@ impl IGetBindHandle_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetBindHandle: GetBindHandle::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IGetBindHandle as ::windows_core::ComInterface>::IID
+        iid == &<IGetBindHandle as ::windows_core::Interface>::IID
     }
 }
 pub trait IHttpNegotiate_Impl: Sized {
@@ -249,7 +249,7 @@ impl IHttpNegotiate_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IHttpNegotiate as ::windows_core::ComInterface>::IID
+        iid == &<IHttpNegotiate as ::windows_core::Interface>::IID
     }
 }
 pub trait IHttpNegotiate2_Impl: Sized + IHttpNegotiate_Impl {
@@ -266,7 +266,7 @@ impl IHttpNegotiate2_Vtbl {
         Self { base__: IHttpNegotiate_Vtbl::new::<Identity, Impl, OFFSET>(), GetRootSecurityId: GetRootSecurityId::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IHttpNegotiate2 as ::windows_core::ComInterface>::IID || iid == &<IHttpNegotiate as ::windows_core::ComInterface>::IID
+        iid == &<IHttpNegotiate2 as ::windows_core::Interface>::IID || iid == &<IHttpNegotiate as ::windows_core::Interface>::IID
     }
 }
 pub trait IHttpNegotiate3_Impl: Sized + IHttpNegotiate2_Impl {
@@ -286,7 +286,7 @@ impl IHttpNegotiate3_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IHttpNegotiate3 as ::windows_core::ComInterface>::IID || iid == &<IHttpNegotiate as ::windows_core::ComInterface>::IID || iid == &<IHttpNegotiate2 as ::windows_core::ComInterface>::IID
+        iid == &<IHttpNegotiate3 as ::windows_core::Interface>::IID || iid == &<IHttpNegotiate as ::windows_core::Interface>::IID || iid == &<IHttpNegotiate2 as ::windows_core::Interface>::IID
     }
 }
 pub trait IHttpSecurity_Impl: Sized + IWindowForBindingUI_Impl {
@@ -303,7 +303,7 @@ impl IHttpSecurity_Vtbl {
         Self { base__: IWindowForBindingUI_Vtbl::new::<Identity, Impl, OFFSET>(), OnSecurityProblem: OnSecurityProblem::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IHttpSecurity as ::windows_core::ComInterface>::IID || iid == &<IWindowForBindingUI as ::windows_core::ComInterface>::IID
+        iid == &<IHttpSecurity as ::windows_core::Interface>::IID || iid == &<IWindowForBindingUI as ::windows_core::Interface>::IID
     }
 }
 pub trait IInternet_Impl: Sized {}
@@ -313,7 +313,7 @@ impl IInternet_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInternet as ::windows_core::ComInterface>::IID
+        iid == &<IInternet as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`, `\"Win32_System_Com_StructuredStorage\"`"]
@@ -344,7 +344,7 @@ impl IInternetBindInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInternetBindInfo as ::windows_core::ComInterface>::IID
+        iid == &<IInternetBindInfo as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`, `\"Win32_System_Com_StructuredStorage\"`"]
@@ -365,7 +365,7 @@ impl IInternetBindInfoEx_Vtbl {
         Self { base__: IInternetBindInfo_Vtbl::new::<Identity, Impl, OFFSET>(), GetBindInfoEx: GetBindInfoEx::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInternetBindInfoEx as ::windows_core::ComInterface>::IID || iid == &<IInternetBindInfo as ::windows_core::ComInterface>::IID
+        iid == &<IInternetBindInfoEx as ::windows_core::Interface>::IID || iid == &<IInternetBindInfo as ::windows_core::Interface>::IID
     }
 }
 pub trait IInternetHostSecurityManager_Impl: Sized {
@@ -399,7 +399,7 @@ impl IInternetHostSecurityManager_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInternetHostSecurityManager as ::windows_core::ComInterface>::IID
+        iid == &<IInternetHostSecurityManager as ::windows_core::Interface>::IID
     }
 }
 pub trait IInternetPriority_Impl: Sized {
@@ -432,7 +432,7 @@ impl IInternetPriority_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInternetPriority as ::windows_core::ComInterface>::IID
+        iid == &<IInternetPriority as ::windows_core::Interface>::IID
     }
 }
 pub trait IInternetProtocol_Impl: Sized + IInternetProtocolRoot_Impl {
@@ -479,7 +479,7 @@ impl IInternetProtocol_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInternetProtocol as ::windows_core::ComInterface>::IID || iid == &<IInternetProtocolRoot as ::windows_core::ComInterface>::IID
+        iid == &<IInternetProtocol as ::windows_core::Interface>::IID || iid == &<IInternetProtocolRoot as ::windows_core::Interface>::IID
     }
 }
 pub trait IInternetProtocolEx_Impl: Sized + IInternetProtocol_Impl {
@@ -496,7 +496,7 @@ impl IInternetProtocolEx_Vtbl {
         Self { base__: IInternetProtocol_Vtbl::new::<Identity, Impl, OFFSET>(), StartEx: StartEx::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInternetProtocolEx as ::windows_core::ComInterface>::IID || iid == &<IInternetProtocolRoot as ::windows_core::ComInterface>::IID || iid == &<IInternetProtocol as ::windows_core::ComInterface>::IID
+        iid == &<IInternetProtocolEx as ::windows_core::Interface>::IID || iid == &<IInternetProtocolRoot as ::windows_core::Interface>::IID || iid == &<IInternetProtocol as ::windows_core::Interface>::IID
     }
 }
 pub trait IInternetProtocolInfo_Impl: Sized {
@@ -537,7 +537,7 @@ impl IInternetProtocolInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInternetProtocolInfo as ::windows_core::ComInterface>::IID
+        iid == &<IInternetProtocolInfo as ::windows_core::Interface>::IID
     }
 }
 pub trait IInternetProtocolRoot_Impl: Sized {
@@ -592,7 +592,7 @@ impl IInternetProtocolRoot_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInternetProtocolRoot as ::windows_core::ComInterface>::IID
+        iid == &<IInternetProtocolRoot as ::windows_core::Interface>::IID
     }
 }
 pub trait IInternetProtocolSink_Impl: Sized {
@@ -633,7 +633,7 @@ impl IInternetProtocolSink_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInternetProtocolSink as ::windows_core::ComInterface>::IID
+        iid == &<IInternetProtocolSink as ::windows_core::Interface>::IID
     }
 }
 pub trait IInternetProtocolSinkStackable_Impl: Sized {
@@ -667,7 +667,7 @@ impl IInternetProtocolSinkStackable_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInternetProtocolSinkStackable as ::windows_core::ComInterface>::IID
+        iid == &<IInternetProtocolSinkStackable as ::windows_core::Interface>::IID
     }
 }
 pub trait IInternetSecurityManager_Impl: Sized {
@@ -742,7 +742,7 @@ impl IInternetSecurityManager_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInternetSecurityManager as ::windows_core::ComInterface>::IID
+        iid == &<IInternetSecurityManager as ::windows_core::Interface>::IID
     }
 }
 pub trait IInternetSecurityManagerEx_Impl: Sized + IInternetSecurityManager_Impl {
@@ -759,7 +759,7 @@ impl IInternetSecurityManagerEx_Vtbl {
         Self { base__: IInternetSecurityManager_Vtbl::new::<Identity, Impl, OFFSET>(), ProcessUrlActionEx: ProcessUrlActionEx::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInternetSecurityManagerEx as ::windows_core::ComInterface>::IID || iid == &<IInternetSecurityManager as ::windows_core::ComInterface>::IID
+        iid == &<IInternetSecurityManagerEx as ::windows_core::Interface>::IID || iid == &<IInternetSecurityManager as ::windows_core::Interface>::IID
     }
 }
 pub trait IInternetSecurityManagerEx2_Impl: Sized + IInternetSecurityManagerEx_Impl {
@@ -800,7 +800,7 @@ impl IInternetSecurityManagerEx2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInternetSecurityManagerEx2 as ::windows_core::ComInterface>::IID || iid == &<IInternetSecurityManager as ::windows_core::ComInterface>::IID || iid == &<IInternetSecurityManagerEx as ::windows_core::ComInterface>::IID
+        iid == &<IInternetSecurityManagerEx2 as ::windows_core::Interface>::IID || iid == &<IInternetSecurityManager as ::windows_core::Interface>::IID || iid == &<IInternetSecurityManagerEx as ::windows_core::Interface>::IID
     }
 }
 pub trait IInternetSecurityMgrSite_Impl: Sized {
@@ -833,7 +833,7 @@ impl IInternetSecurityMgrSite_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInternetSecurityMgrSite as ::windows_core::ComInterface>::IID
+        iid == &<IInternetSecurityMgrSite as ::windows_core::Interface>::IID
     }
 }
 pub trait IInternetSession_Impl: Sized {
@@ -895,7 +895,7 @@ impl IInternetSession_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInternetSession as ::windows_core::ComInterface>::IID
+        iid == &<IInternetSession as ::windows_core::Interface>::IID
     }
 }
 pub trait IInternetThreadSwitch_Impl: Sized {
@@ -922,7 +922,7 @@ impl IInternetThreadSwitch_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInternetThreadSwitch as ::windows_core::ComInterface>::IID
+        iid == &<IInternetThreadSwitch as ::windows_core::Interface>::IID
     }
 }
 pub trait IInternetZoneManager_Impl: Sized {
@@ -1025,7 +1025,7 @@ impl IInternetZoneManager_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInternetZoneManager as ::windows_core::ComInterface>::IID
+        iid == &<IInternetZoneManager as ::windows_core::Interface>::IID
     }
 }
 pub trait IInternetZoneManagerEx_Impl: Sized + IInternetZoneManager_Impl {
@@ -1052,7 +1052,7 @@ impl IInternetZoneManagerEx_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInternetZoneManagerEx as ::windows_core::ComInterface>::IID || iid == &<IInternetZoneManager as ::windows_core::ComInterface>::IID
+        iid == &<IInternetZoneManagerEx as ::windows_core::Interface>::IID || iid == &<IInternetZoneManager as ::windows_core::Interface>::IID
     }
 }
 pub trait IInternetZoneManagerEx2_Impl: Sized + IInternetZoneManagerEx_Impl {
@@ -1093,7 +1093,7 @@ impl IInternetZoneManagerEx2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInternetZoneManagerEx2 as ::windows_core::ComInterface>::IID || iid == &<IInternetZoneManager as ::windows_core::ComInterface>::IID || iid == &<IInternetZoneManagerEx as ::windows_core::ComInterface>::IID
+        iid == &<IInternetZoneManagerEx2 as ::windows_core::Interface>::IID || iid == &<IInternetZoneManager as ::windows_core::Interface>::IID || iid == &<IInternetZoneManagerEx as ::windows_core::Interface>::IID
     }
 }
 pub trait IMonikerProp_Impl: Sized {
@@ -1110,7 +1110,7 @@ impl IMonikerProp_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), PutProperty: PutProperty::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMonikerProp as ::windows_core::ComInterface>::IID
+        iid == &<IMonikerProp as ::windows_core::Interface>::IID
     }
 }
 pub trait IPersistMoniker_Impl: Sized {
@@ -1177,7 +1177,7 @@ impl IPersistMoniker_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPersistMoniker as ::windows_core::ComInterface>::IID
+        iid == &<IPersistMoniker as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Data_Xml_MsXml\"`"]
@@ -1222,7 +1222,7 @@ impl ISoftDistExt_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISoftDistExt as ::windows_core::ComInterface>::IID
+        iid == &<ISoftDistExt as ::windows_core::Interface>::IID
     }
 }
 pub trait IUriBuilderFactory_Impl: Sized {
@@ -1261,7 +1261,7 @@ impl IUriBuilderFactory_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUriBuilderFactory as ::windows_core::ComInterface>::IID
+        iid == &<IUriBuilderFactory as ::windows_core::Interface>::IID
     }
 }
 pub trait IUriContainer_Impl: Sized {
@@ -1284,7 +1284,7 @@ impl IUriContainer_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetIUri: GetIUri::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUriContainer as ::windows_core::ComInterface>::IID
+        iid == &<IUriContainer as ::windows_core::Interface>::IID
     }
 }
 pub trait IWinInetCacheHints_Impl: Sized {
@@ -1301,7 +1301,7 @@ impl IWinInetCacheHints_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetCacheExtension: SetCacheExtension::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWinInetCacheHints as ::windows_core::ComInterface>::IID
+        iid == &<IWinInetCacheHints as ::windows_core::Interface>::IID
     }
 }
 pub trait IWinInetCacheHints2_Impl: Sized + IWinInetCacheHints_Impl {
@@ -1318,7 +1318,7 @@ impl IWinInetCacheHints2_Vtbl {
         Self { base__: IWinInetCacheHints_Vtbl::new::<Identity, Impl, OFFSET>(), SetCacheExtension2: SetCacheExtension2::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWinInetCacheHints2 as ::windows_core::ComInterface>::IID || iid == &<IWinInetCacheHints as ::windows_core::ComInterface>::IID
+        iid == &<IWinInetCacheHints2 as ::windows_core::Interface>::IID || iid == &<IWinInetCacheHints as ::windows_core::Interface>::IID
     }
 }
 pub trait IWinInetFileStream_Impl: Sized {
@@ -1345,7 +1345,7 @@ impl IWinInetFileStream_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWinInetFileStream as ::windows_core::ComInterface>::IID
+        iid == &<IWinInetFileStream as ::windows_core::Interface>::IID
     }
 }
 pub trait IWinInetHttpInfo_Impl: Sized + IWinInetInfo_Impl {
@@ -1362,7 +1362,7 @@ impl IWinInetHttpInfo_Vtbl {
         Self { base__: IWinInetInfo_Vtbl::new::<Identity, Impl, OFFSET>(), QueryInfo: QueryInfo::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWinInetHttpInfo as ::windows_core::ComInterface>::IID || iid == &<IWinInetInfo as ::windows_core::ComInterface>::IID
+        iid == &<IWinInetHttpInfo as ::windows_core::Interface>::IID || iid == &<IWinInetInfo as ::windows_core::Interface>::IID
     }
 }
 pub trait IWinInetHttpTimeouts_Impl: Sized {
@@ -1379,7 +1379,7 @@ impl IWinInetHttpTimeouts_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetRequestTimeouts: GetRequestTimeouts::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWinInetHttpTimeouts as ::windows_core::ComInterface>::IID
+        iid == &<IWinInetHttpTimeouts as ::windows_core::Interface>::IID
     }
 }
 pub trait IWinInetInfo_Impl: Sized {
@@ -1396,7 +1396,7 @@ impl IWinInetInfo_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), QueryOption: QueryOption::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWinInetInfo as ::windows_core::ComInterface>::IID
+        iid == &<IWinInetInfo as ::windows_core::Interface>::IID
     }
 }
 pub trait IWindowForBindingUI_Impl: Sized {
@@ -1419,7 +1419,7 @@ impl IWindowForBindingUI_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetWindow: GetWindow::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWindowForBindingUI as ::windows_core::ComInterface>::IID
+        iid == &<IWindowForBindingUI as ::windows_core::Interface>::IID
     }
 }
 pub trait IWrappedProtocol_Impl: Sized {
@@ -1436,7 +1436,7 @@ impl IWrappedProtocol_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetWrapperCode: GetWrapperCode::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWrappedProtocol as ::windows_core::ComInterface>::IID
+        iid == &<IWrappedProtocol as ::windows_core::Interface>::IID
     }
 }
 pub trait IZoneIdentifier_Impl: Sized {
@@ -1476,7 +1476,7 @@ impl IZoneIdentifier_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IZoneIdentifier as ::windows_core::ComInterface>::IID
+        iid == &<IZoneIdentifier as ::windows_core::Interface>::IID
     }
 }
 pub trait IZoneIdentifier2_Impl: Sized + IZoneIdentifier_Impl {
@@ -1543,6 +1543,6 @@ impl IZoneIdentifier2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IZoneIdentifier2 as ::windows_core::ComInterface>::IID || iid == &<IZoneIdentifier as ::windows_core::ComInterface>::IID
+        iid == &<IZoneIdentifier2 as ::windows_core::Interface>::IID || iid == &<IZoneIdentifier as ::windows_core::Interface>::IID
     }
 }

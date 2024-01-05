@@ -24,7 +24,7 @@ impl ISpiControllerProvider_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISpiControllerProvider as ::windows_core::ComInterface>::IID
+        iid == &<ISpiControllerProvider as ::windows_core::Interface>::IID
     }
 }
 pub trait ISpiDeviceProvider_Impl: Sized + super::super::super::Foundation::IClosable_Impl {
@@ -95,7 +95,7 @@ impl ISpiDeviceProvider_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISpiDeviceProvider as ::windows_core::ComInterface>::IID
+        iid == &<ISpiDeviceProvider as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Foundation_Collections\"`"]
@@ -128,6 +128,6 @@ impl ISpiProvider_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISpiProvider as ::windows_core::ComInterface>::IID
+        iid == &<ISpiProvider as ::windows_core::Interface>::IID
     }
 }

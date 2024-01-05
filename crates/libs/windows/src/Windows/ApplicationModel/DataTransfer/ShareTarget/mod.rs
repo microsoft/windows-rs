@@ -1,13 +1,4 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IQuickLink(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IQuickLink {
-    type Vtable = IQuickLink_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IQuickLink {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x603e4308_f0be_4adc_acc9_8b27ab9cf556);
-}
+::windows_core::imp::com_interface!(IQuickLink, IQuickLink_Vtbl, 0x603e4308_f0be_4adc_acc9_8b27ab9cf556);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IQuickLink_Vtbl {
@@ -33,16 +24,7 @@ pub struct IQuickLink_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     SupportedFileTypes: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IShareOperation(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IShareOperation {
-    type Vtable = IShareOperation_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IShareOperation {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2246bab8_d0f8_41c1_a82a_4137db6504fb);
-}
+::windows_core::imp::com_interface!(IShareOperation, IShareOperation_Vtbl, 0x2246bab8_d0f8_41c1_a82a_4137db6504fb);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IShareOperation_Vtbl {
@@ -57,32 +39,14 @@ pub struct IShareOperation_Vtbl {
     pub ReportCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub ReportError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IShareOperation2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IShareOperation2 {
-    type Vtable = IShareOperation2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IShareOperation2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0ffb97c1_9778_4a09_8e5b_cb5e482d0555);
-}
+::windows_core::imp::com_interface!(IShareOperation2, IShareOperation2_Vtbl, 0x0ffb97c1_9778_4a09_8e5b_cb5e482d0555);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IShareOperation2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DismissUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IShareOperation3(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IShareOperation3 {
-    type Vtable = IShareOperation3_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IShareOperation3 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5ef6b382_b7a7_4571_a2a6_994a034988b2);
-}
+::windows_core::imp::com_interface!(IShareOperation3, IShareOperation3_Vtbl, 0x5ef6b382_b7a7_4571_a2a6_994a034988b2);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IShareOperation3_Vtbl {
@@ -95,6 +59,7 @@ pub struct IShareOperation3_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct QuickLink(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(QuickLink, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl QuickLink {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -167,17 +132,15 @@ impl ::windows_core::RuntimeType for QuickLink {
 }
 unsafe impl ::windows_core::Interface for QuickLink {
     type Vtable = IQuickLink_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for QuickLink {
-    const IID: ::windows_core::GUID = <IQuickLink as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IQuickLink as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for QuickLink {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareTarget.QuickLink";
 }
-::windows_core::imp::interface_hierarchy!(QuickLink, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ShareOperation(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(ShareOperation, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ShareOperation {
     pub fn Data(&self) -> ::windows_core::Result<super::DataPackageView> {
         let this = self;
@@ -225,13 +188,13 @@ impl ShareOperation {
         unsafe { (::windows_core::Interface::vtable(this).ReportError)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn DismissUI(&self) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<IShareOperation2>(self)?;
+        let this = &::windows_core::Interface::cast::<IShareOperation2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).DismissUI)(::windows_core::Interface::as_raw(this)).ok() }
     }
     #[doc = "Required features: `\"ApplicationModel_Contacts\"`, `\"Foundation_Collections\"`"]
     #[cfg(all(feature = "ApplicationModel_Contacts", feature = "Foundation_Collections"))]
     pub fn Contacts(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::Contacts::Contact>> {
-        let this = &::windows_core::ComInterface::cast::<IShareOperation3>(self)?;
+        let this = &::windows_core::Interface::cast::<IShareOperation3>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Contacts)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -243,11 +206,8 @@ impl ::windows_core::RuntimeType for ShareOperation {
 }
 unsafe impl ::windows_core::Interface for ShareOperation {
     type Vtable = IShareOperation_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ShareOperation {
-    const IID: ::windows_core::GUID = <IShareOperation as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IShareOperation as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for ShareOperation {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareTarget.ShareOperation";
 }
-::windows_core::imp::interface_hierarchy!(ShareOperation, ::windows_core::IUnknown, ::windows_core::IInspectable);

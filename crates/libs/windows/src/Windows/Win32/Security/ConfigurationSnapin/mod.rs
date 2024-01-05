@@ -1,6 +1,5 @@
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISceSvcAttachmentData(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(ISceSvcAttachmentData, ISceSvcAttachmentData_Vtbl, 0x17c35fde_200d_11d1_affb_00c04fb984f9);
+::windows_core::imp::interface_hierarchy!(ISceSvcAttachmentData, ::windows_core::IUnknown);
 impl ISceSvcAttachmentData {
     pub unsafe fn GetData(&self, scesvchandle: *mut ::core::ffi::c_void, scetype: SCESVC_INFO_TYPE, ppvdata: *mut *mut ::core::ffi::c_void, psceenumhandle: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetData)(::windows_core::Interface::as_raw(self), scesvchandle, scetype, ppvdata, psceenumhandle).ok()
@@ -18,13 +17,6 @@ impl ISceSvcAttachmentData {
         (::windows_core::Interface::vtable(self).CloseHandle)(::windows_core::Interface::as_raw(self), scesvchandle).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(ISceSvcAttachmentData, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISceSvcAttachmentData {
-    type Vtable = ISceSvcAttachmentData_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISceSvcAttachmentData {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x17c35fde_200d_11d1_affb_00c04fb984f9);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceSvcAttachmentData_Vtbl {
@@ -34,9 +26,8 @@ pub struct ISceSvcAttachmentData_Vtbl {
     pub FreeBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvdata: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub CloseHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scesvchandle: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISceSvcAttachmentPersistInfo(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(ISceSvcAttachmentPersistInfo, ISceSvcAttachmentPersistInfo_Vtbl, 0x6d90e0d0_200d_11d1_affb_00c04fb984f9);
+::windows_core::imp::interface_hierarchy!(ISceSvcAttachmentPersistInfo, ::windows_core::IUnknown);
 impl ISceSvcAttachmentPersistInfo {
     pub unsafe fn Save(&self, lptemplatename: *mut i8, scesvchandle: *mut *mut ::core::ffi::c_void, ppvdata: *mut *mut ::core::ffi::c_void, pboverwriteall: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Save)(::windows_core::Interface::as_raw(self), lptemplatename, scesvchandle, ppvdata, pboverwriteall).ok()
@@ -47,13 +38,6 @@ impl ISceSvcAttachmentPersistInfo {
     pub unsafe fn FreeBuffer(&self, pvdata: *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).FreeBuffer)(::windows_core::Interface::as_raw(self), pvdata).ok()
     }
-}
-::windows_core::imp::interface_hierarchy!(ISceSvcAttachmentPersistInfo, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISceSvcAttachmentPersistInfo {
-    type Vtable = ISceSvcAttachmentPersistInfo_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISceSvcAttachmentPersistInfo {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6d90e0d0_200d_11d1_affb_00c04fb984f9);
 }
 #[repr(C)]
 #[doc(hidden)]

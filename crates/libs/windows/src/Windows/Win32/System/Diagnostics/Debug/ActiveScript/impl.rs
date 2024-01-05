@@ -64,7 +64,7 @@ impl AsyncIDebugApplicationNodeEvents_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<AsyncIDebugApplicationNodeEvents as ::windows_core::ComInterface>::IID
+        iid == &<AsyncIDebugApplicationNodeEvents as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -208,7 +208,7 @@ impl IActiveScript_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IActiveScript as ::windows_core::ComInterface>::IID
+        iid == &<IActiveScript as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -354,7 +354,7 @@ impl IActiveScriptAuthor_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IActiveScriptAuthor as ::windows_core::ComInterface>::IID
+        iid == &<IActiveScriptAuthor as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -375,7 +375,7 @@ impl IActiveScriptAuthorProcedure_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ParseProcedureText: ParseProcedureText::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IActiveScriptAuthorProcedure as ::windows_core::ComInterface>::IID
+        iid == &<IActiveScriptAuthorProcedure as ::windows_core::Interface>::IID
     }
 }
 pub trait IActiveScriptDebug32_Impl: Sized {
@@ -415,7 +415,7 @@ impl IActiveScriptDebug32_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IActiveScriptDebug32 as ::windows_core::ComInterface>::IID
+        iid == &<IActiveScriptDebug32 as ::windows_core::Interface>::IID
     }
 }
 pub trait IActiveScriptDebug64_Impl: Sized {
@@ -455,7 +455,7 @@ impl IActiveScriptDebug64_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IActiveScriptDebug64 as ::windows_core::ComInterface>::IID
+        iid == &<IActiveScriptDebug64 as ::windows_core::Interface>::IID
     }
 }
 pub trait IActiveScriptEncode_Impl: Sized {
@@ -489,7 +489,7 @@ impl IActiveScriptEncode_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IActiveScriptEncode as ::windows_core::ComInterface>::IID
+        iid == &<IActiveScriptEncode as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -533,7 +533,7 @@ impl IActiveScriptError_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IActiveScriptError as ::windows_core::ComInterface>::IID
+        iid == &<IActiveScriptError as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -554,7 +554,7 @@ impl IActiveScriptError64_Vtbl {
         Self { base__: IActiveScriptError_Vtbl::new::<Identity, Impl, OFFSET>(), GetSourcePosition64: GetSourcePosition64::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IActiveScriptError64 as ::windows_core::ComInterface>::IID || iid == &<IActiveScriptError as ::windows_core::ComInterface>::IID
+        iid == &<IActiveScriptError64 as ::windows_core::Interface>::IID || iid == &<IActiveScriptError as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -597,7 +597,7 @@ impl IActiveScriptErrorDebug_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IActiveScriptErrorDebug as ::windows_core::ComInterface>::IID || iid == &<IActiveScriptError as ::windows_core::ComInterface>::IID
+        iid == &<IActiveScriptErrorDebug as ::windows_core::Interface>::IID || iid == &<IActiveScriptError as ::windows_core::Interface>::IID
     }
 }
 pub trait IActiveScriptErrorDebug110_Impl: Sized {
@@ -620,7 +620,7 @@ impl IActiveScriptErrorDebug110_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetExceptionThrownKind: GetExceptionThrownKind::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IActiveScriptErrorDebug110 as ::windows_core::ComInterface>::IID
+        iid == &<IActiveScriptErrorDebug110 as ::windows_core::Interface>::IID
     }
 }
 pub trait IActiveScriptGarbageCollector_Impl: Sized {
@@ -637,7 +637,7 @@ impl IActiveScriptGarbageCollector_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CollectGarbage: CollectGarbage::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IActiveScriptGarbageCollector as ::windows_core::ComInterface>::IID
+        iid == &<IActiveScriptGarbageCollector as ::windows_core::Interface>::IID
     }
 }
 pub trait IActiveScriptHostEncode_Impl: Sized {
@@ -654,7 +654,7 @@ impl IActiveScriptHostEncode_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), EncodeScriptHostFile: EncodeScriptHostFile::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IActiveScriptHostEncode as ::windows_core::ComInterface>::IID
+        iid == &<IActiveScriptHostEncode as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -693,7 +693,7 @@ impl IActiveScriptParse32_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IActiveScriptParse32 as ::windows_core::ComInterface>::IID
+        iid == &<IActiveScriptParse32 as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -732,7 +732,7 @@ impl IActiveScriptParse64_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IActiveScriptParse64 as ::windows_core::ComInterface>::IID
+        iid == &<IActiveScriptParse64 as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -746,7 +746,7 @@ impl IActiveScriptParseProcedure2_32_Vtbl {
         Self { base__: IActiveScriptParseProcedure32_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IActiveScriptParseProcedure2_32 as ::windows_core::ComInterface>::IID || iid == &<IActiveScriptParseProcedure32 as ::windows_core::ComInterface>::IID
+        iid == &<IActiveScriptParseProcedure2_32 as ::windows_core::Interface>::IID || iid == &<IActiveScriptParseProcedure32 as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -760,7 +760,7 @@ impl IActiveScriptParseProcedure2_64_Vtbl {
         Self { base__: IActiveScriptParseProcedure64_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IActiveScriptParseProcedure2_64 as ::windows_core::ComInterface>::IID || iid == &<IActiveScriptParseProcedure64 as ::windows_core::ComInterface>::IID
+        iid == &<IActiveScriptParseProcedure2_64 as ::windows_core::Interface>::IID || iid == &<IActiveScriptParseProcedure64 as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -787,7 +787,7 @@ impl IActiveScriptParseProcedure32_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ParseProcedureText: ParseProcedureText::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IActiveScriptParseProcedure32 as ::windows_core::ComInterface>::IID
+        iid == &<IActiveScriptParseProcedure32 as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -814,7 +814,7 @@ impl IActiveScriptParseProcedure64_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ParseProcedureText: ParseProcedureText::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IActiveScriptParseProcedure64 as ::windows_core::ComInterface>::IID
+        iid == &<IActiveScriptParseProcedure64 as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -841,7 +841,7 @@ impl IActiveScriptParseProcedureOld32_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ParseProcedureText: ParseProcedureText::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IActiveScriptParseProcedureOld32 as ::windows_core::ComInterface>::IID
+        iid == &<IActiveScriptParseProcedureOld32 as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -868,7 +868,7 @@ impl IActiveScriptParseProcedureOld64_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ParseProcedureText: ParseProcedureText::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IActiveScriptParseProcedureOld64 as ::windows_core::ComInterface>::IID
+        iid == &<IActiveScriptParseProcedureOld64 as ::windows_core::Interface>::IID
     }
 }
 pub trait IActiveScriptProfilerCallback_Impl: Sized {
@@ -923,7 +923,7 @@ impl IActiveScriptProfilerCallback_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IActiveScriptProfilerCallback as ::windows_core::ComInterface>::IID
+        iid == &<IActiveScriptProfilerCallback as ::windows_core::Interface>::IID
     }
 }
 pub trait IActiveScriptProfilerCallback2_Impl: Sized + IActiveScriptProfilerCallback_Impl {
@@ -950,7 +950,7 @@ impl IActiveScriptProfilerCallback2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IActiveScriptProfilerCallback2 as ::windows_core::ComInterface>::IID || iid == &<IActiveScriptProfilerCallback as ::windows_core::ComInterface>::IID
+        iid == &<IActiveScriptProfilerCallback2 as ::windows_core::Interface>::IID || iid == &<IActiveScriptProfilerCallback as ::windows_core::Interface>::IID
     }
 }
 pub trait IActiveScriptProfilerCallback3_Impl: Sized + IActiveScriptProfilerCallback2_Impl {
@@ -967,7 +967,7 @@ impl IActiveScriptProfilerCallback3_Vtbl {
         Self { base__: IActiveScriptProfilerCallback2_Vtbl::new::<Identity, Impl, OFFSET>(), SetWebWorkerId: SetWebWorkerId::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IActiveScriptProfilerCallback3 as ::windows_core::ComInterface>::IID || iid == &<IActiveScriptProfilerCallback as ::windows_core::ComInterface>::IID || iid == &<IActiveScriptProfilerCallback2 as ::windows_core::ComInterface>::IID
+        iid == &<IActiveScriptProfilerCallback3 as ::windows_core::Interface>::IID || iid == &<IActiveScriptProfilerCallback as ::windows_core::Interface>::IID || iid == &<IActiveScriptProfilerCallback2 as ::windows_core::Interface>::IID
     }
 }
 pub trait IActiveScriptProfilerControl_Impl: Sized {
@@ -1001,7 +1001,7 @@ impl IActiveScriptProfilerControl_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IActiveScriptProfilerControl as ::windows_core::ComInterface>::IID
+        iid == &<IActiveScriptProfilerControl as ::windows_core::Interface>::IID
     }
 }
 pub trait IActiveScriptProfilerControl2_Impl: Sized + IActiveScriptProfilerControl_Impl {
@@ -1028,7 +1028,7 @@ impl IActiveScriptProfilerControl2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IActiveScriptProfilerControl2 as ::windows_core::ComInterface>::IID || iid == &<IActiveScriptProfilerControl as ::windows_core::ComInterface>::IID
+        iid == &<IActiveScriptProfilerControl2 as ::windows_core::Interface>::IID || iid == &<IActiveScriptProfilerControl as ::windows_core::Interface>::IID
     }
 }
 pub trait IActiveScriptProfilerControl3_Impl: Sized + IActiveScriptProfilerControl2_Impl {
@@ -1051,7 +1051,7 @@ impl IActiveScriptProfilerControl3_Vtbl {
         Self { base__: IActiveScriptProfilerControl2_Vtbl::new::<Identity, Impl, OFFSET>(), EnumHeap: EnumHeap::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IActiveScriptProfilerControl3 as ::windows_core::ComInterface>::IID || iid == &<IActiveScriptProfilerControl as ::windows_core::ComInterface>::IID || iid == &<IActiveScriptProfilerControl2 as ::windows_core::ComInterface>::IID
+        iid == &<IActiveScriptProfilerControl3 as ::windows_core::Interface>::IID || iid == &<IActiveScriptProfilerControl as ::windows_core::Interface>::IID || iid == &<IActiveScriptProfilerControl2 as ::windows_core::Interface>::IID
     }
 }
 pub trait IActiveScriptProfilerControl4_Impl: Sized + IActiveScriptProfilerControl3_Impl {
@@ -1068,7 +1068,7 @@ impl IActiveScriptProfilerControl4_Vtbl {
         Self { base__: IActiveScriptProfilerControl3_Vtbl::new::<Identity, Impl, OFFSET>(), SummarizeHeap: SummarizeHeap::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IActiveScriptProfilerControl4 as ::windows_core::ComInterface>::IID || iid == &<IActiveScriptProfilerControl as ::windows_core::ComInterface>::IID || iid == &<IActiveScriptProfilerControl2 as ::windows_core::ComInterface>::IID || iid == &<IActiveScriptProfilerControl3 as ::windows_core::ComInterface>::IID
+        iid == &<IActiveScriptProfilerControl4 as ::windows_core::Interface>::IID || iid == &<IActiveScriptProfilerControl as ::windows_core::Interface>::IID || iid == &<IActiveScriptProfilerControl2 as ::windows_core::Interface>::IID || iid == &<IActiveScriptProfilerControl3 as ::windows_core::Interface>::IID
     }
 }
 pub trait IActiveScriptProfilerControl5_Impl: Sized + IActiveScriptProfilerControl4_Impl {
@@ -1091,7 +1091,7 @@ impl IActiveScriptProfilerControl5_Vtbl {
         Self { base__: IActiveScriptProfilerControl4_Vtbl::new::<Identity, Impl, OFFSET>(), EnumHeap2: EnumHeap2::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IActiveScriptProfilerControl5 as ::windows_core::ComInterface>::IID || iid == &<IActiveScriptProfilerControl as ::windows_core::ComInterface>::IID || iid == &<IActiveScriptProfilerControl2 as ::windows_core::ComInterface>::IID || iid == &<IActiveScriptProfilerControl3 as ::windows_core::ComInterface>::IID || iid == &<IActiveScriptProfilerControl4 as ::windows_core::ComInterface>::IID
+        iid == &<IActiveScriptProfilerControl5 as ::windows_core::Interface>::IID || iid == &<IActiveScriptProfilerControl as ::windows_core::Interface>::IID || iid == &<IActiveScriptProfilerControl2 as ::windows_core::Interface>::IID || iid == &<IActiveScriptProfilerControl3 as ::windows_core::Interface>::IID || iid == &<IActiveScriptProfilerControl4 as ::windows_core::Interface>::IID
     }
 }
 pub trait IActiveScriptProfilerHeapEnum_Impl: Sized {
@@ -1132,7 +1132,7 @@ impl IActiveScriptProfilerHeapEnum_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IActiveScriptProfilerHeapEnum as ::windows_core::ComInterface>::IID
+        iid == &<IActiveScriptProfilerHeapEnum as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -1169,7 +1169,7 @@ impl IActiveScriptProperty_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IActiveScriptProperty as ::windows_core::ComInterface>::IID
+        iid == &<IActiveScriptProperty as ::windows_core::Interface>::IID
     }
 }
 pub trait IActiveScriptSIPInfo_Impl: Sized {
@@ -1192,7 +1192,7 @@ impl IActiveScriptSIPInfo_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetSIPOID: GetSIPOID::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IActiveScriptSIPInfo as ::windows_core::ComInterface>::IID
+        iid == &<IActiveScriptSIPInfo as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -1277,7 +1277,7 @@ impl IActiveScriptSite_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IActiveScriptSite as ::windows_core::ComInterface>::IID
+        iid == &<IActiveScriptSite as ::windows_core::Interface>::IID
     }
 }
 pub trait IActiveScriptSiteDebug32_Impl: Sized {
@@ -1336,7 +1336,7 @@ impl IActiveScriptSiteDebug32_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IActiveScriptSiteDebug32 as ::windows_core::ComInterface>::IID
+        iid == &<IActiveScriptSiteDebug32 as ::windows_core::Interface>::IID
     }
 }
 pub trait IActiveScriptSiteDebug64_Impl: Sized {
@@ -1395,7 +1395,7 @@ impl IActiveScriptSiteDebug64_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IActiveScriptSiteDebug64 as ::windows_core::ComInterface>::IID
+        iid == &<IActiveScriptSiteDebug64 as ::windows_core::Interface>::IID
     }
 }
 pub trait IActiveScriptSiteDebugEx_Impl: Sized {
@@ -1421,7 +1421,7 @@ impl IActiveScriptSiteDebugEx_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IActiveScriptSiteDebugEx as ::windows_core::ComInterface>::IID
+        iid == &<IActiveScriptSiteDebugEx as ::windows_core::Interface>::IID
     }
 }
 pub trait IActiveScriptSiteInterruptPoll_Impl: Sized {
@@ -1438,7 +1438,7 @@ impl IActiveScriptSiteInterruptPoll_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), QueryContinue: QueryContinue::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IActiveScriptSiteInterruptPoll as ::windows_core::ComInterface>::IID
+        iid == &<IActiveScriptSiteInterruptPoll as ::windows_core::Interface>::IID
     }
 }
 pub trait IActiveScriptSiteTraceInfo_Impl: Sized {
@@ -1455,7 +1455,7 @@ impl IActiveScriptSiteTraceInfo_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SendScriptTraceInfo: SendScriptTraceInfo::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IActiveScriptSiteTraceInfo as ::windows_core::ComInterface>::IID
+        iid == &<IActiveScriptSiteTraceInfo as ::windows_core::Interface>::IID
     }
 }
 pub trait IActiveScriptSiteUIControl_Impl: Sized {
@@ -1478,7 +1478,7 @@ impl IActiveScriptSiteUIControl_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetUIBehavior: GetUIBehavior::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IActiveScriptSiteUIControl as ::windows_core::ComInterface>::IID
+        iid == &<IActiveScriptSiteUIControl as ::windows_core::Interface>::IID
     }
 }
 pub trait IActiveScriptSiteWindow_Impl: Sized {
@@ -1511,7 +1511,7 @@ impl IActiveScriptSiteWindow_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IActiveScriptSiteWindow as ::windows_core::ComInterface>::IID
+        iid == &<IActiveScriptSiteWindow as ::windows_core::Interface>::IID
     }
 }
 pub trait IActiveScriptStats_Impl: Sized {
@@ -1545,7 +1545,7 @@ impl IActiveScriptStats_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IActiveScriptStats as ::windows_core::ComInterface>::IID
+        iid == &<IActiveScriptStats as ::windows_core::Interface>::IID
     }
 }
 pub trait IActiveScriptStringCompare_Impl: Sized {
@@ -1568,7 +1568,7 @@ impl IActiveScriptStringCompare_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), StrComp: StrComp::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IActiveScriptStringCompare as ::windows_core::ComInterface>::IID
+        iid == &<IActiveScriptStringCompare as ::windows_core::Interface>::IID
     }
 }
 pub trait IActiveScriptTraceInfo_Impl: Sized {
@@ -1595,7 +1595,7 @@ impl IActiveScriptTraceInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IActiveScriptTraceInfo as ::windows_core::ComInterface>::IID
+        iid == &<IActiveScriptTraceInfo as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1651,7 +1651,7 @@ impl IActiveScriptWinRTErrorDebug_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IActiveScriptWinRTErrorDebug as ::windows_core::ComInterface>::IID || iid == &<IActiveScriptError as ::windows_core::ComInterface>::IID
+        iid == &<IActiveScriptWinRTErrorDebug as ::windows_core::Interface>::IID || iid == &<IActiveScriptError as ::windows_core::Interface>::IID
     }
 }
 pub trait IApplicationDebugger_Impl: Sized {
@@ -1712,7 +1712,7 @@ impl IApplicationDebugger_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IApplicationDebugger as ::windows_core::ComInterface>::IID
+        iid == &<IApplicationDebugger as ::windows_core::Interface>::IID
     }
 }
 pub trait IApplicationDebuggerUI_Impl: Sized {
@@ -1739,7 +1739,7 @@ impl IApplicationDebuggerUI_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IApplicationDebuggerUI as ::windows_core::ComInterface>::IID
+        iid == &<IApplicationDebuggerUI as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1760,7 +1760,7 @@ impl IBindEventHandler_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), BindHandler: BindHandler::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IBindEventHandler as ::windows_core::ComInterface>::IID
+        iid == &<IBindEventHandler as ::windows_core::Interface>::IID
     }
 }
 pub trait IDebugApplication11032_Impl: Sized + IRemoteDebugApplication110_Impl {
@@ -1800,7 +1800,7 @@ impl IDebugApplication11032_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDebugApplication11032 as ::windows_core::ComInterface>::IID || iid == &<IRemoteDebugApplication110 as ::windows_core::ComInterface>::IID
+        iid == &<IDebugApplication11032 as ::windows_core::Interface>::IID || iid == &<IRemoteDebugApplication110 as ::windows_core::Interface>::IID
     }
 }
 pub trait IDebugApplication11064_Impl: Sized + IRemoteDebugApplication110_Impl {
@@ -1840,7 +1840,7 @@ impl IDebugApplication11064_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDebugApplication11064 as ::windows_core::ComInterface>::IID || iid == &<IRemoteDebugApplication110 as ::windows_core::ComInterface>::IID
+        iid == &<IDebugApplication11064 as ::windows_core::Interface>::IID || iid == &<IRemoteDebugApplication110 as ::windows_core::Interface>::IID
     }
 }
 pub trait IDebugApplication32_Impl: Sized + IRemoteDebugApplication_Impl {
@@ -2029,7 +2029,7 @@ impl IDebugApplication32_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDebugApplication32 as ::windows_core::ComInterface>::IID || iid == &<IRemoteDebugApplication as ::windows_core::ComInterface>::IID
+        iid == &<IDebugApplication32 as ::windows_core::Interface>::IID || iid == &<IRemoteDebugApplication as ::windows_core::Interface>::IID
     }
 }
 pub trait IDebugApplication64_Impl: Sized + IRemoteDebugApplication_Impl {
@@ -2218,7 +2218,7 @@ impl IDebugApplication64_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDebugApplication64 as ::windows_core::ComInterface>::IID || iid == &<IRemoteDebugApplication as ::windows_core::ComInterface>::IID
+        iid == &<IDebugApplication64 as ::windows_core::Interface>::IID || iid == &<IRemoteDebugApplication as ::windows_core::Interface>::IID
     }
 }
 pub trait IDebugApplicationNode_Impl: Sized + IDebugDocumentProvider_Impl {
@@ -2285,7 +2285,7 @@ impl IDebugApplicationNode_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDebugApplicationNode as ::windows_core::ComInterface>::IID || iid == &<IDebugDocumentInfo as ::windows_core::ComInterface>::IID || iid == &<IDebugDocumentProvider as ::windows_core::ComInterface>::IID
+        iid == &<IDebugApplicationNode as ::windows_core::Interface>::IID || iid == &<IDebugDocumentInfo as ::windows_core::Interface>::IID || iid == &<IDebugDocumentProvider as ::windows_core::Interface>::IID
     }
 }
 pub trait IDebugApplicationNode100_Impl: Sized {
@@ -2325,7 +2325,7 @@ impl IDebugApplicationNode100_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDebugApplicationNode100 as ::windows_core::ComInterface>::IID
+        iid == &<IDebugApplicationNode100 as ::windows_core::Interface>::IID
     }
 }
 pub trait IDebugApplicationNodeEvents_Impl: Sized {
@@ -2366,7 +2366,7 @@ impl IDebugApplicationNodeEvents_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDebugApplicationNodeEvents as ::windows_core::ComInterface>::IID
+        iid == &<IDebugApplicationNodeEvents as ::windows_core::Interface>::IID
     }
 }
 pub trait IDebugApplicationThread_Impl: Sized + IRemoteDebugApplicationThread_Impl {
@@ -2414,7 +2414,7 @@ impl IDebugApplicationThread_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDebugApplicationThread as ::windows_core::ComInterface>::IID || iid == &<IRemoteDebugApplicationThread as ::windows_core::ComInterface>::IID
+        iid == &<IDebugApplicationThread as ::windows_core::Interface>::IID || iid == &<IRemoteDebugApplicationThread as ::windows_core::Interface>::IID
     }
 }
 pub trait IDebugApplicationThread11032_Impl: Sized {
@@ -2473,7 +2473,7 @@ impl IDebugApplicationThread11032_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDebugApplicationThread11032 as ::windows_core::ComInterface>::IID
+        iid == &<IDebugApplicationThread11032 as ::windows_core::Interface>::IID
     }
 }
 pub trait IDebugApplicationThread11064_Impl: Sized {
@@ -2532,7 +2532,7 @@ impl IDebugApplicationThread11064_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDebugApplicationThread11064 as ::windows_core::ComInterface>::IID
+        iid == &<IDebugApplicationThread11064 as ::windows_core::Interface>::IID
     }
 }
 pub trait IDebugApplicationThread64_Impl: Sized + IDebugApplicationThread_Impl {
@@ -2552,7 +2552,7 @@ impl IDebugApplicationThread64_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDebugApplicationThread64 as ::windows_core::ComInterface>::IID || iid == &<IRemoteDebugApplicationThread as ::windows_core::ComInterface>::IID || iid == &<IDebugApplicationThread as ::windows_core::ComInterface>::IID
+        iid == &<IDebugApplicationThread64 as ::windows_core::Interface>::IID || iid == &<IRemoteDebugApplicationThread as ::windows_core::Interface>::IID || iid == &<IDebugApplicationThread as ::windows_core::Interface>::IID
     }
 }
 pub trait IDebugApplicationThreadEvents110_Impl: Sized {
@@ -2593,7 +2593,7 @@ impl IDebugApplicationThreadEvents110_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDebugApplicationThreadEvents110 as ::windows_core::ComInterface>::IID
+        iid == &<IDebugApplicationThreadEvents110 as ::windows_core::Interface>::IID
     }
 }
 pub trait IDebugAsyncOperation_Impl: Sized {
@@ -2647,7 +2647,7 @@ impl IDebugAsyncOperation_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDebugAsyncOperation as ::windows_core::ComInterface>::IID
+        iid == &<IDebugAsyncOperation as ::windows_core::Interface>::IID
     }
 }
 pub trait IDebugAsyncOperationCallBack_Impl: Sized {
@@ -2664,7 +2664,7 @@ impl IDebugAsyncOperationCallBack_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), onComplete: onComplete::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDebugAsyncOperationCallBack as ::windows_core::ComInterface>::IID
+        iid == &<IDebugAsyncOperationCallBack as ::windows_core::Interface>::IID
     }
 }
 pub trait IDebugCodeContext_Impl: Sized {
@@ -2697,7 +2697,7 @@ impl IDebugCodeContext_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDebugCodeContext as ::windows_core::ComInterface>::IID
+        iid == &<IDebugCodeContext as ::windows_core::Interface>::IID
     }
 }
 pub trait IDebugCookie_Impl: Sized {
@@ -2714,7 +2714,7 @@ impl IDebugCookie_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetDebugCookie: SetDebugCookie::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDebugCookie as ::windows_core::ComInterface>::IID
+        iid == &<IDebugCookie as ::windows_core::Interface>::IID
     }
 }
 pub trait IDebugDocument_Impl: Sized + IDebugDocumentInfo_Impl {}
@@ -2724,7 +2724,7 @@ impl IDebugDocument_Vtbl {
         Self { base__: IDebugDocumentInfo_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDebugDocument as ::windows_core::ComInterface>::IID || iid == &<IDebugDocumentInfo as ::windows_core::ComInterface>::IID
+        iid == &<IDebugDocument as ::windows_core::Interface>::IID || iid == &<IDebugDocumentInfo as ::windows_core::Interface>::IID
     }
 }
 pub trait IDebugDocumentContext_Impl: Sized {
@@ -2763,7 +2763,7 @@ impl IDebugDocumentContext_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDebugDocumentContext as ::windows_core::ComInterface>::IID
+        iid == &<IDebugDocumentContext as ::windows_core::Interface>::IID
     }
 }
 pub trait IDebugDocumentHelper32_Impl: Sized {
@@ -2920,7 +2920,7 @@ impl IDebugDocumentHelper32_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDebugDocumentHelper32 as ::windows_core::ComInterface>::IID
+        iid == &<IDebugDocumentHelper32 as ::windows_core::Interface>::IID
     }
 }
 pub trait IDebugDocumentHelper64_Impl: Sized {
@@ -3077,7 +3077,7 @@ impl IDebugDocumentHelper64_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDebugDocumentHelper64 as ::windows_core::ComInterface>::IID
+        iid == &<IDebugDocumentHelper64 as ::windows_core::Interface>::IID
     }
 }
 pub trait IDebugDocumentHost_Impl: Sized {
@@ -3144,7 +3144,7 @@ impl IDebugDocumentHost_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDebugDocumentHost as ::windows_core::ComInterface>::IID
+        iid == &<IDebugDocumentHost as ::windows_core::Interface>::IID
     }
 }
 pub trait IDebugDocumentInfo_Impl: Sized {
@@ -3183,7 +3183,7 @@ impl IDebugDocumentInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDebugDocumentInfo as ::windows_core::ComInterface>::IID
+        iid == &<IDebugDocumentInfo as ::windows_core::Interface>::IID
     }
 }
 pub trait IDebugDocumentProvider_Impl: Sized + IDebugDocumentInfo_Impl {
@@ -3206,7 +3206,7 @@ impl IDebugDocumentProvider_Vtbl {
         Self { base__: IDebugDocumentInfo_Vtbl::new::<Identity, Impl, OFFSET>(), GetDocument: GetDocument::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDebugDocumentProvider as ::windows_core::ComInterface>::IID || iid == &<IDebugDocumentInfo as ::windows_core::ComInterface>::IID
+        iid == &<IDebugDocumentProvider as ::windows_core::Interface>::IID || iid == &<IDebugDocumentInfo as ::windows_core::Interface>::IID
     }
 }
 pub trait IDebugDocumentText_Impl: Sized + IDebugDocument_Impl {
@@ -3286,7 +3286,7 @@ impl IDebugDocumentText_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDebugDocumentText as ::windows_core::ComInterface>::IID || iid == &<IDebugDocumentInfo as ::windows_core::ComInterface>::IID || iid == &<IDebugDocument as ::windows_core::ComInterface>::IID
+        iid == &<IDebugDocumentText as ::windows_core::Interface>::IID || iid == &<IDebugDocumentInfo as ::windows_core::Interface>::IID || iid == &<IDebugDocument as ::windows_core::Interface>::IID
     }
 }
 pub trait IDebugDocumentTextAuthor_Impl: Sized + IDebugDocumentText_Impl {
@@ -3320,7 +3320,7 @@ impl IDebugDocumentTextAuthor_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDebugDocumentTextAuthor as ::windows_core::ComInterface>::IID || iid == &<IDebugDocumentInfo as ::windows_core::ComInterface>::IID || iid == &<IDebugDocument as ::windows_core::ComInterface>::IID || iid == &<IDebugDocumentText as ::windows_core::ComInterface>::IID
+        iid == &<IDebugDocumentTextAuthor as ::windows_core::Interface>::IID || iid == &<IDebugDocumentInfo as ::windows_core::Interface>::IID || iid == &<IDebugDocument as ::windows_core::Interface>::IID || iid == &<IDebugDocumentText as ::windows_core::Interface>::IID
     }
 }
 pub trait IDebugDocumentTextEvents_Impl: Sized {
@@ -3375,7 +3375,7 @@ impl IDebugDocumentTextEvents_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDebugDocumentTextEvents as ::windows_core::ComInterface>::IID
+        iid == &<IDebugDocumentTextEvents as ::windows_core::Interface>::IID
     }
 }
 pub trait IDebugDocumentTextExternalAuthor_Impl: Sized {
@@ -3415,7 +3415,7 @@ impl IDebugDocumentTextExternalAuthor_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDebugDocumentTextExternalAuthor as ::windows_core::ComInterface>::IID
+        iid == &<IDebugDocumentTextExternalAuthor as ::windows_core::Interface>::IID
     }
 }
 pub trait IDebugExpression_Impl: Sized {
@@ -3463,7 +3463,7 @@ impl IDebugExpression_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDebugExpression as ::windows_core::ComInterface>::IID
+        iid == &<IDebugExpression as ::windows_core::Interface>::IID
     }
 }
 pub trait IDebugExpressionCallBack_Impl: Sized {
@@ -3480,7 +3480,7 @@ impl IDebugExpressionCallBack_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), onComplete: onComplete::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDebugExpressionCallBack as ::windows_core::ComInterface>::IID
+        iid == &<IDebugExpressionCallBack as ::windows_core::Interface>::IID
     }
 }
 pub trait IDebugExpressionContext_Impl: Sized {
@@ -3513,7 +3513,7 @@ impl IDebugExpressionContext_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDebugExpressionContext as ::windows_core::ComInterface>::IID
+        iid == &<IDebugExpressionContext as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -3569,7 +3569,7 @@ impl IDebugFormatter_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDebugFormatter as ::windows_core::ComInterface>::IID
+        iid == &<IDebugFormatter as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -3625,7 +3625,7 @@ impl IDebugHelper_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDebugHelper as ::windows_core::ComInterface>::IID
+        iid == &<IDebugHelper as ::windows_core::Interface>::IID
     }
 }
 pub trait IDebugSessionProvider_Impl: Sized {
@@ -3642,7 +3642,7 @@ impl IDebugSessionProvider_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), StartDebugSession: StartDebugSession::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDebugSessionProvider as ::windows_core::ComInterface>::IID
+        iid == &<IDebugSessionProvider as ::windows_core::Interface>::IID
     }
 }
 pub trait IDebugStackFrame_Impl: Sized {
@@ -3720,7 +3720,7 @@ impl IDebugStackFrame_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDebugStackFrame as ::windows_core::ComInterface>::IID
+        iid == &<IDebugStackFrame as ::windows_core::Interface>::IID
     }
 }
 pub trait IDebugStackFrame110_Impl: Sized + IDebugStackFrame_Impl {
@@ -3759,7 +3759,7 @@ impl IDebugStackFrame110_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDebugStackFrame110 as ::windows_core::ComInterface>::IID || iid == &<IDebugStackFrame as ::windows_core::ComInterface>::IID
+        iid == &<IDebugStackFrame110 as ::windows_core::Interface>::IID || iid == &<IDebugStackFrame as ::windows_core::Interface>::IID
     }
 }
 pub trait IDebugStackFrameSniffer_Impl: Sized {
@@ -3782,7 +3782,7 @@ impl IDebugStackFrameSniffer_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), EnumStackFrames: EnumStackFrames::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDebugStackFrameSniffer as ::windows_core::ComInterface>::IID
+        iid == &<IDebugStackFrameSniffer as ::windows_core::Interface>::IID
     }
 }
 pub trait IDebugStackFrameSnifferEx32_Impl: Sized + IDebugStackFrameSniffer_Impl {
@@ -3805,7 +3805,7 @@ impl IDebugStackFrameSnifferEx32_Vtbl {
         Self { base__: IDebugStackFrameSniffer_Vtbl::new::<Identity, Impl, OFFSET>(), EnumStackFramesEx32: EnumStackFramesEx32::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDebugStackFrameSnifferEx32 as ::windows_core::ComInterface>::IID || iid == &<IDebugStackFrameSniffer as ::windows_core::ComInterface>::IID
+        iid == &<IDebugStackFrameSnifferEx32 as ::windows_core::Interface>::IID || iid == &<IDebugStackFrameSniffer as ::windows_core::Interface>::IID
     }
 }
 pub trait IDebugStackFrameSnifferEx64_Impl: Sized + IDebugStackFrameSniffer_Impl {
@@ -3828,7 +3828,7 @@ impl IDebugStackFrameSnifferEx64_Vtbl {
         Self { base__: IDebugStackFrameSniffer_Vtbl::new::<Identity, Impl, OFFSET>(), EnumStackFramesEx64: EnumStackFramesEx64::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDebugStackFrameSnifferEx64 as ::windows_core::ComInterface>::IID || iid == &<IDebugStackFrameSniffer as ::windows_core::ComInterface>::IID
+        iid == &<IDebugStackFrameSnifferEx64 as ::windows_core::Interface>::IID || iid == &<IDebugStackFrameSniffer as ::windows_core::Interface>::IID
     }
 }
 pub trait IDebugSyncOperation_Impl: Sized {
@@ -3874,7 +3874,7 @@ impl IDebugSyncOperation_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDebugSyncOperation as ::windows_core::ComInterface>::IID
+        iid == &<IDebugSyncOperation as ::windows_core::Interface>::IID
     }
 }
 pub trait IDebugThreadCall32_Impl: Sized {
@@ -3891,7 +3891,7 @@ impl IDebugThreadCall32_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ThreadCallHandler: ThreadCallHandler::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDebugThreadCall32 as ::windows_core::ComInterface>::IID
+        iid == &<IDebugThreadCall32 as ::windows_core::Interface>::IID
     }
 }
 pub trait IDebugThreadCall64_Impl: Sized {
@@ -3908,7 +3908,7 @@ impl IDebugThreadCall64_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ThreadCallHandler: ThreadCallHandler::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDebugThreadCall64 as ::windows_core::ComInterface>::IID
+        iid == &<IDebugThreadCall64 as ::windows_core::Interface>::IID
     }
 }
 pub trait IEnumDebugApplicationNodes_Impl: Sized {
@@ -3955,7 +3955,7 @@ impl IEnumDebugApplicationNodes_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumDebugApplicationNodes as ::windows_core::ComInterface>::IID
+        iid == &<IEnumDebugApplicationNodes as ::windows_core::Interface>::IID
     }
 }
 pub trait IEnumDebugCodeContexts_Impl: Sized {
@@ -4002,7 +4002,7 @@ impl IEnumDebugCodeContexts_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumDebugCodeContexts as ::windows_core::ComInterface>::IID
+        iid == &<IEnumDebugCodeContexts as ::windows_core::Interface>::IID
     }
 }
 pub trait IEnumDebugExpressionContexts_Impl: Sized {
@@ -4049,7 +4049,7 @@ impl IEnumDebugExpressionContexts_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumDebugExpressionContexts as ::windows_core::ComInterface>::IID
+        iid == &<IEnumDebugExpressionContexts as ::windows_core::Interface>::IID
     }
 }
 pub trait IEnumDebugStackFrames_Impl: Sized {
@@ -4096,7 +4096,7 @@ impl IEnumDebugStackFrames_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumDebugStackFrames as ::windows_core::ComInterface>::IID
+        iid == &<IEnumDebugStackFrames as ::windows_core::Interface>::IID
     }
 }
 pub trait IEnumDebugStackFrames64_Impl: Sized + IEnumDebugStackFrames_Impl {
@@ -4113,7 +4113,7 @@ impl IEnumDebugStackFrames64_Vtbl {
         Self { base__: IEnumDebugStackFrames_Vtbl::new::<Identity, Impl, OFFSET>(), Next64: Next64::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumDebugStackFrames64 as ::windows_core::ComInterface>::IID || iid == &<IEnumDebugStackFrames as ::windows_core::ComInterface>::IID
+        iid == &<IEnumDebugStackFrames64 as ::windows_core::Interface>::IID || iid == &<IEnumDebugStackFrames as ::windows_core::Interface>::IID
     }
 }
 pub trait IEnumJsStackFrames_Impl: Sized {
@@ -4136,7 +4136,7 @@ impl IEnumJsStackFrames_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Next: Next::<Identity, Impl, OFFSET>, Reset: Reset::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumJsStackFrames as ::windows_core::ComInterface>::IID
+        iid == &<IEnumJsStackFrames as ::windows_core::Interface>::IID
     }
 }
 pub trait IEnumRemoteDebugApplicationThreads_Impl: Sized {
@@ -4183,7 +4183,7 @@ impl IEnumRemoteDebugApplicationThreads_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumRemoteDebugApplicationThreads as ::windows_core::ComInterface>::IID
+        iid == &<IEnumRemoteDebugApplicationThreads as ::windows_core::Interface>::IID
     }
 }
 pub trait IEnumRemoteDebugApplications_Impl: Sized {
@@ -4230,7 +4230,7 @@ impl IEnumRemoteDebugApplications_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumRemoteDebugApplications as ::windows_core::ComInterface>::IID
+        iid == &<IEnumRemoteDebugApplications as ::windows_core::Interface>::IID
     }
 }
 pub trait IJsDebug_Impl: Sized {
@@ -4253,7 +4253,7 @@ impl IJsDebug_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OpenVirtualProcess: OpenVirtualProcess::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IJsDebug as ::windows_core::ComInterface>::IID
+        iid == &<IJsDebug as ::windows_core::Interface>::IID
     }
 }
 pub trait IJsDebugBreakPoint_Impl: Sized {
@@ -4307,7 +4307,7 @@ impl IJsDebugBreakPoint_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IJsDebugBreakPoint as ::windows_core::ComInterface>::IID
+        iid == &<IJsDebugBreakPoint as ::windows_core::Interface>::IID
     }
 }
 pub trait IJsDebugDataTarget_Impl: Sized {
@@ -4413,7 +4413,7 @@ impl IJsDebugDataTarget_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IJsDebugDataTarget as ::windows_core::ComInterface>::IID
+        iid == &<IJsDebugDataTarget as ::windows_core::Interface>::IID
     }
 }
 pub trait IJsDebugFrame_Impl: Sized {
@@ -4493,7 +4493,7 @@ impl IJsDebugFrame_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IJsDebugFrame as ::windows_core::ComInterface>::IID
+        iid == &<IJsDebugFrame as ::windows_core::Interface>::IID
     }
 }
 pub trait IJsDebugProcess_Impl: Sized {
@@ -4552,7 +4552,7 @@ impl IJsDebugProcess_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IJsDebugProcess as ::windows_core::ComInterface>::IID
+        iid == &<IJsDebugProcess as ::windows_core::Interface>::IID
     }
 }
 pub trait IJsDebugProperty_Impl: Sized {
@@ -4585,7 +4585,7 @@ impl IJsDebugProperty_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IJsDebugProperty as ::windows_core::ComInterface>::IID
+        iid == &<IJsDebugProperty as ::windows_core::Interface>::IID
     }
 }
 pub trait IJsDebugStackWalker_Impl: Sized {
@@ -4608,7 +4608,7 @@ impl IJsDebugStackWalker_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetNext: GetNext::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IJsDebugStackWalker as ::windows_core::ComInterface>::IID
+        iid == &<IJsDebugStackWalker as ::windows_core::Interface>::IID
     }
 }
 pub trait IJsEnumDebugProperty_Impl: Sized {
@@ -4641,7 +4641,7 @@ impl IJsEnumDebugProperty_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IJsEnumDebugProperty as ::windows_core::ComInterface>::IID
+        iid == &<IJsEnumDebugProperty as ::windows_core::Interface>::IID
     }
 }
 pub trait IMachineDebugManager_Impl: Sized {
@@ -4687,7 +4687,7 @@ impl IMachineDebugManager_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMachineDebugManager as ::windows_core::ComInterface>::IID
+        iid == &<IMachineDebugManager as ::windows_core::Interface>::IID
     }
 }
 pub trait IMachineDebugManagerCookie_Impl: Sized {
@@ -4733,7 +4733,7 @@ impl IMachineDebugManagerCookie_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMachineDebugManagerCookie as ::windows_core::ComInterface>::IID
+        iid == &<IMachineDebugManagerCookie as ::windows_core::Interface>::IID
     }
 }
 pub trait IMachineDebugManagerEvents_Impl: Sized {
@@ -4760,7 +4760,7 @@ impl IMachineDebugManagerEvents_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMachineDebugManagerEvents as ::windows_core::ComInterface>::IID
+        iid == &<IMachineDebugManagerEvents as ::windows_core::Interface>::IID
     }
 }
 pub trait IProcessDebugManager32_Impl: Sized {
@@ -4832,7 +4832,7 @@ impl IProcessDebugManager32_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IProcessDebugManager32 as ::windows_core::ComInterface>::IID
+        iid == &<IProcessDebugManager32 as ::windows_core::Interface>::IID
     }
 }
 pub trait IProcessDebugManager64_Impl: Sized {
@@ -4904,7 +4904,7 @@ impl IProcessDebugManager64_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IProcessDebugManager64 as ::windows_core::ComInterface>::IID
+        iid == &<IProcessDebugManager64 as ::windows_core::Interface>::IID
     }
 }
 pub trait IProvideExpressionContexts_Impl: Sized {
@@ -4927,7 +4927,7 @@ impl IProvideExpressionContexts_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), EnumExpressionContexts: EnumExpressionContexts::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IProvideExpressionContexts as ::windows_core::ComInterface>::IID
+        iid == &<IProvideExpressionContexts as ::windows_core::Interface>::IID
     }
 }
 pub trait IRemoteDebugApplication_Impl: Sized {
@@ -5053,7 +5053,7 @@ impl IRemoteDebugApplication_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRemoteDebugApplication as ::windows_core::ComInterface>::IID
+        iid == &<IRemoteDebugApplication as ::windows_core::Interface>::IID
     }
 }
 pub trait IRemoteDebugApplication110_Impl: Sized {
@@ -5099,7 +5099,7 @@ impl IRemoteDebugApplication110_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRemoteDebugApplication110 as ::windows_core::ComInterface>::IID
+        iid == &<IRemoteDebugApplication110 as ::windows_core::Interface>::IID
     }
 }
 pub trait IRemoteDebugApplicationEvents_Impl: Sized {
@@ -5182,7 +5182,7 @@ impl IRemoteDebugApplicationEvents_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRemoteDebugApplicationEvents as ::windows_core::ComInterface>::IID
+        iid == &<IRemoteDebugApplicationEvents as ::windows_core::Interface>::IID
     }
 }
 pub trait IRemoteDebugApplicationThread_Impl: Sized {
@@ -5300,7 +5300,7 @@ impl IRemoteDebugApplicationThread_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRemoteDebugApplicationThread as ::windows_core::ComInterface>::IID
+        iid == &<IRemoteDebugApplicationThread as ::windows_core::Interface>::IID
     }
 }
 pub trait IRemoteDebugCriticalErrorEvent110_Impl: Sized {
@@ -5317,7 +5317,7 @@ impl IRemoteDebugCriticalErrorEvent110_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetErrorInfo: GetErrorInfo::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRemoteDebugCriticalErrorEvent110 as ::windows_core::ComInterface>::IID
+        iid == &<IRemoteDebugCriticalErrorEvent110 as ::windows_core::Interface>::IID
     }
 }
 pub trait IRemoteDebugInfoEvent110_Impl: Sized {
@@ -5334,7 +5334,7 @@ impl IRemoteDebugInfoEvent110_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetEventInfo: GetEventInfo::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRemoteDebugInfoEvent110 as ::windows_core::ComInterface>::IID
+        iid == &<IRemoteDebugInfoEvent110 as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -5452,7 +5452,7 @@ impl IScriptEntry_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IScriptEntry as ::windows_core::ComInterface>::IID || iid == &<IScriptNode as ::windows_core::ComInterface>::IID
+        iid == &<IScriptEntry as ::windows_core::Interface>::IID || iid == &<IScriptNode as ::windows_core::Interface>::IID
     }
 }
 pub trait IScriptInvocationContext_Impl: Sized {
@@ -5504,7 +5504,7 @@ impl IScriptInvocationContext_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IScriptInvocationContext as ::windows_core::ComInterface>::IID
+        iid == &<IScriptInvocationContext as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -5639,7 +5639,7 @@ impl IScriptNode_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IScriptNode as ::windows_core::ComInterface>::IID
+        iid == &<IScriptNode as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -5716,7 +5716,7 @@ impl IScriptScriptlet_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IScriptScriptlet as ::windows_core::ComInterface>::IID || iid == &<IScriptNode as ::windows_core::ComInterface>::IID || iid == &<IScriptEntry as ::windows_core::ComInterface>::IID
+        iid == &<IScriptScriptlet as ::windows_core::Interface>::IID || iid == &<IScriptNode as ::windows_core::Interface>::IID || iid == &<IScriptEntry as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -5773,7 +5773,7 @@ impl ISimpleConnectionPoint_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISimpleConnectionPoint as ::windows_core::ComInterface>::IID
+        iid == &<ISimpleConnectionPoint as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -5794,7 +5794,7 @@ impl ITridentEventSink_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), FireEvent: FireEvent::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITridentEventSink as ::windows_core::ComInterface>::IID
+        iid == &<ITridentEventSink as ::windows_core::Interface>::IID
     }
 }
 pub trait IWebAppDiagnosticsObjectInitialization_Impl: Sized {
@@ -5811,7 +5811,7 @@ impl IWebAppDiagnosticsObjectInitialization_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWebAppDiagnosticsObjectInitialization as ::windows_core::ComInterface>::IID
+        iid == &<IWebAppDiagnosticsObjectInitialization as ::windows_core::Interface>::IID
     }
 }
 pub trait IWebAppDiagnosticsSetup_Impl: Sized {
@@ -5844,6 +5844,6 @@ impl IWebAppDiagnosticsSetup_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWebAppDiagnosticsSetup as ::windows_core::ComInterface>::IID
+        iid == &<IWebAppDiagnosticsSetup as ::windows_core::Interface>::IID
     }
 }

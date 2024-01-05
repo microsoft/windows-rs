@@ -28,7 +28,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IIterable_Vtbl<T> {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IIterable<T> as ::windows_core::ComInterface>::IID
+        iid == &<IIterable<T> as ::windows_core::Interface>::IID
     }
 }
 pub trait IIterator_Impl<T>: Sized
@@ -100,7 +100,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IIterator_Vtbl<T> {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IIterator<T> as ::windows_core::ComInterface>::IID
+        iid == &<IIterator<T> as ::windows_core::Interface>::IID
     }
 }
 pub trait IKeyValuePair_Impl<K, V>: Sized
@@ -149,7 +149,7 @@ impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IKeyValuePair<K, V> as ::windows_core::ComInterface>::IID
+        iid == &<IKeyValuePair<K, V> as ::windows_core::Interface>::IID
     }
 }
 pub trait IMap_Impl<K, V>: Sized + IIterable_Impl<IKeyValuePair<K, V>>
@@ -251,7 +251,7 @@ impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMap<K, V> as ::windows_core::ComInterface>::IID
+        iid == &<IMap<K, V> as ::windows_core::Interface>::IID
     }
 }
 pub trait IMapChangedEventArgs_Impl<K>: Sized
@@ -297,7 +297,7 @@ impl<K: ::windows_core::RuntimeType + 'static> IMapChangedEventArgs_Vtbl<K> {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMapChangedEventArgs<K> as ::windows_core::ComInterface>::IID
+        iid == &<IMapChangedEventArgs<K> as ::windows_core::Interface>::IID
     }
 }
 pub trait IMapView_Impl<K, V>: Sized + IIterable_Impl<IKeyValuePair<K, V>>
@@ -365,7 +365,7 @@ impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMapView<K, V> as ::windows_core::ComInterface>::IID
+        iid == &<IMapView<K, V> as ::windows_core::Interface>::IID
     }
 }
 pub trait IObservableMap_Impl<K, V>: Sized + IIterable_Impl<IKeyValuePair<K, V>> + IMap_Impl<K, V>
@@ -406,7 +406,7 @@ impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IObservableMap<K, V> as ::windows_core::ComInterface>::IID
+        iid == &<IObservableMap<K, V> as ::windows_core::Interface>::IID
     }
 }
 pub trait IObservableVector_Impl<T>: Sized + IIterable_Impl<T> + IVector_Impl<T>
@@ -445,7 +445,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IObservableVector_Vtbl<T> {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IObservableVector<T> as ::windows_core::ComInterface>::IID
+        iid == &<IObservableVector<T> as ::windows_core::Interface>::IID
     }
 }
 pub trait IPropertySet_Impl: Sized + IIterable_Impl<IKeyValuePair<::windows_core::HSTRING, ::windows_core::IInspectable>> + IMap_Impl<::windows_core::HSTRING, ::windows_core::IInspectable> + IObservableMap_Impl<::windows_core::HSTRING, ::windows_core::IInspectable> {}
@@ -457,7 +457,7 @@ impl IPropertySet_Vtbl {
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, IPropertySet, OFFSET>() }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPropertySet as ::windows_core::ComInterface>::IID
+        iid == &<IPropertySet as ::windows_core::Interface>::IID
     }
 }
 pub trait IVector_Impl<T>: Sized + IIterable_Impl<T>
@@ -592,7 +592,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IVector<T> as ::windows_core::ComInterface>::IID
+        iid == &<IVector<T> as ::windows_core::Interface>::IID
     }
 }
 pub trait IVectorChangedEventArgs_Impl: Sized {
@@ -633,7 +633,7 @@ impl IVectorChangedEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IVectorChangedEventArgs as ::windows_core::ComInterface>::IID
+        iid == &<IVectorChangedEventArgs as ::windows_core::Interface>::IID
     }
 }
 pub trait IVectorView_Impl<T>: Sized + IIterable_Impl<T>
@@ -705,7 +705,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IVectorView_Vtbl<T> {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IVectorView<T> as ::windows_core::ComInterface>::IID
+        iid == &<IVectorView<T> as ::windows_core::Interface>::IID
     }
 }
 #[::windows_implement::implement(IIterable<T>)]

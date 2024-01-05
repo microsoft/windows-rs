@@ -5,7 +5,7 @@ impl IDontSupportEventSubscription_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDontSupportEventSubscription as ::windows_core::ComInterface>::IID
+        iid == &<IDontSupportEventSubscription as ::windows_core::Interface>::IID
     }
 }
 pub trait IEnumEventObject_Impl: Sized {
@@ -52,7 +52,7 @@ impl IEnumEventObject_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumEventObject as ::windows_core::ComInterface>::IID
+        iid == &<IEnumEventObject as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -209,7 +209,7 @@ impl IEventClass_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEventClass as ::windows_core::ComInterface>::IID || iid == &<super::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<IEventClass as ::windows_core::Interface>::IID || iid == &<super::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -306,7 +306,7 @@ impl IEventClass2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEventClass2 as ::windows_core::ComInterface>::IID || iid == &<super::IDispatch as ::windows_core::ComInterface>::IID || iid == &<IEventClass as ::windows_core::ComInterface>::IID
+        iid == &<IEventClass2 as ::windows_core::Interface>::IID || iid == &<super::IDispatch as ::windows_core::Interface>::IID || iid == &<IEventClass as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -376,7 +376,7 @@ impl IEventControl_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEventControl as ::windows_core::ComInterface>::IID || iid == &<super::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<IEventControl as ::windows_core::Interface>::IID || iid == &<super::IDispatch as ::windows_core::Interface>::IID
     }
 }
 pub trait IEventObjectChange_Impl: Sized {
@@ -410,7 +410,7 @@ impl IEventObjectChange_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEventObjectChange as ::windows_core::ComInterface>::IID
+        iid == &<IEventObjectChange as ::windows_core::Interface>::IID
     }
 }
 pub trait IEventObjectChange2_Impl: Sized {
@@ -437,7 +437,7 @@ impl IEventObjectChange2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEventObjectChange2 as ::windows_core::ComInterface>::IID
+        iid == &<IEventObjectChange2 as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -520,7 +520,7 @@ impl IEventObjectCollection_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEventObjectCollection as ::windows_core::ComInterface>::IID || iid == &<super::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<IEventObjectCollection as ::windows_core::Interface>::IID || iid == &<super::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -577,7 +577,7 @@ impl IEventProperty_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEventProperty as ::windows_core::ComInterface>::IID || iid == &<super::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<IEventProperty as ::windows_core::Interface>::IID || iid == &<super::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -734,7 +734,7 @@ impl IEventPublisher_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEventPublisher as ::windows_core::ComInterface>::IID || iid == &<super::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<IEventPublisher as ::windows_core::Interface>::IID || iid == &<super::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -1091,7 +1091,7 @@ impl IEventSubscription_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEventSubscription as ::windows_core::ComInterface>::IID || iid == &<super::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<IEventSubscription as ::windows_core::Interface>::IID || iid == &<super::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -1168,7 +1168,7 @@ impl IEventSystem_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEventSystem as ::windows_core::ComInterface>::IID || iid == &<super::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<IEventSystem as ::windows_core::Interface>::IID || iid == &<super::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -1189,7 +1189,7 @@ impl IFiringControl_Vtbl {
         Self { base__: super::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), FireSubscription: FireSubscription::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IFiringControl as ::windows_core::ComInterface>::IID || iid == &<super::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<IFiringControl as ::windows_core::Interface>::IID || iid == &<super::IDispatch as ::windows_core::Interface>::IID
     }
 }
 pub trait IMultiInterfaceEventControl_Impl: Sized {
@@ -1275,7 +1275,7 @@ impl IMultiInterfaceEventControl_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMultiInterfaceEventControl as ::windows_core::ComInterface>::IID
+        iid == &<IMultiInterfaceEventControl as ::windows_core::Interface>::IID
     }
 }
 pub trait IMultiInterfacePublisherFilter_Impl: Sized {
@@ -1302,7 +1302,7 @@ impl IMultiInterfacePublisherFilter_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMultiInterfacePublisherFilter as ::windows_core::ComInterface>::IID
+        iid == &<IMultiInterfacePublisherFilter as ::windows_core::Interface>::IID
     }
 }
 pub trait IPublisherFilter_Impl: Sized {
@@ -1329,6 +1329,6 @@ impl IPublisherFilter_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPublisherFilter as ::windows_core::ComInterface>::IID
+        iid == &<IPublisherFilter as ::windows_core::Interface>::IID
     }
 }

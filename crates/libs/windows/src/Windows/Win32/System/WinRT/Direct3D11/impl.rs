@@ -12,6 +12,6 @@ impl IDirect3DDxgiInterfaceAccess_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetInterface: GetInterface::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirect3DDxgiInterfaceAccess as ::windows_core::ComInterface>::IID
+        iid == &<IDirect3DDxgiInterfaceAccess as ::windows_core::Interface>::IID
     }
 }

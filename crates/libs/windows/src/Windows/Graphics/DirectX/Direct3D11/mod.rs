@@ -1,26 +1,18 @@
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDirect3DDevice(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDirect3DDevice, IDirect3DDevice_Vtbl, 0xa37624ab_8d5f_4650_9d3e_9eae3d9bc670);
+::windows_core::imp::interface_hierarchy!(IDirect3DDevice, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(IDirect3DDevice, super::super::super::Foundation::IClosable);
 impl IDirect3DDevice {
     pub fn Trim(&self) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).Trim)(::windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Close(&self) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IClosable>(self)?;
+        let this = &::windows_core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
 }
-::windows_core::imp::interface_hierarchy!(IDirect3DDevice, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<super::super::super::Foundation::IClosable> for IDirect3DDevice {}
 impl ::windows_core::RuntimeType for IDirect3DDevice {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IDirect3DDevice {
-    type Vtable = IDirect3DDevice_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDirect3DDevice {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa37624ab_8d5f_4650_9d3e_9eae3d9bc670);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -28,9 +20,9 @@ pub struct IDirect3DDevice_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Trim: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDirect3DSurface(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDirect3DSurface, IDirect3DSurface_Vtbl, 0x0bf4a146_13c1_4694_bee3_7abf15eaf586);
+::windows_core::imp::interface_hierarchy!(IDirect3DSurface, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(IDirect3DSurface, super::super::super::Foundation::IClosable);
 impl IDirect3DSurface {
     pub fn Description(&self) -> ::windows_core::Result<Direct3DSurfaceDescription> {
         let this = self;
@@ -40,20 +32,12 @@ impl IDirect3DSurface {
         }
     }
     pub fn Close(&self) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IClosable>(self)?;
+        let this = &::windows_core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
 }
-::windows_core::imp::interface_hierarchy!(IDirect3DSurface, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<super::super::super::Foundation::IClosable> for IDirect3DSurface {}
 impl ::windows_core::RuntimeType for IDirect3DSurface {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IDirect3DSurface {
-    type Vtable = IDirect3DSurface_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDirect3DSurface {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0bf4a146_13c1_4694_bee3_7abf15eaf586);
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -9,7 +9,7 @@ impl IDummyMBNUCMExt_Vtbl {
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDummyMBNUCMExt as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<IDummyMBNUCMExt as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 pub trait IMbnConnection_Impl: Sized {
@@ -107,7 +107,7 @@ impl IMbnConnection_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMbnConnection as ::windows_core::ComInterface>::IID
+        iid == &<IMbnConnection as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -150,7 +150,7 @@ impl IMbnConnectionContext_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMbnConnectionContext as ::windows_core::ComInterface>::IID
+        iid == &<IMbnConnectionContext as ::windows_core::Interface>::IID
     }
 }
 pub trait IMbnConnectionContextEvents_Impl: Sized {
@@ -177,7 +177,7 @@ impl IMbnConnectionContextEvents_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMbnConnectionContextEvents as ::windows_core::ComInterface>::IID
+        iid == &<IMbnConnectionContextEvents as ::windows_core::Interface>::IID
     }
 }
 pub trait IMbnConnectionEvents_Impl: Sized {
@@ -218,7 +218,7 @@ impl IMbnConnectionEvents_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMbnConnectionEvents as ::windows_core::ComInterface>::IID
+        iid == &<IMbnConnectionEvents as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -261,7 +261,7 @@ impl IMbnConnectionManager_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMbnConnectionManager as ::windows_core::ComInterface>::IID
+        iid == &<IMbnConnectionManager as ::windows_core::Interface>::IID
     }
 }
 pub trait IMbnConnectionManagerEvents_Impl: Sized {
@@ -288,7 +288,7 @@ impl IMbnConnectionManagerEvents_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMbnConnectionManagerEvents as ::windows_core::ComInterface>::IID
+        iid == &<IMbnConnectionManagerEvents as ::windows_core::Interface>::IID
     }
 }
 pub trait IMbnConnectionProfile_Impl: Sized {
@@ -328,7 +328,7 @@ impl IMbnConnectionProfile_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMbnConnectionProfile as ::windows_core::ComInterface>::IID
+        iid == &<IMbnConnectionProfile as ::windows_core::Interface>::IID
     }
 }
 pub trait IMbnConnectionProfileEvents_Impl: Sized {
@@ -345,7 +345,7 @@ impl IMbnConnectionProfileEvents_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnProfileUpdate: OnProfileUpdate::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMbnConnectionProfileEvents as ::windows_core::ComInterface>::IID
+        iid == &<IMbnConnectionProfileEvents as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -395,7 +395,7 @@ impl IMbnConnectionProfileManager_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMbnConnectionProfileManager as ::windows_core::ComInterface>::IID
+        iid == &<IMbnConnectionProfileManager as ::windows_core::Interface>::IID
     }
 }
 pub trait IMbnConnectionProfileManagerEvents_Impl: Sized {
@@ -422,7 +422,7 @@ impl IMbnConnectionProfileManagerEvents_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMbnConnectionProfileManagerEvents as ::windows_core::ComInterface>::IID
+        iid == &<IMbnConnectionProfileManagerEvents as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -595,7 +595,7 @@ impl IMbnDeviceService_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMbnDeviceService as ::windows_core::ComInterface>::IID
+        iid == &<IMbnDeviceService as ::windows_core::Interface>::IID
     }
 }
 pub trait IMbnDeviceServiceStateEvents_Impl: Sized {
@@ -612,7 +612,7 @@ impl IMbnDeviceServiceStateEvents_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnSessionsStateChange: OnSessionsStateChange::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMbnDeviceServiceStateEvents as ::windows_core::ComInterface>::IID
+        iid == &<IMbnDeviceServiceStateEvents as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -681,7 +681,7 @@ impl IMbnDeviceServicesContext_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMbnDeviceServicesContext as ::windows_core::ComInterface>::IID
+        iid == &<IMbnDeviceServicesContext as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -775,7 +775,7 @@ impl IMbnDeviceServicesEvents_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMbnDeviceServicesEvents as ::windows_core::ComInterface>::IID
+        iid == &<IMbnDeviceServicesEvents as ::windows_core::Interface>::IID
     }
 }
 pub trait IMbnDeviceServicesManager_Impl: Sized {
@@ -798,7 +798,7 @@ impl IMbnDeviceServicesManager_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetDeviceServicesContext: GetDeviceServicesContext::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMbnDeviceServicesManager as ::windows_core::ComInterface>::IID
+        iid == &<IMbnDeviceServicesManager as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -946,7 +946,7 @@ impl IMbnInterface_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMbnInterface as ::windows_core::ComInterface>::IID
+        iid == &<IMbnInterface as ::windows_core::Interface>::IID
     }
 }
 pub trait IMbnInterfaceEvents_Impl: Sized {
@@ -1015,7 +1015,7 @@ impl IMbnInterfaceEvents_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMbnInterfaceEvents as ::windows_core::ComInterface>::IID
+        iid == &<IMbnInterfaceEvents as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1058,7 +1058,7 @@ impl IMbnInterfaceManager_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMbnInterfaceManager as ::windows_core::ComInterface>::IID
+        iid == &<IMbnInterfaceManager as ::windows_core::Interface>::IID
     }
 }
 pub trait IMbnInterfaceManagerEvents_Impl: Sized {
@@ -1085,7 +1085,7 @@ impl IMbnInterfaceManagerEvents_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMbnInterfaceManagerEvents as ::windows_core::ComInterface>::IID
+        iid == &<IMbnInterfaceManagerEvents as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1174,7 +1174,7 @@ impl IMbnMultiCarrier_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMbnMultiCarrier as ::windows_core::ComInterface>::IID
+        iid == &<IMbnMultiCarrier as ::windows_core::Interface>::IID
     }
 }
 pub trait IMbnMultiCarrierEvents_Impl: Sized {
@@ -1222,7 +1222,7 @@ impl IMbnMultiCarrierEvents_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMbnMultiCarrierEvents as ::windows_core::ComInterface>::IID
+        iid == &<IMbnMultiCarrierEvents as ::windows_core::Interface>::IID
     }
 }
 pub trait IMbnPin_Impl: Sized {
@@ -1378,7 +1378,7 @@ impl IMbnPin_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMbnPin as ::windows_core::ComInterface>::IID
+        iid == &<IMbnPin as ::windows_core::Interface>::IID
     }
 }
 pub trait IMbnPinEvents_Impl: Sized {
@@ -1426,7 +1426,7 @@ impl IMbnPinEvents_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMbnPinEvents as ::windows_core::ComInterface>::IID
+        iid == &<IMbnPinEvents as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1482,7 +1482,7 @@ impl IMbnPinManager_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMbnPinManager as ::windows_core::ComInterface>::IID
+        iid == &<IMbnPinManager as ::windows_core::Interface>::IID
     }
 }
 pub trait IMbnPinManagerEvents_Impl: Sized {
@@ -1509,7 +1509,7 @@ impl IMbnPinManagerEvents_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMbnPinManagerEvents as ::windows_core::ComInterface>::IID
+        iid == &<IMbnPinManagerEvents as ::windows_core::Interface>::IID
     }
 }
 pub trait IMbnRadio_Impl: Sized {
@@ -1561,7 +1561,7 @@ impl IMbnRadio_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMbnRadio as ::windows_core::ComInterface>::IID
+        iid == &<IMbnRadio as ::windows_core::Interface>::IID
     }
 }
 pub trait IMbnRadioEvents_Impl: Sized {
@@ -1588,7 +1588,7 @@ impl IMbnRadioEvents_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMbnRadioEvents as ::windows_core::ComInterface>::IID
+        iid == &<IMbnRadioEvents as ::windows_core::Interface>::IID
     }
 }
 pub trait IMbnRegistration_Impl: Sized {
@@ -1731,7 +1731,7 @@ impl IMbnRegistration_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMbnRegistration as ::windows_core::ComInterface>::IID
+        iid == &<IMbnRegistration as ::windows_core::Interface>::IID
     }
 }
 pub trait IMbnRegistrationEvents_Impl: Sized {
@@ -1772,7 +1772,7 @@ impl IMbnRegistrationEvents_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMbnRegistrationEvents as ::windows_core::ComInterface>::IID
+        iid == &<IMbnRegistrationEvents as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1799,7 +1799,7 @@ impl IMbnServiceActivation_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Activate: Activate::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMbnServiceActivation as ::windows_core::ComInterface>::IID
+        iid == &<IMbnServiceActivation as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1820,7 +1820,7 @@ impl IMbnServiceActivationEvents_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnActivationComplete: OnActivationComplete::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMbnServiceActivationEvents as ::windows_core::ComInterface>::IID
+        iid == &<IMbnServiceActivationEvents as ::windows_core::Interface>::IID
     }
 }
 pub trait IMbnSignal_Impl: Sized {
@@ -1859,7 +1859,7 @@ impl IMbnSignal_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMbnSignal as ::windows_core::ComInterface>::IID
+        iid == &<IMbnSignal as ::windows_core::Interface>::IID
     }
 }
 pub trait IMbnSignalEvents_Impl: Sized {
@@ -1876,7 +1876,7 @@ impl IMbnSignalEvents_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnSignalStateChange: OnSignalStateChange::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMbnSignalEvents as ::windows_core::ComInterface>::IID
+        iid == &<IMbnSignalEvents as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1997,7 +1997,7 @@ impl IMbnSms_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMbnSms as ::windows_core::ComInterface>::IID
+        iid == &<IMbnSms as ::windows_core::Interface>::IID
     }
 }
 pub trait IMbnSmsConfiguration_Impl: Sized {
@@ -2076,7 +2076,7 @@ impl IMbnSmsConfiguration_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMbnSmsConfiguration as ::windows_core::ComInterface>::IID
+        iid == &<IMbnSmsConfiguration as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -2142,7 +2142,7 @@ impl IMbnSmsEvents_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMbnSmsEvents as ::windows_core::ComInterface>::IID
+        iid == &<IMbnSmsEvents as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -2211,7 +2211,7 @@ impl IMbnSmsReadMsgPdu_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMbnSmsReadMsgPdu as ::windows_core::ComInterface>::IID
+        iid == &<IMbnSmsReadMsgPdu as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -2332,7 +2332,7 @@ impl IMbnSmsReadMsgTextCdma_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMbnSmsReadMsgTextCdma as ::windows_core::ComInterface>::IID
+        iid == &<IMbnSmsReadMsgTextCdma as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -2388,7 +2388,7 @@ impl IMbnSubscriberInformation_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMbnSubscriberInformation as ::windows_core::ComInterface>::IID
+        iid == &<IMbnSubscriberInformation as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -2419,7 +2419,7 @@ impl IMbnVendorSpecificEvents_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMbnVendorSpecificEvents as ::windows_core::ComInterface>::IID
+        iid == &<IMbnVendorSpecificEvents as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -2446,6 +2446,6 @@ impl IMbnVendorSpecificOperation_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetVendorSpecific: SetVendorSpecific::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMbnVendorSpecificOperation as ::windows_core::ComInterface>::IID
+        iid == &<IMbnVendorSpecificOperation as ::windows_core::Interface>::IID
     }
 }

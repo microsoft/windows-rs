@@ -20,6 +20,6 @@ impl IUserDataAccountProviderOperation_Vtbl {
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, IUserDataAccountProviderOperation, OFFSET>(), Kind: Kind::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUserDataAccountProviderOperation as ::windows_core::ComInterface>::IID
+        iid == &<IUserDataAccountProviderOperation as ::windows_core::Interface>::IID
     }
 }

@@ -7,7 +7,7 @@ impl IPrintDocumentSource_Vtbl {
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, IPrintDocumentSource, OFFSET>() }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPrintDocumentSource as ::windows_core::ComInterface>::IID
+        iid == &<IPrintDocumentSource as ::windows_core::Interface>::IID
     }
 }
 pub trait IPrintTaskOptionsCore_Impl: Sized {
@@ -35,7 +35,7 @@ impl IPrintTaskOptionsCore_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPrintTaskOptionsCore as ::windows_core::ComInterface>::IID
+        iid == &<IPrintTaskOptionsCore as ::windows_core::Interface>::IID
     }
 }
 pub trait IPrintTaskOptionsCoreProperties_Impl: Sized {
@@ -296,7 +296,7 @@ impl IPrintTaskOptionsCoreProperties_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPrintTaskOptionsCoreProperties as ::windows_core::ComInterface>::IID
+        iid == &<IPrintTaskOptionsCoreProperties as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Foundation_Collections\"`"]
@@ -329,6 +329,6 @@ impl IPrintTaskOptionsCoreUIConfiguration_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPrintTaskOptionsCoreUIConfiguration as ::windows_core::ComInterface>::IID
+        iid == &<IPrintTaskOptionsCoreUIConfiguration as ::windows_core::Interface>::IID
     }
 }

@@ -16,7 +16,7 @@ impl IDummyHICONIncluder_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Dummy: Dummy::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDummyHICONIncluder as ::windows_core::ComInterface>::IID
+        iid == &<IDummyHICONIncluder as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`"]
@@ -47,6 +47,6 @@ impl IThumbnailExtractor_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IThumbnailExtractor as ::windows_core::ComInterface>::IID
+        iid == &<IThumbnailExtractor as ::windows_core::Interface>::IID
     }
 }

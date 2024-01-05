@@ -1,29 +1,22 @@
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct DRendezvousSessionEvents(::windows_core::IUnknown);
-#[cfg(feature = "Win32_System_Com")]
-impl DRendezvousSessionEvents {}
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    DRendezvousSessionEvents,
+    DRendezvousSessionEvents_Vtbl,
+    0x3fa19cf8_64c4_4f53_ae60_635b3806eca6
+);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(DRendezvousSessionEvents, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for DRendezvousSessionEvents {
-    type Vtable = DRendezvousSessionEvents_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for DRendezvousSessionEvents {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3fa19cf8_64c4_4f53_ae60_635b3806eca6);
-}
+impl DRendezvousSessionEvents {}
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct DRendezvousSessionEvents_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRendezvousApplication(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IRendezvousApplication, IRendezvousApplication_Vtbl, 0x4f4d070b_a275_49fb_b10d_8ec26387b50d);
+::windows_core::imp::interface_hierarchy!(IRendezvousApplication, ::windows_core::IUnknown);
 impl IRendezvousApplication {
     pub unsafe fn SetRendezvousSession<P0>(&self, prendezvoussession: P0) -> ::windows_core::Result<()>
     where
@@ -32,22 +25,14 @@ impl IRendezvousApplication {
         (::windows_core::Interface::vtable(self).SetRendezvousSession)(::windows_core::Interface::as_raw(self), prendezvoussession.into_param().abi()).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IRendezvousApplication, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IRendezvousApplication {
-    type Vtable = IRendezvousApplication_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRendezvousApplication {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4f4d070b_a275_49fb_b10d_8ec26387b50d);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRendezvousApplication_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetRendezvousSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prendezvoussession: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRendezvousSession(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IRendezvousSession, IRendezvousSession_Vtbl, 0x9ba4b1dd_8b0c_48b7_9e7c_2f25857c8df5);
+::windows_core::imp::interface_hierarchy!(IRendezvousSession, ::windows_core::IUnknown);
 impl IRendezvousSession {
     pub unsafe fn State(&self) -> ::windows_core::Result<RENDEZVOUS_SESSION_STATE> {
         let mut result__ = ::std::mem::zeroed();
@@ -73,13 +58,6 @@ impl IRendezvousSession {
     {
         (::windows_core::Interface::vtable(self).Terminate)(::windows_core::Interface::as_raw(self), hr, bstrappdata.into_param().abi()).ok()
     }
-}
-::windows_core::imp::interface_hierarchy!(IRendezvousSession, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IRendezvousSession {
-    type Vtable = IRendezvousSession_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRendezvousSession {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9ba4b1dd_8b0c_48b7_9e7c_2f25857c8df5);
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -238,9 +238,8 @@ where
     ::windows_targets::link!("wsdapi.dll" "system" fn WSDXMLGetValueFromAny(psznamespace : ::windows_core::PCWSTR, pszname : ::windows_core::PCWSTR, pany : *mut WSDXML_ELEMENT, ppszvalue : *mut ::windows_core::PCWSTR) -> ::windows_core::HRESULT);
     WSDXMLGetValueFromAny(psznamespace.into_param().abi(), pszname.into_param().abi(), pany, ppszvalue).ok()
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWSDAddress(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWSDAddress, IWSDAddress_Vtbl, 0xb9574c6c_12a6_4f74_93a1_3318ff605759);
+::windows_core::imp::interface_hierarchy!(IWSDAddress, ::windows_core::IUnknown);
 impl IWSDAddress {
     pub unsafe fn Serialize<P0>(&self, pszbuffer: &mut [u16], fsafe: P0) -> ::windows_core::Result<()>
     where
@@ -255,13 +254,6 @@ impl IWSDAddress {
         (::windows_core::Interface::vtable(self).Deserialize)(::windows_core::Interface::as_raw(self), pszbuffer.into_param().abi()).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IWSDAddress, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWSDAddress {
-    type Vtable = IWSDAddress_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWSDAddress {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb9574c6c_12a6_4f74_93a1_3318ff605759);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDAddress_Vtbl {
@@ -269,9 +261,8 @@ pub struct IWSDAddress_Vtbl {
     pub Serialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszbuffer: ::windows_core::PWSTR, cchlength: u32, fsafe: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
     pub Deserialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszbuffer: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWSDAsyncCallback(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWSDAsyncCallback, IWSDAsyncCallback_Vtbl, 0xa63e109d_ce72_49e2_ba98_e845f5ee1666);
+::windows_core::imp::interface_hierarchy!(IWSDAsyncCallback, ::windows_core::IUnknown);
 impl IWSDAsyncCallback {
     pub unsafe fn AsyncOperationComplete<P0, P1>(&self, pasyncresult: P0, pasyncstate: P1) -> ::windows_core::Result<()>
     where
@@ -281,22 +272,14 @@ impl IWSDAsyncCallback {
         (::windows_core::Interface::vtable(self).AsyncOperationComplete)(::windows_core::Interface::as_raw(self), pasyncresult.into_param().abi(), pasyncstate.into_param().abi()).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IWSDAsyncCallback, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWSDAsyncCallback {
-    type Vtable = IWSDAsyncCallback_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWSDAsyncCallback {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa63e109d_ce72_49e2_ba98_e845f5ee1666);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDAsyncCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub AsyncOperationComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pasyncresult: *mut ::core::ffi::c_void, pasyncstate: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWSDAsyncResult(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWSDAsyncResult, IWSDAsyncResult_Vtbl, 0x11a9852a_8dd8_423e_b537_9356db4fbfb8);
+::windows_core::imp::interface_hierarchy!(IWSDAsyncResult, ::windows_core::IUnknown);
 impl IWSDAsyncResult {
     pub unsafe fn SetCallback<P0, P1>(&self, pcallback: P0, pasyncstate: P1) -> ::windows_core::Result<()>
     where
@@ -329,13 +312,6 @@ impl IWSDAsyncResult {
         (::windows_core::Interface::vtable(self).GetEndpointProxy)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IWSDAsyncResult, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWSDAsyncResult {
-    type Vtable = IWSDAsyncResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWSDAsyncResult {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x11a9852a_8dd8_423e_b537_9356db4fbfb8);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDAsyncResult_Vtbl {
@@ -348,25 +324,16 @@ pub struct IWSDAsyncResult_Vtbl {
     pub GetEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pevent: *mut WSD_EVENT) -> ::windows_core::HRESULT,
     pub GetEndpointProxy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppendpoint: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWSDAttachment(::windows_core::IUnknown);
-impl IWSDAttachment {}
+::windows_core::imp::com_interface!(IWSDAttachment, IWSDAttachment_Vtbl, 0x5d55a616_9df8_4b09_b156_9ba351a48b76);
 ::windows_core::imp::interface_hierarchy!(IWSDAttachment, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWSDAttachment {
-    type Vtable = IWSDAttachment_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWSDAttachment {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5d55a616_9df8_4b09_b156_9ba351a48b76);
-}
+impl IWSDAttachment {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDAttachment_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWSDDeviceHost(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWSDDeviceHost, IWSDDeviceHost_Vtbl, 0x917fe891_3d13_4138_9809_934c8abeb12c);
+::windows_core::imp::interface_hierarchy!(IWSDDeviceHost, ::windows_core::IUnknown);
 impl IWSDDeviceHost {
     pub unsafe fn Init<P0, P1>(&self, pszlocalid: P0, pcontext: P1, pphostaddresses: ::core::option::Option<&[::core::option::Option<IWSDAddress>]>) -> ::windows_core::Result<()>
     where
@@ -434,13 +401,6 @@ impl IWSDDeviceHost {
         (::windows_core::Interface::vtable(self).SignalEvent)(::windows_core::Interface::as_raw(self), pszserviceid.into_param().abi(), ::core::mem::transmute(pbody.unwrap_or(::std::ptr::null())), poperation).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IWSDDeviceHost, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWSDDeviceHost {
-    type Vtable = IWSDDeviceHost_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWSDDeviceHost {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x917fe891_3d13_4138_9809_934c8abeb12c);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDDeviceHost_Vtbl {
@@ -458,9 +418,8 @@ pub struct IWSDDeviceHost_Vtbl {
     pub SetServiceDiscoverable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszserviceid: ::windows_core::PCWSTR, fdiscoverable: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
     pub SignalEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszserviceid: ::windows_core::PCWSTR, pbody: *const ::core::ffi::c_void, poperation: *const WSD_OPERATION) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWSDDeviceHostNotify(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWSDDeviceHostNotify, IWSDDeviceHostNotify_Vtbl, 0xb5bee9f9_eeda_41fe_96f7_f45e14990fb0);
+::windows_core::imp::interface_hierarchy!(IWSDDeviceHostNotify, ::windows_core::IUnknown);
 impl IWSDDeviceHostNotify {
     pub unsafe fn GetService<P0>(&self, pszserviceid: P0) -> ::windows_core::Result<::windows_core::IUnknown>
     where
@@ -470,22 +429,14 @@ impl IWSDDeviceHostNotify {
         (::windows_core::Interface::vtable(self).GetService)(::windows_core::Interface::as_raw(self), pszserviceid.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IWSDDeviceHostNotify, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWSDDeviceHostNotify {
-    type Vtable = IWSDDeviceHostNotify_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWSDDeviceHostNotify {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb5bee9f9_eeda_41fe_96f7_f45e14990fb0);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDDeviceHostNotify_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetService: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszserviceid: ::windows_core::PCWSTR, ppservice: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWSDDeviceProxy(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWSDDeviceProxy, IWSDDeviceProxy_Vtbl, 0xeee0c031_c578_4c0e_9a3b_973c35f409db);
+::windows_core::imp::interface_hierarchy!(IWSDDeviceProxy, ::windows_core::IUnknown);
 impl IWSDDeviceProxy {
     pub unsafe fn Init<P0, P1, P2, P3, P4>(&self, pszdeviceid: P0, pdeviceaddress: P1, pszlocalid: P2, pcontext: P3, psponsor: P4) -> ::windows_core::Result<()>
     where
@@ -539,13 +490,6 @@ impl IWSDDeviceProxy {
         (::windows_core::Interface::vtable(self).GetEndpointProxy)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IWSDDeviceProxy, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWSDDeviceProxy {
-    type Vtable = IWSDDeviceProxy_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWSDDeviceProxy {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeee0c031_c578_4c0e_9a3b_973c35f409db);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDDeviceProxy_Vtbl {
@@ -561,9 +505,8 @@ pub struct IWSDDeviceProxy_Vtbl {
     pub GetServiceProxyByType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptype: *const WSDXML_NAME, ppserviceproxy: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetEndpointProxy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppproxy: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWSDEndpointProxy(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWSDEndpointProxy, IWSDEndpointProxy_Vtbl, 0x1860d430_b24c_4975_9f90_dbb39baa24ec);
+::windows_core::imp::interface_hierarchy!(IWSDEndpointProxy, ::windows_core::IUnknown);
 impl IWSDEndpointProxy {
     pub unsafe fn SendOneWayRequest(&self, pbody: *const ::core::ffi::c_void, poperation: *const WSD_OPERATION) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SendOneWayRequest)(::windows_core::Interface::as_raw(self), pbody, poperation).ok()
@@ -597,13 +540,6 @@ impl IWSDEndpointProxy {
         (::windows_core::Interface::vtable(self).GetFaultInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IWSDEndpointProxy, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWSDEndpointProxy {
-    type Vtable = IWSDEndpointProxy_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWSDEndpointProxy {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1860d430_b24c_4975_9f90_dbb39baa24ec);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDEndpointProxy_Vtbl {
@@ -616,9 +552,8 @@ pub struct IWSDEndpointProxy_Vtbl {
     pub GetErrorInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszerrorinfo: *mut ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
     pub GetFaultInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppfault: *mut *mut WSD_SOAP_FAULT) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWSDEventingStatus(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWSDEventingStatus, IWSDEventingStatus_Vtbl, 0x49b17f52_637a_407a_ae99_fbe82a4d38c0);
+::windows_core::imp::interface_hierarchy!(IWSDEventingStatus, ::windows_core::IUnknown);
 impl IWSDEventingStatus {
     pub unsafe fn SubscriptionRenewed<P0>(&self, pszsubscriptionaction: P0)
     where
@@ -639,13 +574,6 @@ impl IWSDEventingStatus {
         (::windows_core::Interface::vtable(self).SubscriptionEnded)(::windows_core::Interface::as_raw(self), pszsubscriptionaction.into_param().abi())
     }
 }
-::windows_core::imp::interface_hierarchy!(IWSDEventingStatus, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWSDEventingStatus {
-    type Vtable = IWSDEventingStatus_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWSDEventingStatus {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x49b17f52_637a_407a_ae99_fbe82a4d38c0);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDEventingStatus_Vtbl {
@@ -654,9 +582,8 @@ pub struct IWSDEventingStatus_Vtbl {
     pub SubscriptionRenewalFailed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszsubscriptionaction: ::windows_core::PCWSTR, hr: ::windows_core::HRESULT),
     pub SubscriptionEnded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszsubscriptionaction: ::windows_core::PCWSTR),
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWSDHttpAddress(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWSDHttpAddress, IWSDHttpAddress_Vtbl, 0xd09ac7bd_2a3e_4b85_8605_2737ff3e4ea0);
+::windows_core::imp::interface_hierarchy!(IWSDHttpAddress, ::windows_core::IUnknown, IWSDAddress, IWSDTransportAddress);
 impl IWSDHttpAddress {
     pub unsafe fn Serialize<P0>(&self, pszbuffer: &mut [u16], fsafe: P0) -> ::windows_core::Result<()>
     where
@@ -714,13 +641,6 @@ impl IWSDHttpAddress {
         (::windows_core::Interface::vtable(self).SetPath)(::windows_core::Interface::as_raw(self), pszpath.into_param().abi()).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IWSDHttpAddress, ::windows_core::IUnknown, IWSDAddress, IWSDTransportAddress);
-unsafe impl ::windows_core::Interface for IWSDHttpAddress {
-    type Vtable = IWSDHttpAddress_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWSDHttpAddress {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd09ac7bd_2a3e_4b85_8605_2737ff3e4ea0);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDHttpAddress_Vtbl {
@@ -730,9 +650,8 @@ pub struct IWSDHttpAddress_Vtbl {
     pub GetPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszpath: *mut ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
     pub SetPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpath: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWSDHttpAuthParameters(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWSDHttpAuthParameters, IWSDHttpAuthParameters_Vtbl, 0x0b476df0_8dac_480d_b05c_99781a5884aa);
+::windows_core::imp::interface_hierarchy!(IWSDHttpAuthParameters, ::windows_core::IUnknown);
 impl IWSDHttpAuthParameters {
     pub unsafe fn GetClientAccessToken(&self) -> ::windows_core::Result<super::super::Foundation::HANDLE> {
         let mut result__ = ::std::mem::zeroed();
@@ -743,13 +662,6 @@ impl IWSDHttpAuthParameters {
         (::windows_core::Interface::vtable(self).GetAuthType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IWSDHttpAuthParameters, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWSDHttpAuthParameters {
-    type Vtable = IWSDHttpAuthParameters_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWSDHttpAuthParameters {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0b476df0_8dac_480d_b05c_99781a5884aa);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDHttpAuthParameters_Vtbl {
@@ -757,9 +669,8 @@ pub struct IWSDHttpAuthParameters_Vtbl {
     pub GetClientAccessToken: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phtoken: *mut super::super::Foundation::HANDLE) -> ::windows_core::HRESULT,
     pub GetAuthType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pauthtype: *mut u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWSDHttpMessageParameters(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWSDHttpMessageParameters, IWSDHttpMessageParameters_Vtbl, 0x540bd122_5c83_4dec_b396_ea62a2697fdf);
+::windows_core::imp::interface_hierarchy!(IWSDHttpMessageParameters, ::windows_core::IUnknown, IWSDMessageParameters);
 impl IWSDHttpMessageParameters {
     pub unsafe fn GetLocalAddress(&self) -> ::windows_core::Result<IWSDAddress> {
         let mut result__ = ::std::mem::zeroed();
@@ -829,13 +740,6 @@ impl IWSDHttpMessageParameters {
         (::windows_core::Interface::vtable(self).Clear)(::windows_core::Interface::as_raw(self)).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IWSDHttpMessageParameters, ::windows_core::IUnknown, IWSDMessageParameters);
-unsafe impl ::windows_core::Interface for IWSDHttpMessageParameters {
-    type Vtable = IWSDHttpMessageParameters_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWSDHttpMessageParameters {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x540bd122_5c83_4dec_b396_ea62a2697fdf);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDHttpMessageParameters_Vtbl {
@@ -850,9 +754,8 @@ pub struct IWSDHttpMessageParameters_Vtbl {
     pub GetContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcontext: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Clear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWSDInboundAttachment(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWSDInboundAttachment, IWSDInboundAttachment_Vtbl, 0x5bd6ca65_233c_4fb8_9f7a_2641619655c9);
+::windows_core::imp::interface_hierarchy!(IWSDInboundAttachment, ::windows_core::IUnknown, IWSDAttachment);
 impl IWSDInboundAttachment {
     pub unsafe fn Read(&self, pbuffer: &mut [u8], pdwnumberofbytesread: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Read)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len().try_into().unwrap(), pdwnumberofbytesread).ok()
@@ -861,13 +764,6 @@ impl IWSDInboundAttachment {
         (::windows_core::Interface::vtable(self).Close)(::windows_core::Interface::as_raw(self)).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IWSDInboundAttachment, ::windows_core::IUnknown, IWSDAttachment);
-unsafe impl ::windows_core::Interface for IWSDInboundAttachment {
-    type Vtable = IWSDInboundAttachment_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWSDInboundAttachment {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5bd6ca65_233c_4fb8_9f7a_2641619655c9);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDInboundAttachment_Vtbl {
@@ -875,9 +771,8 @@ pub struct IWSDInboundAttachment_Vtbl {
     pub Read: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbuffer: *mut u8, dwbytestoread: u32, pdwnumberofbytesread: *mut u32) -> ::windows_core::HRESULT,
     pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWSDMessageParameters(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWSDMessageParameters, IWSDMessageParameters_Vtbl, 0x1fafe8a2_e6fc_4b80_b6cf_b7d45c416d7c);
+::windows_core::imp::interface_hierarchy!(IWSDMessageParameters, ::windows_core::IUnknown);
 impl IWSDMessageParameters {
     pub unsafe fn GetLocalAddress(&self) -> ::windows_core::Result<IWSDAddress> {
         let mut result__ = ::std::mem::zeroed();
@@ -904,13 +799,6 @@ impl IWSDMessageParameters {
         (::windows_core::Interface::vtable(self).GetLowerParameters)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IWSDMessageParameters, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWSDMessageParameters {
-    type Vtable = IWSDMessageParameters_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWSDMessageParameters {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1fafe8a2_e6fc_4b80_b6cf_b7d45c416d7c);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDMessageParameters_Vtbl {
@@ -921,21 +809,13 @@ pub struct IWSDMessageParameters_Vtbl {
     pub SetRemoteAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paddress: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetLowerParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pptxparams: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWSDMetadataExchange(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWSDMetadataExchange, IWSDMetadataExchange_Vtbl, 0x06996d57_1d67_4928_9307_3d7833fdb846);
+::windows_core::imp::interface_hierarchy!(IWSDMetadataExchange, ::windows_core::IUnknown);
 impl IWSDMetadataExchange {
     pub unsafe fn GetMetadata(&self) -> ::windows_core::Result<*mut WSD_METADATA_SECTION_LIST> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetMetadata)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-}
-::windows_core::imp::interface_hierarchy!(IWSDMetadataExchange, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWSDMetadataExchange {
-    type Vtable = IWSDMetadataExchange_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWSDMetadataExchange {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x06996d57_1d67_4928_9307_3d7833fdb846);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -943,9 +823,8 @@ pub struct IWSDMetadataExchange_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetMetadata: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, metadataout: *mut *mut WSD_METADATA_SECTION_LIST) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWSDOutboundAttachment(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWSDOutboundAttachment, IWSDOutboundAttachment_Vtbl, 0xaa302f8d_5a22_4ba5_b392_aa8486f4c15d);
+::windows_core::imp::interface_hierarchy!(IWSDOutboundAttachment, ::windows_core::IUnknown, IWSDAttachment);
 impl IWSDOutboundAttachment {
     pub unsafe fn Write(&self, pbuffer: &[u8]) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -958,13 +837,6 @@ impl IWSDOutboundAttachment {
         (::windows_core::Interface::vtable(self).Abort)(::windows_core::Interface::as_raw(self)).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IWSDOutboundAttachment, ::windows_core::IUnknown, IWSDAttachment);
-unsafe impl ::windows_core::Interface for IWSDOutboundAttachment {
-    type Vtable = IWSDOutboundAttachment_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWSDOutboundAttachment {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaa302f8d_5a22_4ba5_b392_aa8486f4c15d);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDOutboundAttachment_Vtbl {
@@ -973,9 +845,8 @@ pub struct IWSDOutboundAttachment_Vtbl {
     pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Abort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWSDSSLClientCertificate(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWSDSSLClientCertificate, IWSDSSLClientCertificate_Vtbl, 0xde105e87_a0da_418e_98ad_27b9eed87bdc);
+::windows_core::imp::interface_hierarchy!(IWSDSSLClientCertificate, ::windows_core::IUnknown);
 impl IWSDSSLClientCertificate {
     #[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
     #[cfg(feature = "Win32_Security_Cryptography")]
@@ -988,13 +859,6 @@ impl IWSDSSLClientCertificate {
         (::windows_core::Interface::vtable(self).GetMappedAccessToken)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IWSDSSLClientCertificate, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWSDSSLClientCertificate {
-    type Vtable = IWSDSSLClientCertificate_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWSDSSLClientCertificate {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xde105e87_a0da_418e_98ad_27b9eed87bdc);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDSSLClientCertificate_Vtbl {
@@ -1005,9 +869,8 @@ pub struct IWSDSSLClientCertificate_Vtbl {
     GetClientCertificate: usize,
     pub GetMappedAccessToken: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phtoken: *mut super::super::Foundation::HANDLE) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWSDScopeMatchingRule(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWSDScopeMatchingRule, IWSDScopeMatchingRule_Vtbl, 0xfcafe424_fef5_481a_bd9f_33ce0574256f);
+::windows_core::imp::interface_hierarchy!(IWSDScopeMatchingRule, ::windows_core::IUnknown);
 impl IWSDScopeMatchingRule {
     pub unsafe fn GetScopeRule(&self) -> ::windows_core::Result<::windows_core::PCWSTR> {
         let mut result__ = ::std::mem::zeroed();
@@ -1022,13 +885,6 @@ impl IWSDScopeMatchingRule {
         (::windows_core::Interface::vtable(self).MatchScopes)(::windows_core::Interface::as_raw(self), pszscope1.into_param().abi(), pszscope2.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IWSDScopeMatchingRule, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWSDScopeMatchingRule {
-    type Vtable = IWSDScopeMatchingRule_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWSDScopeMatchingRule {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfcafe424_fef5_481a_bd9f_33ce0574256f);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDScopeMatchingRule_Vtbl {
@@ -1036,9 +892,8 @@ pub struct IWSDScopeMatchingRule_Vtbl {
     pub GetScopeRule: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszscopematchingrule: *mut ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
     pub MatchScopes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszscope1: ::windows_core::PCWSTR, pszscope2: ::windows_core::PCWSTR, pfmatch: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWSDServiceMessaging(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWSDServiceMessaging, IWSDServiceMessaging_Vtbl, 0x94974cf4_0cab_460d_a3f6_7a0ad623c0e6);
+::windows_core::imp::interface_hierarchy!(IWSDServiceMessaging, ::windows_core::IUnknown);
 impl IWSDServiceMessaging {
     pub unsafe fn SendResponse<P0>(&self, pbody: ::core::option::Option<*const ::core::ffi::c_void>, poperation: *const WSD_OPERATION, pmessageparameters: P0) -> ::windows_core::Result<()>
     where
@@ -1053,13 +908,6 @@ impl IWSDServiceMessaging {
         (::windows_core::Interface::vtable(self).FaultRequest)(::windows_core::Interface::as_raw(self), prequestheader, pmessageparameters.into_param().abi(), ::core::mem::transmute(pfault.unwrap_or(::std::ptr::null()))).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IWSDServiceMessaging, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWSDServiceMessaging {
-    type Vtable = IWSDServiceMessaging_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWSDServiceMessaging {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x94974cf4_0cab_460d_a3f6_7a0ad623c0e6);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDServiceMessaging_Vtbl {
@@ -1067,9 +915,8 @@ pub struct IWSDServiceMessaging_Vtbl {
     pub SendResponse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbody: *const ::core::ffi::c_void, poperation: *const WSD_OPERATION, pmessageparameters: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub FaultRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prequestheader: *const WSD_SOAP_HEADER, pmessageparameters: *mut ::core::ffi::c_void, pfault: *const WSD_SOAP_FAULT) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWSDServiceProxy(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWSDServiceProxy, IWSDServiceProxy_Vtbl, 0xd4c7fb9c_03ab_4175_9d67_094fafebf487);
+::windows_core::imp::interface_hierarchy!(IWSDServiceProxy, ::windows_core::IUnknown, IWSDMetadataExchange);
 impl IWSDServiceProxy {
     pub unsafe fn GetMetadata(&self) -> ::windows_core::Result<*mut WSD_METADATA_SECTION_LIST> {
         let mut result__ = ::std::mem::zeroed();
@@ -1110,13 +957,6 @@ impl IWSDServiceProxy {
         (::windows_core::Interface::vtable(self).GetEndpointProxy)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IWSDServiceProxy, ::windows_core::IUnknown, IWSDMetadataExchange);
-unsafe impl ::windows_core::Interface for IWSDServiceProxy {
-    type Vtable = IWSDServiceProxy_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWSDServiceProxy {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd4c7fb9c_03ab_4175_9d67_094fafebf487);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDServiceProxy_Vtbl {
@@ -1129,9 +969,8 @@ pub struct IWSDServiceProxy_Vtbl {
     pub SetEventingStatusCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstatus: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetEndpointProxy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppproxy: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWSDServiceProxyEventing(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWSDServiceProxyEventing, IWSDServiceProxyEventing_Vtbl, 0xf9279d6d_1012_4a94_b8cc_fd35d2202bfe);
+::windows_core::imp::interface_hierarchy!(IWSDServiceProxyEventing, ::windows_core::IUnknown, IWSDMetadataExchange, IWSDServiceProxy);
 impl IWSDServiceProxyEventing {
     pub unsafe fn GetMetadata(&self) -> ::windows_core::Result<*mut WSD_METADATA_SECTION_LIST> {
         let mut result__ = ::std::mem::zeroed();
@@ -1244,13 +1083,6 @@ impl IWSDServiceProxyEventing {
         (::windows_core::Interface::vtable(self).EndGetStatusForMultipleOperations)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(poperations.as_ptr()), poperations.len().try_into().unwrap(), presult.into_param().abi(), ::core::mem::transmute(ppexpires.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppany.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IWSDServiceProxyEventing, ::windows_core::IUnknown, IWSDMetadataExchange, IWSDServiceProxy);
-unsafe impl ::windows_core::Interface for IWSDServiceProxyEventing {
-    type Vtable = IWSDServiceProxyEventing_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWSDServiceProxyEventing {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf9279d6d_1012_4a94_b8cc_fd35d2202bfe);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDServiceProxyEventing_Vtbl {
@@ -1268,9 +1100,8 @@ pub struct IWSDServiceProxyEventing_Vtbl {
     pub BeginGetStatusForMultipleOperations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poperations: *const WSD_OPERATION, dwoperationcount: u32, pany: *const WSDXML_ELEMENT, pasyncstate: *mut ::core::ffi::c_void, pasynccallback: *mut ::core::ffi::c_void, ppresult: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub EndGetStatusForMultipleOperations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poperations: *const WSD_OPERATION, dwoperationcount: u32, presult: *mut ::core::ffi::c_void, ppexpires: *mut *mut WSD_EVENTING_EXPIRES, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWSDSignatureProperty(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWSDSignatureProperty, IWSDSignatureProperty_Vtbl, 0x03ce20aa_71c4_45e2_b32e_3766c61c790f);
+::windows_core::imp::interface_hierarchy!(IWSDSignatureProperty, ::windows_core::IUnknown);
 impl IWSDSignatureProperty {
     pub unsafe fn IsMessageSigned(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -1290,13 +1121,6 @@ impl IWSDSignatureProperty {
         (::windows_core::Interface::vtable(self).GetSignedInfoHash)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pbsignedinfohash.unwrap_or(::std::ptr::null_mut())), pdwhashsize).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IWSDSignatureProperty, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWSDSignatureProperty {
-    type Vtable = IWSDSignatureProperty_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWSDSignatureProperty {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x03ce20aa_71c4_45e2_b32e_3766c61c790f);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDSignatureProperty_Vtbl {
@@ -1307,9 +1131,8 @@ pub struct IWSDSignatureProperty_Vtbl {
     pub GetSignature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbsignature: *mut u8, pdwsignaturesize: *mut u32) -> ::windows_core::HRESULT,
     pub GetSignedInfoHash: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbsignedinfohash: *mut u8, pdwhashsize: *mut u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWSDTransportAddress(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWSDTransportAddress, IWSDTransportAddress_Vtbl, 0x70d23498_4ee6_4340_a3df_d845d2235467);
+::windows_core::imp::interface_hierarchy!(IWSDTransportAddress, ::windows_core::IUnknown, IWSDAddress);
 impl IWSDTransportAddress {
     pub unsafe fn Serialize<P0>(&self, pszbuffer: &mut [u16], fsafe: P0) -> ::windows_core::Result<()>
     where
@@ -1348,13 +1171,6 @@ impl IWSDTransportAddress {
         (::windows_core::Interface::vtable(self).SetTransportAddress)(::windows_core::Interface::as_raw(self), pszaddress.into_param().abi()).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IWSDTransportAddress, ::windows_core::IUnknown, IWSDAddress);
-unsafe impl ::windows_core::Interface for IWSDTransportAddress {
-    type Vtable = IWSDTransportAddress_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWSDTransportAddress {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x70d23498_4ee6_4340_a3df_d845d2235467);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDTransportAddress_Vtbl {
@@ -1365,9 +1181,8 @@ pub struct IWSDTransportAddress_Vtbl {
     pub GetTransportAddressEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fsafe: super::super::Foundation::BOOL, ppszaddress: *mut ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
     pub SetTransportAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszaddress: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWSDUdpAddress(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWSDUdpAddress, IWSDUdpAddress_Vtbl, 0x74d6124a_a441_4f78_a1eb_97a8d1996893);
+::windows_core::imp::interface_hierarchy!(IWSDUdpAddress, ::windows_core::IUnknown, IWSDAddress, IWSDTransportAddress);
 impl IWSDUdpAddress {
     pub unsafe fn Serialize<P0>(&self, pszbuffer: &mut [u16], fsafe: P0) -> ::windows_core::Result<()>
     where
@@ -1446,13 +1261,6 @@ impl IWSDUdpAddress {
         (::windows_core::Interface::vtable(self).GetAlias)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IWSDUdpAddress, ::windows_core::IUnknown, IWSDAddress, IWSDTransportAddress);
-unsafe impl ::windows_core::Interface for IWSDUdpAddress {
-    type Vtable = IWSDUdpAddress_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWSDUdpAddress {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x74d6124a_a441_4f78_a1eb_97a8d1996893);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDUdpAddress_Vtbl {
@@ -1474,9 +1282,8 @@ pub struct IWSDUdpAddress_Vtbl {
     pub SetAlias: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, palias: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
     pub GetAlias: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, palias: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWSDUdpMessageParameters(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWSDUdpMessageParameters, IWSDUdpMessageParameters_Vtbl, 0x9934149f_8f0c_447b_aa0b_73124b0ca7f0);
+::windows_core::imp::interface_hierarchy!(IWSDUdpMessageParameters, ::windows_core::IUnknown, IWSDMessageParameters);
 impl IWSDUdpMessageParameters {
     pub unsafe fn GetLocalAddress(&self) -> ::windows_core::Result<IWSDAddress> {
         let mut result__ = ::std::mem::zeroed();
@@ -1509,13 +1316,6 @@ impl IWSDUdpMessageParameters {
         (::windows_core::Interface::vtable(self).GetRetransmitParams)(::windows_core::Interface::as_raw(self), pparams).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IWSDUdpMessageParameters, ::windows_core::IUnknown, IWSDMessageParameters);
-unsafe impl ::windows_core::Interface for IWSDUdpMessageParameters {
-    type Vtable = IWSDUdpMessageParameters_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWSDUdpMessageParameters {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9934149f_8f0c_447b_aa0b_73124b0ca7f0);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDUdpMessageParameters_Vtbl {
@@ -1523,9 +1323,8 @@ pub struct IWSDUdpMessageParameters_Vtbl {
     pub SetRetransmitParams: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pparams: *const WSDUdpRetransmitParams) -> ::windows_core::HRESULT,
     pub GetRetransmitParams: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pparams: *mut WSDUdpRetransmitParams) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWSDXMLContext(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWSDXMLContext, IWSDXMLContext_Vtbl, 0x75d8f3ee_3e5a_43b4_a15a_bcf6887460c0);
+::windows_core::imp::interface_hierarchy!(IWSDXMLContext, ::windows_core::IUnknown);
 impl IWSDXMLContext {
     pub unsafe fn AddNamespace<P0, P1>(&self, pszuri: P0, pszsuggestedprefix: P1, ppnamespace: ::core::option::Option<*mut *mut WSDXML_NAMESPACE>) -> ::windows_core::Result<()>
     where
@@ -1548,13 +1347,6 @@ impl IWSDXMLContext {
         (::windows_core::Interface::vtable(self).SetTypes)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ptypes.as_ptr()), ptypes.len().try_into().unwrap(), blayernumber).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IWSDXMLContext, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWSDXMLContext {
-    type Vtable = IWSDXMLContext_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWSDXMLContext {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x75d8f3ee_3e5a_43b4_a15a_bcf6887460c0);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDXMLContext_Vtbl {
@@ -1564,9 +1356,8 @@ pub struct IWSDXMLContext_Vtbl {
     pub SetNamespaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnamespaces: *const *const WSDXML_NAMESPACE, wnamespacescount: u16, blayernumber: u8) -> ::windows_core::HRESULT,
     pub SetTypes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptypes: *const *const WSDXML_TYPE, dwtypescount: u32, blayernumber: u8) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWSDiscoveredService(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWSDiscoveredService, IWSDiscoveredService_Vtbl, 0x4bad8a3b_b374_4420_9632_aac945b374aa);
+::windows_core::imp::interface_hierarchy!(IWSDiscoveredService, ::windows_core::IUnknown);
 impl IWSDiscoveredService {
     pub unsafe fn GetEndpointReference(&self) -> ::windows_core::Result<*mut WSD_ENDPOINT_REFERENCE> {
         let mut result__ = ::std::mem::zeroed();
@@ -1612,13 +1403,6 @@ impl IWSDiscoveredService {
         (::windows_core::Interface::vtable(self).GetInstanceId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IWSDiscoveredService, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWSDiscoveredService {
-    type Vtable = IWSDiscoveredService_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWSDiscoveredService {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4bad8a3b_b374_4420_9632_aac945b374aa);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDiscoveredService_Vtbl {
@@ -1635,9 +1419,8 @@ pub struct IWSDiscoveredService_Vtbl {
     pub GetLocalInterfaceGUID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguid: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
     pub GetInstanceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pullinstanceid: *mut u64) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWSDiscoveryProvider(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWSDiscoveryProvider, IWSDiscoveryProvider_Vtbl, 0x8ffc8e55_f0eb_480f_88b7_b435dd281d45);
+::windows_core::imp::interface_hierarchy!(IWSDiscoveryProvider, ::windows_core::IUnknown);
 impl IWSDiscoveryProvider {
     pub unsafe fn SetAddressFamily(&self, dwaddressfamily: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetAddressFamily)(::windows_core::Interface::as_raw(self), dwaddressfamily).ok()
@@ -1677,13 +1460,6 @@ impl IWSDiscoveryProvider {
         (::windows_core::Interface::vtable(self).GetXMLContext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IWSDiscoveryProvider, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWSDiscoveryProvider {
-    type Vtable = IWSDiscoveryProvider_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWSDiscoveryProvider {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8ffc8e55_f0eb_480f_88b7_b435dd281d45);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDiscoveryProvider_Vtbl {
@@ -1696,9 +1472,8 @@ pub struct IWSDiscoveryProvider_Vtbl {
     pub SearchByType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptypeslist: *const WSD_NAME_LIST, pscopeslist: *const WSD_URI_LIST, pszmatchby: ::windows_core::PCWSTR, psztag: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
     pub GetXMLContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcontext: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWSDiscoveryProviderNotify(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWSDiscoveryProviderNotify, IWSDiscoveryProviderNotify_Vtbl, 0x73ee3ced_b6e6_4329_a546_3e8ad46563d2);
+::windows_core::imp::interface_hierarchy!(IWSDiscoveryProviderNotify, ::windows_core::IUnknown);
 impl IWSDiscoveryProviderNotify {
     pub unsafe fn Add<P0>(&self, pservice: P0) -> ::windows_core::Result<()>
     where
@@ -1725,13 +1500,6 @@ impl IWSDiscoveryProviderNotify {
         (::windows_core::Interface::vtable(self).SearchComplete)(::windows_core::Interface::as_raw(self), psztag.into_param().abi()).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IWSDiscoveryProviderNotify, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWSDiscoveryProviderNotify {
-    type Vtable = IWSDiscoveryProviderNotify_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWSDiscoveryProviderNotify {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x73ee3ced_b6e6_4329_a546_3e8ad46563d2);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDiscoveryProviderNotify_Vtbl {
@@ -1741,9 +1509,8 @@ pub struct IWSDiscoveryProviderNotify_Vtbl {
     pub SearchFailed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hr: ::windows_core::HRESULT, psztag: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
     pub SearchComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psztag: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWSDiscoveryPublisher(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWSDiscoveryPublisher, IWSDiscoveryPublisher_Vtbl, 0xae01e1a8_3ff9_4148_8116_057cc616fe13);
+::windows_core::imp::interface_hierarchy!(IWSDiscoveryPublisher, ::windows_core::IUnknown);
 impl IWSDiscoveryPublisher {
     pub unsafe fn SetAddressFamily(&self, dwaddressfamily: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetAddressFamily)(::windows_core::Interface::as_raw(self), dwaddressfamily).ok()
@@ -1882,13 +1649,6 @@ impl IWSDiscoveryPublisher {
         (::windows_core::Interface::vtable(self).GetXMLContext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IWSDiscoveryPublisher, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWSDiscoveryPublisher {
-    type Vtable = IWSDiscoveryPublisher_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWSDiscoveryPublisher {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xae01e1a8_3ff9_4148_8116_057cc616fe13);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSDiscoveryPublisher_Vtbl {
@@ -1907,9 +1667,8 @@ pub struct IWSDiscoveryPublisher_Vtbl {
     pub UnRegisterScopeMatchingRule: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pscopematchingrule: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetXMLContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcontext: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWSDiscoveryPublisherNotify(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWSDiscoveryPublisherNotify, IWSDiscoveryPublisherNotify_Vtbl, 0xe67651b0_337a_4b3c_9758_733388568251);
+::windows_core::imp::interface_hierarchy!(IWSDiscoveryPublisherNotify, ::windows_core::IUnknown);
 impl IWSDiscoveryPublisherNotify {
     pub unsafe fn ProbeHandler<P0>(&self, psoap: *const WSD_SOAP_MESSAGE, pmessageparameters: P0) -> ::windows_core::Result<()>
     where
@@ -1923,13 +1682,6 @@ impl IWSDiscoveryPublisherNotify {
     {
         (::windows_core::Interface::vtable(self).ResolveHandler)(::windows_core::Interface::as_raw(self), psoap, pmessageparameters.into_param().abi()).ok()
     }
-}
-::windows_core::imp::interface_hierarchy!(IWSDiscoveryPublisherNotify, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWSDiscoveryPublisherNotify {
-    type Vtable = IWSDiscoveryPublisherNotify_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWSDiscoveryPublisherNotify {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe67651b0_337a_4b3c_9758_733388568251);
 }
 #[repr(C)]
 #[doc(hidden)]

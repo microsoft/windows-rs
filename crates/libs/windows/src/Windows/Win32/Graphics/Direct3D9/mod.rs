@@ -53,9 +53,8 @@ pub unsafe fn Direct3DCreate9Ex(sdkversion: u32) -> ::windows_core::Result<IDire
     let mut result__ = ::std::mem::zeroed();
     Direct3DCreate9Ex(sdkversion, &mut result__).from_abi(result__)
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDirect3D9(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDirect3D9, IDirect3D9_Vtbl, 0x81bdcbca_64d4_426d_ae8d_ad0147f4275c);
+::windows_core::imp::interface_hierarchy!(IDirect3D9, ::windows_core::IUnknown);
 impl IDirect3D9 {
     pub unsafe fn RegisterSoftwareDevice(&self, pinitializefunction: *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).RegisterSoftwareDevice)(::windows_core::Interface::as_raw(self), pinitializefunction).ok()
@@ -111,13 +110,6 @@ impl IDirect3D9 {
         (::windows_core::Interface::vtable(self).CreateDevice)(::windows_core::Interface::as_raw(self), adapter, devicetype, hfocuswindow.into_param().abi(), behaviorflags, ppresentationparameters, ::core::mem::transmute(ppreturneddeviceinterface)).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDirect3D9, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDirect3D9 {
-    type Vtable = IDirect3D9_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDirect3D9 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x81bdcbca_64d4_426d_ae8d_ad0147f4275c);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3D9_Vtbl {
@@ -140,9 +132,8 @@ pub struct IDirect3D9_Vtbl {
     GetAdapterMonitor: usize,
     pub CreateDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, adapter: u32, devicetype: D3DDEVTYPE, hfocuswindow: super::super::Foundation::HWND, behaviorflags: u32, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, ppreturneddeviceinterface: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDirect3D9Ex(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDirect3D9Ex, IDirect3D9Ex_Vtbl, 0x02177241_69fc_400c_8ff1_93a44df6861d);
+::windows_core::imp::interface_hierarchy!(IDirect3D9Ex, ::windows_core::IUnknown, IDirect3D9);
 impl IDirect3D9Ex {
     pub unsafe fn RegisterSoftwareDevice(&self, pinitializefunction: *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.RegisterSoftwareDevice)(::windows_core::Interface::as_raw(self), pinitializefunction).ok()
@@ -216,13 +207,6 @@ impl IDirect3D9Ex {
         (::windows_core::Interface::vtable(self).GetAdapterLUID)(::windows_core::Interface::as_raw(self), adapter, pluid).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDirect3D9Ex, ::windows_core::IUnknown, IDirect3D9);
-unsafe impl ::windows_core::Interface for IDirect3D9Ex {
-    type Vtable = IDirect3D9Ex_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDirect3D9Ex {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x02177241_69fc_400c_8ff1_93a44df6861d);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3D9Ex_Vtbl {
@@ -233,9 +217,8 @@ pub struct IDirect3D9Ex_Vtbl {
     pub CreateDeviceEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, adapter: u32, devicetype: D3DDEVTYPE, hfocuswindow: super::super::Foundation::HWND, behaviorflags: u32, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, pfullscreendisplaymode: *mut D3DDISPLAYMODEEX, ppreturneddeviceinterface: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetAdapterLUID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, adapter: u32, pluid: *mut super::super::Foundation::LUID) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDirect3DBaseTexture9(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDirect3DBaseTexture9, IDirect3DBaseTexture9_Vtbl, 0x580ca87e_1d3c_4d54_991d_b7d3e3c298ce);
+::windows_core::imp::interface_hierarchy!(IDirect3DBaseTexture9, ::windows_core::IUnknown, IDirect3DResource9);
 impl IDirect3DBaseTexture9 {
     pub unsafe fn GetDevice(&self) -> ::windows_core::Result<IDirect3DDevice9> {
         let mut result__ = ::std::mem::zeroed();
@@ -281,13 +264,6 @@ impl IDirect3DBaseTexture9 {
         (::windows_core::Interface::vtable(self).GenerateMipSubLevels)(::windows_core::Interface::as_raw(self))
     }
 }
-::windows_core::imp::interface_hierarchy!(IDirect3DBaseTexture9, ::windows_core::IUnknown, IDirect3DResource9);
-unsafe impl ::windows_core::Interface for IDirect3DBaseTexture9 {
-    type Vtable = IDirect3DBaseTexture9_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDirect3DBaseTexture9 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x580ca87e_1d3c_4d54_991d_b7d3e3c298ce);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DBaseTexture9_Vtbl {
@@ -299,9 +275,8 @@ pub struct IDirect3DBaseTexture9_Vtbl {
     pub GetAutoGenFilterType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> D3DTEXTUREFILTERTYPE,
     pub GenerateMipSubLevels: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDirect3DCubeTexture9(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDirect3DCubeTexture9, IDirect3DCubeTexture9_Vtbl, 0xfff32f81_d953_473a_9223_93d652aba93f);
+::windows_core::imp::interface_hierarchy!(IDirect3DCubeTexture9, ::windows_core::IUnknown, IDirect3DResource9, IDirect3DBaseTexture9);
 impl IDirect3DCubeTexture9 {
     pub unsafe fn GetDevice(&self) -> ::windows_core::Result<IDirect3DDevice9> {
         let mut result__ = ::std::mem::zeroed();
@@ -363,13 +338,6 @@ impl IDirect3DCubeTexture9 {
         (::windows_core::Interface::vtable(self).AddDirtyRect)(::windows_core::Interface::as_raw(self), facetype, pdirtyrect).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDirect3DCubeTexture9, ::windows_core::IUnknown, IDirect3DResource9, IDirect3DBaseTexture9);
-unsafe impl ::windows_core::Interface for IDirect3DCubeTexture9 {
-    type Vtable = IDirect3DCubeTexture9_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDirect3DCubeTexture9 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfff32f81_d953_473a_9223_93d652aba93f);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DCubeTexture9_Vtbl {
@@ -380,9 +348,8 @@ pub struct IDirect3DCubeTexture9_Vtbl {
     pub UnlockRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, facetype: D3DCUBEMAP_FACES, level: u32) -> ::windows_core::HRESULT,
     pub AddDirtyRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, facetype: D3DCUBEMAP_FACES, pdirtyrect: *const super::super::Foundation::RECT) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDirect3DDevice9(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDirect3DDevice9, IDirect3DDevice9_Vtbl, 0xd0223b96_bf7a_43fd_92bd_a43b0d82b9eb);
+::windows_core::imp::interface_hierarchy!(IDirect3DDevice9, ::windows_core::IUnknown);
 impl IDirect3DDevice9 {
     pub unsafe fn TestCooperativeLevel(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).TestCooperativeLevel)(::windows_core::Interface::as_raw(self)).ok()
@@ -839,13 +806,6 @@ impl IDirect3DDevice9 {
         (::windows_core::Interface::vtable(self).CreateQuery)(::windows_core::Interface::as_raw(self), r#type, &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IDirect3DDevice9, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDirect3DDevice9 {
-    type Vtable = IDirect3DDevice9_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDirect3DDevice9 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd0223b96_bf7a_43fd_92bd_a43b0d82b9eb);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DDevice9_Vtbl {
@@ -991,9 +951,8 @@ pub struct IDirect3DDevice9_Vtbl {
     pub DeletePatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handle: u32) -> ::windows_core::HRESULT,
     pub CreateQuery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: D3DQUERYTYPE, ppquery: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDirect3DDevice9Ex(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDirect3DDevice9Ex, IDirect3DDevice9Ex_Vtbl, 0xb18b10ce_2649_405a_870f_95f777d4313a);
+::windows_core::imp::interface_hierarchy!(IDirect3DDevice9Ex, ::windows_core::IUnknown, IDirect3DDevice9);
 impl IDirect3DDevice9Ex {
     pub unsafe fn TestCooperativeLevel(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.TestCooperativeLevel)(::windows_core::Interface::as_raw(self)).ok()
@@ -1515,13 +1474,6 @@ impl IDirect3DDevice9Ex {
         (::windows_core::Interface::vtable(self).GetDisplayModeEx)(::windows_core::Interface::as_raw(self), iswapchain, pmode, protation).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDirect3DDevice9Ex, ::windows_core::IUnknown, IDirect3DDevice9);
-unsafe impl ::windows_core::Interface for IDirect3DDevice9Ex {
-    type Vtable = IDirect3DDevice9Ex_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDirect3DDevice9Ex {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb18b10ce_2649_405a_870f_95f777d4313a);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DDevice9Ex_Vtbl {
@@ -1545,9 +1497,8 @@ pub struct IDirect3DDevice9Ex_Vtbl {
     pub ResetEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, pfullscreendisplaymode: *mut D3DDISPLAYMODEEX) -> ::windows_core::HRESULT,
     pub GetDisplayModeEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iswapchain: u32, pmode: *mut D3DDISPLAYMODEEX, protation: *mut D3DDISPLAYROTATION) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDirect3DIndexBuffer9(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDirect3DIndexBuffer9, IDirect3DIndexBuffer9_Vtbl, 0x7c9dd65e_d3f7_4529_acee_785830acde35);
+::windows_core::imp::interface_hierarchy!(IDirect3DIndexBuffer9, ::windows_core::IUnknown, IDirect3DResource9);
 impl IDirect3DIndexBuffer9 {
     pub unsafe fn GetDevice(&self) -> ::windows_core::Result<IDirect3DDevice9> {
         let mut result__ = ::std::mem::zeroed();
@@ -1584,13 +1535,6 @@ impl IDirect3DIndexBuffer9 {
         (::windows_core::Interface::vtable(self).GetDesc)(::windows_core::Interface::as_raw(self), pdesc).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDirect3DIndexBuffer9, ::windows_core::IUnknown, IDirect3DResource9);
-unsafe impl ::windows_core::Interface for IDirect3DIndexBuffer9 {
-    type Vtable = IDirect3DIndexBuffer9_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDirect3DIndexBuffer9 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7c9dd65e_d3f7_4529_acee_785830acde35);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DIndexBuffer9_Vtbl {
@@ -1599,9 +1543,8 @@ pub struct IDirect3DIndexBuffer9_Vtbl {
     pub Unlock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut D3DINDEXBUFFER_DESC) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDirect3DPixelShader9(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDirect3DPixelShader9, IDirect3DPixelShader9_Vtbl, 0x6d3bdbdc_5b02_4415_b852_ce5e8bccb289);
+::windows_core::imp::interface_hierarchy!(IDirect3DPixelShader9, ::windows_core::IUnknown);
 impl IDirect3DPixelShader9 {
     pub unsafe fn GetDevice(&self) -> ::windows_core::Result<IDirect3DDevice9> {
         let mut result__ = ::std::mem::zeroed();
@@ -1611,13 +1554,6 @@ impl IDirect3DPixelShader9 {
         (::windows_core::Interface::vtable(self).GetFunction)(::windows_core::Interface::as_raw(self), param0, psizeofdata).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDirect3DPixelShader9, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDirect3DPixelShader9 {
-    type Vtable = IDirect3DPixelShader9_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDirect3DPixelShader9 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6d3bdbdc_5b02_4415_b852_ce5e8bccb289);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DPixelShader9_Vtbl {
@@ -1625,9 +1561,8 @@ pub struct IDirect3DPixelShader9_Vtbl {
     pub GetDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdevice: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, psizeofdata: *mut u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDirect3DQuery9(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDirect3DQuery9, IDirect3DQuery9_Vtbl, 0xd9771460_a695_4f26_bbd3_27b840b541cc);
+::windows_core::imp::interface_hierarchy!(IDirect3DQuery9, ::windows_core::IUnknown);
 impl IDirect3DQuery9 {
     pub unsafe fn GetDevice(&self) -> ::windows_core::Result<IDirect3DDevice9> {
         let mut result__ = ::std::mem::zeroed();
@@ -1646,13 +1581,6 @@ impl IDirect3DQuery9 {
         (::windows_core::Interface::vtable(self).GetData)(::windows_core::Interface::as_raw(self), pdata, dwsize, dwgetdataflags).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDirect3DQuery9, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDirect3DQuery9 {
-    type Vtable = IDirect3DQuery9_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDirect3DQuery9 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd9771460_a695_4f26_bbd3_27b840b541cc);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DQuery9_Vtbl {
@@ -1663,9 +1591,8 @@ pub struct IDirect3DQuery9_Vtbl {
     pub Issue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwissueflags: u32) -> ::windows_core::HRESULT,
     pub GetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdata: *mut ::core::ffi::c_void, dwsize: u32, dwgetdataflags: u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDirect3DResource9(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDirect3DResource9, IDirect3DResource9_Vtbl, 0x05eec05d_8f7d_4362_b999_d1baf357c704);
+::windows_core::imp::interface_hierarchy!(IDirect3DResource9, ::windows_core::IUnknown);
 impl IDirect3DResource9 {
     pub unsafe fn GetDevice(&self) -> ::windows_core::Result<IDirect3DDevice9> {
         let mut result__ = ::std::mem::zeroed();
@@ -1693,13 +1620,6 @@ impl IDirect3DResource9 {
         (::windows_core::Interface::vtable(self).GetType)(::windows_core::Interface::as_raw(self))
     }
 }
-::windows_core::imp::interface_hierarchy!(IDirect3DResource9, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDirect3DResource9 {
-    type Vtable = IDirect3DResource9_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDirect3DResource9 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x05eec05d_8f7d_4362_b999_d1baf357c704);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DResource9_Vtbl {
@@ -1713,9 +1633,8 @@ pub struct IDirect3DResource9_Vtbl {
     pub PreLoad: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
     pub GetType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> D3DRESOURCETYPE,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDirect3DStateBlock9(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDirect3DStateBlock9, IDirect3DStateBlock9_Vtbl, 0xb07c4fe5_310d_4ba8_a23c_4f0f206f218b);
+::windows_core::imp::interface_hierarchy!(IDirect3DStateBlock9, ::windows_core::IUnknown);
 impl IDirect3DStateBlock9 {
     pub unsafe fn GetDevice(&self) -> ::windows_core::Result<IDirect3DDevice9> {
         let mut result__ = ::std::mem::zeroed();
@@ -1728,13 +1647,6 @@ impl IDirect3DStateBlock9 {
         (::windows_core::Interface::vtable(self).Apply)(::windows_core::Interface::as_raw(self)).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDirect3DStateBlock9, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDirect3DStateBlock9 {
-    type Vtable = IDirect3DStateBlock9_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDirect3DStateBlock9 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb07c4fe5_310d_4ba8_a23c_4f0f206f218b);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DStateBlock9_Vtbl {
@@ -1743,9 +1655,8 @@ pub struct IDirect3DStateBlock9_Vtbl {
     pub Capture: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Apply: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDirect3DSurface9(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDirect3DSurface9, IDirect3DSurface9_Vtbl, 0x0cfbaf3a_9ff6_429a_99b3_a2796af8b89b);
+::windows_core::imp::interface_hierarchy!(IDirect3DSurface9, ::windows_core::IUnknown, IDirect3DResource9);
 impl IDirect3DSurface9 {
     pub unsafe fn GetDevice(&self) -> ::windows_core::Result<IDirect3DDevice9> {
         let mut result__ = ::std::mem::zeroed();
@@ -1798,13 +1709,6 @@ impl IDirect3DSurface9 {
         (::windows_core::Interface::vtable(self).ReleaseDC)(::windows_core::Interface::as_raw(self), hdc.into_param().abi()).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDirect3DSurface9, ::windows_core::IUnknown, IDirect3DResource9);
-unsafe impl ::windows_core::Interface for IDirect3DSurface9 {
-    type Vtable = IDirect3DSurface9_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDirect3DSurface9 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0cfbaf3a_9ff6_429a_99b3_a2796af8b89b);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DSurface9_Vtbl {
@@ -1822,9 +1726,8 @@ pub struct IDirect3DSurface9_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     ReleaseDC: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDirect3DSwapChain9(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDirect3DSwapChain9, IDirect3DSwapChain9_Vtbl, 0x794950f2_adfc_458a_905e_10a10b0b503b);
+::windows_core::imp::interface_hierarchy!(IDirect3DSwapChain9, ::windows_core::IUnknown);
 impl IDirect3DSwapChain9 {
     #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -1858,13 +1761,6 @@ impl IDirect3DSwapChain9 {
         (::windows_core::Interface::vtable(self).GetPresentParameters)(::windows_core::Interface::as_raw(self), ppresentationparameters).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDirect3DSwapChain9, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDirect3DSwapChain9 {
-    type Vtable = IDirect3DSwapChain9_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDirect3DSwapChain9 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x794950f2_adfc_458a_905e_10a10b0b503b);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DSwapChain9_Vtbl {
@@ -1880,9 +1776,8 @@ pub struct IDirect3DSwapChain9_Vtbl {
     pub GetDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdevice: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetPresentParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppresentationparameters: *mut D3DPRESENT_PARAMETERS) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDirect3DSwapChain9Ex(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDirect3DSwapChain9Ex, IDirect3DSwapChain9Ex_Vtbl, 0x91886caf_1c3d_4d2e_a0ab_3e4c7d8d3303);
+::windows_core::imp::interface_hierarchy!(IDirect3DSwapChain9Ex, ::windows_core::IUnknown, IDirect3DSwapChain9);
 impl IDirect3DSwapChain9Ex {
     #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -1925,13 +1820,6 @@ impl IDirect3DSwapChain9Ex {
         (::windows_core::Interface::vtable(self).GetDisplayModeEx)(::windows_core::Interface::as_raw(self), pmode, protation).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDirect3DSwapChain9Ex, ::windows_core::IUnknown, IDirect3DSwapChain9);
-unsafe impl ::windows_core::Interface for IDirect3DSwapChain9Ex {
-    type Vtable = IDirect3DSwapChain9Ex_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDirect3DSwapChain9Ex {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x91886caf_1c3d_4d2e_a0ab_3e4c7d8d3303);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DSwapChain9Ex_Vtbl {
@@ -1940,9 +1828,8 @@ pub struct IDirect3DSwapChain9Ex_Vtbl {
     pub GetPresentStats: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppresentationstatistics: *mut D3DPRESENTSTATS) -> ::windows_core::HRESULT,
     pub GetDisplayModeEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmode: *mut D3DDISPLAYMODEEX, protation: *mut D3DDISPLAYROTATION) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDirect3DTexture9(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDirect3DTexture9, IDirect3DTexture9_Vtbl, 0x85c31227_3de5_4f00_9b3a_f11ac38c18b5);
+::windows_core::imp::interface_hierarchy!(IDirect3DTexture9, ::windows_core::IUnknown, IDirect3DResource9, IDirect3DBaseTexture9);
 impl IDirect3DTexture9 {
     pub unsafe fn GetDevice(&self) -> ::windows_core::Result<IDirect3DDevice9> {
         let mut result__ = ::std::mem::zeroed();
@@ -2004,13 +1891,6 @@ impl IDirect3DTexture9 {
         (::windows_core::Interface::vtable(self).AddDirtyRect)(::windows_core::Interface::as_raw(self), pdirtyrect).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDirect3DTexture9, ::windows_core::IUnknown, IDirect3DResource9, IDirect3DBaseTexture9);
-unsafe impl ::windows_core::Interface for IDirect3DTexture9 {
-    type Vtable = IDirect3DTexture9_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDirect3DTexture9 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x85c31227_3de5_4f00_9b3a_f11ac38c18b5);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DTexture9_Vtbl {
@@ -2021,9 +1901,8 @@ pub struct IDirect3DTexture9_Vtbl {
     pub UnlockRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, level: u32) -> ::windows_core::HRESULT,
     pub AddDirtyRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdirtyrect: *const super::super::Foundation::RECT) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDirect3DVertexBuffer9(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDirect3DVertexBuffer9, IDirect3DVertexBuffer9_Vtbl, 0xb64bb1b5_fd70_4df6_bf91_19d0a12455e3);
+::windows_core::imp::interface_hierarchy!(IDirect3DVertexBuffer9, ::windows_core::IUnknown, IDirect3DResource9);
 impl IDirect3DVertexBuffer9 {
     pub unsafe fn GetDevice(&self) -> ::windows_core::Result<IDirect3DDevice9> {
         let mut result__ = ::std::mem::zeroed();
@@ -2060,13 +1939,6 @@ impl IDirect3DVertexBuffer9 {
         (::windows_core::Interface::vtable(self).GetDesc)(::windows_core::Interface::as_raw(self), pdesc).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDirect3DVertexBuffer9, ::windows_core::IUnknown, IDirect3DResource9);
-unsafe impl ::windows_core::Interface for IDirect3DVertexBuffer9 {
-    type Vtable = IDirect3DVertexBuffer9_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDirect3DVertexBuffer9 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb64bb1b5_fd70_4df6_bf91_19d0a12455e3);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DVertexBuffer9_Vtbl {
@@ -2075,9 +1947,8 @@ pub struct IDirect3DVertexBuffer9_Vtbl {
     pub Unlock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut D3DVERTEXBUFFER_DESC) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDirect3DVertexDeclaration9(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDirect3DVertexDeclaration9, IDirect3DVertexDeclaration9_Vtbl, 0xdd13c59c_36fa_4098_a8fb_c7ed39dc8546);
+::windows_core::imp::interface_hierarchy!(IDirect3DVertexDeclaration9, ::windows_core::IUnknown);
 impl IDirect3DVertexDeclaration9 {
     pub unsafe fn GetDevice(&self) -> ::windows_core::Result<IDirect3DDevice9> {
         let mut result__ = ::std::mem::zeroed();
@@ -2087,13 +1958,6 @@ impl IDirect3DVertexDeclaration9 {
         (::windows_core::Interface::vtable(self).GetDeclaration)(::windows_core::Interface::as_raw(self), pelement, pnumelements).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDirect3DVertexDeclaration9, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDirect3DVertexDeclaration9 {
-    type Vtable = IDirect3DVertexDeclaration9_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDirect3DVertexDeclaration9 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdd13c59c_36fa_4098_a8fb_c7ed39dc8546);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DVertexDeclaration9_Vtbl {
@@ -2101,9 +1965,8 @@ pub struct IDirect3DVertexDeclaration9_Vtbl {
     pub GetDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdevice: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetDeclaration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pelement: *mut D3DVERTEXELEMENT9, pnumelements: *mut u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDirect3DVertexShader9(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDirect3DVertexShader9, IDirect3DVertexShader9_Vtbl, 0xefc5557e_6265_4613_8a94_43857889eb36);
+::windows_core::imp::interface_hierarchy!(IDirect3DVertexShader9, ::windows_core::IUnknown);
 impl IDirect3DVertexShader9 {
     pub unsafe fn GetDevice(&self) -> ::windows_core::Result<IDirect3DDevice9> {
         let mut result__ = ::std::mem::zeroed();
@@ -2113,13 +1976,6 @@ impl IDirect3DVertexShader9 {
         (::windows_core::Interface::vtable(self).GetFunction)(::windows_core::Interface::as_raw(self), param0, psizeofdata).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDirect3DVertexShader9, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDirect3DVertexShader9 {
-    type Vtable = IDirect3DVertexShader9_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDirect3DVertexShader9 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xefc5557e_6265_4613_8a94_43857889eb36);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DVertexShader9_Vtbl {
@@ -2127,9 +1983,8 @@ pub struct IDirect3DVertexShader9_Vtbl {
     pub GetDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdevice: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, psizeofdata: *mut u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDirect3DVolume9(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDirect3DVolume9, IDirect3DVolume9_Vtbl, 0x24f416e6_1f67_4aa7_b88e_d33f6f3128a1);
+::windows_core::imp::interface_hierarchy!(IDirect3DVolume9, ::windows_core::IUnknown);
 impl IDirect3DVolume9 {
     pub unsafe fn GetDevice(&self) -> ::windows_core::Result<IDirect3DDevice9> {
         let mut result__ = ::std::mem::zeroed();
@@ -2157,13 +2012,6 @@ impl IDirect3DVolume9 {
         (::windows_core::Interface::vtable(self).UnlockBox)(::windows_core::Interface::as_raw(self)).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDirect3DVolume9, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDirect3DVolume9 {
-    type Vtable = IDirect3DVolume9_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDirect3DVolume9 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x24f416e6_1f67_4aa7_b88e_d33f6f3128a1);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DVolume9_Vtbl {
@@ -2177,9 +2025,8 @@ pub struct IDirect3DVolume9_Vtbl {
     pub LockBox: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plockedvolume: *mut D3DLOCKED_BOX, pbox: *const D3DBOX, flags: u32) -> ::windows_core::HRESULT,
     pub UnlockBox: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDirect3DVolumeTexture9(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDirect3DVolumeTexture9, IDirect3DVolumeTexture9_Vtbl, 0x2518526c_e789_4111_a7b9_47ef328d13e6);
+::windows_core::imp::interface_hierarchy!(IDirect3DVolumeTexture9, ::windows_core::IUnknown, IDirect3DResource9, IDirect3DBaseTexture9);
 impl IDirect3DVolumeTexture9 {
     pub unsafe fn GetDevice(&self) -> ::windows_core::Result<IDirect3DDevice9> {
         let mut result__ = ::std::mem::zeroed();
@@ -2240,13 +2087,6 @@ impl IDirect3DVolumeTexture9 {
     pub unsafe fn AddDirtyBox(&self, pdirtybox: *const D3DBOX) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).AddDirtyBox)(::windows_core::Interface::as_raw(self), pdirtybox).ok()
     }
-}
-::windows_core::imp::interface_hierarchy!(IDirect3DVolumeTexture9, ::windows_core::IUnknown, IDirect3DResource9, IDirect3DBaseTexture9);
-unsafe impl ::windows_core::Interface for IDirect3DVolumeTexture9 {
-    type Vtable = IDirect3DVolumeTexture9_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDirect3DVolumeTexture9 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2518526c_e789_4111_a7b9_47ef328d13e6);
 }
 #[repr(C)]
 #[doc(hidden)]

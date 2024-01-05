@@ -1,13 +1,4 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDetectedFace(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDetectedFace {
-    type Vtable = IDetectedFace_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDetectedFace {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8200d454_66bc_34df_9410_e89400195414);
-}
+::windows_core::imp::com_interface!(IDetectedFace, IDetectedFace_Vtbl, 0x8200d454_66bc_34df_9410_e89400195414);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDetectedFace_Vtbl {
@@ -17,16 +8,7 @@ pub struct IDetectedFace_Vtbl {
     #[cfg(not(feature = "Graphics_Imaging"))]
     FaceBox: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IFaceDetector(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IFaceDetector {
-    type Vtable = IFaceDetector_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IFaceDetector {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x16b672dc_fe6f_3117_8d95_c3f04d51630c);
-}
+::windows_core::imp::com_interface!(IFaceDetector, IFaceDetector_Vtbl, 0x16b672dc_fe6f_3117_8d95_c3f04d51630c);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFaceDetector_Vtbl {
@@ -56,16 +38,7 @@ pub struct IFaceDetector_Vtbl {
     #[cfg(not(feature = "Graphics_Imaging"))]
     SetMaxDetectableFaceSize: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IFaceDetectorStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IFaceDetectorStatics {
-    type Vtable = IFaceDetectorStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IFaceDetectorStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbc042d67_9047_33f6_881b_6746c1b218b8);
-}
+::windows_core::imp::com_interface!(IFaceDetectorStatics, IFaceDetectorStatics_Vtbl, 0xbc042d67_9047_33f6_881b_6746c1b218b8);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFaceDetectorStatics_Vtbl {
@@ -81,16 +54,7 @@ pub struct IFaceDetectorStatics_Vtbl {
     IsBitmapPixelFormatSupported: usize,
     pub IsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IFaceTracker(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IFaceTracker {
-    type Vtable = IFaceTracker_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IFaceTracker {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6ba67d8c_a841_4420_93e6_2420a1884fcf);
-}
+::windows_core::imp::com_interface!(IFaceTracker, IFaceTracker_Vtbl, 0x6ba67d8c_a841_4420_93e6_2420a1884fcf);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFaceTracker_Vtbl {
@@ -116,16 +80,7 @@ pub struct IFaceTracker_Vtbl {
     #[cfg(not(feature = "Graphics_Imaging"))]
     SetMaxDetectableFaceSize: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IFaceTrackerStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IFaceTrackerStatics {
-    type Vtable = IFaceTrackerStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IFaceTrackerStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe9629198_1801_3fa5_932e_31d767af6c4d);
-}
+::windows_core::imp::com_interface!(IFaceTrackerStatics, IFaceTrackerStatics_Vtbl, 0xe9629198_1801_3fa5_932e_31d767af6c4d);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFaceTrackerStatics_Vtbl {
@@ -144,6 +99,7 @@ pub struct IFaceTrackerStatics_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DetectedFace(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(DetectedFace, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl DetectedFace {
     #[doc = "Required features: `\"Graphics_Imaging\"`"]
     #[cfg(feature = "Graphics_Imaging")]
@@ -160,19 +116,17 @@ impl ::windows_core::RuntimeType for DetectedFace {
 }
 unsafe impl ::windows_core::Interface for DetectedFace {
     type Vtable = IDetectedFace_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for DetectedFace {
-    const IID: ::windows_core::GUID = <IDetectedFace as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IDetectedFace as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for DetectedFace {
     const NAME: &'static str = "Windows.Media.FaceAnalysis.DetectedFace";
 }
-::windows_core::imp::interface_hierarchy!(DetectedFace, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for DetectedFace {}
 unsafe impl ::core::marker::Sync for DetectedFace {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct FaceDetector(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(FaceDetector, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl FaceDetector {
     #[doc = "Required features: `\"Foundation_Collections\"`, `\"Graphics_Imaging\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_Imaging"))]
@@ -267,19 +221,17 @@ impl ::windows_core::RuntimeType for FaceDetector {
 }
 unsafe impl ::windows_core::Interface for FaceDetector {
     type Vtable = IFaceDetector_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for FaceDetector {
-    const IID: ::windows_core::GUID = <IFaceDetector as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IFaceDetector as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for FaceDetector {
     const NAME: &'static str = "Windows.Media.FaceAnalysis.FaceDetector";
 }
-::windows_core::imp::interface_hierarchy!(FaceDetector, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for FaceDetector {}
 unsafe impl ::core::marker::Sync for FaceDetector {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct FaceTracker(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(FaceTracker, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl FaceTracker {
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
@@ -362,13 +314,10 @@ impl ::windows_core::RuntimeType for FaceTracker {
 }
 unsafe impl ::windows_core::Interface for FaceTracker {
     type Vtable = IFaceTracker_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for FaceTracker {
-    const IID: ::windows_core::GUID = <IFaceTracker as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IFaceTracker as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for FaceTracker {
     const NAME: &'static str = "Windows.Media.FaceAnalysis.FaceTracker";
 }
-::windows_core::imp::interface_hierarchy!(FaceTracker, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for FaceTracker {}
 unsafe impl ::core::marker::Sync for FaceTracker {}

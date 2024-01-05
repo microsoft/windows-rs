@@ -64,7 +64,7 @@ impl ILearningModelFeatureDescriptor_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ILearningModelFeatureDescriptor as ::windows_core::ComInterface>::IID
+        iid == &<ILearningModelFeatureDescriptor as ::windows_core::Interface>::IID
     }
 }
 pub trait ILearningModelFeatureValue_Impl: Sized {
@@ -89,7 +89,7 @@ impl ILearningModelFeatureValue_Vtbl {
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, ILearningModelFeatureValue, OFFSET>(), Kind: Kind::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ILearningModelFeatureValue as ::windows_core::ComInterface>::IID
+        iid == &<ILearningModelFeatureValue as ::windows_core::Interface>::IID
     }
 }
 pub trait ILearningModelOperatorProvider_Impl: Sized {}
@@ -101,7 +101,7 @@ impl ILearningModelOperatorProvider_Vtbl {
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, ILearningModelOperatorProvider, OFFSET>() }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ILearningModelOperatorProvider as ::windows_core::ComInterface>::IID
+        iid == &<ILearningModelOperatorProvider as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Foundation_Collections\"`"]
@@ -147,6 +147,6 @@ impl ITensor_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITensor as ::windows_core::ComInterface>::IID
+        iid == &<ITensor as ::windows_core::Interface>::IID
     }
 }

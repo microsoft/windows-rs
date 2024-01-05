@@ -49,7 +49,7 @@ impl IAccountingProviderConfig_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAccountingProviderConfig as ::windows_core::ComInterface>::IID
+        iid == &<IAccountingProviderConfig as ::windows_core::Interface>::IID
     }
 }
 pub trait IAuthenticationProviderConfig_Impl: Sized {
@@ -103,7 +103,7 @@ impl IAuthenticationProviderConfig_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAuthenticationProviderConfig as ::windows_core::ComInterface>::IID
+        iid == &<IAuthenticationProviderConfig as ::windows_core::Interface>::IID
     }
 }
 pub trait IEAPProviderConfig_Impl: Sized {
@@ -158,7 +158,7 @@ impl IEAPProviderConfig_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEAPProviderConfig as ::windows_core::ComInterface>::IID
+        iid == &<IEAPProviderConfig as ::windows_core::Interface>::IID
     }
 }
 pub trait IEAPProviderConfig2_Impl: Sized + IEAPProviderConfig_Impl {
@@ -185,7 +185,7 @@ impl IEAPProviderConfig2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEAPProviderConfig2 as ::windows_core::ComInterface>::IID || iid == &<IEAPProviderConfig as ::windows_core::ComInterface>::IID
+        iid == &<IEAPProviderConfig2 as ::windows_core::Interface>::IID || iid == &<IEAPProviderConfig as ::windows_core::Interface>::IID
     }
 }
 pub trait IEAPProviderConfig3_Impl: Sized + IEAPProviderConfig2_Impl {
@@ -205,7 +205,7 @@ impl IEAPProviderConfig3_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEAPProviderConfig3 as ::windows_core::ComInterface>::IID || iid == &<IEAPProviderConfig as ::windows_core::ComInterface>::IID || iid == &<IEAPProviderConfig2 as ::windows_core::ComInterface>::IID
+        iid == &<IEAPProviderConfig3 as ::windows_core::Interface>::IID || iid == &<IEAPProviderConfig as ::windows_core::Interface>::IID || iid == &<IEAPProviderConfig2 as ::windows_core::Interface>::IID
     }
 }
 pub trait IRouterProtocolConfig_Impl: Sized {
@@ -232,6 +232,6 @@ impl IRouterProtocolConfig_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRouterProtocolConfig as ::windows_core::ComInterface>::IID
+        iid == &<IRouterProtocolConfig as ::windows_core::Interface>::IID
     }
 }

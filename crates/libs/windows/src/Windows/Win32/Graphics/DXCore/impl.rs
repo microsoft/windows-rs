@@ -84,7 +84,7 @@ impl IDXCoreAdapter_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDXCoreAdapter as ::windows_core::ComInterface>::IID
+        iid == &<IDXCoreAdapter as ::windows_core::Interface>::IID
     }
 }
 pub trait IDXCoreAdapterFactory_Impl: Sized {
@@ -138,7 +138,7 @@ impl IDXCoreAdapterFactory_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDXCoreAdapterFactory as ::windows_core::ComInterface>::IID
+        iid == &<IDXCoreAdapterFactory as ::windows_core::Interface>::IID
     }
 }
 pub trait IDXCoreAdapterList_Impl: Sized {
@@ -193,6 +193,6 @@ impl IDXCoreAdapterList_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDXCoreAdapterList as ::windows_core::ComInterface>::IID
+        iid == &<IDXCoreAdapterList as ::windows_core::Interface>::IID
     }
 }

@@ -33,6 +33,6 @@ impl IDirect3DDevice9On12_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirect3DDevice9On12 as ::windows_core::ComInterface>::IID
+        iid == &<IDirect3DDevice9On12 as ::windows_core::Interface>::IID
     }
 }

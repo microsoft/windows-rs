@@ -95,7 +95,7 @@ impl IDot11AdHocInterface_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDot11AdHocInterface as ::windows_core::ComInterface>::IID
+        iid == &<IDot11AdHocInterface as ::windows_core::Interface>::IID
     }
 }
 pub trait IDot11AdHocInterfaceNotificationSink_Impl: Sized {
@@ -112,7 +112,7 @@ impl IDot11AdHocInterfaceNotificationSink_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnConnectionStatusChange: OnConnectionStatusChange::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDot11AdHocInterfaceNotificationSink as ::windows_core::ComInterface>::IID
+        iid == &<IDot11AdHocInterfaceNotificationSink as ::windows_core::Interface>::IID
     }
 }
 pub trait IDot11AdHocManager_Impl: Sized {
@@ -184,7 +184,7 @@ impl IDot11AdHocManager_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDot11AdHocManager as ::windows_core::ComInterface>::IID
+        iid == &<IDot11AdHocManager as ::windows_core::Interface>::IID
     }
 }
 pub trait IDot11AdHocManagerNotificationSink_Impl: Sized {
@@ -225,7 +225,7 @@ impl IDot11AdHocManagerNotificationSink_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDot11AdHocManagerNotificationSink as ::windows_core::ComInterface>::IID
+        iid == &<IDot11AdHocManagerNotificationSink as ::windows_core::Interface>::IID
     }
 }
 pub trait IDot11AdHocNetwork_Impl: Sized {
@@ -346,7 +346,7 @@ impl IDot11AdHocNetwork_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDot11AdHocNetwork as ::windows_core::ComInterface>::IID
+        iid == &<IDot11AdHocNetwork as ::windows_core::Interface>::IID
     }
 }
 pub trait IDot11AdHocNetworkNotificationSink_Impl: Sized {
@@ -373,7 +373,7 @@ impl IDot11AdHocNetworkNotificationSink_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDot11AdHocNetworkNotificationSink as ::windows_core::ComInterface>::IID
+        iid == &<IDot11AdHocNetworkNotificationSink as ::windows_core::Interface>::IID
     }
 }
 pub trait IDot11AdHocSecuritySettings_Impl: Sized {
@@ -400,7 +400,7 @@ impl IDot11AdHocSecuritySettings_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDot11AdHocSecuritySettings as ::windows_core::ComInterface>::IID
+        iid == &<IDot11AdHocSecuritySettings as ::windows_core::Interface>::IID
     }
 }
 pub trait IEnumDot11AdHocInterfaces_Impl: Sized {
@@ -447,7 +447,7 @@ impl IEnumDot11AdHocInterfaces_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumDot11AdHocInterfaces as ::windows_core::ComInterface>::IID
+        iid == &<IEnumDot11AdHocInterfaces as ::windows_core::Interface>::IID
     }
 }
 pub trait IEnumDot11AdHocNetworks_Impl: Sized {
@@ -494,7 +494,7 @@ impl IEnumDot11AdHocNetworks_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumDot11AdHocNetworks as ::windows_core::ComInterface>::IID
+        iid == &<IEnumDot11AdHocNetworks as ::windows_core::Interface>::IID
     }
 }
 pub trait IEnumDot11AdHocSecuritySettings_Impl: Sized {
@@ -541,6 +541,6 @@ impl IEnumDot11AdHocSecuritySettings_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumDot11AdHocSecuritySettings as ::windows_core::ComInterface>::IID
+        iid == &<IEnumDot11AdHocSecuritySettings as ::windows_core::Interface>::IID
     }
 }

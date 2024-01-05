@@ -109,7 +109,7 @@ impl IInkAnalysisNode_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInkAnalysisNode as ::windows_core::ComInterface>::IID
+        iid == &<IInkAnalysisNode as ::windows_core::Interface>::IID
     }
 }
 pub trait IInkAnalyzerFactory_Impl: Sized {
@@ -138,6 +138,6 @@ impl IInkAnalyzerFactory_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInkAnalyzerFactory as ::windows_core::ComInterface>::IID
+        iid == &<IInkAnalyzerFactory as ::windows_core::Interface>::IID
     }
 }

@@ -175,7 +175,7 @@ impl ICallFrame_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICallFrame as ::windows_core::ComInterface>::IID
+        iid == &<ICallFrame as ::windows_core::Interface>::IID
     }
 }
 pub trait ICallFrameEvents_Impl: Sized {
@@ -192,7 +192,7 @@ impl ICallFrameEvents_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnCall: OnCall::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICallFrameEvents as ::windows_core::ComInterface>::IID
+        iid == &<ICallFrameEvents as ::windows_core::Interface>::IID
     }
 }
 pub trait ICallFrameWalker_Impl: Sized {
@@ -209,7 +209,7 @@ impl ICallFrameWalker_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnWalkInterface: OnWalkInterface::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICallFrameWalker as ::windows_core::ComInterface>::IID
+        iid == &<ICallFrameWalker as ::windows_core::Interface>::IID
     }
 }
 pub trait ICallIndirect_Impl: Sized {
@@ -256,7 +256,7 @@ impl ICallIndirect_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICallIndirect as ::windows_core::ComInterface>::IID
+        iid == &<ICallIndirect as ::windows_core::Interface>::IID
     }
 }
 pub trait ICallInterceptor_Impl: Sized + ICallIndirect_Impl {
@@ -289,7 +289,7 @@ impl ICallInterceptor_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICallInterceptor as ::windows_core::ComInterface>::IID || iid == &<ICallIndirect as ::windows_core::ComInterface>::IID
+        iid == &<ICallInterceptor as ::windows_core::Interface>::IID || iid == &<ICallIndirect as ::windows_core::Interface>::IID
     }
 }
 pub trait ICallUnmarshal_Impl: Sized {
@@ -316,7 +316,7 @@ impl ICallUnmarshal_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICallUnmarshal as ::windows_core::ComInterface>::IID
+        iid == &<ICallUnmarshal as ::windows_core::Interface>::IID
     }
 }
 pub trait IInterfaceRelated_Impl: Sized {
@@ -349,6 +349,6 @@ impl IInterfaceRelated_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInterfaceRelated as ::windows_core::ComInterface>::IID
+        iid == &<IInterfaceRelated as ::windows_core::Interface>::IID
     }
 }

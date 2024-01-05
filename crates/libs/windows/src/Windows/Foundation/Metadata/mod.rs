@@ -1,13 +1,4 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IApiInformationStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IApiInformationStatics {
-    type Vtable = IApiInformationStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IApiInformationStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x997439fe_f681_4a11_b416_c13a47e8ba36);
-}
+::windows_core::imp::com_interface!(IApiInformationStatics, IApiInformationStatics_Vtbl, 0x997439fe_f681_4a11_b416_c13a47e8ba36);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApiInformationStatics_Vtbl {

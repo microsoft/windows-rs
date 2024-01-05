@@ -26,7 +26,7 @@ where
 #[inline]
 pub unsafe fn DebugCreate<T>() -> ::windows_core::Result<T>
 where
-    T: ::windows_core::ComInterface,
+    T: ::windows_core::Interface,
 {
     ::windows_targets::link!("dbgeng.dll" "system" fn DebugCreate(interfaceid : *const ::windows_core::GUID, interface : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     let mut result__ = ::std::ptr::null_mut();
@@ -35,15 +35,14 @@ where
 #[inline]
 pub unsafe fn DebugCreateEx<T>(dbgengoptions: u32) -> ::windows_core::Result<T>
 where
-    T: ::windows_core::ComInterface,
+    T: ::windows_core::Interface,
 {
     ::windows_targets::link!("dbgeng.dll" "system" fn DebugCreateEx(interfaceid : *const ::windows_core::GUID, dbgengoptions : u32, interface : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     let mut result__ = ::std::ptr::null_mut();
     DebugCreateEx(&T::IID, dbgengoptions, &mut result__).from_abi(result__)
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct DebugBaseEventCallbacks(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(DebugBaseEventCallbacks, DebugBaseEventCallbacks_Vtbl, 0);
+::windows_core::imp::interface_hierarchy!(DebugBaseEventCallbacks, ::windows_core::IUnknown, IDebugEventCallbacks);
 impl DebugBaseEventCallbacks {
     pub unsafe fn GetInterestMask(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -103,21 +102,13 @@ impl DebugBaseEventCallbacks {
         (::windows_core::Interface::vtable(self).base__.ChangeSymbolState)(::windows_core::Interface::as_raw(self), flags, argument).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(DebugBaseEventCallbacks, ::windows_core::IUnknown, IDebugEventCallbacks);
-unsafe impl ::windows_core::Interface for DebugBaseEventCallbacks {
-    type Vtable = DebugBaseEventCallbacks_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for DebugBaseEventCallbacks {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct DebugBaseEventCallbacks_Vtbl {
     pub base__: IDebugEventCallbacks_Vtbl,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct DebugBaseEventCallbacksWide(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(DebugBaseEventCallbacksWide, DebugBaseEventCallbacksWide_Vtbl, 0);
+::windows_core::imp::interface_hierarchy!(DebugBaseEventCallbacksWide, ::windows_core::IUnknown, IDebugEventCallbacksWide);
 impl DebugBaseEventCallbacksWide {
     pub unsafe fn GetInterestMask(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -177,21 +168,13 @@ impl DebugBaseEventCallbacksWide {
         (::windows_core::Interface::vtable(self).base__.ChangeSymbolState)(::windows_core::Interface::as_raw(self), flags, argument).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(DebugBaseEventCallbacksWide, ::windows_core::IUnknown, IDebugEventCallbacksWide);
-unsafe impl ::windows_core::Interface for DebugBaseEventCallbacksWide {
-    type Vtable = DebugBaseEventCallbacksWide_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for DebugBaseEventCallbacksWide {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct DebugBaseEventCallbacksWide_Vtbl {
     pub base__: IDebugEventCallbacksWide_Vtbl,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ICodeAddressConcept(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(ICodeAddressConcept, ICodeAddressConcept_Vtbl, 0xc7371568_5c78_4a00_a4ab_6ef8823184cb);
+::windows_core::imp::interface_hierarchy!(ICodeAddressConcept, ::windows_core::IUnknown);
 impl ICodeAddressConcept {
     pub unsafe fn GetContainingSymbol<P0>(&self, pcontextobject: P0) -> ::windows_core::Result<IDebugHostSymbol>
     where
@@ -201,22 +184,14 @@ impl ICodeAddressConcept {
         (::windows_core::Interface::vtable(self).GetContainingSymbol)(::windows_core::Interface::as_raw(self), pcontextobject.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(ICodeAddressConcept, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ICodeAddressConcept {
-    type Vtable = ICodeAddressConcept_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ICodeAddressConcept {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc7371568_5c78_4a00_a4ab_6ef8823184cb);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICodeAddressConcept_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetContainingSymbol: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcontextobject: *mut ::core::ffi::c_void, ppsymbol: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IComparableConcept(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IComparableConcept, IComparableConcept_Vtbl, 0xa7830646_9f0c_4a31_ba19_503f33e6c8a3);
+::windows_core::imp::interface_hierarchy!(IComparableConcept, ::windows_core::IUnknown);
 impl IComparableConcept {
     pub unsafe fn CompareObjects<P0, P1>(&self, contextobject: P0, otherobject: P1) -> ::windows_core::Result<i32>
     where
@@ -227,22 +202,14 @@ impl IComparableConcept {
         (::windows_core::Interface::vtable(self).CompareObjects)(::windows_core::Interface::as_raw(self), contextobject.into_param().abi(), otherobject.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IComparableConcept, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IComparableConcept {
-    type Vtable = IComparableConcept_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IComparableConcept {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa7830646_9f0c_4a31_ba19_503f33e6c8a3);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IComparableConcept_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub CompareObjects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contextobject: *mut ::core::ffi::c_void, otherobject: *mut ::core::ffi::c_void, comparisonresult: *mut i32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDataModelConcept(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDataModelConcept, IDataModelConcept_Vtbl, 0xfcb98d1d_1114_4fbf_b24c_effcb5def0d3);
+::windows_core::imp::interface_hierarchy!(IDataModelConcept, ::windows_core::IUnknown);
 impl IDataModelConcept {
     pub unsafe fn InitializeObject<P0, P1, P2>(&self, modelobject: P0, matchingtypesignature: P1, wildcardmatches: P2) -> ::windows_core::Result<()>
     where
@@ -257,13 +224,6 @@ impl IDataModelConcept {
         (::windows_core::Interface::vtable(self).GetName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IDataModelConcept, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDataModelConcept {
-    type Vtable = IDataModelConcept_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDataModelConcept {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfcb98d1d_1114_4fbf_b24c_effcb5def0d3);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataModelConcept_Vtbl {
@@ -271,9 +231,8 @@ pub struct IDataModelConcept_Vtbl {
     pub InitializeObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, modelobject: *mut ::core::ffi::c_void, matchingtypesignature: *mut ::core::ffi::c_void, wildcardmatches: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, modelname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDataModelManager(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDataModelManager, IDataModelManager_Vtbl, 0x73fe19f4_a110_4500_8ed9_3c28896f508c);
+::windows_core::imp::interface_hierarchy!(IDataModelManager, ::windows_core::IUnknown);
 impl IDataModelManager {
     pub unsafe fn Close(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Close)(::windows_core::Interface::as_raw(self)).ok()
@@ -407,13 +366,6 @@ impl IDataModelManager {
         (::windows_core::Interface::vtable(self).AcquireNamedModel)(::windows_core::Interface::as_raw(self), modelname.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IDataModelManager, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDataModelManager {
-    type Vtable = IDataModelManager_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDataModelManager {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x73fe19f4_a110_4500_8ed9_3c28896f508c);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataModelManager_Vtbl {
@@ -445,9 +397,8 @@ pub struct IDataModelManager_Vtbl {
     pub UnregisterNamedModel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, modelname: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
     pub AcquireNamedModel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, modelname: ::windows_core::PCWSTR, modelobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDataModelManager2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDataModelManager2, IDataModelManager2_Vtbl, 0xf412c5ea_2284_4622_a660_a697160d3312);
+::windows_core::imp::interface_hierarchy!(IDataModelManager2, ::windows_core::IUnknown, IDataModelManager);
 impl IDataModelManager2 {
     pub unsafe fn Close(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Close)(::windows_core::Interface::as_raw(self)).ok()
@@ -601,13 +552,6 @@ impl IDataModelManager2 {
         (::windows_core::Interface::vtable(self).CreateTypedIntrinsicObjectEx)(::windows_core::Interface::as_raw(self), context.into_param().abi(), intrinsicdata, r#type.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IDataModelManager2, ::windows_core::IUnknown, IDataModelManager);
-unsafe impl ::windows_core::Interface for IDataModelManager2 {
-    type Vtable = IDataModelManager2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDataModelManager2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf412c5ea_2284_4622_a660_a697160d3312);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataModelManager2_Vtbl {
@@ -618,9 +562,8 @@ pub struct IDataModelManager2_Vtbl {
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     CreateTypedIntrinsicObjectEx: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDataModelNameBinder(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDataModelNameBinder, IDataModelNameBinder_Vtbl, 0xaf352b7b_8292_4c01_b360_2dc3696c65e7);
+::windows_core::imp::interface_hierarchy!(IDataModelNameBinder, ::windows_core::IUnknown);
 impl IDataModelNameBinder {
     pub unsafe fn BindValue<P0, P1>(&self, contextobject: P0, name: P1, value: *mut ::core::option::Option<IModelObject>, metadata: ::core::option::Option<*mut ::core::option::Option<IKeyStore>>) -> ::windows_core::Result<()>
     where
@@ -651,13 +594,6 @@ impl IDataModelNameBinder {
         (::windows_core::Interface::vtable(self).EnumerateReferences)(::windows_core::Interface::as_raw(self), contextobject.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IDataModelNameBinder, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDataModelNameBinder {
-    type Vtable = IDataModelNameBinder_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDataModelNameBinder {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaf352b7b_8292_4c01_b360_2dc3696c65e7);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataModelNameBinder_Vtbl {
@@ -667,9 +603,8 @@ pub struct IDataModelNameBinder_Vtbl {
     pub EnumerateValues: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contextobject: *mut ::core::ffi::c_void, enumerator: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub EnumerateReferences: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contextobject: *mut ::core::ffi::c_void, enumerator: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDataModelScript(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDataModelScript, IDataModelScript_Vtbl, 0x7b4d30fc_b14a_49f8_8d87_d9a1480c97f7);
+::windows_core::imp::interface_hierarchy!(IDataModelScript, ::windows_core::IUnknown);
 impl IDataModelScript {
     pub unsafe fn GetName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
@@ -709,13 +644,6 @@ impl IDataModelScript {
         (::windows_core::Interface::vtable(self).InvokeMain)(::windows_core::Interface::as_raw(self), client.into_param().abi()).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDataModelScript, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDataModelScript {
-    type Vtable = IDataModelScript_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDataModelScript {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7b4d30fc_b14a_49f8_8d87_d9a1480c97f7);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataModelScript_Vtbl {
@@ -731,9 +659,8 @@ pub struct IDataModelScript_Vtbl {
     pub IsInvocable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, isinvocable: *mut bool) -> ::windows_core::HRESULT,
     pub InvokeMain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, client: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDataModelScriptClient(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDataModelScriptClient, IDataModelScriptClient_Vtbl, 0x3b362b0e_89f0_46c6_a663_dfdc95194aef);
+::windows_core::imp::interface_hierarchy!(IDataModelScriptClient, ::windows_core::IUnknown);
 impl IDataModelScriptClient {
     pub unsafe fn ReportError<P0>(&self, errclass: ErrorClass, hrfail: ::windows_core::HRESULT, message: P0, line: u32, position: u32) -> ::windows_core::Result<()>
     where
@@ -742,22 +669,14 @@ impl IDataModelScriptClient {
         (::windows_core::Interface::vtable(self).ReportError)(::windows_core::Interface::as_raw(self), errclass, hrfail, message.into_param().abi(), line, position).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDataModelScriptClient, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDataModelScriptClient {
-    type Vtable = IDataModelScriptClient_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDataModelScriptClient {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3b362b0e_89f0_46c6_a663_dfdc95194aef);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataModelScriptClient_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub ReportError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, errclass: ErrorClass, hrfail: ::windows_core::HRESULT, message: ::windows_core::PCWSTR, line: u32, position: u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDataModelScriptDebug(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDataModelScriptDebug, IDataModelScriptDebug_Vtbl, 0xde8e0945_9750_4471_ab76_a8f79d6ec350);
+::windows_core::imp::interface_hierarchy!(IDataModelScriptDebug, ::windows_core::IUnknown);
 impl IDataModelScriptDebug {
     pub unsafe fn GetDebugState(&self) -> ScriptDebugState {
         (::windows_core::Interface::vtable(self).GetDebugState)(::windows_core::Interface::as_raw(self))
@@ -801,13 +720,6 @@ impl IDataModelScriptDebug {
         (::windows_core::Interface::vtable(self).StopDebugging)(::windows_core::Interface::as_raw(self), debugclient.into_param().abi()).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDataModelScriptDebug, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDataModelScriptDebug {
-    type Vtable = IDataModelScriptDebug_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDataModelScriptDebug {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xde8e0945_9750_4471_ab76_a8f79d6ec350);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataModelScriptDebug_Vtbl {
@@ -823,9 +735,8 @@ pub struct IDataModelScriptDebug_Vtbl {
     pub StartDebugging: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, debugclient: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub StopDebugging: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, debugclient: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDataModelScriptDebug2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDataModelScriptDebug2, IDataModelScriptDebug2_Vtbl, 0xcbb10ed3_839e_426c_9243_e23535c1ae1a);
+::windows_core::imp::interface_hierarchy!(IDataModelScriptDebug2, ::windows_core::IUnknown, IDataModelScriptDebug);
 impl IDataModelScriptDebug2 {
     pub unsafe fn GetDebugState(&self) -> ScriptDebugState {
         (::windows_core::Interface::vtable(self).base__.GetDebugState)(::windows_core::Interface::as_raw(self))
@@ -876,22 +787,14 @@ impl IDataModelScriptDebug2 {
         (::windows_core::Interface::vtable(self).SetBreakpointAtFunction)(::windows_core::Interface::as_raw(self), functionname.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IDataModelScriptDebug2, ::windows_core::IUnknown, IDataModelScriptDebug);
-unsafe impl ::windows_core::Interface for IDataModelScriptDebug2 {
-    type Vtable = IDataModelScriptDebug2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDataModelScriptDebug2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcbb10ed3_839e_426c_9243_e23535c1ae1a);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataModelScriptDebug2_Vtbl {
     pub base__: IDataModelScriptDebug_Vtbl,
     pub SetBreakpointAtFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, functionname: ::windows_core::PCWSTR, breakpoint: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDataModelScriptDebugBreakpoint(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDataModelScriptDebugBreakpoint, IDataModelScriptDebugBreakpoint_Vtbl, 0x6bb27b35_02e6_47cb_90a0_5371244032de);
+::windows_core::imp::interface_hierarchy!(IDataModelScriptDebugBreakpoint, ::windows_core::IUnknown);
 impl IDataModelScriptDebugBreakpoint {
     pub unsafe fn GetId(&self) -> u64 {
         (::windows_core::Interface::vtable(self).GetId)(::windows_core::Interface::as_raw(self))
@@ -912,13 +815,6 @@ impl IDataModelScriptDebugBreakpoint {
         (::windows_core::Interface::vtable(self).GetPosition)(::windows_core::Interface::as_raw(self), position, ::core::mem::transmute(positionspanend.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(linetext.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDataModelScriptDebugBreakpoint, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDataModelScriptDebugBreakpoint {
-    type Vtable = IDataModelScriptDebugBreakpoint_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDataModelScriptDebugBreakpoint {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6bb27b35_02e6_47cb_90a0_5371244032de);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataModelScriptDebugBreakpoint_Vtbl {
@@ -930,9 +826,8 @@ pub struct IDataModelScriptDebugBreakpoint_Vtbl {
     pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
     pub GetPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, position: *mut ScriptDebugPosition, positionspanend: *mut ScriptDebugPosition, linetext: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDataModelScriptDebugBreakpointEnumerator(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDataModelScriptDebugBreakpointEnumerator, IDataModelScriptDebugBreakpointEnumerator_Vtbl, 0x39484a75_b4f3_4799_86da_691afa57b299);
+::windows_core::imp::interface_hierarchy!(IDataModelScriptDebugBreakpointEnumerator, ::windows_core::IUnknown);
 impl IDataModelScriptDebugBreakpointEnumerator {
     pub unsafe fn Reset(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self)).ok()
@@ -942,13 +837,6 @@ impl IDataModelScriptDebugBreakpointEnumerator {
         (::windows_core::Interface::vtable(self).GetNext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IDataModelScriptDebugBreakpointEnumerator, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDataModelScriptDebugBreakpointEnumerator {
-    type Vtable = IDataModelScriptDebugBreakpointEnumerator_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDataModelScriptDebugBreakpointEnumerator {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x39484a75_b4f3_4799_86da_691afa57b299);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataModelScriptDebugBreakpointEnumerator_Vtbl {
@@ -956,9 +844,8 @@ pub struct IDataModelScriptDebugBreakpointEnumerator_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, breakpoint: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDataModelScriptDebugClient(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDataModelScriptDebugClient, IDataModelScriptDebugClient_Vtbl, 0x53159b6d_d4c4_471b_a863_5b110ca800ca);
+::windows_core::imp::interface_hierarchy!(IDataModelScriptDebugClient, ::windows_core::IUnknown);
 impl IDataModelScriptDebugClient {
     pub unsafe fn NotifyDebugEvent<P0, P1>(&self, peventinfo: *const ScriptDebugEventInformation, pscript: P0, peventdataobject: P1, resumeeventkind: *mut ScriptExecutionKind) -> ::windows_core::Result<()>
     where
@@ -968,22 +855,14 @@ impl IDataModelScriptDebugClient {
         (::windows_core::Interface::vtable(self).NotifyDebugEvent)(::windows_core::Interface::as_raw(self), peventinfo, pscript.into_param().abi(), peventdataobject.into_param().abi(), resumeeventkind).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDataModelScriptDebugClient, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDataModelScriptDebugClient {
-    type Vtable = IDataModelScriptDebugClient_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDataModelScriptDebugClient {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x53159b6d_d4c4_471b_a863_5b110ca800ca);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataModelScriptDebugClient_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub NotifyDebugEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peventinfo: *const ScriptDebugEventInformation, pscript: *mut ::core::ffi::c_void, peventdataobject: *mut ::core::ffi::c_void, resumeeventkind: *mut ScriptExecutionKind) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDataModelScriptDebugStack(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDataModelScriptDebugStack, IDataModelScriptDebugStack_Vtbl, 0x051364dd_e449_443e_9762_fe578f4a5473);
+::windows_core::imp::interface_hierarchy!(IDataModelScriptDebugStack, ::windows_core::IUnknown);
 impl IDataModelScriptDebugStack {
     pub unsafe fn GetFrameCount(&self) -> u64 {
         (::windows_core::Interface::vtable(self).GetFrameCount)(::windows_core::Interface::as_raw(self))
@@ -993,13 +872,6 @@ impl IDataModelScriptDebugStack {
         (::windows_core::Interface::vtable(self).GetStackFrame)(::windows_core::Interface::as_raw(self), framenumber, &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IDataModelScriptDebugStack, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDataModelScriptDebugStack {
-    type Vtable = IDataModelScriptDebugStack_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDataModelScriptDebugStack {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x051364dd_e449_443e_9762_fe578f4a5473);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataModelScriptDebugStack_Vtbl {
@@ -1007,9 +879,8 @@ pub struct IDataModelScriptDebugStack_Vtbl {
     pub GetFrameCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u64,
     pub GetStackFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, framenumber: u64, stackframe: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDataModelScriptDebugStackFrame(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDataModelScriptDebugStackFrame, IDataModelScriptDebugStackFrame_Vtbl, 0xdec6ed5e_6360_4941_ab4c_a26409de4f82);
+::windows_core::imp::interface_hierarchy!(IDataModelScriptDebugStackFrame, ::windows_core::IUnknown);
 impl IDataModelScriptDebugStackFrame {
     pub unsafe fn GetName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
@@ -1041,13 +912,6 @@ impl IDataModelScriptDebugStackFrame {
         (::windows_core::Interface::vtable(self).EnumerateArguments)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IDataModelScriptDebugStackFrame, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDataModelScriptDebugStackFrame {
-    type Vtable = IDataModelScriptDebugStackFrame_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDataModelScriptDebugStackFrame {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdec6ed5e_6360_4941_ab4c_a26409de4f82);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataModelScriptDebugStackFrame_Vtbl {
@@ -1060,9 +924,8 @@ pub struct IDataModelScriptDebugStackFrame_Vtbl {
     pub EnumerateLocals: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, variablesenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub EnumerateArguments: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, variablesenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDataModelScriptDebugVariableSetEnumerator(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDataModelScriptDebugVariableSetEnumerator, IDataModelScriptDebugVariableSetEnumerator_Vtbl, 0x0f9feed7_d045_4ac3_98a8_a98942cf6a35);
+::windows_core::imp::interface_hierarchy!(IDataModelScriptDebugVariableSetEnumerator, ::windows_core::IUnknown);
 impl IDataModelScriptDebugVariableSetEnumerator {
     pub unsafe fn Reset(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self)).ok()
@@ -1071,13 +934,6 @@ impl IDataModelScriptDebugVariableSetEnumerator {
         (::windows_core::Interface::vtable(self).GetNext)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(variablename), ::core::mem::transmute(variablevalue.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(variablemetadata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDataModelScriptDebugVariableSetEnumerator, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDataModelScriptDebugVariableSetEnumerator {
-    type Vtable = IDataModelScriptDebugVariableSetEnumerator_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDataModelScriptDebugVariableSetEnumerator {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0f9feed7_d045_4ac3_98a8_a98942cf6a35);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataModelScriptDebugVariableSetEnumerator_Vtbl {
@@ -1085,9 +941,8 @@ pub struct IDataModelScriptDebugVariableSetEnumerator_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, variablename: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, variablevalue: *mut *mut ::core::ffi::c_void, variablemetadata: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDataModelScriptHostContext(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDataModelScriptHostContext, IDataModelScriptHostContext_Vtbl, 0x014d366a_1f23_4981_9219_b2db8b402054);
+::windows_core::imp::interface_hierarchy!(IDataModelScriptHostContext, ::windows_core::IUnknown);
 impl IDataModelScriptHostContext {
     pub unsafe fn NotifyScriptChange<P0>(&self, script: P0, changekind: ScriptChangeKind) -> ::windows_core::Result<()>
     where
@@ -1100,13 +955,6 @@ impl IDataModelScriptHostContext {
         (::windows_core::Interface::vtable(self).GetNamespaceObject)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IDataModelScriptHostContext, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDataModelScriptHostContext {
-    type Vtable = IDataModelScriptHostContext_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDataModelScriptHostContext {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x014d366a_1f23_4981_9219_b2db8b402054);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataModelScriptHostContext_Vtbl {
@@ -1114,9 +962,8 @@ pub struct IDataModelScriptHostContext_Vtbl {
     pub NotifyScriptChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, script: *mut ::core::ffi::c_void, changekind: ScriptChangeKind) -> ::windows_core::HRESULT,
     pub GetNamespaceObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, namespaceobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDataModelScriptManager(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDataModelScriptManager, IDataModelScriptManager_Vtbl, 0x6fd11e33_e5ad_410b_8011_68c6bc4bf80d);
+::windows_core::imp::interface_hierarchy!(IDataModelScriptManager, ::windows_core::IUnknown);
 impl IDataModelScriptManager {
     pub unsafe fn GetDefaultNameBinder(&self) -> ::windows_core::Result<IDataModelNameBinder> {
         let mut result__ = ::std::mem::zeroed();
@@ -1153,13 +1000,6 @@ impl IDataModelScriptManager {
         (::windows_core::Interface::vtable(self).EnumerateScriptProviders)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IDataModelScriptManager, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDataModelScriptManager {
-    type Vtable = IDataModelScriptManager_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDataModelScriptManager {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6fd11e33_e5ad_410b_8011_68c6bc4bf80d);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataModelScriptManager_Vtbl {
@@ -1171,9 +1011,8 @@ pub struct IDataModelScriptManager_Vtbl {
     pub FindProviderForScriptExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scriptextension: ::windows_core::PCWSTR, provider: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub EnumerateScriptProviders: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enumerator: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDataModelScriptProvider(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDataModelScriptProvider, IDataModelScriptProvider_Vtbl, 0x513461e0_4fca_48ce_8658_32f3e2056f3b);
+::windows_core::imp::interface_hierarchy!(IDataModelScriptProvider, ::windows_core::IUnknown);
 impl IDataModelScriptProvider {
     pub unsafe fn GetName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
@@ -1196,13 +1035,6 @@ impl IDataModelScriptProvider {
         (::windows_core::Interface::vtable(self).EnumerateTemplates)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IDataModelScriptProvider, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDataModelScriptProvider {
-    type Vtable = IDataModelScriptProvider_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDataModelScriptProvider {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x513461e0_4fca_48ce_8658_32f3e2056f3b);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataModelScriptProvider_Vtbl {
@@ -1213,9 +1045,8 @@ pub struct IDataModelScriptProvider_Vtbl {
     pub GetDefaultTemplateContent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, templatecontent: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub EnumerateTemplates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enumerator: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDataModelScriptProviderEnumerator(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDataModelScriptProviderEnumerator, IDataModelScriptProviderEnumerator_Vtbl, 0x95ba00e2_704a_4fe2_a8f1_a7e7d8fb0941);
+::windows_core::imp::interface_hierarchy!(IDataModelScriptProviderEnumerator, ::windows_core::IUnknown);
 impl IDataModelScriptProviderEnumerator {
     pub unsafe fn Reset(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self)).ok()
@@ -1225,13 +1056,6 @@ impl IDataModelScriptProviderEnumerator {
         (::windows_core::Interface::vtable(self).GetNext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IDataModelScriptProviderEnumerator, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDataModelScriptProviderEnumerator {
-    type Vtable = IDataModelScriptProviderEnumerator_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDataModelScriptProviderEnumerator {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x95ba00e2_704a_4fe2_a8f1_a7e7d8fb0941);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataModelScriptProviderEnumerator_Vtbl {
@@ -1239,9 +1063,8 @@ pub struct IDataModelScriptProviderEnumerator_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, provider: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDataModelScriptTemplate(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDataModelScriptTemplate, IDataModelScriptTemplate_Vtbl, 0x1303dec4_fa3b_4f1b_9224_b953d16babb5);
+::windows_core::imp::interface_hierarchy!(IDataModelScriptTemplate, ::windows_core::IUnknown);
 impl IDataModelScriptTemplate {
     pub unsafe fn GetName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
@@ -1258,13 +1081,6 @@ impl IDataModelScriptTemplate {
         (::windows_core::Interface::vtable(self).GetContent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IDataModelScriptTemplate, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDataModelScriptTemplate {
-    type Vtable = IDataModelScriptTemplate_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDataModelScriptTemplate {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1303dec4_fa3b_4f1b_9224_b953d16babb5);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataModelScriptTemplate_Vtbl {
@@ -1276,9 +1092,8 @@ pub struct IDataModelScriptTemplate_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetContent: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDataModelScriptTemplateEnumerator(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDataModelScriptTemplateEnumerator, IDataModelScriptTemplateEnumerator_Vtbl, 0x69ce6ae2_2268_4e6f_b062_20ce62bfe677);
+::windows_core::imp::interface_hierarchy!(IDataModelScriptTemplateEnumerator, ::windows_core::IUnknown);
 impl IDataModelScriptTemplateEnumerator {
     pub unsafe fn Reset(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self)).ok()
@@ -1288,13 +1103,6 @@ impl IDataModelScriptTemplateEnumerator {
         (::windows_core::Interface::vtable(self).GetNext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IDataModelScriptTemplateEnumerator, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDataModelScriptTemplateEnumerator {
-    type Vtable = IDataModelScriptTemplateEnumerator_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDataModelScriptTemplateEnumerator {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x69ce6ae2_2268_4e6f_b062_20ce62bfe677);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataModelScriptTemplateEnumerator_Vtbl {
@@ -1302,9 +1110,8 @@ pub struct IDataModelScriptTemplateEnumerator_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, templatecontent: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugAdvanced(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugAdvanced, IDebugAdvanced_Vtbl, 0xf2df5f53_071f_47bd_9de6_5734c3fed689);
+::windows_core::imp::interface_hierarchy!(IDebugAdvanced, ::windows_core::IUnknown);
 impl IDebugAdvanced {
     pub unsafe fn GetThreadContext(&self, context: *mut ::core::ffi::c_void, contextsize: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetThreadContext)(::windows_core::Interface::as_raw(self), context, contextsize).ok()
@@ -1313,13 +1120,6 @@ impl IDebugAdvanced {
         (::windows_core::Interface::vtable(self).SetThreadContext)(::windows_core::Interface::as_raw(self), context, contextsize).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugAdvanced, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugAdvanced {
-    type Vtable = IDebugAdvanced_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugAdvanced {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf2df5f53_071f_47bd_9de6_5734c3fed689);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugAdvanced_Vtbl {
@@ -1327,9 +1127,8 @@ pub struct IDebugAdvanced_Vtbl {
     pub GetThreadContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void, contextsize: u32) -> ::windows_core::HRESULT,
     pub SetThreadContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, contextsize: u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugAdvanced2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugAdvanced2, IDebugAdvanced2_Vtbl, 0x716d14c9_119b_4ba5_af1f_0890e672416a);
+::windows_core::imp::interface_hierarchy!(IDebugAdvanced2, ::windows_core::IUnknown);
 impl IDebugAdvanced2 {
     pub unsafe fn GetThreadContext(&self, context: *mut ::core::ffi::c_void, contextsize: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetThreadContext)(::windows_core::Interface::as_raw(self), context, contextsize).ok()
@@ -1359,13 +1158,6 @@ impl IDebugAdvanced2 {
         (::windows_core::Interface::vtable(self).GetSystemObjectInformation)(::windows_core::Interface::as_raw(self), which, arg64, arg32, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), buffersize, ::core::mem::transmute(infosize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugAdvanced2, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugAdvanced2 {
-    type Vtable = IDebugAdvanced2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugAdvanced2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x716d14c9_119b_4ba5_af1f_0890e672416a);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugAdvanced2_Vtbl {
@@ -1378,9 +1170,8 @@ pub struct IDebugAdvanced2_Vtbl {
     pub GetSymbolInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, which: u32, arg64: u64, arg32: u32, buffer: *mut ::core::ffi::c_void, buffersize: u32, infosize: *mut u32, stringbuffer: ::windows_core::PSTR, stringbuffersize: u32, stringsize: *mut u32) -> ::windows_core::HRESULT,
     pub GetSystemObjectInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, which: u32, arg64: u64, arg32: u32, buffer: *mut ::core::ffi::c_void, buffersize: u32, infosize: *mut u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugAdvanced3(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugAdvanced3, IDebugAdvanced3_Vtbl, 0xcba4abb4_84c4_444d_87ca_a04e13286739);
+::windows_core::imp::interface_hierarchy!(IDebugAdvanced3, ::windows_core::IUnknown);
 impl IDebugAdvanced3 {
     pub unsafe fn GetThreadContext(&self, context: *mut ::core::ffi::c_void, contextsize: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetThreadContext)(::windows_core::Interface::as_raw(self), context, contextsize).ok()
@@ -1425,13 +1216,6 @@ impl IDebugAdvanced3 {
         (::windows_core::Interface::vtable(self).GetSymbolInformationWide)(::windows_core::Interface::as_raw(self), which, arg64, arg32, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), buffersize, ::core::mem::transmute(infosize.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(stringbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), stringbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(stringsize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugAdvanced3, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugAdvanced3 {
-    type Vtable = IDebugAdvanced3_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugAdvanced3 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcba4abb4_84c4_444d_87ca_a04e13286739);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugAdvanced3_Vtbl {
@@ -1447,9 +1231,8 @@ pub struct IDebugAdvanced3_Vtbl {
     pub FindSourceFileAndTokenWide: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startelement: u32, modaddr: u64, file: ::windows_core::PCWSTR, flags: u32, filetoken: *const ::core::ffi::c_void, filetokensize: u32, foundelement: *mut u32, buffer: ::windows_core::PWSTR, buffersize: u32, foundsize: *mut u32) -> ::windows_core::HRESULT,
     pub GetSymbolInformationWide: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, which: u32, arg64: u64, arg32: u32, buffer: *mut ::core::ffi::c_void, buffersize: u32, infosize: *mut u32, stringbuffer: ::windows_core::PWSTR, stringbuffersize: u32, stringsize: *mut u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugAdvanced4(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugAdvanced4, IDebugAdvanced4_Vtbl, 0xd1069067_2a65_4bf0_ae97_76184b67856b);
+::windows_core::imp::interface_hierarchy!(IDebugAdvanced4, ::windows_core::IUnknown);
 impl IDebugAdvanced4 {
     pub unsafe fn GetThreadContext(&self, context: *mut ::core::ffi::c_void, contextsize: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetThreadContext)(::windows_core::Interface::as_raw(self), context, contextsize).ok()
@@ -1510,13 +1293,6 @@ impl IDebugAdvanced4 {
         .ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugAdvanced4, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugAdvanced4 {
-    type Vtable = IDebugAdvanced4_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugAdvanced4 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd1069067_2a65_4bf0_ae97_76184b67856b);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugAdvanced4_Vtbl {
@@ -1533,9 +1309,8 @@ pub struct IDebugAdvanced4_Vtbl {
     pub GetSymbolInformationWide: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, which: u32, arg64: u64, arg32: u32, buffer: *mut ::core::ffi::c_void, buffersize: u32, infosize: *mut u32, stringbuffer: ::windows_core::PWSTR, stringbuffersize: u32, stringsize: *mut u32) -> ::windows_core::HRESULT,
     pub GetSymbolInformationWideEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, which: u32, arg64: u64, arg32: u32, buffer: *mut ::core::ffi::c_void, buffersize: u32, infosize: *mut u32, stringbuffer: ::windows_core::PWSTR, stringbuffersize: u32, stringsize: *mut u32, pinfoex: *mut SYMBOL_INFO_EX) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugBreakpoint(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugBreakpoint, IDebugBreakpoint_Vtbl, 0x5bd9d474_5975_423a_b88b_65a8e7110e65);
+::windows_core::imp::interface_hierarchy!(IDebugBreakpoint, ::windows_core::IUnknown);
 impl IDebugBreakpoint {
     pub unsafe fn GetId(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -1614,13 +1389,6 @@ impl IDebugBreakpoint {
         (::windows_core::Interface::vtable(self).GetParameters)(::windows_core::Interface::as_raw(self), params).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugBreakpoint, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugBreakpoint {
-    type Vtable = IDebugBreakpoint_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugBreakpoint {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5bd9d474_5975_423a_b88b_65a8e7110e65);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugBreakpoint_Vtbl {
@@ -1647,9 +1415,8 @@ pub struct IDebugBreakpoint_Vtbl {
     pub SetOffsetExpression: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, expression: ::windows_core::PCSTR) -> ::windows_core::HRESULT,
     pub GetParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugBreakpoint2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugBreakpoint2, IDebugBreakpoint2_Vtbl, 0x1b278d20_79f2_426e_a3f9_c1ddf375d48e);
+::windows_core::imp::interface_hierarchy!(IDebugBreakpoint2, ::windows_core::IUnknown);
 impl IDebugBreakpoint2 {
     pub unsafe fn GetId(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -1746,13 +1513,6 @@ impl IDebugBreakpoint2 {
         (::windows_core::Interface::vtable(self).SetOffsetExpressionWide)(::windows_core::Interface::as_raw(self), expression.into_param().abi()).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugBreakpoint2, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugBreakpoint2 {
-    type Vtable = IDebugBreakpoint2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugBreakpoint2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1b278d20_79f2_426e_a3f9_c1ddf375d48e);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugBreakpoint2_Vtbl {
@@ -1783,9 +1543,8 @@ pub struct IDebugBreakpoint2_Vtbl {
     pub GetOffsetExpressionWide: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffer: ::windows_core::PWSTR, buffersize: u32, expressionsize: *mut u32) -> ::windows_core::HRESULT,
     pub SetOffsetExpressionWide: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, expression: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugBreakpoint3(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugBreakpoint3, IDebugBreakpoint3_Vtbl, 0x38f5c249_b448_43bb_9835_579d4ec02249);
+::windows_core::imp::interface_hierarchy!(IDebugBreakpoint3, ::windows_core::IUnknown);
 impl IDebugBreakpoint3 {
     pub unsafe fn GetId(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -1886,13 +1645,6 @@ impl IDebugBreakpoint3 {
         (::windows_core::Interface::vtable(self).GetGuid)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugBreakpoint3, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugBreakpoint3 {
-    type Vtable = IDebugBreakpoint3_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugBreakpoint3 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x38f5c249_b448_43bb_9835_579d4ec02249);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugBreakpoint3_Vtbl {
@@ -1924,9 +1676,8 @@ pub struct IDebugBreakpoint3_Vtbl {
     pub SetOffsetExpressionWide: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, expression: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
     pub GetGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugClient(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugClient, IDebugClient_Vtbl, 0x27fe5639_8407_4f47_8364_ee118fb08ac8);
+::windows_core::imp::interface_hierarchy!(IDebugClient, ::windows_core::IUnknown);
 impl IDebugClient {
     pub unsafe fn AttachKernel<P0>(&self, flags: u32, connectoptions: P0) -> ::windows_core::Result<()>
     where
@@ -2144,13 +1895,6 @@ impl IDebugClient {
         (::windows_core::Interface::vtable(self).FlushCallbacks)(::windows_core::Interface::as_raw(self)).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugClient, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugClient {
-    type Vtable = IDebugClient_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugClient {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x27fe5639_8407_4f47_8364_ee118fb08ac8);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugClient_Vtbl {
@@ -2201,9 +1945,8 @@ pub struct IDebugClient_Vtbl {
     pub SetEventCallbacks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, callbacks: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub FlushCallbacks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugClient2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugClient2, IDebugClient2_Vtbl, 0xedbed635_372e_4dab_bbfe_ed0d2f63be81);
+::windows_core::imp::interface_hierarchy!(IDebugClient2, ::windows_core::IUnknown);
 impl IDebugClient2 {
     pub unsafe fn AttachKernel<P0>(&self, flags: u32, connectoptions: P0) -> ::windows_core::Result<()>
     where
@@ -2452,13 +2195,6 @@ impl IDebugClient2 {
         (::windows_core::Interface::vtable(self).AbandonCurrentProcess)(::windows_core::Interface::as_raw(self)).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugClient2, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugClient2 {
-    type Vtable = IDebugClient2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugClient2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xedbed635_372e_4dab_bbfe_ed0d2f63be81);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugClient2_Vtbl {
@@ -2517,9 +2253,8 @@ pub struct IDebugClient2_Vtbl {
     pub DetachCurrentProcess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub AbandonCurrentProcess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugClient3(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugClient3, IDebugClient3_Vtbl, 0xdd492d7f_71b8_4ad6_a8dc_1c887479ff91);
+::windows_core::imp::interface_hierarchy!(IDebugClient3, ::windows_core::IUnknown);
 impl IDebugClient3 {
     pub unsafe fn AttachKernel<P0>(&self, flags: u32, connectoptions: P0) -> ::windows_core::Result<()>
     where
@@ -2802,13 +2537,6 @@ impl IDebugClient3 {
         (::windows_core::Interface::vtable(self).CreateProcessAndAttachWide)(::windows_core::Interface::as_raw(self), server, commandline.into_param().abi(), createflags, processid, attachflags).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugClient3, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugClient3 {
-    type Vtable = IDebugClient3_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugClient3 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdd492d7f_71b8_4ad6_a8dc_1c887479ff91);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugClient3_Vtbl {
@@ -2871,9 +2599,8 @@ pub struct IDebugClient3_Vtbl {
     pub CreateProcessWide: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, server: u64, commandline: ::windows_core::PCWSTR, createflags: u32) -> ::windows_core::HRESULT,
     pub CreateProcessAndAttachWide: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, server: u64, commandline: ::windows_core::PCWSTR, createflags: u32, processid: u32, attachflags: u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugClient4(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugClient4, IDebugClient4_Vtbl, 0xca83c3de_5089_4cf8_93c8_d892387f2a5e);
+::windows_core::imp::interface_hierarchy!(IDebugClient4, ::windows_core::IUnknown);
 impl IDebugClient4 {
     pub unsafe fn AttachKernel<P0>(&self, flags: u32, connectoptions: P0) -> ::windows_core::Result<()>
     where
@@ -3185,13 +2912,6 @@ impl IDebugClient4 {
         (::windows_core::Interface::vtable(self).GetDumpFileWide)(::windows_core::Interface::as_raw(self), index, ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(namesize.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(handle.unwrap_or(::std::ptr::null_mut())), r#type).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugClient4, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugClient4 {
-    type Vtable = IDebugClient4_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugClient4 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xca83c3de_5089_4cf8_93c8_d892387f2a5e);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugClient4_Vtbl {
@@ -3260,9 +2980,8 @@ pub struct IDebugClient4_Vtbl {
     pub GetDumpFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, buffer: ::windows_core::PSTR, buffersize: u32, namesize: *mut u32, handle: *mut u64, r#type: *mut u32) -> ::windows_core::HRESULT,
     pub GetDumpFileWide: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, buffer: ::windows_core::PWSTR, buffersize: u32, namesize: *mut u32, handle: *mut u64, r#type: *mut u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugClient5(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugClient5, IDebugClient5_Vtbl, 0xe3acb9d7_7ec2_4f0c_a0da_e81e0cbbe628);
+::windows_core::imp::interface_hierarchy!(IDebugClient5, ::windows_core::IUnknown);
 impl IDebugClient5 {
     pub unsafe fn AttachKernel<P0>(&self, flags: u32, connectoptions: P0) -> ::windows_core::Result<()>
     where
@@ -3731,13 +3450,6 @@ impl IDebugClient5 {
         (::windows_core::Interface::vtable(self).SetQuitLockStringWide)(::windows_core::Interface::as_raw(self), string.into_param().abi()).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugClient5, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugClient5 {
-    type Vtable = IDebugClient5_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugClient5 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe3acb9d7_7ec2_4f0c_a0da_e81e0cbbe628);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugClient5_Vtbl {
@@ -3835,9 +3547,8 @@ pub struct IDebugClient5_Vtbl {
     pub GetQuitLockStringWide: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffer: ::windows_core::PWSTR, buffersize: u32, stringsize: *mut u32) -> ::windows_core::HRESULT,
     pub SetQuitLockStringWide: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, string: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugClient6(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugClient6, IDebugClient6_Vtbl, 0xfd28b4c5_c498_4686_a28e_62cad2154eb3);
+::windows_core::imp::interface_hierarchy!(IDebugClient6, ::windows_core::IUnknown);
 impl IDebugClient6 {
     pub unsafe fn AttachKernel<P0>(&self, flags: u32, connectoptions: P0) -> ::windows_core::Result<()>
     where
@@ -4312,13 +4023,6 @@ impl IDebugClient6 {
         (::windows_core::Interface::vtable(self).SetEventContextCallbacks)(::windows_core::Interface::as_raw(self), callbacks.into_param().abi()).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugClient6, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugClient6 {
-    type Vtable = IDebugClient6_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugClient6 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfd28b4c5_c498_4686_a28e_62cad2154eb3);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugClient6_Vtbl {
@@ -4417,9 +4121,8 @@ pub struct IDebugClient6_Vtbl {
     pub SetQuitLockStringWide: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, string: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
     pub SetEventContextCallbacks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, callbacks: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugClient7(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugClient7, IDebugClient7_Vtbl, 0x13586be3_542e_481e_b1f2_8497ba74f9a9);
+::windows_core::imp::interface_hierarchy!(IDebugClient7, ::windows_core::IUnknown);
 impl IDebugClient7 {
     pub unsafe fn AttachKernel<P0>(&self, flags: u32, connectoptions: P0) -> ::windows_core::Result<()>
     where
@@ -4897,13 +4600,6 @@ impl IDebugClient7 {
         (::windows_core::Interface::vtable(self).SetClientContext)(::windows_core::Interface::as_raw(self), context, contextsize).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugClient7, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugClient7 {
-    type Vtable = IDebugClient7_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugClient7 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x13586be3_542e_481e_b1f2_8497ba74f9a9);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugClient7_Vtbl {
@@ -5003,9 +4699,8 @@ pub struct IDebugClient7_Vtbl {
     pub SetEventContextCallbacks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, callbacks: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub SetClientContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, contextsize: u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugClient8(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugClient8, IDebugClient8_Vtbl, 0xcec43add_6375_469e_83d5_414e4033c19a);
+::windows_core::imp::interface_hierarchy!(IDebugClient8, ::windows_core::IUnknown);
 impl IDebugClient8 {
     pub unsafe fn AttachKernel<P0>(&self, flags: u32, connectoptions: P0) -> ::windows_core::Result<()>
     where
@@ -5489,13 +5184,6 @@ impl IDebugClient8 {
         (::windows_core::Interface::vtable(self).OpenDumpFileWide2)(::windows_core::Interface::as_raw(self), filename.into_param().abi(), filehandle, alternatearch).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugClient8, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugClient8 {
-    type Vtable = IDebugClient8_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugClient8 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcec43add_6375_469e_83d5_414e4033c19a);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugClient8_Vtbl {
@@ -5596,9 +5284,8 @@ pub struct IDebugClient8_Vtbl {
     pub SetClientContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, contextsize: u32) -> ::windows_core::HRESULT,
     pub OpenDumpFileWide2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filename: ::windows_core::PCWSTR, filehandle: u64, alternatearch: u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugControl(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugControl, IDebugControl_Vtbl, 0x5182e668_105e_416e_ad92_24ef800424ba);
+::windows_core::imp::interface_hierarchy!(IDebugControl, ::windows_core::IUnknown);
 impl IDebugControl {
     pub unsafe fn GetInterrupt(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetInterrupt)(::windows_core::Interface::as_raw(self)).ok()
@@ -6006,13 +5693,6 @@ impl IDebugControl {
         .ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugControl, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugControl {
-    type Vtable = IDebugControl_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugControl {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5182e668_105e_416e_ad92_24ef800424ba);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugControl_Vtbl {
@@ -6116,9 +5796,8 @@ pub struct IDebugControl_Vtbl {
     pub WaitForEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32, timeout: u32) -> ::windows_core::HRESULT,
     pub GetLastEventInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: *mut u32, processid: *mut u32, threadid: *mut u32, extrainformation: *mut ::core::ffi::c_void, extrainformationsize: u32, extrainformationused: *mut u32, description: ::windows_core::PSTR, descriptionsize: u32, descriptionused: *mut u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugControl2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugControl2, IDebugControl2_Vtbl, 0xd4366723_44df_4bed_8c7e_4c05424f4588);
+::windows_core::imp::interface_hierarchy!(IDebugControl2, ::windows_core::IUnknown);
 impl IDebugControl2 {
     pub unsafe fn GetInterrupt(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetInterrupt)(::windows_core::Interface::as_raw(self)).ok()
@@ -6572,13 +6251,6 @@ impl IDebugControl2 {
         (::windows_core::Interface::vtable(self).OutputTextReplacements)(::windows_core::Interface::as_raw(self), outputcontrol, flags).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugControl2, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugControl2 {
-    type Vtable = IDebugControl2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugControl2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd4366723_44df_4bed_8c7e_4c05424f4588);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugControl2_Vtbl {
@@ -6690,9 +6362,8 @@ pub struct IDebugControl2_Vtbl {
     pub RemoveTextReplacements: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub OutputTextReplacements: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, outputcontrol: u32, flags: u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugControl3(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugControl3, IDebugControl3_Vtbl, 0x7df74a86_b03f_407f_90ab_a20dadcead08);
+::windows_core::imp::interface_hierarchy!(IDebugControl3, ::windows_core::IUnknown);
 impl IDebugControl3 {
     pub unsafe fn GetInterrupt(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetInterrupt)(::windows_core::Interface::as_raw(self)).ok()
@@ -7207,13 +6878,6 @@ impl IDebugControl3 {
         (::windows_core::Interface::vtable(self).SetNextEventIndex)(::windows_core::Interface::as_raw(self), relation, value, &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugControl3, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugControl3 {
-    type Vtable = IDebugControl3_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugControl3 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7df74a86_b03f_407f_90ab_a20dadcead08);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugControl3_Vtbl {
@@ -7338,9 +7002,8 @@ pub struct IDebugControl3_Vtbl {
     pub GetCurrentEventIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: *mut u32) -> ::windows_core::HRESULT,
     pub SetNextEventIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, relation: u32, value: u32, nextindex: *mut u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugControl4(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugControl4, IDebugControl4_Vtbl, 0x94e60ce9_9b41_4b19_9fc0_6d9eb35272b3);
+::windows_core::imp::interface_hierarchy!(IDebugControl4, ::windows_core::IUnknown);
 impl IDebugControl4 {
     pub unsafe fn GetInterrupt(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetInterrupt)(::windows_core::Interface::as_raw(self)).ok()
@@ -8147,13 +7810,6 @@ impl IDebugControl4 {
         (::windows_core::Interface::vtable(self).ResetManagedStatus)(::windows_core::Interface::as_raw(self), flags).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugControl4, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugControl4 {
-    type Vtable = IDebugControl4_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugControl4 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x94e60ce9_9b41_4b19_9fc0_6d9eb35272b3);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugControl4_Vtbl {
@@ -8331,9 +7987,8 @@ pub struct IDebugControl4_Vtbl {
     pub GetManagedStatusWide: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: *mut u32, whichstring: u32, string: ::windows_core::PWSTR, stringsize: u32, stringneeded: *mut u32) -> ::windows_core::HRESULT,
     pub ResetManagedStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugControl5(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugControl5, IDebugControl5_Vtbl, 0xb2ffe162_2412_429f_8d1d_5bf6dd824696);
+::windows_core::imp::interface_hierarchy!(IDebugControl5, ::windows_core::IUnknown);
 impl IDebugControl5 {
     pub unsafe fn GetInterrupt(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetInterrupt)(::windows_core::Interface::as_raw(self)).ok()
@@ -9156,13 +8811,6 @@ impl IDebugControl5 {
         (::windows_core::Interface::vtable(self).GetBreakpointByGuid)(::windows_core::Interface::as_raw(self), guid, &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugControl5, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugControl5 {
-    type Vtable = IDebugControl5_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugControl5 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb2ffe162_2412_429f_8d1d_5bf6dd824696);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugControl5_Vtbl {
@@ -9345,9 +8993,8 @@ pub struct IDebugControl5_Vtbl {
     pub OutputContextStackTraceEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, outputcontrol: u32, frames: *const DEBUG_STACK_FRAME_EX, framessize: u32, framecontexts: *const ::core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> ::windows_core::HRESULT,
     pub GetBreakpointByGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows_core::GUID, bp: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugControl6(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugControl6, IDebugControl6_Vtbl, 0xbc0d583f_126d_43a1_9cc4_a860ab1d537b);
+::windows_core::imp::interface_hierarchy!(IDebugControl6, ::windows_core::IUnknown);
 impl IDebugControl6 {
     pub unsafe fn GetInterrupt(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetInterrupt)(::windows_core::Interface::as_raw(self)).ok()
@@ -10177,13 +9824,6 @@ impl IDebugControl6 {
         (::windows_core::Interface::vtable(self).GetSynchronizationStatus)(::windows_core::Interface::as_raw(self), sendsattempted, secondssincelastresponse).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugControl6, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugControl6 {
-    type Vtable = IDebugControl6_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugControl6 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbc0d583f_126d_43a1_9cc4_a860ab1d537b);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugControl6_Vtbl {
@@ -10368,9 +10008,8 @@ pub struct IDebugControl6_Vtbl {
     pub GetExecutionStatusEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, status: *mut u32) -> ::windows_core::HRESULT,
     pub GetSynchronizationStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sendsattempted: *mut u32, secondssincelastresponse: *mut u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugControl7(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugControl7, IDebugControl7_Vtbl, 0xb86fb3b1_80d4_475b_aea3_cf06539cf63a);
+::windows_core::imp::interface_hierarchy!(IDebugControl7, ::windows_core::IUnknown);
 impl IDebugControl7 {
     pub unsafe fn GetInterrupt(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetInterrupt)(::windows_core::Interface::as_raw(self)).ok()
@@ -11203,13 +10842,6 @@ impl IDebugControl7 {
         (::windows_core::Interface::vtable(self).GetDebuggeeType2)(::windows_core::Interface::as_raw(self), flags, class, qualifier).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugControl7, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugControl7 {
-    type Vtable = IDebugControl7_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugControl7 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb86fb3b1_80d4_475b_aea3_cf06539cf63a);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugControl7_Vtbl {
@@ -11395,9 +11027,8 @@ pub struct IDebugControl7_Vtbl {
     pub GetSynchronizationStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sendsattempted: *mut u32, secondssincelastresponse: *mut u32) -> ::windows_core::HRESULT,
     pub GetDebuggeeType2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32, class: *mut u32, qualifier: *mut u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugDataSpaces(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugDataSpaces, IDebugDataSpaces_Vtbl, 0x88f7dfab_3ea7_4c3a_aefb_c4e8106173aa);
+::windows_core::imp::interface_hierarchy!(IDebugDataSpaces, ::windows_core::IUnknown);
 impl IDebugDataSpaces {
     pub unsafe fn ReadVirtual(&self, offset: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ReadVirtual)(::windows_core::Interface::as_raw(self), offset, buffer, buffersize, ::core::mem::transmute(bytesread.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -11462,13 +11093,6 @@ impl IDebugDataSpaces {
         (::windows_core::Interface::vtable(self).ReadProcessorSystemData)(::windows_core::Interface::as_raw(self), processor, index, buffer, buffersize, ::core::mem::transmute(datasize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugDataSpaces, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugDataSpaces {
-    type Vtable = IDebugDataSpaces_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugDataSpaces {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x88f7dfab_3ea7_4c3a_aefb_c4e8106173aa);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugDataSpaces_Vtbl {
@@ -11494,9 +11118,8 @@ pub struct IDebugDataSpaces_Vtbl {
     pub ReadDebuggerData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, buffer: *mut ::core::ffi::c_void, buffersize: u32, datasize: *mut u32) -> ::windows_core::HRESULT,
     pub ReadProcessorSystemData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, processor: u32, index: u32, buffer: *mut ::core::ffi::c_void, buffersize: u32, datasize: *mut u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugDataSpaces2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugDataSpaces2, IDebugDataSpaces2_Vtbl, 0x7a5e852f_96e9_468f_ac1b_0b3addc4a049);
+::windows_core::imp::interface_hierarchy!(IDebugDataSpaces2, ::windows_core::IUnknown);
 impl IDebugDataSpaces2 {
     pub unsafe fn ReadVirtual(&self, offset: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ReadVirtual)(::windows_core::Interface::as_raw(self), offset, buffer, buffersize, ::core::mem::transmute(bytesread.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -11582,13 +11205,6 @@ impl IDebugDataSpaces2 {
         (::windows_core::Interface::vtable(self).QueryVirtual)(::windows_core::Interface::as_raw(self), offset, info).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugDataSpaces2, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugDataSpaces2 {
-    type Vtable = IDebugDataSpaces2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugDataSpaces2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7a5e852f_96e9_468f_ac1b_0b3addc4a049);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugDataSpaces2_Vtbl {
@@ -11623,9 +11239,8 @@ pub struct IDebugDataSpaces2_Vtbl {
     #[cfg(not(feature = "Win32_System_Memory"))]
     QueryVirtual: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugDataSpaces3(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugDataSpaces3, IDebugDataSpaces3_Vtbl, 0x23f79d6c_8aaf_4f7c_a607_9995f5407e63);
+::windows_core::imp::interface_hierarchy!(IDebugDataSpaces3, ::windows_core::IUnknown);
 impl IDebugDataSpaces3 {
     pub unsafe fn ReadVirtual(&self, offset: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ReadVirtual)(::windows_core::Interface::as_raw(self), offset, buffer, buffersize, ::core::mem::transmute(bytesread.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -11729,13 +11344,6 @@ impl IDebugDataSpaces3 {
         (::windows_core::Interface::vtable(self).EndEnumTagged)(::windows_core::Interface::as_raw(self), handle).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugDataSpaces3, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugDataSpaces3 {
-    type Vtable = IDebugDataSpaces3_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugDataSpaces3 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x23f79d6c_8aaf_4f7c_a607_9995f5407e63);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugDataSpaces3_Vtbl {
@@ -11778,9 +11386,8 @@ pub struct IDebugDataSpaces3_Vtbl {
     pub GetNextTagged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handle: u64, tag: *mut ::windows_core::GUID, size: *mut u32) -> ::windows_core::HRESULT,
     pub EndEnumTagged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handle: u64) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugDataSpaces4(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugDataSpaces4, IDebugDataSpaces4_Vtbl, 0xd98ada1f_29e9_4ef5_a6c0_e53349883212);
+::windows_core::imp::interface_hierarchy!(IDebugDataSpaces4, ::windows_core::IUnknown);
 impl IDebugDataSpaces4 {
     pub unsafe fn ReadVirtual(&self, offset: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ReadVirtual)(::windows_core::Interface::as_raw(self), offset, buffer, buffersize, ::core::mem::transmute(bytesread.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -11916,13 +11523,6 @@ impl IDebugDataSpaces4 {
         (::windows_core::Interface::vtable(self).WritePhysical2)(::windows_core::Interface::as_raw(self), offset, flags, buffer, buffersize, ::core::mem::transmute(byteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugDataSpaces4, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugDataSpaces4 {
-    type Vtable = IDebugDataSpaces4_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugDataSpaces4 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd98ada1f_29e9_4ef5_a6c0_e53349883212);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugDataSpaces4_Vtbl {
@@ -11975,9 +11575,8 @@ pub struct IDebugDataSpaces4_Vtbl {
     pub ReadPhysical2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: u64, flags: u32, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> ::windows_core::HRESULT,
     pub WritePhysical2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: u64, flags: u32, buffer: *const ::core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugEventCallbacks(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugEventCallbacks, IDebugEventCallbacks_Vtbl, 0x337be28b_5036_4d72_b6bf_c45fbb9f2eaa);
+::windows_core::imp::interface_hierarchy!(IDebugEventCallbacks, ::windows_core::IUnknown);
 impl IDebugEventCallbacks {
     pub unsafe fn GetInterestMask(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -12037,13 +11636,6 @@ impl IDebugEventCallbacks {
         (::windows_core::Interface::vtable(self).ChangeSymbolState)(::windows_core::Interface::as_raw(self), flags, argument).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugEventCallbacks, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugEventCallbacks {
-    type Vtable = IDebugEventCallbacks_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugEventCallbacks {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x337be28b_5036_4d72_b6bf_c45fbb9f2eaa);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugEventCallbacks_Vtbl {
@@ -12063,9 +11655,8 @@ pub struct IDebugEventCallbacks_Vtbl {
     pub ChangeEngineState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32, argument: u64) -> ::windows_core::HRESULT,
     pub ChangeSymbolState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32, argument: u64) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugEventCallbacksWide(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugEventCallbacksWide, IDebugEventCallbacksWide_Vtbl, 0x0690e046_9c23_45ac_a04f_987ac29ad0d3);
+::windows_core::imp::interface_hierarchy!(IDebugEventCallbacksWide, ::windows_core::IUnknown);
 impl IDebugEventCallbacksWide {
     pub unsafe fn GetInterestMask(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -12125,13 +11716,6 @@ impl IDebugEventCallbacksWide {
         (::windows_core::Interface::vtable(self).ChangeSymbolState)(::windows_core::Interface::as_raw(self), flags, argument).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugEventCallbacksWide, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugEventCallbacksWide {
-    type Vtable = IDebugEventCallbacksWide_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugEventCallbacksWide {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0690e046_9c23_45ac_a04f_987ac29ad0d3);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugEventCallbacksWide_Vtbl {
@@ -12151,9 +11735,8 @@ pub struct IDebugEventCallbacksWide_Vtbl {
     pub ChangeEngineState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32, argument: u64) -> ::windows_core::HRESULT,
     pub ChangeSymbolState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32, argument: u64) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugEventContextCallbacks(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugEventContextCallbacks, IDebugEventContextCallbacks_Vtbl, 0x61a4905b_23f9_4247_b3c5_53d087529ab7);
+::windows_core::imp::interface_hierarchy!(IDebugEventContextCallbacks, ::windows_core::IUnknown);
 impl IDebugEventContextCallbacks {
     pub unsafe fn GetInterestMask(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -12213,13 +11796,6 @@ impl IDebugEventContextCallbacks {
         (::windows_core::Interface::vtable(self).ChangeSymbolState)(::windows_core::Interface::as_raw(self), flags, argument).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugEventContextCallbacks, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugEventContextCallbacks {
-    type Vtable = IDebugEventContextCallbacks_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugEventContextCallbacks {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x61a4905b_23f9_4247_b3c5_53d087529ab7);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugEventContextCallbacks_Vtbl {
@@ -12239,9 +11815,7 @@ pub struct IDebugEventContextCallbacks_Vtbl {
     pub ChangeEngineState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32, argument: u64, context: *const ::core::ffi::c_void, contextsize: u32) -> ::windows_core::HRESULT,
     pub ChangeSymbolState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32, argument: u64) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugFAEntryTags(::std::ptr::NonNull<::std::ffi::c_void>);
+::windows_core::imp::interface!(IDebugFAEntryTags, IDebugFAEntryTags_Vtbl);
 impl IDebugFAEntryTags {
     pub unsafe fn GetType(&self, tag: DEBUG_FLR_PARAM_TYPE) -> FA_ENTRY_TYPE {
         (::windows_core::Interface::vtable(self).GetType)(::windows_core::Interface::as_raw(self), tag)
@@ -12271,9 +11845,6 @@ impl IDebugFAEntryTags {
         (::windows_core::Interface::vtable(self).IsValidTagToSet)(::windows_core::Interface::as_raw(self), tag)
     }
 }
-unsafe impl ::windows_core::Interface for IDebugFAEntryTags {
-    type Vtable = IDebugFAEntryTags_Vtbl;
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugFAEntryTags_Vtbl {
@@ -12284,9 +11855,8 @@ pub struct IDebugFAEntryTags_Vtbl {
     pub GetTagByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pluginid: ::windows_core::PCSTR, tagname: ::windows_core::PCSTR, tag: *mut DEBUG_FLR_PARAM_TYPE) -> ::windows_core::HRESULT,
     pub IsValidTagToSet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE) -> super::super::super::super::Foundation::BOOL,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugFailureAnalysis(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugFailureAnalysis, IDebugFailureAnalysis_Vtbl, 0xed0de363_451f_4943_820c_62dccdfa7e6d);
+::windows_core::imp::interface_hierarchy!(IDebugFailureAnalysis, ::windows_core::IUnknown);
 impl IDebugFailureAnalysis {
     pub unsafe fn GetFailureClass(&self) -> u32 {
         (::windows_core::Interface::vtable(self).GetFailureClass)(::windows_core::Interface::as_raw(self))
@@ -12319,13 +11889,6 @@ impl IDebugFailureAnalysis {
         (::windows_core::Interface::vtable(self).NextEntry)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(entry.unwrap_or(::std::ptr::null())))
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugFailureAnalysis, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugFailureAnalysis {
-    type Vtable = IDebugFailureAnalysis_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugFailureAnalysis {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xed0de363_451f_4943_820c_62dccdfa7e6d);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugFailureAnalysis_Vtbl {
@@ -12341,9 +11904,8 @@ pub struct IDebugFailureAnalysis_Vtbl {
     pub GetUlong64: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, value: *mut u64) -> *mut FA_ENTRY,
     pub NextEntry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, entry: *const FA_ENTRY) -> *mut FA_ENTRY,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugFailureAnalysis2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugFailureAnalysis2, IDebugFailureAnalysis2_Vtbl, 0xea15c288_8226_4b70_acf6_0be6b189e3ad);
+::windows_core::imp::interface_hierarchy!(IDebugFailureAnalysis2, ::windows_core::IUnknown);
 impl IDebugFailureAnalysis2 {
     pub unsafe fn GetFailureClass(&self) -> u32 {
         (::windows_core::Interface::vtable(self).GetFailureClass)(::windows_core::Interface::as_raw(self))
@@ -12434,13 +11996,6 @@ impl IDebugFailureAnalysis2 {
         (::windows_core::Interface::vtable(self).AddStructuredAnalysisData)(::windows_core::Interface::as_raw(self), tag, analysis.into_param().abi()).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugFailureAnalysis2, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugFailureAnalysis2 {
-    type Vtable = IDebugFailureAnalysis2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugFailureAnalysis2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xea15c288_8226_4b70_acf6_0be6b189e3ad);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugFailureAnalysis2_Vtbl {
@@ -12472,9 +12027,8 @@ pub struct IDebugFailureAnalysis2_Vtbl {
     GetAnalysisXml: usize,
     pub AddStructuredAnalysisData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, analysis: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugFailureAnalysis3(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugFailureAnalysis3, IDebugFailureAnalysis3_Vtbl, 0x3627dc67_fd45_42ff_9ba4_4a67ee64619f);
+::windows_core::imp::interface_hierarchy!(IDebugFailureAnalysis3, ::windows_core::IUnknown);
 impl IDebugFailureAnalysis3 {
     pub unsafe fn GetFailureClass(&self) -> u32 {
         (::windows_core::Interface::vtable(self).GetFailureClass)(::windows_core::Interface::as_raw(self))
@@ -12653,13 +12207,6 @@ impl IDebugFailureAnalysis3 {
         (::windows_core::Interface::vtable(self).DeleteAdditionalXML)(::windows_core::Interface::as_raw(self), key.into_param().abi()).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugFailureAnalysis3, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugFailureAnalysis3 {
-    type Vtable = IDebugFailureAnalysis3_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugFailureAnalysis3 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3627dc67_fd45_42ff_9ba4_4a67ee64619f);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugFailureAnalysis3_Vtbl {
@@ -12714,9 +12261,8 @@ pub struct IDebugFailureAnalysis3_Vtbl {
     pub GetAdditionalXML: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: ::std::mem::MaybeUninit<::windows_core::BSTR>, ppxmldomelement: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub DeleteAdditionalXML: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugHost(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugHost, IDebugHost_Vtbl, 0xb8c74943_6b2c_4eeb_b5c5_35d378a6d99d);
+::windows_core::imp::interface_hierarchy!(IDebugHost, ::windows_core::IUnknown);
 impl IDebugHost {
     pub unsafe fn GetHostDefinedInterface(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
         let mut result__ = ::std::mem::zeroed();
@@ -12731,13 +12277,6 @@ impl IDebugHost {
         (::windows_core::Interface::vtable(self).GetDefaultMetadata)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugHost, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugHost {
-    type Vtable = IDebugHost_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugHost {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb8c74943_6b2c_4eeb_b5c5_35d378a6d99d);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugHost_Vtbl {
@@ -12746,9 +12285,8 @@ pub struct IDebugHost_Vtbl {
     pub GetCurrentContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetDefaultMetadata: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, defaultmetadatastore: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugHostBaseClass(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugHostBaseClass, IDebugHostBaseClass_Vtbl, 0xb94d57d2_390b_40f7_b5b4_b6db897d974b);
+::windows_core::imp::interface_hierarchy!(IDebugHostBaseClass, ::windows_core::IUnknown, IDebugHostSymbol);
 impl IDebugHostBaseClass {
     pub unsafe fn GetContext(&self) -> ::windows_core::Result<IDebugHostContext> {
         let mut result__ = ::std::mem::zeroed();
@@ -12789,22 +12327,14 @@ impl IDebugHostBaseClass {
         (::windows_core::Interface::vtable(self).GetOffset)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugHostBaseClass, ::windows_core::IUnknown, IDebugHostSymbol);
-unsafe impl ::windows_core::Interface for IDebugHostBaseClass {
-    type Vtable = IDebugHostBaseClass_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugHostBaseClass {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb94d57d2_390b_40f7_b5b4_b6db897d974b);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugHostBaseClass_Vtbl {
     pub base__: IDebugHostSymbol_Vtbl,
     pub GetOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: *mut u64) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugHostConstant(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugHostConstant, IDebugHostConstant_Vtbl, 0x62787edc_fa76_4690_bd71_5e8c3e2937ec);
+::windows_core::imp::interface_hierarchy!(IDebugHostConstant, ::windows_core::IUnknown, IDebugHostSymbol);
 impl IDebugHostConstant {
     pub unsafe fn GetContext(&self) -> ::windows_core::Result<IDebugHostContext> {
         let mut result__ = ::std::mem::zeroed();
@@ -12847,13 +12377,6 @@ impl IDebugHostConstant {
         (::windows_core::Interface::vtable(self).GetValue)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugHostConstant, ::windows_core::IUnknown, IDebugHostSymbol);
-unsafe impl ::windows_core::Interface for IDebugHostConstant {
-    type Vtable = IDebugHostConstant_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugHostConstant {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x62787edc_fa76_4690_bd71_5e8c3e2937ec);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugHostConstant_Vtbl {
@@ -12863,9 +12386,8 @@ pub struct IDebugHostConstant_Vtbl {
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetValue: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugHostContext(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugHostContext, IDebugHostContext_Vtbl, 0xa68c70d8_5ec0_46e5_b775_3134a48ea2e3);
+::windows_core::imp::interface_hierarchy!(IDebugHostContext, ::windows_core::IUnknown);
 impl IDebugHostContext {
     pub unsafe fn IsEqualTo<P0>(&self, pcontext: P0) -> ::windows_core::Result<bool>
     where
@@ -12875,22 +12397,14 @@ impl IDebugHostContext {
         (::windows_core::Interface::vtable(self).IsEqualTo)(::windows_core::Interface::as_raw(self), pcontext.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugHostContext, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugHostContext {
-    type Vtable = IDebugHostContext_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugHostContext {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa68c70d8_5ec0_46e5_b775_3134a48ea2e3);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugHostContext_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub IsEqualTo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcontext: *mut ::core::ffi::c_void, pisequal: *mut bool) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugHostData(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugHostData, IDebugHostData_Vtbl, 0xa3d64993_826c_44fa_897d_926f2fe7ad0b);
+::windows_core::imp::interface_hierarchy!(IDebugHostData, ::windows_core::IUnknown, IDebugHostSymbol);
 impl IDebugHostData {
     pub unsafe fn GetContext(&self) -> ::windows_core::Result<IDebugHostContext> {
         let mut result__ = ::std::mem::zeroed();
@@ -12941,13 +12455,6 @@ impl IDebugHostData {
         (::windows_core::Interface::vtable(self).GetValue)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugHostData, ::windows_core::IUnknown, IDebugHostSymbol);
-unsafe impl ::windows_core::Interface for IDebugHostData {
-    type Vtable = IDebugHostData_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugHostData {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa3d64993_826c_44fa_897d_926f2fe7ad0b);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugHostData_Vtbl {
@@ -12959,9 +12466,8 @@ pub struct IDebugHostData_Vtbl {
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetValue: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugHostErrorSink(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugHostErrorSink, IDebugHostErrorSink_Vtbl, 0xc8ff0f0b_fce9_467e_8bb3_5d69ef109c00);
+::windows_core::imp::interface_hierarchy!(IDebugHostErrorSink, ::windows_core::IUnknown);
 impl IDebugHostErrorSink {
     pub unsafe fn ReportError<P0>(&self, errclass: ErrorClass, hrerror: ::windows_core::HRESULT, message: P0) -> ::windows_core::Result<()>
     where
@@ -12970,22 +12476,14 @@ impl IDebugHostErrorSink {
         (::windows_core::Interface::vtable(self).ReportError)(::windows_core::Interface::as_raw(self), errclass, hrerror, message.into_param().abi()).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugHostErrorSink, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugHostErrorSink {
-    type Vtable = IDebugHostErrorSink_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugHostErrorSink {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc8ff0f0b_fce9_467e_8bb3_5d69ef109c00);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugHostErrorSink_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub ReportError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, errclass: ErrorClass, hrerror: ::windows_core::HRESULT, message: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugHostEvaluator(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugHostEvaluator, IDebugHostEvaluator_Vtbl, 0x0fef9a21_577e_4997_ac7b_1c4883241d99);
+::windows_core::imp::interface_hierarchy!(IDebugHostEvaluator, ::windows_core::IUnknown);
 impl IDebugHostEvaluator {
     pub unsafe fn EvaluateExpression<P0, P1, P2>(&self, context: P0, expression: P1, bindingcontext: P2, result: *mut ::core::option::Option<IModelObject>, metadata: ::core::option::Option<*mut ::core::option::Option<IKeyStore>>) -> ::windows_core::Result<()>
     where
@@ -13004,13 +12502,6 @@ impl IDebugHostEvaluator {
         (::windows_core::Interface::vtable(self).EvaluateExtendedExpression)(::windows_core::Interface::as_raw(self), context.into_param().abi(), expression.into_param().abi(), bindingcontext.into_param().abi(), ::core::mem::transmute(result), ::core::mem::transmute(metadata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugHostEvaluator, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugHostEvaluator {
-    type Vtable = IDebugHostEvaluator_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugHostEvaluator {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0fef9a21_577e_4997_ac7b_1c4883241d99);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugHostEvaluator_Vtbl {
@@ -13018,9 +12509,8 @@ pub struct IDebugHostEvaluator_Vtbl {
     pub EvaluateExpression: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void, expression: ::windows_core::PCWSTR, bindingcontext: *mut ::core::ffi::c_void, result: *mut *mut ::core::ffi::c_void, metadata: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub EvaluateExtendedExpression: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void, expression: ::windows_core::PCWSTR, bindingcontext: *mut ::core::ffi::c_void, result: *mut *mut ::core::ffi::c_void, metadata: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugHostEvaluator2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugHostEvaluator2, IDebugHostEvaluator2_Vtbl, 0xa117a435_1fb4_4092_a2ab_a929576c1e87);
+::windows_core::imp::interface_hierarchy!(IDebugHostEvaluator2, ::windows_core::IUnknown, IDebugHostEvaluator);
 impl IDebugHostEvaluator2 {
     pub unsafe fn EvaluateExpression<P0, P1, P2>(&self, context: P0, expression: P1, bindingcontext: P2, result: *mut ::core::option::Option<IModelObject>, metadata: ::core::option::Option<*mut ::core::option::Option<IKeyStore>>) -> ::windows_core::Result<()>
     where
@@ -13046,22 +12536,14 @@ impl IDebugHostEvaluator2 {
         (::windows_core::Interface::vtable(self).AssignTo)(::windows_core::Interface::as_raw(self), assignmentreference.into_param().abi(), assignmentvalue.into_param().abi(), ::core::mem::transmute(assignmentresult), ::core::mem::transmute(assignmentmetadata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugHostEvaluator2, ::windows_core::IUnknown, IDebugHostEvaluator);
-unsafe impl ::windows_core::Interface for IDebugHostEvaluator2 {
-    type Vtable = IDebugHostEvaluator2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugHostEvaluator2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa117a435_1fb4_4092_a2ab_a929576c1e87);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugHostEvaluator2_Vtbl {
     pub base__: IDebugHostEvaluator_Vtbl,
     pub AssignTo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, assignmentreference: *mut ::core::ffi::c_void, assignmentvalue: *mut ::core::ffi::c_void, assignmentresult: *mut *mut ::core::ffi::c_void, assignmentmetadata: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugHostExtensibility(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugHostExtensibility, IDebugHostExtensibility_Vtbl, 0x3c2b24e1_11d0_4f86_8ae5_4df166f73253);
+::windows_core::imp::interface_hierarchy!(IDebugHostExtensibility, ::windows_core::IUnknown);
 impl IDebugHostExtensibility {
     pub unsafe fn CreateFunctionAlias<P0, P1>(&self, aliasname: P0, functionobject: P1) -> ::windows_core::Result<()>
     where
@@ -13077,13 +12559,6 @@ impl IDebugHostExtensibility {
         (::windows_core::Interface::vtable(self).DestroyFunctionAlias)(::windows_core::Interface::as_raw(self), aliasname.into_param().abi()).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugHostExtensibility, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugHostExtensibility {
-    type Vtable = IDebugHostExtensibility_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugHostExtensibility {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3c2b24e1_11d0_4f86_8ae5_4df166f73253);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugHostExtensibility_Vtbl {
@@ -13091,9 +12566,8 @@ pub struct IDebugHostExtensibility_Vtbl {
     pub CreateFunctionAlias: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, aliasname: ::windows_core::PCWSTR, functionobject: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub DestroyFunctionAlias: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, aliasname: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugHostField(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugHostField, IDebugHostField_Vtbl, 0xe06f6495_16bc_4cc9_b11d_2a6b23fa72f3);
+::windows_core::imp::interface_hierarchy!(IDebugHostField, ::windows_core::IUnknown, IDebugHostSymbol);
 impl IDebugHostField {
     pub unsafe fn GetContext(&self) -> ::windows_core::Result<IDebugHostContext> {
         let mut result__ = ::std::mem::zeroed();
@@ -13148,13 +12622,6 @@ impl IDebugHostField {
         (::windows_core::Interface::vtable(self).GetValue)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugHostField, ::windows_core::IUnknown, IDebugHostSymbol);
-unsafe impl ::windows_core::Interface for IDebugHostField {
-    type Vtable = IDebugHostField_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugHostField {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe06f6495_16bc_4cc9_b11d_2a6b23fa72f3);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugHostField_Vtbl {
@@ -13167,9 +12634,8 @@ pub struct IDebugHostField_Vtbl {
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetValue: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugHostMemory(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugHostMemory, IDebugHostMemory_Vtbl, 0x212149c9_9183_4a3e_b00e_4fd1dc95339b);
+::windows_core::imp::interface_hierarchy!(IDebugHostMemory, ::windows_core::IUnknown);
 impl IDebugHostMemory {
     pub unsafe fn ReadBytes<P0>(&self, context: P0, location: Location, buffer: *mut ::core::ffi::c_void, buffersize: u64, bytesread: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()>
     where
@@ -13203,13 +12669,6 @@ impl IDebugHostMemory {
         (::windows_core::Interface::vtable(self).GetDisplayStringForLocation)(::windows_core::Interface::as_raw(self), context.into_param().abi(), ::core::mem::transmute(location), verbose, &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugHostMemory, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugHostMemory {
-    type Vtable = IDebugHostMemory_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugHostMemory {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x212149c9_9183_4a3e_b00e_4fd1dc95339b);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugHostMemory_Vtbl {
@@ -13220,9 +12679,8 @@ pub struct IDebugHostMemory_Vtbl {
     pub WritePointers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void, location: Location, count: u64, pointers: *const u64) -> ::windows_core::HRESULT,
     pub GetDisplayStringForLocation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void, location: Location, verbose: u8, locationname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugHostMemory2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugHostMemory2, IDebugHostMemory2_Vtbl, 0xeea033de_38f6_416b_a251_1d3771001270);
+::windows_core::imp::interface_hierarchy!(IDebugHostMemory2, ::windows_core::IUnknown, IDebugHostMemory);
 impl IDebugHostMemory2 {
     pub unsafe fn ReadBytes<P0>(&self, context: P0, location: Location, buffer: *mut ::core::ffi::c_void, buffersize: u64, bytesread: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()>
     where
@@ -13263,22 +12721,14 @@ impl IDebugHostMemory2 {
         (::windows_core::Interface::vtable(self).LinearizeLocation)(::windows_core::Interface::as_raw(self), context.into_param().abi(), ::core::mem::transmute(location), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugHostMemory2, ::windows_core::IUnknown, IDebugHostMemory);
-unsafe impl ::windows_core::Interface for IDebugHostMemory2 {
-    type Vtable = IDebugHostMemory2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugHostMemory2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeea033de_38f6_416b_a251_1d3771001270);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugHostMemory2_Vtbl {
     pub base__: IDebugHostMemory_Vtbl,
     pub LinearizeLocation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void, location: Location, plinearizedlocation: *mut Location) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugHostModule(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugHostModule, IDebugHostModule_Vtbl, 0xc9ba3e18_d070_4378_bbd0_34613b346e1e);
+::windows_core::imp::interface_hierarchy!(IDebugHostModule, ::windows_core::IUnknown, IDebugHostSymbol);
 impl IDebugHostModule {
     pub unsafe fn GetContext(&self) -> ::windows_core::Result<IDebugHostContext> {
         let mut result__ = ::std::mem::zeroed();
@@ -13344,13 +12794,6 @@ impl IDebugHostModule {
         (::windows_core::Interface::vtable(self).FindSymbolByName)(::windows_core::Interface::as_raw(self), symbolname.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugHostModule, ::windows_core::IUnknown, IDebugHostSymbol);
-unsafe impl ::windows_core::Interface for IDebugHostModule {
-    type Vtable = IDebugHostModule_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugHostModule {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc9ba3e18_d070_4378_bbd0_34613b346e1e);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugHostModule_Vtbl {
@@ -13362,9 +12805,8 @@ pub struct IDebugHostModule_Vtbl {
     pub FindSymbolByRVA: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rva: u64, symbol: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub FindSymbolByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, symbolname: ::windows_core::PCWSTR, symbol: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugHostModule2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugHostModule2, IDebugHostModule2_Vtbl, 0xb51887e8_bcd0_4e8f_a8c7_434398b78c37);
+::windows_core::imp::interface_hierarchy!(IDebugHostModule2, ::windows_core::IUnknown, IDebugHostSymbol, IDebugHostModule);
 impl IDebugHostModule2 {
     pub unsafe fn GetContext(&self) -> ::windows_core::Result<IDebugHostContext> {
         let mut result__ = ::std::mem::zeroed();
@@ -13433,22 +12875,14 @@ impl IDebugHostModule2 {
         (::windows_core::Interface::vtable(self).FindContainingSymbolByRVA)(::windows_core::Interface::as_raw(self), rva, ::core::mem::transmute(symbol), offset).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugHostModule2, ::windows_core::IUnknown, IDebugHostSymbol, IDebugHostModule);
-unsafe impl ::windows_core::Interface for IDebugHostModule2 {
-    type Vtable = IDebugHostModule2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugHostModule2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb51887e8_bcd0_4e8f_a8c7_434398b78c37);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugHostModule2_Vtbl {
     pub base__: IDebugHostModule_Vtbl,
     pub FindContainingSymbolByRVA: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rva: u64, symbol: *mut *mut ::core::ffi::c_void, offset: *mut u64) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugHostModuleSignature(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugHostModuleSignature, IDebugHostModuleSignature_Vtbl, 0x31e53a5a_01ee_4bbb_b899_4b46ae7d595c);
+::windows_core::imp::interface_hierarchy!(IDebugHostModuleSignature, ::windows_core::IUnknown);
 impl IDebugHostModuleSignature {
     pub unsafe fn IsMatch<P0>(&self, pmodule: P0) -> ::windows_core::Result<bool>
     where
@@ -13458,22 +12892,14 @@ impl IDebugHostModuleSignature {
         (::windows_core::Interface::vtable(self).IsMatch)(::windows_core::Interface::as_raw(self), pmodule.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugHostModuleSignature, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugHostModuleSignature {
-    type Vtable = IDebugHostModuleSignature_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugHostModuleSignature {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x31e53a5a_01ee_4bbb_b899_4b46ae7d595c);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugHostModuleSignature_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub IsMatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmodule: *mut ::core::ffi::c_void, ismatch: *mut bool) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugHostPublic(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugHostPublic, IDebugHostPublic_Vtbl, 0x6c597ac9_fb4d_4f6d_9f39_22488539f8f4);
+::windows_core::imp::interface_hierarchy!(IDebugHostPublic, ::windows_core::IUnknown, IDebugHostSymbol);
 impl IDebugHostPublic {
     pub unsafe fn GetContext(&self) -> ::windows_core::Result<IDebugHostContext> {
         let mut result__ = ::std::mem::zeroed();
@@ -13518,13 +12944,6 @@ impl IDebugHostPublic {
         (::windows_core::Interface::vtable(self).GetLocation)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugHostPublic, ::windows_core::IUnknown, IDebugHostSymbol);
-unsafe impl ::windows_core::Interface for IDebugHostPublic {
-    type Vtable = IDebugHostPublic_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugHostPublic {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6c597ac9_fb4d_4f6d_9f39_22488539f8f4);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugHostPublic_Vtbl {
@@ -13532,9 +12951,8 @@ pub struct IDebugHostPublic_Vtbl {
     pub GetLocationKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, locationkind: *mut LocationKind) -> ::windows_core::HRESULT,
     pub GetLocation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, location: *mut Location) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugHostScriptHost(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugHostScriptHost, IDebugHostScriptHost_Vtbl, 0xb70334a4_b92c_4570_93a1_d3eb686649a0);
+::windows_core::imp::interface_hierarchy!(IDebugHostScriptHost, ::windows_core::IUnknown);
 impl IDebugHostScriptHost {
     pub unsafe fn CreateContext<P0>(&self, script: P0) -> ::windows_core::Result<IDataModelScriptHostContext>
     where
@@ -13544,34 +12962,19 @@ impl IDebugHostScriptHost {
         (::windows_core::Interface::vtable(self).CreateContext)(::windows_core::Interface::as_raw(self), script.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugHostScriptHost, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugHostScriptHost {
-    type Vtable = IDebugHostScriptHost_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugHostScriptHost {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb70334a4_b92c_4570_93a1_d3eb686649a0);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugHostScriptHost_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub CreateContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, script: *mut ::core::ffi::c_void, scriptcontext: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugHostStatus(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugHostStatus, IDebugHostStatus_Vtbl, 0x4f3e1ce2_86b2_4c7a_9c65_d0a9d0eecf44);
+::windows_core::imp::interface_hierarchy!(IDebugHostStatus, ::windows_core::IUnknown);
 impl IDebugHostStatus {
     pub unsafe fn PollUserInterrupt(&self) -> ::windows_core::Result<bool> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PollUserInterrupt)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-}
-::windows_core::imp::interface_hierarchy!(IDebugHostStatus, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugHostStatus {
-    type Vtable = IDebugHostStatus_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugHostStatus {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4f3e1ce2_86b2_4c7a_9c65_d0a9d0eecf44);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13579,9 +12982,8 @@ pub struct IDebugHostStatus_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub PollUserInterrupt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interruptrequested: *mut bool) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugHostSymbol(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugHostSymbol, IDebugHostSymbol_Vtbl, 0x0f819103_87de_4e96_8277_e05cd441fb22);
+::windows_core::imp::interface_hierarchy!(IDebugHostSymbol, ::windows_core::IUnknown);
 impl IDebugHostSymbol {
     pub unsafe fn GetContext(&self) -> ::windows_core::Result<IDebugHostContext> {
         let mut result__ = ::std::mem::zeroed();
@@ -13618,13 +13020,6 @@ impl IDebugHostSymbol {
         (::windows_core::Interface::vtable(self).CompareAgainst)(::windows_core::Interface::as_raw(self), pcomparisonsymbol.into_param().abi(), comparisonflags, &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugHostSymbol, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugHostSymbol {
-    type Vtable = IDebugHostSymbol_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugHostSymbol {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0f819103_87de_4e96_8277_e05cd441fb22);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugHostSymbol_Vtbl {
@@ -13637,9 +13032,8 @@ pub struct IDebugHostSymbol_Vtbl {
     pub GetContainingModule: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, containingmodule: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub CompareAgainst: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcomparisonsymbol: *mut ::core::ffi::c_void, comparisonflags: u32, pmatches: *mut bool) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugHostSymbol2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugHostSymbol2, IDebugHostSymbol2_Vtbl, 0x21515b67_6720_4257_8a68_077dc944471c);
+::windows_core::imp::interface_hierarchy!(IDebugHostSymbol2, ::windows_core::IUnknown, IDebugHostSymbol);
 impl IDebugHostSymbol2 {
     pub unsafe fn GetContext(&self) -> ::windows_core::Result<IDebugHostContext> {
         let mut result__ = ::std::mem::zeroed();
@@ -13680,22 +13074,14 @@ impl IDebugHostSymbol2 {
         (::windows_core::Interface::vtable(self).GetLanguage)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugHostSymbol2, ::windows_core::IUnknown, IDebugHostSymbol);
-unsafe impl ::windows_core::Interface for IDebugHostSymbol2 {
-    type Vtable = IDebugHostSymbol2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugHostSymbol2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x21515b67_6720_4257_8a68_077dc944471c);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugHostSymbol2_Vtbl {
     pub base__: IDebugHostSymbol_Vtbl,
     pub GetLanguage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pkind: *mut LanguageKind) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugHostSymbolEnumerator(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugHostSymbolEnumerator, IDebugHostSymbolEnumerator_Vtbl, 0x28d96c86_10a3_4976_b14e_eaef4790aa1f);
+::windows_core::imp::interface_hierarchy!(IDebugHostSymbolEnumerator, ::windows_core::IUnknown);
 impl IDebugHostSymbolEnumerator {
     pub unsafe fn Reset(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self)).ok()
@@ -13705,13 +13091,6 @@ impl IDebugHostSymbolEnumerator {
         (::windows_core::Interface::vtable(self).GetNext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugHostSymbolEnumerator, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugHostSymbolEnumerator {
-    type Vtable = IDebugHostSymbolEnumerator_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugHostSymbolEnumerator {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x28d96c86_10a3_4976_b14e_eaef4790aa1f);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugHostSymbolEnumerator_Vtbl {
@@ -13719,9 +13098,8 @@ pub struct IDebugHostSymbolEnumerator_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, symbol: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugHostSymbols(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugHostSymbols, IDebugHostSymbols_Vtbl, 0x854fd751_c2e1_4eb2_b525_6619cb97a588);
+::windows_core::imp::interface_hierarchy!(IDebugHostSymbols, ::windows_core::IUnknown);
 impl IDebugHostSymbols {
     pub unsafe fn CreateModuleSignature<P0, P1, P2>(&self, pwszmodulename: P0, pwszminversion: P1, pwszmaxversion: P2) -> ::windows_core::Result<IDebugHostModuleSignature>
     where
@@ -13780,13 +13158,6 @@ impl IDebugHostSymbols {
         (::windows_core::Interface::vtable(self).GetMostDerivedObject)(::windows_core::Interface::as_raw(self), pcontext.into_param().abi(), ::core::mem::transmute(location), objecttype.into_param().abi(), derivedlocation, ::core::mem::transmute(derivedtype)).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugHostSymbols, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugHostSymbols {
-    type Vtable = IDebugHostSymbols_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugHostSymbols {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x854fd751_c2e1_4eb2_b525_6619cb97a588);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugHostSymbols_Vtbl {
@@ -13799,9 +13170,8 @@ pub struct IDebugHostSymbols_Vtbl {
     pub FindModuleByLocation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void, modulelocation: Location, module: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetMostDerivedObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcontext: *mut ::core::ffi::c_void, location: Location, objecttype: *mut ::core::ffi::c_void, derivedlocation: *mut Location, derivedtype: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugHostType(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugHostType, IDebugHostType_Vtbl, 0x3aadc353_2b14_4abb_9893_5e03458e07ee);
+::windows_core::imp::interface_hierarchy!(IDebugHostType, ::windows_core::IUnknown, IDebugHostSymbol);
 impl IDebugHostType {
     pub unsafe fn GetContext(&self) -> ::windows_core::Result<IDebugHostContext> {
         let mut result__ = ::std::mem::zeroed();
@@ -13911,13 +13281,6 @@ impl IDebugHostType {
         (::windows_core::Interface::vtable(self).GetGenericArgumentAt)(::windows_core::Interface::as_raw(self), i, &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugHostType, ::windows_core::IUnknown, IDebugHostSymbol);
-unsafe impl ::windows_core::Interface for IDebugHostType {
-    type Vtable = IDebugHostType_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugHostType {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3aadc353_2b14_4abb_9893_5e03458e07ee);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugHostType_Vtbl {
@@ -13942,9 +13305,8 @@ pub struct IDebugHostType_Vtbl {
     pub GetGenericArgumentCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, argcount: *mut u64) -> ::windows_core::HRESULT,
     pub GetGenericArgumentAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, i: u64, argument: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugHostType2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugHostType2, IDebugHostType2_Vtbl, 0xb28632b9_8506_4676_87ce_8f7e05e59876);
+::windows_core::imp::interface_hierarchy!(IDebugHostType2, ::windows_core::IUnknown, IDebugHostSymbol, IDebugHostType);
 impl IDebugHostType2 {
     pub unsafe fn GetContext(&self) -> ::windows_core::Result<IDebugHostContext> {
         let mut result__ = ::std::mem::zeroed();
@@ -14074,13 +13436,6 @@ impl IDebugHostType2 {
         (::windows_core::Interface::vtable(self).GetFunctionInstancePointerType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugHostType2, ::windows_core::IUnknown, IDebugHostSymbol, IDebugHostType);
-unsafe impl ::windows_core::Interface for IDebugHostType2 {
-    type Vtable = IDebugHostType2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugHostType2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb28632b9_8506_4676_87ce_8f7e05e59876);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugHostType2_Vtbl {
@@ -14091,9 +13446,8 @@ pub struct IDebugHostType2_Vtbl {
     pub GetFunctionVarArgsKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varargskind: *mut VarArgsKind) -> ::windows_core::HRESULT,
     pub GetFunctionInstancePointerType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, instancepointertype: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugHostTypeSignature(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugHostTypeSignature, IDebugHostTypeSignature_Vtbl, 0x3aadc353_2b14_4abb_9893_5e03458e07ee);
+::windows_core::imp::interface_hierarchy!(IDebugHostTypeSignature, ::windows_core::IUnknown);
 impl IDebugHostTypeSignature {
     pub unsafe fn GetHashCode(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -14113,13 +13467,6 @@ impl IDebugHostTypeSignature {
         (::windows_core::Interface::vtable(self).CompareAgainst)(::windows_core::Interface::as_raw(self), typesignature.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugHostTypeSignature, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugHostTypeSignature {
-    type Vtable = IDebugHostTypeSignature_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugHostTypeSignature {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3aadc353_2b14_4abb_9893_5e03458e07ee);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugHostTypeSignature_Vtbl {
@@ -14128,9 +13475,8 @@ pub struct IDebugHostTypeSignature_Vtbl {
     pub IsMatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: *mut ::core::ffi::c_void, ismatch: *mut bool, wildcardmatches: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub CompareAgainst: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, typesignature: *mut ::core::ffi::c_void, result: *mut SignatureComparison) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugInputCallbacks(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugInputCallbacks, IDebugInputCallbacks_Vtbl, 0x9f50e42c_f136_499e_9a97_73036c94ed2d);
+::windows_core::imp::interface_hierarchy!(IDebugInputCallbacks, ::windows_core::IUnknown);
 impl IDebugInputCallbacks {
     pub unsafe fn StartInput(&self, buffersize: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).StartInput)(::windows_core::Interface::as_raw(self), buffersize).ok()
@@ -14139,13 +13485,6 @@ impl IDebugInputCallbacks {
         (::windows_core::Interface::vtable(self).EndInput)(::windows_core::Interface::as_raw(self)).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugInputCallbacks, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugInputCallbacks {
-    type Vtable = IDebugInputCallbacks_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugInputCallbacks {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9f50e42c_f136_499e_9a97_73036c94ed2d);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugInputCallbacks_Vtbl {
@@ -14153,9 +13492,8 @@ pub struct IDebugInputCallbacks_Vtbl {
     pub StartInput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffersize: u32) -> ::windows_core::HRESULT,
     pub EndInput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugOutputCallbacks(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugOutputCallbacks, IDebugOutputCallbacks_Vtbl, 0x4bf58045_d654_4c40_b0af_683090f356dc);
+::windows_core::imp::interface_hierarchy!(IDebugOutputCallbacks, ::windows_core::IUnknown);
 impl IDebugOutputCallbacks {
     pub unsafe fn Output<P0>(&self, mask: u32, text: P0) -> ::windows_core::Result<()>
     where
@@ -14164,22 +13502,14 @@ impl IDebugOutputCallbacks {
         (::windows_core::Interface::vtable(self).Output)(::windows_core::Interface::as_raw(self), mask, text.into_param().abi()).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugOutputCallbacks, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugOutputCallbacks {
-    type Vtable = IDebugOutputCallbacks_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugOutputCallbacks {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4bf58045_d654_4c40_b0af_683090f356dc);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugOutputCallbacks_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Output: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mask: u32, text: ::windows_core::PCSTR) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugOutputCallbacks2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugOutputCallbacks2, IDebugOutputCallbacks2_Vtbl, 0x67721fe9_56d2_4a44_a325_2b65513ce6eb);
+::windows_core::imp::interface_hierarchy!(IDebugOutputCallbacks2, ::windows_core::IUnknown);
 impl IDebugOutputCallbacks2 {
     pub unsafe fn Output<P0>(&self, mask: u32, text: P0) -> ::windows_core::Result<()>
     where
@@ -14198,13 +13528,6 @@ impl IDebugOutputCallbacks2 {
         (::windows_core::Interface::vtable(self).Output2)(::windows_core::Interface::as_raw(self), which, flags, arg, text.into_param().abi()).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugOutputCallbacks2, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugOutputCallbacks2 {
-    type Vtable = IDebugOutputCallbacks2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugOutputCallbacks2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x67721fe9_56d2_4a44_a325_2b65513ce6eb);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugOutputCallbacks2_Vtbl {
@@ -14213,9 +13536,8 @@ pub struct IDebugOutputCallbacks2_Vtbl {
     pub GetInterestMask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mask: *mut u32) -> ::windows_core::HRESULT,
     pub Output2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, which: u32, flags: u32, arg: u64, text: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugOutputCallbacksWide(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugOutputCallbacksWide, IDebugOutputCallbacksWide_Vtbl, 0x4c7fd663_c394_4e26_8ef1_34ad5ed3764c);
+::windows_core::imp::interface_hierarchy!(IDebugOutputCallbacksWide, ::windows_core::IUnknown);
 impl IDebugOutputCallbacksWide {
     pub unsafe fn Output<P0>(&self, mask: u32, text: P0) -> ::windows_core::Result<()>
     where
@@ -14224,22 +13546,14 @@ impl IDebugOutputCallbacksWide {
         (::windows_core::Interface::vtable(self).Output)(::windows_core::Interface::as_raw(self), mask, text.into_param().abi()).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugOutputCallbacksWide, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugOutputCallbacksWide {
-    type Vtable = IDebugOutputCallbacksWide_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugOutputCallbacksWide {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4c7fd663_c394_4e26_8ef1_34ad5ed3764c);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugOutputCallbacksWide_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Output: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mask: u32, text: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugOutputStream(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugOutputStream, IDebugOutputStream_Vtbl, 0x7782d8f2_2b85_4059_ab88_28ceddca1c80);
+::windows_core::imp::interface_hierarchy!(IDebugOutputStream, ::windows_core::IUnknown);
 impl IDebugOutputStream {
     pub unsafe fn Write<P0>(&self, psz: P0) -> ::windows_core::Result<()>
     where
@@ -14248,22 +13562,14 @@ impl IDebugOutputStream {
         (::windows_core::Interface::vtable(self).Write)(::windows_core::Interface::as_raw(self), psz.into_param().abi()).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugOutputStream, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugOutputStream {
-    type Vtable = IDebugOutputStream_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugOutputStream {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7782d8f2_2b85_4059_ab88_28ceddca1c80);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugOutputStream_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Write: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psz: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugPlmClient(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugPlmClient, IDebugPlmClient_Vtbl, 0xa02b66c4_aea3_4234_a9f7_fe4c383d4e29);
+::windows_core::imp::interface_hierarchy!(IDebugPlmClient, ::windows_core::IUnknown);
 impl IDebugPlmClient {
     pub unsafe fn LaunchPlmPackageForDebugWide<P0, P1, P2>(&self, server: u64, timeout: u32, packagefullname: P0, appname: P1, arguments: P2, processid: *mut u32, threadid: *mut u32) -> ::windows_core::Result<()>
     where
@@ -14274,22 +13580,14 @@ impl IDebugPlmClient {
         (::windows_core::Interface::vtable(self).LaunchPlmPackageForDebugWide)(::windows_core::Interface::as_raw(self), server, timeout, packagefullname.into_param().abi(), appname.into_param().abi(), arguments.into_param().abi(), processid, threadid).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugPlmClient, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugPlmClient {
-    type Vtable = IDebugPlmClient_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugPlmClient {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa02b66c4_aea3_4234_a9f7_fe4c383d4e29);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugPlmClient_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub LaunchPlmPackageForDebugWide: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, server: u64, timeout: u32, packagefullname: ::windows_core::PCWSTR, appname: ::windows_core::PCWSTR, arguments: ::windows_core::PCWSTR, processid: *mut u32, threadid: *mut u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugPlmClient2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugPlmClient2, IDebugPlmClient2_Vtbl, 0x597c980d_e7bd_4309_962c_9d9b69a7372c);
+::windows_core::imp::interface_hierarchy!(IDebugPlmClient2, ::windows_core::IUnknown);
 impl IDebugPlmClient2 {
     pub unsafe fn LaunchPlmPackageForDebugWide<P0, P1, P2>(&self, server: u64, timeout: u32, packagefullname: P0, appname: P1, arguments: P2, processid: *mut u32, threadid: *mut u32) -> ::windows_core::Result<()>
     where
@@ -14307,13 +13605,6 @@ impl IDebugPlmClient2 {
         (::windows_core::Interface::vtable(self).LaunchPlmBgTaskForDebugWide)(::windows_core::Interface::as_raw(self), server, timeout, packagefullname.into_param().abi(), backgroundtaskid.into_param().abi(), processid, threadid).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugPlmClient2, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugPlmClient2 {
-    type Vtable = IDebugPlmClient2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugPlmClient2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x597c980d_e7bd_4309_962c_9d9b69a7372c);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugPlmClient2_Vtbl {
@@ -14321,9 +13612,8 @@ pub struct IDebugPlmClient2_Vtbl {
     pub LaunchPlmPackageForDebugWide: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, server: u64, timeout: u32, packagefullname: ::windows_core::PCWSTR, appname: ::windows_core::PCWSTR, arguments: ::windows_core::PCWSTR, processid: *mut u32, threadid: *mut u32) -> ::windows_core::HRESULT,
     pub LaunchPlmBgTaskForDebugWide: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, server: u64, timeout: u32, packagefullname: ::windows_core::PCWSTR, backgroundtaskid: ::windows_core::PCWSTR, processid: *mut u32, threadid: *mut u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugPlmClient3(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugPlmClient3, IDebugPlmClient3_Vtbl, 0xd4a5dbd1_ca02_4d90_856a_2a92bfd0f20f);
+::windows_core::imp::interface_hierarchy!(IDebugPlmClient3, ::windows_core::IUnknown);
 impl IDebugPlmClient3 {
     pub unsafe fn LaunchPlmPackageForDebugWide<P0, P1, P2>(&self, server: u64, timeout: u32, packagefullname: P0, appname: P1, arguments: P2, processid: *mut u32, threadid: *mut u32) -> ::windows_core::Result<()>
     where
@@ -14399,13 +13689,6 @@ impl IDebugPlmClient3 {
         (::windows_core::Interface::vtable(self).ActivateAndDebugPlmBgTaskWide)(::windows_core::Interface::as_raw(self), server, packagefullname.into_param().abi(), backgroundtaskid.into_param().abi()).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugPlmClient3, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugPlmClient3 {
-    type Vtable = IDebugPlmClient3_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugPlmClient3 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd4a5dbd1_ca02_4d90_856a_2a92bfd0f20f);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugPlmClient3_Vtbl {
@@ -14422,9 +13705,8 @@ pub struct IDebugPlmClient3_Vtbl {
     pub LaunchAndDebugPlmAppWide: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, server: u64, packagefullname: ::windows_core::PCWSTR, appname: ::windows_core::PCWSTR, arguments: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
     pub ActivateAndDebugPlmBgTaskWide: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, server: u64, packagefullname: ::windows_core::PCWSTR, backgroundtaskid: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugRegisters(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugRegisters, IDebugRegisters_Vtbl, 0xce289126_9e84_45a7_937e_67bb18691493);
+::windows_core::imp::interface_hierarchy!(IDebugRegisters, ::windows_core::IUnknown);
 impl IDebugRegisters {
     pub unsafe fn GetNumberRegisters(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -14468,13 +13750,6 @@ impl IDebugRegisters {
         (::windows_core::Interface::vtable(self).GetFrameOffset)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugRegisters, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugRegisters {
-    type Vtable = IDebugRegisters_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugRegisters {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xce289126_9e84_45a7_937e_67bb18691493);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugRegisters_Vtbl {
@@ -14491,9 +13766,8 @@ pub struct IDebugRegisters_Vtbl {
     pub GetStackOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: *mut u64) -> ::windows_core::HRESULT,
     pub GetFrameOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: *mut u64) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugRegisters2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugRegisters2, IDebugRegisters2_Vtbl, 0x1656afa9_19c6_4e3a_97e7_5dc9160cf9c4);
+::windows_core::imp::interface_hierarchy!(IDebugRegisters2, ::windows_core::IUnknown);
 impl IDebugRegisters2 {
     pub unsafe fn GetNumberRegisters(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -14598,13 +13872,6 @@ impl IDebugRegisters2 {
         (::windows_core::Interface::vtable(self).GetFrameOffset2)(::windows_core::Interface::as_raw(self), source, &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugRegisters2, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugRegisters2 {
-    type Vtable = IDebugRegisters2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugRegisters2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1656afa9_19c6_4e3a_97e7_5dc9160cf9c4);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugRegisters2_Vtbl {
@@ -14636,9 +13903,8 @@ pub struct IDebugRegisters2_Vtbl {
     pub GetStackOffset2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, source: u32, offset: *mut u64) -> ::windows_core::HRESULT,
     pub GetFrameOffset2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, source: u32, offset: *mut u64) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugSymbolGroup(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugSymbolGroup, IDebugSymbolGroup_Vtbl, 0xf2528316_0f1a_4431_aeed_11d096e1e2ab);
+::windows_core::imp::interface_hierarchy!(IDebugSymbolGroup, ::windows_core::IUnknown);
 impl IDebugSymbolGroup {
     pub unsafe fn GetNumberSymbols(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -14687,13 +13953,6 @@ impl IDebugSymbolGroup {
         (::windows_core::Interface::vtable(self).OutputAsType)(::windows_core::Interface::as_raw(self), index, r#type.into_param().abi()).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugSymbolGroup, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugSymbolGroup {
-    type Vtable = IDebugSymbolGroup_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugSymbolGroup {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf2528316_0f1a_4431_aeed_11d096e1e2ab);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugSymbolGroup_Vtbl {
@@ -14709,9 +13968,8 @@ pub struct IDebugSymbolGroup_Vtbl {
     pub WriteSymbol: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, value: ::windows_core::PCSTR) -> ::windows_core::HRESULT,
     pub OutputAsType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, r#type: ::windows_core::PCSTR) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugSymbolGroup2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugSymbolGroup2, IDebugSymbolGroup2_Vtbl, 0x6a7ccc5f_fb5e_4dcc_b41c_6c20307bccc7);
+::windows_core::imp::interface_hierarchy!(IDebugSymbolGroup2, ::windows_core::IUnknown);
 impl IDebugSymbolGroup2 {
     pub unsafe fn GetNumberSymbols(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -14814,13 +14072,6 @@ impl IDebugSymbolGroup2 {
         (::windows_core::Interface::vtable(self).GetSymbolEntryInformation)(::windows_core::Interface::as_raw(self), index, entry).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugSymbolGroup2, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugSymbolGroup2 {
-    type Vtable = IDebugSymbolGroup2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugSymbolGroup2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6a7ccc5f_fb5e_4dcc_b41c_6c20307bccc7);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugSymbolGroup2_Vtbl {
@@ -14849,9 +14100,8 @@ pub struct IDebugSymbolGroup2_Vtbl {
     pub GetSymbolValueTextWide: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, buffer: ::windows_core::PWSTR, buffersize: u32, namesize: *mut u32) -> ::windows_core::HRESULT,
     pub GetSymbolEntryInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, entry: *mut DEBUG_SYMBOL_ENTRY) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugSymbols(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugSymbols, IDebugSymbols_Vtbl, 0x8c31e98c_983a_48a5_9016_6fe5d667a950);
+::windows_core::imp::interface_hierarchy!(IDebugSymbols, ::windows_core::IUnknown);
 impl IDebugSymbols {
     pub unsafe fn GetSymbolOptions(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -15080,13 +14330,6 @@ impl IDebugSymbols {
         (::windows_core::Interface::vtable(self).GetSourceFileLineOffsets)(::windows_core::Interface::as_raw(self), file.into_param().abi(), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(filelines.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugSymbols, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugSymbols {
-    type Vtable = IDebugSymbols_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugSymbols {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8c31e98c_983a_48a5_9016_6fe5d667a950);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugSymbols_Vtbl {
@@ -15141,9 +14384,8 @@ pub struct IDebugSymbols_Vtbl {
     pub FindSourceFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startelement: u32, file: ::windows_core::PCSTR, flags: u32, foundelement: *mut u32, buffer: ::windows_core::PSTR, buffersize: u32, foundsize: *mut u32) -> ::windows_core::HRESULT,
     pub GetSourceFileLineOffsets: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, file: ::windows_core::PCSTR, buffer: *mut u64, bufferlines: u32, filelines: *mut u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugSymbols2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugSymbols2, IDebugSymbols2_Vtbl, 0x3a707211_afdd_4495_ad4f_56fecdf8163f);
+::windows_core::imp::interface_hierarchy!(IDebugSymbols2, ::windows_core::IUnknown);
 impl IDebugSymbols2 {
     pub unsafe fn GetSymbolOptions(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -15400,13 +14642,6 @@ impl IDebugSymbols2 {
         (::windows_core::Interface::vtable(self).SetTypeOptions)(::windows_core::Interface::as_raw(self), options).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugSymbols2, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugSymbols2 {
-    type Vtable = IDebugSymbols2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugSymbols2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3a707211_afdd_4495_ad4f_56fecdf8163f);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugSymbols2_Vtbl {
@@ -15469,9 +14704,8 @@ pub struct IDebugSymbols2_Vtbl {
     pub RemoveTypeOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: u32) -> ::windows_core::HRESULT,
     pub SetTypeOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugSymbols3(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugSymbols3, IDebugSymbols3_Vtbl, 0xf02fbecc_50ac_4f36_9ad9_c975e8f32ff8);
+::windows_core::imp::interface_hierarchy!(IDebugSymbols3, ::windows_core::IUnknown);
 impl IDebugSymbols3 {
     pub unsafe fn GetSymbolOptions(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -16032,13 +15266,6 @@ impl IDebugSymbols3 {
         (::windows_core::Interface::vtable(self).GetSourceEntryBySourceEntry)(::windows_core::Interface::as_raw(self), fromentry, flags, toentry).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugSymbols3, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugSymbols3 {
-    type Vtable = IDebugSymbols3_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugSymbols3 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf02fbecc_50ac_4f36_9ad9_c975e8f32ff8);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugSymbols3_Vtbl {
@@ -16167,9 +15394,8 @@ pub struct IDebugSymbols3_Vtbl {
     pub GetSourceEntryOffsetRegions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, entry: *const DEBUG_SYMBOL_SOURCE_ENTRY, flags: u32, regions: *mut DEBUG_OFFSET_REGION, regionscount: u32, regionsavail: *mut u32) -> ::windows_core::HRESULT,
     pub GetSourceEntryBySourceEntry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fromentry: *const DEBUG_SYMBOL_SOURCE_ENTRY, flags: u32, toentry: *mut DEBUG_SYMBOL_SOURCE_ENTRY) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugSymbols4(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugSymbols4, IDebugSymbols4_Vtbl, 0xe391bbd8_9d8c_4418_840b_c006592a1752);
+::windows_core::imp::interface_hierarchy!(IDebugSymbols4, ::windows_core::IUnknown);
 impl IDebugSymbols4 {
     pub unsafe fn GetSymbolOptions(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -16751,13 +15977,6 @@ impl IDebugSymbols4 {
         (::windows_core::Interface::vtable(self).OutputSymbolByInlineContext)(::windows_core::Interface::as_raw(self), outputcontrol, flags, offset, inlinecontext).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugSymbols4, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugSymbols4 {
-    type Vtable = IDebugSymbols4_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugSymbols4 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe391bbd8_9d8c_4418_840b_c006592a1752);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugSymbols4_Vtbl {
@@ -16893,9 +16112,8 @@ pub struct IDebugSymbols4_Vtbl {
     pub GetLineByInlineContextWide: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: u64, inlinecontext: u32, line: *mut u32, filebuffer: ::windows_core::PWSTR, filebuffersize: u32, filesize: *mut u32, displacement: *mut u64) -> ::windows_core::HRESULT,
     pub OutputSymbolByInlineContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, outputcontrol: u32, flags: u32, offset: u64, inlinecontext: u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugSymbols5(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugSymbols5, IDebugSymbols5_Vtbl, 0xc65fa83e_1e69_475e_8e0e_b5d79e9cc17e);
+::windows_core::imp::interface_hierarchy!(IDebugSymbols5, ::windows_core::IUnknown);
 impl IDebugSymbols5 {
     pub unsafe fn GetSymbolOptions(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -17484,13 +16702,6 @@ impl IDebugSymbols5 {
         (::windows_core::Interface::vtable(self).SetScopeFrameByIndexEx)(::windows_core::Interface::as_raw(self), flags, index).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugSymbols5, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugSymbols5 {
-    type Vtable = IDebugSymbols5_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugSymbols5 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc65fa83e_1e69_475e_8e0e_b5d79e9cc17e);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugSymbols5_Vtbl {
@@ -17628,9 +16839,8 @@ pub struct IDebugSymbols5_Vtbl {
     pub GetCurrentScopeFrameIndexEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32, index: *mut u32) -> ::windows_core::HRESULT,
     pub SetScopeFrameByIndexEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32, index: u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugSystemObjects(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugSystemObjects, IDebugSystemObjects_Vtbl, 0x6b86fe2c_2c4f_4f0c_9da2_174311acc327);
+::windows_core::imp::interface_hierarchy!(IDebugSystemObjects, ::windows_core::IUnknown);
 impl IDebugSystemObjects {
     pub unsafe fn GetEventThread(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -17743,13 +16953,6 @@ impl IDebugSystemObjects {
         (::windows_core::Interface::vtable(self).GetCurrentProcessExecutableName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(exesize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugSystemObjects, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugSystemObjects {
-    type Vtable = IDebugSystemObjects_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugSystemObjects {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6b86fe2c_2c4f_4f0c_9da2_174311acc327);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugSystemObjects_Vtbl {
@@ -17784,9 +16987,8 @@ pub struct IDebugSystemObjects_Vtbl {
     pub GetProcessIdByHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handle: u64, id: *mut u32) -> ::windows_core::HRESULT,
     pub GetCurrentProcessExecutableName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffer: ::windows_core::PSTR, buffersize: u32, exesize: *mut u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugSystemObjects2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugSystemObjects2, IDebugSystemObjects2_Vtbl, 0x0ae9f5ff_1852_4679_b055_494bee6407ee);
+::windows_core::imp::interface_hierarchy!(IDebugSystemObjects2, ::windows_core::IUnknown);
 impl IDebugSystemObjects2 {
     pub unsafe fn GetEventThread(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -17917,13 +17119,6 @@ impl IDebugSystemObjects2 {
         (::windows_core::Interface::vtable(self).SetImplicitProcessDataOffset)(::windows_core::Interface::as_raw(self), offset).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugSystemObjects2, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugSystemObjects2 {
-    type Vtable = IDebugSystemObjects2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugSystemObjects2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0ae9f5ff_1852_4679_b055_494bee6407ee);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugSystemObjects2_Vtbl {
@@ -17963,9 +17158,8 @@ pub struct IDebugSystemObjects2_Vtbl {
     pub GetImplicitProcessDataOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: *mut u64) -> ::windows_core::HRESULT,
     pub SetImplicitProcessDataOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: u64) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugSystemObjects3(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugSystemObjects3, IDebugSystemObjects3_Vtbl, 0xe9676e2f_e286_4ea3_b0f9_dfe5d9fc330e);
+::windows_core::imp::interface_hierarchy!(IDebugSystemObjects3, ::windows_core::IUnknown);
 impl IDebugSystemObjects3 {
     pub unsafe fn GetEventThread(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -18128,13 +17322,6 @@ impl IDebugSystemObjects3 {
         (::windows_core::Interface::vtable(self).GetCurrentSystemServerName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(namesize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugSystemObjects3, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugSystemObjects3 {
-    type Vtable = IDebugSystemObjects3_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugSystemObjects3 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe9676e2f_e286_4ea3_b0f9_dfe5d9fc330e);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugSystemObjects3_Vtbl {
@@ -18183,9 +17370,8 @@ pub struct IDebugSystemObjects3_Vtbl {
     pub GetSystemByServer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, server: u64, id: *mut u32) -> ::windows_core::HRESULT,
     pub GetCurrentSystemServerName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffer: ::windows_core::PSTR, buffersize: u32, namesize: *mut u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDebugSystemObjects4(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDebugSystemObjects4, IDebugSystemObjects4_Vtbl, 0x489468e6_7d0f_4af5_87ab_25207454d553);
+::windows_core::imp::interface_hierarchy!(IDebugSystemObjects4, ::windows_core::IUnknown);
 impl IDebugSystemObjects4 {
     pub unsafe fn GetEventThread(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -18354,13 +17540,6 @@ impl IDebugSystemObjects4 {
         (::windows_core::Interface::vtable(self).GetCurrentSystemServerNameWide)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(namesize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDebugSystemObjects4, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDebugSystemObjects4 {
-    type Vtable = IDebugSystemObjects4_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDebugSystemObjects4 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x489468e6_7d0f_4af5_87ab_25207454d553);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugSystemObjects4_Vtbl {
@@ -18411,9 +17590,8 @@ pub struct IDebugSystemObjects4_Vtbl {
     pub GetCurrentProcessExecutableNameWide: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffer: ::windows_core::PWSTR, buffersize: u32, exesize: *mut u32) -> ::windows_core::HRESULT,
     pub GetCurrentSystemServerNameWide: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffer: ::windows_core::PWSTR, buffersize: u32, namesize: *mut u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDynamicConceptProviderConcept(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDynamicConceptProviderConcept, IDynamicConceptProviderConcept_Vtbl, 0x95a7f7dd_602e_483f_9d06_a15c0ee13174);
+::windows_core::imp::interface_hierarchy!(IDynamicConceptProviderConcept, ::windows_core::IUnknown);
 impl IDynamicConceptProviderConcept {
     pub unsafe fn GetConcept<P0>(&self, contextobject: P0, conceptid: *const ::windows_core::GUID, conceptinterface: *mut ::core::option::Option<::windows_core::IUnknown>, conceptmetadata: ::core::option::Option<*mut ::core::option::Option<IKeyStore>>, hasconcept: *mut bool) -> ::windows_core::Result<()>
     where
@@ -18445,13 +17623,6 @@ impl IDynamicConceptProviderConcept {
         (::windows_core::Interface::vtable(self).NotifyDestruct)(::windows_core::Interface::as_raw(self)).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDynamicConceptProviderConcept, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDynamicConceptProviderConcept {
-    type Vtable = IDynamicConceptProviderConcept_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDynamicConceptProviderConcept {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x95a7f7dd_602e_483f_9d06_a15c0ee13174);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDynamicConceptProviderConcept_Vtbl {
@@ -18462,9 +17633,8 @@ pub struct IDynamicConceptProviderConcept_Vtbl {
     pub NotifyParentChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parentmodel: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub NotifyDestruct: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDynamicKeyProviderConcept(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDynamicKeyProviderConcept, IDynamicKeyProviderConcept_Vtbl, 0xe7983fa1_80a7_498c_988f_518ddc5d4025);
+::windows_core::imp::interface_hierarchy!(IDynamicKeyProviderConcept, ::windows_core::IUnknown);
 impl IDynamicKeyProviderConcept {
     pub unsafe fn GetKey<P0, P1>(&self, contextobject: P0, key: P1, keyvalue: ::core::option::Option<*mut ::core::option::Option<IModelObject>>, metadata: ::core::option::Option<*mut ::core::option::Option<IKeyStore>>, haskey: ::core::option::Option<*mut bool>) -> ::windows_core::Result<()>
     where
@@ -18490,13 +17660,6 @@ impl IDynamicKeyProviderConcept {
         (::windows_core::Interface::vtable(self).EnumerateKeys)(::windows_core::Interface::as_raw(self), contextobject.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IDynamicKeyProviderConcept, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDynamicKeyProviderConcept {
-    type Vtable = IDynamicKeyProviderConcept_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDynamicKeyProviderConcept {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe7983fa1_80a7_498c_988f_518ddc5d4025);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDynamicKeyProviderConcept_Vtbl {
@@ -18505,9 +17668,8 @@ pub struct IDynamicKeyProviderConcept_Vtbl {
     pub SetKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contextobject: *mut ::core::ffi::c_void, key: ::windows_core::PCWSTR, keyvalue: *mut ::core::ffi::c_void, metadata: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub EnumerateKeys: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contextobject: *mut ::core::ffi::c_void, ppenumerator: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IEquatableConcept(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IEquatableConcept, IEquatableConcept_Vtbl, 0xc52d5d3d_609d_4d5d_8a82_46b0acdec4f4);
+::windows_core::imp::interface_hierarchy!(IEquatableConcept, ::windows_core::IUnknown);
 impl IEquatableConcept {
     pub unsafe fn AreObjectsEqual<P0, P1>(&self, contextobject: P0, otherobject: P1) -> ::windows_core::Result<bool>
     where
@@ -18518,33 +17680,18 @@ impl IEquatableConcept {
         (::windows_core::Interface::vtable(self).AreObjectsEqual)(::windows_core::Interface::as_raw(self), contextobject.into_param().abi(), otherobject.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IEquatableConcept, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IEquatableConcept {
-    type Vtable = IEquatableConcept_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IEquatableConcept {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc52d5d3d_609d_4d5d_8a82_46b0acdec4f4);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEquatableConcept_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub AreObjectsEqual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contextobject: *mut ::core::ffi::c_void, otherobject: *mut ::core::ffi::c_void, isequal: *mut bool) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IHostDataModelAccess(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IHostDataModelAccess, IHostDataModelAccess_Vtbl, 0xf2bce54e_4835_4f8a_836e_7981e29904d1);
+::windows_core::imp::interface_hierarchy!(IHostDataModelAccess, ::windows_core::IUnknown);
 impl IHostDataModelAccess {
     pub unsafe fn GetDataModel(&self, manager: *mut ::core::option::Option<IDataModelManager>, host: *mut ::core::option::Option<IDebugHost>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetDataModel)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(manager), ::core::mem::transmute(host)).ok()
     }
-}
-::windows_core::imp::interface_hierarchy!(IHostDataModelAccess, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IHostDataModelAccess {
-    type Vtable = IHostDataModelAccess_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IHostDataModelAccess {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf2bce54e_4835_4f8a_836e_7981e29904d1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -18552,9 +17699,8 @@ pub struct IHostDataModelAccess_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetDataModel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, manager: *mut *mut ::core::ffi::c_void, host: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IIndexableConcept(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IIndexableConcept, IIndexableConcept_Vtbl, 0xd1fad99f_3f53_4457_850c_8051df2d3fb5);
+::windows_core::imp::interface_hierarchy!(IIndexableConcept, ::windows_core::IUnknown);
 impl IIndexableConcept {
     pub unsafe fn GetDimensionality<P0>(&self, contextobject: P0) -> ::windows_core::Result<u64>
     where
@@ -18577,13 +17723,6 @@ impl IIndexableConcept {
         (::windows_core::Interface::vtable(self).SetAt)(::windows_core::Interface::as_raw(self), contextobject.into_param().abi(), indexers.len().try_into().unwrap(), ::core::mem::transmute(indexers.as_ptr()), value.into_param().abi()).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IIndexableConcept, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IIndexableConcept {
-    type Vtable = IIndexableConcept_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IIndexableConcept {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd1fad99f_3f53_4457_850c_8051df2d3fb5);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIndexableConcept_Vtbl {
@@ -18592,9 +17731,8 @@ pub struct IIndexableConcept_Vtbl {
     pub GetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contextobject: *mut ::core::ffi::c_void, indexercount: u64, indexers: *const *mut ::core::ffi::c_void, object: *mut *mut ::core::ffi::c_void, metadata: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub SetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contextobject: *mut ::core::ffi::c_void, indexercount: u64, indexers: *const *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IIterableConcept(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IIterableConcept, IIterableConcept_Vtbl, 0xf5d49d0c_0b02_4301_9c9b_b3a6037628f3);
+::windows_core::imp::interface_hierarchy!(IIterableConcept, ::windows_core::IUnknown);
 impl IIterableConcept {
     pub unsafe fn GetDefaultIndexDimensionality<P0>(&self, contextobject: P0) -> ::windows_core::Result<u64>
     where
@@ -18611,13 +17749,6 @@ impl IIterableConcept {
         (::windows_core::Interface::vtable(self).GetIterator)(::windows_core::Interface::as_raw(self), contextobject.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IIterableConcept, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IIterableConcept {
-    type Vtable = IIterableConcept_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IIterableConcept {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf5d49d0c_0b02_4301_9c9b_b3a6037628f3);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIterableConcept_Vtbl {
@@ -18625,9 +17756,8 @@ pub struct IIterableConcept_Vtbl {
     pub GetDefaultIndexDimensionality: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contextobject: *mut ::core::ffi::c_void, dimensionality: *mut u64) -> ::windows_core::HRESULT,
     pub GetIterator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contextobject: *mut ::core::ffi::c_void, iterator: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IKeyEnumerator(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IKeyEnumerator, IKeyEnumerator_Vtbl, 0x345fa92e_5e00_4319_9cae_971f7601cdcf);
+::windows_core::imp::interface_hierarchy!(IKeyEnumerator, ::windows_core::IUnknown);
 impl IKeyEnumerator {
     pub unsafe fn Reset(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self)).ok()
@@ -18636,13 +17766,6 @@ impl IKeyEnumerator {
         (::windows_core::Interface::vtable(self).GetNext)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(key), ::core::mem::transmute(value.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(metadata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IKeyEnumerator, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IKeyEnumerator {
-    type Vtable = IKeyEnumerator_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IKeyEnumerator {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x345fa92e_5e00_4319_9cae_971f7601cdcf);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKeyEnumerator_Vtbl {
@@ -18650,9 +17773,8 @@ pub struct IKeyEnumerator_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, value: *mut *mut ::core::ffi::c_void, metadata: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IKeyStore(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IKeyStore, IKeyStore_Vtbl, 0x0fc7557d_401d_4fca_9365_da1e9850697c);
+::windows_core::imp::interface_hierarchy!(IKeyStore, ::windows_core::IUnknown);
 impl IKeyStore {
     pub unsafe fn GetKey<P0>(&self, key: P0, object: ::core::option::Option<*mut ::core::option::Option<IModelObject>>, metadata: ::core::option::Option<*mut ::core::option::Option<IKeyStore>>) -> ::windows_core::Result<()>
     where
@@ -18685,13 +17807,6 @@ impl IKeyStore {
         (::windows_core::Interface::vtable(self).ClearKeys)(::windows_core::Interface::as_raw(self)).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IKeyStore, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IKeyStore {
-    type Vtable = IKeyStore_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IKeyStore {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0fc7557d_401d_4fca_9365_da1e9850697c);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKeyStore_Vtbl {
@@ -18702,9 +17817,8 @@ pub struct IKeyStore_Vtbl {
     pub SetKeyValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: ::windows_core::PCWSTR, object: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub ClearKeys: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IModelIterator(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IModelIterator, IModelIterator_Vtbl, 0xe4622136_927d_4490_874f_581f3e4e3688);
+::windows_core::imp::interface_hierarchy!(IModelIterator, ::windows_core::IUnknown);
 impl IModelIterator {
     pub unsafe fn Reset(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self)).ok()
@@ -18713,13 +17827,6 @@ impl IModelIterator {
         (::windows_core::Interface::vtable(self).GetNext)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(object), indexers.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(indexers.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(metadata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IModelIterator, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IModelIterator {
-    type Vtable = IModelIterator_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IModelIterator {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe4622136_927d_4490_874f_581f3e4e3688);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IModelIterator_Vtbl {
@@ -18727,9 +17834,8 @@ pub struct IModelIterator_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, object: *mut *mut ::core::ffi::c_void, dimensions: u64, indexers: *mut *mut ::core::ffi::c_void, metadata: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IModelKeyReference(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IModelKeyReference, IModelKeyReference_Vtbl, 0x5253dcf8_5aff_4c62_b302_56a289e00998);
+::windows_core::imp::interface_hierarchy!(IModelKeyReference, ::windows_core::IUnknown);
 impl IModelKeyReference {
     pub unsafe fn GetKeyName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
@@ -18763,13 +17869,6 @@ impl IModelKeyReference {
         (::windows_core::Interface::vtable(self).SetKeyValue)(::windows_core::Interface::as_raw(self), object.into_param().abi()).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IModelKeyReference, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IModelKeyReference {
-    type Vtable = IModelKeyReference_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IModelKeyReference {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5253dcf8_5aff_4c62_b302_56a289e00998);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IModelKeyReference_Vtbl {
@@ -18782,9 +17881,8 @@ pub struct IModelKeyReference_Vtbl {
     pub SetKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, object: *mut ::core::ffi::c_void, metadata: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub SetKeyValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, object: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IModelKeyReference2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IModelKeyReference2, IModelKeyReference2_Vtbl, 0x80e2f7c5_7159_4e92_887e_7e0347e88406);
+::windows_core::imp::interface_hierarchy!(IModelKeyReference2, ::windows_core::IUnknown, IModelKeyReference);
 impl IModelKeyReference2 {
     pub unsafe fn GetKeyName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
@@ -18824,22 +17922,14 @@ impl IModelKeyReference2 {
         (::windows_core::Interface::vtable(self).OverrideContextObject)(::windows_core::Interface::as_raw(self), newcontextobject.into_param().abi()).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IModelKeyReference2, ::windows_core::IUnknown, IModelKeyReference);
-unsafe impl ::windows_core::Interface for IModelKeyReference2 {
-    type Vtable = IModelKeyReference2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IModelKeyReference2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x80e2f7c5_7159_4e92_887e_7e0347e88406);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IModelKeyReference2_Vtbl {
     pub base__: IModelKeyReference_Vtbl,
     pub OverrideContextObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newcontextobject: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IModelMethod(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IModelMethod, IModelMethod_Vtbl, 0x80600c1f_b90b_4896_82ad_1c00207909e8);
+::windows_core::imp::interface_hierarchy!(IModelMethod, ::windows_core::IUnknown);
 impl IModelMethod {
     pub unsafe fn Call<P0>(&self, pcontextobject: P0, pparguments: &[::core::option::Option<IModelObject>], ppresult: *mut ::core::option::Option<IModelObject>, ppmetadata: ::core::option::Option<*mut ::core::option::Option<IKeyStore>>) -> ::windows_core::Result<()>
     where
@@ -18848,22 +17938,14 @@ impl IModelMethod {
         (::windows_core::Interface::vtable(self).Call)(::windows_core::Interface::as_raw(self), pcontextobject.into_param().abi(), pparguments.len().try_into().unwrap(), ::core::mem::transmute(pparguments.as_ptr()), ::core::mem::transmute(ppresult), ::core::mem::transmute(ppmetadata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IModelMethod, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IModelMethod {
-    type Vtable = IModelMethod_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IModelMethod {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x80600c1f_b90b_4896_82ad_1c00207909e8);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IModelMethod_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Call: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcontextobject: *mut ::core::ffi::c_void, argcount: u64, pparguments: *const *mut ::core::ffi::c_void, ppresult: *mut *mut ::core::ffi::c_void, ppmetadata: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IModelObject(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IModelObject, IModelObject_Vtbl, 0xe28c7893_3f4b_4b96_baca_293cdc55f45d);
+::windows_core::imp::interface_hierarchy!(IModelObject, ::windows_core::IUnknown);
 impl IModelObject {
     pub unsafe fn GetContext(&self) -> ::windows_core::Result<IDebugHostContext> {
         let mut result__ = ::std::mem::zeroed();
@@ -19035,13 +18117,6 @@ impl IModelObject {
         (::windows_core::Interface::vtable(self).IsEqualTo)(::windows_core::Interface::as_raw(self), other.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IModelObject, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IModelObject {
-    type Vtable = IModelObject_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IModelObject {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe28c7893_3f4b_4b96_baca_293cdc55f45d);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IModelObject_Vtbl {
@@ -19086,9 +18161,8 @@ pub struct IModelObject_Vtbl {
     pub Compare: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, other: *mut ::core::ffi::c_void, ppresult: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub IsEqualTo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, other: *mut ::core::ffi::c_void, equal: *mut bool) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IModelPropertyAccessor(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IModelPropertyAccessor, IModelPropertyAccessor_Vtbl, 0x5a0c63d9_0526_42b8_960c_9516a3254c85);
+::windows_core::imp::interface_hierarchy!(IModelPropertyAccessor, ::windows_core::IUnknown);
 impl IModelPropertyAccessor {
     pub unsafe fn GetValue<P0, P1>(&self, key: P0, contextobject: P1) -> ::windows_core::Result<IModelObject>
     where
@@ -19107,13 +18181,6 @@ impl IModelPropertyAccessor {
         (::windows_core::Interface::vtable(self).SetValue)(::windows_core::Interface::as_raw(self), key.into_param().abi(), contextobject.into_param().abi(), value.into_param().abi()).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IModelPropertyAccessor, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IModelPropertyAccessor {
-    type Vtable = IModelPropertyAccessor_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IModelPropertyAccessor {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5a0c63d9_0526_42b8_960c_9516a3254c85);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IModelPropertyAccessor_Vtbl {
@@ -19121,9 +18188,8 @@ pub struct IModelPropertyAccessor_Vtbl {
     pub GetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: ::windows_core::PCWSTR, contextobject: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: ::windows_core::PCWSTR, contextobject: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPreferredRuntimeTypeConcept(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IPreferredRuntimeTypeConcept, IPreferredRuntimeTypeConcept_Vtbl, 0x9d6c1d7b_a76f_4618_8068_5f76bd9a4e8a);
+::windows_core::imp::interface_hierarchy!(IPreferredRuntimeTypeConcept, ::windows_core::IUnknown);
 impl IPreferredRuntimeTypeConcept {
     pub unsafe fn CastToPreferredRuntimeType<P0>(&self, contextobject: P0) -> ::windows_core::Result<IModelObject>
     where
@@ -19133,22 +18199,14 @@ impl IPreferredRuntimeTypeConcept {
         (::windows_core::Interface::vtable(self).CastToPreferredRuntimeType)(::windows_core::Interface::as_raw(self), contextobject.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IPreferredRuntimeTypeConcept, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPreferredRuntimeTypeConcept {
-    type Vtable = IPreferredRuntimeTypeConcept_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPreferredRuntimeTypeConcept {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9d6c1d7b_a76f_4618_8068_5f76bd9a4e8a);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPreferredRuntimeTypeConcept_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub CastToPreferredRuntimeType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contextobject: *mut ::core::ffi::c_void, object: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRawEnumerator(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IRawEnumerator, IRawEnumerator_Vtbl, 0xe13613f9_3a3c_40b5_8f48_1e5ebfb9b21b);
+::windows_core::imp::interface_hierarchy!(IRawEnumerator, ::windows_core::IUnknown);
 impl IRawEnumerator {
     pub unsafe fn Reset(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self)).ok()
@@ -19157,13 +18215,6 @@ impl IRawEnumerator {
         (::windows_core::Interface::vtable(self).GetNext)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(name.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(kind.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(value.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IRawEnumerator, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IRawEnumerator {
-    type Vtable = IRawEnumerator_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRawEnumerator {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe13613f9_3a3c_40b5_8f48_1e5ebfb9b21b);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRawEnumerator_Vtbl {
@@ -19171,9 +18222,8 @@ pub struct IRawEnumerator_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, kind: *mut SymbolKind, value: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IStringDisplayableConcept(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IStringDisplayableConcept, IStringDisplayableConcept_Vtbl, 0xd28e8d70_6c00_4205_940d_501016601ea3);
+::windows_core::imp::interface_hierarchy!(IStringDisplayableConcept, ::windows_core::IUnknown);
 impl IStringDisplayableConcept {
     pub unsafe fn ToDisplayString<P0, P1>(&self, contextobject: P0, metadata: P1) -> ::windows_core::Result<::windows_core::BSTR>
     where
@@ -19183,13 +18233,6 @@ impl IStringDisplayableConcept {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ToDisplayString)(::windows_core::Interface::as_raw(self), contextobject.into_param().abi(), metadata.into_param().abi(), &mut result__).from_abi(result__)
     }
-}
-::windows_core::imp::interface_hierarchy!(IStringDisplayableConcept, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IStringDisplayableConcept {
-    type Vtable = IStringDisplayableConcept_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IStringDisplayableConcept {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd28e8d70_6c00_4205_940d_501016601ea3);
 }
 #[repr(C)]
 #[doc(hidden)]

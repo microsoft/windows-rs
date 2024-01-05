@@ -1,13 +1,4 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IVibrationDevice(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IVibrationDevice {
-    type Vtable = IVibrationDevice_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IVibrationDevice {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1b4a6595_cfcd_4e08_92fb_c1906d04498c);
-}
+::windows_core::imp::com_interface!(IVibrationDevice, IVibrationDevice_Vtbl, 0x1b4a6595_cfcd_4e08_92fb_c1906d04498c);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVibrationDevice_Vtbl {
@@ -15,16 +6,7 @@ pub struct IVibrationDevice_Vtbl {
     pub Vibrate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, duration: super::super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
     pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IVibrationDeviceStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IVibrationDeviceStatics {
-    type Vtable = IVibrationDeviceStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IVibrationDeviceStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x332fd2f1_1c69_4c91_949e_4bb67a85bdc7);
-}
+::windows_core::imp::com_interface!(IVibrationDeviceStatics, IVibrationDeviceStatics_Vtbl, 0x332fd2f1_1c69_4c91_949e_4bb67a85bdc7);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVibrationDeviceStatics_Vtbl {
@@ -34,6 +16,7 @@ pub struct IVibrationDeviceStatics_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VibrationDevice(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(VibrationDevice, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl VibrationDevice {
     pub fn Vibrate(&self, duration: super::super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = self;
@@ -60,13 +43,10 @@ impl ::windows_core::RuntimeType for VibrationDevice {
 }
 unsafe impl ::windows_core::Interface for VibrationDevice {
     type Vtable = IVibrationDevice_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for VibrationDevice {
-    const IID: ::windows_core::GUID = <IVibrationDevice as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IVibrationDevice as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for VibrationDevice {
     const NAME: &'static str = "Windows.Phone.Devices.Notification.VibrationDevice";
 }
-::windows_core::imp::interface_hierarchy!(VibrationDevice, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for VibrationDevice {}
 unsafe impl ::core::marker::Sync for VibrationDevice {}

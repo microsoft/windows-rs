@@ -1,13 +1,4 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDevicePortalConnection(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDevicePortalConnection {
-    type Vtable = IDevicePortalConnection_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDevicePortalConnection {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0f447f51_1198_4da1_8d54_bdef393e09b6);
-}
+::windows_core::imp::com_interface!(IDevicePortalConnection, IDevicePortalConnection_Vtbl, 0x0f447f51_1198_4da1_8d54_bdef393e09b6);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDevicePortalConnection_Vtbl {
@@ -17,32 +8,14 @@ pub struct IDevicePortalConnection_Vtbl {
     pub RequestReceived: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     pub RemoveRequestReceived: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDevicePortalConnectionClosedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDevicePortalConnectionClosedEventArgs {
-    type Vtable = IDevicePortalConnectionClosedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDevicePortalConnectionClosedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfcf70e38_7032_428c_9f50_945c15a9f0cb);
-}
+::windows_core::imp::com_interface!(IDevicePortalConnectionClosedEventArgs, IDevicePortalConnectionClosedEventArgs_Vtbl, 0xfcf70e38_7032_428c_9f50_945c15a9f0cb);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDevicePortalConnectionClosedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Reason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DevicePortalConnectionClosedReason) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDevicePortalConnectionRequestReceivedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDevicePortalConnectionRequestReceivedEventArgs {
-    type Vtable = IDevicePortalConnectionRequestReceivedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDevicePortalConnectionRequestReceivedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x64dae045_6fda_4459_9ebd_ecce22e38559);
-}
+::windows_core::imp::com_interface!(IDevicePortalConnectionRequestReceivedEventArgs, IDevicePortalConnectionRequestReceivedEventArgs_Vtbl, 0x64dae045_6fda_4459_9ebd_ecce22e38559);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDevicePortalConnectionRequestReceivedEventArgs_Vtbl {
@@ -56,16 +29,7 @@ pub struct IDevicePortalConnectionRequestReceivedEventArgs_Vtbl {
     #[cfg(not(feature = "Web_Http"))]
     ResponseMessage: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDevicePortalConnectionStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDevicePortalConnectionStatics {
-    type Vtable = IDevicePortalConnectionStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDevicePortalConnectionStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4bbe31e7_e9b9_4645_8fed_a53eea0edbd6);
-}
+::windows_core::imp::com_interface!(IDevicePortalConnectionStatics, IDevicePortalConnectionStatics_Vtbl, 0x4bbe31e7_e9b9_4645_8fed_a53eea0edbd6);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDevicePortalConnectionStatics_Vtbl {
@@ -75,16 +39,7 @@ pub struct IDevicePortalConnectionStatics_Vtbl {
     #[cfg(not(feature = "ApplicationModel_AppService"))]
     GetForAppServiceConnection: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDevicePortalWebSocketConnection(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDevicePortalWebSocketConnection {
-    type Vtable = IDevicePortalWebSocketConnection_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDevicePortalWebSocketConnection {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x67657920_d65a_42f0_aef4_787808098b7b);
-}
+::windows_core::imp::com_interface!(IDevicePortalWebSocketConnection, IDevicePortalWebSocketConnection_Vtbl, 0x67657920_d65a_42f0_aef4_787808098b7b);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDevicePortalWebSocketConnection_Vtbl {
@@ -110,16 +65,7 @@ pub struct IDevicePortalWebSocketConnection_Vtbl {
     #[cfg(not(all(feature = "Networking_Sockets", feature = "Web_Http")))]
     GetServerStreamWebSocketForRequest2: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDevicePortalWebSocketConnectionRequestReceivedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDevicePortalWebSocketConnectionRequestReceivedEventArgs {
-    type Vtable = IDevicePortalWebSocketConnectionRequestReceivedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDevicePortalWebSocketConnectionRequestReceivedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x79fdcaba_175c_4739_9f74_dda797c35b3f);
-}
+::windows_core::imp::com_interface!(IDevicePortalWebSocketConnectionRequestReceivedEventArgs, IDevicePortalWebSocketConnectionRequestReceivedEventArgs_Vtbl, 0x79fdcaba_175c_4739_9f74_dda797c35b3f);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDevicePortalWebSocketConnectionRequestReceivedEventArgs_Vtbl {
@@ -134,6 +80,7 @@ pub struct IDevicePortalWebSocketConnectionRequestReceivedEventArgs_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DevicePortalConnection(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(DevicePortalConnection, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl DevicePortalConnection {
     pub fn Closed<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -180,7 +127,7 @@ impl DevicePortalConnection {
     where
         P0: ::windows_core::IntoParam<super::super::super::Web::Http::HttpRequestMessage>,
     {
-        let this = &::windows_core::ComInterface::cast::<IDevicePortalWebSocketConnection>(self)?;
+        let this = &::windows_core::Interface::cast::<IDevicePortalWebSocketConnection>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetServerMessageWebSocketForRequest)(::windows_core::Interface::as_raw(this), request.into_param().abi(), &mut result__).from_abi(result__)
@@ -192,7 +139,7 @@ impl DevicePortalConnection {
     where
         P0: ::windows_core::IntoParam<super::super::super::Web::Http::HttpRequestMessage>,
     {
-        let this = &::windows_core::ComInterface::cast::<IDevicePortalWebSocketConnection>(self)?;
+        let this = &::windows_core::Interface::cast::<IDevicePortalWebSocketConnection>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetServerMessageWebSocketForRequest2)(::windows_core::Interface::as_raw(this), request.into_param().abi(), messagetype, ::core::mem::transmute_copy(protocol), &mut result__).from_abi(result__)
@@ -204,7 +151,7 @@ impl DevicePortalConnection {
     where
         P0: ::windows_core::IntoParam<super::super::super::Web::Http::HttpRequestMessage>,
     {
-        let this = &::windows_core::ComInterface::cast::<IDevicePortalWebSocketConnection>(self)?;
+        let this = &::windows_core::Interface::cast::<IDevicePortalWebSocketConnection>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetServerMessageWebSocketForRequest3)(::windows_core::Interface::as_raw(this), request.into_param().abi(), messagetype, ::core::mem::transmute_copy(protocol), outboundbuffersizeinbytes, maxmessagesize, receivemode, &mut result__).from_abi(result__)
@@ -216,7 +163,7 @@ impl DevicePortalConnection {
     where
         P0: ::windows_core::IntoParam<super::super::super::Web::Http::HttpRequestMessage>,
     {
-        let this = &::windows_core::ComInterface::cast::<IDevicePortalWebSocketConnection>(self)?;
+        let this = &::windows_core::Interface::cast::<IDevicePortalWebSocketConnection>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetServerStreamWebSocketForRequest)(::windows_core::Interface::as_raw(this), request.into_param().abi(), &mut result__).from_abi(result__)
@@ -228,7 +175,7 @@ impl DevicePortalConnection {
     where
         P0: ::windows_core::IntoParam<super::super::super::Web::Http::HttpRequestMessage>,
     {
-        let this = &::windows_core::ComInterface::cast::<IDevicePortalWebSocketConnection>(self)?;
+        let this = &::windows_core::Interface::cast::<IDevicePortalWebSocketConnection>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetServerStreamWebSocketForRequest2)(::windows_core::Interface::as_raw(this), request.into_param().abi(), ::core::mem::transmute_copy(protocol), outboundbuffersizeinbytes, nodelay, &mut result__).from_abi(result__)
@@ -245,19 +192,17 @@ impl ::windows_core::RuntimeType for DevicePortalConnection {
 }
 unsafe impl ::windows_core::Interface for DevicePortalConnection {
     type Vtable = IDevicePortalConnection_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for DevicePortalConnection {
-    const IID: ::windows_core::GUID = <IDevicePortalConnection as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IDevicePortalConnection as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for DevicePortalConnection {
     const NAME: &'static str = "Windows.System.Diagnostics.DevicePortal.DevicePortalConnection";
 }
-::windows_core::imp::interface_hierarchy!(DevicePortalConnection, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for DevicePortalConnection {}
 unsafe impl ::core::marker::Sync for DevicePortalConnection {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DevicePortalConnectionClosedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(DevicePortalConnectionClosedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl DevicePortalConnectionClosedEventArgs {
     pub fn Reason(&self) -> ::windows_core::Result<DevicePortalConnectionClosedReason> {
         let this = self;
@@ -272,19 +217,17 @@ impl ::windows_core::RuntimeType for DevicePortalConnectionClosedEventArgs {
 }
 unsafe impl ::windows_core::Interface for DevicePortalConnectionClosedEventArgs {
     type Vtable = IDevicePortalConnectionClosedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for DevicePortalConnectionClosedEventArgs {
-    const IID: ::windows_core::GUID = <IDevicePortalConnectionClosedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IDevicePortalConnectionClosedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for DevicePortalConnectionClosedEventArgs {
     const NAME: &'static str = "Windows.System.Diagnostics.DevicePortal.DevicePortalConnectionClosedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(DevicePortalConnectionClosedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for DevicePortalConnectionClosedEventArgs {}
 unsafe impl ::core::marker::Sync for DevicePortalConnectionClosedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DevicePortalConnectionRequestReceivedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(DevicePortalConnectionRequestReceivedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl DevicePortalConnectionRequestReceivedEventArgs {
     #[doc = "Required features: `\"Web_Http\"`"]
     #[cfg(feature = "Web_Http")]
@@ -305,7 +248,7 @@ impl DevicePortalConnectionRequestReceivedEventArgs {
         }
     }
     pub fn IsWebSocketUpgradeRequest(&self) -> ::windows_core::Result<bool> {
-        let this = &::windows_core::ComInterface::cast::<IDevicePortalWebSocketConnectionRequestReceivedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IDevicePortalWebSocketConnectionRequestReceivedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsWebSocketUpgradeRequest)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -314,14 +257,14 @@ impl DevicePortalConnectionRequestReceivedEventArgs {
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn WebSocketProtocolsRequested(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
-        let this = &::windows_core::ComInterface::cast::<IDevicePortalWebSocketConnectionRequestReceivedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IDevicePortalWebSocketConnectionRequestReceivedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).WebSocketProtocolsRequested)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::super::Foundation::Deferral> {
-        let this = &::windows_core::ComInterface::cast::<IDevicePortalWebSocketConnectionRequestReceivedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IDevicePortalWebSocketConnectionRequestReceivedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDeferral)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -333,14 +276,11 @@ impl ::windows_core::RuntimeType for DevicePortalConnectionRequestReceivedEventA
 }
 unsafe impl ::windows_core::Interface for DevicePortalConnectionRequestReceivedEventArgs {
     type Vtable = IDevicePortalConnectionRequestReceivedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for DevicePortalConnectionRequestReceivedEventArgs {
-    const IID: ::windows_core::GUID = <IDevicePortalConnectionRequestReceivedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IDevicePortalConnectionRequestReceivedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for DevicePortalConnectionRequestReceivedEventArgs {
     const NAME: &'static str = "Windows.System.Diagnostics.DevicePortal.DevicePortalConnectionRequestReceivedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(DevicePortalConnectionRequestReceivedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for DevicePortalConnectionRequestReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for DevicePortalConnectionRequestReceivedEventArgs {}
 #[repr(transparent)]

@@ -76,7 +76,7 @@ impl IDirectSound_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectSound as ::windows_core::ComInterface>::IID
+        iid == &<IDirectSound as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct3D\"`"]
@@ -261,7 +261,7 @@ impl IDirectSound3DBuffer_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectSound3DBuffer as ::windows_core::ComInterface>::IID
+        iid == &<IDirectSound3DBuffer as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct3D\"`"]
@@ -413,7 +413,7 @@ impl IDirectSound3DListener_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectSound3DListener as ::windows_core::ComInterface>::IID
+        iid == &<IDirectSound3DListener as ::windows_core::Interface>::IID
     }
 }
 pub trait IDirectSound8_Impl: Sized + IDirectSound_Impl {
@@ -436,7 +436,7 @@ impl IDirectSound8_Vtbl {
         Self { base__: IDirectSound_Vtbl::new::<Identity, Impl, OFFSET>(), VerifyCertification: VerifyCertification::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectSound8 as ::windows_core::ComInterface>::IID || iid == &<IDirectSound as ::windows_core::ComInterface>::IID
+        iid == &<IDirectSound8 as ::windows_core::Interface>::IID || iid == &<IDirectSound as ::windows_core::Interface>::IID
     }
 }
 pub trait IDirectSoundBuffer_Impl: Sized {
@@ -599,7 +599,7 @@ impl IDirectSoundBuffer_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectSoundBuffer as ::windows_core::ComInterface>::IID
+        iid == &<IDirectSoundBuffer as ::windows_core::Interface>::IID
     }
 }
 pub trait IDirectSoundBuffer8_Impl: Sized + IDirectSoundBuffer_Impl {
@@ -633,7 +633,7 @@ impl IDirectSoundBuffer8_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectSoundBuffer8 as ::windows_core::ComInterface>::IID || iid == &<IDirectSoundBuffer as ::windows_core::ComInterface>::IID
+        iid == &<IDirectSoundBuffer8 as ::windows_core::Interface>::IID || iid == &<IDirectSoundBuffer as ::windows_core::Interface>::IID
     }
 }
 pub trait IDirectSoundCapture_Impl: Sized {
@@ -673,7 +673,7 @@ impl IDirectSoundCapture_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectSoundCapture as ::windows_core::ComInterface>::IID
+        iid == &<IDirectSoundCapture as ::windows_core::Interface>::IID
     }
 }
 pub trait IDirectSoundCaptureBuffer_Impl: Sized {
@@ -761,7 +761,7 @@ impl IDirectSoundCaptureBuffer_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectSoundCaptureBuffer as ::windows_core::ComInterface>::IID
+        iid == &<IDirectSoundCaptureBuffer as ::windows_core::Interface>::IID
     }
 }
 pub trait IDirectSoundCaptureBuffer8_Impl: Sized + IDirectSoundCaptureBuffer_Impl {
@@ -788,7 +788,7 @@ impl IDirectSoundCaptureBuffer8_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectSoundCaptureBuffer8 as ::windows_core::ComInterface>::IID || iid == &<IDirectSoundCaptureBuffer as ::windows_core::ComInterface>::IID
+        iid == &<IDirectSoundCaptureBuffer8 as ::windows_core::Interface>::IID || iid == &<IDirectSoundCaptureBuffer as ::windows_core::Interface>::IID
     }
 }
 pub trait IDirectSoundCaptureFXAec_Impl: Sized {
@@ -841,7 +841,7 @@ impl IDirectSoundCaptureFXAec_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectSoundCaptureFXAec as ::windows_core::ComInterface>::IID
+        iid == &<IDirectSoundCaptureFXAec as ::windows_core::Interface>::IID
     }
 }
 pub trait IDirectSoundCaptureFXNoiseSuppress_Impl: Sized {
@@ -881,7 +881,7 @@ impl IDirectSoundCaptureFXNoiseSuppress_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectSoundCaptureFXNoiseSuppress as ::windows_core::ComInterface>::IID
+        iid == &<IDirectSoundCaptureFXNoiseSuppress as ::windows_core::Interface>::IID
     }
 }
 pub trait IDirectSoundFXChorus_Impl: Sized {
@@ -908,7 +908,7 @@ impl IDirectSoundFXChorus_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectSoundFXChorus as ::windows_core::ComInterface>::IID
+        iid == &<IDirectSoundFXChorus as ::windows_core::Interface>::IID
     }
 }
 pub trait IDirectSoundFXCompressor_Impl: Sized {
@@ -935,7 +935,7 @@ impl IDirectSoundFXCompressor_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectSoundFXCompressor as ::windows_core::ComInterface>::IID
+        iid == &<IDirectSoundFXCompressor as ::windows_core::Interface>::IID
     }
 }
 pub trait IDirectSoundFXDistortion_Impl: Sized {
@@ -962,7 +962,7 @@ impl IDirectSoundFXDistortion_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectSoundFXDistortion as ::windows_core::ComInterface>::IID
+        iid == &<IDirectSoundFXDistortion as ::windows_core::Interface>::IID
     }
 }
 pub trait IDirectSoundFXEcho_Impl: Sized {
@@ -989,7 +989,7 @@ impl IDirectSoundFXEcho_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectSoundFXEcho as ::windows_core::ComInterface>::IID
+        iid == &<IDirectSoundFXEcho as ::windows_core::Interface>::IID
     }
 }
 pub trait IDirectSoundFXFlanger_Impl: Sized {
@@ -1016,7 +1016,7 @@ impl IDirectSoundFXFlanger_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectSoundFXFlanger as ::windows_core::ComInterface>::IID
+        iid == &<IDirectSoundFXFlanger as ::windows_core::Interface>::IID
     }
 }
 pub trait IDirectSoundFXGargle_Impl: Sized {
@@ -1049,7 +1049,7 @@ impl IDirectSoundFXGargle_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectSoundFXGargle as ::windows_core::ComInterface>::IID
+        iid == &<IDirectSoundFXGargle as ::windows_core::Interface>::IID
     }
 }
 pub trait IDirectSoundFXI3DL2Reverb_Impl: Sized {
@@ -1116,7 +1116,7 @@ impl IDirectSoundFXI3DL2Reverb_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectSoundFXI3DL2Reverb as ::windows_core::ComInterface>::IID
+        iid == &<IDirectSoundFXI3DL2Reverb as ::windows_core::Interface>::IID
     }
 }
 pub trait IDirectSoundFXParamEq_Impl: Sized {
@@ -1149,7 +1149,7 @@ impl IDirectSoundFXParamEq_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectSoundFXParamEq as ::windows_core::ComInterface>::IID
+        iid == &<IDirectSoundFXParamEq as ::windows_core::Interface>::IID
     }
 }
 pub trait IDirectSoundFXWavesReverb_Impl: Sized {
@@ -1182,7 +1182,7 @@ impl IDirectSoundFXWavesReverb_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectSoundFXWavesReverb as ::windows_core::ComInterface>::IID
+        iid == &<IDirectSoundFXWavesReverb as ::windows_core::Interface>::IID
     }
 }
 pub trait IDirectSoundFullDuplex_Impl: Sized {
@@ -1199,7 +1199,7 @@ impl IDirectSoundFullDuplex_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectSoundFullDuplex as ::windows_core::ComInterface>::IID
+        iid == &<IDirectSoundFullDuplex as ::windows_core::Interface>::IID
     }
 }
 pub trait IDirectSoundNotify_Impl: Sized {
@@ -1216,6 +1216,6 @@ impl IDirectSoundNotify_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetNotificationPositions: SetNotificationPositions::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectSoundNotify as ::windows_core::ComInterface>::IID
+        iid == &<IDirectSoundNotify as ::windows_core::Interface>::IID
     }
 }

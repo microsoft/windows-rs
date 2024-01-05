@@ -24,7 +24,7 @@ impl ICashDrawerEventSourceEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICashDrawerEventSourceEventArgs as ::windows_core::ComInterface>::IID
+        iid == &<ICashDrawerEventSourceEventArgs as ::windows_core::Interface>::IID
     }
 }
 pub trait ICommonClaimedPosPrinterStation_Impl: Sized {
@@ -256,7 +256,7 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICommonClaimedPosPrinterStation as ::windows_core::ComInterface>::IID
+        iid == &<ICommonClaimedPosPrinterStation as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Foundation_Collections\"`"]
@@ -445,7 +445,7 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICommonPosPrintStationCapabilities as ::windows_core::ComInterface>::IID
+        iid == &<ICommonPosPrintStationCapabilities as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Foundation_Collections\"`"]
@@ -583,7 +583,7 @@ impl ICommonReceiptSlipCapabilities_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICommonReceiptSlipCapabilities as ::windows_core::ComInterface>::IID
+        iid == &<ICommonReceiptSlipCapabilities as ::windows_core::Interface>::IID
     }
 }
 pub trait IPosPrinterJob_Impl: Sized {
@@ -633,7 +633,7 @@ impl IPosPrinterJob_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPosPrinterJob as ::windows_core::ComInterface>::IID
+        iid == &<IPosPrinterJob as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Graphics_Imaging\"`"]
@@ -757,6 +757,6 @@ impl IReceiptOrSlipJob_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IReceiptOrSlipJob as ::windows_core::ComInterface>::IID
+        iid == &<IReceiptOrSlipJob as ::windows_core::Interface>::IID
     }
 }

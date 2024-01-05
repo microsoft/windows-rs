@@ -110,7 +110,7 @@ impl IDirect3D9_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirect3D9 as ::windows_core::ComInterface>::IID
+        iid == &<IDirect3D9 as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
@@ -162,7 +162,7 @@ impl IDirect3D9Ex_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirect3D9Ex as ::windows_core::ComInterface>::IID || iid == &<IDirect3D9 as ::windows_core::ComInterface>::IID
+        iid == &<IDirect3D9Ex as ::windows_core::Interface>::IID || iid == &<IDirect3D9 as ::windows_core::Interface>::IID
     }
 }
 pub trait IDirect3DBaseTexture9_Impl: Sized + IDirect3DResource9_Impl {
@@ -217,7 +217,7 @@ impl IDirect3DBaseTexture9_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirect3DBaseTexture9 as ::windows_core::ComInterface>::IID || iid == &<IDirect3DResource9 as ::windows_core::ComInterface>::IID
+        iid == &<IDirect3DBaseTexture9 as ::windows_core::Interface>::IID || iid == &<IDirect3DResource9 as ::windows_core::Interface>::IID
     }
 }
 pub trait IDirect3DCubeTexture9_Impl: Sized + IDirect3DBaseTexture9_Impl {
@@ -271,7 +271,7 @@ impl IDirect3DCubeTexture9_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirect3DCubeTexture9 as ::windows_core::ComInterface>::IID || iid == &<IDirect3DResource9 as ::windows_core::ComInterface>::IID || iid == &<IDirect3DBaseTexture9 as ::windows_core::ComInterface>::IID
+        iid == &<IDirect3DCubeTexture9 as ::windows_core::Interface>::IID || iid == &<IDirect3DResource9 as ::windows_core::Interface>::IID || iid == &<IDirect3DBaseTexture9 as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Foundation_Numerics\"`, `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Gdi\"`"]
@@ -1196,7 +1196,7 @@ impl IDirect3DDevice9_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirect3DDevice9 as ::windows_core::ComInterface>::IID
+        iid == &<IDirect3DDevice9 as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Foundation_Numerics\"`, `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Gdi\"`"]
@@ -1318,7 +1318,7 @@ impl IDirect3DDevice9Ex_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirect3DDevice9Ex as ::windows_core::ComInterface>::IID || iid == &<IDirect3DDevice9 as ::windows_core::ComInterface>::IID
+        iid == &<IDirect3DDevice9Ex as ::windows_core::Interface>::IID || iid == &<IDirect3DDevice9 as ::windows_core::Interface>::IID
     }
 }
 pub trait IDirect3DIndexBuffer9_Impl: Sized + IDirect3DResource9_Impl {
@@ -1352,7 +1352,7 @@ impl IDirect3DIndexBuffer9_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirect3DIndexBuffer9 as ::windows_core::ComInterface>::IID || iid == &<IDirect3DResource9 as ::windows_core::ComInterface>::IID
+        iid == &<IDirect3DIndexBuffer9 as ::windows_core::Interface>::IID || iid == &<IDirect3DResource9 as ::windows_core::Interface>::IID
     }
 }
 pub trait IDirect3DPixelShader9_Impl: Sized {
@@ -1385,7 +1385,7 @@ impl IDirect3DPixelShader9_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirect3DPixelShader9 as ::windows_core::ComInterface>::IID
+        iid == &<IDirect3DPixelShader9 as ::windows_core::Interface>::IID
     }
 }
 pub trait IDirect3DQuery9_Impl: Sized {
@@ -1439,7 +1439,7 @@ impl IDirect3DQuery9_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirect3DQuery9 as ::windows_core::ComInterface>::IID
+        iid == &<IDirect3DQuery9 as ::windows_core::Interface>::IID
     }
 }
 pub trait IDirect3DResource9_Impl: Sized {
@@ -1514,7 +1514,7 @@ impl IDirect3DResource9_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirect3DResource9 as ::windows_core::ComInterface>::IID
+        iid == &<IDirect3DResource9 as ::windows_core::Interface>::IID
     }
 }
 pub trait IDirect3DStateBlock9_Impl: Sized {
@@ -1554,7 +1554,7 @@ impl IDirect3DStateBlock9_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirect3DStateBlock9 as ::windows_core::ComInterface>::IID
+        iid == &<IDirect3DStateBlock9 as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
@@ -1613,7 +1613,7 @@ impl IDirect3DSurface9_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirect3DSurface9 as ::windows_core::ComInterface>::IID || iid == &<IDirect3DResource9 as ::windows_core::ComInterface>::IID
+        iid == &<IDirect3DSurface9 as ::windows_core::Interface>::IID || iid == &<IDirect3DResource9 as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
@@ -1691,7 +1691,7 @@ impl IDirect3DSwapChain9_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirect3DSwapChain9 as ::windows_core::ComInterface>::IID
+        iid == &<IDirect3DSwapChain9 as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
@@ -1729,7 +1729,7 @@ impl IDirect3DSwapChain9Ex_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirect3DSwapChain9Ex as ::windows_core::ComInterface>::IID || iid == &<IDirect3DSwapChain9 as ::windows_core::ComInterface>::IID
+        iid == &<IDirect3DSwapChain9Ex as ::windows_core::Interface>::IID || iid == &<IDirect3DSwapChain9 as ::windows_core::Interface>::IID
     }
 }
 pub trait IDirect3DTexture9_Impl: Sized + IDirect3DBaseTexture9_Impl {
@@ -1783,7 +1783,7 @@ impl IDirect3DTexture9_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirect3DTexture9 as ::windows_core::ComInterface>::IID || iid == &<IDirect3DResource9 as ::windows_core::ComInterface>::IID || iid == &<IDirect3DBaseTexture9 as ::windows_core::ComInterface>::IID
+        iid == &<IDirect3DTexture9 as ::windows_core::Interface>::IID || iid == &<IDirect3DResource9 as ::windows_core::Interface>::IID || iid == &<IDirect3DBaseTexture9 as ::windows_core::Interface>::IID
     }
 }
 pub trait IDirect3DVertexBuffer9_Impl: Sized + IDirect3DResource9_Impl {
@@ -1817,7 +1817,7 @@ impl IDirect3DVertexBuffer9_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirect3DVertexBuffer9 as ::windows_core::ComInterface>::IID || iid == &<IDirect3DResource9 as ::windows_core::ComInterface>::IID
+        iid == &<IDirect3DVertexBuffer9 as ::windows_core::Interface>::IID || iid == &<IDirect3DResource9 as ::windows_core::Interface>::IID
     }
 }
 pub trait IDirect3DVertexDeclaration9_Impl: Sized {
@@ -1850,7 +1850,7 @@ impl IDirect3DVertexDeclaration9_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirect3DVertexDeclaration9 as ::windows_core::ComInterface>::IID
+        iid == &<IDirect3DVertexDeclaration9 as ::windows_core::Interface>::IID
     }
 }
 pub trait IDirect3DVertexShader9_Impl: Sized {
@@ -1883,7 +1883,7 @@ impl IDirect3DVertexShader9_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirect3DVertexShader9 as ::windows_core::ComInterface>::IID
+        iid == &<IDirect3DVertexShader9 as ::windows_core::Interface>::IID
     }
 }
 pub trait IDirect3DVolume9_Impl: Sized {
@@ -1958,7 +1958,7 @@ impl IDirect3DVolume9_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirect3DVolume9 as ::windows_core::ComInterface>::IID
+        iid == &<IDirect3DVolume9 as ::windows_core::Interface>::IID
     }
 }
 pub trait IDirect3DVolumeTexture9_Impl: Sized + IDirect3DBaseTexture9_Impl {
@@ -2012,6 +2012,6 @@ impl IDirect3DVolumeTexture9_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirect3DVolumeTexture9 as ::windows_core::ComInterface>::IID || iid == &<IDirect3DResource9 as ::windows_core::ComInterface>::IID || iid == &<IDirect3DBaseTexture9 as ::windows_core::ComInterface>::IID
+        iid == &<IDirect3DVolumeTexture9 as ::windows_core::Interface>::IID || iid == &<IDirect3DResource9 as ::windows_core::Interface>::IID || iid == &<IDirect3DBaseTexture9 as ::windows_core::Interface>::IID
     }
 }

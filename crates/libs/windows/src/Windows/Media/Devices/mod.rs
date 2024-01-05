@@ -1,16 +1,7 @@
 #[cfg(feature = "Media_Devices_Core")]
 #[doc = "Required features: `\"Media_Devices_Core\"`"]
 pub mod Core;
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAdvancedPhotoCaptureSettings(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAdvancedPhotoCaptureSettings {
-    type Vtable = IAdvancedPhotoCaptureSettings_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAdvancedPhotoCaptureSettings {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x08f3863a_0018_445b_93d2_646d1c5ed05c);
-}
+::windows_core::imp::com_interface!(IAdvancedPhotoCaptureSettings, IAdvancedPhotoCaptureSettings_Vtbl, 0x08f3863a_0018_445b_93d2_646d1c5ed05c);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdvancedPhotoCaptureSettings_Vtbl {
@@ -18,16 +9,7 @@ pub struct IAdvancedPhotoCaptureSettings_Vtbl {
     pub Mode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AdvancedPhotoMode) -> ::windows_core::HRESULT,
     pub SetMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: AdvancedPhotoMode) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAdvancedPhotoControl(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAdvancedPhotoControl {
-    type Vtable = IAdvancedPhotoControl_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAdvancedPhotoControl {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc5b15486_9001_4682_9309_68eae0080eec);
-}
+::windows_core::imp::com_interface!(IAdvancedPhotoControl, IAdvancedPhotoControl_Vtbl, 0xc5b15486_9001_4682_9309_68eae0080eec);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdvancedPhotoControl_Vtbl {
@@ -40,16 +22,7 @@ pub struct IAdvancedPhotoControl_Vtbl {
     pub Mode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AdvancedPhotoMode) -> ::windows_core::HRESULT,
     pub Configure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, settings: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAdvancedVideoCaptureDeviceController(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAdvancedVideoCaptureDeviceController {
-    type Vtable = IAdvancedVideoCaptureDeviceController_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAdvancedVideoCaptureDeviceController {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xde6ff4d3_2b96_4583_80ab_b5b01dc6a8d7);
-}
+::windows_core::imp::com_interface!(IAdvancedVideoCaptureDeviceController, IAdvancedVideoCaptureDeviceController_Vtbl, 0xde6ff4d3_2b96_4583_80ab_b5b01dc6a8d7);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdvancedVideoCaptureDeviceController_Vtbl {
@@ -57,32 +30,14 @@ pub struct IAdvancedVideoCaptureDeviceController_Vtbl {
     pub SetDeviceProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, propertyvalue: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetDeviceProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAdvancedVideoCaptureDeviceController10(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAdvancedVideoCaptureDeviceController10 {
-    type Vtable = IAdvancedVideoCaptureDeviceController10_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAdvancedVideoCaptureDeviceController10 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc621b82d_d6f0_5c1b_a388_a6e938407146);
-}
+::windows_core::imp::com_interface!(IAdvancedVideoCaptureDeviceController10, IAdvancedVideoCaptureDeviceController10_Vtbl, 0xc621b82d_d6f0_5c1b_a388_a6e938407146);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdvancedVideoCaptureDeviceController10_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CameraOcclusionInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAdvancedVideoCaptureDeviceController11(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAdvancedVideoCaptureDeviceController11 {
-    type Vtable = IAdvancedVideoCaptureDeviceController11_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAdvancedVideoCaptureDeviceController11 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd5b65ae2_3772_580c_a630_e75de9106904);
-}
+::windows_core::imp::com_interface!(IAdvancedVideoCaptureDeviceController11, IAdvancedVideoCaptureDeviceController11_Vtbl, 0xd5b65ae2_3772_580c_a630_e75de9106904);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdvancedVideoCaptureDeviceController11_Vtbl {
@@ -92,16 +47,7 @@ pub struct IAdvancedVideoCaptureDeviceController11_Vtbl {
     #[cfg(not(feature = "Media_Capture"))]
     TryAcquireExclusiveControl: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAdvancedVideoCaptureDeviceController2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAdvancedVideoCaptureDeviceController2 {
-    type Vtable = IAdvancedVideoCaptureDeviceController2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAdvancedVideoCaptureDeviceController2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8bb94f8f_f11a_43db_b402_11930b80ae56);
-}
+::windows_core::imp::com_interface!(IAdvancedVideoCaptureDeviceController2, IAdvancedVideoCaptureDeviceController2_Vtbl, 0x8bb94f8f_f11a_43db_b402_11930b80ae56);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdvancedVideoCaptureDeviceController2_Vtbl {
@@ -120,16 +66,7 @@ pub struct IAdvancedVideoCaptureDeviceController2_Vtbl {
     pub PrimaryUse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CaptureUse) -> ::windows_core::HRESULT,
     pub SetPrimaryUse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: CaptureUse) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAdvancedVideoCaptureDeviceController3(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAdvancedVideoCaptureDeviceController3 {
-    type Vtable = IAdvancedVideoCaptureDeviceController3_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAdvancedVideoCaptureDeviceController3 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa98b8f34_ee0d_470c_b9f0_4229c4bbd089);
-}
+::windows_core::imp::com_interface!(IAdvancedVideoCaptureDeviceController3, IAdvancedVideoCaptureDeviceController3_Vtbl, 0xa98b8f34_ee0d_470c_b9f0_4229c4bbd089);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdvancedVideoCaptureDeviceController3_Vtbl {
@@ -141,16 +78,7 @@ pub struct IAdvancedVideoCaptureDeviceController3_Vtbl {
     pub PhotoConfirmationControl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub ZoomControl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAdvancedVideoCaptureDeviceController4(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAdvancedVideoCaptureDeviceController4 {
-    type Vtable = IAdvancedVideoCaptureDeviceController4_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAdvancedVideoCaptureDeviceController4 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xea9fbfaf_d371_41c3_9a17_824a87ebdfd2);
-}
+::windows_core::imp::com_interface!(IAdvancedVideoCaptureDeviceController4, IAdvancedVideoCaptureDeviceController4_Vtbl, 0xea9fbfaf_d371_41c3_9a17_824a87ebdfd2);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdvancedVideoCaptureDeviceController4_Vtbl {
@@ -162,16 +90,7 @@ pub struct IAdvancedVideoCaptureDeviceController4_Vtbl {
     pub OpticalImageStabilizationControl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub AdvancedPhotoControl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAdvancedVideoCaptureDeviceController5(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAdvancedVideoCaptureDeviceController5 {
-    type Vtable = IAdvancedVideoCaptureDeviceController5_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAdvancedVideoCaptureDeviceController5 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x33512b17_b9cb_4a23_b875_f9eaab535492);
-}
+::windows_core::imp::com_interface!(IAdvancedVideoCaptureDeviceController5, IAdvancedVideoCaptureDeviceController5_Vtbl, 0x33512b17_b9cb_4a23_b875_f9eaab535492);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdvancedVideoCaptureDeviceController5_Vtbl {
@@ -182,80 +101,35 @@ pub struct IAdvancedVideoCaptureDeviceController5_Vtbl {
     pub GetDevicePropertyByExtendedId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, extendedPropertyId_array_size: u32, extendedpropertyid: *const u8, maxpropertyvaluesize: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub SetDevicePropertyByExtendedId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, extendedPropertyId_array_size: u32, extendedpropertyid: *const u8, propertyValue_array_size: u32, propertyvalue: *const u8, result__: *mut VideoDeviceControllerSetDevicePropertyStatus) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAdvancedVideoCaptureDeviceController6(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAdvancedVideoCaptureDeviceController6 {
-    type Vtable = IAdvancedVideoCaptureDeviceController6_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAdvancedVideoCaptureDeviceController6 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb6563a53_68a1_44b7_9f89_b5fa97ac0cbe);
-}
+::windows_core::imp::com_interface!(IAdvancedVideoCaptureDeviceController6, IAdvancedVideoCaptureDeviceController6_Vtbl, 0xb6563a53_68a1_44b7_9f89_b5fa97ac0cbe);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdvancedVideoCaptureDeviceController6_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub VideoTemporalDenoisingControl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAdvancedVideoCaptureDeviceController7(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAdvancedVideoCaptureDeviceController7 {
-    type Vtable = IAdvancedVideoCaptureDeviceController7_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAdvancedVideoCaptureDeviceController7 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8d2927f0_a054_50e7_b7df_7c04234d10f0);
-}
+::windows_core::imp::com_interface!(IAdvancedVideoCaptureDeviceController7, IAdvancedVideoCaptureDeviceController7_Vtbl, 0x8d2927f0_a054_50e7_b7df_7c04234d10f0);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdvancedVideoCaptureDeviceController7_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub InfraredTorchControl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAdvancedVideoCaptureDeviceController8(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAdvancedVideoCaptureDeviceController8 {
-    type Vtable = IAdvancedVideoCaptureDeviceController8_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAdvancedVideoCaptureDeviceController8 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd843f010_e7fb_595b_9a78_0e54c4532b43);
-}
+::windows_core::imp::com_interface!(IAdvancedVideoCaptureDeviceController8, IAdvancedVideoCaptureDeviceController8_Vtbl, 0xd843f010_e7fb_595b_9a78_0e54c4532b43);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdvancedVideoCaptureDeviceController8_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PanelBasedOptimizationControl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAdvancedVideoCaptureDeviceController9(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAdvancedVideoCaptureDeviceController9 {
-    type Vtable = IAdvancedVideoCaptureDeviceController9_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAdvancedVideoCaptureDeviceController9 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8bdca95d_0255_51bc_a10d_5a169ec1625a);
-}
+::windows_core::imp::com_interface!(IAdvancedVideoCaptureDeviceController9, IAdvancedVideoCaptureDeviceController9_Vtbl, 0x8bdca95d_0255_51bc_a10d_5a169ec1625a);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdvancedVideoCaptureDeviceController9_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub DigitalWindowControl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAudioDeviceController(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAudioDeviceController {
-    type Vtable = IAudioDeviceController_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAudioDeviceController {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xedd4a388_79c7_4f7c_90e8_ef934b21580a);
-}
+::windows_core::imp::com_interface!(IAudioDeviceController, IAudioDeviceController_Vtbl, 0xedd4a388_79c7_4f7c_90e8_ef934b21580a);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioDeviceController_Vtbl {
@@ -265,16 +139,7 @@ pub struct IAudioDeviceController_Vtbl {
     pub SetVolumePercent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows_core::HRESULT,
     pub VolumePercent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAudioDeviceModule(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAudioDeviceModule {
-    type Vtable = IAudioDeviceModule_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAudioDeviceModule {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x86cfac36_47c1_4b33_9852_8773ec4be123);
-}
+::windows_core::imp::com_interface!(IAudioDeviceModule, IAudioDeviceModule_Vtbl, 0x86cfac36_47c1_4b33_9852_8773ec4be123);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioDeviceModule_Vtbl {
@@ -289,16 +154,7 @@ pub struct IAudioDeviceModule_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     SendCommandAsync: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAudioDeviceModuleNotificationEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAudioDeviceModuleNotificationEventArgs {
-    type Vtable = IAudioDeviceModuleNotificationEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAudioDeviceModuleNotificationEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe3e3ccaf_224c_48be_956b_9a13134e96e8);
-}
+::windows_core::imp::com_interface!(IAudioDeviceModuleNotificationEventArgs, IAudioDeviceModuleNotificationEventArgs_Vtbl, 0xe3e3ccaf_224c_48be_956b_9a13134e96e8);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioDeviceModuleNotificationEventArgs_Vtbl {
@@ -309,16 +165,7 @@ pub struct IAudioDeviceModuleNotificationEventArgs_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     NotificationData: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAudioDeviceModulesManager(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAudioDeviceModulesManager {
-    type Vtable = IAudioDeviceModulesManager_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAudioDeviceModulesManager {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6aa40c4d_960a_4d1c_b318_0022604547ed);
-}
+::windows_core::imp::com_interface!(IAudioDeviceModulesManager, IAudioDeviceModulesManager_Vtbl, 0x6aa40c4d_960a_4d1c_b318_0022604547ed);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioDeviceModulesManager_Vtbl {
@@ -334,32 +181,14 @@ pub struct IAudioDeviceModulesManager_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     FindAll: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAudioDeviceModulesManagerFactory(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAudioDeviceModulesManagerFactory {
-    type Vtable = IAudioDeviceModulesManagerFactory_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAudioDeviceModulesManagerFactory {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8db03670_e64d_4773_96c0_bc7ebf0e063f);
-}
+::windows_core::imp::com_interface!(IAudioDeviceModulesManagerFactory, IAudioDeviceModulesManagerFactory_Vtbl, 0x8db03670_e64d_4773_96c0_bc7ebf0e063f);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioDeviceModulesManagerFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ICallControl(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ICallControl {
-    type Vtable = ICallControl_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ICallControl {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa520d0d6_ae8d_45db_8011_ca49d3b3e578);
-}
+::windows_core::imp::com_interface!(ICallControl, ICallControl_Vtbl, 0xa520d0d6_ae8d_45db_8011_ca49d3b3e578);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICallControl_Vtbl {
@@ -382,16 +211,7 @@ pub struct ICallControl_Vtbl {
     pub AudioTransferRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     pub RemoveAudioTransferRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ICallControlStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ICallControlStatics {
-    type Vtable = ICallControlStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ICallControlStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x03945ad5_85ab_40e1_af19_56c94303b019);
-}
+::windows_core::imp::com_interface!(ICallControlStatics, ICallControlStatics_Vtbl, 0x03945ad5_85ab_40e1_af19_56c94303b019);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICallControlStatics_Vtbl {
@@ -399,16 +219,7 @@ pub struct ICallControlStatics_Vtbl {
     pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub FromId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ICameraOcclusionInfo(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ICameraOcclusionInfo {
-    type Vtable = ICameraOcclusionInfo_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ICameraOcclusionInfo {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaf6c4ad0_a84d_5db6_be58_a5da21cfe011);
-}
+::windows_core::imp::com_interface!(ICameraOcclusionInfo, ICameraOcclusionInfo_Vtbl, 0xaf6c4ad0_a84d_5db6_be58_a5da21cfe011);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICameraOcclusionInfo_Vtbl {
@@ -418,16 +229,7 @@ pub struct ICameraOcclusionInfo_Vtbl {
     pub StateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     pub RemoveStateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ICameraOcclusionState(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ICameraOcclusionState {
-    type Vtable = ICameraOcclusionState_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ICameraOcclusionState {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x430adeb8_6842_5e55_9bde_04b4ef3a8a57);
-}
+::windows_core::imp::com_interface!(ICameraOcclusionState, ICameraOcclusionState_Vtbl, 0x430adeb8_6842_5e55_9bde_04b4ef3a8a57);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICameraOcclusionState_Vtbl {
@@ -435,25 +237,15 @@ pub struct ICameraOcclusionState_Vtbl {
     pub IsOccluded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub IsOcclusionKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, occlusionkind: CameraOcclusionKind, result__: *mut bool) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ICameraOcclusionStateChangedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ICameraOcclusionStateChangedEventArgs {
-    type Vtable = ICameraOcclusionStateChangedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ICameraOcclusionStateChangedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8512d848_c0de_57ca_a1ca_fb2c3d23df55);
-}
+::windows_core::imp::com_interface!(ICameraOcclusionStateChangedEventArgs, ICameraOcclusionStateChangedEventArgs_Vtbl, 0x8512d848_c0de_57ca_a1ca_fb2c3d23df55);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICameraOcclusionStateChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDefaultAudioDeviceChangedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDefaultAudioDeviceChangedEventArgs, IDefaultAudioDeviceChangedEventArgs_Vtbl, 0x110f882f_1c05_4657_a18e_47c9b69f07ab);
+::windows_core::imp::interface_hierarchy!(IDefaultAudioDeviceChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl IDefaultAudioDeviceChangedEventArgs {
     pub fn Id(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -470,15 +262,8 @@ impl IDefaultAudioDeviceChangedEventArgs {
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IDefaultAudioDeviceChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IDefaultAudioDeviceChangedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IDefaultAudioDeviceChangedEventArgs {
-    type Vtable = IDefaultAudioDeviceChangedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDefaultAudioDeviceChangedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x110f882f_1c05_4657_a18e_47c9b69f07ab);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -487,16 +272,7 @@ pub struct IDefaultAudioDeviceChangedEventArgs_Vtbl {
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub Role: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AudioDeviceRole) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDialRequestedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDialRequestedEventArgs {
-    type Vtable = IDialRequestedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDialRequestedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x037b929e_953c_4286_8866_4f0f376c855a);
-}
+::windows_core::imp::com_interface!(IDialRequestedEventArgs, IDialRequestedEventArgs_Vtbl, 0x037b929e_953c_4286_8866_4f0f376c855a);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDialRequestedEventArgs_Vtbl {
@@ -504,16 +280,7 @@ pub struct IDialRequestedEventArgs_Vtbl {
     pub Handled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Contact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDigitalWindowBounds(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDigitalWindowBounds {
-    type Vtable = IDigitalWindowBounds_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDigitalWindowBounds {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdd4f21dd_d173_5c6b_8c25_bdd26d5122b1);
-}
+::windows_core::imp::com_interface!(IDigitalWindowBounds, IDigitalWindowBounds_Vtbl, 0xdd4f21dd_d173_5c6b_8c25_bdd26d5122b1);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDigitalWindowBounds_Vtbl {
@@ -525,16 +292,7 @@ pub struct IDigitalWindowBounds_Vtbl {
     pub Scale: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows_core::HRESULT,
     pub SetScale: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDigitalWindowCapability(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDigitalWindowCapability {
-    type Vtable = IDigitalWindowCapability_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDigitalWindowCapability {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd78bad2c_f721_5244_a196_b56ccbec606c);
-}
+::windows_core::imp::com_interface!(IDigitalWindowCapability, IDigitalWindowCapability_Vtbl, 0xd78bad2c_f721_5244_a196_b56ccbec606c);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDigitalWindowCapability_Vtbl {
@@ -546,16 +304,7 @@ pub struct IDigitalWindowCapability_Vtbl {
     pub MinScaleValueWithoutUpsampling: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows_core::HRESULT,
     pub NormalizedFieldOfViewLimit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDigitalWindowControl(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDigitalWindowControl {
-    type Vtable = IDigitalWindowControl_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDigitalWindowControl {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x23b69eff_65d2_53ea_8780_de582b48b544);
-}
+::windows_core::imp::com_interface!(IDigitalWindowControl, IDigitalWindowControl_Vtbl, 0x23b69eff_65d2_53ea_8780_de582b48b544);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDigitalWindowControl_Vtbl {
@@ -572,16 +321,7 @@ pub struct IDigitalWindowControl_Vtbl {
     SupportedCapabilities: usize,
     pub GetCapabilityForSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, width: i32, height: i32, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IExposureCompensationControl(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IExposureCompensationControl {
-    type Vtable = IExposureCompensationControl_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IExposureCompensationControl {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x81c8e834_dcec_4011_a610_1f3847e64aca);
-}
+::windows_core::imp::com_interface!(IExposureCompensationControl, IExposureCompensationControl_Vtbl, 0x81c8e834_dcec_4011_a610_1f3847e64aca);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IExposureCompensationControl_Vtbl {
@@ -593,16 +333,7 @@ pub struct IExposureCompensationControl_Vtbl {
     pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows_core::HRESULT,
     pub SetValueAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IExposureControl(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IExposureControl {
-    type Vtable = IExposureControl_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IExposureControl {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x09e8cbe2_ad96_4f28_a0e0_96ed7e1b5fd2);
-}
+::windows_core::imp::com_interface!(IExposureControl, IExposureControl_Vtbl, 0x09e8cbe2_ad96_4f28_a0e0_96ed7e1b5fd2);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IExposureControl_Vtbl {
@@ -616,16 +347,7 @@ pub struct IExposureControl_Vtbl {
     pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
     pub SetValueAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shutterduration: super::super::Foundation::TimeSpan, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IExposurePriorityVideoControl(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IExposurePriorityVideoControl {
-    type Vtable = IExposurePriorityVideoControl_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IExposurePriorityVideoControl {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2cb240a3_5168_4271_9ea5_47621a98a352);
-}
+::windows_core::imp::com_interface!(IExposurePriorityVideoControl, IExposurePriorityVideoControl_Vtbl, 0x2cb240a3_5168_4271_9ea5_47621a98a352);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IExposurePriorityVideoControl_Vtbl {
@@ -634,16 +356,7 @@ pub struct IExposurePriorityVideoControl_Vtbl {
     pub Enabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub SetEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IFlashControl(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IFlashControl {
-    type Vtable = IFlashControl_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IFlashControl {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdef41dbe_7d68_45e3_8c0f_be7bb32837d0);
-}
+::windows_core::imp::com_interface!(IFlashControl, IFlashControl_Vtbl, 0xdef41dbe_7d68_45e3_8c0f_be7bb32837d0);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFlashControl_Vtbl {
@@ -660,16 +373,7 @@ pub struct IFlashControl_Vtbl {
     pub PowerPercent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows_core::HRESULT,
     pub SetPowerPercent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IFlashControl2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IFlashControl2 {
-    type Vtable = IFlashControl2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IFlashControl2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7d29cc9e_75e1_4af7_bd7d_4e38e1c06cd6);
-}
+::windows_core::imp::com_interface!(IFlashControl2, IFlashControl2_Vtbl, 0x7d29cc9e_75e1_4af7_bd7d_4e38e1c06cd6);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFlashControl2_Vtbl {
@@ -678,16 +382,7 @@ pub struct IFlashControl2_Vtbl {
     pub AssistantLightEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub SetAssistantLightEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IFocusControl(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IFocusControl {
-    type Vtable = IFocusControl_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IFocusControl {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc0d889f6_5228_4453_b153_85606592b238);
-}
+::windows_core::imp::com_interface!(IFocusControl, IFocusControl_Vtbl, 0xc0d889f6_5228_4453_b153_85606592b238);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFocusControl_Vtbl {
@@ -707,16 +402,7 @@ pub struct IFocusControl_Vtbl {
     pub SetValueAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, focus: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub FocusAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IFocusControl2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IFocusControl2 {
-    type Vtable = IFocusControl2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IFocusControl2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3f7cff48_c534_4e9e_94c3_52ef2afd5d07);
-}
+::windows_core::imp::com_interface!(IFocusControl2, IFocusControl2_Vtbl, 0x3f7cff48_c534_4e9e_94c3_52ef2afd5d07);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFocusControl2_Vtbl {
@@ -741,16 +427,7 @@ pub struct IFocusControl2_Vtbl {
     pub LockAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Configure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, settings: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IFocusSettings(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IFocusSettings {
-    type Vtable = IFocusSettings_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IFocusSettings {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x79958f6b_3263_4275_85d6_aeae891c96ee);
-}
+::windows_core::imp::com_interface!(IFocusSettings, IFocusSettings_Vtbl, 0x79958f6b_3263_4275_85d6_aeae891c96ee);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFocusSettings_Vtbl {
@@ -768,16 +445,7 @@ pub struct IFocusSettings_Vtbl {
     pub DisableDriverFallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub SetDisableDriverFallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IHdrVideoControl(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IHdrVideoControl {
-    type Vtable = IHdrVideoControl_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IHdrVideoControl {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x55d8e2d0_30c0_43bf_9b9a_9799d70ced94);
-}
+::windows_core::imp::com_interface!(IHdrVideoControl, IHdrVideoControl_Vtbl, 0x55d8e2d0_30c0_43bf_9b9a_9799d70ced94);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHdrVideoControl_Vtbl {
@@ -790,16 +458,7 @@ pub struct IHdrVideoControl_Vtbl {
     pub Mode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut HdrVideoMode) -> ::windows_core::HRESULT,
     pub SetMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: HdrVideoMode) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IInfraredTorchControl(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IInfraredTorchControl {
-    type Vtable = IInfraredTorchControl_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IInfraredTorchControl {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1cba2c83_6cb6_5a04_a6fc_3be7b33ff056);
-}
+::windows_core::imp::com_interface!(IInfraredTorchControl, IInfraredTorchControl_Vtbl, 0x1cba2c83_6cb6_5a04_a6fc_3be7b33ff056);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInfraredTorchControl_Vtbl {
@@ -817,16 +476,7 @@ pub struct IInfraredTorchControl_Vtbl {
     pub Power: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
     pub SetPower: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IIsoSpeedControl(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IIsoSpeedControl {
-    type Vtable = IIsoSpeedControl_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IIsoSpeedControl {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x27b6c322_25ad_4f1b_aaab_524ab376ca33);
-}
+::windows_core::imp::com_interface!(IIsoSpeedControl, IIsoSpeedControl_Vtbl, 0x27b6c322_25ad_4f1b_aaab_524ab376ca33);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsoSpeedControl_Vtbl {
@@ -845,16 +495,7 @@ pub struct IIsoSpeedControl_Vtbl {
     #[cfg(not(feature = "deprecated"))]
     SetPresetAsync: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IIsoSpeedControl2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IIsoSpeedControl2 {
-    type Vtable = IIsoSpeedControl2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IIsoSpeedControl2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6f1578f2_6d77_4f8a_8c2f_6130b6395053);
-}
+::windows_core::imp::com_interface!(IIsoSpeedControl2, IIsoSpeedControl2_Vtbl, 0x6f1578f2_6d77_4f8a_8c2f_6130b6395053);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsoSpeedControl2_Vtbl {
@@ -867,32 +508,14 @@ pub struct IIsoSpeedControl2_Vtbl {
     pub Auto: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub SetAutoAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IKeypadPressedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IKeypadPressedEventArgs {
-    type Vtable = IKeypadPressedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IKeypadPressedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd3a43900_b4fa_49cd_9442_89af6568f601);
-}
+::windows_core::imp::com_interface!(IKeypadPressedEventArgs, IKeypadPressedEventArgs_Vtbl, 0xd3a43900_b4fa_49cd_9442_89af6568f601);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKeypadPressedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub TelephonyKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut TelephonyKey) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ILowLagPhotoControl(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ILowLagPhotoControl {
-    type Vtable = ILowLagPhotoControl_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ILowLagPhotoControl {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6d5c4dd0_fadf_415d_aee6_3baa529300c9);
-}
+::windows_core::imp::com_interface!(ILowLagPhotoControl, ILowLagPhotoControl_Vtbl, 0x6d5c4dd0_fadf_415d_aee6_3baa529300c9);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILowLagPhotoControl_Vtbl {
@@ -919,16 +542,7 @@ pub struct ILowLagPhotoControl_Vtbl {
     pub SetDesiredThumbnailSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows_core::HRESULT,
     pub HardwareAcceleratedThumbnailSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ILowLagPhotoSequenceControl(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ILowLagPhotoSequenceControl {
-    type Vtable = ILowLagPhotoSequenceControl_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ILowLagPhotoSequenceControl {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3dcf909d_6d16_409c_bafe_b9a594c6fde6);
-}
+::windows_core::imp::com_interface!(ILowLagPhotoSequenceControl, ILowLagPhotoSequenceControl_Vtbl, 0x3dcf909d_6d16_409c_bafe_b9a594c6fde6);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILowLagPhotoSequenceControl_Vtbl {
@@ -962,16 +576,7 @@ pub struct ILowLagPhotoSequenceControl_Vtbl {
     pub SetDesiredThumbnailSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows_core::HRESULT,
     pub HardwareAcceleratedThumbnailSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMediaDeviceControl(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IMediaDeviceControl {
-    type Vtable = IMediaDeviceControl_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IMediaDeviceControl {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xefa8dfa9_6f75_4863_ba0b_583f3036b4de);
-}
+::windows_core::imp::com_interface!(IMediaDeviceControl, IMediaDeviceControl_Vtbl, 0xefa8dfa9_6f75_4863_ba0b_583f3036b4de);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaDeviceControl_Vtbl {
@@ -982,16 +587,7 @@ pub struct IMediaDeviceControl_Vtbl {
     pub TryGetAuto: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut bool, result__: *mut bool) -> ::windows_core::HRESULT,
     pub TrySetAuto: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool, result__: *mut bool) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMediaDeviceControlCapabilities(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IMediaDeviceControlCapabilities {
-    type Vtable = IMediaDeviceControlCapabilities_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IMediaDeviceControlCapabilities {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x23005816_eb85_43e2_b92b_8240d5ee70ec);
-}
+::windows_core::imp::com_interface!(IMediaDeviceControlCapabilities, IMediaDeviceControlCapabilities_Vtbl, 0x23005816_eb85_43e2_b92b_8240d5ee70ec);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaDeviceControlCapabilities_Vtbl {
@@ -1003,9 +599,8 @@ pub struct IMediaDeviceControlCapabilities_Vtbl {
     pub Default: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows_core::HRESULT,
     pub AutoModeSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMediaDeviceController(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IMediaDeviceController, IMediaDeviceController_Vtbl, 0xf6f8f5ce_209a_48fb_86fc_d44578f317e6);
+::windows_core::imp::interface_hierarchy!(IMediaDeviceController, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl IMediaDeviceController {
     #[doc = "Required features: `\"Foundation_Collections\"`, `\"Media_Capture\"`, `\"Media_MediaProperties\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Capture", feature = "Media_MediaProperties"))]
@@ -1029,24 +624,17 @@ impl IMediaDeviceController {
     #[cfg(all(feature = "Media_Capture", feature = "Media_MediaProperties"))]
     pub fn SetMediaStreamPropertiesAsync<P0>(&self, mediastreamtype: super::Capture::MediaStreamType, mediaencodingproperties: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::windows_core::TryIntoParam<super::MediaProperties::IMediaEncodingProperties>,
+        P0: ::windows_core::IntoParam<super::MediaProperties::IMediaEncodingProperties>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SetMediaStreamPropertiesAsync)(::windows_core::Interface::as_raw(this), mediastreamtype, mediaencodingproperties.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SetMediaStreamPropertiesAsync)(::windows_core::Interface::as_raw(this), mediastreamtype, mediaencodingproperties.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IMediaDeviceController, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IMediaDeviceController {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IMediaDeviceController {
-    type Vtable = IMediaDeviceController_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IMediaDeviceController {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf6f8f5ce_209a_48fb_86fc_d44578f317e6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1065,16 +653,7 @@ pub struct IMediaDeviceController_Vtbl {
     #[cfg(not(all(feature = "Media_Capture", feature = "Media_MediaProperties")))]
     SetMediaStreamPropertiesAsync: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMediaDeviceStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IMediaDeviceStatics {
-    type Vtable = IMediaDeviceStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IMediaDeviceStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaa2d9a40_909f_4bba_bf8b_0c0d296f14f0);
-}
+::windows_core::imp::com_interface!(IMediaDeviceStatics, IMediaDeviceStatics_Vtbl, 0xaa2d9a40_909f_4bba_bf8b_0c0d296f14f0);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaDeviceStatics_Vtbl {
@@ -1089,16 +668,7 @@ pub struct IMediaDeviceStatics_Vtbl {
     pub DefaultAudioRenderDeviceChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     pub RemoveDefaultAudioRenderDeviceChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IModuleCommandResult(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IModuleCommandResult {
-    type Vtable = IModuleCommandResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IModuleCommandResult {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x520d1eb4_1374_4c7d_b1e4_39dcdf3eae4e);
-}
+::windows_core::imp::com_interface!(IModuleCommandResult, IModuleCommandResult_Vtbl, 0x520d1eb4_1374_4c7d_b1e4_39dcdf3eae4e);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IModuleCommandResult_Vtbl {
@@ -1109,16 +679,7 @@ pub struct IModuleCommandResult_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     Result: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IOpticalImageStabilizationControl(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IOpticalImageStabilizationControl {
-    type Vtable = IOpticalImageStabilizationControl_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IOpticalImageStabilizationControl {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbfad9c1d_00bc_423b_8eb2_a0178ca94247);
-}
+::windows_core::imp::com_interface!(IOpticalImageStabilizationControl, IOpticalImageStabilizationControl_Vtbl, 0xbfad9c1d_00bc_423b_8eb2_a0178ca94247);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpticalImageStabilizationControl_Vtbl {
@@ -1131,16 +692,7 @@ pub struct IOpticalImageStabilizationControl_Vtbl {
     pub Mode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut OpticalImageStabilizationMode) -> ::windows_core::HRESULT,
     pub SetMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: OpticalImageStabilizationMode) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPanelBasedOptimizationControl(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPanelBasedOptimizationControl {
-    type Vtable = IPanelBasedOptimizationControl_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPanelBasedOptimizationControl {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x33323223_6247_5419_a5a4_3d808645d917);
-}
+::windows_core::imp::com_interface!(IPanelBasedOptimizationControl, IPanelBasedOptimizationControl_Vtbl, 0x33323223_6247_5419_a5a4_3d808645d917);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPanelBasedOptimizationControl_Vtbl {
@@ -1155,16 +707,7 @@ pub struct IPanelBasedOptimizationControl_Vtbl {
     #[cfg(not(feature = "Devices_Enumeration"))]
     SetPanel: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPhotoConfirmationControl(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPhotoConfirmationControl {
-    type Vtable = IPhotoConfirmationControl_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPhotoConfirmationControl {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc8f3f363_ff5e_4582_a9a8_0550f85a4a76);
-}
+::windows_core::imp::com_interface!(IPhotoConfirmationControl, IPhotoConfirmationControl_Vtbl, 0xc8f3f363_ff5e_4582_a9a8_0550f85a4a76);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhotoConfirmationControl_Vtbl {
@@ -1181,32 +724,14 @@ pub struct IPhotoConfirmationControl_Vtbl {
     #[cfg(not(feature = "Media_MediaProperties"))]
     SetPixelFormat: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRedialRequestedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IRedialRequestedEventArgs {
-    type Vtable = IRedialRequestedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRedialRequestedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7eb55209_76ab_4c31_b40e_4b58379d580c);
-}
+::windows_core::imp::com_interface!(IRedialRequestedEventArgs, IRedialRequestedEventArgs_Vtbl, 0x7eb55209_76ab_4c31_b40e_4b58379d580c);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRedialRequestedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Handled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRegionOfInterest(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IRegionOfInterest {
-    type Vtable = IRegionOfInterest_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRegionOfInterest {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe5ecc834_ce66_4e05_a78f_cf391a5ec2d1);
-}
+::windows_core::imp::com_interface!(IRegionOfInterest, IRegionOfInterest_Vtbl, 0xe5ecc834_ce66_4e05_a78f_cf391a5ec2d1);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRegionOfInterest_Vtbl {
@@ -1220,16 +745,7 @@ pub struct IRegionOfInterest_Vtbl {
     pub Bounds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows_core::HRESULT,
     pub SetBounds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Rect) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRegionOfInterest2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IRegionOfInterest2 {
-    type Vtable = IRegionOfInterest2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRegionOfInterest2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x19fe2a91_73aa_4d51_8a9d_56ccf7db7f54);
-}
+::windows_core::imp::com_interface!(IRegionOfInterest2, IRegionOfInterest2_Vtbl, 0x19fe2a91_73aa_4d51_8a9d_56ccf7db7f54);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRegionOfInterest2_Vtbl {
@@ -1241,16 +757,7 @@ pub struct IRegionOfInterest2_Vtbl {
     pub Weight: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
     pub SetWeight: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRegionsOfInterestControl(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IRegionsOfInterestControl {
-    type Vtable = IRegionsOfInterestControl_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRegionsOfInterestControl {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc323f527_ab0b_4558_8b5b_df5693db0378);
-}
+::windows_core::imp::com_interface!(IRegionsOfInterestControl, IRegionsOfInterestControl_Vtbl, 0xc323f527_ab0b_4558_8b5b_df5693db0378);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRegionsOfInterestControl_Vtbl {
@@ -1269,16 +776,7 @@ pub struct IRegionsOfInterestControl_Vtbl {
     pub AutoWhiteBalanceSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub AutoExposureSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISceneModeControl(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISceneModeControl {
-    type Vtable = ISceneModeControl_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISceneModeControl {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd48e5af7_8d59_4854_8c62_12c70ba89b7c);
-}
+::windows_core::imp::com_interface!(ISceneModeControl, ISceneModeControl_Vtbl, 0xd48e5af7_8d59_4854_8c62_12c70ba89b7c);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceneModeControl_Vtbl {
@@ -1290,16 +788,7 @@ pub struct ISceneModeControl_Vtbl {
     pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CaptureSceneMode) -> ::windows_core::HRESULT,
     pub SetValueAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scenemode: CaptureSceneMode, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ITorchControl(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ITorchControl {
-    type Vtable = ITorchControl_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ITorchControl {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa6053665_8250_416c_919a_724296afa306);
-}
+::windows_core::imp::com_interface!(ITorchControl, ITorchControl_Vtbl, 0xa6053665_8250_416c_919a_724296afa306);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITorchControl_Vtbl {
@@ -1311,16 +800,7 @@ pub struct ITorchControl_Vtbl {
     pub PowerPercent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows_core::HRESULT,
     pub SetPowerPercent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IVideoDeviceController(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IVideoDeviceController {
-    type Vtable = IVideoDeviceController_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IVideoDeviceController {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x99555575_2e2e_40b8_b6c7_f82d10013210);
-}
+::windows_core::imp::com_interface!(IVideoDeviceController, IVideoDeviceController_Vtbl, 0x99555575_2e2e_40b8_b6c7_f82d10013210);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVideoDeviceController_Vtbl {
@@ -1345,16 +825,7 @@ pub struct IVideoDeviceController_Vtbl {
     #[cfg(not(feature = "Media_Capture"))]
     TryGetPowerlineFrequency: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IVideoDeviceControllerGetDevicePropertyResult(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IVideoDeviceControllerGetDevicePropertyResult {
-    type Vtable = IVideoDeviceControllerGetDevicePropertyResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IVideoDeviceControllerGetDevicePropertyResult {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc5d88395_6ed5_4790_8b5d_0ef13935d0f8);
-}
+::windows_core::imp::com_interface!(IVideoDeviceControllerGetDevicePropertyResult, IVideoDeviceControllerGetDevicePropertyResult_Vtbl, 0xc5d88395_6ed5_4790_8b5d_0ef13935d0f8);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVideoDeviceControllerGetDevicePropertyResult_Vtbl {
@@ -1362,16 +833,7 @@ pub struct IVideoDeviceControllerGetDevicePropertyResult_Vtbl {
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut VideoDeviceControllerGetDevicePropertyStatus) -> ::windows_core::HRESULT,
     pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IVideoTemporalDenoisingControl(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IVideoTemporalDenoisingControl {
-    type Vtable = IVideoTemporalDenoisingControl_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IVideoTemporalDenoisingControl {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7ab34735_3e2a_4a32_baff_4358c4fbdd57);
-}
+::windows_core::imp::com_interface!(IVideoTemporalDenoisingControl, IVideoTemporalDenoisingControl_Vtbl, 0x7ab34735_3e2a_4a32_baff_4358c4fbdd57);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVideoTemporalDenoisingControl_Vtbl {
@@ -1384,16 +846,7 @@ pub struct IVideoTemporalDenoisingControl_Vtbl {
     pub Mode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut VideoTemporalDenoisingMode) -> ::windows_core::HRESULT,
     pub SetMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: VideoTemporalDenoisingMode) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWhiteBalanceControl(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWhiteBalanceControl {
-    type Vtable = IWhiteBalanceControl_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWhiteBalanceControl {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x781f047e_7162_49c8_a8f9_9481c565363e);
-}
+::windows_core::imp::com_interface!(IWhiteBalanceControl, IWhiteBalanceControl_Vtbl, 0x781f047e_7162_49c8_a8f9_9481c565363e);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWhiteBalanceControl_Vtbl {
@@ -1407,16 +860,7 @@ pub struct IWhiteBalanceControl_Vtbl {
     pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
     pub SetValueAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, temperature: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IZoomControl(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IZoomControl {
-    type Vtable = IZoomControl_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IZoomControl {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3a1e0b12_32da_4c17_bfd7_8d0c73c8f5a5);
-}
+::windows_core::imp::com_interface!(IZoomControl, IZoomControl_Vtbl, 0x3a1e0b12_32da_4c17_bfd7_8d0c73c8f5a5);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IZoomControl_Vtbl {
@@ -1428,16 +872,7 @@ pub struct IZoomControl_Vtbl {
     pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows_core::HRESULT,
     pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IZoomControl2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IZoomControl2 {
-    type Vtable = IZoomControl2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IZoomControl2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x69843db0_2e99_4641_8529_184f319d1671);
-}
+::windows_core::imp::com_interface!(IZoomControl2, IZoomControl2_Vtbl, 0x69843db0_2e99_4641_8529_184f319d1671);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IZoomControl2_Vtbl {
@@ -1449,16 +884,7 @@ pub struct IZoomControl2_Vtbl {
     pub Mode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ZoomTransitionMode) -> ::windows_core::HRESULT,
     pub Configure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, settings: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IZoomSettings(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IZoomSettings {
-    type Vtable = IZoomSettings_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IZoomSettings {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6ad66b24_14b4_4bfd_b18f_88fe24463b52);
-}
+::windows_core::imp::com_interface!(IZoomSettings, IZoomSettings_Vtbl, 0x6ad66b24_14b4_4bfd_b18f_88fe24463b52);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IZoomSettings_Vtbl {
@@ -1471,6 +897,7 @@ pub struct IZoomSettings_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AdvancedPhotoCaptureSettings(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(AdvancedPhotoCaptureSettings, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl AdvancedPhotoCaptureSettings {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1496,19 +923,17 @@ impl ::windows_core::RuntimeType for AdvancedPhotoCaptureSettings {
 }
 unsafe impl ::windows_core::Interface for AdvancedPhotoCaptureSettings {
     type Vtable = IAdvancedPhotoCaptureSettings_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for AdvancedPhotoCaptureSettings {
-    const IID: ::windows_core::GUID = <IAdvancedPhotoCaptureSettings as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IAdvancedPhotoCaptureSettings as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for AdvancedPhotoCaptureSettings {
     const NAME: &'static str = "Windows.Media.Devices.AdvancedPhotoCaptureSettings";
 }
-::windows_core::imp::interface_hierarchy!(AdvancedPhotoCaptureSettings, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AdvancedPhotoCaptureSettings {}
 unsafe impl ::core::marker::Sync for AdvancedPhotoCaptureSettings {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AdvancedPhotoControl(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(AdvancedPhotoControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl AdvancedPhotoControl {
     pub fn Supported(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -1546,19 +971,18 @@ impl ::windows_core::RuntimeType for AdvancedPhotoControl {
 }
 unsafe impl ::windows_core::Interface for AdvancedPhotoControl {
     type Vtable = IAdvancedPhotoControl_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for AdvancedPhotoControl {
-    const IID: ::windows_core::GUID = <IAdvancedPhotoControl as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IAdvancedPhotoControl as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for AdvancedPhotoControl {
     const NAME: &'static str = "Windows.Media.Devices.AdvancedPhotoControl";
 }
-::windows_core::imp::interface_hierarchy!(AdvancedPhotoControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AdvancedPhotoControl {}
 unsafe impl ::core::marker::Sync for AdvancedPhotoControl {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AudioDeviceController(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(AudioDeviceController, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(AudioDeviceController, IMediaDeviceController);
 impl AudioDeviceController {
     pub fn SetMuted(&self, value: bool) -> ::windows_core::Result<()> {
         let this = self;
@@ -1585,7 +1009,7 @@ impl AudioDeviceController {
     #[doc = "Required features: `\"Foundation_Collections\"`, `\"Media_Capture\"`, `\"Media_MediaProperties\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Capture", feature = "Media_MediaProperties"))]
     pub fn GetAvailableMediaStreamProperties(&self, mediastreamtype: super::Capture::MediaStreamType) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>> {
-        let this = &::windows_core::ComInterface::cast::<IMediaDeviceController>(self)?;
+        let this = &::windows_core::Interface::cast::<IMediaDeviceController>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetAvailableMediaStreamProperties)(::windows_core::Interface::as_raw(this), mediastreamtype, &mut result__).from_abi(result__)
@@ -1594,7 +1018,7 @@ impl AudioDeviceController {
     #[doc = "Required features: `\"Media_Capture\"`, `\"Media_MediaProperties\"`"]
     #[cfg(all(feature = "Media_Capture", feature = "Media_MediaProperties"))]
     pub fn GetMediaStreamProperties(&self, mediastreamtype: super::Capture::MediaStreamType) -> ::windows_core::Result<super::MediaProperties::IMediaEncodingProperties> {
-        let this = &::windows_core::ComInterface::cast::<IMediaDeviceController>(self)?;
+        let this = &::windows_core::Interface::cast::<IMediaDeviceController>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetMediaStreamProperties)(::windows_core::Interface::as_raw(this), mediastreamtype, &mut result__).from_abi(result__)
@@ -1604,12 +1028,12 @@ impl AudioDeviceController {
     #[cfg(all(feature = "Media_Capture", feature = "Media_MediaProperties"))]
     pub fn SetMediaStreamPropertiesAsync<P0>(&self, mediastreamtype: super::Capture::MediaStreamType, mediaencodingproperties: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::windows_core::TryIntoParam<super::MediaProperties::IMediaEncodingProperties>,
+        P0: ::windows_core::IntoParam<super::MediaProperties::IMediaEncodingProperties>,
     {
-        let this = &::windows_core::ComInterface::cast::<IMediaDeviceController>(self)?;
+        let this = &::windows_core::Interface::cast::<IMediaDeviceController>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SetMediaStreamPropertiesAsync)(::windows_core::Interface::as_raw(this), mediastreamtype, mediaencodingproperties.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SetMediaStreamPropertiesAsync)(::windows_core::Interface::as_raw(this), mediastreamtype, mediaencodingproperties.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1618,18 +1042,15 @@ impl ::windows_core::RuntimeType for AudioDeviceController {
 }
 unsafe impl ::windows_core::Interface for AudioDeviceController {
     type Vtable = IAudioDeviceController_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for AudioDeviceController {
-    const IID: ::windows_core::GUID = <IAudioDeviceController as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IAudioDeviceController as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for AudioDeviceController {
     const NAME: &'static str = "Windows.Media.Devices.AudioDeviceController";
 }
-::windows_core::imp::interface_hierarchy!(AudioDeviceController, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IMediaDeviceController> for AudioDeviceController {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AudioDeviceModule(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(AudioDeviceModule, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl AudioDeviceModule {
     pub fn ClassId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -1670,12 +1091,12 @@ impl AudioDeviceModule {
     #[cfg(feature = "Storage_Streams")]
     pub fn SendCommandAsync<P0>(&self, command: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ModuleCommandResult>>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: ::windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SendCommandAsync)(::windows_core::Interface::as_raw(this), command.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SendCommandAsync)(::windows_core::Interface::as_raw(this), command.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1684,17 +1105,15 @@ impl ::windows_core::RuntimeType for AudioDeviceModule {
 }
 unsafe impl ::windows_core::Interface for AudioDeviceModule {
     type Vtable = IAudioDeviceModule_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for AudioDeviceModule {
-    const IID: ::windows_core::GUID = <IAudioDeviceModule as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IAudioDeviceModule as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for AudioDeviceModule {
     const NAME: &'static str = "Windows.Media.Devices.AudioDeviceModule";
 }
-::windows_core::imp::interface_hierarchy!(AudioDeviceModule, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AudioDeviceModuleNotificationEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(AudioDeviceModuleNotificationEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl AudioDeviceModuleNotificationEventArgs {
     pub fn Module(&self) -> ::windows_core::Result<AudioDeviceModule> {
         let this = self;
@@ -1718,19 +1137,17 @@ impl ::windows_core::RuntimeType for AudioDeviceModuleNotificationEventArgs {
 }
 unsafe impl ::windows_core::Interface for AudioDeviceModuleNotificationEventArgs {
     type Vtable = IAudioDeviceModuleNotificationEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for AudioDeviceModuleNotificationEventArgs {
-    const IID: ::windows_core::GUID = <IAudioDeviceModuleNotificationEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IAudioDeviceModuleNotificationEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for AudioDeviceModuleNotificationEventArgs {
     const NAME: &'static str = "Windows.Media.Devices.AudioDeviceModuleNotificationEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(AudioDeviceModuleNotificationEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AudioDeviceModuleNotificationEventArgs {}
 unsafe impl ::core::marker::Sync for AudioDeviceModuleNotificationEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AudioDeviceModulesManager(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(AudioDeviceModulesManager, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl AudioDeviceModulesManager {
     pub fn ModuleNotificationReceived<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1781,19 +1198,17 @@ impl ::windows_core::RuntimeType for AudioDeviceModulesManager {
 }
 unsafe impl ::windows_core::Interface for AudioDeviceModulesManager {
     type Vtable = IAudioDeviceModulesManager_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for AudioDeviceModulesManager {
-    const IID: ::windows_core::GUID = <IAudioDeviceModulesManager as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IAudioDeviceModulesManager as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for AudioDeviceModulesManager {
     const NAME: &'static str = "Windows.Media.Devices.AudioDeviceModulesManager";
 }
-::windows_core::imp::interface_hierarchy!(AudioDeviceModulesManager, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AudioDeviceModulesManager {}
 unsafe impl ::core::marker::Sync for AudioDeviceModulesManager {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CallControl(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(CallControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl CallControl {
     pub fn IndicateNewIncomingCall(&self, enableringer: bool, callerid: &::windows_core::HSTRING) -> ::windows_core::Result<u64> {
         let this = self;
@@ -1931,19 +1346,17 @@ impl ::windows_core::RuntimeType for CallControl {
 }
 unsafe impl ::windows_core::Interface for CallControl {
     type Vtable = ICallControl_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for CallControl {
-    const IID: ::windows_core::GUID = <ICallControl as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ICallControl as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for CallControl {
     const NAME: &'static str = "Windows.Media.Devices.CallControl";
 }
-::windows_core::imp::interface_hierarchy!(CallControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for CallControl {}
 unsafe impl ::core::marker::Sync for CallControl {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CameraOcclusionInfo(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(CameraOcclusionInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl CameraOcclusionInfo {
     pub fn GetState(&self) -> ::windows_core::Result<CameraOcclusionState> {
         let this = self;
@@ -1979,19 +1392,17 @@ impl ::windows_core::RuntimeType for CameraOcclusionInfo {
 }
 unsafe impl ::windows_core::Interface for CameraOcclusionInfo {
     type Vtable = ICameraOcclusionInfo_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for CameraOcclusionInfo {
-    const IID: ::windows_core::GUID = <ICameraOcclusionInfo as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ICameraOcclusionInfo as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for CameraOcclusionInfo {
     const NAME: &'static str = "Windows.Media.Devices.CameraOcclusionInfo";
 }
-::windows_core::imp::interface_hierarchy!(CameraOcclusionInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for CameraOcclusionInfo {}
 unsafe impl ::core::marker::Sync for CameraOcclusionInfo {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CameraOcclusionState(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(CameraOcclusionState, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl CameraOcclusionState {
     pub fn IsOccluded(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -2013,19 +1424,17 @@ impl ::windows_core::RuntimeType for CameraOcclusionState {
 }
 unsafe impl ::windows_core::Interface for CameraOcclusionState {
     type Vtable = ICameraOcclusionState_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for CameraOcclusionState {
-    const IID: ::windows_core::GUID = <ICameraOcclusionState as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ICameraOcclusionState as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for CameraOcclusionState {
     const NAME: &'static str = "Windows.Media.Devices.CameraOcclusionState";
 }
-::windows_core::imp::interface_hierarchy!(CameraOcclusionState, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for CameraOcclusionState {}
 unsafe impl ::core::marker::Sync for CameraOcclusionState {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CameraOcclusionStateChangedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(CameraOcclusionStateChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl CameraOcclusionStateChangedEventArgs {
     pub fn State(&self) -> ::windows_core::Result<CameraOcclusionState> {
         let this = self;
@@ -2040,19 +1449,18 @@ impl ::windows_core::RuntimeType for CameraOcclusionStateChangedEventArgs {
 }
 unsafe impl ::windows_core::Interface for CameraOcclusionStateChangedEventArgs {
     type Vtable = ICameraOcclusionStateChangedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for CameraOcclusionStateChangedEventArgs {
-    const IID: ::windows_core::GUID = <ICameraOcclusionStateChangedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ICameraOcclusionStateChangedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for CameraOcclusionStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Devices.CameraOcclusionStateChangedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(CameraOcclusionStateChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for CameraOcclusionStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for CameraOcclusionStateChangedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DefaultAudioCaptureDeviceChangedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(DefaultAudioCaptureDeviceChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(DefaultAudioCaptureDeviceChangedEventArgs, IDefaultAudioDeviceChangedEventArgs);
 impl DefaultAudioCaptureDeviceChangedEventArgs {
     pub fn Id(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -2074,20 +1482,18 @@ impl ::windows_core::RuntimeType for DefaultAudioCaptureDeviceChangedEventArgs {
 }
 unsafe impl ::windows_core::Interface for DefaultAudioCaptureDeviceChangedEventArgs {
     type Vtable = IDefaultAudioDeviceChangedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for DefaultAudioCaptureDeviceChangedEventArgs {
-    const IID: ::windows_core::GUID = <IDefaultAudioDeviceChangedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IDefaultAudioDeviceChangedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for DefaultAudioCaptureDeviceChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Devices.DefaultAudioCaptureDeviceChangedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(DefaultAudioCaptureDeviceChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IDefaultAudioDeviceChangedEventArgs> for DefaultAudioCaptureDeviceChangedEventArgs {}
 unsafe impl ::core::marker::Send for DefaultAudioCaptureDeviceChangedEventArgs {}
 unsafe impl ::core::marker::Sync for DefaultAudioCaptureDeviceChangedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DefaultAudioRenderDeviceChangedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(DefaultAudioRenderDeviceChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(DefaultAudioRenderDeviceChangedEventArgs, IDefaultAudioDeviceChangedEventArgs);
 impl DefaultAudioRenderDeviceChangedEventArgs {
     pub fn Id(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -2109,20 +1515,17 @@ impl ::windows_core::RuntimeType for DefaultAudioRenderDeviceChangedEventArgs {
 }
 unsafe impl ::windows_core::Interface for DefaultAudioRenderDeviceChangedEventArgs {
     type Vtable = IDefaultAudioDeviceChangedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for DefaultAudioRenderDeviceChangedEventArgs {
-    const IID: ::windows_core::GUID = <IDefaultAudioDeviceChangedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IDefaultAudioDeviceChangedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for DefaultAudioRenderDeviceChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Devices.DefaultAudioRenderDeviceChangedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(DefaultAudioRenderDeviceChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IDefaultAudioDeviceChangedEventArgs> for DefaultAudioRenderDeviceChangedEventArgs {}
 unsafe impl ::core::marker::Send for DefaultAudioRenderDeviceChangedEventArgs {}
 unsafe impl ::core::marker::Sync for DefaultAudioRenderDeviceChangedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DialRequestedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(DialRequestedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl DialRequestedEventArgs {
     pub fn Handled(&self) -> ::windows_core::Result<()> {
         let this = self;
@@ -2141,19 +1544,17 @@ impl ::windows_core::RuntimeType for DialRequestedEventArgs {
 }
 unsafe impl ::windows_core::Interface for DialRequestedEventArgs {
     type Vtable = IDialRequestedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for DialRequestedEventArgs {
-    const IID: ::windows_core::GUID = <IDialRequestedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IDialRequestedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for DialRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.Devices.DialRequestedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(DialRequestedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for DialRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for DialRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DigitalWindowBounds(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(DigitalWindowBounds, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl DigitalWindowBounds {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -2201,19 +1602,17 @@ impl ::windows_core::RuntimeType for DigitalWindowBounds {
 }
 unsafe impl ::windows_core::Interface for DigitalWindowBounds {
     type Vtable = IDigitalWindowBounds_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for DigitalWindowBounds {
-    const IID: ::windows_core::GUID = <IDigitalWindowBounds as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IDigitalWindowBounds as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for DigitalWindowBounds {
     const NAME: &'static str = "Windows.Media.Devices.DigitalWindowBounds";
 }
-::windows_core::imp::interface_hierarchy!(DigitalWindowBounds, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for DigitalWindowBounds {}
 unsafe impl ::core::marker::Sync for DigitalWindowBounds {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DigitalWindowCapability(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(DigitalWindowCapability, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl DigitalWindowCapability {
     pub fn Width(&self) -> ::windows_core::Result<i32> {
         let this = self;
@@ -2263,19 +1662,17 @@ impl ::windows_core::RuntimeType for DigitalWindowCapability {
 }
 unsafe impl ::windows_core::Interface for DigitalWindowCapability {
     type Vtable = IDigitalWindowCapability_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for DigitalWindowCapability {
-    const IID: ::windows_core::GUID = <IDigitalWindowCapability as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IDigitalWindowCapability as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for DigitalWindowCapability {
     const NAME: &'static str = "Windows.Media.Devices.DigitalWindowCapability";
 }
-::windows_core::imp::interface_hierarchy!(DigitalWindowCapability, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for DigitalWindowCapability {}
 unsafe impl ::core::marker::Sync for DigitalWindowCapability {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DigitalWindowControl(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(DigitalWindowControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl DigitalWindowControl {
     pub fn IsSupported(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -2338,19 +1735,17 @@ impl ::windows_core::RuntimeType for DigitalWindowControl {
 }
 unsafe impl ::windows_core::Interface for DigitalWindowControl {
     type Vtable = IDigitalWindowControl_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for DigitalWindowControl {
-    const IID: ::windows_core::GUID = <IDigitalWindowControl as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IDigitalWindowControl as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for DigitalWindowControl {
     const NAME: &'static str = "Windows.Media.Devices.DigitalWindowControl";
 }
-::windows_core::imp::interface_hierarchy!(DigitalWindowControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for DigitalWindowControl {}
 unsafe impl ::core::marker::Sync for DigitalWindowControl {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ExposureCompensationControl(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(ExposureCompensationControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ExposureCompensationControl {
     pub fn Supported(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -2400,17 +1795,15 @@ impl ::windows_core::RuntimeType for ExposureCompensationControl {
 }
 unsafe impl ::windows_core::Interface for ExposureCompensationControl {
     type Vtable = IExposureCompensationControl_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ExposureCompensationControl {
-    const IID: ::windows_core::GUID = <IExposureCompensationControl as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IExposureCompensationControl as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for ExposureCompensationControl {
     const NAME: &'static str = "Windows.Media.Devices.ExposureCompensationControl";
 }
-::windows_core::imp::interface_hierarchy!(ExposureCompensationControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ExposureControl(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(ExposureControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ExposureControl {
     pub fn Supported(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -2474,17 +1867,15 @@ impl ::windows_core::RuntimeType for ExposureControl {
 }
 unsafe impl ::windows_core::Interface for ExposureControl {
     type Vtable = IExposureControl_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ExposureControl {
-    const IID: ::windows_core::GUID = <IExposureControl as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IExposureControl as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for ExposureControl {
     const NAME: &'static str = "Windows.Media.Devices.ExposureControl";
 }
-::windows_core::imp::interface_hierarchy!(ExposureControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ExposurePriorityVideoControl(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(ExposurePriorityVideoControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ExposurePriorityVideoControl {
     pub fn Supported(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -2510,19 +1901,17 @@ impl ::windows_core::RuntimeType for ExposurePriorityVideoControl {
 }
 unsafe impl ::windows_core::Interface for ExposurePriorityVideoControl {
     type Vtable = IExposurePriorityVideoControl_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ExposurePriorityVideoControl {
-    const IID: ::windows_core::GUID = <IExposurePriorityVideoControl as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IExposurePriorityVideoControl as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for ExposurePriorityVideoControl {
     const NAME: &'static str = "Windows.Media.Devices.ExposurePriorityVideoControl";
 }
-::windows_core::imp::interface_hierarchy!(ExposurePriorityVideoControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for ExposurePriorityVideoControl {}
 unsafe impl ::core::marker::Sync for ExposurePriorityVideoControl {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct FlashControl(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(FlashControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl FlashControl {
     pub fn Supported(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -2590,21 +1979,21 @@ impl FlashControl {
         unsafe { (::windows_core::Interface::vtable(this).SetPowerPercent)(::windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn AssistantLightSupported(&self) -> ::windows_core::Result<bool> {
-        let this = &::windows_core::ComInterface::cast::<IFlashControl2>(self)?;
+        let this = &::windows_core::Interface::cast::<IFlashControl2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AssistantLightSupported)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn AssistantLightEnabled(&self) -> ::windows_core::Result<bool> {
-        let this = &::windows_core::ComInterface::cast::<IFlashControl2>(self)?;
+        let this = &::windows_core::Interface::cast::<IFlashControl2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AssistantLightEnabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetAssistantLightEnabled(&self, value: bool) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<IFlashControl2>(self)?;
+        let this = &::windows_core::Interface::cast::<IFlashControl2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetAssistantLightEnabled)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
@@ -2613,17 +2002,15 @@ impl ::windows_core::RuntimeType for FlashControl {
 }
 unsafe impl ::windows_core::Interface for FlashControl {
     type Vtable = IFlashControl_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for FlashControl {
-    const IID: ::windows_core::GUID = <IFlashControl as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IFlashControl as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for FlashControl {
     const NAME: &'static str = "Windows.Media.Devices.FlashControl";
 }
-::windows_core::imp::interface_hierarchy!(FlashControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct FocusControl(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(FocusControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl FocusControl {
     pub fn Supported(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -2705,14 +2092,14 @@ impl FocusControl {
         }
     }
     pub fn FocusChangedSupported(&self) -> ::windows_core::Result<bool> {
-        let this = &::windows_core::ComInterface::cast::<IFocusControl2>(self)?;
+        let this = &::windows_core::Interface::cast::<IFocusControl2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FocusChangedSupported)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn WaitForFocusSupported(&self) -> ::windows_core::Result<bool> {
-        let this = &::windows_core::ComInterface::cast::<IFocusControl2>(self)?;
+        let this = &::windows_core::Interface::cast::<IFocusControl2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).WaitForFocusSupported)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -2721,7 +2108,7 @@ impl FocusControl {
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedFocusModes(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<FocusMode>> {
-        let this = &::windows_core::ComInterface::cast::<IFocusControl2>(self)?;
+        let this = &::windows_core::Interface::cast::<IFocusControl2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SupportedFocusModes)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -2730,7 +2117,7 @@ impl FocusControl {
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedFocusDistances(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<ManualFocusDistance>> {
-        let this = &::windows_core::ComInterface::cast::<IFocusControl2>(self)?;
+        let this = &::windows_core::Interface::cast::<IFocusControl2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SupportedFocusDistances)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -2739,35 +2126,35 @@ impl FocusControl {
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedFocusRanges(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<AutoFocusRange>> {
-        let this = &::windows_core::ComInterface::cast::<IFocusControl2>(self)?;
+        let this = &::windows_core::Interface::cast::<IFocusControl2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SupportedFocusRanges)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Mode(&self) -> ::windows_core::Result<FocusMode> {
-        let this = &::windows_core::ComInterface::cast::<IFocusControl2>(self)?;
+        let this = &::windows_core::Interface::cast::<IFocusControl2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Mode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn FocusState(&self) -> ::windows_core::Result<MediaCaptureFocusState> {
-        let this = &::windows_core::ComInterface::cast::<IFocusControl2>(self)?;
+        let this = &::windows_core::Interface::cast::<IFocusControl2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FocusState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn UnlockAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
-        let this = &::windows_core::ComInterface::cast::<IFocusControl2>(self)?;
+        let this = &::windows_core::Interface::cast::<IFocusControl2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).UnlockAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn LockAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
-        let this = &::windows_core::ComInterface::cast::<IFocusControl2>(self)?;
+        let this = &::windows_core::Interface::cast::<IFocusControl2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).LockAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -2777,7 +2164,7 @@ impl FocusControl {
     where
         P0: ::windows_core::IntoParam<FocusSettings>,
     {
-        let this = &::windows_core::ComInterface::cast::<IFocusControl2>(self)?;
+        let this = &::windows_core::Interface::cast::<IFocusControl2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Configure)(::windows_core::Interface::as_raw(this), settings.into_param().abi()).ok() }
     }
 }
@@ -2786,17 +2173,15 @@ impl ::windows_core::RuntimeType for FocusControl {
 }
 unsafe impl ::windows_core::Interface for FocusControl {
     type Vtable = IFocusControl_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for FocusControl {
-    const IID: ::windows_core::GUID = <IFocusControl as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IFocusControl as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for FocusControl {
     const NAME: &'static str = "Windows.Media.Devices.FocusControl";
 }
-::windows_core::imp::interface_hierarchy!(FocusControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct FocusSettings(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(FocusSettings, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl FocusSettings {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -2836,10 +2221,10 @@ impl FocusSettings {
     }
     pub fn SetValue<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::IReference<u32>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::IReference<u32>>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetValue)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetValue)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn Distance(&self) -> ::windows_core::Result<super::super::Foundation::IReference<ManualFocusDistance>> {
         let this = self;
@@ -2850,10 +2235,10 @@ impl FocusSettings {
     }
     pub fn SetDistance<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::IReference<ManualFocusDistance>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::IReference<ManualFocusDistance>>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetDistance)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetDistance)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn WaitForFocus(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -2883,19 +2268,17 @@ impl ::windows_core::RuntimeType for FocusSettings {
 }
 unsafe impl ::windows_core::Interface for FocusSettings {
     type Vtable = IFocusSettings_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for FocusSettings {
-    const IID: ::windows_core::GUID = <IFocusSettings as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IFocusSettings as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for FocusSettings {
     const NAME: &'static str = "Windows.Media.Devices.FocusSettings";
 }
-::windows_core::imp::interface_hierarchy!(FocusSettings, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for FocusSettings {}
 unsafe impl ::core::marker::Sync for FocusSettings {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HdrVideoControl(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(HdrVideoControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl HdrVideoControl {
     pub fn Supported(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -2930,19 +2313,17 @@ impl ::windows_core::RuntimeType for HdrVideoControl {
 }
 unsafe impl ::windows_core::Interface for HdrVideoControl {
     type Vtable = IHdrVideoControl_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for HdrVideoControl {
-    const IID: ::windows_core::GUID = <IHdrVideoControl as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IHdrVideoControl as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for HdrVideoControl {
     const NAME: &'static str = "Windows.Media.Devices.HdrVideoControl";
 }
-::windows_core::imp::interface_hierarchy!(HdrVideoControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for HdrVideoControl {}
 unsafe impl ::core::marker::Sync for HdrVideoControl {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct InfraredTorchControl(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(InfraredTorchControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl InfraredTorchControl {
     pub fn IsSupported(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -3009,19 +2390,17 @@ impl ::windows_core::RuntimeType for InfraredTorchControl {
 }
 unsafe impl ::windows_core::Interface for InfraredTorchControl {
     type Vtable = IInfraredTorchControl_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for InfraredTorchControl {
-    const IID: ::windows_core::GUID = <IInfraredTorchControl as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IInfraredTorchControl as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for InfraredTorchControl {
     const NAME: &'static str = "Windows.Media.Devices.InfraredTorchControl";
 }
-::windows_core::imp::interface_hierarchy!(InfraredTorchControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for InfraredTorchControl {}
 unsafe impl ::core::marker::Sync for InfraredTorchControl {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IsoSpeedControl(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(IsoSpeedControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl IsoSpeedControl {
     pub fn Supported(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -3058,49 +2437,49 @@ impl IsoSpeedControl {
         }
     }
     pub fn Min(&self) -> ::windows_core::Result<u32> {
-        let this = &::windows_core::ComInterface::cast::<IIsoSpeedControl2>(self)?;
+        let this = &::windows_core::Interface::cast::<IIsoSpeedControl2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Min)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Max(&self) -> ::windows_core::Result<u32> {
-        let this = &::windows_core::ComInterface::cast::<IIsoSpeedControl2>(self)?;
+        let this = &::windows_core::Interface::cast::<IIsoSpeedControl2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Max)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Step(&self) -> ::windows_core::Result<u32> {
-        let this = &::windows_core::ComInterface::cast::<IIsoSpeedControl2>(self)?;
+        let this = &::windows_core::Interface::cast::<IIsoSpeedControl2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Step)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Value(&self) -> ::windows_core::Result<u32> {
-        let this = &::windows_core::ComInterface::cast::<IIsoSpeedControl2>(self)?;
+        let this = &::windows_core::Interface::cast::<IIsoSpeedControl2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Value)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetValueAsync(&self, isospeed: u32) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
-        let this = &::windows_core::ComInterface::cast::<IIsoSpeedControl2>(self)?;
+        let this = &::windows_core::Interface::cast::<IIsoSpeedControl2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SetValueAsync)(::windows_core::Interface::as_raw(this), isospeed, &mut result__).from_abi(result__)
         }
     }
     pub fn Auto(&self) -> ::windows_core::Result<bool> {
-        let this = &::windows_core::ComInterface::cast::<IIsoSpeedControl2>(self)?;
+        let this = &::windows_core::Interface::cast::<IIsoSpeedControl2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Auto)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetAutoAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
-        let this = &::windows_core::ComInterface::cast::<IIsoSpeedControl2>(self)?;
+        let this = &::windows_core::Interface::cast::<IIsoSpeedControl2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SetAutoAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -3112,17 +2491,15 @@ impl ::windows_core::RuntimeType for IsoSpeedControl {
 }
 unsafe impl ::windows_core::Interface for IsoSpeedControl {
     type Vtable = IIsoSpeedControl_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IsoSpeedControl {
-    const IID: ::windows_core::GUID = <IIsoSpeedControl as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IIsoSpeedControl as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for IsoSpeedControl {
     const NAME: &'static str = "Windows.Media.Devices.IsoSpeedControl";
 }
-::windows_core::imp::interface_hierarchy!(IsoSpeedControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct KeypadPressedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(KeypadPressedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl KeypadPressedEventArgs {
     pub fn TelephonyKey(&self) -> ::windows_core::Result<TelephonyKey> {
         let this = self;
@@ -3137,30 +2514,28 @@ impl ::windows_core::RuntimeType for KeypadPressedEventArgs {
 }
 unsafe impl ::windows_core::Interface for KeypadPressedEventArgs {
     type Vtable = IKeypadPressedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for KeypadPressedEventArgs {
-    const IID: ::windows_core::GUID = <IKeypadPressedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IKeypadPressedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for KeypadPressedEventArgs {
     const NAME: &'static str = "Windows.Media.Devices.KeypadPressedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(KeypadPressedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for KeypadPressedEventArgs {}
 unsafe impl ::core::marker::Sync for KeypadPressedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LowLagPhotoControl(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(LowLagPhotoControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl LowLagPhotoControl {
     #[doc = "Required features: `\"Media_MediaProperties\"`"]
     #[cfg(feature = "Media_MediaProperties")]
     pub fn GetHighestConcurrentFrameRate<P0>(&self, captureproperties: P0) -> ::windows_core::Result<super::MediaProperties::MediaRatio>
     where
-        P0: ::windows_core::TryIntoParam<super::MediaProperties::IMediaEncodingProperties>,
+        P0: ::windows_core::IntoParam<super::MediaProperties::IMediaEncodingProperties>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetHighestConcurrentFrameRate)(::windows_core::Interface::as_raw(this), captureproperties.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetHighestConcurrentFrameRate)(::windows_core::Interface::as_raw(this), captureproperties.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"Media_MediaProperties\"`"]
@@ -3222,17 +2597,15 @@ impl ::windows_core::RuntimeType for LowLagPhotoControl {
 }
 unsafe impl ::windows_core::Interface for LowLagPhotoControl {
     type Vtable = ILowLagPhotoControl_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for LowLagPhotoControl {
-    const IID: ::windows_core::GUID = <ILowLagPhotoControl as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ILowLagPhotoControl as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for LowLagPhotoControl {
     const NAME: &'static str = "Windows.Media.Devices.LowLagPhotoControl";
 }
-::windows_core::imp::interface_hierarchy!(LowLagPhotoControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LowLagPhotoSequenceControl(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(LowLagPhotoSequenceControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl LowLagPhotoSequenceControl {
     pub fn Supported(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -3281,12 +2654,12 @@ impl LowLagPhotoSequenceControl {
     #[cfg(feature = "Media_MediaProperties")]
     pub fn GetHighestConcurrentFrameRate<P0>(&self, captureproperties: P0) -> ::windows_core::Result<super::MediaProperties::MediaRatio>
     where
-        P0: ::windows_core::TryIntoParam<super::MediaProperties::IMediaEncodingProperties>,
+        P0: ::windows_core::IntoParam<super::MediaProperties::IMediaEncodingProperties>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetHighestConcurrentFrameRate)(::windows_core::Interface::as_raw(this), captureproperties.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetHighestConcurrentFrameRate)(::windows_core::Interface::as_raw(this), captureproperties.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"Media_MediaProperties\"`"]
@@ -3348,14 +2721,11 @@ impl ::windows_core::RuntimeType for LowLagPhotoSequenceControl {
 }
 unsafe impl ::windows_core::Interface for LowLagPhotoSequenceControl {
     type Vtable = ILowLagPhotoSequenceControl_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for LowLagPhotoSequenceControl {
-    const IID: ::windows_core::GUID = <ILowLagPhotoSequenceControl as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ILowLagPhotoSequenceControl as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for LowLagPhotoSequenceControl {
     const NAME: &'static str = "Windows.Media.Devices.LowLagPhotoSequenceControl";
 }
-::windows_core::imp::interface_hierarchy!(LowLagPhotoSequenceControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 pub struct MediaDevice;
 impl MediaDevice {
     pub fn GetAudioCaptureSelector() -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -3424,6 +2794,7 @@ impl ::windows_core::RuntimeName for MediaDevice {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaDeviceControl(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(MediaDeviceControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl MediaDeviceControl {
     pub fn Capabilities(&self) -> ::windows_core::Result<MediaDeviceControlCapabilities> {
         let this = self;
@@ -3466,17 +2837,15 @@ impl ::windows_core::RuntimeType for MediaDeviceControl {
 }
 unsafe impl ::windows_core::Interface for MediaDeviceControl {
     type Vtable = IMediaDeviceControl_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for MediaDeviceControl {
-    const IID: ::windows_core::GUID = <IMediaDeviceControl as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IMediaDeviceControl as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for MediaDeviceControl {
     const NAME: &'static str = "Windows.Media.Devices.MediaDeviceControl";
 }
-::windows_core::imp::interface_hierarchy!(MediaDeviceControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaDeviceControlCapabilities(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(MediaDeviceControlCapabilities, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl MediaDeviceControlCapabilities {
     pub fn Supported(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -3526,17 +2895,15 @@ impl ::windows_core::RuntimeType for MediaDeviceControlCapabilities {
 }
 unsafe impl ::windows_core::Interface for MediaDeviceControlCapabilities {
     type Vtable = IMediaDeviceControlCapabilities_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for MediaDeviceControlCapabilities {
-    const IID: ::windows_core::GUID = <IMediaDeviceControlCapabilities as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IMediaDeviceControlCapabilities as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for MediaDeviceControlCapabilities {
     const NAME: &'static str = "Windows.Media.Devices.MediaDeviceControlCapabilities";
 }
-::windows_core::imp::interface_hierarchy!(MediaDeviceControlCapabilities, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ModuleCommandResult(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(ModuleCommandResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ModuleCommandResult {
     pub fn Status(&self) -> ::windows_core::Result<SendCommandStatus> {
         let this = self;
@@ -3560,17 +2927,15 @@ impl ::windows_core::RuntimeType for ModuleCommandResult {
 }
 unsafe impl ::windows_core::Interface for ModuleCommandResult {
     type Vtable = IModuleCommandResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ModuleCommandResult {
-    const IID: ::windows_core::GUID = <IModuleCommandResult as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IModuleCommandResult as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for ModuleCommandResult {
     const NAME: &'static str = "Windows.Media.Devices.ModuleCommandResult";
 }
-::windows_core::imp::interface_hierarchy!(ModuleCommandResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct OpticalImageStabilizationControl(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(OpticalImageStabilizationControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl OpticalImageStabilizationControl {
     pub fn Supported(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -3605,19 +2970,17 @@ impl ::windows_core::RuntimeType for OpticalImageStabilizationControl {
 }
 unsafe impl ::windows_core::Interface for OpticalImageStabilizationControl {
     type Vtable = IOpticalImageStabilizationControl_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for OpticalImageStabilizationControl {
-    const IID: ::windows_core::GUID = <IOpticalImageStabilizationControl as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IOpticalImageStabilizationControl as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for OpticalImageStabilizationControl {
     const NAME: &'static str = "Windows.Media.Devices.OpticalImageStabilizationControl";
 }
-::windows_core::imp::interface_hierarchy!(OpticalImageStabilizationControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for OpticalImageStabilizationControl {}
 unsafe impl ::core::marker::Sync for OpticalImageStabilizationControl {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PanelBasedOptimizationControl(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(PanelBasedOptimizationControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl PanelBasedOptimizationControl {
     pub fn IsSupported(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -3647,19 +3010,17 @@ impl ::windows_core::RuntimeType for PanelBasedOptimizationControl {
 }
 unsafe impl ::windows_core::Interface for PanelBasedOptimizationControl {
     type Vtable = IPanelBasedOptimizationControl_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for PanelBasedOptimizationControl {
-    const IID: ::windows_core::GUID = <IPanelBasedOptimizationControl as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPanelBasedOptimizationControl as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for PanelBasedOptimizationControl {
     const NAME: &'static str = "Windows.Media.Devices.PanelBasedOptimizationControl";
 }
-::windows_core::imp::interface_hierarchy!(PanelBasedOptimizationControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PanelBasedOptimizationControl {}
 unsafe impl ::core::marker::Sync for PanelBasedOptimizationControl {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PhotoConfirmationControl(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(PhotoConfirmationControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl PhotoConfirmationControl {
     pub fn Supported(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -3700,17 +3061,15 @@ impl ::windows_core::RuntimeType for PhotoConfirmationControl {
 }
 unsafe impl ::windows_core::Interface for PhotoConfirmationControl {
     type Vtable = IPhotoConfirmationControl_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for PhotoConfirmationControl {
-    const IID: ::windows_core::GUID = <IPhotoConfirmationControl as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPhotoConfirmationControl as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for PhotoConfirmationControl {
     const NAME: &'static str = "Windows.Media.Devices.PhotoConfirmationControl";
 }
-::windows_core::imp::interface_hierarchy!(PhotoConfirmationControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RedialRequestedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(RedialRequestedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl RedialRequestedEventArgs {
     pub fn Handled(&self) -> ::windows_core::Result<()> {
         let this = self;
@@ -3722,19 +3081,17 @@ impl ::windows_core::RuntimeType for RedialRequestedEventArgs {
 }
 unsafe impl ::windows_core::Interface for RedialRequestedEventArgs {
     type Vtable = IRedialRequestedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for RedialRequestedEventArgs {
-    const IID: ::windows_core::GUID = <IRedialRequestedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IRedialRequestedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for RedialRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.Devices.RedialRequestedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(RedialRequestedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for RedialRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for RedialRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RegionOfInterest(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(RegionOfInterest, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl RegionOfInterest {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -3788,36 +3145,36 @@ impl RegionOfInterest {
         unsafe { (::windows_core::Interface::vtable(this).SetBounds)(::windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn Type(&self) -> ::windows_core::Result<RegionOfInterestType> {
-        let this = &::windows_core::ComInterface::cast::<IRegionOfInterest2>(self)?;
+        let this = &::windows_core::Interface::cast::<IRegionOfInterest2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Type)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetType(&self, value: RegionOfInterestType) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<IRegionOfInterest2>(self)?;
+        let this = &::windows_core::Interface::cast::<IRegionOfInterest2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetType)(::windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn BoundsNormalized(&self) -> ::windows_core::Result<bool> {
-        let this = &::windows_core::ComInterface::cast::<IRegionOfInterest2>(self)?;
+        let this = &::windows_core::Interface::cast::<IRegionOfInterest2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).BoundsNormalized)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetBoundsNormalized(&self, value: bool) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<IRegionOfInterest2>(self)?;
+        let this = &::windows_core::Interface::cast::<IRegionOfInterest2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetBoundsNormalized)(::windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn Weight(&self) -> ::windows_core::Result<u32> {
-        let this = &::windows_core::ComInterface::cast::<IRegionOfInterest2>(self)?;
+        let this = &::windows_core::Interface::cast::<IRegionOfInterest2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Weight)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetWeight(&self, value: u32) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<IRegionOfInterest2>(self)?;
+        let this = &::windows_core::Interface::cast::<IRegionOfInterest2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetWeight)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
@@ -3826,19 +3183,17 @@ impl ::windows_core::RuntimeType for RegionOfInterest {
 }
 unsafe impl ::windows_core::Interface for RegionOfInterest {
     type Vtable = IRegionOfInterest_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for RegionOfInterest {
-    const IID: ::windows_core::GUID = <IRegionOfInterest as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IRegionOfInterest as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for RegionOfInterest {
     const NAME: &'static str = "Windows.Media.Devices.RegionOfInterest";
 }
-::windows_core::imp::interface_hierarchy!(RegionOfInterest, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for RegionOfInterest {}
 unsafe impl ::core::marker::Sync for RegionOfInterest {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RegionsOfInterestControl(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(RegionsOfInterestControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl RegionsOfInterestControl {
     pub fn MaxRegions(&self) -> ::windows_core::Result<u32> {
         let this = self;
@@ -3851,24 +3206,24 @@ impl RegionsOfInterestControl {
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetRegionsAsync<P0>(&self, regions: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<RegionOfInterest>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::Collections::IIterable<RegionOfInterest>>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SetRegionsAsync)(::windows_core::Interface::as_raw(this), regions.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SetRegionsAsync)(::windows_core::Interface::as_raw(this), regions.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetRegionsWithLockAsync<P0>(&self, regions: P0, lockvalues: bool) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<RegionOfInterest>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::Collections::IIterable<RegionOfInterest>>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SetRegionsWithLockAsync)(::windows_core::Interface::as_raw(this), regions.try_into_param()?.abi(), lockvalues, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SetRegionsWithLockAsync)(::windows_core::Interface::as_raw(this), regions.into_param().abi(), lockvalues, &mut result__).from_abi(result__)
         }
     }
     pub fn ClearRegionsAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
@@ -3905,17 +3260,15 @@ impl ::windows_core::RuntimeType for RegionsOfInterestControl {
 }
 unsafe impl ::windows_core::Interface for RegionsOfInterestControl {
     type Vtable = IRegionsOfInterestControl_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for RegionsOfInterestControl {
-    const IID: ::windows_core::GUID = <IRegionsOfInterestControl as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IRegionsOfInterestControl as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for RegionsOfInterestControl {
     const NAME: &'static str = "Windows.Media.Devices.RegionsOfInterestControl";
 }
-::windows_core::imp::interface_hierarchy!(RegionsOfInterestControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SceneModeControl(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(SceneModeControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl SceneModeControl {
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
@@ -3946,17 +3299,15 @@ impl ::windows_core::RuntimeType for SceneModeControl {
 }
 unsafe impl ::windows_core::Interface for SceneModeControl {
     type Vtable = ISceneModeControl_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for SceneModeControl {
-    const IID: ::windows_core::GUID = <ISceneModeControl as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ISceneModeControl as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for SceneModeControl {
     const NAME: &'static str = "Windows.Media.Devices.SceneModeControl";
 }
-::windows_core::imp::interface_hierarchy!(SceneModeControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TorchControl(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(TorchControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl TorchControl {
     pub fn Supported(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -4000,34 +3351,33 @@ impl ::windows_core::RuntimeType for TorchControl {
 }
 unsafe impl ::windows_core::Interface for TorchControl {
     type Vtable = ITorchControl_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for TorchControl {
-    const IID: ::windows_core::GUID = <ITorchControl as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ITorchControl as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for TorchControl {
     const NAME: &'static str = "Windows.Media.Devices.TorchControl";
 }
-::windows_core::imp::interface_hierarchy!(TorchControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VideoDeviceController(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(VideoDeviceController, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(VideoDeviceController, IMediaDeviceController);
 impl VideoDeviceController {
     pub fn SetDeviceProperty<P0>(&self, propertyid: &::windows_core::HSTRING, propertyvalue: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::IInspectable>,
     {
-        let this = &::windows_core::ComInterface::cast::<IAdvancedVideoCaptureDeviceController>(self)?;
+        let this = &::windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetDeviceProperty)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyid), propertyvalue.into_param().abi()).ok() }
     }
     pub fn GetDeviceProperty(&self, propertyid: &::windows_core::HSTRING) -> ::windows_core::Result<::windows_core::IInspectable> {
-        let this = &::windows_core::ComInterface::cast::<IAdvancedVideoCaptureDeviceController>(self)?;
+        let this = &::windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDeviceProperty)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyid), &mut result__).from_abi(result__)
         }
     }
     pub fn CameraOcclusionInfo(&self) -> ::windows_core::Result<CameraOcclusionInfo> {
-        let this = &::windows_core::ComInterface::cast::<IAdvancedVideoCaptureDeviceController10>(self)?;
+        let this = &::windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController10>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CameraOcclusionInfo)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -4036,164 +3386,164 @@ impl VideoDeviceController {
     #[doc = "Required features: `\"Media_Capture\"`"]
     #[cfg(feature = "Media_Capture")]
     pub fn TryAcquireExclusiveControl(&self, deviceid: &::windows_core::HSTRING, mode: super::Capture::MediaCaptureDeviceExclusiveControlReleaseMode) -> ::windows_core::Result<bool> {
-        let this = &::windows_core::ComInterface::cast::<IAdvancedVideoCaptureDeviceController11>(self)?;
+        let this = &::windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController11>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TryAcquireExclusiveControl)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), mode, &mut result__).from_abi(result__)
         }
     }
     pub fn LowLagPhotoSequence(&self) -> ::windows_core::Result<LowLagPhotoSequenceControl> {
-        let this = &::windows_core::ComInterface::cast::<IAdvancedVideoCaptureDeviceController2>(self)?;
+        let this = &::windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).LowLagPhotoSequence)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn LowLagPhoto(&self) -> ::windows_core::Result<LowLagPhotoControl> {
-        let this = &::windows_core::ComInterface::cast::<IAdvancedVideoCaptureDeviceController2>(self)?;
+        let this = &::windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).LowLagPhoto)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SceneModeControl(&self) -> ::windows_core::Result<SceneModeControl> {
-        let this = &::windows_core::ComInterface::cast::<IAdvancedVideoCaptureDeviceController2>(self)?;
+        let this = &::windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SceneModeControl)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TorchControl(&self) -> ::windows_core::Result<TorchControl> {
-        let this = &::windows_core::ComInterface::cast::<IAdvancedVideoCaptureDeviceController2>(self)?;
+        let this = &::windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TorchControl)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn FlashControl(&self) -> ::windows_core::Result<FlashControl> {
-        let this = &::windows_core::ComInterface::cast::<IAdvancedVideoCaptureDeviceController2>(self)?;
+        let this = &::windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FlashControl)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn WhiteBalanceControl(&self) -> ::windows_core::Result<WhiteBalanceControl> {
-        let this = &::windows_core::ComInterface::cast::<IAdvancedVideoCaptureDeviceController2>(self)?;
+        let this = &::windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).WhiteBalanceControl)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ExposureControl(&self) -> ::windows_core::Result<ExposureControl> {
-        let this = &::windows_core::ComInterface::cast::<IAdvancedVideoCaptureDeviceController2>(self)?;
+        let this = &::windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ExposureControl)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn FocusControl(&self) -> ::windows_core::Result<FocusControl> {
-        let this = &::windows_core::ComInterface::cast::<IAdvancedVideoCaptureDeviceController2>(self)?;
+        let this = &::windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FocusControl)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ExposureCompensationControl(&self) -> ::windows_core::Result<ExposureCompensationControl> {
-        let this = &::windows_core::ComInterface::cast::<IAdvancedVideoCaptureDeviceController2>(self)?;
+        let this = &::windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ExposureCompensationControl)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsoSpeedControl(&self) -> ::windows_core::Result<IsoSpeedControl> {
-        let this = &::windows_core::ComInterface::cast::<IAdvancedVideoCaptureDeviceController2>(self)?;
+        let this = &::windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsoSpeedControl)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn RegionsOfInterestControl(&self) -> ::windows_core::Result<RegionsOfInterestControl> {
-        let this = &::windows_core::ComInterface::cast::<IAdvancedVideoCaptureDeviceController2>(self)?;
+        let this = &::windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RegionsOfInterestControl)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PrimaryUse(&self) -> ::windows_core::Result<CaptureUse> {
-        let this = &::windows_core::ComInterface::cast::<IAdvancedVideoCaptureDeviceController2>(self)?;
+        let this = &::windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PrimaryUse)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetPrimaryUse(&self, value: CaptureUse) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<IAdvancedVideoCaptureDeviceController2>(self)?;
+        let this = &::windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetPrimaryUse)(::windows_core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "Required features: `\"Media_Devices_Core\"`"]
     #[cfg(feature = "Media_Devices_Core")]
     pub fn VariablePhotoSequenceController(&self) -> ::windows_core::Result<Core::VariablePhotoSequenceController> {
-        let this = &::windows_core::ComInterface::cast::<IAdvancedVideoCaptureDeviceController3>(self)?;
+        let this = &::windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController3>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).VariablePhotoSequenceController)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PhotoConfirmationControl(&self) -> ::windows_core::Result<PhotoConfirmationControl> {
-        let this = &::windows_core::ComInterface::cast::<IAdvancedVideoCaptureDeviceController3>(self)?;
+        let this = &::windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController3>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PhotoConfirmationControl)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ZoomControl(&self) -> ::windows_core::Result<ZoomControl> {
-        let this = &::windows_core::ComInterface::cast::<IAdvancedVideoCaptureDeviceController3>(self)?;
+        let this = &::windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController3>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ZoomControl)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ExposurePriorityVideoControl(&self) -> ::windows_core::Result<ExposurePriorityVideoControl> {
-        let this = &::windows_core::ComInterface::cast::<IAdvancedVideoCaptureDeviceController4>(self)?;
+        let this = &::windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController4>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ExposurePriorityVideoControl)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DesiredOptimization(&self) -> ::windows_core::Result<MediaCaptureOptimization> {
-        let this = &::windows_core::ComInterface::cast::<IAdvancedVideoCaptureDeviceController4>(self)?;
+        let this = &::windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController4>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DesiredOptimization)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetDesiredOptimization(&self, value: MediaCaptureOptimization) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<IAdvancedVideoCaptureDeviceController4>(self)?;
+        let this = &::windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController4>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetDesiredOptimization)(::windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn HdrVideoControl(&self) -> ::windows_core::Result<HdrVideoControl> {
-        let this = &::windows_core::ComInterface::cast::<IAdvancedVideoCaptureDeviceController4>(self)?;
+        let this = &::windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController4>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).HdrVideoControl)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn OpticalImageStabilizationControl(&self) -> ::windows_core::Result<OpticalImageStabilizationControl> {
-        let this = &::windows_core::ComInterface::cast::<IAdvancedVideoCaptureDeviceController4>(self)?;
+        let this = &::windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController4>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).OpticalImageStabilizationControl)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn AdvancedPhotoControl(&self) -> ::windows_core::Result<AdvancedPhotoControl> {
-        let this = &::windows_core::ComInterface::cast::<IAdvancedVideoCaptureDeviceController4>(self)?;
+        let this = &::windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController4>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AdvancedPhotoControl)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Id(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<IAdvancedVideoCaptureDeviceController5>(self)?;
+        let this = &::windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController5>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -4201,19 +3551,19 @@ impl VideoDeviceController {
     }
     pub fn GetDevicePropertyById<P0>(&self, propertyid: &::windows_core::HSTRING, maxpropertyvaluesize: P0) -> ::windows_core::Result<VideoDeviceControllerGetDevicePropertyResult>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::IReference<u32>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::IReference<u32>>,
     {
-        let this = &::windows_core::ComInterface::cast::<IAdvancedVideoCaptureDeviceController5>(self)?;
+        let this = &::windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController5>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetDevicePropertyById)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyid), maxpropertyvaluesize.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetDevicePropertyById)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyid), maxpropertyvaluesize.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn SetDevicePropertyById<P0>(&self, propertyid: &::windows_core::HSTRING, propertyvalue: P0) -> ::windows_core::Result<VideoDeviceControllerSetDevicePropertyStatus>
     where
         P0: ::windows_core::IntoParam<::windows_core::IInspectable>,
     {
-        let this = &::windows_core::ComInterface::cast::<IAdvancedVideoCaptureDeviceController5>(self)?;
+        let this = &::windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController5>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SetDevicePropertyById)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyid), propertyvalue.into_param().abi(), &mut result__).from_abi(result__)
@@ -4221,44 +3571,44 @@ impl VideoDeviceController {
     }
     pub fn GetDevicePropertyByExtendedId<P0>(&self, extendedpropertyid: &[u8], maxpropertyvaluesize: P0) -> ::windows_core::Result<VideoDeviceControllerGetDevicePropertyResult>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::IReference<u32>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::IReference<u32>>,
     {
-        let this = &::windows_core::ComInterface::cast::<IAdvancedVideoCaptureDeviceController5>(self)?;
+        let this = &::windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController5>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetDevicePropertyByExtendedId)(::windows_core::Interface::as_raw(this), extendedpropertyid.len().try_into().unwrap(), extendedpropertyid.as_ptr(), maxpropertyvaluesize.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetDevicePropertyByExtendedId)(::windows_core::Interface::as_raw(this), extendedpropertyid.len().try_into().unwrap(), extendedpropertyid.as_ptr(), maxpropertyvaluesize.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn SetDevicePropertyByExtendedId(&self, extendedpropertyid: &[u8], propertyvalue: &[u8]) -> ::windows_core::Result<VideoDeviceControllerSetDevicePropertyStatus> {
-        let this = &::windows_core::ComInterface::cast::<IAdvancedVideoCaptureDeviceController5>(self)?;
+        let this = &::windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController5>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SetDevicePropertyByExtendedId)(::windows_core::Interface::as_raw(this), extendedpropertyid.len().try_into().unwrap(), extendedpropertyid.as_ptr(), propertyvalue.len().try_into().unwrap(), propertyvalue.as_ptr(), &mut result__).from_abi(result__)
         }
     }
     pub fn VideoTemporalDenoisingControl(&self) -> ::windows_core::Result<VideoTemporalDenoisingControl> {
-        let this = &::windows_core::ComInterface::cast::<IAdvancedVideoCaptureDeviceController6>(self)?;
+        let this = &::windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController6>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).VideoTemporalDenoisingControl)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn InfraredTorchControl(&self) -> ::windows_core::Result<InfraredTorchControl> {
-        let this = &::windows_core::ComInterface::cast::<IAdvancedVideoCaptureDeviceController7>(self)?;
+        let this = &::windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController7>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InfraredTorchControl)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PanelBasedOptimizationControl(&self) -> ::windows_core::Result<PanelBasedOptimizationControl> {
-        let this = &::windows_core::ComInterface::cast::<IAdvancedVideoCaptureDeviceController8>(self)?;
+        let this = &::windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController8>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PanelBasedOptimizationControl)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DigitalWindowControl(&self) -> ::windows_core::Result<DigitalWindowControl> {
-        let this = &::windows_core::ComInterface::cast::<IAdvancedVideoCaptureDeviceController9>(self)?;
+        let this = &::windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController9>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DigitalWindowControl)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -4267,7 +3617,7 @@ impl VideoDeviceController {
     #[doc = "Required features: `\"Foundation_Collections\"`, `\"Media_Capture\"`, `\"Media_MediaProperties\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Capture", feature = "Media_MediaProperties"))]
     pub fn GetAvailableMediaStreamProperties(&self, mediastreamtype: super::Capture::MediaStreamType) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>> {
-        let this = &::windows_core::ComInterface::cast::<IMediaDeviceController>(self)?;
+        let this = &::windows_core::Interface::cast::<IMediaDeviceController>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetAvailableMediaStreamProperties)(::windows_core::Interface::as_raw(this), mediastreamtype, &mut result__).from_abi(result__)
@@ -4276,7 +3626,7 @@ impl VideoDeviceController {
     #[doc = "Required features: `\"Media_Capture\"`, `\"Media_MediaProperties\"`"]
     #[cfg(all(feature = "Media_Capture", feature = "Media_MediaProperties"))]
     pub fn GetMediaStreamProperties(&self, mediastreamtype: super::Capture::MediaStreamType) -> ::windows_core::Result<super::MediaProperties::IMediaEncodingProperties> {
-        let this = &::windows_core::ComInterface::cast::<IMediaDeviceController>(self)?;
+        let this = &::windows_core::Interface::cast::<IMediaDeviceController>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetMediaStreamProperties)(::windows_core::Interface::as_raw(this), mediastreamtype, &mut result__).from_abi(result__)
@@ -4286,12 +3636,12 @@ impl VideoDeviceController {
     #[cfg(all(feature = "Media_Capture", feature = "Media_MediaProperties"))]
     pub fn SetMediaStreamPropertiesAsync<P0>(&self, mediastreamtype: super::Capture::MediaStreamType, mediaencodingproperties: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::windows_core::TryIntoParam<super::MediaProperties::IMediaEncodingProperties>,
+        P0: ::windows_core::IntoParam<super::MediaProperties::IMediaEncodingProperties>,
     {
-        let this = &::windows_core::ComInterface::cast::<IMediaDeviceController>(self)?;
+        let this = &::windows_core::Interface::cast::<IMediaDeviceController>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SetMediaStreamPropertiesAsync)(::windows_core::Interface::as_raw(this), mediastreamtype, mediaencodingproperties.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SetMediaStreamPropertiesAsync)(::windows_core::Interface::as_raw(this), mediastreamtype, mediaencodingproperties.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn Brightness(&self) -> ::windows_core::Result<MediaDeviceControl> {
@@ -4395,18 +3745,15 @@ impl ::windows_core::RuntimeType for VideoDeviceController {
 }
 unsafe impl ::windows_core::Interface for VideoDeviceController {
     type Vtable = IVideoDeviceController_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for VideoDeviceController {
-    const IID: ::windows_core::GUID = <IVideoDeviceController as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IVideoDeviceController as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for VideoDeviceController {
     const NAME: &'static str = "Windows.Media.Devices.VideoDeviceController";
 }
-::windows_core::imp::interface_hierarchy!(VideoDeviceController, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IMediaDeviceController> for VideoDeviceController {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VideoDeviceControllerGetDevicePropertyResult(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(VideoDeviceControllerGetDevicePropertyResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl VideoDeviceControllerGetDevicePropertyResult {
     pub fn Status(&self) -> ::windows_core::Result<VideoDeviceControllerGetDevicePropertyStatus> {
         let this = self;
@@ -4428,19 +3775,17 @@ impl ::windows_core::RuntimeType for VideoDeviceControllerGetDevicePropertyResul
 }
 unsafe impl ::windows_core::Interface for VideoDeviceControllerGetDevicePropertyResult {
     type Vtable = IVideoDeviceControllerGetDevicePropertyResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for VideoDeviceControllerGetDevicePropertyResult {
-    const IID: ::windows_core::GUID = <IVideoDeviceControllerGetDevicePropertyResult as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IVideoDeviceControllerGetDevicePropertyResult as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for VideoDeviceControllerGetDevicePropertyResult {
     const NAME: &'static str = "Windows.Media.Devices.VideoDeviceControllerGetDevicePropertyResult";
 }
-::windows_core::imp::interface_hierarchy!(VideoDeviceControllerGetDevicePropertyResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for VideoDeviceControllerGetDevicePropertyResult {}
 unsafe impl ::core::marker::Sync for VideoDeviceControllerGetDevicePropertyResult {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VideoTemporalDenoisingControl(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(VideoTemporalDenoisingControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl VideoTemporalDenoisingControl {
     pub fn Supported(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -4475,19 +3820,17 @@ impl ::windows_core::RuntimeType for VideoTemporalDenoisingControl {
 }
 unsafe impl ::windows_core::Interface for VideoTemporalDenoisingControl {
     type Vtable = IVideoTemporalDenoisingControl_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for VideoTemporalDenoisingControl {
-    const IID: ::windows_core::GUID = <IVideoTemporalDenoisingControl as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IVideoTemporalDenoisingControl as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for VideoTemporalDenoisingControl {
     const NAME: &'static str = "Windows.Media.Devices.VideoTemporalDenoisingControl";
 }
-::windows_core::imp::interface_hierarchy!(VideoTemporalDenoisingControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for VideoTemporalDenoisingControl {}
 unsafe impl ::core::marker::Sync for VideoTemporalDenoisingControl {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WhiteBalanceControl(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(WhiteBalanceControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl WhiteBalanceControl {
     pub fn Supported(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -4551,17 +3894,15 @@ impl ::windows_core::RuntimeType for WhiteBalanceControl {
 }
 unsafe impl ::windows_core::Interface for WhiteBalanceControl {
     type Vtable = IWhiteBalanceControl_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for WhiteBalanceControl {
-    const IID: ::windows_core::GUID = <IWhiteBalanceControl as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IWhiteBalanceControl as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for WhiteBalanceControl {
     const NAME: &'static str = "Windows.Media.Devices.WhiteBalanceControl";
 }
-::windows_core::imp::interface_hierarchy!(WhiteBalanceControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ZoomControl(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(ZoomControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ZoomControl {
     pub fn Supported(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -4605,14 +3946,14 @@ impl ZoomControl {
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedModes(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<ZoomTransitionMode>> {
-        let this = &::windows_core::ComInterface::cast::<IZoomControl2>(self)?;
+        let this = &::windows_core::Interface::cast::<IZoomControl2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SupportedModes)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Mode(&self) -> ::windows_core::Result<ZoomTransitionMode> {
-        let this = &::windows_core::ComInterface::cast::<IZoomControl2>(self)?;
+        let this = &::windows_core::Interface::cast::<IZoomControl2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Mode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -4622,7 +3963,7 @@ impl ZoomControl {
     where
         P0: ::windows_core::IntoParam<ZoomSettings>,
     {
-        let this = &::windows_core::ComInterface::cast::<IZoomControl2>(self)?;
+        let this = &::windows_core::Interface::cast::<IZoomControl2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Configure)(::windows_core::Interface::as_raw(this), settings.into_param().abi()).ok() }
     }
 }
@@ -4631,17 +3972,15 @@ impl ::windows_core::RuntimeType for ZoomControl {
 }
 unsafe impl ::windows_core::Interface for ZoomControl {
     type Vtable = IZoomControl_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ZoomControl {
-    const IID: ::windows_core::GUID = <IZoomControl as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IZoomControl as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for ZoomControl {
     const NAME: &'static str = "Windows.Media.Devices.ZoomControl";
 }
-::windows_core::imp::interface_hierarchy!(ZoomControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ZoomSettings(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(ZoomSettings, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ZoomSettings {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -4678,14 +4017,11 @@ impl ::windows_core::RuntimeType for ZoomSettings {
 }
 unsafe impl ::windows_core::Interface for ZoomSettings {
     type Vtable = IZoomSettings_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ZoomSettings {
-    const IID: ::windows_core::GUID = <IZoomSettings as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IZoomSettings as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for ZoomSettings {
     const NAME: &'static str = "Windows.Media.Devices.ZoomSettings";
 }
-::windows_core::imp::interface_hierarchy!(ZoomSettings, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for ZoomSettings {}
 unsafe impl ::core::marker::Sync for ZoomSettings {}
 #[repr(transparent)]
@@ -5239,9 +4575,7 @@ impl ::core::fmt::Debug for ZoomTransitionMode {
 impl ::windows_core::RuntimeType for ZoomTransitionMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.ZoomTransitionMode;i4)");
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct CallControlEventHandler(pub ::windows_core::IUnknown);
+::windows_core::imp::com_interface!(CallControlEventHandler, CallControlEventHandler_Vtbl, 0x596f759f_50df_4454_bc63_4d3d01b61958);
 impl CallControlEventHandler {
     pub fn new<F: FnMut(::core::option::Option<&CallControl>) -> ::windows_core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
         let com = CallControlEventHandlerBox::<F> { vtable: &CallControlEventHandlerBox::<F>::VTABLE, count: ::windows_core::imp::RefCount::new(1), invoke };
@@ -5271,7 +4605,7 @@ impl<F: FnMut(::core::option::Option<&CallControl>) -> ::windows_core::Result<()
         if iid.is_null() || interface.is_null() {
             return ::windows_core::HRESULT(-2147467261);
         }
-        *interface = if *iid == <CallControlEventHandler as ::windows_core::ComInterface>::IID || *iid == <::windows_core::IUnknown as ::windows_core::ComInterface>::IID || *iid == <::windows_core::imp::IAgileObject as ::windows_core::ComInterface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        *interface = if *iid == <CallControlEventHandler as ::windows_core::Interface>::IID || *iid == <::windows_core::IUnknown as ::windows_core::Interface>::IID || *iid == <::windows_core::imp::IAgileObject as ::windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows_core::HRESULT(-2147467262)
         } else {
@@ -5296,12 +4630,6 @@ impl<F: FnMut(::core::option::Option<&CallControl>) -> ::windows_core::Result<()
         ((*this).invoke)(::windows_core::from_raw_borrowed(&sender)).into()
     }
 }
-unsafe impl ::windows_core::Interface for CallControlEventHandler {
-    type Vtable = CallControlEventHandler_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for CallControlEventHandler {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x596f759f_50df_4454_bc63_4d3d01b61958);
-}
 impl ::windows_core::RuntimeType for CallControlEventHandler {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -5311,9 +4639,7 @@ pub struct CallControlEventHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct DialRequestedEventHandler(pub ::windows_core::IUnknown);
+::windows_core::imp::com_interface!(DialRequestedEventHandler, DialRequestedEventHandler_Vtbl, 0x5abbffdb_c21f_4bc4_891b_257e28c1b1a4);
 impl DialRequestedEventHandler {
     pub fn new<F: FnMut(::core::option::Option<&CallControl>, ::core::option::Option<&DialRequestedEventArgs>) -> ::windows_core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
         let com = DialRequestedEventHandlerBox::<F> { vtable: &DialRequestedEventHandlerBox::<F>::VTABLE, count: ::windows_core::imp::RefCount::new(1), invoke };
@@ -5344,7 +4670,7 @@ impl<F: FnMut(::core::option::Option<&CallControl>, ::core::option::Option<&Dial
         if iid.is_null() || interface.is_null() {
             return ::windows_core::HRESULT(-2147467261);
         }
-        *interface = if *iid == <DialRequestedEventHandler as ::windows_core::ComInterface>::IID || *iid == <::windows_core::IUnknown as ::windows_core::ComInterface>::IID || *iid == <::windows_core::imp::IAgileObject as ::windows_core::ComInterface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        *interface = if *iid == <DialRequestedEventHandler as ::windows_core::Interface>::IID || *iid == <::windows_core::IUnknown as ::windows_core::Interface>::IID || *iid == <::windows_core::imp::IAgileObject as ::windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows_core::HRESULT(-2147467262)
         } else {
@@ -5369,12 +4695,6 @@ impl<F: FnMut(::core::option::Option<&CallControl>, ::core::option::Option<&Dial
         ((*this).invoke)(::windows_core::from_raw_borrowed(&sender), ::windows_core::from_raw_borrowed(&e)).into()
     }
 }
-unsafe impl ::windows_core::Interface for DialRequestedEventHandler {
-    type Vtable = DialRequestedEventHandler_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for DialRequestedEventHandler {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5abbffdb_c21f_4bc4_891b_257e28c1b1a4);
-}
 impl ::windows_core::RuntimeType for DialRequestedEventHandler {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -5384,9 +4704,7 @@ pub struct DialRequestedEventHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct KeypadPressedEventHandler(pub ::windows_core::IUnknown);
+::windows_core::imp::com_interface!(KeypadPressedEventHandler, KeypadPressedEventHandler_Vtbl, 0xe637a454_c527_422c_8926_c9af83b559a0);
 impl KeypadPressedEventHandler {
     pub fn new<F: FnMut(::core::option::Option<&CallControl>, ::core::option::Option<&KeypadPressedEventArgs>) -> ::windows_core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
         let com = KeypadPressedEventHandlerBox::<F> { vtable: &KeypadPressedEventHandlerBox::<F>::VTABLE, count: ::windows_core::imp::RefCount::new(1), invoke };
@@ -5417,7 +4735,7 @@ impl<F: FnMut(::core::option::Option<&CallControl>, ::core::option::Option<&Keyp
         if iid.is_null() || interface.is_null() {
             return ::windows_core::HRESULT(-2147467261);
         }
-        *interface = if *iid == <KeypadPressedEventHandler as ::windows_core::ComInterface>::IID || *iid == <::windows_core::IUnknown as ::windows_core::ComInterface>::IID || *iid == <::windows_core::imp::IAgileObject as ::windows_core::ComInterface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        *interface = if *iid == <KeypadPressedEventHandler as ::windows_core::Interface>::IID || *iid == <::windows_core::IUnknown as ::windows_core::Interface>::IID || *iid == <::windows_core::imp::IAgileObject as ::windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows_core::HRESULT(-2147467262)
         } else {
@@ -5442,12 +4760,6 @@ impl<F: FnMut(::core::option::Option<&CallControl>, ::core::option::Option<&Keyp
         ((*this).invoke)(::windows_core::from_raw_borrowed(&sender), ::windows_core::from_raw_borrowed(&e)).into()
     }
 }
-unsafe impl ::windows_core::Interface for KeypadPressedEventHandler {
-    type Vtable = KeypadPressedEventHandler_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for KeypadPressedEventHandler {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe637a454_c527_422c_8926_c9af83b559a0);
-}
 impl ::windows_core::RuntimeType for KeypadPressedEventHandler {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -5457,9 +4769,7 @@ pub struct KeypadPressedEventHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct RedialRequestedEventHandler(pub ::windows_core::IUnknown);
+::windows_core::imp::com_interface!(RedialRequestedEventHandler, RedialRequestedEventHandler_Vtbl, 0xbaf257d1_4ebd_4b84_9f47_6ec43d75d8b1);
 impl RedialRequestedEventHandler {
     pub fn new<F: FnMut(::core::option::Option<&CallControl>, ::core::option::Option<&RedialRequestedEventArgs>) -> ::windows_core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
         let com = RedialRequestedEventHandlerBox::<F> { vtable: &RedialRequestedEventHandlerBox::<F>::VTABLE, count: ::windows_core::imp::RefCount::new(1), invoke };
@@ -5490,7 +4800,7 @@ impl<F: FnMut(::core::option::Option<&CallControl>, ::core::option::Option<&Redi
         if iid.is_null() || interface.is_null() {
             return ::windows_core::HRESULT(-2147467261);
         }
-        *interface = if *iid == <RedialRequestedEventHandler as ::windows_core::ComInterface>::IID || *iid == <::windows_core::IUnknown as ::windows_core::ComInterface>::IID || *iid == <::windows_core::imp::IAgileObject as ::windows_core::ComInterface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        *interface = if *iid == <RedialRequestedEventHandler as ::windows_core::Interface>::IID || *iid == <::windows_core::IUnknown as ::windows_core::Interface>::IID || *iid == <::windows_core::imp::IAgileObject as ::windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows_core::HRESULT(-2147467262)
         } else {
@@ -5514,12 +4824,6 @@ impl<F: FnMut(::core::option::Option<&CallControl>, ::core::option::Option<&Redi
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         ((*this).invoke)(::windows_core::from_raw_borrowed(&sender), ::windows_core::from_raw_borrowed(&e)).into()
     }
-}
-unsafe impl ::windows_core::Interface for RedialRequestedEventHandler {
-    type Vtable = RedialRequestedEventHandler_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for RedialRequestedEventHandler {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbaf257d1_4ebd_4b84_9f47_6ec43d75d8b1);
 }
 impl ::windows_core::RuntimeType for RedialRequestedEventHandler {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();

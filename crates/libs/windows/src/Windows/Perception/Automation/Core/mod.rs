@@ -1,13 +1,4 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ICorePerceptionAutomationStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ICorePerceptionAutomationStatics {
-    type Vtable = ICorePerceptionAutomationStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ICorePerceptionAutomationStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0bb04541_4ce2_4923_9a76_8187ecc59112);
-}
+::windows_core::imp::com_interface!(ICorePerceptionAutomationStatics, ICorePerceptionAutomationStatics_Vtbl, 0x0bb04541_4ce2_4923_9a76_8187ecc59112);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICorePerceptionAutomationStatics_Vtbl {
@@ -18,9 +9,9 @@ pub struct CorePerceptionAutomation;
 impl CorePerceptionAutomation {
     pub fn SetActivationFactoryProvider<P0>(provider: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::super::Foundation::IGetActivationFactory>,
+        P0: ::windows_core::IntoParam<super::super::super::Foundation::IGetActivationFactory>,
     {
-        Self::ICorePerceptionAutomationStatics(|this| unsafe { (::windows_core::Interface::vtable(this).SetActivationFactoryProvider)(::windows_core::Interface::as_raw(this), provider.try_into_param()?.abi()).ok() })
+        Self::ICorePerceptionAutomationStatics(|this| unsafe { (::windows_core::Interface::vtable(this).SetActivationFactoryProvider)(::windows_core::Interface::as_raw(this), provider.into_param().abi()).ok() })
     }
     #[doc(hidden)]
     pub fn ICorePerceptionAutomationStatics<R, F: FnOnce(&ICorePerceptionAutomationStatics) -> ::windows_core::Result<R>>(callback: F) -> ::windows_core::Result<R> {

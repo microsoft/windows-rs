@@ -1,16 +1,10 @@
-#[doc(hidden)]
 #[cfg(feature = "deprecated")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRetailModeStatics(::windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows_core::Interface for IRetailModeStatics {
-    type Vtable = IRetailModeStatics_Vtbl;
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows_core::ComInterface for IRetailModeStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd7ded029_fdda_43e7_93fb_e53ab6e89ec3);
-}
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"deprecated\"`"]
+    IRetailModeStatics,
+    IRetailModeStatics_Vtbl,
+    0xd7ded029_fdda_43e7_93fb_e53ab6e89ec3
+);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]

@@ -22,7 +22,7 @@ impl IWSDAddress_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWSDAddress as ::windows_core::ComInterface>::IID
+        iid == &<IWSDAddress as ::windows_core::Interface>::IID
     }
 }
 pub trait IWSDAsyncCallback_Impl: Sized {
@@ -39,7 +39,7 @@ impl IWSDAsyncCallback_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), AsyncOperationComplete: AsyncOperationComplete::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWSDAsyncCallback as ::windows_core::ComInterface>::IID
+        iid == &<IWSDAsyncCallback as ::windows_core::Interface>::IID
     }
 }
 pub trait IWSDAsyncResult_Impl: Sized {
@@ -113,7 +113,7 @@ impl IWSDAsyncResult_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWSDAsyncResult as ::windows_core::ComInterface>::IID
+        iid == &<IWSDAsyncResult as ::windows_core::Interface>::IID
     }
 }
 pub trait IWSDAttachment_Impl: Sized {}
@@ -123,7 +123,7 @@ impl IWSDAttachment_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWSDAttachment as ::windows_core::ComInterface>::IID
+        iid == &<IWSDAttachment as ::windows_core::Interface>::IID
     }
 }
 pub trait IWSDDeviceHost_Impl: Sized {
@@ -220,7 +220,7 @@ impl IWSDDeviceHost_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWSDDeviceHost as ::windows_core::ComInterface>::IID
+        iid == &<IWSDDeviceHost as ::windows_core::Interface>::IID
     }
 }
 pub trait IWSDDeviceHostNotify_Impl: Sized {
@@ -243,7 +243,7 @@ impl IWSDDeviceHostNotify_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetService: GetService::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWSDDeviceHostNotify as ::windows_core::ComInterface>::IID
+        iid == &<IWSDDeviceHostNotify as ::windows_core::Interface>::IID
     }
 }
 pub trait IWSDDeviceProxy_Impl: Sized {
@@ -374,7 +374,7 @@ impl IWSDDeviceProxy_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWSDDeviceProxy as ::windows_core::ComInterface>::IID
+        iid == &<IWSDDeviceProxy as ::windows_core::Interface>::IID
     }
 }
 pub trait IWSDEndpointProxy_Impl: Sized {
@@ -454,7 +454,7 @@ impl IWSDEndpointProxy_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWSDEndpointProxy as ::windows_core::ComInterface>::IID
+        iid == &<IWSDEndpointProxy as ::windows_core::Interface>::IID
     }
 }
 pub trait IWSDEventingStatus_Impl: Sized {
@@ -488,7 +488,7 @@ impl IWSDEventingStatus_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWSDEventingStatus as ::windows_core::ComInterface>::IID
+        iid == &<IWSDEventingStatus as ::windows_core::Interface>::IID
     }
 }
 pub trait IWSDHttpAddress_Impl: Sized + IWSDTransportAddress_Impl {
@@ -535,7 +535,7 @@ impl IWSDHttpAddress_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWSDHttpAddress as ::windows_core::ComInterface>::IID || iid == &<IWSDAddress as ::windows_core::ComInterface>::IID || iid == &<IWSDTransportAddress as ::windows_core::ComInterface>::IID
+        iid == &<IWSDHttpAddress as ::windows_core::Interface>::IID || iid == &<IWSDAddress as ::windows_core::Interface>::IID || iid == &<IWSDTransportAddress as ::windows_core::Interface>::IID
     }
 }
 pub trait IWSDHttpAuthParameters_Impl: Sized {
@@ -574,7 +574,7 @@ impl IWSDHttpAuthParameters_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWSDHttpAuthParameters as ::windows_core::ComInterface>::IID
+        iid == &<IWSDHttpAuthParameters as ::windows_core::Interface>::IID
     }
 }
 pub trait IWSDHttpMessageParameters_Impl: Sized + IWSDMessageParameters_Impl {
@@ -674,7 +674,7 @@ impl IWSDHttpMessageParameters_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWSDHttpMessageParameters as ::windows_core::ComInterface>::IID || iid == &<IWSDMessageParameters as ::windows_core::ComInterface>::IID
+        iid == &<IWSDHttpMessageParameters as ::windows_core::Interface>::IID || iid == &<IWSDMessageParameters as ::windows_core::Interface>::IID
     }
 }
 pub trait IWSDInboundAttachment_Impl: Sized + IWSDAttachment_Impl {
@@ -697,7 +697,7 @@ impl IWSDInboundAttachment_Vtbl {
         Self { base__: IWSDAttachment_Vtbl::new::<Identity, Impl, OFFSET>(), Read: Read::<Identity, Impl, OFFSET>, Close: Close::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWSDInboundAttachment as ::windows_core::ComInterface>::IID || iid == &<IWSDAttachment as ::windows_core::ComInterface>::IID
+        iid == &<IWSDInboundAttachment as ::windows_core::Interface>::IID || iid == &<IWSDAttachment as ::windows_core::Interface>::IID
     }
 }
 pub trait IWSDMessageParameters_Impl: Sized {
@@ -763,7 +763,7 @@ impl IWSDMessageParameters_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWSDMessageParameters as ::windows_core::ComInterface>::IID
+        iid == &<IWSDMessageParameters as ::windows_core::Interface>::IID
     }
 }
 pub trait IWSDMetadataExchange_Impl: Sized {
@@ -786,7 +786,7 @@ impl IWSDMetadataExchange_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetMetadata: GetMetadata::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWSDMetadataExchange as ::windows_core::ComInterface>::IID
+        iid == &<IWSDMetadataExchange as ::windows_core::Interface>::IID
     }
 }
 pub trait IWSDOutboundAttachment_Impl: Sized + IWSDAttachment_Impl {
@@ -826,7 +826,7 @@ impl IWSDOutboundAttachment_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWSDOutboundAttachment as ::windows_core::ComInterface>::IID || iid == &<IWSDAttachment as ::windows_core::ComInterface>::IID
+        iid == &<IWSDOutboundAttachment as ::windows_core::Interface>::IID || iid == &<IWSDAttachment as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
@@ -869,7 +869,7 @@ impl IWSDSSLClientCertificate_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWSDSSLClientCertificate as ::windows_core::ComInterface>::IID
+        iid == &<IWSDSSLClientCertificate as ::windows_core::Interface>::IID
     }
 }
 pub trait IWSDScopeMatchingRule_Impl: Sized {
@@ -908,7 +908,7 @@ impl IWSDScopeMatchingRule_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWSDScopeMatchingRule as ::windows_core::ComInterface>::IID
+        iid == &<IWSDScopeMatchingRule as ::windows_core::Interface>::IID
     }
 }
 pub trait IWSDServiceMessaging_Impl: Sized {
@@ -935,7 +935,7 @@ impl IWSDServiceMessaging_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWSDServiceMessaging as ::windows_core::ComInterface>::IID
+        iid == &<IWSDServiceMessaging as ::windows_core::Interface>::IID
     }
 }
 pub trait IWSDServiceProxy_Impl: Sized + IWSDMetadataExchange_Impl {
@@ -1021,7 +1021,7 @@ impl IWSDServiceProxy_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWSDServiceProxy as ::windows_core::ComInterface>::IID || iid == &<IWSDMetadataExchange as ::windows_core::ComInterface>::IID
+        iid == &<IWSDServiceProxy as ::windows_core::Interface>::IID || iid == &<IWSDMetadataExchange as ::windows_core::Interface>::IID
     }
 }
 pub trait IWSDServiceProxyEventing_Impl: Sized + IWSDServiceProxy_Impl {
@@ -1142,7 +1142,7 @@ impl IWSDServiceProxyEventing_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWSDServiceProxyEventing as ::windows_core::ComInterface>::IID || iid == &<IWSDMetadataExchange as ::windows_core::ComInterface>::IID || iid == &<IWSDServiceProxy as ::windows_core::ComInterface>::IID
+        iid == &<IWSDServiceProxyEventing as ::windows_core::Interface>::IID || iid == &<IWSDMetadataExchange as ::windows_core::Interface>::IID || iid == &<IWSDServiceProxy as ::windows_core::Interface>::IID
     }
 }
 pub trait IWSDSignatureProperty_Impl: Sized {
@@ -1202,7 +1202,7 @@ impl IWSDSignatureProperty_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWSDSignatureProperty as ::windows_core::ComInterface>::IID
+        iid == &<IWSDSignatureProperty as ::windows_core::Interface>::IID
     }
 }
 pub trait IWSDTransportAddress_Impl: Sized + IWSDAddress_Impl {
@@ -1268,7 +1268,7 @@ impl IWSDTransportAddress_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWSDTransportAddress as ::windows_core::ComInterface>::IID || iid == &<IWSDAddress as ::windows_core::ComInterface>::IID
+        iid == &<IWSDTransportAddress as ::windows_core::Interface>::IID || iid == &<IWSDAddress as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
@@ -1373,7 +1373,7 @@ impl IWSDUdpAddress_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWSDUdpAddress as ::windows_core::ComInterface>::IID || iid == &<IWSDAddress as ::windows_core::ComInterface>::IID || iid == &<IWSDTransportAddress as ::windows_core::ComInterface>::IID
+        iid == &<IWSDUdpAddress as ::windows_core::Interface>::IID || iid == &<IWSDAddress as ::windows_core::Interface>::IID || iid == &<IWSDTransportAddress as ::windows_core::Interface>::IID
     }
 }
 pub trait IWSDUdpMessageParameters_Impl: Sized + IWSDMessageParameters_Impl {
@@ -1400,7 +1400,7 @@ impl IWSDUdpMessageParameters_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWSDUdpMessageParameters as ::windows_core::ComInterface>::IID || iid == &<IWSDMessageParameters as ::windows_core::ComInterface>::IID
+        iid == &<IWSDUdpMessageParameters as ::windows_core::Interface>::IID || iid == &<IWSDMessageParameters as ::windows_core::Interface>::IID
     }
 }
 pub trait IWSDXMLContext_Impl: Sized {
@@ -1441,7 +1441,7 @@ impl IWSDXMLContext_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWSDXMLContext as ::windows_core::ComInterface>::IID
+        iid == &<IWSDXMLContext as ::windows_core::Interface>::IID
     }
 }
 pub trait IWSDiscoveredService_Impl: Sized {
@@ -1591,7 +1591,7 @@ impl IWSDiscoveredService_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWSDiscoveredService as ::windows_core::ComInterface>::IID
+        iid == &<IWSDiscoveredService as ::windows_core::Interface>::IID
     }
 }
 pub trait IWSDiscoveryProvider_Impl: Sized {
@@ -1659,7 +1659,7 @@ impl IWSDiscoveryProvider_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWSDiscoveryProvider as ::windows_core::ComInterface>::IID
+        iid == &<IWSDiscoveryProvider as ::windows_core::Interface>::IID
     }
 }
 pub trait IWSDiscoveryProviderNotify_Impl: Sized {
@@ -1700,7 +1700,7 @@ impl IWSDiscoveryProviderNotify_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWSDiscoveryProviderNotify as ::windows_core::ComInterface>::IID
+        iid == &<IWSDiscoveryProviderNotify as ::windows_core::Interface>::IID
     }
 }
 pub trait IWSDiscoveryPublisher_Impl: Sized {
@@ -1859,7 +1859,7 @@ impl IWSDiscoveryPublisher_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWSDiscoveryPublisher as ::windows_core::ComInterface>::IID
+        iid == &<IWSDiscoveryPublisher as ::windows_core::Interface>::IID
     }
 }
 pub trait IWSDiscoveryPublisherNotify_Impl: Sized {
@@ -1886,6 +1886,6 @@ impl IWSDiscoveryPublisherNotify_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWSDiscoveryPublisherNotify as ::windows_core::ComInterface>::IID
+        iid == &<IWSDiscoveryPublisherNotify as ::windows_core::Interface>::IID
     }
 }

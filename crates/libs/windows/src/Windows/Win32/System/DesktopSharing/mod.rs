@@ -1,8 +1,12 @@
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRDPSRAPIApplication(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IRDPSRAPIApplication,
+    IRDPSRAPIApplication_Vtbl,
+    0x41e7a09d_eb7a_436e_935d_780ca2628324
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IRDPSRAPIApplication, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRDPSRAPIApplication {
     #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -35,16 +39,6 @@ impl IRDPSRAPIApplication {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IRDPSRAPIApplication, ::windows_core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IRDPSRAPIApplication {
-    type Vtable = IRDPSRAPIApplication_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IRDPSRAPIApplication {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x41e7a09d_eb7a_436e_935d_780ca2628324);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPSRAPIApplication_Vtbl {
@@ -59,11 +53,15 @@ pub struct IRDPSRAPIApplication_Vtbl {
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub Flags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwflags: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRDPSRAPIApplicationFilter(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IRDPSRAPIApplicationFilter,
+    IRDPSRAPIApplicationFilter_Vtbl,
+    0xd20f10ca_6637_4f06_b1d5_277ea7e5160d
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IRDPSRAPIApplicationFilter, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRDPSRAPIApplicationFilter {
     #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -90,16 +88,6 @@ impl IRDPSRAPIApplicationFilter {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IRDPSRAPIApplicationFilter, ::windows_core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IRDPSRAPIApplicationFilter {
-    type Vtable = IRDPSRAPIApplicationFilter_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IRDPSRAPIApplicationFilter {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd20f10ca_6637_4f06_b1d5_277ea7e5160d);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPSRAPIApplicationFilter_Vtbl {
@@ -115,11 +103,15 @@ pub struct IRDPSRAPIApplicationFilter_Vtbl {
     pub Enabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
     pub SetEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRDPSRAPIApplicationList(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IRDPSRAPIApplicationList,
+    IRDPSRAPIApplicationList_Vtbl,
+    0xd4b4aeb3_22dc_4837_b3b6_42ea2517849a
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IRDPSRAPIApplicationList, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRDPSRAPIApplicationList {
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
@@ -134,16 +126,6 @@ impl IRDPSRAPIApplicationList {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IRDPSRAPIApplicationList, ::windows_core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IRDPSRAPIApplicationList {
-    type Vtable = IRDPSRAPIApplicationList_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IRDPSRAPIApplicationList {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd4b4aeb3_22dc_4837_b3b6_42ea2517849a);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPSRAPIApplicationList_Vtbl {
@@ -154,11 +136,15 @@ pub struct IRDPSRAPIApplicationList_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     get_Item: usize,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRDPSRAPIAttendee(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IRDPSRAPIAttendee,
+    IRDPSRAPIAttendee_Vtbl,
+    0xec0671b3_1b78_4b80_a464_9132247543e3
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IRDPSRAPIAttendee, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRDPSRAPIAttendee {
     pub unsafe fn Id(&self) -> ::windows_core::Result<i32> {
@@ -195,16 +181,6 @@ impl IRDPSRAPIAttendee {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IRDPSRAPIAttendee, ::windows_core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IRDPSRAPIAttendee {
-    type Vtable = IRDPSRAPIAttendee_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IRDPSRAPIAttendee {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xec0671b3_1b78_4b80_a464_9132247543e3);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPSRAPIAttendee_Vtbl {
@@ -221,11 +197,15 @@ pub struct IRDPSRAPIAttendee_Vtbl {
     pub Flags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plflags: *mut i32) -> ::windows_core::HRESULT,
     pub ConnectivityInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRDPSRAPIAttendeeDisconnectInfo(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IRDPSRAPIAttendeeDisconnectInfo,
+    IRDPSRAPIAttendeeDisconnectInfo_Vtbl,
+    0xc187689f_447c_44a1_9c14_fffbb3b7ec17
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IRDPSRAPIAttendeeDisconnectInfo, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRDPSRAPIAttendeeDisconnectInfo {
     #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -244,16 +224,6 @@ impl IRDPSRAPIAttendeeDisconnectInfo {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IRDPSRAPIAttendeeDisconnectInfo, ::windows_core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IRDPSRAPIAttendeeDisconnectInfo {
-    type Vtable = IRDPSRAPIAttendeeDisconnectInfo_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IRDPSRAPIAttendeeDisconnectInfo {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc187689f_447c_44a1_9c14_fffbb3b7ec17);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPSRAPIAttendeeDisconnectInfo_Vtbl {
@@ -265,11 +235,15 @@ pub struct IRDPSRAPIAttendeeDisconnectInfo_Vtbl {
     pub Reason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, preason: *mut ATTENDEE_DISCONNECT_REASON) -> ::windows_core::HRESULT,
     pub Code: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRDPSRAPIAttendeeManager(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IRDPSRAPIAttendeeManager,
+    IRDPSRAPIAttendeeManager_Vtbl,
+    0xba3a37e8_33da_4749_8da0_07fa34da7944
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IRDPSRAPIAttendeeManager, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRDPSRAPIAttendeeManager {
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
@@ -284,16 +258,6 @@ impl IRDPSRAPIAttendeeManager {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IRDPSRAPIAttendeeManager, ::windows_core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IRDPSRAPIAttendeeManager {
-    type Vtable = IRDPSRAPIAttendeeManager_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IRDPSRAPIAttendeeManager {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xba3a37e8_33da_4749_8da0_07fa34da7944);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPSRAPIAttendeeManager_Vtbl {
@@ -304,9 +268,8 @@ pub struct IRDPSRAPIAttendeeManager_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     get_Item: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRDPSRAPIAudioStream(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IRDPSRAPIAudioStream, IRDPSRAPIAudioStream_Vtbl, 0xe3e30ef9_89c6_4541_ba3b_19336ac6d31c);
+::windows_core::imp::interface_hierarchy!(IRDPSRAPIAudioStream, ::windows_core::IUnknown);
 impl IRDPSRAPIAudioStream {
     pub unsafe fn Initialize(&self) -> ::windows_core::Result<i64> {
         let mut result__ = ::std::mem::zeroed();
@@ -325,13 +288,6 @@ impl IRDPSRAPIAudioStream {
         (::windows_core::Interface::vtable(self).FreeBuffer)(::windows_core::Interface::as_raw(self)).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IRDPSRAPIAudioStream, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IRDPSRAPIAudioStream {
-    type Vtable = IRDPSRAPIAudioStream_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRDPSRAPIAudioStream {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe3e30ef9_89c6_4541_ba3b_19336ac6d31c);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPSRAPIAudioStream_Vtbl {
@@ -342,9 +298,8 @@ pub struct IRDPSRAPIAudioStream_Vtbl {
     pub GetBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppbdata: *mut *mut u8, pcbdata: *mut u32, ptimestamp: *mut u64) -> ::windows_core::HRESULT,
     pub FreeBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRDPSRAPIClipboardUseEvents(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IRDPSRAPIClipboardUseEvents, IRDPSRAPIClipboardUseEvents_Vtbl, 0xd559f59a_7a27_4138_8763_247ce5f659a8);
+::windows_core::imp::interface_hierarchy!(IRDPSRAPIClipboardUseEvents, ::windows_core::IUnknown);
 impl IRDPSRAPIClipboardUseEvents {
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -356,13 +311,6 @@ impl IRDPSRAPIClipboardUseEvents {
         (::windows_core::Interface::vtable(self).OnPasteFromClipboard)(::windows_core::Interface::as_raw(self), clipboardformat, pattendee.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IRDPSRAPIClipboardUseEvents, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IRDPSRAPIClipboardUseEvents {
-    type Vtable = IRDPSRAPIClipboardUseEvents_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRDPSRAPIClipboardUseEvents {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd559f59a_7a27_4138_8763_247ce5f659a8);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPSRAPIClipboardUseEvents_Vtbl {
@@ -372,9 +320,8 @@ pub struct IRDPSRAPIClipboardUseEvents_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     OnPasteFromClipboard: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRDPSRAPIDebug(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IRDPSRAPIDebug, IRDPSRAPIDebug_Vtbl, 0xaa1e42b5_496d_4ca4_a690_348dcb2ec4ad);
+::windows_core::imp::interface_hierarchy!(IRDPSRAPIDebug, ::windows_core::IUnknown);
 impl IRDPSRAPIDebug {
     pub unsafe fn SetCLXCmdLine<P0>(&self, clxcmdline: P0) -> ::windows_core::Result<()>
     where
@@ -387,13 +334,6 @@ impl IRDPSRAPIDebug {
         (::windows_core::Interface::vtable(self).CLXCmdLine)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IRDPSRAPIDebug, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IRDPSRAPIDebug {
-    type Vtable = IRDPSRAPIDebug_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRDPSRAPIDebug {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaa1e42b5_496d_4ca4_a690_348dcb2ec4ad);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPSRAPIDebug_Vtbl {
@@ -401,11 +341,15 @@ pub struct IRDPSRAPIDebug_Vtbl {
     pub SetCLXCmdLine: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clxcmdline: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub CLXCmdLine: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclxcmdline: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRDPSRAPIFrameBuffer(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IRDPSRAPIFrameBuffer,
+    IRDPSRAPIFrameBuffer_Vtbl,
+    0x3d67e7d2_b27b_448e_81b3_c6110ed8b4be
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IRDPSRAPIFrameBuffer, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRDPSRAPIFrameBuffer {
     pub unsafe fn Width(&self) -> ::windows_core::Result<i32> {
@@ -428,16 +372,6 @@ impl IRDPSRAPIFrameBuffer {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IRDPSRAPIFrameBuffer, ::windows_core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IRDPSRAPIFrameBuffer {
-    type Vtable = IRDPSRAPIFrameBuffer_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IRDPSRAPIFrameBuffer {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3d67e7d2_b27b_448e_81b3_c6110ed8b4be);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPSRAPIFrameBuffer_Vtbl {
@@ -450,11 +384,15 @@ pub struct IRDPSRAPIFrameBuffer_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetFrameBufferBits: usize,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRDPSRAPIInvitation(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IRDPSRAPIInvitation,
+    IRDPSRAPIInvitation_Vtbl,
+    0x4fac1d43_fc51_45bb_b1b4_2b53aa562fa3
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IRDPSRAPIInvitation, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRDPSRAPIInvitation {
     pub unsafe fn ConnectionString(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -488,16 +426,6 @@ impl IRDPSRAPIInvitation {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IRDPSRAPIInvitation, ::windows_core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IRDPSRAPIInvitation {
-    type Vtable = IRDPSRAPIInvitation_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IRDPSRAPIInvitation {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4fac1d43_fc51_45bb_b1b4_2b53aa562fa3);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPSRAPIInvitation_Vtbl {
@@ -510,11 +438,15 @@ pub struct IRDPSRAPIInvitation_Vtbl {
     pub Revoked: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
     pub SetRevoked: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRDPSRAPIInvitationManager(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IRDPSRAPIInvitationManager,
+    IRDPSRAPIInvitationManager_Vtbl,
+    0x4722b049_92c3_4c2d_8a65_f7348f644dcf
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IRDPSRAPIInvitationManager, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRDPSRAPIInvitationManager {
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
@@ -544,16 +476,6 @@ impl IRDPSRAPIInvitationManager {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IRDPSRAPIInvitationManager, ::windows_core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IRDPSRAPIInvitationManager {
-    type Vtable = IRDPSRAPIInvitationManager_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IRDPSRAPIInvitationManager {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4722b049_92c3_4c2d_8a65_f7348f644dcf);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPSRAPIInvitationManager_Vtbl {
@@ -569,20 +491,12 @@ pub struct IRDPSRAPIInvitationManager_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     CreateInvitation: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRDPSRAPIPerfCounterLogger(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IRDPSRAPIPerfCounterLogger, IRDPSRAPIPerfCounterLogger_Vtbl, 0x071c2533_0fa4_4e8f_ae83_9c10b4305ab5);
+::windows_core::imp::interface_hierarchy!(IRDPSRAPIPerfCounterLogger, ::windows_core::IUnknown);
 impl IRDPSRAPIPerfCounterLogger {
     pub unsafe fn LogValue(&self, lvalue: i64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).LogValue)(::windows_core::Interface::as_raw(self), lvalue).ok()
     }
-}
-::windows_core::imp::interface_hierarchy!(IRDPSRAPIPerfCounterLogger, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IRDPSRAPIPerfCounterLogger {
-    type Vtable = IRDPSRAPIPerfCounterLogger_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRDPSRAPIPerfCounterLogger {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x071c2533_0fa4_4e8f_ae83_9c10b4305ab5);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -590,9 +504,8 @@ pub struct IRDPSRAPIPerfCounterLogger_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub LogValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lvalue: i64) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRDPSRAPIPerfCounterLoggingManager(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IRDPSRAPIPerfCounterLoggingManager, IRDPSRAPIPerfCounterLoggingManager_Vtbl, 0x9a512c86_ac6e_4a8e_b1a4_fcef363f6e64);
+::windows_core::imp::interface_hierarchy!(IRDPSRAPIPerfCounterLoggingManager, ::windows_core::IUnknown);
 impl IRDPSRAPIPerfCounterLoggingManager {
     pub unsafe fn CreateLogger<P0>(&self, bstrcountername: P0) -> ::windows_core::Result<IRDPSRAPIPerfCounterLogger>
     where
@@ -602,24 +515,21 @@ impl IRDPSRAPIPerfCounterLoggingManager {
         (::windows_core::Interface::vtable(self).CreateLogger)(::windows_core::Interface::as_raw(self), bstrcountername.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IRDPSRAPIPerfCounterLoggingManager, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IRDPSRAPIPerfCounterLoggingManager {
-    type Vtable = IRDPSRAPIPerfCounterLoggingManager_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRDPSRAPIPerfCounterLoggingManager {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9a512c86_ac6e_4a8e_b1a4_fcef363f6e64);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPSRAPIPerfCounterLoggingManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub CreateLogger: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrcountername: ::std::mem::MaybeUninit<::windows_core::BSTR>, pplogger: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRDPSRAPISessionProperties(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IRDPSRAPISessionProperties,
+    IRDPSRAPISessionProperties_Vtbl,
+    0x339b24f2_9bc0_4f16_9aac_f165433d13d4
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IRDPSRAPISessionProperties, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRDPSRAPISessionProperties {
     #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -641,16 +551,6 @@ impl IRDPSRAPISessionProperties {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IRDPSRAPISessionProperties, ::windows_core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IRDPSRAPISessionProperties {
-    type Vtable = IRDPSRAPISessionProperties_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IRDPSRAPISessionProperties {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x339b24f2_9bc0_4f16_9aac_f165433d13d4);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPSRAPISessionProperties_Vtbl {
@@ -664,11 +564,15 @@ pub struct IRDPSRAPISessionProperties_Vtbl {
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     put_Property: usize,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRDPSRAPISharingSession(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IRDPSRAPISharingSession,
+    IRDPSRAPISharingSession_Vtbl,
+    0xeeb20886_e470_4cf6_842b_2739c0ec5cfb
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IRDPSRAPISharingSession, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRDPSRAPISharingSession {
     pub unsafe fn Open(&self) -> ::windows_core::Result<()> {
@@ -734,16 +638,6 @@ impl IRDPSRAPISharingSession {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IRDPSRAPISharingSession, ::windows_core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IRDPSRAPISharingSession {
-    type Vtable = IRDPSRAPISharingSession_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IRDPSRAPISharingSession {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeeb20886_e470_4cf6_842b_2739c0ec5cfb);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPSRAPISharingSession_Vtbl {
@@ -778,11 +672,15 @@ pub struct IRDPSRAPISharingSession_Vtbl {
     pub SetDesktopSharedRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, left: i32, top: i32, right: i32, bottom: i32) -> ::windows_core::HRESULT,
     pub GetDesktopSharedRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pleft: *mut i32, ptop: *mut i32, pright: *mut i32, pbottom: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRDPSRAPISharingSession2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IRDPSRAPISharingSession2,
+    IRDPSRAPISharingSession2_Vtbl,
+    0xfee4ee57_e3e8_4205_8fb0_8fd1d0675c21
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IRDPSRAPISharingSession2, ::windows_core::IUnknown, super::Com::IDispatch, IRDPSRAPISharingSession);
 #[cfg(feature = "Win32_System_Com")]
 impl IRDPSRAPISharingSession2 {
     pub unsafe fn Open(&self) -> ::windows_core::Result<()> {
@@ -870,16 +768,6 @@ impl IRDPSRAPISharingSession2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IRDPSRAPISharingSession2, ::windows_core::IUnknown, super::Com::IDispatch, IRDPSRAPISharingSession);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IRDPSRAPISharingSession2 {
-    type Vtable = IRDPSRAPISharingSession2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IRDPSRAPISharingSession2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfee4ee57_e3e8_4205_8fb0_8fd1d0675c21);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPSRAPISharingSession2_Vtbl {
@@ -894,11 +782,15 @@ pub struct IRDPSRAPISharingSession2_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     SendControlLevelChangeResponse: usize,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRDPSRAPITcpConnectionInfo(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IRDPSRAPITcpConnectionInfo,
+    IRDPSRAPITcpConnectionInfo_Vtbl,
+    0xf74049a4_3d06_4028_8193_0a8c29bc2452
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IRDPSRAPITcpConnectionInfo, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRDPSRAPITcpConnectionInfo {
     pub unsafe fn Protocol(&self) -> ::windows_core::Result<i32> {
@@ -923,16 +815,6 @@ impl IRDPSRAPITcpConnectionInfo {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IRDPSRAPITcpConnectionInfo, ::windows_core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IRDPSRAPITcpConnectionInfo {
-    type Vtable = IRDPSRAPITcpConnectionInfo_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IRDPSRAPITcpConnectionInfo {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf74049a4_3d06_4028_8193_0a8c29bc2452);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPSRAPITcpConnectionInfo_Vtbl {
@@ -943,9 +825,8 @@ pub struct IRDPSRAPITcpConnectionInfo_Vtbl {
     pub PeerPort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plport: *mut i32) -> ::windows_core::HRESULT,
     pub PeerIP: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrip: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRDPSRAPITransportStream(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IRDPSRAPITransportStream, IRDPSRAPITransportStream_Vtbl, 0x36cfa065_43bb_4ef7_aed7_9b88a5053036);
+::windows_core::imp::interface_hierarchy!(IRDPSRAPITransportStream, ::windows_core::IUnknown);
 impl IRDPSRAPITransportStream {
     pub unsafe fn AllocBuffer(&self, maxpayload: i32) -> ::windows_core::Result<IRDPSRAPITransportStreamBuffer> {
         let mut result__ = ::std::mem::zeroed();
@@ -979,13 +860,6 @@ impl IRDPSRAPITransportStream {
         (::windows_core::Interface::vtable(self).Close)(::windows_core::Interface::as_raw(self)).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IRDPSRAPITransportStream, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IRDPSRAPITransportStream {
-    type Vtable = IRDPSRAPITransportStream_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRDPSRAPITransportStream {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x36cfa065_43bb_4ef7_aed7_9b88a5053036);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPSRAPITransportStream_Vtbl {
@@ -997,9 +871,8 @@ pub struct IRDPSRAPITransportStream_Vtbl {
     pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallbacks: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRDPSRAPITransportStreamBuffer(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IRDPSRAPITransportStreamBuffer, IRDPSRAPITransportStreamBuffer_Vtbl, 0x81c80290_5085_44b0_b460_f865c39cb4a9);
+::windows_core::imp::interface_hierarchy!(IRDPSRAPITransportStreamBuffer, ::windows_core::IUnknown);
 impl IRDPSRAPITransportStreamBuffer {
     pub unsafe fn Storage(&self) -> ::windows_core::Result<*mut u8> {
         let mut result__ = ::std::mem::zeroed();
@@ -1041,13 +914,6 @@ impl IRDPSRAPITransportStreamBuffer {
         (::windows_core::Interface::vtable(self).SetContext)(::windows_core::Interface::as_raw(self), pcontext.into_param().abi()).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IRDPSRAPITransportStreamBuffer, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IRDPSRAPITransportStreamBuffer {
-    type Vtable = IRDPSRAPITransportStreamBuffer_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRDPSRAPITransportStreamBuffer {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x81c80290_5085_44b0_b460_f865c39cb4a9);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPSRAPITransportStreamBuffer_Vtbl {
@@ -1063,9 +929,8 @@ pub struct IRDPSRAPITransportStreamBuffer_Vtbl {
     pub Context: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcontext: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub SetContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcontext: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRDPSRAPITransportStreamEvents(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IRDPSRAPITransportStreamEvents, IRDPSRAPITransportStreamEvents_Vtbl, 0xea81c254_f5af_4e40_982e_3e63bb595276);
+::windows_core::imp::interface_hierarchy!(IRDPSRAPITransportStreamEvents, ::windows_core::IUnknown);
 impl IRDPSRAPITransportStreamEvents {
     pub unsafe fn OnWriteCompleted<P0>(&self, pbuffer: P0)
     where
@@ -1083,13 +948,6 @@ impl IRDPSRAPITransportStreamEvents {
         (::windows_core::Interface::vtable(self).OnStreamClosed)(::windows_core::Interface::as_raw(self), hrreason)
     }
 }
-::windows_core::imp::interface_hierarchy!(IRDPSRAPITransportStreamEvents, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IRDPSRAPITransportStreamEvents {
-    type Vtable = IRDPSRAPITransportStreamEvents_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRDPSRAPITransportStreamEvents {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xea81c254_f5af_4e40_982e_3e63bb595276);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPSRAPITransportStreamEvents_Vtbl {
@@ -1098,11 +956,15 @@ pub struct IRDPSRAPITransportStreamEvents_Vtbl {
     pub OnReadCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbuffer: *mut ::core::ffi::c_void),
     pub OnStreamClosed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrreason: ::windows_core::HRESULT),
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRDPSRAPIViewer(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IRDPSRAPIViewer,
+    IRDPSRAPIViewer_Vtbl,
+    0xc6bfcd38_8ce9_404d_8ae8_f31d00c65cb5
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IRDPSRAPIViewer, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRDPSRAPIViewer {
     pub unsafe fn Connect<P0, P1, P2>(&self, bstrconnectionstring: P0, bstrname: P1, bstrpassword: P2) -> ::windows_core::Result<()>
@@ -1183,16 +1045,6 @@ impl IRDPSRAPIViewer {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IRDPSRAPIViewer, ::windows_core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IRDPSRAPIViewer {
-    type Vtable = IRDPSRAPIViewer_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IRDPSRAPIViewer {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc6bfcd38_8ce9_404d_8ae8_f31d00c65cb5);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPSRAPIViewer_Vtbl {
@@ -1227,11 +1079,15 @@ pub struct IRDPSRAPIViewer_Vtbl {
     Properties: usize,
     pub StartReverseConnectListener: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrconnectionstring: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrusername: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrpassword: ::std::mem::MaybeUninit<::windows_core::BSTR>, pbstrreverseconnectstring: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRDPSRAPIVirtualChannel(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IRDPSRAPIVirtualChannel,
+    IRDPSRAPIVirtualChannel_Vtbl,
+    0x05e12f95_28b3_4c9a_8780_d0248574a1e0
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IRDPSRAPIVirtualChannel, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRDPSRAPIVirtualChannel {
     pub unsafe fn SendData<P0>(&self, bstrdata: P0, lattendeeid: i32, channelsendflags: u32) -> ::windows_core::Result<()>
@@ -1257,16 +1113,6 @@ impl IRDPSRAPIVirtualChannel {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IRDPSRAPIVirtualChannel, ::windows_core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IRDPSRAPIVirtualChannel {
-    type Vtable = IRDPSRAPIVirtualChannel_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IRDPSRAPIVirtualChannel {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x05e12f95_28b3_4c9a_8780_d0248574a1e0);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPSRAPIVirtualChannel_Vtbl {
@@ -1277,11 +1123,15 @@ pub struct IRDPSRAPIVirtualChannel_Vtbl {
     pub Flags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plflags: *mut i32) -> ::windows_core::HRESULT,
     pub Priority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppriority: *mut CHANNEL_PRIORITY) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRDPSRAPIVirtualChannelManager(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IRDPSRAPIVirtualChannelManager,
+    IRDPSRAPIVirtualChannelManager_Vtbl,
+    0x0d11c661_5d0d_4ee4_89df_2166ae1fdfed
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IRDPSRAPIVirtualChannelManager, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRDPSRAPIVirtualChannelManager {
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
@@ -1305,16 +1155,6 @@ impl IRDPSRAPIVirtualChannelManager {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IRDPSRAPIVirtualChannelManager, ::windows_core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IRDPSRAPIVirtualChannelManager {
-    type Vtable = IRDPSRAPIVirtualChannelManager_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IRDPSRAPIVirtualChannelManager {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0d11c661_5d0d_4ee4_89df_2166ae1fdfed);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPSRAPIVirtualChannelManager_Vtbl {
@@ -1329,11 +1169,15 @@ pub struct IRDPSRAPIVirtualChannelManager_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     CreateVirtualChannel: usize,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRDPSRAPIWindow(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IRDPSRAPIWindow,
+    IRDPSRAPIWindow_Vtbl,
+    0xbeafe0f9_c77b_4933_ba9f_a24cddcc27cf
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IRDPSRAPIWindow, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRDPSRAPIWindow {
     pub unsafe fn Id(&self) -> ::windows_core::Result<i32> {
@@ -1369,16 +1213,6 @@ impl IRDPSRAPIWindow {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IRDPSRAPIWindow, ::windows_core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IRDPSRAPIWindow {
-    type Vtable = IRDPSRAPIWindow_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IRDPSRAPIWindow {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbeafe0f9_c77b_4933_ba9f_a24cddcc27cf);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPSRAPIWindow_Vtbl {
@@ -1394,11 +1228,15 @@ pub struct IRDPSRAPIWindow_Vtbl {
     pub Show: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Flags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwflags: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRDPSRAPIWindowList(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IRDPSRAPIWindowList,
+    IRDPSRAPIWindowList_Vtbl,
+    0x8a05ce44_715a_4116_a189_a118f30a07bd
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IRDPSRAPIWindowList, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRDPSRAPIWindowList {
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
@@ -1413,16 +1251,6 @@ impl IRDPSRAPIWindowList {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IRDPSRAPIWindowList, ::windows_core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IRDPSRAPIWindowList {
-    type Vtable = IRDPSRAPIWindowList_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IRDPSRAPIWindowList {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8a05ce44_715a_4116_a189_a118f30a07bd);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPSRAPIWindowList_Vtbl {
@@ -1433,9 +1261,8 @@ pub struct IRDPSRAPIWindowList_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     get_Item: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRDPViewerInputSink(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IRDPViewerInputSink, IRDPViewerInputSink_Vtbl, 0xbb590853_a6c5_4a7b_8dd4_76b69eea12d5);
+::windows_core::imp::interface_hierarchy!(IRDPViewerInputSink, ::windows_core::IUnknown);
 impl IRDPViewerInputSink {
     pub unsafe fn SendMouseButtonEvent<P0>(&self, buttontype: RDPSRAPI_MOUSE_BUTTON_TYPE, vbbuttondown: P0, xpos: u32, ypos: u32) -> ::windows_core::Result<()>
     where
@@ -1470,13 +1297,6 @@ impl IRDPViewerInputSink {
         (::windows_core::Interface::vtable(self).EndTouchFrame)(::windows_core::Interface::as_raw(self)).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IRDPViewerInputSink, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IRDPViewerInputSink {
-    type Vtable = IRDPViewerInputSink_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRDPViewerInputSink {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbb590853_a6c5_4a7b_8dd4_76b69eea12d5);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPViewerInputSink_Vtbl {
@@ -1490,23 +1310,17 @@ pub struct IRDPViewerInputSink_Vtbl {
     pub AddTouchInput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contactid: u32, event: u32, x: i32, y: i32) -> ::windows_core::HRESULT,
     pub EndTouchFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct _IRDPSessionEvents(::windows_core::IUnknown);
-#[cfg(feature = "Win32_System_Com")]
-impl _IRDPSessionEvents {}
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    _IRDPSessionEvents,
+    _IRDPSessionEvents_Vtbl,
+    0x98a97042_6698_40e9_8efd_b3200990004b
+);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(_IRDPSessionEvents, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for _IRDPSessionEvents {
-    type Vtable = _IRDPSessionEvents_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for _IRDPSessionEvents {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x98a97042_6698_40e9_8efd_b3200990004b);
-}
+impl _IRDPSessionEvents {}
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]

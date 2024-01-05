@@ -54,6 +54,6 @@ impl IImageBytes_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IImageBytes as ::windows_core::ComInterface>::IID
+        iid == &<IImageBytes as ::windows_core::Interface>::IID
     }
 }

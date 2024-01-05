@@ -43,7 +43,7 @@ impl IBuffer_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IBuffer as ::windows_core::ComInterface>::IID
+        iid == &<IBuffer as ::windows_core::Interface>::IID
     }
 }
 pub trait IContentTypeProvider_Impl: Sized {
@@ -69,7 +69,7 @@ impl IContentTypeProvider_Vtbl {
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, IContentTypeProvider, OFFSET>(), ContentType: ContentType::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IContentTypeProvider as ::windows_core::ComInterface>::IID
+        iid == &<IContentTypeProvider as ::windows_core::Interface>::IID
     }
 }
 pub trait IDataReader_Impl: Sized {
@@ -403,7 +403,7 @@ impl IDataReader_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDataReader as ::windows_core::ComInterface>::IID
+        iid == &<IDataReader as ::windows_core::Interface>::IID
     }
 }
 pub trait IDataWriter_Impl: Sized {
@@ -665,7 +665,7 @@ impl IDataWriter_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDataWriter as ::windows_core::ComInterface>::IID
+        iid == &<IDataWriter as ::windows_core::Interface>::IID
     }
 }
 pub trait IInputStream_Impl: Sized + super::super::Foundation::IClosable_Impl {
@@ -691,7 +691,7 @@ impl IInputStream_Vtbl {
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, IInputStream, OFFSET>(), ReadAsync: ReadAsync::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInputStream as ::windows_core::ComInterface>::IID
+        iid == &<IInputStream as ::windows_core::Interface>::IID
     }
 }
 pub trait IInputStreamReference_Impl: Sized {
@@ -720,7 +720,7 @@ impl IInputStreamReference_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInputStreamReference as ::windows_core::ComInterface>::IID
+        iid == &<IInputStreamReference as ::windows_core::Interface>::IID
     }
 }
 pub trait IOutputStream_Impl: Sized + super::super::Foundation::IClosable_Impl {
@@ -763,7 +763,7 @@ impl IOutputStream_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOutputStream as ::windows_core::ComInterface>::IID
+        iid == &<IOutputStream as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Foundation_Collections\"`"]
@@ -803,7 +803,7 @@ impl IPropertySetSerializer_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPropertySetSerializer as ::windows_core::ComInterface>::IID
+        iid == &<IPropertySetSerializer as ::windows_core::Interface>::IID
     }
 }
 pub trait IRandomAccessStream_Impl: Sized + super::super::Foundation::IClosable_Impl + IInputStream_Impl + IOutputStream_Impl {
@@ -926,7 +926,7 @@ impl IRandomAccessStream_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRandomAccessStream as ::windows_core::ComInterface>::IID
+        iid == &<IRandomAccessStream as ::windows_core::Interface>::IID
     }
 }
 pub trait IRandomAccessStreamReference_Impl: Sized {
@@ -955,7 +955,7 @@ impl IRandomAccessStreamReference_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRandomAccessStreamReference as ::windows_core::ComInterface>::IID
+        iid == &<IRandomAccessStreamReference as ::windows_core::Interface>::IID
     }
 }
 pub trait IRandomAccessStreamWithContentType_Impl: Sized + super::super::Foundation::IClosable_Impl + IContentTypeProvider_Impl + IInputStream_Impl + IOutputStream_Impl + IRandomAccessStream_Impl {}
@@ -967,6 +967,6 @@ impl IRandomAccessStreamWithContentType_Vtbl {
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, IRandomAccessStreamWithContentType, OFFSET>() }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRandomAccessStreamWithContentType as ::windows_core::ComInterface>::IID
+        iid == &<IRandomAccessStreamWithContentType as ::windows_core::Interface>::IID
     }
 }

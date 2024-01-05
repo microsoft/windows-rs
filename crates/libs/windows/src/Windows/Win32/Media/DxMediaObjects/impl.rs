@@ -35,7 +35,7 @@ impl IDMOQualityControl_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDMOQualityControl as ::windows_core::ComInterface>::IID
+        iid == &<IDMOQualityControl as ::windows_core::Interface>::IID
     }
 }
 pub trait IDMOVideoOutputOptimizations_Impl: Sized {
@@ -94,7 +94,7 @@ impl IDMOVideoOutputOptimizations_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDMOVideoOutputOptimizations as ::windows_core::ComInterface>::IID
+        iid == &<IDMOVideoOutputOptimizations as ::windows_core::Interface>::IID
     }
 }
 pub trait IEnumDMO_Impl: Sized {
@@ -141,7 +141,7 @@ impl IEnumDMO_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumDMO as ::windows_core::ComInterface>::IID
+        iid == &<IEnumDMO as ::windows_core::Interface>::IID
     }
 }
 pub trait IMediaBuffer_Impl: Sized {
@@ -181,7 +181,7 @@ impl IMediaBuffer_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMediaBuffer as ::windows_core::ComInterface>::IID
+        iid == &<IMediaBuffer as ::windows_core::Interface>::IID
     }
 }
 pub trait IMediaObject_Impl: Sized {
@@ -365,7 +365,7 @@ impl IMediaObject_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMediaObject as ::windows_core::ComInterface>::IID
+        iid == &<IMediaObject as ::windows_core::Interface>::IID
     }
 }
 pub trait IMediaObjectInPlace_Impl: Sized {
@@ -411,6 +411,6 @@ impl IMediaObjectInPlace_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMediaObjectInPlace as ::windows_core::ComInterface>::IID
+        iid == &<IMediaObjectInPlace as ::windows_core::Interface>::IID
     }
 }

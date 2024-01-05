@@ -42,7 +42,7 @@ impl IGameExplorer_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IGameExplorer as ::windows_core::ComInterface>::IID
+        iid == &<IGameExplorer as ::windows_core::Interface>::IID
     }
 }
 pub trait IGameExplorer2_Impl: Sized {
@@ -82,7 +82,7 @@ impl IGameExplorer2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IGameExplorer2 as ::windows_core::ComInterface>::IID
+        iid == &<IGameExplorer2 as ::windows_core::Interface>::IID
     }
 }
 pub trait IGameStatistics_Impl: Sized {
@@ -221,7 +221,7 @@ impl IGameStatistics_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IGameStatistics as ::windows_core::ComInterface>::IID
+        iid == &<IGameStatistics as ::windows_core::Interface>::IID
     }
 }
 pub trait IGameStatisticsMgr_Impl: Sized {
@@ -248,7 +248,7 @@ impl IGameStatisticsMgr_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IGameStatisticsMgr as ::windows_core::ComInterface>::IID
+        iid == &<IGameStatisticsMgr as ::windows_core::Interface>::IID
     }
 }
 pub trait IXblIdpAuthManager_Impl: Sized {
@@ -321,7 +321,7 @@ impl IXblIdpAuthManager_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXblIdpAuthManager as ::windows_core::ComInterface>::IID
+        iid == &<IXblIdpAuthManager as ::windows_core::Interface>::IID
     }
 }
 pub trait IXblIdpAuthManager2_Impl: Sized {
@@ -347,7 +347,7 @@ impl IXblIdpAuthManager2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXblIdpAuthManager2 as ::windows_core::ComInterface>::IID
+        iid == &<IXblIdpAuthManager2 as ::windows_core::Interface>::IID
     }
 }
 pub trait IXblIdpAuthTokenResult_Impl: Sized {
@@ -620,7 +620,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXblIdpAuthTokenResult as ::windows_core::ComInterface>::IID
+        iid == &<IXblIdpAuthTokenResult as ::windows_core::Interface>::IID
     }
 }
 pub trait IXblIdpAuthTokenResult2_Impl: Sized {
@@ -672,6 +672,6 @@ impl IXblIdpAuthTokenResult2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXblIdpAuthTokenResult2 as ::windows_core::ComInterface>::IID
+        iid == &<IXblIdpAuthTokenResult2 as ::windows_core::Interface>::IID
     }
 }

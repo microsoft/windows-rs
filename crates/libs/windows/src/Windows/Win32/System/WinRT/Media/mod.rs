@@ -1,21 +1,13 @@
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAudioFrameNative(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IAudioFrameNative, IAudioFrameNative_Vtbl, 0x20be1e2e_930f_4746_9335_3c332f255093);
+::windows_core::imp::interface_hierarchy!(IAudioFrameNative, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl IAudioFrameNative {
     pub unsafe fn GetData<T>(&self) -> ::windows_core::Result<T>
     where
-        T: ::windows_core::ComInterface,
+        T: ::windows_core::Interface,
     {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).GetData)(::windows_core::Interface::as_raw(self), &T::IID, &mut result__).from_abi(result__)
     }
-}
-::windows_core::imp::interface_hierarchy!(IAudioFrameNative, ::windows_core::IUnknown, ::windows_core::IInspectable);
-unsafe impl ::windows_core::Interface for IAudioFrameNative {
-    type Vtable = IAudioFrameNative_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAudioFrameNative {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x20be1e2e_930f_4746_9335_3c332f255093);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -23,9 +15,8 @@ pub struct IAudioFrameNative_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAudioFrameNativeFactory(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IAudioFrameNativeFactory, IAudioFrameNativeFactory_Vtbl, 0x7bd67cf8_bf7d_43e6_af8d_b170ee0c0110);
+::windows_core::imp::interface_hierarchy!(IAudioFrameNativeFactory, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl IAudioFrameNativeFactory {
     #[doc = "Required features: `\"Win32_Media_MediaFoundation\"`"]
     #[cfg(feature = "Win32_Media_MediaFoundation")]
@@ -33,18 +24,11 @@ impl IAudioFrameNativeFactory {
     where
         P0: ::windows_core::IntoParam<super::super::super::Media::MediaFoundation::IMFSample>,
         P1: ::windows_core::IntoParam<super::super::super::Foundation::BOOL>,
-        T: ::windows_core::ComInterface,
+        T: ::windows_core::Interface,
     {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).CreateFromMFSample)(::windows_core::Interface::as_raw(self), data.into_param().abi(), forcereadonly.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
     }
-}
-::windows_core::imp::interface_hierarchy!(IAudioFrameNativeFactory, ::windows_core::IUnknown, ::windows_core::IInspectable);
-unsafe impl ::windows_core::Interface for IAudioFrameNativeFactory {
-    type Vtable = IAudioFrameNativeFactory_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAudioFrameNativeFactory {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7bd67cf8_bf7d_43e6_af8d_b170ee0c0110);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -55,31 +39,23 @@ pub struct IAudioFrameNativeFactory_Vtbl {
     #[cfg(not(feature = "Win32_Media_MediaFoundation"))]
     CreateFromMFSample: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IVideoFrameNative(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IVideoFrameNative, IVideoFrameNative_Vtbl, 0x26ba702b_314a_4620_aaf6_7a51aa58fa18);
+::windows_core::imp::interface_hierarchy!(IVideoFrameNative, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl IVideoFrameNative {
     pub unsafe fn GetData<T>(&self) -> ::windows_core::Result<T>
     where
-        T: ::windows_core::ComInterface,
+        T: ::windows_core::Interface,
     {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).GetData)(::windows_core::Interface::as_raw(self), &T::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDevice<T>(&self) -> ::windows_core::Result<T>
     where
-        T: ::windows_core::ComInterface,
+        T: ::windows_core::Interface,
     {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).GetDevice)(::windows_core::Interface::as_raw(self), &T::IID, &mut result__).from_abi(result__)
     }
-}
-::windows_core::imp::interface_hierarchy!(IVideoFrameNative, ::windows_core::IUnknown, ::windows_core::IInspectable);
-unsafe impl ::windows_core::Interface for IVideoFrameNative {
-    type Vtable = IVideoFrameNative_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IVideoFrameNative {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x26ba702b_314a_4620_aaf6_7a51aa58fa18);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -88,9 +64,8 @@ pub struct IVideoFrameNative_Vtbl {
     pub GetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IVideoFrameNativeFactory(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IVideoFrameNativeFactory, IVideoFrameNativeFactory_Vtbl, 0x69e3693e_8e1e_4e63_ac4c_7fdc21d9731d);
+::windows_core::imp::interface_hierarchy!(IVideoFrameNativeFactory, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl IVideoFrameNativeFactory {
     #[doc = "Required features: `\"Win32_Media_MediaFoundation\"`"]
     #[cfg(feature = "Win32_Media_MediaFoundation")]
@@ -99,18 +74,11 @@ impl IVideoFrameNativeFactory {
         P0: ::windows_core::IntoParam<super::super::super::Media::MediaFoundation::IMFSample>,
         P1: ::windows_core::IntoParam<super::super::super::Foundation::BOOL>,
         P2: ::windows_core::IntoParam<super::super::super::Media::MediaFoundation::IMFDXGIDeviceManager>,
-        T: ::windows_core::ComInterface,
+        T: ::windows_core::Interface,
     {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).CreateFromMFSample)(::windows_core::Interface::as_raw(self), data.into_param().abi(), subtype, width, height, forcereadonly.into_param().abi(), ::core::mem::transmute(mindisplayaperture.unwrap_or(::std::ptr::null())), device.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
     }
-}
-::windows_core::imp::interface_hierarchy!(IVideoFrameNativeFactory, ::windows_core::IUnknown, ::windows_core::IInspectable);
-unsafe impl ::windows_core::Interface for IVideoFrameNativeFactory {
-    type Vtable = IVideoFrameNativeFactory_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IVideoFrameNativeFactory {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x69e3693e_8e1e_4e63_ac4c_7fdc21d9731d);
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -1,13 +1,4 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGuidanceAudioNotificationRequestedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGuidanceAudioNotificationRequestedEventArgs {
-    type Vtable = IGuidanceAudioNotificationRequestedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGuidanceAudioNotificationRequestedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xca2aa24a_c7c2_4d4c_9d7c_499576bceddb);
-}
+::windows_core::imp::com_interface!(IGuidanceAudioNotificationRequestedEventArgs, IGuidanceAudioNotificationRequestedEventArgs_Vtbl, 0xca2aa24a_c7c2_4d4c_9d7c_499576bceddb);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGuidanceAudioNotificationRequestedEventArgs_Vtbl {
@@ -19,16 +10,7 @@ pub struct IGuidanceAudioNotificationRequestedEventArgs_Vtbl {
     AudioFilePaths: usize,
     pub AudioText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGuidanceLaneInfo(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGuidanceLaneInfo {
-    type Vtable = IGuidanceLaneInfo_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGuidanceLaneInfo {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8404d114_6581_43b7_ac15_c9079bf90df1);
-}
+::windows_core::imp::com_interface!(IGuidanceLaneInfo, IGuidanceLaneInfo_Vtbl, 0x8404d114_6581_43b7_ac15_c9079bf90df1);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGuidanceLaneInfo_Vtbl {
@@ -36,16 +18,7 @@ pub struct IGuidanceLaneInfo_Vtbl {
     pub LaneMarkers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GuidanceLaneMarkers) -> ::windows_core::HRESULT,
     pub IsOnRoute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGuidanceManeuver(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGuidanceManeuver {
-    type Vtable = IGuidanceManeuver_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGuidanceManeuver {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfc09326c_ecc9_4928_a2a1_7232b99b94a1);
-}
+::windows_core::imp::com_interface!(IGuidanceManeuver, IGuidanceManeuver_Vtbl, 0xfc09326c_ecc9_4928_a2a1_7232b99b94a1);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGuidanceManeuver_Vtbl {
@@ -66,16 +39,7 @@ pub struct IGuidanceManeuver_Vtbl {
     pub RoadSignpost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub InstructionText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGuidanceMapMatchedCoordinate(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGuidanceMapMatchedCoordinate {
-    type Vtable = IGuidanceMapMatchedCoordinate_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGuidanceMapMatchedCoordinate {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb7acb168_2912_4a99_aff1_798609b981fe);
-}
+::windows_core::imp::com_interface!(IGuidanceMapMatchedCoordinate, IGuidanceMapMatchedCoordinate_Vtbl, 0xb7acb168_2912_4a99_aff1_798609b981fe);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGuidanceMapMatchedCoordinate_Vtbl {
@@ -89,16 +53,7 @@ pub struct IGuidanceMapMatchedCoordinate_Vtbl {
     pub IsOnStreet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub Road: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGuidanceNavigator(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGuidanceNavigator {
-    type Vtable = IGuidanceNavigator_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGuidanceNavigator {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x08f17ef7_8e3f_4d9a_be8a_108f9a012c67);
-}
+::windows_core::imp::com_interface!(IGuidanceNavigator, IGuidanceNavigator_Vtbl, 0x08f17ef7_8e3f_4d9a_be8a_108f9a012c67);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGuidanceNavigator_Vtbl {
@@ -138,16 +93,7 @@ pub struct IGuidanceNavigator_Vtbl {
     #[cfg(not(feature = "Devices_Geolocation"))]
     UpdateUserLocationWithPositionOverride: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGuidanceNavigator2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGuidanceNavigator2 {
-    type Vtable = IGuidanceNavigator2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGuidanceNavigator2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6cdc50d1_041c_4bf3_b633_a101fc2f6b57);
-}
+::windows_core::imp::com_interface!(IGuidanceNavigator2, IGuidanceNavigator2_Vtbl, 0x6cdc50d1_041c_4bf3_b633_a101fc2f6b57);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGuidanceNavigator2_Vtbl {
@@ -157,64 +103,28 @@ pub struct IGuidanceNavigator2_Vtbl {
     pub IsGuidanceAudioMuted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub SetIsGuidanceAudioMuted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGuidanceNavigatorStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGuidanceNavigatorStatics {
-    type Vtable = IGuidanceNavigatorStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGuidanceNavigatorStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00fd9513_4456_4e66_a143_3add6be08426);
-}
+::windows_core::imp::com_interface!(IGuidanceNavigatorStatics, IGuidanceNavigatorStatics_Vtbl, 0x00fd9513_4456_4e66_a143_3add6be08426);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGuidanceNavigatorStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetCurrent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGuidanceNavigatorStatics2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGuidanceNavigatorStatics2 {
-    type Vtable = IGuidanceNavigatorStatics2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGuidanceNavigatorStatics2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x54c5c3e2_7784_4c85_8c95_d0c6efb43965);
-}
+::windows_core::imp::com_interface!(IGuidanceNavigatorStatics2, IGuidanceNavigatorStatics2_Vtbl, 0x54c5c3e2_7784_4c85_8c95_d0c6efb43965);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGuidanceNavigatorStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub UseAppProvidedVoice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGuidanceReroutedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGuidanceReroutedEventArgs {
-    type Vtable = IGuidanceReroutedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGuidanceReroutedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x115d4008_d528_454e_bb94_a50341d2c9f1);
-}
+::windows_core::imp::com_interface!(IGuidanceReroutedEventArgs, IGuidanceReroutedEventArgs_Vtbl, 0x115d4008_d528_454e_bb94_a50341d2c9f1);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGuidanceReroutedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Route: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGuidanceRoadSegment(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGuidanceRoadSegment {
-    type Vtable = IGuidanceRoadSegment_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGuidanceRoadSegment {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb32758a6_be78_4c63_afe7_6c2957479b3e);
-}
+::windows_core::imp::com_interface!(IGuidanceRoadSegment, IGuidanceRoadSegment_Vtbl, 0xb32758a6_be78_4c63_afe7_6c2957479b3e);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGuidanceRoadSegment_Vtbl {
@@ -232,32 +142,14 @@ pub struct IGuidanceRoadSegment_Vtbl {
     pub IsTunnel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub IsTollRoad: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGuidanceRoadSegment2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGuidanceRoadSegment2 {
-    type Vtable = IGuidanceRoadSegment2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGuidanceRoadSegment2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2474a61d_1723_49f1_895b_47a2c4aa9c55);
-}
+::windows_core::imp::com_interface!(IGuidanceRoadSegment2, IGuidanceRoadSegment2_Vtbl, 0x2474a61d_1723_49f1_895b_47a2c4aa9c55);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGuidanceRoadSegment2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsScenic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGuidanceRoadSignpost(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGuidanceRoadSignpost {
-    type Vtable = IGuidanceRoadSignpost_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGuidanceRoadSignpost {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf1a728b6_f77a_4742_8312_53300f9845f0);
-}
+::windows_core::imp::com_interface!(IGuidanceRoadSignpost, IGuidanceRoadSignpost_Vtbl, 0xf1a728b6_f77a_4742_8312_53300f9845f0);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGuidanceRoadSignpost_Vtbl {
@@ -277,16 +169,7 @@ pub struct IGuidanceRoadSignpost_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     ExitDirections: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGuidanceRoute(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGuidanceRoute {
-    type Vtable = IGuidanceRoute_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGuidanceRoute {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3a14545d_801a_40bd_a286_afb2010cce6c);
-}
+::windows_core::imp::com_interface!(IGuidanceRoute, IGuidanceRoute_Vtbl, 0x3a14545d_801a_40bd_a286_afb2010cce6c);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGuidanceRoute_Vtbl {
@@ -311,16 +194,7 @@ pub struct IGuidanceRoute_Vtbl {
     RoadSegments: usize,
     pub ConvertToMapRoute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGuidanceRouteStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGuidanceRouteStatics {
-    type Vtable = IGuidanceRouteStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGuidanceRouteStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf56d926a_55ed_49c1_b09c_4b8223b50db3);
-}
+::windows_core::imp::com_interface!(IGuidanceRouteStatics, IGuidanceRouteStatics_Vtbl, 0xf56d926a_55ed_49c1_b09c_4b8223b50db3);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGuidanceRouteStatics_Vtbl {
@@ -328,16 +202,7 @@ pub struct IGuidanceRouteStatics_Vtbl {
     pub CanCreateFromMapRoute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maproute: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub TryCreateFromMapRoute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maproute: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGuidanceTelemetryCollector(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGuidanceTelemetryCollector {
-    type Vtable = IGuidanceTelemetryCollector_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGuidanceTelemetryCollector {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdb1f8da5_b878_4d92_98dd_347d23d38262);
-}
+::windows_core::imp::com_interface!(IGuidanceTelemetryCollector, IGuidanceTelemetryCollector_Vtbl, 0xdb1f8da5_b878_4d92_98dd_347d23d38262);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGuidanceTelemetryCollector_Vtbl {
@@ -350,32 +215,14 @@ pub struct IGuidanceTelemetryCollector_Vtbl {
     pub UploadFrequency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
     pub SetUploadFrequency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGuidanceTelemetryCollectorStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGuidanceTelemetryCollectorStatics {
-    type Vtable = IGuidanceTelemetryCollectorStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGuidanceTelemetryCollectorStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x36532047_f160_44fb_b578_94577ca05990);
-}
+::windows_core::imp::com_interface!(IGuidanceTelemetryCollectorStatics, IGuidanceTelemetryCollectorStatics_Vtbl, 0x36532047_f160_44fb_b578_94577ca05990);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGuidanceTelemetryCollectorStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetCurrent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGuidanceUpdatedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGuidanceUpdatedEventArgs {
-    type Vtable = IGuidanceUpdatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGuidanceUpdatedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfdac160b_9e8d_4de3_a9fa_b06321d18db9);
-}
+::windows_core::imp::com_interface!(IGuidanceUpdatedEventArgs, IGuidanceUpdatedEventArgs_Vtbl, 0xfdac160b_9e8d_4de3_a9fa_b06321d18db9);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGuidanceUpdatedEventArgs_Vtbl {
@@ -401,6 +248,7 @@ pub struct IGuidanceUpdatedEventArgs_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GuidanceAudioNotificationRequestedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GuidanceAudioNotificationRequestedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl GuidanceAudioNotificationRequestedEventArgs {
     pub fn AudioNotification(&self) -> ::windows_core::Result<GuidanceAudioNotificationKind> {
         let this = self;
@@ -431,19 +279,17 @@ impl ::windows_core::RuntimeType for GuidanceAudioNotificationRequestedEventArgs
 }
 unsafe impl ::windows_core::Interface for GuidanceAudioNotificationRequestedEventArgs {
     type Vtable = IGuidanceAudioNotificationRequestedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GuidanceAudioNotificationRequestedEventArgs {
-    const IID: ::windows_core::GUID = <IGuidanceAudioNotificationRequestedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGuidanceAudioNotificationRequestedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GuidanceAudioNotificationRequestedEventArgs {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceAudioNotificationRequestedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(GuidanceAudioNotificationRequestedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GuidanceAudioNotificationRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for GuidanceAudioNotificationRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GuidanceLaneInfo(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GuidanceLaneInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl GuidanceLaneInfo {
     pub fn LaneMarkers(&self) -> ::windows_core::Result<GuidanceLaneMarkers> {
         let this = self;
@@ -465,19 +311,17 @@ impl ::windows_core::RuntimeType for GuidanceLaneInfo {
 }
 unsafe impl ::windows_core::Interface for GuidanceLaneInfo {
     type Vtable = IGuidanceLaneInfo_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GuidanceLaneInfo {
-    const IID: ::windows_core::GUID = <IGuidanceLaneInfo as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGuidanceLaneInfo as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GuidanceLaneInfo {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceLaneInfo";
 }
-::windows_core::imp::interface_hierarchy!(GuidanceLaneInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GuidanceLaneInfo {}
 unsafe impl ::core::marker::Sync for GuidanceLaneInfo {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GuidanceManeuver(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GuidanceManeuver, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl GuidanceManeuver {
     #[doc = "Required features: `\"Devices_Geolocation\"`"]
     #[cfg(feature = "Devices_Geolocation")]
@@ -571,19 +415,17 @@ impl ::windows_core::RuntimeType for GuidanceManeuver {
 }
 unsafe impl ::windows_core::Interface for GuidanceManeuver {
     type Vtable = IGuidanceManeuver_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GuidanceManeuver {
-    const IID: ::windows_core::GUID = <IGuidanceManeuver as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGuidanceManeuver as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GuidanceManeuver {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceManeuver";
 }
-::windows_core::imp::interface_hierarchy!(GuidanceManeuver, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GuidanceManeuver {}
 unsafe impl ::core::marker::Sync for GuidanceManeuver {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GuidanceMapMatchedCoordinate(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GuidanceMapMatchedCoordinate, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl GuidanceMapMatchedCoordinate {
     #[doc = "Required features: `\"Devices_Geolocation\"`"]
     #[cfg(feature = "Devices_Geolocation")]
@@ -628,19 +470,17 @@ impl ::windows_core::RuntimeType for GuidanceMapMatchedCoordinate {
 }
 unsafe impl ::windows_core::Interface for GuidanceMapMatchedCoordinate {
     type Vtable = IGuidanceMapMatchedCoordinate_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GuidanceMapMatchedCoordinate {
-    const IID: ::windows_core::GUID = <IGuidanceMapMatchedCoordinate as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGuidanceMapMatchedCoordinate as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GuidanceMapMatchedCoordinate {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceMapMatchedCoordinate";
 }
-::windows_core::imp::interface_hierarchy!(GuidanceMapMatchedCoordinate, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GuidanceMapMatchedCoordinate {}
 unsafe impl ::core::marker::Sync for GuidanceMapMatchedCoordinate {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GuidanceNavigator(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GuidanceNavigator, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl GuidanceNavigator {
     pub fn StartNavigating<P0>(&self, route: P0) -> ::windows_core::Result<()>
     where
@@ -822,25 +662,25 @@ impl GuidanceNavigator {
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, GuidanceAudioNotificationRequestedEventArgs>>,
     {
-        let this = &::windows_core::ComInterface::cast::<IGuidanceNavigator2>(self)?;
+        let this = &::windows_core::Interface::cast::<IGuidanceNavigator2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AudioNotificationRequested)(::windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn RemoveAudioNotificationRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<IGuidanceNavigator2>(self)?;
+        let this = &::windows_core::Interface::cast::<IGuidanceNavigator2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveAudioNotificationRequested)(::windows_core::Interface::as_raw(this), token).ok() }
     }
     pub fn IsGuidanceAudioMuted(&self) -> ::windows_core::Result<bool> {
-        let this = &::windows_core::ComInterface::cast::<IGuidanceNavigator2>(self)?;
+        let this = &::windows_core::Interface::cast::<IGuidanceNavigator2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsGuidanceAudioMuted)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetIsGuidanceAudioMuted(&self, value: bool) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<IGuidanceNavigator2>(self)?;
+        let this = &::windows_core::Interface::cast::<IGuidanceNavigator2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetIsGuidanceAudioMuted)(::windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn GetCurrent() -> ::windows_core::Result<GuidanceNavigator> {
@@ -871,19 +711,17 @@ impl ::windows_core::RuntimeType for GuidanceNavigator {
 }
 unsafe impl ::windows_core::Interface for GuidanceNavigator {
     type Vtable = IGuidanceNavigator_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GuidanceNavigator {
-    const IID: ::windows_core::GUID = <IGuidanceNavigator as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGuidanceNavigator as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GuidanceNavigator {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceNavigator";
 }
-::windows_core::imp::interface_hierarchy!(GuidanceNavigator, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GuidanceNavigator {}
 unsafe impl ::core::marker::Sync for GuidanceNavigator {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GuidanceReroutedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GuidanceReroutedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl GuidanceReroutedEventArgs {
     pub fn Route(&self) -> ::windows_core::Result<GuidanceRoute> {
         let this = self;
@@ -898,19 +736,17 @@ impl ::windows_core::RuntimeType for GuidanceReroutedEventArgs {
 }
 unsafe impl ::windows_core::Interface for GuidanceReroutedEventArgs {
     type Vtable = IGuidanceReroutedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GuidanceReroutedEventArgs {
-    const IID: ::windows_core::GUID = <IGuidanceReroutedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGuidanceReroutedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GuidanceReroutedEventArgs {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceReroutedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(GuidanceReroutedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GuidanceReroutedEventArgs {}
 unsafe impl ::core::marker::Sync for GuidanceReroutedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GuidanceRoadSegment(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GuidanceRoadSegment, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl GuidanceRoadSegment {
     pub fn RoadName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -978,7 +814,7 @@ impl GuidanceRoadSegment {
         }
     }
     pub fn IsScenic(&self) -> ::windows_core::Result<bool> {
-        let this = &::windows_core::ComInterface::cast::<IGuidanceRoadSegment2>(self)?;
+        let this = &::windows_core::Interface::cast::<IGuidanceRoadSegment2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsScenic)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -990,19 +826,17 @@ impl ::windows_core::RuntimeType for GuidanceRoadSegment {
 }
 unsafe impl ::windows_core::Interface for GuidanceRoadSegment {
     type Vtable = IGuidanceRoadSegment_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GuidanceRoadSegment {
-    const IID: ::windows_core::GUID = <IGuidanceRoadSegment as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGuidanceRoadSegment as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GuidanceRoadSegment {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceRoadSegment";
 }
-::windows_core::imp::interface_hierarchy!(GuidanceRoadSegment, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GuidanceRoadSegment {}
 unsafe impl ::core::marker::Sync for GuidanceRoadSegment {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GuidanceRoadSignpost(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GuidanceRoadSignpost, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl GuidanceRoadSignpost {
     pub fn ExitNumber(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -1051,19 +885,17 @@ impl ::windows_core::RuntimeType for GuidanceRoadSignpost {
 }
 unsafe impl ::windows_core::Interface for GuidanceRoadSignpost {
     type Vtable = IGuidanceRoadSignpost_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GuidanceRoadSignpost {
-    const IID: ::windows_core::GUID = <IGuidanceRoadSignpost as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGuidanceRoadSignpost as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GuidanceRoadSignpost {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceRoadSignpost";
 }
-::windows_core::imp::interface_hierarchy!(GuidanceRoadSignpost, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GuidanceRoadSignpost {}
 unsafe impl ::core::marker::Sync for GuidanceRoadSignpost {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GuidanceRoute(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GuidanceRoute, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl GuidanceRoute {
     pub fn Duration(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -1151,19 +983,17 @@ impl ::windows_core::RuntimeType for GuidanceRoute {
 }
 unsafe impl ::windows_core::Interface for GuidanceRoute {
     type Vtable = IGuidanceRoute_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GuidanceRoute {
-    const IID: ::windows_core::GUID = <IGuidanceRoute as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGuidanceRoute as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GuidanceRoute {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceRoute";
 }
-::windows_core::imp::interface_hierarchy!(GuidanceRoute, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GuidanceRoute {}
 unsafe impl ::core::marker::Sync for GuidanceRoute {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GuidanceTelemetryCollector(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GuidanceTelemetryCollector, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl GuidanceTelemetryCollector {
     pub fn Enabled(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -1219,19 +1049,17 @@ impl ::windows_core::RuntimeType for GuidanceTelemetryCollector {
 }
 unsafe impl ::windows_core::Interface for GuidanceTelemetryCollector {
     type Vtable = IGuidanceTelemetryCollector_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GuidanceTelemetryCollector {
-    const IID: ::windows_core::GUID = <IGuidanceTelemetryCollector as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGuidanceTelemetryCollector as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GuidanceTelemetryCollector {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceTelemetryCollector";
 }
-::windows_core::imp::interface_hierarchy!(GuidanceTelemetryCollector, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GuidanceTelemetryCollector {}
 unsafe impl ::core::marker::Sync for GuidanceTelemetryCollector {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GuidanceUpdatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GuidanceUpdatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl GuidanceUpdatedEventArgs {
     pub fn Mode(&self) -> ::windows_core::Result<GuidanceMode> {
         let this = self;
@@ -1339,14 +1167,11 @@ impl ::windows_core::RuntimeType for GuidanceUpdatedEventArgs {
 }
 unsafe impl ::windows_core::Interface for GuidanceUpdatedEventArgs {
     type Vtable = IGuidanceUpdatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GuidanceUpdatedEventArgs {
-    const IID: ::windows_core::GUID = <IGuidanceUpdatedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGuidanceUpdatedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GuidanceUpdatedEventArgs {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceUpdatedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(GuidanceUpdatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GuidanceUpdatedEventArgs {}
 unsafe impl ::core::marker::Sync for GuidanceUpdatedEventArgs {}
 #[repr(transparent)]

@@ -4,16 +4,7 @@ pub mod Input;
 #[cfg(feature = "System_RemoteDesktop_Provider")]
 #[doc = "Required features: `\"System_RemoteDesktop_Provider\"`"]
 pub mod Provider;
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IInteractiveSessionStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IInteractiveSessionStatics {
-    type Vtable = IInteractiveSessionStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IInteractiveSessionStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x60884631_dd3a_4576_9c8d_e8027618bdce);
-}
+::windows_core::imp::com_interface!(IInteractiveSessionStatics, IInteractiveSessionStatics_Vtbl, 0x60884631_dd3a_4576_9c8d_e8027618bdce);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInteractiveSessionStatics_Vtbl {

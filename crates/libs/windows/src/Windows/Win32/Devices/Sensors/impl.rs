@@ -28,7 +28,7 @@ impl ILocationPermissions_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ILocationPermissions as ::windows_core::ComInterface>::IID
+        iid == &<ILocationPermissions as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`"]
@@ -222,7 +222,7 @@ impl ISensor_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISensor as ::windows_core::ComInterface>::IID
+        iid == &<ISensor as ::windows_core::Interface>::IID
     }
 }
 pub trait ISensorCollection_Impl: Sized {
@@ -289,7 +289,7 @@ impl ISensorCollection_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISensorCollection as ::windows_core::ComInterface>::IID
+        iid == &<ISensorCollection as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`"]
@@ -345,7 +345,7 @@ impl ISensorDataReport_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISensorDataReport as ::windows_core::ComInterface>::IID
+        iid == &<ISensorDataReport as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Devices_PortableDevices\"`"]
@@ -390,7 +390,7 @@ impl ISensorEvents_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISensorEvents as ::windows_core::ComInterface>::IID
+        iid == &<ISensorEvents as ::windows_core::Interface>::IID
     }
 }
 pub trait ISensorManager_Impl: Sized {
@@ -456,7 +456,7 @@ impl ISensorManager_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISensorManager as ::windows_core::ComInterface>::IID
+        iid == &<ISensorManager as ::windows_core::Interface>::IID
     }
 }
 pub trait ISensorManagerEvents_Impl: Sized {
@@ -473,6 +473,6 @@ impl ISensorManagerEvents_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnSensorEnter: OnSensorEnter::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISensorManagerEvents as ::windows_core::ComInterface>::IID
+        iid == &<ISensorManagerEvents as ::windows_core::Interface>::IID
     }
 }

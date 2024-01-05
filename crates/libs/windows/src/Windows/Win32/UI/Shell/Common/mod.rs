@@ -1,6 +1,5 @@
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IObjectArray(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IObjectArray, IObjectArray_Vtbl, 0x92ca9dcd_5622_4bba_a805_5e9f541bd8c9);
+::windows_core::imp::interface_hierarchy!(IObjectArray, ::windows_core::IUnknown);
 impl IObjectArray {
     pub unsafe fn GetCount(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -8,18 +7,11 @@ impl IObjectArray {
     }
     pub unsafe fn GetAt<T>(&self, uiindex: u32) -> ::windows_core::Result<T>
     where
-        T: ::windows_core::ComInterface,
+        T: ::windows_core::Interface,
     {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).GetAt)(::windows_core::Interface::as_raw(self), uiindex, &T::IID, &mut result__).from_abi(result__)
     }
-}
-::windows_core::imp::interface_hierarchy!(IObjectArray, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IObjectArray {
-    type Vtable = IObjectArray_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IObjectArray {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x92ca9dcd_5622_4bba_a805_5e9f541bd8c9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -28,9 +20,8 @@ pub struct IObjectArray_Vtbl {
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcobjects: *mut u32) -> ::windows_core::HRESULT,
     pub GetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uiindex: u32, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IObjectCollection(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IObjectCollection, IObjectCollection_Vtbl, 0x5632b1a4_e38a_400a_928a_d4cd63230295);
+::windows_core::imp::interface_hierarchy!(IObjectCollection, ::windows_core::IUnknown, IObjectArray);
 impl IObjectCollection {
     pub unsafe fn GetCount(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -38,7 +29,7 @@ impl IObjectCollection {
     }
     pub unsafe fn GetAt<T>(&self, uiindex: u32) -> ::windows_core::Result<T>
     where
-        T: ::windows_core::ComInterface,
+        T: ::windows_core::Interface,
     {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).base__.GetAt)(::windows_core::Interface::as_raw(self), uiindex, &T::IID, &mut result__).from_abi(result__)
@@ -61,13 +52,6 @@ impl IObjectCollection {
     pub unsafe fn Clear(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Clear)(::windows_core::Interface::as_raw(self)).ok()
     }
-}
-::windows_core::imp::interface_hierarchy!(IObjectCollection, ::windows_core::IUnknown, IObjectArray);
-unsafe impl ::windows_core::Interface for IObjectCollection {
-    type Vtable = IObjectCollection_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IObjectCollection {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5632b1a4_e38a_400a_928a_d4cd63230295);
 }
 #[repr(C)]
 #[doc(hidden)]

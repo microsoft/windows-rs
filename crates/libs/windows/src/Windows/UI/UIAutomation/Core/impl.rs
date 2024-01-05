@@ -23,7 +23,7 @@ impl ICoreAutomationConnectionBoundObjectProvider_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICoreAutomationConnectionBoundObjectProvider as ::windows_core::ComInterface>::IID
+        iid == &<ICoreAutomationConnectionBoundObjectProvider as ::windows_core::Interface>::IID
     }
 }
 pub trait ICoreAutomationRemoteOperationExtensionProvider_Impl: Sized {
@@ -58,6 +58,6 @@ impl ICoreAutomationRemoteOperationExtensionProvider_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICoreAutomationRemoteOperationExtensionProvider as ::windows_core::ComInterface>::IID
+        iid == &<ICoreAutomationRemoteOperationExtensionProvider as ::windows_core::Interface>::IID
     }
 }

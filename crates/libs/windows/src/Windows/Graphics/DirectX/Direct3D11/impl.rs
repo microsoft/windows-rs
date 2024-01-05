@@ -14,7 +14,7 @@ impl IDirect3DDevice_Vtbl {
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, IDirect3DDevice, OFFSET>(), Trim: Trim::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirect3DDevice as ::windows_core::ComInterface>::IID
+        iid == &<IDirect3DDevice as ::windows_core::Interface>::IID
     }
 }
 pub trait IDirect3DSurface_Impl: Sized + super::super::super::Foundation::IClosable_Impl {
@@ -39,6 +39,6 @@ impl IDirect3DSurface_Vtbl {
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, IDirect3DSurface, OFFSET>(), Description: Description::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirect3DSurface as ::windows_core::ComInterface>::IID
+        iid == &<IDirect3DSurface as ::windows_core::Interface>::IID
     }
 }

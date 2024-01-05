@@ -1,13 +1,4 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IVoiceCommand(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IVoiceCommand {
-    type Vtable = IVoiceCommand_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IVoiceCommand {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x936f5273_ec82_42a6_a55c_d2d79ec6f920);
-}
+::windows_core::imp::com_interface!(IVoiceCommand, IVoiceCommand_Vtbl, 0x936f5273_ec82_42a6_a55c_d2d79ec6f920);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVoiceCommand_Vtbl {
@@ -22,48 +13,21 @@ pub struct IVoiceCommand_Vtbl {
     #[cfg(not(feature = "Media_SpeechRecognition"))]
     SpeechRecognitionResult: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IVoiceCommandCompletedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IVoiceCommandCompletedEventArgs {
-    type Vtable = IVoiceCommandCompletedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IVoiceCommandCompletedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc85e675d_fe42_432c_9907_09df9fcf64e8);
-}
+::windows_core::imp::com_interface!(IVoiceCommandCompletedEventArgs, IVoiceCommandCompletedEventArgs_Vtbl, 0xc85e675d_fe42_432c_9907_09df9fcf64e8);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVoiceCommandCompletedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Reason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut VoiceCommandCompletionReason) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IVoiceCommandConfirmationResult(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IVoiceCommandConfirmationResult {
-    type Vtable = IVoiceCommandConfirmationResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IVoiceCommandConfirmationResult {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa022593e_8221_4526_b083_840972262247);
-}
+::windows_core::imp::com_interface!(IVoiceCommandConfirmationResult, IVoiceCommandConfirmationResult_Vtbl, 0xa022593e_8221_4526_b083_840972262247);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVoiceCommandConfirmationResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Confirmed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IVoiceCommandContentTile(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IVoiceCommandContentTile {
-    type Vtable = IVoiceCommandContentTile_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IVoiceCommandContentTile {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3eefe9f0_b8c7_4c76_a0de_1607895ee327);
-}
+::windows_core::imp::com_interface!(IVoiceCommandContentTile, IVoiceCommandContentTile_Vtbl, 0x3eefe9f0_b8c7_4c76_a0de_1607895ee327);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVoiceCommandContentTile_Vtbl {
@@ -91,16 +55,7 @@ pub struct IVoiceCommandContentTile_Vtbl {
     pub ContentTileType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut VoiceCommandContentTileType) -> ::windows_core::HRESULT,
     pub SetContentTileType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: VoiceCommandContentTileType) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IVoiceCommandDefinition(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IVoiceCommandDefinition {
-    type Vtable = IVoiceCommandDefinition_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IVoiceCommandDefinition {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7972aad0_0974_4979_984b_cb8959cd61ae);
-}
+::windows_core::imp::com_interface!(IVoiceCommandDefinition, IVoiceCommandDefinition_Vtbl, 0x7972aad0_0974_4979_984b_cb8959cd61ae);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVoiceCommandDefinition_Vtbl {
@@ -112,16 +67,7 @@ pub struct IVoiceCommandDefinition_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     SetPhraseListAsync: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IVoiceCommandDefinitionManagerStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IVoiceCommandDefinitionManagerStatics {
-    type Vtable = IVoiceCommandDefinitionManagerStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IVoiceCommandDefinitionManagerStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8fe7a69e_067e_4f16_a18c_5b17e9499940);
-}
+::windows_core::imp::com_interface!(IVoiceCommandDefinitionManagerStatics, IVoiceCommandDefinitionManagerStatics_Vtbl, 0x8fe7a69e_067e_4f16_a18c_5b17e9499940);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVoiceCommandDefinitionManagerStatics_Vtbl {
@@ -135,32 +81,14 @@ pub struct IVoiceCommandDefinitionManagerStatics_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     InstalledCommandDefinitions: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IVoiceCommandDisambiguationResult(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IVoiceCommandDisambiguationResult {
-    type Vtable = IVoiceCommandDisambiguationResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IVoiceCommandDisambiguationResult {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xecc68cfe_c9ac_45df_a8ea_feea08ef9c5e);
-}
+::windows_core::imp::com_interface!(IVoiceCommandDisambiguationResult, IVoiceCommandDisambiguationResult_Vtbl, 0xecc68cfe_c9ac_45df_a8ea_feea08ef9c5e);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVoiceCommandDisambiguationResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SelectedItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IVoiceCommandResponse(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IVoiceCommandResponse {
-    type Vtable = IVoiceCommandResponse_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IVoiceCommandResponse {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0284b30e_8a3b_4cc4_a6a1_cad5be2716b5);
-}
+::windows_core::imp::com_interface!(IVoiceCommandResponse, IVoiceCommandResponse_Vtbl, 0x0284b30e_8a3b_4cc4_a6a1_cad5be2716b5);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVoiceCommandResponse_Vtbl {
@@ -176,16 +104,7 @@ pub struct IVoiceCommandResponse_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     VoiceCommandContentTiles: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IVoiceCommandResponseStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IVoiceCommandResponseStatics {
-    type Vtable = IVoiceCommandResponseStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IVoiceCommandResponseStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2932f813_0d3b_49f2_96dd_625019bd3b5d);
-}
+::windows_core::imp::com_interface!(IVoiceCommandResponseStatics, IVoiceCommandResponseStatics_Vtbl, 0x2932f813_0d3b_49f2_96dd_625019bd3b5d);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVoiceCommandResponseStatics_Vtbl {
@@ -202,16 +121,7 @@ pub struct IVoiceCommandResponseStatics_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     CreateResponseForPromptWithTiles: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IVoiceCommandServiceConnection(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IVoiceCommandServiceConnection {
-    type Vtable = IVoiceCommandServiceConnection_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IVoiceCommandServiceConnection {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd894bb9f_21da_44a4_98a2_fb131920a9cc);
-}
+::windows_core::imp::com_interface!(IVoiceCommandServiceConnection, IVoiceCommandServiceConnection_Vtbl, 0xd894bb9f_21da_44a4_98a2_fb131920a9cc);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVoiceCommandServiceConnection_Vtbl {
@@ -230,16 +140,7 @@ pub struct IVoiceCommandServiceConnection_Vtbl {
     pub VoiceCommandCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     pub RemoveVoiceCommandCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IVoiceCommandServiceConnectionStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IVoiceCommandServiceConnectionStatics {
-    type Vtable = IVoiceCommandServiceConnectionStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IVoiceCommandServiceConnectionStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x370ebffb_2d34_42df_8770_074d0f334697);
-}
+::windows_core::imp::com_interface!(IVoiceCommandServiceConnectionStatics, IVoiceCommandServiceConnectionStatics_Vtbl, 0x370ebffb_2d34_42df_8770_074d0f334697);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVoiceCommandServiceConnectionStatics_Vtbl {
@@ -249,16 +150,7 @@ pub struct IVoiceCommandServiceConnectionStatics_Vtbl {
     #[cfg(not(feature = "ApplicationModel_AppService"))]
     FromAppServiceTriggerDetails: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IVoiceCommandUserMessage(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IVoiceCommandUserMessage {
-    type Vtable = IVoiceCommandUserMessage_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IVoiceCommandUserMessage {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x674eb3c0_44f6_4f07_b979_4c723fc08597);
-}
+::windows_core::imp::com_interface!(IVoiceCommandUserMessage, IVoiceCommandUserMessage_Vtbl, 0x674eb3c0_44f6_4f07_b979_4c723fc08597);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVoiceCommandUserMessage_Vtbl {
@@ -271,6 +163,7 @@ pub struct IVoiceCommandUserMessage_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VoiceCommand(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(VoiceCommand, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl VoiceCommand {
     pub fn CommandName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -303,19 +196,17 @@ impl ::windows_core::RuntimeType for VoiceCommand {
 }
 unsafe impl ::windows_core::Interface for VoiceCommand {
     type Vtable = IVoiceCommand_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for VoiceCommand {
-    const IID: ::windows_core::GUID = <IVoiceCommand as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IVoiceCommand as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for VoiceCommand {
     const NAME: &'static str = "Windows.ApplicationModel.VoiceCommands.VoiceCommand";
 }
-::windows_core::imp::interface_hierarchy!(VoiceCommand, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for VoiceCommand {}
 unsafe impl ::core::marker::Sync for VoiceCommand {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VoiceCommandCompletedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(VoiceCommandCompletedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl VoiceCommandCompletedEventArgs {
     pub fn Reason(&self) -> ::windows_core::Result<VoiceCommandCompletionReason> {
         let this = self;
@@ -330,19 +221,17 @@ impl ::windows_core::RuntimeType for VoiceCommandCompletedEventArgs {
 }
 unsafe impl ::windows_core::Interface for VoiceCommandCompletedEventArgs {
     type Vtable = IVoiceCommandCompletedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for VoiceCommandCompletedEventArgs {
-    const IID: ::windows_core::GUID = <IVoiceCommandCompletedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IVoiceCommandCompletedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for VoiceCommandCompletedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.VoiceCommands.VoiceCommandCompletedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(VoiceCommandCompletedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for VoiceCommandCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for VoiceCommandCompletedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VoiceCommandConfirmationResult(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(VoiceCommandConfirmationResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl VoiceCommandConfirmationResult {
     pub fn Confirmed(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -357,19 +246,17 @@ impl ::windows_core::RuntimeType for VoiceCommandConfirmationResult {
 }
 unsafe impl ::windows_core::Interface for VoiceCommandConfirmationResult {
     type Vtable = IVoiceCommandConfirmationResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for VoiceCommandConfirmationResult {
-    const IID: ::windows_core::GUID = <IVoiceCommandConfirmationResult as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IVoiceCommandConfirmationResult as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for VoiceCommandConfirmationResult {
     const NAME: &'static str = "Windows.ApplicationModel.VoiceCommands.VoiceCommandConfirmationResult";
 }
-::windows_core::imp::interface_hierarchy!(VoiceCommandConfirmationResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for VoiceCommandConfirmationResult {}
 unsafe impl ::core::marker::Sync for VoiceCommandConfirmationResult {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VoiceCommandContentTile(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(VoiceCommandContentTile, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl VoiceCommandContentTile {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -435,10 +322,10 @@ impl VoiceCommandContentTile {
     #[cfg(feature = "Storage")]
     pub fn SetImage<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Storage::IStorageFile>,
+        P0: ::windows_core::IntoParam<super::super::Storage::IStorageFile>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetImage)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetImage)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn AppContext(&self) -> ::windows_core::Result<::windows_core::IInspectable> {
         let this = self;
@@ -482,19 +369,17 @@ impl ::windows_core::RuntimeType for VoiceCommandContentTile {
 }
 unsafe impl ::windows_core::Interface for VoiceCommandContentTile {
     type Vtable = IVoiceCommandContentTile_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for VoiceCommandContentTile {
-    const IID: ::windows_core::GUID = <IVoiceCommandContentTile as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IVoiceCommandContentTile as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for VoiceCommandContentTile {
     const NAME: &'static str = "Windows.ApplicationModel.VoiceCommands.VoiceCommandContentTile";
 }
-::windows_core::imp::interface_hierarchy!(VoiceCommandContentTile, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for VoiceCommandContentTile {}
 unsafe impl ::core::marker::Sync for VoiceCommandContentTile {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VoiceCommandDefinition(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(VoiceCommandDefinition, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl VoiceCommandDefinition {
     pub fn Language(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -514,12 +399,12 @@ impl VoiceCommandDefinition {
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetPhraseListAsync<P0>(&self, phraselistname: &::windows_core::HSTRING, phraselist: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SetPhraseListAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(phraselistname), phraselist.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SetPhraseListAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(phraselistname), phraselist.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
 }
@@ -528,14 +413,11 @@ impl ::windows_core::RuntimeType for VoiceCommandDefinition {
 }
 unsafe impl ::windows_core::Interface for VoiceCommandDefinition {
     type Vtable = IVoiceCommandDefinition_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for VoiceCommandDefinition {
-    const IID: ::windows_core::GUID = <IVoiceCommandDefinition as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IVoiceCommandDefinition as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for VoiceCommandDefinition {
     const NAME: &'static str = "Windows.ApplicationModel.VoiceCommands.VoiceCommandDefinition";
 }
-::windows_core::imp::interface_hierarchy!(VoiceCommandDefinition, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for VoiceCommandDefinition {}
 unsafe impl ::core::marker::Sync for VoiceCommandDefinition {}
 pub struct VoiceCommandDefinitionManager;
@@ -571,6 +453,7 @@ impl ::windows_core::RuntimeName for VoiceCommandDefinitionManager {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VoiceCommandDisambiguationResult(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(VoiceCommandDisambiguationResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl VoiceCommandDisambiguationResult {
     pub fn SelectedItem(&self) -> ::windows_core::Result<VoiceCommandContentTile> {
         let this = self;
@@ -585,19 +468,17 @@ impl ::windows_core::RuntimeType for VoiceCommandDisambiguationResult {
 }
 unsafe impl ::windows_core::Interface for VoiceCommandDisambiguationResult {
     type Vtable = IVoiceCommandDisambiguationResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for VoiceCommandDisambiguationResult {
-    const IID: ::windows_core::GUID = <IVoiceCommandDisambiguationResult as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IVoiceCommandDisambiguationResult as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for VoiceCommandDisambiguationResult {
     const NAME: &'static str = "Windows.ApplicationModel.VoiceCommands.VoiceCommandDisambiguationResult";
 }
-::windows_core::imp::interface_hierarchy!(VoiceCommandDisambiguationResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for VoiceCommandDisambiguationResult {}
 unsafe impl ::core::marker::Sync for VoiceCommandDisambiguationResult {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VoiceCommandResponse(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(VoiceCommandResponse, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl VoiceCommandResponse {
     pub fn Message(&self) -> ::windows_core::Result<VoiceCommandUserMessage> {
         let this = self;
@@ -667,11 +548,11 @@ impl VoiceCommandResponse {
     pub fn CreateResponseWithTiles<P0, P1>(message: P0, contenttiles: P1) -> ::windows_core::Result<VoiceCommandResponse>
     where
         P0: ::windows_core::IntoParam<VoiceCommandUserMessage>,
-        P1: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<VoiceCommandContentTile>>,
+        P1: ::windows_core::IntoParam<super::super::Foundation::Collections::IIterable<VoiceCommandContentTile>>,
     {
         Self::IVoiceCommandResponseStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateResponseWithTiles)(::windows_core::Interface::as_raw(this), message.into_param().abi(), contenttiles.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateResponseWithTiles)(::windows_core::Interface::as_raw(this), message.into_param().abi(), contenttiles.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn CreateResponseForPrompt<P0, P1>(message: P0, repeatmessage: P1) -> ::windows_core::Result<VoiceCommandResponse>
@@ -690,11 +571,11 @@ impl VoiceCommandResponse {
     where
         P0: ::windows_core::IntoParam<VoiceCommandUserMessage>,
         P1: ::windows_core::IntoParam<VoiceCommandUserMessage>,
-        P2: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<VoiceCommandContentTile>>,
+        P2: ::windows_core::IntoParam<super::super::Foundation::Collections::IIterable<VoiceCommandContentTile>>,
     {
         Self::IVoiceCommandResponseStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateResponseForPromptWithTiles)(::windows_core::Interface::as_raw(this), message.into_param().abi(), repeatmessage.into_param().abi(), contenttiles.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateResponseForPromptWithTiles)(::windows_core::Interface::as_raw(this), message.into_param().abi(), repeatmessage.into_param().abi(), contenttiles.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -708,19 +589,17 @@ impl ::windows_core::RuntimeType for VoiceCommandResponse {
 }
 unsafe impl ::windows_core::Interface for VoiceCommandResponse {
     type Vtable = IVoiceCommandResponse_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for VoiceCommandResponse {
-    const IID: ::windows_core::GUID = <IVoiceCommandResponse as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IVoiceCommandResponse as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for VoiceCommandResponse {
     const NAME: &'static str = "Windows.ApplicationModel.VoiceCommands.VoiceCommandResponse";
 }
-::windows_core::imp::interface_hierarchy!(VoiceCommandResponse, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for VoiceCommandResponse {}
 unsafe impl ::core::marker::Sync for VoiceCommandResponse {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VoiceCommandServiceConnection(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(VoiceCommandServiceConnection, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl VoiceCommandServiceConnection {
     pub fn GetVoiceCommandAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<VoiceCommand>> {
         let this = self;
@@ -834,19 +713,17 @@ impl ::windows_core::RuntimeType for VoiceCommandServiceConnection {
 }
 unsafe impl ::windows_core::Interface for VoiceCommandServiceConnection {
     type Vtable = IVoiceCommandServiceConnection_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for VoiceCommandServiceConnection {
-    const IID: ::windows_core::GUID = <IVoiceCommandServiceConnection as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IVoiceCommandServiceConnection as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for VoiceCommandServiceConnection {
     const NAME: &'static str = "Windows.ApplicationModel.VoiceCommands.VoiceCommandServiceConnection";
 }
-::windows_core::imp::interface_hierarchy!(VoiceCommandServiceConnection, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for VoiceCommandServiceConnection {}
 unsafe impl ::core::marker::Sync for VoiceCommandServiceConnection {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VoiceCommandUserMessage(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(VoiceCommandUserMessage, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl VoiceCommandUserMessage {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -883,14 +760,11 @@ impl ::windows_core::RuntimeType for VoiceCommandUserMessage {
 }
 unsafe impl ::windows_core::Interface for VoiceCommandUserMessage {
     type Vtable = IVoiceCommandUserMessage_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for VoiceCommandUserMessage {
-    const IID: ::windows_core::GUID = <IVoiceCommandUserMessage as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IVoiceCommandUserMessage as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for VoiceCommandUserMessage {
     const NAME: &'static str = "Windows.ApplicationModel.VoiceCommands.VoiceCommandUserMessage";
 }
-::windows_core::imp::interface_hierarchy!(VoiceCommandUserMessage, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for VoiceCommandUserMessage {}
 unsafe impl ::core::marker::Sync for VoiceCommandUserMessage {}
 #[repr(transparent)]

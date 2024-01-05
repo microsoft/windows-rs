@@ -197,9 +197,8 @@ pub unsafe fn EapHostPeerUninitialize() {
     ::windows_targets::link!("eappprxy.dll" "system" fn EapHostPeerUninitialize());
     EapHostPeerUninitialize()
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAccountingProviderConfig(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IAccountingProviderConfig, IAccountingProviderConfig_Vtbl, 0x66a2db18_d706_11d0_a37b_00c04fc9da04);
+::windows_core::imp::interface_hierarchy!(IAccountingProviderConfig, ::windows_core::IUnknown);
 impl IAccountingProviderConfig {
     pub unsafe fn Initialize<P0>(&self, pszmachinename: P0) -> ::windows_core::Result<usize>
     where
@@ -224,13 +223,6 @@ impl IAccountingProviderConfig {
         (::windows_core::Interface::vtable(self).Deactivate)(::windows_core::Interface::as_raw(self), uconnectionparam, ureserved1, ureserved2).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IAccountingProviderConfig, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAccountingProviderConfig {
-    type Vtable = IAccountingProviderConfig_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAccountingProviderConfig {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x66a2db18_d706_11d0_a37b_00c04fc9da04);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccountingProviderConfig_Vtbl {
@@ -241,9 +233,8 @@ pub struct IAccountingProviderConfig_Vtbl {
     pub Activate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uconnectionparam: usize, ureserved1: usize, ureserved2: usize) -> ::windows_core::HRESULT,
     pub Deactivate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uconnectionparam: usize, ureserved1: usize, ureserved2: usize) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAuthenticationProviderConfig(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IAuthenticationProviderConfig, IAuthenticationProviderConfig_Vtbl, 0x66a2db17_d706_11d0_a37b_00c04fc9da04);
+::windows_core::imp::interface_hierarchy!(IAuthenticationProviderConfig, ::windows_core::IUnknown);
 impl IAuthenticationProviderConfig {
     pub unsafe fn Initialize<P0>(&self, pszmachinename: P0) -> ::windows_core::Result<usize>
     where
@@ -268,13 +259,6 @@ impl IAuthenticationProviderConfig {
         (::windows_core::Interface::vtable(self).Deactivate)(::windows_core::Interface::as_raw(self), uconnectionparam, ureserved1, ureserved2).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IAuthenticationProviderConfig, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAuthenticationProviderConfig {
-    type Vtable = IAuthenticationProviderConfig_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAuthenticationProviderConfig {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x66a2db17_d706_11d0_a37b_00c04fc9da04);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAuthenticationProviderConfig_Vtbl {
@@ -285,9 +269,8 @@ pub struct IAuthenticationProviderConfig_Vtbl {
     pub Activate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uconnectionparam: usize, ureserved1: usize, ureserved2: usize) -> ::windows_core::HRESULT,
     pub Deactivate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uconnectionparam: usize, ureserved1: usize, ureserved2: usize) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IEAPProviderConfig(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IEAPProviderConfig, IEAPProviderConfig_Vtbl, 0x66a2db19_d706_11d0_a37b_00c04fc9da04);
+::windows_core::imp::interface_hierarchy!(IEAPProviderConfig, ::windows_core::IUnknown);
 impl IEAPProviderConfig {
     pub unsafe fn Initialize<P0>(&self, pszmachinename: P0, dweaptypeid: u32) -> ::windows_core::Result<usize>
     where
@@ -318,13 +301,6 @@ impl IEAPProviderConfig {
         (::windows_core::Interface::vtable(self).RouterInvokeCredentialsUI)(::windows_core::Interface::as_raw(self), dweaptypeid, uconnectionparam, hwndparent.into_param().abi(), dwflags, ::core::mem::transmute(pconnectiondatain.as_ptr()), pconnectiondatain.len().try_into().unwrap(), ::core::mem::transmute(puserdatain.as_ptr()), puserdatain.len().try_into().unwrap(), ppuserdataout, pdwsizeofuserdataout).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IEAPProviderConfig, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IEAPProviderConfig {
-    type Vtable = IEAPProviderConfig_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IEAPProviderConfig {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x66a2db19_d706_11d0_a37b_00c04fc9da04);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEAPProviderConfig_Vtbl {
@@ -335,9 +311,8 @@ pub struct IEAPProviderConfig_Vtbl {
     pub RouterInvokeConfigUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dweaptypeid: u32, uconnectionparam: usize, hwndparent: super::super::Foundation::HWND, dwflags: u32, pconnectiondatain: *const u8, dwsizeofconnectiondatain: u32, ppconnectiondataout: *mut *mut u8, pdwsizeofconnectiondataout: *mut u32) -> ::windows_core::HRESULT,
     pub RouterInvokeCredentialsUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dweaptypeid: u32, uconnectionparam: usize, hwndparent: super::super::Foundation::HWND, dwflags: u32, pconnectiondatain: *const u8, dwsizeofconnectiondatain: u32, puserdatain: *const u8, dwsizeofuserdatain: u32, ppuserdataout: *mut *mut u8, pdwsizeofuserdataout: *mut u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IEAPProviderConfig2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IEAPProviderConfig2, IEAPProviderConfig2_Vtbl, 0xd565917a_85c4_4466_856e_671c3742ea9a);
+::windows_core::imp::interface_hierarchy!(IEAPProviderConfig2, ::windows_core::IUnknown, IEAPProviderConfig);
 impl IEAPProviderConfig2 {
     pub unsafe fn Initialize<P0>(&self, pszmachinename: P0, dweaptypeid: u32) -> ::windows_core::Result<usize>
     where
@@ -377,13 +352,6 @@ impl IEAPProviderConfig2 {
         (::windows_core::Interface::vtable(self).GetGlobalConfig)(::windows_core::Interface::as_raw(self), dweaptypeid, ppconfigdataout, pdwsizeofconfigdataout).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IEAPProviderConfig2, ::windows_core::IUnknown, IEAPProviderConfig);
-unsafe impl ::windows_core::Interface for IEAPProviderConfig2 {
-    type Vtable = IEAPProviderConfig2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IEAPProviderConfig2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd565917a_85c4_4466_856e_671c3742ea9a);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEAPProviderConfig2_Vtbl {
@@ -391,9 +359,8 @@ pub struct IEAPProviderConfig2_Vtbl {
     pub ServerInvokeConfigUI2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dweaptypeid: u32, uconnectionparam: usize, hwnd: super::super::Foundation::HWND, pconfigdatain: *const u8, dwsizeofconfigdatain: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32) -> ::windows_core::HRESULT,
     pub GetGlobalConfig: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dweaptypeid: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IEAPProviderConfig3(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IEAPProviderConfig3, IEAPProviderConfig3_Vtbl, 0xb78ecd12_68bb_4f86_9bf0_8438dd3be982);
+::windows_core::imp::interface_hierarchy!(IEAPProviderConfig3, ::windows_core::IUnknown, IEAPProviderConfig, IEAPProviderConfig2);
 impl IEAPProviderConfig3 {
     pub unsafe fn Initialize<P0>(&self, pszmachinename: P0, dweaptypeid: u32) -> ::windows_core::Result<usize>
     where
@@ -439,22 +406,14 @@ impl IEAPProviderConfig3 {
         (::windows_core::Interface::vtable(self).ServerInvokeCertificateConfigUI)(::windows_core::Interface::as_raw(self), dweaptypeid, uconnectionparam, hwnd.into_param().abi(), pconfigdatain, dwsizeofconfigdatain, ppconfigdataout, pdwsizeofconfigdataout, ureserved).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IEAPProviderConfig3, ::windows_core::IUnknown, IEAPProviderConfig, IEAPProviderConfig2);
-unsafe impl ::windows_core::Interface for IEAPProviderConfig3 {
-    type Vtable = IEAPProviderConfig3_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IEAPProviderConfig3 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb78ecd12_68bb_4f86_9bf0_8438dd3be982);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEAPProviderConfig3_Vtbl {
     pub base__: IEAPProviderConfig2_Vtbl,
     pub ServerInvokeCertificateConfigUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dweaptypeid: u32, uconnectionparam: usize, hwnd: super::super::Foundation::HWND, pconfigdatain: *const u8, dwsizeofconfigdatain: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32, ureserved: usize) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRouterProtocolConfig(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IRouterProtocolConfig, IRouterProtocolConfig_Vtbl, 0x66a2db16_d706_11d0_a37b_00c04fc9da04);
+::windows_core::imp::interface_hierarchy!(IRouterProtocolConfig, ::windows_core::IUnknown);
 impl IRouterProtocolConfig {
     pub unsafe fn AddProtocol<P0, P1, P2>(&self, pszmachinename: P0, dwtransportid: u32, dwprotocolid: u32, hwnd: P1, dwflags: u32, prouter: P2, ureserved1: usize) -> ::windows_core::Result<()>
     where
@@ -472,13 +431,6 @@ impl IRouterProtocolConfig {
     {
         (::windows_core::Interface::vtable(self).RemoveProtocol)(::windows_core::Interface::as_raw(self), pszmachinename.into_param().abi(), dwtransportid, dwprotocolid, hwnd.into_param().abi(), dwflags, prouter.into_param().abi(), ureserved1).ok()
     }
-}
-::windows_core::imp::interface_hierarchy!(IRouterProtocolConfig, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IRouterProtocolConfig {
-    type Vtable = IRouterProtocolConfig_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRouterProtocolConfig {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x66a2db16_d706_11d0_a37b_00c04fc9da04);
 }
 #[repr(C)]
 #[doc(hidden)]

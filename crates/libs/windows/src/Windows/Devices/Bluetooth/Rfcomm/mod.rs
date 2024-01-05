@@ -1,13 +1,4 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRfcommDeviceService(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IRfcommDeviceService {
-    type Vtable = IRfcommDeviceService_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRfcommDeviceService {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xae81ff1f_c5a1_4c40_8c28_f3efd69062f3);
-}
+::windows_core::imp::com_interface!(IRfcommDeviceService, IRfcommDeviceService_Vtbl, 0xae81ff1f_c5a1_4c40_8c28_f3efd69062f3);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRfcommDeviceService_Vtbl {
@@ -35,32 +26,14 @@ pub struct IRfcommDeviceService_Vtbl {
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
     GetSdpRawAttributesWithCacheModeAsync: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRfcommDeviceService2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IRfcommDeviceService2 {
-    type Vtable = IRfcommDeviceService2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRfcommDeviceService2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x536ced14_ebcd_49fe_bf9f_40efc689b20d);
-}
+::windows_core::imp::com_interface!(IRfcommDeviceService2, IRfcommDeviceService2_Vtbl, 0x536ced14_ebcd_49fe_bf9f_40efc689b20d);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRfcommDeviceService2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Device: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRfcommDeviceService3(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IRfcommDeviceService3 {
-    type Vtable = IRfcommDeviceService3_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRfcommDeviceService3 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1c22ace6_dd44_4d23_866d_8f3486ee6490);
-}
+::windows_core::imp::com_interface!(IRfcommDeviceService3, IRfcommDeviceService3_Vtbl, 0x1c22ace6_dd44_4d23_866d_8f3486ee6490);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRfcommDeviceService3_Vtbl {
@@ -74,16 +47,7 @@ pub struct IRfcommDeviceService3_Vtbl {
     #[cfg(not(feature = "Devices_Enumeration"))]
     RequestAccessAsync: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRfcommDeviceServiceStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IRfcommDeviceServiceStatics {
-    type Vtable = IRfcommDeviceServiceStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRfcommDeviceServiceStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa4a149ef_626d_41ac_b253_87ac5c27e28a);
-}
+::windows_core::imp::com_interface!(IRfcommDeviceServiceStatics, IRfcommDeviceServiceStatics_Vtbl, 0xa4a149ef_626d_41ac_b253_87ac5c27e28a);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRfcommDeviceServiceStatics_Vtbl {
@@ -91,16 +55,7 @@ pub struct IRfcommDeviceServiceStatics_Vtbl {
     pub FromIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetDeviceSelector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, serviceid: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRfcommDeviceServiceStatics2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IRfcommDeviceServiceStatics2 {
-    type Vtable = IRfcommDeviceServiceStatics2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRfcommDeviceServiceStatics2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaa8cb1c9_e78d_4be4_8076_0a3d87a0a05f);
-}
+::windows_core::imp::com_interface!(IRfcommDeviceServiceStatics2, IRfcommDeviceServiceStatics2_Vtbl, 0xaa8cb1c9_e78d_4be4_8076_0a3d87a0a05f);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRfcommDeviceServiceStatics2_Vtbl {
@@ -110,16 +65,7 @@ pub struct IRfcommDeviceServiceStatics2_Vtbl {
     pub GetDeviceSelectorForBluetoothDeviceAndServiceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bluetoothdevice: *mut ::core::ffi::c_void, serviceid: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub GetDeviceSelectorForBluetoothDeviceAndServiceIdWithCacheMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bluetoothdevice: *mut ::core::ffi::c_void, serviceid: *mut ::core::ffi::c_void, cachemode: super::BluetoothCacheMode, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRfcommDeviceServicesResult(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IRfcommDeviceServicesResult {
-    type Vtable = IRfcommDeviceServicesResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRfcommDeviceServicesResult {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3b48388c_7ccf_488e_9625_d259a5732d55);
-}
+::windows_core::imp::com_interface!(IRfcommDeviceServicesResult, IRfcommDeviceServicesResult_Vtbl, 0x3b48388c_7ccf_488e_9625_d259a5732d55);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRfcommDeviceServicesResult_Vtbl {
@@ -130,16 +76,7 @@ pub struct IRfcommDeviceServicesResult_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     Services: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRfcommServiceId(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IRfcommServiceId {
-    type Vtable = IRfcommServiceId_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRfcommServiceId {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x22629204_7e02_4017_8136_da1b6a1b9bbf);
-}
+::windows_core::imp::com_interface!(IRfcommServiceId, IRfcommServiceId_Vtbl, 0x22629204_7e02_4017_8136_da1b6a1b9bbf);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRfcommServiceId_Vtbl {
@@ -148,16 +85,7 @@ pub struct IRfcommServiceId_Vtbl {
     pub AsShortId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
     pub AsString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRfcommServiceIdStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IRfcommServiceIdStatics {
-    type Vtable = IRfcommServiceIdStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRfcommServiceIdStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2a179eba_a975_46e3_b56b_08ffd783a5fe);
-}
+::windows_core::imp::com_interface!(IRfcommServiceIdStatics, IRfcommServiceIdStatics_Vtbl, 0x2a179eba_a975_46e3_b56b_08ffd783a5fe);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRfcommServiceIdStatics_Vtbl {
@@ -171,16 +99,7 @@ pub struct IRfcommServiceIdStatics_Vtbl {
     pub PhoneBookAccessPse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GenericFileTransfer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRfcommServiceProvider(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IRfcommServiceProvider {
-    type Vtable = IRfcommServiceProvider_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRfcommServiceProvider {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeadbfdc4_b1f6_44ff_9f7c_e7a82ab86821);
-}
+::windows_core::imp::com_interface!(IRfcommServiceProvider, IRfcommServiceProvider_Vtbl, 0xeadbfdc4_b1f6_44ff_9f7c_e7a82ab86821);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRfcommServiceProvider_Vtbl {
@@ -196,16 +115,7 @@ pub struct IRfcommServiceProvider_Vtbl {
     StartAdvertising: usize,
     pub StopAdvertising: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRfcommServiceProvider2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IRfcommServiceProvider2 {
-    type Vtable = IRfcommServiceProvider2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRfcommServiceProvider2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x736bdfc6_3c81_4d1e_baf2_ddbb81284512);
-}
+::windows_core::imp::com_interface!(IRfcommServiceProvider2, IRfcommServiceProvider2_Vtbl, 0x736bdfc6_3c81_4d1e_baf2_ddbb81284512);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRfcommServiceProvider2_Vtbl {
@@ -215,16 +125,7 @@ pub struct IRfcommServiceProvider2_Vtbl {
     #[cfg(not(feature = "Networking_Sockets"))]
     StartAdvertisingWithRadioDiscoverability: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRfcommServiceProviderStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IRfcommServiceProviderStatics {
-    type Vtable = IRfcommServiceProviderStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRfcommServiceProviderStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x98888303_69ca_413a_84f7_4344c7292997);
-}
+::windows_core::imp::com_interface!(IRfcommServiceProviderStatics, IRfcommServiceProviderStatics_Vtbl, 0x98888303_69ca_413a_84f7_4344c7292997);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRfcommServiceProviderStatics_Vtbl {
@@ -234,9 +135,11 @@ pub struct IRfcommServiceProviderStatics_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RfcommDeviceService(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(RfcommDeviceService, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(RfcommDeviceService, super::super::super::Foundation::IClosable);
 impl RfcommDeviceService {
     pub fn Close(&self) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IClosable>(self)?;
+        let this = &::windows_core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
     #[doc = "Required features: `\"Networking\"`"]
@@ -299,7 +202,7 @@ impl RfcommDeviceService {
         }
     }
     pub fn Device(&self) -> ::windows_core::Result<super::BluetoothDevice> {
-        let this = &::windows_core::ComInterface::cast::<IRfcommDeviceService2>(self)?;
+        let this = &::windows_core::Interface::cast::<IRfcommDeviceService2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Device)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -308,7 +211,7 @@ impl RfcommDeviceService {
     #[doc = "Required features: `\"Devices_Enumeration\"`"]
     #[cfg(feature = "Devices_Enumeration")]
     pub fn DeviceAccessInformation(&self) -> ::windows_core::Result<super::super::Enumeration::DeviceAccessInformation> {
-        let this = &::windows_core::ComInterface::cast::<IRfcommDeviceService3>(self)?;
+        let this = &::windows_core::Interface::cast::<IRfcommDeviceService3>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DeviceAccessInformation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -317,7 +220,7 @@ impl RfcommDeviceService {
     #[doc = "Required features: `\"Devices_Enumeration\"`"]
     #[cfg(feature = "Devices_Enumeration")]
     pub fn RequestAccessAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::Enumeration::DeviceAccessStatus>> {
-        let this = &::windows_core::ComInterface::cast::<IRfcommDeviceService3>(self)?;
+        let this = &::windows_core::Interface::cast::<IRfcommDeviceService3>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestAccessAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -392,20 +295,17 @@ impl ::windows_core::RuntimeType for RfcommDeviceService {
 }
 unsafe impl ::windows_core::Interface for RfcommDeviceService {
     type Vtable = IRfcommDeviceService_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for RfcommDeviceService {
-    const IID: ::windows_core::GUID = <IRfcommDeviceService as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IRfcommDeviceService as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for RfcommDeviceService {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Rfcomm.RfcommDeviceService";
 }
-::windows_core::imp::interface_hierarchy!(RfcommDeviceService, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<super::super::super::Foundation::IClosable> for RfcommDeviceService {}
 unsafe impl ::core::marker::Send for RfcommDeviceService {}
 unsafe impl ::core::marker::Sync for RfcommDeviceService {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RfcommDeviceServicesResult(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(RfcommDeviceServicesResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl RfcommDeviceServicesResult {
     pub fn Error(&self) -> ::windows_core::Result<super::BluetoothError> {
         let this = self;
@@ -429,19 +329,17 @@ impl ::windows_core::RuntimeType for RfcommDeviceServicesResult {
 }
 unsafe impl ::windows_core::Interface for RfcommDeviceServicesResult {
     type Vtable = IRfcommDeviceServicesResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for RfcommDeviceServicesResult {
-    const IID: ::windows_core::GUID = <IRfcommDeviceServicesResult as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IRfcommDeviceServicesResult as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for RfcommDeviceServicesResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Rfcomm.RfcommDeviceServicesResult";
 }
-::windows_core::imp::interface_hierarchy!(RfcommDeviceServicesResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for RfcommDeviceServicesResult {}
 unsafe impl ::core::marker::Sync for RfcommDeviceServicesResult {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RfcommServiceId(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(RfcommServiceId, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl RfcommServiceId {
     pub fn Uuid(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let this = self;
@@ -523,19 +421,17 @@ impl ::windows_core::RuntimeType for RfcommServiceId {
 }
 unsafe impl ::windows_core::Interface for RfcommServiceId {
     type Vtable = IRfcommServiceId_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for RfcommServiceId {
-    const IID: ::windows_core::GUID = <IRfcommServiceId as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IRfcommServiceId as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for RfcommServiceId {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Rfcomm.RfcommServiceId";
 }
-::windows_core::imp::interface_hierarchy!(RfcommServiceId, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for RfcommServiceId {}
 unsafe impl ::core::marker::Sync for RfcommServiceId {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RfcommServiceProvider(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(RfcommServiceProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl RfcommServiceProvider {
     pub fn ServiceId(&self) -> ::windows_core::Result<RfcommServiceId> {
         let this = self;
@@ -572,7 +468,7 @@ impl RfcommServiceProvider {
     where
         P0: ::windows_core::IntoParam<super::super::super::Networking::Sockets::StreamSocketListener>,
     {
-        let this = &::windows_core::ComInterface::cast::<IRfcommServiceProvider2>(self)?;
+        let this = &::windows_core::Interface::cast::<IRfcommServiceProvider2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).StartAdvertisingWithRadioDiscoverability)(::windows_core::Interface::as_raw(this), listener.into_param().abi(), radiodiscoverable).ok() }
     }
     pub fn CreateAsync<P0>(serviceid: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<RfcommServiceProvider>>
@@ -595,13 +491,10 @@ impl ::windows_core::RuntimeType for RfcommServiceProvider {
 }
 unsafe impl ::windows_core::Interface for RfcommServiceProvider {
     type Vtable = IRfcommServiceProvider_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for RfcommServiceProvider {
-    const IID: ::windows_core::GUID = <IRfcommServiceProvider as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IRfcommServiceProvider as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for RfcommServiceProvider {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Rfcomm.RfcommServiceProvider";
 }
-::windows_core::imp::interface_hierarchy!(RfcommServiceProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for RfcommServiceProvider {}
 unsafe impl ::core::marker::Sync for RfcommServiceProvider {}

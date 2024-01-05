@@ -75,6 +75,6 @@ impl IPropertyAnimation_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPropertyAnimation as ::windows_core::ComInterface>::IID
+        iid == &<IPropertyAnimation as ::windows_core::Interface>::IID
     }
 }

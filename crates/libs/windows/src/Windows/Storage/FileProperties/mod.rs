@@ -1,13 +1,4 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IBasicProperties(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IBasicProperties {
-    type Vtable = IBasicProperties_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IBasicProperties {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd05d55db_785e_4a66_be02_9beec58aea81);
-}
+::windows_core::imp::com_interface!(IBasicProperties, IBasicProperties_Vtbl, 0xd05d55db_785e_4a66_be02_9beec58aea81);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBasicProperties_Vtbl {
@@ -16,16 +7,7 @@ pub struct IBasicProperties_Vtbl {
     pub DateModified: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
     pub ItemDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDocumentProperties(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDocumentProperties {
-    type Vtable = IDocumentProperties_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDocumentProperties {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7eab19bc_1821_4923_b4a9_0aea404d0070);
-}
+::windows_core::imp::com_interface!(IDocumentProperties, IDocumentProperties_Vtbl, 0x7eab19bc_1821_4923_b4a9_0aea404d0070);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDocumentProperties_Vtbl {
@@ -43,16 +25,7 @@ pub struct IDocumentProperties_Vtbl {
     pub Comment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub SetComment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGeotagHelperStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGeotagHelperStatics {
-    type Vtable = IGeotagHelperStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGeotagHelperStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x41493244_2524_4655_86a6_ed16f5fc716b);
-}
+::windows_core::imp::com_interface!(IGeotagHelperStatics, IGeotagHelperStatics_Vtbl, 0x41493244_2524_4655_86a6_ed16f5fc716b);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeotagHelperStatics_Vtbl {
@@ -70,16 +43,7 @@ pub struct IGeotagHelperStatics_Vtbl {
     #[cfg(not(feature = "Devices_Geolocation"))]
     SetGeotagAsync: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IImageProperties(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IImageProperties {
-    type Vtable = IImageProperties_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IImageProperties {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x523c9424_fcff_4275_afee_ecdb9ab47973);
-}
+::windows_core::imp::com_interface!(IImageProperties, IImageProperties_Vtbl, 0x523c9424_fcff_4275_afee_ecdb9ab47973);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IImageProperties_Vtbl {
@@ -108,16 +72,7 @@ pub struct IImageProperties_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     PeopleNames: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMusicProperties(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IMusicProperties {
-    type Vtable = IMusicProperties_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IMusicProperties {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbc8aab62_66ec_419a_bc5d_ca65a4cb46da);
-}
+::windows_core::imp::com_interface!(IMusicProperties, IMusicProperties_Vtbl, 0xbc8aab62_66ec_419a_bc5d_ca65a4cb46da);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMusicProperties_Vtbl {
@@ -163,16 +118,7 @@ pub struct IMusicProperties_Vtbl {
     pub Year: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
     pub SetYear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IStorageItemContentProperties(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IStorageItemContentProperties {
-    type Vtable = IStorageItemContentProperties_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IStorageItemContentProperties {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x05294bad_bc38_48bf_85d7_770e0e2ae0ba);
-}
+::windows_core::imp::com_interface!(IStorageItemContentProperties, IStorageItemContentProperties_Vtbl, 0x05294bad_bc38_48bf_85d7_770e0e2ae0ba);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageItemContentProperties_Vtbl {
@@ -182,32 +128,31 @@ pub struct IStorageItemContentProperties_Vtbl {
     pub GetImagePropertiesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetDocumentPropertiesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IStorageItemExtraProperties(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IStorageItemExtraProperties, IStorageItemExtraProperties_Vtbl, 0xc54361b2_54cd_432b_bdbc_4b19c4b470d7);
+::windows_core::imp::interface_hierarchy!(IStorageItemExtraProperties, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl IStorageItemExtraProperties {
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RetrievePropertiesAsync<P0>(&self, propertiestoretrieve: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows_core::HSTRING, ::windows_core::IInspectable>>>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).RetrievePropertiesAsync)(::windows_core::Interface::as_raw(this), propertiestoretrieve.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).RetrievePropertiesAsync)(::windows_core::Interface::as_raw(this), propertiestoretrieve.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SavePropertiesAsync<P0>(&self, propertiestosave: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows_core::HSTRING, ::windows_core::IInspectable>>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows_core::HSTRING, ::windows_core::IInspectable>>>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SavePropertiesAsync)(::windows_core::Interface::as_raw(this), propertiestosave.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SavePropertiesAsync)(::windows_core::Interface::as_raw(this), propertiestosave.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn SavePropertiesAsyncOverloadDefault(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
@@ -218,15 +163,8 @@ impl IStorageItemExtraProperties {
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IStorageItemExtraProperties, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IStorageItemExtraProperties {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IStorageItemExtraProperties {
-    type Vtable = IStorageItemExtraProperties_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IStorageItemExtraProperties {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc54361b2_54cd_432b_bdbc_4b19c4b470d7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -242,16 +180,7 @@ pub struct IStorageItemExtraProperties_Vtbl {
     SavePropertiesAsync: usize,
     pub SavePropertiesAsyncOverloadDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IThumbnailProperties(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IThumbnailProperties {
-    type Vtable = IThumbnailProperties_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IThumbnailProperties {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x693dd42f_dbe7_49b5_b3b3_2893ac5d3423);
-}
+::windows_core::imp::com_interface!(IThumbnailProperties, IThumbnailProperties_Vtbl, 0x693dd42f_dbe7_49b5_b3b3_2893ac5d3423);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IThumbnailProperties_Vtbl {
@@ -261,16 +190,7 @@ pub struct IThumbnailProperties_Vtbl {
     pub ReturnedSmallerCachedSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ThumbnailType) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IVideoProperties(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IVideoProperties {
-    type Vtable = IVideoProperties_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IVideoProperties {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x719ae507_68de_4db8_97de_49998c059f2f);
-}
+::windows_core::imp::com_interface!(IVideoProperties, IVideoProperties_Vtbl, 0x719ae507_68de_4db8_97de_49998c059f2f);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVideoProperties_Vtbl {
@@ -312,6 +232,8 @@ pub struct IVideoProperties_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct BasicProperties(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(BasicProperties, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(BasicProperties, IStorageItemExtraProperties);
 impl BasicProperties {
     pub fn Size(&self) -> ::windows_core::Result<u64> {
         let this = self;
@@ -338,28 +260,28 @@ impl BasicProperties {
     #[cfg(feature = "Foundation_Collections")]
     pub fn RetrievePropertiesAsync<P0>(&self, propertiestoretrieve: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows_core::HSTRING, ::windows_core::IInspectable>>>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
     {
-        let this = &::windows_core::ComInterface::cast::<IStorageItemExtraProperties>(self)?;
+        let this = &::windows_core::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).RetrievePropertiesAsync)(::windows_core::Interface::as_raw(this), propertiestoretrieve.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).RetrievePropertiesAsync)(::windows_core::Interface::as_raw(this), propertiestoretrieve.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SavePropertiesAsync<P0>(&self, propertiestosave: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows_core::HSTRING, ::windows_core::IInspectable>>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows_core::HSTRING, ::windows_core::IInspectable>>>,
     {
-        let this = &::windows_core::ComInterface::cast::<IStorageItemExtraProperties>(self)?;
+        let this = &::windows_core::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SavePropertiesAsync)(::windows_core::Interface::as_raw(this), propertiestosave.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SavePropertiesAsync)(::windows_core::Interface::as_raw(this), propertiestosave.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn SavePropertiesAsyncOverloadDefault(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
-        let this = &::windows_core::ComInterface::cast::<IStorageItemExtraProperties>(self)?;
+        let this = &::windows_core::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SavePropertiesAsyncOverloadDefault)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -371,18 +293,16 @@ impl ::windows_core::RuntimeType for BasicProperties {
 }
 unsafe impl ::windows_core::Interface for BasicProperties {
     type Vtable = IBasicProperties_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for BasicProperties {
-    const IID: ::windows_core::GUID = <IBasicProperties as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IBasicProperties as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for BasicProperties {
     const NAME: &'static str = "Windows.Storage.FileProperties.BasicProperties";
 }
-::windows_core::imp::interface_hierarchy!(BasicProperties, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IStorageItemExtraProperties> for BasicProperties {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DocumentProperties(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(DocumentProperties, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(DocumentProperties, IStorageItemExtraProperties);
 impl DocumentProperties {
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
@@ -428,28 +348,28 @@ impl DocumentProperties {
     #[cfg(feature = "Foundation_Collections")]
     pub fn RetrievePropertiesAsync<P0>(&self, propertiestoretrieve: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows_core::HSTRING, ::windows_core::IInspectable>>>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
     {
-        let this = &::windows_core::ComInterface::cast::<IStorageItemExtraProperties>(self)?;
+        let this = &::windows_core::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).RetrievePropertiesAsync)(::windows_core::Interface::as_raw(this), propertiestoretrieve.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).RetrievePropertiesAsync)(::windows_core::Interface::as_raw(this), propertiestoretrieve.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SavePropertiesAsync<P0>(&self, propertiestosave: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows_core::HSTRING, ::windows_core::IInspectable>>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows_core::HSTRING, ::windows_core::IInspectable>>>,
     {
-        let this = &::windows_core::ComInterface::cast::<IStorageItemExtraProperties>(self)?;
+        let this = &::windows_core::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SavePropertiesAsync)(::windows_core::Interface::as_raw(this), propertiestosave.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SavePropertiesAsync)(::windows_core::Interface::as_raw(this), propertiestosave.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn SavePropertiesAsyncOverloadDefault(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
-        let this = &::windows_core::ComInterface::cast::<IStorageItemExtraProperties>(self)?;
+        let this = &::windows_core::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SavePropertiesAsyncOverloadDefault)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -461,50 +381,46 @@ impl ::windows_core::RuntimeType for DocumentProperties {
 }
 unsafe impl ::windows_core::Interface for DocumentProperties {
     type Vtable = IDocumentProperties_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for DocumentProperties {
-    const IID: ::windows_core::GUID = <IDocumentProperties as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IDocumentProperties as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for DocumentProperties {
     const NAME: &'static str = "Windows.Storage.FileProperties.DocumentProperties";
 }
-::windows_core::imp::interface_hierarchy!(DocumentProperties, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IStorageItemExtraProperties> for DocumentProperties {}
 pub struct GeotagHelper;
 impl GeotagHelper {
     #[doc = "Required features: `\"Devices_Geolocation\"`"]
     #[cfg(feature = "Devices_Geolocation")]
     pub fn GetGeotagAsync<P0>(file: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Devices::Geolocation::Geopoint>>
     where
-        P0: ::windows_core::TryIntoParam<super::IStorageFile>,
+        P0: ::windows_core::IntoParam<super::IStorageFile>,
     {
         Self::IGeotagHelperStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetGeotagAsync)(::windows_core::Interface::as_raw(this), file.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetGeotagAsync)(::windows_core::Interface::as_raw(this), file.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Devices_Geolocation\"`"]
     #[cfg(feature = "Devices_Geolocation")]
     pub fn SetGeotagFromGeolocatorAsync<P0, P1>(file: P0, geolocator: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::windows_core::TryIntoParam<super::IStorageFile>,
+        P0: ::windows_core::IntoParam<super::IStorageFile>,
         P1: ::windows_core::IntoParam<super::super::Devices::Geolocation::Geolocator>,
     {
         Self::IGeotagHelperStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SetGeotagFromGeolocatorAsync)(::windows_core::Interface::as_raw(this), file.try_into_param()?.abi(), geolocator.into_param().abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SetGeotagFromGeolocatorAsync)(::windows_core::Interface::as_raw(this), file.into_param().abi(), geolocator.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Devices_Geolocation\"`"]
     #[cfg(feature = "Devices_Geolocation")]
     pub fn SetGeotagAsync<P0, P1>(file: P0, geopoint: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::windows_core::TryIntoParam<super::IStorageFile>,
+        P0: ::windows_core::IntoParam<super::IStorageFile>,
         P1: ::windows_core::IntoParam<super::super::Devices::Geolocation::Geopoint>,
     {
         Self::IGeotagHelperStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SetGeotagAsync)(::windows_core::Interface::as_raw(this), file.try_into_param()?.abi(), geopoint.into_param().abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SetGeotagAsync)(::windows_core::Interface::as_raw(this), file.into_param().abi(), geopoint.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -519,6 +435,8 @@ impl ::windows_core::RuntimeName for GeotagHelper {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ImageProperties(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(ImageProperties, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(ImageProperties, IStorageItemExtraProperties);
 impl ImageProperties {
     pub fn Rating(&self) -> ::windows_core::Result<u32> {
         let this = self;
@@ -632,28 +550,28 @@ impl ImageProperties {
     #[cfg(feature = "Foundation_Collections")]
     pub fn RetrievePropertiesAsync<P0>(&self, propertiestoretrieve: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows_core::HSTRING, ::windows_core::IInspectable>>>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
     {
-        let this = &::windows_core::ComInterface::cast::<IStorageItemExtraProperties>(self)?;
+        let this = &::windows_core::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).RetrievePropertiesAsync)(::windows_core::Interface::as_raw(this), propertiestoretrieve.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).RetrievePropertiesAsync)(::windows_core::Interface::as_raw(this), propertiestoretrieve.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SavePropertiesAsync<P0>(&self, propertiestosave: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows_core::HSTRING, ::windows_core::IInspectable>>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows_core::HSTRING, ::windows_core::IInspectable>>>,
     {
-        let this = &::windows_core::ComInterface::cast::<IStorageItemExtraProperties>(self)?;
+        let this = &::windows_core::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SavePropertiesAsync)(::windows_core::Interface::as_raw(this), propertiestosave.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SavePropertiesAsync)(::windows_core::Interface::as_raw(this), propertiestosave.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn SavePropertiesAsyncOverloadDefault(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
-        let this = &::windows_core::ComInterface::cast::<IStorageItemExtraProperties>(self)?;
+        let this = &::windows_core::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SavePropertiesAsyncOverloadDefault)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -665,18 +583,16 @@ impl ::windows_core::RuntimeType for ImageProperties {
 }
 unsafe impl ::windows_core::Interface for ImageProperties {
     type Vtable = IImageProperties_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ImageProperties {
-    const IID: ::windows_core::GUID = <IImageProperties as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IImageProperties as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for ImageProperties {
     const NAME: &'static str = "Windows.Storage.FileProperties.ImageProperties";
 }
-::windows_core::imp::interface_hierarchy!(ImageProperties, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IStorageItemExtraProperties> for ImageProperties {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MusicProperties(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(MusicProperties, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(MusicProperties, IStorageItemExtraProperties);
 impl MusicProperties {
     pub fn Album(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -840,28 +756,28 @@ impl MusicProperties {
     #[cfg(feature = "Foundation_Collections")]
     pub fn RetrievePropertiesAsync<P0>(&self, propertiestoretrieve: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows_core::HSTRING, ::windows_core::IInspectable>>>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
     {
-        let this = &::windows_core::ComInterface::cast::<IStorageItemExtraProperties>(self)?;
+        let this = &::windows_core::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).RetrievePropertiesAsync)(::windows_core::Interface::as_raw(this), propertiestoretrieve.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).RetrievePropertiesAsync)(::windows_core::Interface::as_raw(this), propertiestoretrieve.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SavePropertiesAsync<P0>(&self, propertiestosave: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows_core::HSTRING, ::windows_core::IInspectable>>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows_core::HSTRING, ::windows_core::IInspectable>>>,
     {
-        let this = &::windows_core::ComInterface::cast::<IStorageItemExtraProperties>(self)?;
+        let this = &::windows_core::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SavePropertiesAsync)(::windows_core::Interface::as_raw(this), propertiestosave.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SavePropertiesAsync)(::windows_core::Interface::as_raw(this), propertiestosave.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn SavePropertiesAsyncOverloadDefault(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
-        let this = &::windows_core::ComInterface::cast::<IStorageItemExtraProperties>(self)?;
+        let this = &::windows_core::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SavePropertiesAsyncOverloadDefault)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -873,18 +789,16 @@ impl ::windows_core::RuntimeType for MusicProperties {
 }
 unsafe impl ::windows_core::Interface for MusicProperties {
     type Vtable = IMusicProperties_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for MusicProperties {
-    const IID: ::windows_core::GUID = <IMusicProperties as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IMusicProperties as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for MusicProperties {
     const NAME: &'static str = "Windows.Storage.FileProperties.MusicProperties";
 }
-::windows_core::imp::interface_hierarchy!(MusicProperties, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IStorageItemExtraProperties> for MusicProperties {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StorageItemContentProperties(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(StorageItemContentProperties, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(StorageItemContentProperties, IStorageItemExtraProperties);
 impl StorageItemContentProperties {
     pub fn GetMusicPropertiesAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<MusicProperties>> {
         let this = self;
@@ -918,28 +832,28 @@ impl StorageItemContentProperties {
     #[cfg(feature = "Foundation_Collections")]
     pub fn RetrievePropertiesAsync<P0>(&self, propertiestoretrieve: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows_core::HSTRING, ::windows_core::IInspectable>>>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
     {
-        let this = &::windows_core::ComInterface::cast::<IStorageItemExtraProperties>(self)?;
+        let this = &::windows_core::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).RetrievePropertiesAsync)(::windows_core::Interface::as_raw(this), propertiestoretrieve.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).RetrievePropertiesAsync)(::windows_core::Interface::as_raw(this), propertiestoretrieve.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SavePropertiesAsync<P0>(&self, propertiestosave: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows_core::HSTRING, ::windows_core::IInspectable>>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows_core::HSTRING, ::windows_core::IInspectable>>>,
     {
-        let this = &::windows_core::ComInterface::cast::<IStorageItemExtraProperties>(self)?;
+        let this = &::windows_core::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SavePropertiesAsync)(::windows_core::Interface::as_raw(this), propertiestosave.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SavePropertiesAsync)(::windows_core::Interface::as_raw(this), propertiestosave.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn SavePropertiesAsyncOverloadDefault(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
-        let this = &::windows_core::ComInterface::cast::<IStorageItemExtraProperties>(self)?;
+        let this = &::windows_core::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SavePropertiesAsyncOverloadDefault)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -951,30 +865,30 @@ impl ::windows_core::RuntimeType for StorageItemContentProperties {
 }
 unsafe impl ::windows_core::Interface for StorageItemContentProperties {
     type Vtable = IStorageItemContentProperties_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for StorageItemContentProperties {
-    const IID: ::windows_core::GUID = <IStorageItemContentProperties as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IStorageItemContentProperties as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for StorageItemContentProperties {
     const NAME: &'static str = "Windows.Storage.FileProperties.StorageItemContentProperties";
 }
-::windows_core::imp::interface_hierarchy!(StorageItemContentProperties, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IStorageItemExtraProperties> for StorageItemContentProperties {}
 #[doc = "Required features: `\"Storage_Streams\"`"]
 #[cfg(feature = "Storage_Streams")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StorageItemThumbnail(::windows_core::IUnknown);
 #[cfg(feature = "Storage_Streams")]
+::windows_core::imp::interface_hierarchy!(StorageItemThumbnail, ::windows_core::IUnknown, ::windows_core::IInspectable);
+#[cfg(feature = "Storage_Streams")]
+::windows_core::imp::required_hierarchy!(StorageItemThumbnail, super::super::Foundation::IClosable, super::Streams::IContentTypeProvider, super::Streams::IInputStream, super::Streams::IOutputStream, super::Streams::IRandomAccessStream, super::Streams::IRandomAccessStreamWithContentType);
+#[cfg(feature = "Storage_Streams")]
 impl StorageItemThumbnail {
     pub fn Close(&self) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
+        let this = &::windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn ContentType(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<super::Streams::IContentTypeProvider>(self)?;
+        let this = &::windows_core::Interface::cast::<super::Streams::IContentTypeProvider>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ContentType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -984,30 +898,30 @@ impl StorageItemThumbnail {
     #[cfg(feature = "Storage_Streams")]
     pub fn ReadAsync<P0>(&self, buffer: P0, count: u32, options: super::Streams::InputStreamOptions) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Streams::IBuffer, u32>>
     where
-        P0: ::windows_core::TryIntoParam<super::Streams::IBuffer>,
+        P0: ::windows_core::IntoParam<super::Streams::IBuffer>,
     {
-        let this = &::windows_core::ComInterface::cast::<super::Streams::IInputStream>(self)?;
+        let this = &::windows_core::Interface::cast::<super::Streams::IInputStream>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ReadAsync)(::windows_core::Interface::as_raw(this), buffer.try_into_param()?.abi(), count, options, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ReadAsync)(::windows_core::Interface::as_raw(this), buffer.into_param().abi(), count, options, &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn WriteAsync<P0>(&self, buffer: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
     where
-        P0: ::windows_core::TryIntoParam<super::Streams::IBuffer>,
+        P0: ::windows_core::IntoParam<super::Streams::IBuffer>,
     {
-        let this = &::windows_core::ComInterface::cast::<super::Streams::IOutputStream>(self)?;
+        let this = &::windows_core::Interface::cast::<super::Streams::IOutputStream>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).WriteAsync)(::windows_core::Interface::as_raw(this), buffer.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).WriteAsync)(::windows_core::Interface::as_raw(this), buffer.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn FlushAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
-        let this = &::windows_core::ComInterface::cast::<super::Streams::IOutputStream>(self)?;
+        let this = &::windows_core::Interface::cast::<super::Streams::IOutputStream>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FlushAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -1016,7 +930,7 @@ impl StorageItemThumbnail {
     #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Size(&self) -> ::windows_core::Result<u64> {
-        let this = &::windows_core::ComInterface::cast::<super::Streams::IRandomAccessStream>(self)?;
+        let this = &::windows_core::Interface::cast::<super::Streams::IRandomAccessStream>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Size)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -1025,13 +939,13 @@ impl StorageItemThumbnail {
     #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetSize(&self, value: u64) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<super::Streams::IRandomAccessStream>(self)?;
+        let this = &::windows_core::Interface::cast::<super::Streams::IRandomAccessStream>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetSize)(::windows_core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetInputStreamAt(&self, position: u64) -> ::windows_core::Result<super::Streams::IInputStream> {
-        let this = &::windows_core::ComInterface::cast::<super::Streams::IRandomAccessStream>(self)?;
+        let this = &::windows_core::Interface::cast::<super::Streams::IRandomAccessStream>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetInputStreamAt)(::windows_core::Interface::as_raw(this), position, &mut result__).from_abi(result__)
@@ -1040,7 +954,7 @@ impl StorageItemThumbnail {
     #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetOutputStreamAt(&self, position: u64) -> ::windows_core::Result<super::Streams::IOutputStream> {
-        let this = &::windows_core::ComInterface::cast::<super::Streams::IRandomAccessStream>(self)?;
+        let this = &::windows_core::Interface::cast::<super::Streams::IRandomAccessStream>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetOutputStreamAt)(::windows_core::Interface::as_raw(this), position, &mut result__).from_abi(result__)
@@ -1049,7 +963,7 @@ impl StorageItemThumbnail {
     #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Position(&self) -> ::windows_core::Result<u64> {
-        let this = &::windows_core::ComInterface::cast::<super::Streams::IRandomAccessStream>(self)?;
+        let this = &::windows_core::Interface::cast::<super::Streams::IRandomAccessStream>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Position)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -1058,13 +972,13 @@ impl StorageItemThumbnail {
     #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Seek(&self, position: u64) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<super::Streams::IRandomAccessStream>(self)?;
+        let this = &::windows_core::Interface::cast::<super::Streams::IRandomAccessStream>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Seek)(::windows_core::Interface::as_raw(this), position).ok() }
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CloneStream(&self) -> ::windows_core::Result<super::Streams::IRandomAccessStream> {
-        let this = &::windows_core::ComInterface::cast::<super::Streams::IRandomAccessStream>(self)?;
+        let this = &::windows_core::Interface::cast::<super::Streams::IRandomAccessStream>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CloneStream)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -1073,7 +987,7 @@ impl StorageItemThumbnail {
     #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CanRead(&self) -> ::windows_core::Result<bool> {
-        let this = &::windows_core::ComInterface::cast::<super::Streams::IRandomAccessStream>(self)?;
+        let this = &::windows_core::Interface::cast::<super::Streams::IRandomAccessStream>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CanRead)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -1082,35 +996,35 @@ impl StorageItemThumbnail {
     #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CanWrite(&self) -> ::windows_core::Result<bool> {
-        let this = &::windows_core::ComInterface::cast::<super::Streams::IRandomAccessStream>(self)?;
+        let this = &::windows_core::Interface::cast::<super::Streams::IRandomAccessStream>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CanWrite)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn OriginalWidth(&self) -> ::windows_core::Result<u32> {
-        let this = &::windows_core::ComInterface::cast::<IThumbnailProperties>(self)?;
+        let this = &::windows_core::Interface::cast::<IThumbnailProperties>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).OriginalWidth)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn OriginalHeight(&self) -> ::windows_core::Result<u32> {
-        let this = &::windows_core::ComInterface::cast::<IThumbnailProperties>(self)?;
+        let this = &::windows_core::Interface::cast::<IThumbnailProperties>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).OriginalHeight)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ReturnedSmallerCachedSize(&self) -> ::windows_core::Result<bool> {
-        let this = &::windows_core::ComInterface::cast::<IThumbnailProperties>(self)?;
+        let this = &::windows_core::Interface::cast::<IThumbnailProperties>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReturnedSmallerCachedSize)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Type(&self) -> ::windows_core::Result<ThumbnailType> {
-        let this = &::windows_core::ComInterface::cast::<IThumbnailProperties>(self)?;
+        let this = &::windows_core::Interface::cast::<IThumbnailProperties>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Type)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -1124,59 +1038,44 @@ impl ::windows_core::RuntimeType for StorageItemThumbnail {
 #[cfg(feature = "Storage_Streams")]
 unsafe impl ::windows_core::Interface for StorageItemThumbnail {
     type Vtable = super::Streams::IRandomAccessStreamWithContentType_Vtbl;
-}
-#[cfg(feature = "Storage_Streams")]
-unsafe impl ::windows_core::ComInterface for StorageItemThumbnail {
-    const IID: ::windows_core::GUID = <super::Streams::IRandomAccessStreamWithContentType as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <super::Streams::IRandomAccessStreamWithContentType as ::windows_core::Interface>::IID;
 }
 #[cfg(feature = "Storage_Streams")]
 impl ::windows_core::RuntimeName for StorageItemThumbnail {
     const NAME: &'static str = "Windows.Storage.FileProperties.StorageItemThumbnail";
 }
-#[cfg(feature = "Storage_Streams")]
-::windows_core::imp::interface_hierarchy!(StorageItemThumbnail, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Storage_Streams")]
-impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for StorageItemThumbnail {}
-#[cfg(feature = "Storage_Streams")]
-impl ::windows_core::CanTryInto<super::Streams::IContentTypeProvider> for StorageItemThumbnail {}
-#[cfg(feature = "Storage_Streams")]
-impl ::windows_core::CanTryInto<super::Streams::IInputStream> for StorageItemThumbnail {}
-#[cfg(feature = "Storage_Streams")]
-impl ::windows_core::CanTryInto<super::Streams::IOutputStream> for StorageItemThumbnail {}
-#[cfg(feature = "Storage_Streams")]
-impl ::windows_core::CanTryInto<super::Streams::IRandomAccessStream> for StorageItemThumbnail {}
-#[cfg(feature = "Storage_Streams")]
-impl ::windows_core::CanTryInto<super::Streams::IRandomAccessStreamWithContentType> for StorageItemThumbnail {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VideoProperties(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(VideoProperties, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(VideoProperties, IStorageItemExtraProperties);
 impl VideoProperties {
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RetrievePropertiesAsync<P0>(&self, propertiestoretrieve: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows_core::HSTRING, ::windows_core::IInspectable>>>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
     {
-        let this = &::windows_core::ComInterface::cast::<IStorageItemExtraProperties>(self)?;
+        let this = &::windows_core::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).RetrievePropertiesAsync)(::windows_core::Interface::as_raw(this), propertiestoretrieve.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).RetrievePropertiesAsync)(::windows_core::Interface::as_raw(this), propertiestoretrieve.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SavePropertiesAsync<P0>(&self, propertiestosave: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows_core::HSTRING, ::windows_core::IInspectable>>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows_core::HSTRING, ::windows_core::IInspectable>>>,
     {
-        let this = &::windows_core::ComInterface::cast::<IStorageItemExtraProperties>(self)?;
+        let this = &::windows_core::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SavePropertiesAsync)(::windows_core::Interface::as_raw(this), propertiestosave.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SavePropertiesAsync)(::windows_core::Interface::as_raw(this), propertiestosave.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn SavePropertiesAsyncOverloadDefault(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
-        let this = &::windows_core::ComInterface::cast::<IStorageItemExtraProperties>(self)?;
+        let this = &::windows_core::Interface::cast::<IStorageItemExtraProperties>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SavePropertiesAsyncOverloadDefault)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -1328,15 +1227,11 @@ impl ::windows_core::RuntimeType for VideoProperties {
 }
 unsafe impl ::windows_core::Interface for VideoProperties {
     type Vtable = IVideoProperties_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for VideoProperties {
-    const IID: ::windows_core::GUID = <IVideoProperties as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IVideoProperties as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for VideoProperties {
     const NAME: &'static str = "Windows.Storage.FileProperties.VideoProperties";
 }
-::windows_core::imp::interface_hierarchy!(VideoProperties, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IStorageItemExtraProperties> for VideoProperties {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PhotoOrientation(pub i32);

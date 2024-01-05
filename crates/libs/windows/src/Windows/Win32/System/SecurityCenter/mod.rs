@@ -34,11 +34,15 @@ where
     ::windows_targets::link!("wscapi.dll" "system" fn WscUnRegisterChanges(hregistrationhandle : super::super::Foundation:: HANDLE) -> ::windows_core::HRESULT);
     WscUnRegisterChanges(hregistrationhandle.into_param().abi()).ok()
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWSCDefaultProduct(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IWSCDefaultProduct,
+    IWSCDefaultProduct_Vtbl,
+    0x0476d69c_f21a_11e5_9ce9_5e5517507c66
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IWSCDefaultProduct, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IWSCDefaultProduct {
     pub unsafe fn SetDefaultProduct<P0>(&self, etype: SECURITY_PRODUCT_TYPE, pguid: P0) -> ::windows_core::Result<()>
@@ -49,27 +53,21 @@ impl IWSCDefaultProduct {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IWSCDefaultProduct, ::windows_core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IWSCDefaultProduct {
-    type Vtable = IWSCDefaultProduct_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IWSCDefaultProduct {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0476d69c_f21a_11e5_9ce9_5e5517507c66);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSCDefaultProduct_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub SetDefaultProduct: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, etype: SECURITY_PRODUCT_TYPE, pguid: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWSCProductList(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IWSCProductList,
+    IWSCProductList_Vtbl,
+    0x722a338c_6e8e_4e72_ac27_1417fb0c81c2
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IWSCProductList, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IWSCProductList {
     pub unsafe fn Initialize(&self, provider: WSC_SECURITY_PROVIDER) -> ::windows_core::Result<()> {
@@ -87,16 +85,6 @@ impl IWSCProductList {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IWSCProductList, ::windows_core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IWSCProductList {
-    type Vtable = IWSCProductList_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IWSCProductList {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x722a338c_6e8e_4e72_ac27_1417fb0c81c2);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWSCProductList_Vtbl {
@@ -108,11 +96,15 @@ pub struct IWSCProductList_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     get_Item: usize,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWscProduct(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IWscProduct,
+    IWscProduct_Vtbl,
+    0x8c38232e_3a45_4a27_92b0_1a16a975f669
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IWscProduct, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IWscProduct {
     pub unsafe fn ProductName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -145,16 +137,6 @@ impl IWscProduct {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IWscProduct, ::windows_core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IWscProduct {
-    type Vtable = IWscProduct_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IWscProduct {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8c38232e_3a45_4a27_92b0_1a16a975f669);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWscProduct_Vtbl {
@@ -167,11 +149,15 @@ pub struct IWscProduct_Vtbl {
     pub ProductGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub ProductIsDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWscProduct2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IWscProduct2,
+    IWscProduct2_Vtbl,
+    0xf896ca54_fe09_4403_86d4_23cb488d81d8
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IWscProduct2, ::windows_core::IUnknown, super::Com::IDispatch, IWscProduct);
 #[cfg(feature = "Win32_System_Com")]
 impl IWscProduct2 {
     pub unsafe fn ProductName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -228,16 +214,6 @@ impl IWscProduct2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IWscProduct2, ::windows_core::IUnknown, super::Com::IDispatch, IWscProduct);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IWscProduct2 {
-    type Vtable = IWscProduct2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IWscProduct2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf896ca54_fe09_4403_86d4_23cb488d81d8);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWscProduct2_Vtbl {
@@ -249,11 +225,15 @@ pub struct IWscProduct2_Vtbl {
     pub FirewallPrivateProfileSubstatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pestatus: *mut WSC_SECURITY_PRODUCT_SUBSTATUS) -> ::windows_core::HRESULT,
     pub FirewallPublicProfileSubstatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pestatus: *mut WSC_SECURITY_PRODUCT_SUBSTATUS) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWscProduct3(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IWscProduct3,
+    IWscProduct3_Vtbl,
+    0x55536524_d1d1_4726_8c7c_04996a1904e7
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IWscProduct3, ::windows_core::IUnknown, super::Com::IDispatch, IWscProduct, IWscProduct2);
 #[cfg(feature = "Win32_System_Com")]
 impl IWscProduct3 {
     pub unsafe fn ProductName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -312,16 +292,6 @@ impl IWscProduct3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AntivirusDaysUntilExpired)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-}
-#[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IWscProduct3, ::windows_core::IUnknown, super::Com::IDispatch, IWscProduct, IWscProduct2);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IWscProduct3 {
-    type Vtable = IWscProduct3_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IWscProduct3 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x55536524_d1d1_4726_8c7c_04996a1904e7);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]

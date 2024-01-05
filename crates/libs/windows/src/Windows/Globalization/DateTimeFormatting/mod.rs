@@ -1,13 +1,4 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDateTimeFormatter(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDateTimeFormatter {
-    type Vtable = IDateTimeFormatter_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDateTimeFormatter {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x95eeca10_73e0_4e4b_a183_3d6ad0ba35ec);
-}
+::windows_core::imp::com_interface!(IDateTimeFormatter, IDateTimeFormatter_Vtbl, 0x95eeca10_73e0_4e4b_a183_3d6ad0ba35ec);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDateTimeFormatter_Vtbl {
@@ -37,32 +28,14 @@ pub struct IDateTimeFormatter_Vtbl {
     pub ResolvedLanguage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub ResolvedGeographicRegion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDateTimeFormatter2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDateTimeFormatter2 {
-    type Vtable = IDateTimeFormatter2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDateTimeFormatter2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x27c91a86_bdaa_4fd0_9e36_671d5aa5ee03);
-}
+::windows_core::imp::com_interface!(IDateTimeFormatter2, IDateTimeFormatter2_Vtbl, 0x27c91a86_bdaa_4fd0_9e36_671d5aa5ee03);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDateTimeFormatter2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub FormatUsingTimeZone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, datetime: super::super::Foundation::DateTime, timezoneid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDateTimeFormatterFactory(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDateTimeFormatterFactory {
-    type Vtable = IDateTimeFormatterFactory_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDateTimeFormatterFactory {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xec8d8a53_1a2e_412d_8815_3b745fb1a2a0);
-}
+::windows_core::imp::com_interface!(IDateTimeFormatterFactory, IDateTimeFormatterFactory_Vtbl, 0xec8d8a53_1a2e_412d_8815_3b745fb1a2a0);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDateTimeFormatterFactory_Vtbl {
@@ -87,16 +60,7 @@ pub struct IDateTimeFormatterFactory_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     CreateDateTimeFormatterDateTimeContext: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDateTimeFormatterStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDateTimeFormatterStatics {
-    type Vtable = IDateTimeFormatterStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDateTimeFormatterStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbfcde7c0_df4c_4a2e_9012_f47daf3f1212);
-}
+::windows_core::imp::com_interface!(IDateTimeFormatterStatics, IDateTimeFormatterStatics_Vtbl, 0xbfcde7c0_df4c_4a2e_9012_f47daf3f1212);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDateTimeFormatterStatics_Vtbl {
@@ -109,6 +73,7 @@ pub struct IDateTimeFormatterStatics_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DateTimeFormatter(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(DateTimeFormatter, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl DateTimeFormatter {
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
@@ -238,7 +203,7 @@ impl DateTimeFormatter {
         }
     }
     pub fn FormatUsingTimeZone(&self, datetime: super::super::Foundation::DateTime, timezoneid: &::windows_core::HSTRING) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<IDateTimeFormatter2>(self)?;
+        let this = &::windows_core::Interface::cast::<IDateTimeFormatter2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FormatUsingTimeZone)(::windows_core::Interface::as_raw(this), datetime, ::core::mem::transmute_copy(timezoneid), &mut result__).from_abi(result__)
@@ -254,22 +219,22 @@ impl DateTimeFormatter {
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateDateTimeFormatterLanguages<P0>(formattemplate: &::windows_core::HSTRING, languages: P0) -> ::windows_core::Result<DateTimeFormatter>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
     {
         Self::IDateTimeFormatterFactory(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateDateTimeFormatterLanguages)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(formattemplate), languages.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateDateTimeFormatterLanguages)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(formattemplate), languages.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateDateTimeFormatterContext<P0>(formattemplate: &::windows_core::HSTRING, languages: P0, geographicregion: &::windows_core::HSTRING, calendar: &::windows_core::HSTRING, clock: &::windows_core::HSTRING) -> ::windows_core::Result<DateTimeFormatter>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
     {
         Self::IDateTimeFormatterFactory(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateDateTimeFormatterContext)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(formattemplate), languages.try_into_param()?.abi(), ::core::mem::transmute_copy(geographicregion), ::core::mem::transmute_copy(calendar), ::core::mem::transmute_copy(clock), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateDateTimeFormatterContext)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(formattemplate), languages.into_param().abi(), ::core::mem::transmute_copy(geographicregion), ::core::mem::transmute_copy(calendar), ::core::mem::transmute_copy(clock), &mut result__).from_abi(result__)
         })
     }
     pub fn CreateDateTimeFormatterDate(yearformat: YearFormat, monthformat: MonthFormat, dayformat: DayFormat, dayofweekformat: DayOfWeekFormat) -> ::windows_core::Result<DateTimeFormatter> {
@@ -288,22 +253,22 @@ impl DateTimeFormatter {
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateDateTimeFormatterDateTimeLanguages<P0>(yearformat: YearFormat, monthformat: MonthFormat, dayformat: DayFormat, dayofweekformat: DayOfWeekFormat, hourformat: HourFormat, minuteformat: MinuteFormat, secondformat: SecondFormat, languages: P0) -> ::windows_core::Result<DateTimeFormatter>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
     {
         Self::IDateTimeFormatterFactory(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateDateTimeFormatterDateTimeLanguages)(::windows_core::Interface::as_raw(this), yearformat, monthformat, dayformat, dayofweekformat, hourformat, minuteformat, secondformat, languages.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateDateTimeFormatterDateTimeLanguages)(::windows_core::Interface::as_raw(this), yearformat, monthformat, dayformat, dayofweekformat, hourformat, minuteformat, secondformat, languages.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateDateTimeFormatterDateTimeContext<P0>(yearformat: YearFormat, monthformat: MonthFormat, dayformat: DayFormat, dayofweekformat: DayOfWeekFormat, hourformat: HourFormat, minuteformat: MinuteFormat, secondformat: SecondFormat, languages: P0, geographicregion: &::windows_core::HSTRING, calendar: &::windows_core::HSTRING, clock: &::windows_core::HSTRING) -> ::windows_core::Result<DateTimeFormatter>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
     {
         Self::IDateTimeFormatterFactory(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateDateTimeFormatterDateTimeContext)(::windows_core::Interface::as_raw(this), yearformat, monthformat, dayformat, dayofweekformat, hourformat, minuteformat, secondformat, languages.try_into_param()?.abi(), ::core::mem::transmute_copy(geographicregion), ::core::mem::transmute_copy(calendar), ::core::mem::transmute_copy(clock), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateDateTimeFormatterDateTimeContext)(::windows_core::Interface::as_raw(this), yearformat, monthformat, dayformat, dayofweekformat, hourformat, minuteformat, secondformat, languages.into_param().abi(), ::core::mem::transmute_copy(geographicregion), ::core::mem::transmute_copy(calendar), ::core::mem::transmute_copy(clock), &mut result__).from_abi(result__)
         })
     }
     pub fn LongDate() -> ::windows_core::Result<DateTimeFormatter> {
@@ -346,14 +311,11 @@ impl ::windows_core::RuntimeType for DateTimeFormatter {
 }
 unsafe impl ::windows_core::Interface for DateTimeFormatter {
     type Vtable = IDateTimeFormatter_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for DateTimeFormatter {
-    const IID: ::windows_core::GUID = <IDateTimeFormatter as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IDateTimeFormatter as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for DateTimeFormatter {
     const NAME: &'static str = "Windows.Globalization.DateTimeFormatting.DateTimeFormatter";
 }
-::windows_core::imp::interface_hierarchy!(DateTimeFormatter, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for DateTimeFormatter {}
 unsafe impl ::core::marker::Sync for DateTimeFormatter {}
 #[repr(transparent)]

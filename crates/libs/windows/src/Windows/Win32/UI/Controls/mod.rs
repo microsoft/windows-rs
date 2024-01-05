@@ -1252,7 +1252,7 @@ where
 pub unsafe fn ImageList_CoCreateInstance<P0, T>(rclsid: *const ::windows_core::GUID, punkouter: P0) -> ::windows_core::Result<T>
 where
     P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
-    T: ::windows_core::ComInterface,
+    T: ::windows_core::Interface,
 {
     ::windows_targets::link!("comctl32.dll" "system" fn ImageList_CoCreateInstance(rclsid : *const ::windows_core::GUID, punkouter : * mut::core::ffi::c_void, riid : *const ::windows_core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     let mut result__ = ::std::ptr::null_mut();
@@ -1861,9 +1861,8 @@ where
     ::windows_targets::link!("uxtheme.dll" "system" fn UpdatePanningFeedback(hwnd : super::super::Foundation:: HWND, ltotaloverpanoffsetx : i32, ltotaloverpanoffsety : i32, fininertia : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     UpdatePanningFeedback(hwnd.into_param().abi(), ltotaloverpanoffsetx, ltotaloverpanoffsety, fininertia.into_param().abi())
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IImageList(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IImageList, IImageList_Vtbl, 0x46eb5926_582e_4017_9fdf_e8998daa0950);
+::windows_core::imp::interface_hierarchy!(IImageList, ::windows_core::IUnknown);
 impl IImageList {
     #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -2013,13 +2012,6 @@ impl IImageList {
         (::windows_core::Interface::vtable(self).GetOverlayImage)(::windows_core::Interface::as_raw(self), ioverlay, &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IImageList, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IImageList {
-    type Vtable = IImageList_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IImageList {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x46eb5926_582e_4017_9fdf_e8998daa0950);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IImageList_Vtbl {
@@ -2075,9 +2067,8 @@ pub struct IImageList_Vtbl {
     pub GetItemFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, i: i32, dwflags: *mut IMAGE_LIST_ITEM_FLAGS) -> ::windows_core::HRESULT,
     pub GetOverlayImage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ioverlay: i32, piindex: *mut i32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IImageList2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IImageList2, IImageList2_Vtbl, 0x192b9d83_50fc_457b_90a0_2b82a8b5dae1);
+::windows_core::imp::interface_hierarchy!(IImageList2, ::windows_core::IUnknown, IImageList);
 impl IImageList2 {
     #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -2278,13 +2269,6 @@ impl IImageList2 {
     {
         (::windows_core::Interface::vtable(self).ReplaceFromImageList)(::windows_core::Interface::as_raw(self), i, pil.into_param().abi(), isrc, punk.into_param().abi(), dwflags).ok()
     }
-}
-::windows_core::imp::interface_hierarchy!(IImageList2, ::windows_core::IUnknown, IImageList);
-unsafe impl ::windows_core::Interface for IImageList2 {
-    type Vtable = IImageList2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IImageList2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x192b9d83_50fc_457b_90a0_2b82a8b5dae1);
 }
 #[repr(C)]
 #[doc(hidden)]

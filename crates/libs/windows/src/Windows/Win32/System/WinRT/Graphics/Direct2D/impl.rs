@@ -38,7 +38,7 @@ impl IGeometrySource2DInterop_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IGeometrySource2DInterop as ::windows_core::ComInterface>::IID
+        iid == &<IGeometrySource2DInterop as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Foundation\"`, `\"Graphics_Effects\"`"]
@@ -127,6 +127,6 @@ impl IGraphicsEffectD2D1Interop_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IGraphicsEffectD2D1Interop as ::windows_core::ComInterface>::IID
+        iid == &<IGraphicsEffectD2D1Interop as ::windows_core::Interface>::IID
     }
 }

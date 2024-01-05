@@ -1,6 +1,5 @@
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IBuffer(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IBuffer, IBuffer_Vtbl, 0x905a0fe0_bc53_11df_8c49_001e4fc686da);
+::windows_core::imp::interface_hierarchy!(IBuffer, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl IBuffer {
     pub fn Capacity(&self) -> ::windows_core::Result<u32> {
         let this = self;
@@ -21,15 +20,8 @@ impl IBuffer {
         unsafe { (::windows_core::Interface::vtable(this).SetLength)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-::windows_core::imp::interface_hierarchy!(IBuffer, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IBuffer {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IBuffer {
-    type Vtable = IBuffer_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IBuffer {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x905a0fe0_bc53_11df_8c49_001e4fc686da);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -39,32 +31,14 @@ pub struct IBuffer_Vtbl {
     pub Length: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
     pub SetLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IBufferFactory(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IBufferFactory {
-    type Vtable = IBufferFactory_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IBufferFactory {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x71af914d_c10f_484b_bc50_14bc623b3a27);
-}
+::windows_core::imp::com_interface!(IBufferFactory, IBufferFactory_Vtbl, 0x71af914d_c10f_484b_bc50_14bc623b3a27);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBufferFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, capacity: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IBufferStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IBufferStatics {
-    type Vtable = IBufferStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IBufferStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe901e65b_d716_475a_a90a_af7229b1e741);
-}
+::windows_core::imp::com_interface!(IBufferStatics, IBufferStatics_Vtbl, 0xe901e65b_d716_475a_a90a_af7229b1e741);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBufferStatics_Vtbl {
@@ -72,9 +46,8 @@ pub struct IBufferStatics_Vtbl {
     pub CreateCopyFromMemoryBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, input: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub CreateMemoryBufferOverIBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, input: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IContentTypeProvider(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IContentTypeProvider, IContentTypeProvider_Vtbl, 0x97d098a5_3b99_4de9_88a5_e11d2f50c795);
+::windows_core::imp::interface_hierarchy!(IContentTypeProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl IContentTypeProvider {
     pub fn ContentType(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -84,15 +57,8 @@ impl IContentTypeProvider {
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IContentTypeProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IContentTypeProvider {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IContentTypeProvider {
-    type Vtable = IContentTypeProvider_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IContentTypeProvider {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x97d098a5_3b99_4de9_88a5_e11d2f50c795);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -100,9 +66,8 @@ pub struct IContentTypeProvider_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ContentType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDataReader(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDataReader, IDataReader_Vtbl, 0xe2b50029_b4c1_4314_a4b8_fb813a2f275e);
+::windows_core::imp::interface_hierarchy!(IDataReader, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl IDataReader {
     pub fn UnconsumedBufferLength(&self) -> ::windows_core::Result<u32> {
         let this = self;
@@ -275,15 +240,8 @@ impl IDataReader {
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IDataReader, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IDataReader {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IDataReader {
-    type Vtable = IDataReader_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDataReader {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe2b50029_b4c1_4314_a4b8_fb813a2f275e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -316,41 +274,22 @@ pub struct IDataReader_Vtbl {
     pub DetachBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub DetachStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDataReaderFactory(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDataReaderFactory {
-    type Vtable = IDataReaderFactory_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDataReaderFactory {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd7527847_57da_4e15_914c_06806699a098);
-}
+::windows_core::imp::com_interface!(IDataReaderFactory, IDataReaderFactory_Vtbl, 0xd7527847_57da_4e15_914c_06806699a098);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataReaderFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateDataReader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputstream: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDataReaderStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDataReaderStatics {
-    type Vtable = IDataReaderStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDataReaderStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x11fcbfc8_f93a_471b_b121_f379e349313c);
-}
+::windows_core::imp::com_interface!(IDataReaderStatics, IDataReaderStatics_Vtbl, 0x11fcbfc8_f93a_471b_b121_f379e349313c);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataReaderStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub FromBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffer: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDataWriter(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDataWriter, IDataWriter_Vtbl, 0x64b89265_d341_4922_b38a_dd4af8808c4e);
+::windows_core::imp::interface_hierarchy!(IDataWriter, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl IDataWriter {
     pub fn UnstoredBufferLength(&self) -> ::windows_core::Result<u32> {
         let this = self;
@@ -391,17 +330,17 @@ impl IDataWriter {
     }
     pub fn WriteBuffer<P0>(&self, buffer: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<IBuffer>,
+        P0: ::windows_core::IntoParam<IBuffer>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).WriteBuffer)(::windows_core::Interface::as_raw(this), buffer.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).WriteBuffer)(::windows_core::Interface::as_raw(this), buffer.into_param().abi()).ok() }
     }
     pub fn WriteBufferRange<P0>(&self, buffer: P0, start: u32, count: u32) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<IBuffer>,
+        P0: ::windows_core::IntoParam<IBuffer>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).WriteBufferRange)(::windows_core::Interface::as_raw(this), buffer.try_into_param()?.abi(), start, count).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).WriteBufferRange)(::windows_core::Interface::as_raw(this), buffer.into_param().abi(), start, count).ok() }
     }
     pub fn WriteBoolean(&self, value: bool) -> ::windows_core::Result<()> {
         let this = self;
@@ -494,15 +433,8 @@ impl IDataWriter {
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IDataWriter, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IDataWriter {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IDataWriter {
-    type Vtable = IDataWriter_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDataWriter {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x64b89265_d341_4922_b38a_dd4af8808c4e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -536,32 +468,14 @@ pub struct IDataWriter_Vtbl {
     pub DetachBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub DetachStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDataWriterFactory(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDataWriterFactory {
-    type Vtable = IDataWriterFactory_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDataWriterFactory {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x338c67c2_8b84_4c2b_9c50_7b8767847a1f);
-}
+::windows_core::imp::com_interface!(IDataWriterFactory, IDataWriterFactory_Vtbl, 0x338c67c2_8b84_4c2b_9c50_7b8767847a1f);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataWriterFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateDataWriter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, outputstream: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IFileRandomAccessStreamStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IFileRandomAccessStreamStatics {
-    type Vtable = IFileRandomAccessStreamStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IFileRandomAccessStreamStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x73550107_3b57_4b5d_8345_554d2fc621f0);
-}
+::windows_core::imp::com_interface!(IFileRandomAccessStreamStatics, IFileRandomAccessStreamStatics_Vtbl, 0x73550107_3b57_4b5d_8345_554d2fc621f0);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFileRandomAccessStreamStatics_Vtbl {
@@ -587,35 +501,27 @@ pub struct IFileRandomAccessStreamStatics_Vtbl {
     #[cfg(not(feature = "System"))]
     OpenTransactedWriteForUserWithOptionsAsync: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IInputStream(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IInputStream, IInputStream_Vtbl, 0x905a0fe2_bc53_11df_8c49_001e4fc686da);
+::windows_core::imp::interface_hierarchy!(IInputStream, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(IInputStream, super::super::Foundation::IClosable);
 impl IInputStream {
     pub fn ReadAsync<P0>(&self, buffer: P0, count: u32, options: InputStreamOptions) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>
     where
-        P0: ::windows_core::TryIntoParam<IBuffer>,
+        P0: ::windows_core::IntoParam<IBuffer>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ReadAsync)(::windows_core::Interface::as_raw(this), buffer.try_into_param()?.abi(), count, options, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ReadAsync)(::windows_core::Interface::as_raw(this), buffer.into_param().abi(), count, options, &mut result__).from_abi(result__)
         }
     }
     pub fn Close(&self) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
+        let this = &::windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
 }
-::windows_core::imp::interface_hierarchy!(IInputStream, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for IInputStream {}
 impl ::windows_core::RuntimeType for IInputStream {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IInputStream {
-    type Vtable = IInputStream_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IInputStream {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x905a0fe2_bc53_11df_8c49_001e4fc686da);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -623,9 +529,8 @@ pub struct IInputStream_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ReadAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffer: *mut ::core::ffi::c_void, count: u32, options: InputStreamOptions, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IInputStreamReference(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IInputStreamReference, IInputStreamReference_Vtbl, 0x43929d18_5ec9_4b5a_919c_4205b0c804b6);
+::windows_core::imp::interface_hierarchy!(IInputStreamReference, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl IInputStreamReference {
     pub fn OpenSequentialReadAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IInputStream>> {
         let this = self;
@@ -635,15 +540,8 @@ impl IInputStreamReference {
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IInputStreamReference, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IInputStreamReference {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IInputStreamReference {
-    type Vtable = IInputStreamReference_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IInputStreamReference {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x43929d18_5ec9_4b5a_919c_4205b0c804b6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -651,18 +549,18 @@ pub struct IInputStreamReference_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub OpenSequentialReadAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IOutputStream(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IOutputStream, IOutputStream_Vtbl, 0x905a0fe6_bc53_11df_8c49_001e4fc686da);
+::windows_core::imp::interface_hierarchy!(IOutputStream, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(IOutputStream, super::super::Foundation::IClosable);
 impl IOutputStream {
     pub fn WriteAsync<P0>(&self, buffer: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
     where
-        P0: ::windows_core::TryIntoParam<IBuffer>,
+        P0: ::windows_core::IntoParam<IBuffer>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).WriteAsync)(::windows_core::Interface::as_raw(this), buffer.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).WriteAsync)(::windows_core::Interface::as_raw(this), buffer.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn FlushAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
@@ -673,20 +571,12 @@ impl IOutputStream {
         }
     }
     pub fn Close(&self) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
+        let this = &::windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
 }
-::windows_core::imp::interface_hierarchy!(IOutputStream, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for IOutputStream {}
 impl ::windows_core::RuntimeType for IOutputStream {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IOutputStream {
-    type Vtable = IOutputStream_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IOutputStream {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x905a0fe6_bc53_11df_8c49_001e4fc686da);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -695,42 +585,34 @@ pub struct IOutputStream_Vtbl {
     pub WriteAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffer: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub FlushAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPropertySetSerializer(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IPropertySetSerializer, IPropertySetSerializer_Vtbl, 0x6e8ebf1c_ef3d_4376_b20e_5be638aeac77);
+::windows_core::imp::interface_hierarchy!(IPropertySetSerializer, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl IPropertySetSerializer {
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Serialize<P0>(&self, propertyset: P0) -> ::windows_core::Result<IBuffer>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IPropertySet>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::Collections::IPropertySet>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Serialize)(::windows_core::Interface::as_raw(this), propertyset.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Serialize)(::windows_core::Interface::as_raw(this), propertyset.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Deserialize<P0, P1>(&self, propertyset: P0, buffer: P1) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IPropertySet>,
-        P1: ::windows_core::TryIntoParam<IBuffer>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::Collections::IPropertySet>,
+        P1: ::windows_core::IntoParam<IBuffer>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).Deserialize)(::windows_core::Interface::as_raw(this), propertyset.try_into_param()?.abi(), buffer.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).Deserialize)(::windows_core::Interface::as_raw(this), propertyset.into_param().abi(), buffer.into_param().abi()).ok() }
     }
 }
-::windows_core::imp::interface_hierarchy!(IPropertySetSerializer, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IPropertySetSerializer {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IPropertySetSerializer {
-    type Vtable = IPropertySetSerializer_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPropertySetSerializer {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6e8ebf1c_ef3d_4376_b20e_5be638aeac77);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -745,9 +627,9 @@ pub struct IPropertySetSerializer_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     Deserialize: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRandomAccessStream(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IRandomAccessStream, IRandomAccessStream_Vtbl, 0x905a0fe1_bc53_11df_8c49_001e4fc686da);
+::windows_core::imp::interface_hierarchy!(IRandomAccessStream, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(IRandomAccessStream, super::super::Foundation::IClosable, IInputStream, IOutputStream);
 impl IRandomAccessStream {
     pub fn Size(&self) -> ::windows_core::Result<u64> {
         let this = self;
@@ -807,49 +689,39 @@ impl IRandomAccessStream {
         }
     }
     pub fn Close(&self) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
+        let this = &::windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn ReadAsync<P0>(&self, buffer: P0, count: u32, options: InputStreamOptions) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>
     where
-        P0: ::windows_core::TryIntoParam<IBuffer>,
+        P0: ::windows_core::IntoParam<IBuffer>,
     {
-        let this = &::windows_core::ComInterface::cast::<IInputStream>(self)?;
+        let this = &::windows_core::Interface::cast::<IInputStream>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ReadAsync)(::windows_core::Interface::as_raw(this), buffer.try_into_param()?.abi(), count, options, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ReadAsync)(::windows_core::Interface::as_raw(this), buffer.into_param().abi(), count, options, &mut result__).from_abi(result__)
         }
     }
     pub fn WriteAsync<P0>(&self, buffer: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
     where
-        P0: ::windows_core::TryIntoParam<IBuffer>,
+        P0: ::windows_core::IntoParam<IBuffer>,
     {
-        let this = &::windows_core::ComInterface::cast::<IOutputStream>(self)?;
+        let this = &::windows_core::Interface::cast::<IOutputStream>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).WriteAsync)(::windows_core::Interface::as_raw(this), buffer.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).WriteAsync)(::windows_core::Interface::as_raw(this), buffer.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn FlushAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
-        let this = &::windows_core::ComInterface::cast::<IOutputStream>(self)?;
+        let this = &::windows_core::Interface::cast::<IOutputStream>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FlushAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IRandomAccessStream, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for IRandomAccessStream {}
-impl ::windows_core::CanTryInto<IInputStream> for IRandomAccessStream {}
-impl ::windows_core::CanTryInto<IOutputStream> for IRandomAccessStream {}
 impl ::windows_core::RuntimeType for IRandomAccessStream {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IRandomAccessStream {
-    type Vtable = IRandomAccessStream_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRandomAccessStream {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x905a0fe1_bc53_11df_8c49_001e4fc686da);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -865,9 +737,8 @@ pub struct IRandomAccessStream_Vtbl {
     pub CanRead: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub CanWrite: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRandomAccessStreamReference(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IRandomAccessStreamReference, IRandomAccessStreamReference_Vtbl, 0x33ee3134_1dd6_4e3a_8067_d1c162e8642b);
+::windows_core::imp::interface_hierarchy!(IRandomAccessStreamReference, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl IRandomAccessStreamReference {
     pub fn OpenReadAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IRandomAccessStreamWithContentType>> {
         let this = self;
@@ -877,15 +748,8 @@ impl IRandomAccessStreamReference {
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IRandomAccessStreamReference, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IRandomAccessStreamReference {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IRandomAccessStreamReference {
-    type Vtable = IRandomAccessStreamReference_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRandomAccessStreamReference {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x33ee3134_1dd6_4e3a_8067_d1c162e8642b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -893,16 +757,7 @@ pub struct IRandomAccessStreamReference_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub OpenReadAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRandomAccessStreamReferenceStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IRandomAccessStreamReferenceStatics {
-    type Vtable = IRandomAccessStreamReferenceStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRandomAccessStreamReferenceStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x857309dc_3fbf_4e7d_986f_ef3b1a07a964);
-}
+::windows_core::imp::com_interface!(IRandomAccessStreamReferenceStatics, IRandomAccessStreamReferenceStatics_Vtbl, 0x857309dc_3fbf_4e7d_986f_ef3b1a07a964);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRandomAccessStreamReferenceStatics_Vtbl {
@@ -911,16 +766,7 @@ pub struct IRandomAccessStreamReferenceStatics_Vtbl {
     pub CreateFromUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub CreateFromStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stream: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRandomAccessStreamStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IRandomAccessStreamStatics {
-    type Vtable = IRandomAccessStreamStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRandomAccessStreamStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x524cedcf_6e29_4ce5_9573_6b753db66c3a);
-}
+::windows_core::imp::com_interface!(IRandomAccessStreamStatics, IRandomAccessStreamStatics_Vtbl, 0x524cedcf_6e29_4ce5_9573_6b753db66c3a);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRandomAccessStreamStatics_Vtbl {
@@ -929,16 +775,16 @@ pub struct IRandomAccessStreamStatics_Vtbl {
     pub CopySizeAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, source: *mut ::core::ffi::c_void, destination: *mut ::core::ffi::c_void, bytestocopy: u64, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub CopyAndCloseAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, source: *mut ::core::ffi::c_void, destination: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRandomAccessStreamWithContentType(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IRandomAccessStreamWithContentType, IRandomAccessStreamWithContentType_Vtbl, 0xcc254827_4b3d_438f_9232_10c76bc7e038);
+::windows_core::imp::interface_hierarchy!(IRandomAccessStreamWithContentType, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(IRandomAccessStreamWithContentType, super::super::Foundation::IClosable, IContentTypeProvider, IInputStream, IOutputStream, IRandomAccessStream);
 impl IRandomAccessStreamWithContentType {
     pub fn Close(&self) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
+        let this = &::windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn ContentType(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<IContentTypeProvider>(self)?;
+        let this = &::windows_core::Interface::cast::<IContentTypeProvider>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ContentType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -946,103 +792,91 @@ impl IRandomAccessStreamWithContentType {
     }
     pub fn ReadAsync<P0>(&self, buffer: P0, count: u32, options: InputStreamOptions) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>
     where
-        P0: ::windows_core::TryIntoParam<IBuffer>,
+        P0: ::windows_core::IntoParam<IBuffer>,
     {
-        let this = &::windows_core::ComInterface::cast::<IInputStream>(self)?;
+        let this = &::windows_core::Interface::cast::<IInputStream>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ReadAsync)(::windows_core::Interface::as_raw(this), buffer.try_into_param()?.abi(), count, options, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ReadAsync)(::windows_core::Interface::as_raw(this), buffer.into_param().abi(), count, options, &mut result__).from_abi(result__)
         }
     }
     pub fn WriteAsync<P0>(&self, buffer: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
     where
-        P0: ::windows_core::TryIntoParam<IBuffer>,
+        P0: ::windows_core::IntoParam<IBuffer>,
     {
-        let this = &::windows_core::ComInterface::cast::<IOutputStream>(self)?;
+        let this = &::windows_core::Interface::cast::<IOutputStream>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).WriteAsync)(::windows_core::Interface::as_raw(this), buffer.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).WriteAsync)(::windows_core::Interface::as_raw(this), buffer.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn FlushAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
-        let this = &::windows_core::ComInterface::cast::<IOutputStream>(self)?;
+        let this = &::windows_core::Interface::cast::<IOutputStream>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FlushAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Size(&self) -> ::windows_core::Result<u64> {
-        let this = &::windows_core::ComInterface::cast::<IRandomAccessStream>(self)?;
+        let this = &::windows_core::Interface::cast::<IRandomAccessStream>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Size)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetSize(&self, value: u64) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<IRandomAccessStream>(self)?;
+        let this = &::windows_core::Interface::cast::<IRandomAccessStream>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetSize)(::windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn GetInputStreamAt(&self, position: u64) -> ::windows_core::Result<IInputStream> {
-        let this = &::windows_core::ComInterface::cast::<IRandomAccessStream>(self)?;
+        let this = &::windows_core::Interface::cast::<IRandomAccessStream>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetInputStreamAt)(::windows_core::Interface::as_raw(this), position, &mut result__).from_abi(result__)
         }
     }
     pub fn GetOutputStreamAt(&self, position: u64) -> ::windows_core::Result<IOutputStream> {
-        let this = &::windows_core::ComInterface::cast::<IRandomAccessStream>(self)?;
+        let this = &::windows_core::Interface::cast::<IRandomAccessStream>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetOutputStreamAt)(::windows_core::Interface::as_raw(this), position, &mut result__).from_abi(result__)
         }
     }
     pub fn Position(&self) -> ::windows_core::Result<u64> {
-        let this = &::windows_core::ComInterface::cast::<IRandomAccessStream>(self)?;
+        let this = &::windows_core::Interface::cast::<IRandomAccessStream>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Position)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Seek(&self, position: u64) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<IRandomAccessStream>(self)?;
+        let this = &::windows_core::Interface::cast::<IRandomAccessStream>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Seek)(::windows_core::Interface::as_raw(this), position).ok() }
     }
     pub fn CloneStream(&self) -> ::windows_core::Result<IRandomAccessStream> {
-        let this = &::windows_core::ComInterface::cast::<IRandomAccessStream>(self)?;
+        let this = &::windows_core::Interface::cast::<IRandomAccessStream>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CloneStream)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CanRead(&self) -> ::windows_core::Result<bool> {
-        let this = &::windows_core::ComInterface::cast::<IRandomAccessStream>(self)?;
+        let this = &::windows_core::Interface::cast::<IRandomAccessStream>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CanRead)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CanWrite(&self) -> ::windows_core::Result<bool> {
-        let this = &::windows_core::ComInterface::cast::<IRandomAccessStream>(self)?;
+        let this = &::windows_core::Interface::cast::<IRandomAccessStream>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CanWrite)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IRandomAccessStreamWithContentType, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for IRandomAccessStreamWithContentType {}
-impl ::windows_core::CanTryInto<IContentTypeProvider> for IRandomAccessStreamWithContentType {}
-impl ::windows_core::CanTryInto<IInputStream> for IRandomAccessStreamWithContentType {}
-impl ::windows_core::CanTryInto<IOutputStream> for IRandomAccessStreamWithContentType {}
-impl ::windows_core::CanTryInto<IRandomAccessStream> for IRandomAccessStreamWithContentType {}
 impl ::windows_core::RuntimeType for IRandomAccessStreamWithContentType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IRandomAccessStreamWithContentType {
-    type Vtable = IRandomAccessStreamWithContentType_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRandomAccessStreamWithContentType {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcc254827_4b3d_438f_9232_10c76bc7e038);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1052,6 +886,8 @@ pub struct IRandomAccessStreamWithContentType_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Buffer(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(Buffer, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(Buffer, IBuffer);
 impl Buffer {
     pub fn Capacity(&self) -> ::windows_core::Result<u32> {
         let this = self;
@@ -1079,20 +915,20 @@ impl Buffer {
     }
     pub fn CreateCopyFromMemoryBuffer<P0>(input: P0) -> ::windows_core::Result<Buffer>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::IMemoryBuffer>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::IMemoryBuffer>,
     {
         Self::IBufferStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateCopyFromMemoryBuffer)(::windows_core::Interface::as_raw(this), input.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateCopyFromMemoryBuffer)(::windows_core::Interface::as_raw(this), input.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn CreateMemoryBufferOverIBuffer<P0>(input: P0) -> ::windows_core::Result<super::super::Foundation::MemoryBuffer>
     where
-        P0: ::windows_core::TryIntoParam<IBuffer>,
+        P0: ::windows_core::IntoParam<IBuffer>,
     {
         Self::IBufferStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateMemoryBufferOverIBuffer)(::windows_core::Interface::as_raw(this), input.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateMemoryBufferOverIBuffer)(::windows_core::Interface::as_raw(this), input.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -1111,23 +947,21 @@ impl ::windows_core::RuntimeType for Buffer {
 }
 unsafe impl ::windows_core::Interface for Buffer {
     type Vtable = IBuffer_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for Buffer {
-    const IID: ::windows_core::GUID = <IBuffer as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IBuffer as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for Buffer {
     const NAME: &'static str = "Windows.Storage.Streams.Buffer";
 }
-::windows_core::imp::interface_hierarchy!(Buffer, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IBuffer> for Buffer {}
 unsafe impl ::core::marker::Send for Buffer {}
 unsafe impl ::core::marker::Sync for Buffer {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DataReader(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(DataReader, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(DataReader, super::super::Foundation::IClosable, IDataReader);
 impl DataReader {
     pub fn Close(&self) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
+        let this = &::windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn UnconsumedBufferLength(&self) -> ::windows_core::Result<u32> {
@@ -1302,20 +1136,20 @@ impl DataReader {
     }
     pub fn CreateDataReader<P0>(inputstream: P0) -> ::windows_core::Result<DataReader>
     where
-        P0: ::windows_core::TryIntoParam<IInputStream>,
+        P0: ::windows_core::IntoParam<IInputStream>,
     {
         Self::IDataReaderFactory(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateDataReader)(::windows_core::Interface::as_raw(this), inputstream.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateDataReader)(::windows_core::Interface::as_raw(this), inputstream.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn FromBuffer<P0>(buffer: P0) -> ::windows_core::Result<DataReader>
     where
-        P0: ::windows_core::TryIntoParam<IBuffer>,
+        P0: ::windows_core::IntoParam<IBuffer>,
     {
         Self::IDataReaderStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).FromBuffer)(::windows_core::Interface::as_raw(this), buffer.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).FromBuffer)(::windows_core::Interface::as_raw(this), buffer.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -1334,49 +1168,46 @@ impl ::windows_core::RuntimeType for DataReader {
 }
 unsafe impl ::windows_core::Interface for DataReader {
     type Vtable = IDataReader_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for DataReader {
-    const IID: ::windows_core::GUID = <IDataReader as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IDataReader as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for DataReader {
     const NAME: &'static str = "Windows.Storage.Streams.DataReader";
 }
-::windows_core::imp::interface_hierarchy!(DataReader, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for DataReader {}
-impl ::windows_core::CanTryInto<IDataReader> for DataReader {}
 unsafe impl ::core::marker::Send for DataReader {}
 unsafe impl ::core::marker::Sync for DataReader {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DataReaderLoadOperation(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(DataReaderLoadOperation, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(DataReaderLoadOperation, super::super::Foundation::IAsyncInfo, super::super::Foundation::IAsyncOperation::<u32>);
 impl DataReaderLoadOperation {
     pub fn Id(&self) -> ::windows_core::Result<u32> {
-        let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
+        let this = &::windows_core::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Status(&self) -> ::windows_core::Result<super::super::Foundation::AsyncStatus> {
-        let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
+        let this = &::windows_core::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ErrorCode(&self) -> ::windows_core::Result<::windows_core::HRESULT> {
-        let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
+        let this = &::windows_core::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ErrorCode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Cancel(&self) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
+        let this = &::windows_core::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Cancel)(::windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Close(&self) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
+        let this = &::windows_core::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn SetCompleted<P0>(&self, handler: P0) -> ::windows_core::Result<()>
@@ -1406,9 +1237,7 @@ impl ::windows_core::RuntimeType for DataReaderLoadOperation {
 }
 unsafe impl ::windows_core::Interface for DataReaderLoadOperation {
     type Vtable = super::super::Foundation::IAsyncOperation_Vtbl<u32>;
-}
-unsafe impl ::windows_core::ComInterface for DataReaderLoadOperation {
-    const IID: ::windows_core::GUID = <super::super::Foundation::IAsyncOperation<u32> as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <super::super::Foundation::IAsyncOperation<u32> as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for DataReaderLoadOperation {
     const NAME: &'static str = "Windows.Storage.Streams.DataReaderLoadOperation";
@@ -1442,14 +1271,13 @@ impl ::std::future::Future for DataReaderLoadOperation {
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(DataReaderLoadOperation, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<super::super::Foundation::IAsyncInfo> for DataReaderLoadOperation {}
-impl ::windows_core::CanTryInto<super::super::Foundation::IAsyncOperation<u32>> for DataReaderLoadOperation {}
 unsafe impl ::core::marker::Send for DataReaderLoadOperation {}
 unsafe impl ::core::marker::Sync for DataReaderLoadOperation {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DataWriter(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(DataWriter, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(DataWriter, super::super::Foundation::IClosable, IDataWriter);
 impl DataWriter {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1459,7 +1287,7 @@ impl DataWriter {
         SHARED.call(callback)
     }
     pub fn Close(&self) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
+        let this = &::windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn UnstoredBufferLength(&self) -> ::windows_core::Result<u32> {
@@ -1501,17 +1329,17 @@ impl DataWriter {
     }
     pub fn WriteBuffer<P0>(&self, buffer: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<IBuffer>,
+        P0: ::windows_core::IntoParam<IBuffer>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).WriteBuffer)(::windows_core::Interface::as_raw(this), buffer.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).WriteBuffer)(::windows_core::Interface::as_raw(this), buffer.into_param().abi()).ok() }
     }
     pub fn WriteBufferRange<P0>(&self, buffer: P0, start: u32, count: u32) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<IBuffer>,
+        P0: ::windows_core::IntoParam<IBuffer>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).WriteBufferRange)(::windows_core::Interface::as_raw(this), buffer.try_into_param()?.abi(), start, count).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).WriteBufferRange)(::windows_core::Interface::as_raw(this), buffer.into_param().abi(), start, count).ok() }
     }
     pub fn WriteBoolean(&self, value: bool) -> ::windows_core::Result<()> {
         let this = self;
@@ -1605,11 +1433,11 @@ impl DataWriter {
     }
     pub fn CreateDataWriter<P0>(outputstream: P0) -> ::windows_core::Result<DataWriter>
     where
-        P0: ::windows_core::TryIntoParam<IOutputStream>,
+        P0: ::windows_core::IntoParam<IOutputStream>,
     {
         Self::IDataWriterFactory(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateDataWriter)(::windows_core::Interface::as_raw(this), outputstream.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateDataWriter)(::windows_core::Interface::as_raw(this), outputstream.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -1623,49 +1451,46 @@ impl ::windows_core::RuntimeType for DataWriter {
 }
 unsafe impl ::windows_core::Interface for DataWriter {
     type Vtable = IDataWriter_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for DataWriter {
-    const IID: ::windows_core::GUID = <IDataWriter as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IDataWriter as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for DataWriter {
     const NAME: &'static str = "Windows.Storage.Streams.DataWriter";
 }
-::windows_core::imp::interface_hierarchy!(DataWriter, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for DataWriter {}
-impl ::windows_core::CanTryInto<IDataWriter> for DataWriter {}
 unsafe impl ::core::marker::Send for DataWriter {}
 unsafe impl ::core::marker::Sync for DataWriter {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DataWriterStoreOperation(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(DataWriterStoreOperation, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(DataWriterStoreOperation, super::super::Foundation::IAsyncInfo, super::super::Foundation::IAsyncOperation::<u32>);
 impl DataWriterStoreOperation {
     pub fn Id(&self) -> ::windows_core::Result<u32> {
-        let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
+        let this = &::windows_core::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Status(&self) -> ::windows_core::Result<super::super::Foundation::AsyncStatus> {
-        let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
+        let this = &::windows_core::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ErrorCode(&self) -> ::windows_core::Result<::windows_core::HRESULT> {
-        let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
+        let this = &::windows_core::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ErrorCode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Cancel(&self) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
+        let this = &::windows_core::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Cancel)(::windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Close(&self) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
+        let this = &::windows_core::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn SetCompleted<P0>(&self, handler: P0) -> ::windows_core::Result<()>
@@ -1695,9 +1520,7 @@ impl ::windows_core::RuntimeType for DataWriterStoreOperation {
 }
 unsafe impl ::windows_core::Interface for DataWriterStoreOperation {
     type Vtable = super::super::Foundation::IAsyncOperation_Vtbl<u32>;
-}
-unsafe impl ::windows_core::ComInterface for DataWriterStoreOperation {
-    const IID: ::windows_core::GUID = <super::super::Foundation::IAsyncOperation<u32> as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <super::super::Foundation::IAsyncOperation<u32> as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for DataWriterStoreOperation {
     const NAME: &'static str = "Windows.Storage.Streams.DataWriterStoreOperation";
@@ -1731,27 +1554,26 @@ impl ::std::future::Future for DataWriterStoreOperation {
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(DataWriterStoreOperation, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<super::super::Foundation::IAsyncInfo> for DataWriterStoreOperation {}
-impl ::windows_core::CanTryInto<super::super::Foundation::IAsyncOperation<u32>> for DataWriterStoreOperation {}
 unsafe impl ::core::marker::Send for DataWriterStoreOperation {}
 unsafe impl ::core::marker::Sync for DataWriterStoreOperation {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct FileInputStream(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(FileInputStream, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(FileInputStream, super::super::Foundation::IClosable, IInputStream);
 impl FileInputStream {
     pub fn Close(&self) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
+        let this = &::windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn ReadAsync<P0>(&self, buffer: P0, count: u32, options: InputStreamOptions) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>
     where
-        P0: ::windows_core::TryIntoParam<IBuffer>,
+        P0: ::windows_core::IntoParam<IBuffer>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ReadAsync)(::windows_core::Interface::as_raw(this), buffer.try_into_param()?.abi(), count, options, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ReadAsync)(::windows_core::Interface::as_raw(this), buffer.into_param().abi(), count, options, &mut result__).from_abi(result__)
         }
     }
 }
@@ -1760,34 +1582,31 @@ impl ::windows_core::RuntimeType for FileInputStream {
 }
 unsafe impl ::windows_core::Interface for FileInputStream {
     type Vtable = IInputStream_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for FileInputStream {
-    const IID: ::windows_core::GUID = <IInputStream as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IInputStream as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for FileInputStream {
     const NAME: &'static str = "Windows.Storage.Streams.FileInputStream";
 }
-::windows_core::imp::interface_hierarchy!(FileInputStream, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for FileInputStream {}
-impl ::windows_core::CanTryInto<IInputStream> for FileInputStream {}
 unsafe impl ::core::marker::Send for FileInputStream {}
 unsafe impl ::core::marker::Sync for FileInputStream {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct FileOutputStream(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(FileOutputStream, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(FileOutputStream, super::super::Foundation::IClosable, IOutputStream);
 impl FileOutputStream {
     pub fn Close(&self) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
+        let this = &::windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn WriteAsync<P0>(&self, buffer: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
     where
-        P0: ::windows_core::TryIntoParam<IBuffer>,
+        P0: ::windows_core::IntoParam<IBuffer>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).WriteAsync)(::windows_core::Interface::as_raw(this), buffer.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).WriteAsync)(::windows_core::Interface::as_raw(this), buffer.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn FlushAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
@@ -1803,24 +1622,21 @@ impl ::windows_core::RuntimeType for FileOutputStream {
 }
 unsafe impl ::windows_core::Interface for FileOutputStream {
     type Vtable = IOutputStream_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for FileOutputStream {
-    const IID: ::windows_core::GUID = <IOutputStream as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IOutputStream as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for FileOutputStream {
     const NAME: &'static str = "Windows.Storage.Streams.FileOutputStream";
 }
-::windows_core::imp::interface_hierarchy!(FileOutputStream, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for FileOutputStream {}
-impl ::windows_core::CanTryInto<IOutputStream> for FileOutputStream {}
 unsafe impl ::core::marker::Send for FileOutputStream {}
 unsafe impl ::core::marker::Sync for FileOutputStream {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct FileRandomAccessStream(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(FileRandomAccessStream, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(FileRandomAccessStream, super::super::Foundation::IClosable, IInputStream, IOutputStream, IRandomAccessStream);
 impl FileRandomAccessStream {
     pub fn Close(&self) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
+        let this = &::windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn OpenAsync(filepath: &::windows_core::HSTRING, accessmode: super::FileAccessMode) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IRandomAccessStream>> {
@@ -1893,26 +1709,26 @@ impl FileRandomAccessStream {
     }
     pub fn ReadAsync<P0>(&self, buffer: P0, count: u32, options: InputStreamOptions) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>
     where
-        P0: ::windows_core::TryIntoParam<IBuffer>,
+        P0: ::windows_core::IntoParam<IBuffer>,
     {
-        let this = &::windows_core::ComInterface::cast::<IInputStream>(self)?;
+        let this = &::windows_core::Interface::cast::<IInputStream>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ReadAsync)(::windows_core::Interface::as_raw(this), buffer.try_into_param()?.abi(), count, options, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ReadAsync)(::windows_core::Interface::as_raw(this), buffer.into_param().abi(), count, options, &mut result__).from_abi(result__)
         }
     }
     pub fn WriteAsync<P0>(&self, buffer: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
     where
-        P0: ::windows_core::TryIntoParam<IBuffer>,
+        P0: ::windows_core::IntoParam<IBuffer>,
     {
-        let this = &::windows_core::ComInterface::cast::<IOutputStream>(self)?;
+        let this = &::windows_core::Interface::cast::<IOutputStream>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).WriteAsync)(::windows_core::Interface::as_raw(this), buffer.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).WriteAsync)(::windows_core::Interface::as_raw(this), buffer.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn FlushAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
-        let this = &::windows_core::ComInterface::cast::<IOutputStream>(self)?;
+        let this = &::windows_core::Interface::cast::<IOutputStream>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FlushAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -1986,23 +1802,18 @@ impl ::windows_core::RuntimeType for FileRandomAccessStream {
 }
 unsafe impl ::windows_core::Interface for FileRandomAccessStream {
     type Vtable = IRandomAccessStream_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for FileRandomAccessStream {
-    const IID: ::windows_core::GUID = <IRandomAccessStream as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IRandomAccessStream as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for FileRandomAccessStream {
     const NAME: &'static str = "Windows.Storage.Streams.FileRandomAccessStream";
 }
-::windows_core::imp::interface_hierarchy!(FileRandomAccessStream, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for FileRandomAccessStream {}
-impl ::windows_core::CanTryInto<IInputStream> for FileRandomAccessStream {}
-impl ::windows_core::CanTryInto<IOutputStream> for FileRandomAccessStream {}
-impl ::windows_core::CanTryInto<IRandomAccessStream> for FileRandomAccessStream {}
 unsafe impl ::core::marker::Send for FileRandomAccessStream {}
 unsafe impl ::core::marker::Sync for FileRandomAccessStream {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct InMemoryRandomAccessStream(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(InMemoryRandomAccessStream, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(InMemoryRandomAccessStream, super::super::Foundation::IClosable, IInputStream, IOutputStream, IRandomAccessStream);
 impl InMemoryRandomAccessStream {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -2012,31 +1823,31 @@ impl InMemoryRandomAccessStream {
         SHARED.call(callback)
     }
     pub fn Close(&self) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
+        let this = &::windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn ReadAsync<P0>(&self, buffer: P0, count: u32, options: InputStreamOptions) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>
     where
-        P0: ::windows_core::TryIntoParam<IBuffer>,
+        P0: ::windows_core::IntoParam<IBuffer>,
     {
-        let this = &::windows_core::ComInterface::cast::<IInputStream>(self)?;
+        let this = &::windows_core::Interface::cast::<IInputStream>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ReadAsync)(::windows_core::Interface::as_raw(this), buffer.try_into_param()?.abi(), count, options, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ReadAsync)(::windows_core::Interface::as_raw(this), buffer.into_param().abi(), count, options, &mut result__).from_abi(result__)
         }
     }
     pub fn WriteAsync<P0>(&self, buffer: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
     where
-        P0: ::windows_core::TryIntoParam<IBuffer>,
+        P0: ::windows_core::IntoParam<IBuffer>,
     {
-        let this = &::windows_core::ComInterface::cast::<IOutputStream>(self)?;
+        let this = &::windows_core::Interface::cast::<IOutputStream>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).WriteAsync)(::windows_core::Interface::as_raw(this), buffer.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).WriteAsync)(::windows_core::Interface::as_raw(this), buffer.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn FlushAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
-        let this = &::windows_core::ComInterface::cast::<IOutputStream>(self)?;
+        let this = &::windows_core::Interface::cast::<IOutputStream>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FlushAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -2105,36 +1916,31 @@ impl ::windows_core::RuntimeType for InMemoryRandomAccessStream {
 }
 unsafe impl ::windows_core::Interface for InMemoryRandomAccessStream {
     type Vtable = IRandomAccessStream_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for InMemoryRandomAccessStream {
-    const IID: ::windows_core::GUID = <IRandomAccessStream as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IRandomAccessStream as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for InMemoryRandomAccessStream {
     const NAME: &'static str = "Windows.Storage.Streams.InMemoryRandomAccessStream";
 }
-::windows_core::imp::interface_hierarchy!(InMemoryRandomAccessStream, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for InMemoryRandomAccessStream {}
-impl ::windows_core::CanTryInto<IInputStream> for InMemoryRandomAccessStream {}
-impl ::windows_core::CanTryInto<IOutputStream> for InMemoryRandomAccessStream {}
-impl ::windows_core::CanTryInto<IRandomAccessStream> for InMemoryRandomAccessStream {}
 unsafe impl ::core::marker::Send for InMemoryRandomAccessStream {}
 unsafe impl ::core::marker::Sync for InMemoryRandomAccessStream {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct InputStreamOverStream(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(InputStreamOverStream, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(InputStreamOverStream, super::super::Foundation::IClosable, IInputStream);
 impl InputStreamOverStream {
     pub fn Close(&self) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
+        let this = &::windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn ReadAsync<P0>(&self, buffer: P0, count: u32, options: InputStreamOptions) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>
     where
-        P0: ::windows_core::TryIntoParam<IBuffer>,
+        P0: ::windows_core::IntoParam<IBuffer>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ReadAsync)(::windows_core::Interface::as_raw(this), buffer.try_into_param()?.abi(), count, options, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ReadAsync)(::windows_core::Interface::as_raw(this), buffer.into_param().abi(), count, options, &mut result__).from_abi(result__)
         }
     }
 }
@@ -2143,34 +1949,31 @@ impl ::windows_core::RuntimeType for InputStreamOverStream {
 }
 unsafe impl ::windows_core::Interface for InputStreamOverStream {
     type Vtable = IInputStream_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for InputStreamOverStream {
-    const IID: ::windows_core::GUID = <IInputStream as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IInputStream as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for InputStreamOverStream {
     const NAME: &'static str = "Windows.Storage.Streams.InputStreamOverStream";
 }
-::windows_core::imp::interface_hierarchy!(InputStreamOverStream, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for InputStreamOverStream {}
-impl ::windows_core::CanTryInto<IInputStream> for InputStreamOverStream {}
 unsafe impl ::core::marker::Send for InputStreamOverStream {}
 unsafe impl ::core::marker::Sync for InputStreamOverStream {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct OutputStreamOverStream(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(OutputStreamOverStream, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(OutputStreamOverStream, super::super::Foundation::IClosable, IOutputStream);
 impl OutputStreamOverStream {
     pub fn Close(&self) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
+        let this = &::windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn WriteAsync<P0>(&self, buffer: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
     where
-        P0: ::windows_core::TryIntoParam<IBuffer>,
+        P0: ::windows_core::IntoParam<IBuffer>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).WriteAsync)(::windows_core::Interface::as_raw(this), buffer.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).WriteAsync)(::windows_core::Interface::as_raw(this), buffer.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn FlushAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
@@ -2186,48 +1989,43 @@ impl ::windows_core::RuntimeType for OutputStreamOverStream {
 }
 unsafe impl ::windows_core::Interface for OutputStreamOverStream {
     type Vtable = IOutputStream_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for OutputStreamOverStream {
-    const IID: ::windows_core::GUID = <IOutputStream as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IOutputStream as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for OutputStreamOverStream {
     const NAME: &'static str = "Windows.Storage.Streams.OutputStreamOverStream";
 }
-::windows_core::imp::interface_hierarchy!(OutputStreamOverStream, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for OutputStreamOverStream {}
-impl ::windows_core::CanTryInto<IOutputStream> for OutputStreamOverStream {}
 unsafe impl ::core::marker::Send for OutputStreamOverStream {}
 unsafe impl ::core::marker::Sync for OutputStreamOverStream {}
 pub struct RandomAccessStream;
 impl RandomAccessStream {
     pub fn CopyAsync<P0, P1>(source: P0, destination: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>
     where
-        P0: ::windows_core::TryIntoParam<IInputStream>,
-        P1: ::windows_core::TryIntoParam<IOutputStream>,
+        P0: ::windows_core::IntoParam<IInputStream>,
+        P1: ::windows_core::IntoParam<IOutputStream>,
     {
         Self::IRandomAccessStreamStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CopyAsync)(::windows_core::Interface::as_raw(this), source.try_into_param()?.abi(), destination.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CopyAsync)(::windows_core::Interface::as_raw(this), source.into_param().abi(), destination.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn CopySizeAsync<P0, P1>(source: P0, destination: P1, bytestocopy: u64) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>
     where
-        P0: ::windows_core::TryIntoParam<IInputStream>,
-        P1: ::windows_core::TryIntoParam<IOutputStream>,
+        P0: ::windows_core::IntoParam<IInputStream>,
+        P1: ::windows_core::IntoParam<IOutputStream>,
     {
         Self::IRandomAccessStreamStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CopySizeAsync)(::windows_core::Interface::as_raw(this), source.try_into_param()?.abi(), destination.try_into_param()?.abi(), bytestocopy, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CopySizeAsync)(::windows_core::Interface::as_raw(this), source.into_param().abi(), destination.into_param().abi(), bytestocopy, &mut result__).from_abi(result__)
         })
     }
     pub fn CopyAndCloseAsync<P0, P1>(source: P0, destination: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>
     where
-        P0: ::windows_core::TryIntoParam<IInputStream>,
-        P1: ::windows_core::TryIntoParam<IOutputStream>,
+        P0: ::windows_core::IntoParam<IInputStream>,
+        P1: ::windows_core::IntoParam<IOutputStream>,
     {
         Self::IRandomAccessStreamStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CopyAndCloseAsync)(::windows_core::Interface::as_raw(this), source.try_into_param()?.abi(), destination.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CopyAndCloseAsync)(::windows_core::Interface::as_raw(this), source.into_param().abi(), destination.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -2242,33 +2040,35 @@ impl ::windows_core::RuntimeName for RandomAccessStream {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RandomAccessStreamOverStream(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(RandomAccessStreamOverStream, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(RandomAccessStreamOverStream, super::super::Foundation::IClosable, IInputStream, IOutputStream, IRandomAccessStream);
 impl RandomAccessStreamOverStream {
     pub fn Close(&self) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
+        let this = &::windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn ReadAsync<P0>(&self, buffer: P0, count: u32, options: InputStreamOptions) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>
     where
-        P0: ::windows_core::TryIntoParam<IBuffer>,
+        P0: ::windows_core::IntoParam<IBuffer>,
     {
-        let this = &::windows_core::ComInterface::cast::<IInputStream>(self)?;
+        let this = &::windows_core::Interface::cast::<IInputStream>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ReadAsync)(::windows_core::Interface::as_raw(this), buffer.try_into_param()?.abi(), count, options, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ReadAsync)(::windows_core::Interface::as_raw(this), buffer.into_param().abi(), count, options, &mut result__).from_abi(result__)
         }
     }
     pub fn WriteAsync<P0>(&self, buffer: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
     where
-        P0: ::windows_core::TryIntoParam<IBuffer>,
+        P0: ::windows_core::IntoParam<IBuffer>,
     {
-        let this = &::windows_core::ComInterface::cast::<IOutputStream>(self)?;
+        let this = &::windows_core::Interface::cast::<IOutputStream>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).WriteAsync)(::windows_core::Interface::as_raw(this), buffer.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).WriteAsync)(::windows_core::Interface::as_raw(this), buffer.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn FlushAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
-        let this = &::windows_core::ComInterface::cast::<IOutputStream>(self)?;
+        let this = &::windows_core::Interface::cast::<IOutputStream>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FlushAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -2337,23 +2137,18 @@ impl ::windows_core::RuntimeType for RandomAccessStreamOverStream {
 }
 unsafe impl ::windows_core::Interface for RandomAccessStreamOverStream {
     type Vtable = IRandomAccessStream_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for RandomAccessStreamOverStream {
-    const IID: ::windows_core::GUID = <IRandomAccessStream as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IRandomAccessStream as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for RandomAccessStreamOverStream {
     const NAME: &'static str = "Windows.Storage.Streams.RandomAccessStreamOverStream";
 }
-::windows_core::imp::interface_hierarchy!(RandomAccessStreamOverStream, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for RandomAccessStreamOverStream {}
-impl ::windows_core::CanTryInto<IInputStream> for RandomAccessStreamOverStream {}
-impl ::windows_core::CanTryInto<IOutputStream> for RandomAccessStreamOverStream {}
-impl ::windows_core::CanTryInto<IRandomAccessStream> for RandomAccessStreamOverStream {}
 unsafe impl ::core::marker::Send for RandomAccessStreamOverStream {}
 unsafe impl ::core::marker::Sync for RandomAccessStreamOverStream {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RandomAccessStreamReference(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(RandomAccessStreamReference, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(RandomAccessStreamReference, IRandomAccessStreamReference);
 impl RandomAccessStreamReference {
     pub fn OpenReadAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IRandomAccessStreamWithContentType>> {
         let this = self;
@@ -2364,11 +2159,11 @@ impl RandomAccessStreamReference {
     }
     pub fn CreateFromFile<P0>(file: P0) -> ::windows_core::Result<RandomAccessStreamReference>
     where
-        P0: ::windows_core::TryIntoParam<super::IStorageFile>,
+        P0: ::windows_core::IntoParam<super::IStorageFile>,
     {
         Self::IRandomAccessStreamReferenceStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateFromFile)(::windows_core::Interface::as_raw(this), file.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateFromFile)(::windows_core::Interface::as_raw(this), file.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn CreateFromUri<P0>(uri: P0) -> ::windows_core::Result<RandomAccessStreamReference>
@@ -2382,11 +2177,11 @@ impl RandomAccessStreamReference {
     }
     pub fn CreateFromStream<P0>(stream: P0) -> ::windows_core::Result<RandomAccessStreamReference>
     where
-        P0: ::windows_core::TryIntoParam<IRandomAccessStream>,
+        P0: ::windows_core::IntoParam<IRandomAccessStream>,
     {
         Self::IRandomAccessStreamReferenceStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateFromStream)(::windows_core::Interface::as_raw(this), stream.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateFromStream)(::windows_core::Interface::as_raw(this), stream.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -2400,15 +2195,11 @@ impl ::windows_core::RuntimeType for RandomAccessStreamReference {
 }
 unsafe impl ::windows_core::Interface for RandomAccessStreamReference {
     type Vtable = IRandomAccessStreamReference_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for RandomAccessStreamReference {
-    const IID: ::windows_core::GUID = <IRandomAccessStreamReference as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IRandomAccessStreamReference as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for RandomAccessStreamReference {
     const NAME: &'static str = "Windows.Storage.Streams.RandomAccessStreamReference";
 }
-::windows_core::imp::interface_hierarchy!(RandomAccessStreamReference, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IRandomAccessStreamReference> for RandomAccessStreamReference {}
 unsafe impl ::core::marker::Send for RandomAccessStreamReference {}
 unsafe impl ::core::marker::Sync for RandomAccessStreamReference {}
 #[repr(transparent)]

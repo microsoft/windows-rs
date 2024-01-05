@@ -1,16 +1,7 @@
 #[cfg(feature = "Devices_Lights_Effects")]
 #[doc = "Required features: `\"Devices_Lights_Effects\"`"]
 pub mod Effects;
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ILamp(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ILamp {
-    type Vtable = ILamp_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ILamp {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x047d5b9a_ea45_4b2b_b1a2_14dff00bde7b);
-}
+::windows_core::imp::com_interface!(ILamp, ILamp_Vtbl, 0x047d5b9a_ea45_4b2b_b1a2_14dff00bde7b);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILamp_Vtbl {
@@ -32,16 +23,7 @@ pub struct ILamp_Vtbl {
     pub AvailabilityChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     pub RemoveAvailabilityChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ILampArray(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ILampArray {
-    type Vtable = ILampArray_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ILampArray {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7ace9787_c8a0_4e95_a1e0_d58676538649);
-}
+::windows_core::imp::com_interface!(ILampArray, ILampArray_Vtbl, 0x7ace9787_c8a0_4e95_a1e0_d58676538649);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILampArray_Vtbl {
@@ -106,16 +88,7 @@ pub struct ILampArray_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     RequestMessageAsync: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ILampArray2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ILampArray2 {
-    type Vtable = ILampArray2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ILampArray2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x050c181f_60a8_4711_a1af_1b1b4c658ea2);
-}
+::windows_core::imp::com_interface!(ILampArray2, ILampArray2_Vtbl, 0x050c181f_60a8_4711_a1af_1b1b4c658ea2);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILampArray2_Vtbl {
@@ -124,16 +97,7 @@ pub struct ILampArray2_Vtbl {
     pub AvailabilityChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     pub RemoveAvailabilityChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ILampArrayStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ILampArrayStatics {
-    type Vtable = ILampArrayStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ILampArrayStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7bb8c98d_5fc1_452d_bb1f_4ad410d398ff);
-}
+::windows_core::imp::com_interface!(ILampArrayStatics, ILampArrayStatics_Vtbl, 0x7bb8c98d_5fc1_452d_bb1f_4ad410d398ff);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILampArrayStatics_Vtbl {
@@ -141,32 +105,14 @@ pub struct ILampArrayStatics_Vtbl {
     pub GetDeviceSelector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub FromIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ILampAvailabilityChangedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ILampAvailabilityChangedEventArgs {
-    type Vtable = ILampAvailabilityChangedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ILampAvailabilityChangedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4f6e3ded_07a2_499d_9260_67e304532ba4);
-}
+::windows_core::imp::com_interface!(ILampAvailabilityChangedEventArgs, ILampAvailabilityChangedEventArgs_Vtbl, 0x4f6e3ded_07a2_499d_9260_67e304532ba4);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILampAvailabilityChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsAvailable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ILampInfo(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ILampInfo {
-    type Vtable = ILampInfo_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ILampInfo {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x30bb521c_0acf_49da_8c10_150b9cf62713);
-}
+::windows_core::imp::com_interface!(ILampInfo, ILampInfo_Vtbl, 0x30bb521c_0acf_49da_8c10_150b9cf62713);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILampInfo_Vtbl {
@@ -191,16 +137,7 @@ pub struct ILampInfo_Vtbl {
     GetNearestSupportedColor: usize,
     pub UpdateLatency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ILampStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ILampStatics {
-    type Vtable = ILampStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ILampStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa822416c_8885_401e_b821_8e8b38a8e8ec);
-}
+::windows_core::imp::com_interface!(ILampStatics, ILampStatics_Vtbl, 0xa822416c_8885_401e_b821_8e8b38a8e8ec);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILampStatics_Vtbl {
@@ -212,9 +149,11 @@ pub struct ILampStatics_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Lamp(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(Lamp, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(Lamp, super::super::Foundation::IClosable);
 impl Lamp {
     pub fn Close(&self) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
+        let this = &::windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn DeviceId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -311,20 +250,17 @@ impl ::windows_core::RuntimeType for Lamp {
 }
 unsafe impl ::windows_core::Interface for Lamp {
     type Vtable = ILamp_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for Lamp {
-    const IID: ::windows_core::GUID = <ILamp as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ILamp as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for Lamp {
     const NAME: &'static str = "Windows.Devices.Lights.Lamp";
 }
-::windows_core::imp::interface_hierarchy!(Lamp, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for Lamp {}
 unsafe impl ::core::marker::Send for Lamp {}
 unsafe impl ::core::marker::Sync for Lamp {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LampArray(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(LampArray, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl LampArray {
     pub fn DeviceId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -489,12 +425,12 @@ impl LampArray {
     #[cfg(feature = "Storage_Streams")]
     pub fn SendMessageAsync<P0>(&self, messageid: i32, message: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: ::windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SendMessageAsync)(::windows_core::Interface::as_raw(this), messageid, message.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SendMessageAsync)(::windows_core::Interface::as_raw(this), messageid, message.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
@@ -507,7 +443,7 @@ impl LampArray {
         }
     }
     pub fn IsAvailable(&self) -> ::windows_core::Result<bool> {
-        let this = &::windows_core::ComInterface::cast::<ILampArray2>(self)?;
+        let this = &::windows_core::Interface::cast::<ILampArray2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsAvailable)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -517,14 +453,14 @@ impl LampArray {
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<LampArray, ::windows_core::IInspectable>>,
     {
-        let this = &::windows_core::ComInterface::cast::<ILampArray2>(self)?;
+        let this = &::windows_core::Interface::cast::<ILampArray2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AvailabilityChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn RemoveAvailabilityChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<ILampArray2>(self)?;
+        let this = &::windows_core::Interface::cast::<ILampArray2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveAvailabilityChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
     pub fn GetDeviceSelector() -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -550,19 +486,17 @@ impl ::windows_core::RuntimeType for LampArray {
 }
 unsafe impl ::windows_core::Interface for LampArray {
     type Vtable = ILampArray_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for LampArray {
-    const IID: ::windows_core::GUID = <ILampArray as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ILampArray as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for LampArray {
     const NAME: &'static str = "Windows.Devices.Lights.LampArray";
 }
-::windows_core::imp::interface_hierarchy!(LampArray, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for LampArray {}
 unsafe impl ::core::marker::Sync for LampArray {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LampAvailabilityChangedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(LampAvailabilityChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl LampAvailabilityChangedEventArgs {
     pub fn IsAvailable(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -577,19 +511,17 @@ impl ::windows_core::RuntimeType for LampAvailabilityChangedEventArgs {
 }
 unsafe impl ::windows_core::Interface for LampAvailabilityChangedEventArgs {
     type Vtable = ILampAvailabilityChangedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for LampAvailabilityChangedEventArgs {
-    const IID: ::windows_core::GUID = <ILampAvailabilityChangedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ILampAvailabilityChangedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for LampAvailabilityChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Lights.LampAvailabilityChangedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(LampAvailabilityChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for LampAvailabilityChangedEventArgs {}
 unsafe impl ::core::marker::Sync for LampAvailabilityChangedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LampInfo(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(LampInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl LampInfo {
     pub fn Index(&self) -> ::windows_core::Result<i32> {
         let this = self;
@@ -673,14 +605,11 @@ impl ::windows_core::RuntimeType for LampInfo {
 }
 unsafe impl ::windows_core::Interface for LampInfo {
     type Vtable = ILampInfo_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for LampInfo {
-    const IID: ::windows_core::GUID = <ILampInfo as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ILampInfo as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for LampInfo {
     const NAME: &'static str = "Windows.Devices.Lights.LampInfo";
 }
-::windows_core::imp::interface_hierarchy!(LampInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for LampInfo {}
 unsafe impl ::core::marker::Sync for LampInfo {}
 #[repr(transparent)]

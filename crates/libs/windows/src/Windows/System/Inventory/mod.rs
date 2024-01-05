@@ -1,13 +1,4 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IInstalledDesktopApp(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IInstalledDesktopApp {
-    type Vtable = IInstalledDesktopApp_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IInstalledDesktopApp {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x75eab8ed_c0bc_5364_4c28_166e0545167a);
-}
+::windows_core::imp::com_interface!(IInstalledDesktopApp, IInstalledDesktopApp_Vtbl, 0x75eab8ed_c0bc_5364_4c28_166e0545167a);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInstalledDesktopApp_Vtbl {
@@ -17,16 +8,7 @@ pub struct IInstalledDesktopApp_Vtbl {
     pub Publisher: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub DisplayVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IInstalledDesktopAppStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IInstalledDesktopAppStatics {
-    type Vtable = IInstalledDesktopAppStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IInstalledDesktopAppStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x264cf74e_21cd_5f9b_6056_7866ad72489a);
-}
+::windows_core::imp::com_interface!(IInstalledDesktopAppStatics, IInstalledDesktopAppStatics_Vtbl, 0x264cf74e_21cd_5f9b_6056_7866ad72489a);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInstalledDesktopAppStatics_Vtbl {
@@ -39,6 +21,8 @@ pub struct IInstalledDesktopAppStatics_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct InstalledDesktopApp(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(InstalledDesktopApp, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(InstalledDesktopApp, super::super::Foundation::IStringable);
 impl InstalledDesktopApp {
     pub fn Id(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -77,7 +61,7 @@ impl InstalledDesktopApp {
         })
     }
     pub fn ToString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IStringable>(self)?;
+        let this = &::windows_core::Interface::cast::<super::super::Foundation::IStringable>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ToString)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -94,14 +78,10 @@ impl ::windows_core::RuntimeType for InstalledDesktopApp {
 }
 unsafe impl ::windows_core::Interface for InstalledDesktopApp {
     type Vtable = IInstalledDesktopApp_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for InstalledDesktopApp {
-    const IID: ::windows_core::GUID = <IInstalledDesktopApp as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IInstalledDesktopApp as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for InstalledDesktopApp {
     const NAME: &'static str = "Windows.System.Inventory.InstalledDesktopApp";
 }
-::windows_core::imp::interface_hierarchy!(InstalledDesktopApp, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<super::super::Foundation::IStringable> for InstalledDesktopApp {}
 unsafe impl ::core::marker::Send for InstalledDesktopApp {}
 unsafe impl ::core::marker::Sync for InstalledDesktopApp {}

@@ -51,6 +51,6 @@ impl IWebAccount_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWebAccount as ::windows_core::ComInterface>::IID
+        iid == &<IWebAccount as ::windows_core::Interface>::IID
     }
 }

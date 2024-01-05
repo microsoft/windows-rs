@@ -1,13 +1,4 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IHidBooleanControl(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IHidBooleanControl {
-    type Vtable = IHidBooleanControl_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IHidBooleanControl {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x524df48a_3695_408c_bba2_e2eb5abfbc20);
-}
+::windows_core::imp::com_interface!(IHidBooleanControl, IHidBooleanControl_Vtbl, 0x524df48a_3695_408c_bba2_e2eb5abfbc20);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHidBooleanControl_Vtbl {
@@ -19,16 +10,7 @@ pub struct IHidBooleanControl_Vtbl {
     pub SetIsActive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
     pub ControlDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IHidBooleanControlDescription(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IHidBooleanControlDescription {
-    type Vtable = IHidBooleanControlDescription_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IHidBooleanControlDescription {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6196e543_29d8_4a2a_8683_849e207bbe31);
-}
+::windows_core::imp::com_interface!(IHidBooleanControlDescription, IHidBooleanControlDescription_Vtbl, 0x6196e543_29d8_4a2a_8683_849e207bbe31);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHidBooleanControlDescription_Vtbl {
@@ -43,32 +25,14 @@ pub struct IHidBooleanControlDescription_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     ParentCollections: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IHidBooleanControlDescription2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IHidBooleanControlDescription2 {
-    type Vtable = IHidBooleanControlDescription2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IHidBooleanControlDescription2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc8eed2ea_8a77_4c36_aa00_5ff0449d3e73);
-}
+::windows_core::imp::com_interface!(IHidBooleanControlDescription2, IHidBooleanControlDescription2_Vtbl, 0xc8eed2ea_8a77_4c36_aa00_5ff0449d3e73);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHidBooleanControlDescription2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsAbsolute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IHidCollection(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IHidCollection {
-    type Vtable = IHidCollection_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IHidCollection {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7189f5a3_32f1_46e3_befd_44d2663b7e6a);
-}
+::windows_core::imp::com_interface!(IHidCollection, IHidCollection_Vtbl, 0x7189f5a3_32f1_46e3_befd_44d2663b7e6a);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHidCollection_Vtbl {
@@ -78,16 +42,7 @@ pub struct IHidCollection_Vtbl {
     pub UsagePage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
     pub UsageId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IHidDevice(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IHidDevice {
-    type Vtable = IHidDevice_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IHidDevice {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5f8a14e7_2200_432e_95da_d09b87d574a8);
-}
+::windows_core::imp::com_interface!(IHidDevice, IHidDevice_Vtbl, 0x5f8a14e7_2200_432e_95da_d09b87d574a8);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHidDevice_Vtbl {
@@ -118,16 +73,7 @@ pub struct IHidDevice_Vtbl {
     pub InputReportReceived: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reporthandler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     pub RemoveInputReportReceived: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IHidDeviceStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IHidDeviceStatics {
-    type Vtable = IHidDeviceStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IHidDeviceStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9e5981e4_9856_418c_9f73_77de0cd85754);
-}
+::windows_core::imp::com_interface!(IHidDeviceStatics, IHidDeviceStatics_Vtbl, 0x9e5981e4_9856_418c_9f73_77de0cd85754);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHidDeviceStatics_Vtbl {
@@ -139,16 +85,7 @@ pub struct IHidDeviceStatics_Vtbl {
     #[cfg(not(feature = "Storage"))]
     FromIdAsync: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IHidFeatureReport(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IHidFeatureReport {
-    type Vtable = IHidFeatureReport_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IHidFeatureReport {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x841d9b79_5ae5_46e3_82ef_1fec5c8942f4);
-}
+::windows_core::imp::com_interface!(IHidFeatureReport, IHidFeatureReport_Vtbl, 0x841d9b79_5ae5_46e3_82ef_1fec5c8942f4);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHidFeatureReport_Vtbl {
@@ -167,16 +104,7 @@ pub struct IHidFeatureReport_Vtbl {
     pub GetNumericControl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, usagepage: u16, usageid: u16, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetNumericControlByDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, controldescription: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IHidInputReport(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IHidInputReport {
-    type Vtable = IHidInputReport_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IHidInputReport {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc35d0e50_f7e7_4e8d_b23e_cabbe56b90e9);
-}
+::windows_core::imp::com_interface!(IHidInputReport, IHidInputReport_Vtbl, 0xc35d0e50_f7e7_4e8d_b23e_cabbe56b90e9);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHidInputReport_Vtbl {
@@ -199,32 +127,14 @@ pub struct IHidInputReport_Vtbl {
     pub GetNumericControl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, usagepage: u16, usageid: u16, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetNumericControlByDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, controldescription: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IHidInputReportReceivedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IHidInputReportReceivedEventArgs {
-    type Vtable = IHidInputReportReceivedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IHidInputReportReceivedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7059c5cb_59b2_4dc2_985c_0adc6136fa2d);
-}
+::windows_core::imp::com_interface!(IHidInputReportReceivedEventArgs, IHidInputReportReceivedEventArgs_Vtbl, 0x7059c5cb_59b2_4dc2_985c_0adc6136fa2d);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHidInputReportReceivedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Report: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IHidNumericControl(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IHidNumericControl {
-    type Vtable = IHidNumericControl_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IHidNumericControl {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe38a12a5_35a7_4b75_89c8_fb1f28b10823);
-}
+::windows_core::imp::com_interface!(IHidNumericControl, IHidNumericControl_Vtbl, 0xe38a12a5_35a7_4b75_89c8_fb1f28b10823);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHidNumericControl_Vtbl {
@@ -239,16 +149,7 @@ pub struct IHidNumericControl_Vtbl {
     pub SetScaledValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i64) -> ::windows_core::HRESULT,
     pub ControlDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IHidNumericControlDescription(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IHidNumericControlDescription {
-    type Vtable = IHidNumericControlDescription_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IHidNumericControlDescription {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x638d5e86_1d97_4c75_927f_5ff58ba05e32);
-}
+::windows_core::imp::com_interface!(IHidNumericControlDescription, IHidNumericControlDescription_Vtbl, 0x638d5e86_1d97_4c75_927f_5ff58ba05e32);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHidNumericControlDescription_Vtbl {
@@ -273,16 +174,7 @@ pub struct IHidNumericControlDescription_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     ParentCollections: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IHidOutputReport(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IHidOutputReport {
-    type Vtable = IHidOutputReport_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IHidOutputReport {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x62cb2544_c896_4463_93c1_df9db053c450);
-}
+::windows_core::imp::com_interface!(IHidOutputReport, IHidOutputReport_Vtbl, 0x62cb2544_c896_4463_93c1_df9db053c450);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHidOutputReport_Vtbl {
@@ -304,6 +196,7 @@ pub struct IHidOutputReport_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HidBooleanControl(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(HidBooleanControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl HidBooleanControl {
     pub fn Id(&self) -> ::windows_core::Result<u32> {
         let this = self;
@@ -350,19 +243,17 @@ impl ::windows_core::RuntimeType for HidBooleanControl {
 }
 unsafe impl ::windows_core::Interface for HidBooleanControl {
     type Vtable = IHidBooleanControl_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for HidBooleanControl {
-    const IID: ::windows_core::GUID = <IHidBooleanControl as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IHidBooleanControl as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for HidBooleanControl {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidBooleanControl";
 }
-::windows_core::imp::interface_hierarchy!(HidBooleanControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for HidBooleanControl {}
 unsafe impl ::core::marker::Sync for HidBooleanControl {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HidBooleanControlDescription(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(HidBooleanControlDescription, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl HidBooleanControlDescription {
     pub fn Id(&self) -> ::windows_core::Result<u32> {
         let this = self;
@@ -409,7 +300,7 @@ impl HidBooleanControlDescription {
         }
     }
     pub fn IsAbsolute(&self) -> ::windows_core::Result<bool> {
-        let this = &::windows_core::ComInterface::cast::<IHidBooleanControlDescription2>(self)?;
+        let this = &::windows_core::Interface::cast::<IHidBooleanControlDescription2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsAbsolute)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -421,19 +312,17 @@ impl ::windows_core::RuntimeType for HidBooleanControlDescription {
 }
 unsafe impl ::windows_core::Interface for HidBooleanControlDescription {
     type Vtable = IHidBooleanControlDescription_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for HidBooleanControlDescription {
-    const IID: ::windows_core::GUID = <IHidBooleanControlDescription as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IHidBooleanControlDescription as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for HidBooleanControlDescription {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidBooleanControlDescription";
 }
-::windows_core::imp::interface_hierarchy!(HidBooleanControlDescription, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for HidBooleanControlDescription {}
 unsafe impl ::core::marker::Sync for HidBooleanControlDescription {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HidCollection(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(HidCollection, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl HidCollection {
     pub fn Id(&self) -> ::windows_core::Result<u32> {
         let this = self;
@@ -469,22 +358,21 @@ impl ::windows_core::RuntimeType for HidCollection {
 }
 unsafe impl ::windows_core::Interface for HidCollection {
     type Vtable = IHidCollection_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for HidCollection {
-    const IID: ::windows_core::GUID = <IHidCollection as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IHidCollection as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for HidCollection {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidCollection";
 }
-::windows_core::imp::interface_hierarchy!(HidCollection, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for HidCollection {}
 unsafe impl ::core::marker::Sync for HidCollection {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HidDevice(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(HidDevice, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(HidDevice, super::super::Foundation::IClosable);
 impl HidDevice {
     pub fn Close(&self) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
+        let this = &::windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn VendorId(&self) -> ::windows_core::Result<u16> {
@@ -661,20 +549,17 @@ impl ::windows_core::RuntimeType for HidDevice {
 }
 unsafe impl ::windows_core::Interface for HidDevice {
     type Vtable = IHidDevice_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for HidDevice {
-    const IID: ::windows_core::GUID = <IHidDevice as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IHidDevice as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for HidDevice {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidDevice";
 }
-::windows_core::imp::interface_hierarchy!(HidDevice, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for HidDevice {}
 unsafe impl ::core::marker::Send for HidDevice {}
 unsafe impl ::core::marker::Sync for HidDevice {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HidFeatureReport(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(HidFeatureReport, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl HidFeatureReport {
     pub fn Id(&self) -> ::windows_core::Result<u16> {
         let this = self;
@@ -696,10 +581,10 @@ impl HidFeatureReport {
     #[cfg(feature = "Storage_Streams")]
     pub fn SetData<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: ::windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetData)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetData)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn GetBooleanControl(&self, usagepage: u16, usageid: u16) -> ::windows_core::Result<HidBooleanControl> {
         let this = self;
@@ -741,19 +626,17 @@ impl ::windows_core::RuntimeType for HidFeatureReport {
 }
 unsafe impl ::windows_core::Interface for HidFeatureReport {
     type Vtable = IHidFeatureReport_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for HidFeatureReport {
-    const IID: ::windows_core::GUID = <IHidFeatureReport as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IHidFeatureReport as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for HidFeatureReport {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidFeatureReport";
 }
-::windows_core::imp::interface_hierarchy!(HidFeatureReport, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for HidFeatureReport {}
 unsafe impl ::core::marker::Sync for HidFeatureReport {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HidInputReport(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(HidInputReport, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl HidInputReport {
     pub fn Id(&self) -> ::windows_core::Result<u16> {
         let this = self;
@@ -829,19 +712,17 @@ impl ::windows_core::RuntimeType for HidInputReport {
 }
 unsafe impl ::windows_core::Interface for HidInputReport {
     type Vtable = IHidInputReport_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for HidInputReport {
-    const IID: ::windows_core::GUID = <IHidInputReport as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IHidInputReport as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for HidInputReport {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidInputReport";
 }
-::windows_core::imp::interface_hierarchy!(HidInputReport, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for HidInputReport {}
 unsafe impl ::core::marker::Sync for HidInputReport {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HidInputReportReceivedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(HidInputReportReceivedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl HidInputReportReceivedEventArgs {
     pub fn Report(&self) -> ::windows_core::Result<HidInputReport> {
         let this = self;
@@ -856,19 +737,17 @@ impl ::windows_core::RuntimeType for HidInputReportReceivedEventArgs {
 }
 unsafe impl ::windows_core::Interface for HidInputReportReceivedEventArgs {
     type Vtable = IHidInputReportReceivedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for HidInputReportReceivedEventArgs {
-    const IID: ::windows_core::GUID = <IHidInputReportReceivedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IHidInputReportReceivedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for HidInputReportReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidInputReportReceivedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(HidInputReportReceivedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for HidInputReportReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for HidInputReportReceivedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HidNumericControl(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(HidNumericControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl HidNumericControl {
     pub fn Id(&self) -> ::windows_core::Result<u32> {
         let this = self;
@@ -933,19 +812,17 @@ impl ::windows_core::RuntimeType for HidNumericControl {
 }
 unsafe impl ::windows_core::Interface for HidNumericControl {
     type Vtable = IHidNumericControl_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for HidNumericControl {
-    const IID: ::windows_core::GUID = <IHidNumericControl as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IHidNumericControl as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for HidNumericControl {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidNumericControl";
 }
-::windows_core::imp::interface_hierarchy!(HidNumericControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for HidNumericControl {}
 unsafe impl ::core::marker::Sync for HidNumericControl {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HidNumericControlDescription(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(HidNumericControlDescription, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl HidNumericControlDescription {
     pub fn Id(&self) -> ::windows_core::Result<u32> {
         let this = self;
@@ -1067,19 +944,17 @@ impl ::windows_core::RuntimeType for HidNumericControlDescription {
 }
 unsafe impl ::windows_core::Interface for HidNumericControlDescription {
     type Vtable = IHidNumericControlDescription_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for HidNumericControlDescription {
-    const IID: ::windows_core::GUID = <IHidNumericControlDescription as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IHidNumericControlDescription as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for HidNumericControlDescription {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidNumericControlDescription";
 }
-::windows_core::imp::interface_hierarchy!(HidNumericControlDescription, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for HidNumericControlDescription {}
 unsafe impl ::core::marker::Sync for HidNumericControlDescription {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HidOutputReport(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(HidOutputReport, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl HidOutputReport {
     pub fn Id(&self) -> ::windows_core::Result<u16> {
         let this = self;
@@ -1101,10 +976,10 @@ impl HidOutputReport {
     #[cfg(feature = "Storage_Streams")]
     pub fn SetData<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: ::windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetData)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetData)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn GetBooleanControl(&self, usagepage: u16, usageid: u16) -> ::windows_core::Result<HidBooleanControl> {
         let this = self;
@@ -1146,14 +1021,11 @@ impl ::windows_core::RuntimeType for HidOutputReport {
 }
 unsafe impl ::windows_core::Interface for HidOutputReport {
     type Vtable = IHidOutputReport_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for HidOutputReport {
-    const IID: ::windows_core::GUID = <IHidOutputReport as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IHidOutputReport as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for HidOutputReport {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidOutputReport";
 }
-::windows_core::imp::interface_hierarchy!(HidOutputReport, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for HidOutputReport {}
 unsafe impl ::core::marker::Sync for HidOutputReport {}
 #[repr(transparent)]

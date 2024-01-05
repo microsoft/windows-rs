@@ -1,13 +1,4 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMediaTranscoder(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IMediaTranscoder {
-    type Vtable = IMediaTranscoder_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IMediaTranscoder {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x190c99d2_a0aa_4d34_86bc_eed1b12c2f5b);
-}
+::windows_core::imp::com_interface!(IMediaTranscoder, IMediaTranscoder_Vtbl, 0x190c99d2_a0aa_4d34_86bc_eed1b12c2f5b);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaTranscoder_Vtbl {
@@ -40,16 +31,7 @@ pub struct IMediaTranscoder_Vtbl {
     #[cfg(not(all(feature = "Media_MediaProperties", feature = "Storage_Streams")))]
     PrepareStreamTranscodeAsync: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMediaTranscoder2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IMediaTranscoder2 {
-    type Vtable = IMediaTranscoder2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IMediaTranscoder2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x40531d74_35e0_4f04_8574_ca8bc4e5a082);
-}
+::windows_core::imp::com_interface!(IMediaTranscoder2, IMediaTranscoder2_Vtbl, 0x40531d74_35e0_4f04_8574_ca8bc4e5a082);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaTranscoder2_Vtbl {
@@ -61,16 +43,7 @@ pub struct IMediaTranscoder2_Vtbl {
     pub SetVideoProcessingAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: MediaVideoProcessingAlgorithm) -> ::windows_core::HRESULT,
     pub VideoProcessingAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MediaVideoProcessingAlgorithm) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPrepareTranscodeResult(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPrepareTranscodeResult {
-    type Vtable = IPrepareTranscodeResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPrepareTranscodeResult {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x05f25dce_994f_4a34_9d68_97ccce1730d6);
-}
+::windows_core::imp::com_interface!(IPrepareTranscodeResult, IPrepareTranscodeResult_Vtbl, 0x05f25dce_994f_4a34_9d68_97ccce1730d6);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrepareTranscodeResult_Vtbl {
@@ -82,6 +55,7 @@ pub struct IPrepareTranscodeResult_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaTranscoder(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(MediaTranscoder, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl MediaTranscoder {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -142,10 +116,10 @@ impl MediaTranscoder {
     #[cfg(feature = "Foundation_Collections")]
     pub fn AddAudioEffectWithSettings<P0>(&self, activatableclassid: &::windows_core::HSTRING, effectrequired: bool, configuration: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IPropertySet>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::Collections::IPropertySet>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).AddAudioEffectWithSettings)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(activatableclassid), effectrequired, configuration.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).AddAudioEffectWithSettings)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(activatableclassid), effectrequired, configuration.into_param().abi()).ok() }
     }
     pub fn AddVideoEffect(&self, activatableclassid: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
         let this = self;
@@ -155,10 +129,10 @@ impl MediaTranscoder {
     #[cfg(feature = "Foundation_Collections")]
     pub fn AddVideoEffectWithSettings<P0>(&self, activatableclassid: &::windows_core::HSTRING, effectrequired: bool, configuration: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IPropertySet>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::Collections::IPropertySet>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).AddVideoEffectWithSettings)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(activatableclassid), effectrequired, configuration.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).AddVideoEffectWithSettings)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(activatableclassid), effectrequired, configuration.into_param().abi()).ok() }
     }
     pub fn ClearEffects(&self) -> ::windows_core::Result<()> {
         let this = self;
@@ -168,50 +142,50 @@ impl MediaTranscoder {
     #[cfg(all(feature = "Media_MediaProperties", feature = "Storage"))]
     pub fn PrepareFileTranscodeAsync<P0, P1, P2>(&self, source: P0, destination: P1, profile: P2) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<PrepareTranscodeResult>>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Storage::IStorageFile>,
-        P1: ::windows_core::TryIntoParam<super::super::Storage::IStorageFile>,
+        P0: ::windows_core::IntoParam<super::super::Storage::IStorageFile>,
+        P1: ::windows_core::IntoParam<super::super::Storage::IStorageFile>,
         P2: ::windows_core::IntoParam<super::MediaProperties::MediaEncodingProfile>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).PrepareFileTranscodeAsync)(::windows_core::Interface::as_raw(this), source.try_into_param()?.abi(), destination.try_into_param()?.abi(), profile.into_param().abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).PrepareFileTranscodeAsync)(::windows_core::Interface::as_raw(this), source.into_param().abi(), destination.into_param().abi(), profile.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"Media_MediaProperties\"`, `\"Storage_Streams\"`"]
     #[cfg(all(feature = "Media_MediaProperties", feature = "Storage_Streams"))]
     pub fn PrepareStreamTranscodeAsync<P0, P1, P2>(&self, source: P0, destination: P1, profile: P2) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<PrepareTranscodeResult>>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IRandomAccessStream>,
-        P1: ::windows_core::TryIntoParam<super::super::Storage::Streams::IRandomAccessStream>,
+        P0: ::windows_core::IntoParam<super::super::Storage::Streams::IRandomAccessStream>,
+        P1: ::windows_core::IntoParam<super::super::Storage::Streams::IRandomAccessStream>,
         P2: ::windows_core::IntoParam<super::MediaProperties::MediaEncodingProfile>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).PrepareStreamTranscodeAsync)(::windows_core::Interface::as_raw(this), source.try_into_param()?.abi(), destination.try_into_param()?.abi(), profile.into_param().abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).PrepareStreamTranscodeAsync)(::windows_core::Interface::as_raw(this), source.into_param().abi(), destination.into_param().abi(), profile.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"Media_Core\"`, `\"Media_MediaProperties\"`, `\"Storage_Streams\"`"]
     #[cfg(all(feature = "Media_Core", feature = "Media_MediaProperties", feature = "Storage_Streams"))]
     pub fn PrepareMediaStreamSourceTranscodeAsync<P0, P1, P2>(&self, source: P0, destination: P1, profile: P2) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<PrepareTranscodeResult>>
     where
-        P0: ::windows_core::TryIntoParam<super::Core::IMediaSource>,
-        P1: ::windows_core::TryIntoParam<super::super::Storage::Streams::IRandomAccessStream>,
+        P0: ::windows_core::IntoParam<super::Core::IMediaSource>,
+        P1: ::windows_core::IntoParam<super::super::Storage::Streams::IRandomAccessStream>,
         P2: ::windows_core::IntoParam<super::MediaProperties::MediaEncodingProfile>,
     {
-        let this = &::windows_core::ComInterface::cast::<IMediaTranscoder2>(self)?;
+        let this = &::windows_core::Interface::cast::<IMediaTranscoder2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).PrepareMediaStreamSourceTranscodeAsync)(::windows_core::Interface::as_raw(this), source.try_into_param()?.abi(), destination.try_into_param()?.abi(), profile.into_param().abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).PrepareMediaStreamSourceTranscodeAsync)(::windows_core::Interface::as_raw(this), source.into_param().abi(), destination.into_param().abi(), profile.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn SetVideoProcessingAlgorithm(&self, value: MediaVideoProcessingAlgorithm) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<IMediaTranscoder2>(self)?;
+        let this = &::windows_core::Interface::cast::<IMediaTranscoder2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetVideoProcessingAlgorithm)(::windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn VideoProcessingAlgorithm(&self) -> ::windows_core::Result<MediaVideoProcessingAlgorithm> {
-        let this = &::windows_core::ComInterface::cast::<IMediaTranscoder2>(self)?;
+        let this = &::windows_core::Interface::cast::<IMediaTranscoder2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).VideoProcessingAlgorithm)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -223,19 +197,17 @@ impl ::windows_core::RuntimeType for MediaTranscoder {
 }
 unsafe impl ::windows_core::Interface for MediaTranscoder {
     type Vtable = IMediaTranscoder_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for MediaTranscoder {
-    const IID: ::windows_core::GUID = <IMediaTranscoder as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IMediaTranscoder as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for MediaTranscoder {
     const NAME: &'static str = "Windows.Media.Transcoding.MediaTranscoder";
 }
-::windows_core::imp::interface_hierarchy!(MediaTranscoder, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for MediaTranscoder {}
 unsafe impl ::core::marker::Sync for MediaTranscoder {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PrepareTranscodeResult(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(PrepareTranscodeResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl PrepareTranscodeResult {
     pub fn CanTranscode(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -264,14 +236,11 @@ impl ::windows_core::RuntimeType for PrepareTranscodeResult {
 }
 unsafe impl ::windows_core::Interface for PrepareTranscodeResult {
     type Vtable = IPrepareTranscodeResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for PrepareTranscodeResult {
-    const IID: ::windows_core::GUID = <IPrepareTranscodeResult as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPrepareTranscodeResult as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for PrepareTranscodeResult {
     const NAME: &'static str = "Windows.Media.Transcoding.PrepareTranscodeResult";
 }
-::windows_core::imp::interface_hierarchy!(PrepareTranscodeResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PrepareTranscodeResult {}
 unsafe impl ::core::marker::Sync for PrepareTranscodeResult {}
 #[repr(transparent)]

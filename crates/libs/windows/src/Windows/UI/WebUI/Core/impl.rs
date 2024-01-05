@@ -7,7 +7,7 @@ impl IWebUICommandBarElement_Vtbl {
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, IWebUICommandBarElement, OFFSET>() }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWebUICommandBarElement as ::windows_core::ComInterface>::IID
+        iid == &<IWebUICommandBarElement as ::windows_core::Interface>::IID
     }
 }
 pub trait IWebUICommandBarIcon_Impl: Sized {}
@@ -19,6 +19,6 @@ impl IWebUICommandBarIcon_Vtbl {
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, IWebUICommandBarIcon, OFFSET>() }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWebUICommandBarIcon as ::windows_core::ComInterface>::IID
+        iid == &<IWebUICommandBarIcon as ::windows_core::Interface>::IID
     }
 }

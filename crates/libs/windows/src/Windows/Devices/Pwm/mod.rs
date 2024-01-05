@@ -1,16 +1,7 @@
 #[cfg(feature = "Devices_Pwm_Provider")]
 #[doc = "Required features: `\"Devices_Pwm_Provider\"`"]
 pub mod Provider;
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPwmController(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPwmController {
-    type Vtable = IPwmController_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPwmController {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc45f5c85_d2e8_42cf_9bd6_cf5ed029e6a7);
-}
+::windows_core::imp::com_interface!(IPwmController, IPwmController_Vtbl, 0xc45f5c85_d2e8_42cf_9bd6_cf5ed029e6a7);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPwmController_Vtbl {
@@ -22,16 +13,7 @@ pub struct IPwmController_Vtbl {
     pub MaxFrequency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows_core::HRESULT,
     pub OpenPin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinnumber: i32, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPwmControllerStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPwmControllerStatics {
-    type Vtable = IPwmControllerStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPwmControllerStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4263bda1_8946_4404_bd48_81dd124af4d9);
-}
+::windows_core::imp::com_interface!(IPwmControllerStatics, IPwmControllerStatics_Vtbl, 0x4263bda1_8946_4404_bd48_81dd124af4d9);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPwmControllerStatics_Vtbl {
@@ -41,32 +23,14 @@ pub struct IPwmControllerStatics_Vtbl {
     #[cfg(not(all(feature = "Devices_Pwm_Provider", feature = "Foundation_Collections")))]
     GetControllersAsync: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPwmControllerStatics2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPwmControllerStatics2 {
-    type Vtable = IPwmControllerStatics2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPwmControllerStatics2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x44fc5b1f_f119_4bdd_97ad_f76ef986736d);
-}
+::windows_core::imp::com_interface!(IPwmControllerStatics2, IPwmControllerStatics2_Vtbl, 0x44fc5b1f_f119_4bdd_97ad_f76ef986736d);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPwmControllerStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDefaultAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPwmControllerStatics3(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPwmControllerStatics3 {
-    type Vtable = IPwmControllerStatics3_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPwmControllerStatics3 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb2581871_0229_4344_ae3f_9b7cd0e66b94);
-}
+::windows_core::imp::com_interface!(IPwmControllerStatics3, IPwmControllerStatics3_Vtbl, 0xb2581871_0229_4344_ae3f_9b7cd0e66b94);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPwmControllerStatics3_Vtbl {
@@ -75,16 +39,7 @@ pub struct IPwmControllerStatics3_Vtbl {
     pub GetDeviceSelectorFromFriendlyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, friendlyname: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub FromIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPwmPin(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPwmPin {
-    type Vtable = IPwmPin_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPwmPin {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x22972dc8_c6cf_4821_b7f9_c6454fb6af79);
-}
+::windows_core::imp::com_interface!(IPwmPin, IPwmPin_Vtbl, 0x22972dc8_c6cf_4821_b7f9_c6454fb6af79);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPwmPin_Vtbl {
@@ -101,6 +56,7 @@ pub struct IPwmPin_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PwmController(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(PwmController, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl PwmController {
     pub fn PinCount(&self) -> ::windows_core::Result<i32> {
         let this = self;
@@ -148,11 +104,11 @@ impl PwmController {
     #[cfg(all(feature = "Devices_Pwm_Provider", feature = "Foundation_Collections"))]
     pub fn GetControllersAsync<P0>(provider: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PwmController>>>
     where
-        P0: ::windows_core::TryIntoParam<Provider::IPwmProvider>,
+        P0: ::windows_core::IntoParam<Provider::IPwmProvider>,
     {
         Self::IPwmControllerStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetControllersAsync)(::windows_core::Interface::as_raw(this), provider.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetControllersAsync)(::windows_core::Interface::as_raw(this), provider.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn GetDefaultAsync() -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<PwmController>> {
@@ -200,22 +156,21 @@ impl ::windows_core::RuntimeType for PwmController {
 }
 unsafe impl ::windows_core::Interface for PwmController {
     type Vtable = IPwmController_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for PwmController {
-    const IID: ::windows_core::GUID = <IPwmController as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPwmController as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for PwmController {
     const NAME: &'static str = "Windows.Devices.Pwm.PwmController";
 }
-::windows_core::imp::interface_hierarchy!(PwmController, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PwmController {}
 unsafe impl ::core::marker::Sync for PwmController {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PwmPin(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(PwmPin, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(PwmPin, super::super::Foundation::IClosable);
 impl PwmPin {
     pub fn Close(&self) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
+        let this = &::windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Controller(&self) -> ::windows_core::Result<PwmController> {
@@ -268,15 +223,11 @@ impl ::windows_core::RuntimeType for PwmPin {
 }
 unsafe impl ::windows_core::Interface for PwmPin {
     type Vtable = IPwmPin_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for PwmPin {
-    const IID: ::windows_core::GUID = <IPwmPin as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPwmPin as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for PwmPin {
     const NAME: &'static str = "Windows.Devices.Pwm.PwmPin";
 }
-::windows_core::imp::interface_hierarchy!(PwmPin, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for PwmPin {}
 unsafe impl ::core::marker::Send for PwmPin {}
 unsafe impl ::core::marker::Sync for PwmPin {}
 #[repr(transparent)]

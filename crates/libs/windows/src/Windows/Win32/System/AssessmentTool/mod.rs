@@ -1,8 +1,12 @@
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_UI_Accessibility\"`"]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAccessibleWinSAT(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_UI_Accessibility\"`"]
+    IAccessibleWinSAT,
+    IAccessibleWinSAT_Vtbl,
+    0x30e6018a_94a8_4ff8_a69a_71b67413f07b
+);
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
+::windows_core::imp::interface_hierarchy!(IAccessibleWinSAT, ::windows_core::IUnknown, super::Com::IDispatch, super::super::UI::Accessibility::IAccessible);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
 impl IAccessibleWinSAT {
     #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_UI_Accessibility\"`"]
@@ -141,25 +145,14 @@ impl IAccessibleWinSAT {
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
-::windows_core::imp::interface_hierarchy!(IAccessibleWinSAT, ::windows_core::IUnknown, super::Com::IDispatch, super::super::UI::Accessibility::IAccessible);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
-unsafe impl ::windows_core::Interface for IAccessibleWinSAT {
-    type Vtable = IAccessibleWinSAT_Vtbl;
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
-unsafe impl ::windows_core::ComInterface for IAccessibleWinSAT {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x30e6018a_94a8_4ff8_a69a_71b67413f07b);
-}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccessibleWinSAT_Vtbl {
     pub base__: super::super::UI::Accessibility::IAccessible_Vtbl,
     pub SetAccessiblityData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wsname: ::windows_core::PCWSTR, wsvalue: ::windows_core::PCWSTR, wsdesc: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IInitiateWinSATAssessment(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IInitiateWinSATAssessment, IInitiateWinSATAssessment_Vtbl, 0xd983fc50_f5bf_49d5_b5ed_cccb18aa7fc1);
+::windows_core::imp::interface_hierarchy!(IInitiateWinSATAssessment, ::windows_core::IUnknown);
 impl IInitiateWinSATAssessment {
     pub unsafe fn InitiateAssessment<P0, P1, P2>(&self, cmdline: P0, pcallbacks: P1, callerhwnd: P2) -> ::windows_core::Result<()>
     where
@@ -180,13 +173,6 @@ impl IInitiateWinSATAssessment {
         (::windows_core::Interface::vtable(self).CancelAssessment)(::windows_core::Interface::as_raw(self)).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IInitiateWinSATAssessment, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IInitiateWinSATAssessment {
-    type Vtable = IInitiateWinSATAssessment_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IInitiateWinSATAssessment {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd983fc50_f5bf_49d5_b5ed_cccb18aa7fc1);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInitiateWinSATAssessment_Vtbl {
@@ -195,11 +181,15 @@ pub struct IInitiateWinSATAssessment_Vtbl {
     pub InitiateFormalAssessment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallbacks: *mut ::core::ffi::c_void, callerhwnd: super::super::Foundation::HWND) -> ::windows_core::HRESULT,
     pub CancelAssessment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IProvideWinSATAssessmentInfo(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IProvideWinSATAssessmentInfo,
+    IProvideWinSATAssessmentInfo_Vtbl,
+    0x0cd1c380_52d3_4678_ac6f_e929e480be9e
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IProvideWinSATAssessmentInfo, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IProvideWinSATAssessmentInfo {
     pub unsafe fn Score(&self) -> ::windows_core::Result<f32> {
@@ -216,16 +206,6 @@ impl IProvideWinSATAssessmentInfo {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IProvideWinSATAssessmentInfo, ::windows_core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IProvideWinSATAssessmentInfo {
-    type Vtable = IProvideWinSATAssessmentInfo_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IProvideWinSATAssessmentInfo {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0cd1c380_52d3_4678_ac6f_e929e480be9e);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProvideWinSATAssessmentInfo_Vtbl {
@@ -234,11 +214,15 @@ pub struct IProvideWinSATAssessmentInfo_Vtbl {
     pub Title: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, title: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, description: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IProvideWinSATResultsInfo(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IProvideWinSATResultsInfo,
+    IProvideWinSATResultsInfo_Vtbl,
+    0xf8334d5d_568e_4075_875f_9df341506640
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IProvideWinSATResultsInfo, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IProvideWinSATResultsInfo {
     #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -267,16 +251,6 @@ impl IProvideWinSATResultsInfo {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IProvideWinSATResultsInfo, ::windows_core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IProvideWinSATResultsInfo {
-    type Vtable = IProvideWinSATResultsInfo_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IProvideWinSATResultsInfo {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf8334d5d_568e_4075_875f_9df341506640);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProvideWinSATResultsInfo_Vtbl {
@@ -293,9 +267,8 @@ pub struct IProvideWinSATResultsInfo_Vtbl {
     pub SystemRating: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, level: *mut f32) -> ::windows_core::HRESULT,
     pub RatingStateDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, description: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IProvideWinSATVisuals(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IProvideWinSATVisuals, IProvideWinSATVisuals_Vtbl, 0xa9f4ade0_871a_42a3_b813_3078d25162c9);
+::windows_core::imp::interface_hierarchy!(IProvideWinSATVisuals, ::windows_core::IUnknown);
 impl IProvideWinSATVisuals {
     #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -303,13 +276,6 @@ impl IProvideWinSATVisuals {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Bitmap)(::windows_core::Interface::as_raw(self), bitmapsize, state, rating, &mut result__).from_abi(result__)
     }
-}
-::windows_core::imp::interface_hierarchy!(IProvideWinSATVisuals, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IProvideWinSATVisuals {
-    type Vtable = IProvideWinSATVisuals_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IProvideWinSATVisuals {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa9f4ade0_871a_42a3_b813_3078d25162c9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -320,11 +286,15 @@ pub struct IProvideWinSATVisuals_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     get_Bitmap: usize,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IQueryAllWinSATAssessments(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IQueryAllWinSATAssessments,
+    IQueryAllWinSATAssessments_Vtbl,
+    0x0b89ed1d_6398_4fea_87fc_567d8d19176f
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IQueryAllWinSATAssessments, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IQueryAllWinSATAssessments {
     #[doc = "Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`"]
@@ -339,16 +309,6 @@ impl IQueryAllWinSATAssessments {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IQueryAllWinSATAssessments, ::windows_core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IQueryAllWinSATAssessments {
-    type Vtable = IQueryAllWinSATAssessments_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IQueryAllWinSATAssessments {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0b89ed1d_6398_4fea_87fc_567d8d19176f);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IQueryAllWinSATAssessments_Vtbl {
@@ -358,21 +318,13 @@ pub struct IQueryAllWinSATAssessments_Vtbl {
     #[cfg(not(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com")))]
     get_AllXML: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IQueryOEMWinSATCustomization(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IQueryOEMWinSATCustomization, IQueryOEMWinSATCustomization_Vtbl, 0xbc9a6a9f_ad4e_420e_9953_b34671e9df22);
+::windows_core::imp::interface_hierarchy!(IQueryOEMWinSATCustomization, ::windows_core::IUnknown);
 impl IQueryOEMWinSATCustomization {
     pub unsafe fn GetOEMPrePopulationInfo(&self) -> ::windows_core::Result<WINSAT_OEM_CUSTOMIZATION_STATE> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOEMPrePopulationInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-}
-::windows_core::imp::interface_hierarchy!(IQueryOEMWinSATCustomization, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IQueryOEMWinSATCustomization {
-    type Vtable = IQueryOEMWinSATCustomization_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IQueryOEMWinSATCustomization {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbc9a6a9f_ad4e_420e_9953_b34671e9df22);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -380,11 +332,15 @@ pub struct IQueryOEMWinSATCustomization_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetOEMPrePopulationInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, state: *mut WINSAT_OEM_CUSTOMIZATION_STATE) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IQueryRecentWinSATAssessment(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IQueryRecentWinSATAssessment,
+    IQueryRecentWinSATAssessment_Vtbl,
+    0xf8ad5d1f_3b47_4bdc_9375_7c6b1da4eca7
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IQueryRecentWinSATAssessment, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IQueryRecentWinSATAssessment {
     #[doc = "Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`"]
@@ -405,16 +361,6 @@ impl IQueryRecentWinSATAssessment {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IQueryRecentWinSATAssessment, ::windows_core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IQueryRecentWinSATAssessment {
-    type Vtable = IQueryRecentWinSATAssessment_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IQueryRecentWinSATAssessment {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf8ad5d1f_3b47_4bdc_9375_7c6b1da4eca7);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IQueryRecentWinSATAssessment_Vtbl {
@@ -428,9 +374,8 @@ pub struct IQueryRecentWinSATAssessment_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Info: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWinSATInitiateEvents(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWinSATInitiateEvents, IWinSATInitiateEvents_Vtbl, 0x262a1918_ba0d_41d5_92c2_fab4633ee74f);
+::windows_core::imp::interface_hierarchy!(IWinSATInitiateEvents, ::windows_core::IUnknown);
 impl IWinSATInitiateEvents {
     pub unsafe fn WinSATComplete<P0>(&self, hresult: ::windows_core::HRESULT, strdescription: P0) -> ::windows_core::Result<()>
     where
@@ -444,13 +389,6 @@ impl IWinSATInitiateEvents {
     {
         (::windows_core::Interface::vtable(self).WinSATUpdate)(::windows_core::Interface::as_raw(self), ucurrenttick, uticktotal, strcurrentstate.into_param().abi()).ok()
     }
-}
-::windows_core::imp::interface_hierarchy!(IWinSATInitiateEvents, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWinSATInitiateEvents {
-    type Vtable = IWinSATInitiateEvents_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWinSATInitiateEvents {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x262a1918_ba0d_41d5_92c2_fab4633ee74f);
 }
 #[repr(C)]
 #[doc(hidden)]

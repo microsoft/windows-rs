@@ -12,7 +12,7 @@ impl IEffectivePermission_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetEffectivePermission: GetEffectivePermission::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEffectivePermission as ::windows_core::ComInterface>::IID
+        iid == &<IEffectivePermission as ::windows_core::Interface>::IID
     }
 }
 pub trait IEffectivePermission2_Impl: Sized {
@@ -80,7 +80,7 @@ impl IEffectivePermission2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEffectivePermission2 as ::windows_core::ComInterface>::IID
+        iid == &<IEffectivePermission2 as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_UI_Controls\"`"]
@@ -146,7 +146,7 @@ impl ISecurityInformation_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISecurityInformation as ::windows_core::ComInterface>::IID
+        iid == &<ISecurityInformation as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -183,7 +183,7 @@ impl ISecurityInformation2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISecurityInformation2 as ::windows_core::ComInterface>::IID
+        iid == &<ISecurityInformation2 as ::windows_core::Interface>::IID
     }
 }
 pub trait ISecurityInformation3_Impl: Sized {
@@ -216,7 +216,7 @@ impl ISecurityInformation3_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISecurityInformation3 as ::windows_core::ComInterface>::IID
+        iid == &<ISecurityInformation3 as ::windows_core::Interface>::IID
     }
 }
 pub trait ISecurityInformation4_Impl: Sized {
@@ -233,7 +233,7 @@ impl ISecurityInformation4_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetSecondarySecurity: GetSecondarySecurity::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISecurityInformation4 as ::windows_core::ComInterface>::IID
+        iid == &<ISecurityInformation4 as ::windows_core::Interface>::IID
     }
 }
 pub trait ISecurityObjectTypeInfo_Impl: Sized {
@@ -250,6 +250,6 @@ impl ISecurityObjectTypeInfo_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetInheritSource: GetInheritSource::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISecurityObjectTypeInfo as ::windows_core::ComInterface>::IID
+        iid == &<ISecurityObjectTypeInfo as ::windows_core::Interface>::IID
     }
 }

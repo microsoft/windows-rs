@@ -12,7 +12,7 @@ impl IOplockBreakingHandler_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OplockBreaking: OplockBreaking::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOplockBreakingHandler as ::windows_core::ComInterface>::IID
+        iid == &<IOplockBreakingHandler as ::windows_core::Interface>::IID
     }
 }
 pub trait IRandomAccessStreamFileAccessMode_Impl: Sized {
@@ -35,7 +35,7 @@ impl IRandomAccessStreamFileAccessMode_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetMode: GetMode::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRandomAccessStreamFileAccessMode as ::windows_core::ComInterface>::IID
+        iid == &<IRandomAccessStreamFileAccessMode as ::windows_core::Interface>::IID
     }
 }
 pub trait IStorageFolderHandleAccess_Impl: Sized {
@@ -58,7 +58,7 @@ impl IStorageFolderHandleAccess_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Create: Create::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IStorageFolderHandleAccess as ::windows_core::ComInterface>::IID
+        iid == &<IStorageFolderHandleAccess as ::windows_core::Interface>::IID
     }
 }
 pub trait IStorageItemHandleAccess_Impl: Sized {
@@ -81,7 +81,7 @@ impl IStorageItemHandleAccess_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Create: Create::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IStorageItemHandleAccess as ::windows_core::ComInterface>::IID
+        iid == &<IStorageItemHandleAccess as ::windows_core::Interface>::IID
     }
 }
 pub trait IUnbufferedFileHandleOplockCallback_Impl: Sized {
@@ -98,7 +98,7 @@ impl IUnbufferedFileHandleOplockCallback_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnBrokenCallback: OnBrokenCallback::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUnbufferedFileHandleOplockCallback as ::windows_core::ComInterface>::IID
+        iid == &<IUnbufferedFileHandleOplockCallback as ::windows_core::Interface>::IID
     }
 }
 pub trait IUnbufferedFileHandleProvider_Impl: Sized {
@@ -131,6 +131,6 @@ impl IUnbufferedFileHandleProvider_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUnbufferedFileHandleProvider as ::windows_core::ComInterface>::IID
+        iid == &<IUnbufferedFileHandleProvider as ::windows_core::Interface>::IID
     }
 }

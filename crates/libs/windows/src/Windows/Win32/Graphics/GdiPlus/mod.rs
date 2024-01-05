@@ -3464,25 +3464,19 @@ pub unsafe fn GdiplusStartup(token: *mut usize, input: *const GdiplusStartupInpu
     ::windows_targets::link!("gdiplus.dll" "system" fn GdiplusStartup(token : *mut usize, input : *const GdiplusStartupInput, output : *mut GdiplusStartupOutput) -> Status);
     GdiplusStartup(token, input, output)
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct GdiplusAbort(::std::ptr::NonNull<::std::ffi::c_void>);
+::windows_core::imp::interface!(GdiplusAbort, GdiplusAbort_Vtbl);
 impl GdiplusAbort {
     pub unsafe fn Abort(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Abort)(::windows_core::Interface::as_raw(self)).ok()
     }
-}
-unsafe impl ::windows_core::Interface for GdiplusAbort {
-    type Vtable = GdiplusAbort_Vtbl;
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct GdiplusAbort_Vtbl {
     pub Abort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IImageBytes(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IImageBytes, IImageBytes_Vtbl, 0x025d1823_6c7d_447b_bbdb_a3cbc3dfa2fc);
+::windows_core::imp::interface_hierarchy!(IImageBytes, ::windows_core::IUnknown);
 impl IImageBytes {
     pub unsafe fn CountBytes(&self, pcb: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CountBytes)(::windows_core::Interface::as_raw(self), pcb).ok()
@@ -3493,13 +3487,6 @@ impl IImageBytes {
     pub unsafe fn UnlockBytes(&self, pvbytes: *const ::core::ffi::c_void, cb: u32, uloffset: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).UnlockBytes)(::windows_core::Interface::as_raw(self), pvbytes, cb, uloffset).ok()
     }
-}
-::windows_core::imp::interface_hierarchy!(IImageBytes, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IImageBytes {
-    type Vtable = IImageBytes_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IImageBytes {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x025d1823_6c7d_447b_bbdb_a3cbc3dfa2fc);
 }
 #[repr(C)]
 #[doc(hidden)]

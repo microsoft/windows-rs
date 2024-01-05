@@ -33,7 +33,7 @@ impl ICompositionFramePresentStatistics_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICompositionFramePresentStatistics as ::windows_core::ComInterface>::IID || iid == &<IPresentStatistics as ::windows_core::ComInterface>::IID
+        iid == &<ICompositionFramePresentStatistics as ::windows_core::Interface>::IID || iid == &<IPresentStatistics as ::windows_core::Interface>::IID
     }
 }
 pub trait IIndependentFlipFramePresentStatistics_Impl: Sized + IPresentStatistics_Impl {
@@ -81,7 +81,7 @@ impl IIndependentFlipFramePresentStatistics_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IIndependentFlipFramePresentStatistics as ::windows_core::ComInterface>::IID || iid == &<IPresentStatistics as ::windows_core::ComInterface>::IID
+        iid == &<IIndependentFlipFramePresentStatistics as ::windows_core::Interface>::IID || iid == &<IPresentStatistics as ::windows_core::Interface>::IID
     }
 }
 pub trait IPresentStatistics_Impl: Sized {
@@ -108,7 +108,7 @@ impl IPresentStatistics_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPresentStatistics as ::windows_core::ComInterface>::IID
+        iid == &<IPresentStatistics as ::windows_core::Interface>::IID
     }
 }
 pub trait IPresentStatusPresentStatistics_Impl: Sized + IPresentStatistics_Impl {
@@ -135,7 +135,7 @@ impl IPresentStatusPresentStatistics_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPresentStatusPresentStatistics as ::windows_core::ComInterface>::IID || iid == &<IPresentStatistics as ::windows_core::ComInterface>::IID
+        iid == &<IPresentStatusPresentStatistics as ::windows_core::Interface>::IID || iid == &<IPresentStatistics as ::windows_core::Interface>::IID
     }
 }
 pub trait IPresentationBuffer_Impl: Sized {
@@ -174,7 +174,7 @@ impl IPresentationBuffer_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPresentationBuffer as ::windows_core::ComInterface>::IID
+        iid == &<IPresentationBuffer as ::windows_core::Interface>::IID
     }
 }
 pub trait IPresentationContent_Impl: Sized {
@@ -191,7 +191,7 @@ impl IPresentationContent_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetTag: SetTag::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPresentationContent as ::windows_core::ComInterface>::IID
+        iid == &<IPresentationContent as ::windows_core::Interface>::IID
     }
 }
 pub trait IPresentationFactory_Impl: Sized {
@@ -231,7 +231,7 @@ impl IPresentationFactory_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPresentationFactory as ::windows_core::ComInterface>::IID
+        iid == &<IPresentationFactory as ::windows_core::Interface>::IID
     }
 }
 pub trait IPresentationManager_Impl: Sized {
@@ -371,7 +371,7 @@ impl IPresentationManager_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPresentationManager as ::windows_core::ComInterface>::IID
+        iid == &<IPresentationManager as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
@@ -444,6 +444,6 @@ impl IPresentationSurface_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPresentationSurface as ::windows_core::ComInterface>::IID || iid == &<IPresentationContent as ::windows_core::ComInterface>::IID
+        iid == &<IPresentationSurface as ::windows_core::Interface>::IID || iid == &<IPresentationContent as ::windows_core::Interface>::IID
     }
 }

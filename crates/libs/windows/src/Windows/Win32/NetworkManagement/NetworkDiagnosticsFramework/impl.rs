@@ -12,7 +12,7 @@ impl INetDiagExtensibleHelper_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ResolveAttributes: ResolveAttributes::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<INetDiagExtensibleHelper as ::windows_core::ComInterface>::IID
+        iid == &<INetDiagExtensibleHelper as ::windows_core::Interface>::IID
     }
 }
 pub trait INetDiagHelper_Impl: Sized {
@@ -169,7 +169,7 @@ impl INetDiagHelper_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<INetDiagHelper as ::windows_core::ComInterface>::IID
+        iid == &<INetDiagHelper as ::windows_core::Interface>::IID
     }
 }
 pub trait INetDiagHelperEx_Impl: Sized {
@@ -203,7 +203,7 @@ impl INetDiagHelperEx_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<INetDiagHelperEx as ::windows_core::ComInterface>::IID
+        iid == &<INetDiagHelperEx as ::windows_core::Interface>::IID
     }
 }
 pub trait INetDiagHelperInfo_Impl: Sized {
@@ -220,7 +220,7 @@ impl INetDiagHelperInfo_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetAttributeInfo: GetAttributeInfo::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<INetDiagHelperInfo as ::windows_core::ComInterface>::IID
+        iid == &<INetDiagHelperInfo as ::windows_core::Interface>::IID
     }
 }
 pub trait INetDiagHelperUtilFactory_Impl: Sized {
@@ -237,6 +237,6 @@ impl INetDiagHelperUtilFactory_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateUtilityInstance: CreateUtilityInstance::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<INetDiagHelperUtilFactory as ::windows_core::ComInterface>::IID
+        iid == &<INetDiagHelperUtilFactory as ::windows_core::Interface>::IID
     }
 }

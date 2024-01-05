@@ -4,9 +4,8 @@ pub mod Dxc;
 #[cfg(feature = "Win32_Graphics_Direct3D_Fxc")]
 #[doc = "Required features: `\"Win32_Graphics_Direct3D_Fxc\"`"]
 pub mod Fxc;
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ID3DBlob(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(ID3DBlob, ID3DBlob_Vtbl, 0x8ba5fb08_5195_40e2_ac58_0d989c3a0102);
+::windows_core::imp::interface_hierarchy!(ID3DBlob, ::windows_core::IUnknown);
 impl ID3DBlob {
     pub unsafe fn GetBufferPointer(&self) -> *mut ::core::ffi::c_void {
         (::windows_core::Interface::vtable(self).GetBufferPointer)(::windows_core::Interface::as_raw(self))
@@ -15,15 +14,8 @@ impl ID3DBlob {
         (::windows_core::Interface::vtable(self).GetBufferSize)(::windows_core::Interface::as_raw(self))
     }
 }
-::windows_core::imp::interface_hierarchy!(ID3DBlob, ::windows_core::IUnknown);
 unsafe impl ::core::marker::Send for ID3DBlob {}
 unsafe impl ::core::marker::Sync for ID3DBlob {}
-unsafe impl ::windows_core::Interface for ID3DBlob {
-    type Vtable = ID3DBlob_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ID3DBlob {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8ba5fb08_5195_40e2_ac58_0d989c3a0102);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3DBlob_Vtbl {
@@ -31,9 +23,8 @@ pub struct ID3DBlob_Vtbl {
     pub GetBufferPointer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void,
     pub GetBufferSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ID3DDestructionNotifier(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(ID3DDestructionNotifier, ID3DDestructionNotifier_Vtbl, 0xa06eb39a_50da_425b_8c31_4eecd6c270f3);
+::windows_core::imp::interface_hierarchy!(ID3DDestructionNotifier, ::windows_core::IUnknown);
 impl ID3DDestructionNotifier {
     pub unsafe fn RegisterDestructionCallback(&self, callbackfn: PFN_DESTRUCTION_CALLBACK, pdata: *const ::core::ffi::c_void) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -43,15 +34,8 @@ impl ID3DDestructionNotifier {
         (::windows_core::Interface::vtable(self).UnregisterDestructionCallback)(::windows_core::Interface::as_raw(self), callbackid).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(ID3DDestructionNotifier, ::windows_core::IUnknown);
 unsafe impl ::core::marker::Send for ID3DDestructionNotifier {}
 unsafe impl ::core::marker::Sync for ID3DDestructionNotifier {}
-unsafe impl ::windows_core::Interface for ID3DDestructionNotifier {
-    type Vtable = ID3DDestructionNotifier_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ID3DDestructionNotifier {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa06eb39a_50da_425b_8c31_4eecd6c270f3);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3DDestructionNotifier_Vtbl {
@@ -59,9 +43,7 @@ pub struct ID3DDestructionNotifier_Vtbl {
     pub RegisterDestructionCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, callbackfn: PFN_DESTRUCTION_CALLBACK, pdata: *const ::core::ffi::c_void, pcallbackid: *mut u32) -> ::windows_core::HRESULT,
     pub UnregisterDestructionCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, callbackid: u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ID3DInclude(::std::ptr::NonNull<::std::ffi::c_void>);
+::windows_core::imp::interface!(ID3DInclude, ID3DInclude_Vtbl);
 impl ID3DInclude {
     pub unsafe fn Open<P0>(&self, includetype: D3D_INCLUDE_TYPE, pfilename: P0, pparentdata: *const ::core::ffi::c_void, ppdata: *mut *mut ::core::ffi::c_void, pbytes: *mut u32) -> ::windows_core::Result<()>
     where
@@ -75,9 +57,6 @@ impl ID3DInclude {
 }
 unsafe impl ::core::marker::Send for ID3DInclude {}
 unsafe impl ::core::marker::Sync for ID3DInclude {}
-unsafe impl ::windows_core::Interface for ID3DInclude {
-    type Vtable = ID3DInclude_Vtbl;
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3DInclude_Vtbl {

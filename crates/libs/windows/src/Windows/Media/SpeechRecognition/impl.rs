@@ -84,6 +84,6 @@ impl ISpeechRecognitionConstraint_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISpeechRecognitionConstraint as ::windows_core::ComInterface>::IID
+        iid == &<ISpeechRecognitionConstraint as ::windows_core::Interface>::IID
     }
 }

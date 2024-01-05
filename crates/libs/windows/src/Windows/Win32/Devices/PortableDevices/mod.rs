@@ -7,20 +7,12 @@ where
     let mut result__ = ::std::mem::zeroed();
     DMProcessConfigXMLFiltered(pszxmlin.into_param().abi(), ::core::mem::transmute(rgszallowedcspnodes.as_ptr()), rgszallowedcspnodes.len().try_into().unwrap(), &mut result__).from_abi(result__)
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IConnectionRequestCallback(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IConnectionRequestCallback, IConnectionRequestCallback_Vtbl, 0x272c9ae0_7161_4ae0_91bd_9f448ee9c427);
+::windows_core::imp::interface_hierarchy!(IConnectionRequestCallback, ::windows_core::IUnknown);
 impl IConnectionRequestCallback {
     pub unsafe fn OnComplete(&self, hrstatus: ::windows_core::HRESULT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OnComplete)(::windows_core::Interface::as_raw(self), hrstatus).ok()
     }
-}
-::windows_core::imp::interface_hierarchy!(IConnectionRequestCallback, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IConnectionRequestCallback {
-    type Vtable = IConnectionRequestCallback_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IConnectionRequestCallback {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x272c9ae0_7161_4ae0_91bd_9f448ee9c427);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -28,9 +20,8 @@ pub struct IConnectionRequestCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub OnComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrstatus: ::windows_core::HRESULT) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IEnumPortableDeviceConnectors(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IEnumPortableDeviceConnectors, IEnumPortableDeviceConnectors_Vtbl, 0xbfdef549_9247_454f_bd82_06fe80853faa);
+::windows_core::imp::interface_hierarchy!(IEnumPortableDeviceConnectors, ::windows_core::IUnknown);
 impl IEnumPortableDeviceConnectors {
     pub unsafe fn Next(&self, pconnectors: &mut [::core::option::Option<IPortableDeviceConnector>], pcfetched: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), pconnectors.len().try_into().unwrap(), ::core::mem::transmute(pconnectors.as_ptr()), pcfetched).ok()
@@ -46,13 +37,6 @@ impl IEnumPortableDeviceConnectors {
         (::windows_core::Interface::vtable(self).Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IEnumPortableDeviceConnectors, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IEnumPortableDeviceConnectors {
-    type Vtable = IEnumPortableDeviceConnectors_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IEnumPortableDeviceConnectors {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbfdef549_9247_454f_bd82_06fe80853faa);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumPortableDeviceConnectors_Vtbl {
@@ -62,9 +46,8 @@ pub struct IEnumPortableDeviceConnectors_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IEnumPortableDeviceObjectIDs(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IEnumPortableDeviceObjectIDs, IEnumPortableDeviceObjectIDs_Vtbl, 0x10ece955_cf41_4728_bfa0_41eedf1bbf19);
+::windows_core::imp::interface_hierarchy!(IEnumPortableDeviceObjectIDs, ::windows_core::IUnknown);
 impl IEnumPortableDeviceObjectIDs {
     pub unsafe fn Next(&self, pobjids: &mut [::windows_core::PWSTR], pcfetched: *mut u32) -> ::windows_core::HRESULT {
         (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), pobjids.len().try_into().unwrap(), ::core::mem::transmute(pobjids.as_ptr()), pcfetched)
@@ -83,13 +66,6 @@ impl IEnumPortableDeviceObjectIDs {
         (::windows_core::Interface::vtable(self).Cancel)(::windows_core::Interface::as_raw(self)).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IEnumPortableDeviceObjectIDs, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IEnumPortableDeviceObjectIDs {
-    type Vtable = IEnumPortableDeviceObjectIDs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IEnumPortableDeviceObjectIDs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x10ece955_cf41_4728_bfa0_41eedf1bbf19);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumPortableDeviceObjectIDs_Vtbl {
@@ -100,9 +76,8 @@ pub struct IEnumPortableDeviceObjectIDs_Vtbl {
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMediaRadioManager(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IMediaRadioManager, IMediaRadioManager_Vtbl, 0x6cfdcab5_fc47_42a5_9241_074b58830e73);
+::windows_core::imp::interface_hierarchy!(IMediaRadioManager, ::windows_core::IUnknown);
 impl IMediaRadioManager {
     pub unsafe fn GetRadioInstances(&self) -> ::windows_core::Result<IRadioInstanceCollection> {
         let mut result__ = ::std::mem::zeroed();
@@ -112,13 +87,6 @@ impl IMediaRadioManager {
         (::windows_core::Interface::vtable(self).OnSystemRadioStateChange)(::windows_core::Interface::as_raw(self), sysradiostate, utimeoutsec).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IMediaRadioManager, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IMediaRadioManager {
-    type Vtable = IMediaRadioManager_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IMediaRadioManager {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6cfdcab5_fc47_42a5_9241_074b58830e73);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaRadioManager_Vtbl {
@@ -126,9 +94,8 @@ pub struct IMediaRadioManager_Vtbl {
     pub GetRadioInstances: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcollection: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub OnSystemRadioStateChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sysradiostate: SYSTEM_RADIO_STATE, utimeoutsec: u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMediaRadioManagerNotifySink(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IMediaRadioManagerNotifySink, IMediaRadioManagerNotifySink_Vtbl, 0x89d81f5f_c147_49ed_a11c_77b20c31e7c9);
+::windows_core::imp::interface_hierarchy!(IMediaRadioManagerNotifySink, ::windows_core::IUnknown);
 impl IMediaRadioManagerNotifySink {
     pub unsafe fn OnInstanceAdd<P0>(&self, pradioinstance: P0) -> ::windows_core::Result<()>
     where
@@ -149,13 +116,6 @@ impl IMediaRadioManagerNotifySink {
         (::windows_core::Interface::vtable(self).OnInstanceRadioChange)(::windows_core::Interface::as_raw(self), bstrradioinstanceid.into_param().abi(), radiostate).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IMediaRadioManagerNotifySink, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IMediaRadioManagerNotifySink {
-    type Vtable = IMediaRadioManagerNotifySink_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IMediaRadioManagerNotifySink {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x89d81f5f_c147_49ed_a11c_77b20c31e7c9);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaRadioManagerNotifySink_Vtbl {
@@ -164,9 +124,8 @@ pub struct IMediaRadioManagerNotifySink_Vtbl {
     pub OnInstanceRemove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrradioinstanceid: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub OnInstanceRadioChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrradioinstanceid: ::std::mem::MaybeUninit<::windows_core::BSTR>, radiostate: DEVICE_RADIO_STATE) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPortableDevice(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IPortableDevice, IPortableDevice_Vtbl, 0x625e2df8_6392_4cf0_9ad1_3cfa5f17775c);
+::windows_core::imp::interface_hierarchy!(IPortableDevice, ::windows_core::IUnknown);
 impl IPortableDevice {
     pub unsafe fn Open<P0, P1>(&self, pszpnpdeviceid: P0, pclientinfo: P1) -> ::windows_core::Result<()>
     where
@@ -215,13 +174,6 @@ impl IPortableDevice {
         (::windows_core::Interface::vtable(self).GetPnPDeviceID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IPortableDevice, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPortableDevice {
-    type Vtable = IPortableDevice_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPortableDevice {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x625e2df8_6392_4cf0_9ad1_3cfa5f17775c);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDevice_Vtbl {
@@ -236,9 +188,8 @@ pub struct IPortableDevice_Vtbl {
     pub Unadvise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszcookie: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
     pub GetPnPDeviceID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszpnpdeviceid: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPortableDeviceCapabilities(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IPortableDeviceCapabilities, IPortableDeviceCapabilities_Vtbl, 0x2c8c6dbf_e3dc_4061_becc_8542e810d126);
+::windows_core::imp::interface_hierarchy!(IPortableDeviceCapabilities, ::windows_core::IUnknown);
 impl IPortableDeviceCapabilities {
     pub unsafe fn GetSupportedCommands(&self) -> ::windows_core::Result<IPortableDeviceKeyCollection> {
         let mut result__ = ::std::mem::zeroed();
@@ -288,13 +239,6 @@ impl IPortableDeviceCapabilities {
         (::windows_core::Interface::vtable(self).GetEventOptions)(::windows_core::Interface::as_raw(self), event, &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IPortableDeviceCapabilities, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPortableDeviceCapabilities {
-    type Vtable = IPortableDeviceCapabilities_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPortableDeviceCapabilities {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2c8c6dbf_e3dc_4061_becc_8542e810d126);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDeviceCapabilities_Vtbl {
@@ -317,9 +261,8 @@ pub struct IPortableDeviceCapabilities_Vtbl {
     pub GetSupportedEvents: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppevents: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetEventOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, event: *const ::windows_core::GUID, ppoptions: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPortableDeviceConnector(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IPortableDeviceConnector, IPortableDeviceConnector_Vtbl, 0x625e2df8_6392_4cf0_9ad1_3cfa5f17775c);
+::windows_core::imp::interface_hierarchy!(IPortableDeviceConnector, ::windows_core::IUnknown);
 impl IPortableDeviceConnector {
     pub unsafe fn Connect<P0>(&self, pcallback: P0) -> ::windows_core::Result<()>
     where
@@ -354,13 +297,6 @@ impl IPortableDeviceConnector {
         (::windows_core::Interface::vtable(self).GetPnPID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IPortableDeviceConnector, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPortableDeviceConnector {
-    type Vtable = IPortableDeviceConnector_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPortableDeviceConnector {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x625e2df8_6392_4cf0_9ad1_3cfa5f17775c);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDeviceConnector_Vtbl {
@@ -378,9 +314,8 @@ pub struct IPortableDeviceConnector_Vtbl {
     SetProperty: usize,
     pub GetPnPID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwszpnpid: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPortableDeviceContent(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IPortableDeviceContent, IPortableDeviceContent_Vtbl, 0x6a96ed84_7c73_4480_9938_bf5af477d426);
+::windows_core::imp::interface_hierarchy!(IPortableDeviceContent, ::windows_core::IUnknown);
 impl IPortableDeviceContent {
     pub unsafe fn EnumObjects<P0, P1>(&self, dwflags: u32, pszparentobjectid: P0, pfilter: P1) -> ::windows_core::Result<IEnumPortableDeviceObjectIDs>
     where
@@ -443,13 +378,6 @@ impl IPortableDeviceContent {
         (::windows_core::Interface::vtable(self).Copy)(::windows_core::Interface::as_raw(self), pobjectids.into_param().abi(), pszdestinationfolderobjectid.into_param().abi(), ::core::mem::transmute(ppresults)).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IPortableDeviceContent, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPortableDeviceContent {
-    type Vtable = IPortableDeviceContent_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPortableDeviceContent {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6a96ed84_7c73_4480_9938_bf5af477d426);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDeviceContent_Vtbl {
@@ -468,9 +396,8 @@ pub struct IPortableDeviceContent_Vtbl {
     pub Move: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pobjectids: *mut ::core::ffi::c_void, pszdestinationfolderobjectid: ::windows_core::PCWSTR, ppresults: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Copy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pobjectids: *mut ::core::ffi::c_void, pszdestinationfolderobjectid: ::windows_core::PCWSTR, ppresults: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPortableDeviceContent2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IPortableDeviceContent2, IPortableDeviceContent2_Vtbl, 0x9b4add96_f6bf_4034_8708_eca72bf10554);
+::windows_core::imp::interface_hierarchy!(IPortableDeviceContent2, ::windows_core::IUnknown, IPortableDeviceContent);
 impl IPortableDeviceContent2 {
     pub unsafe fn EnumObjects<P0, P1>(&self, dwflags: u32, pszparentobjectid: P0, pfilter: P1) -> ::windows_core::Result<IEnumPortableDeviceObjectIDs>
     where
@@ -542,13 +469,6 @@ impl IPortableDeviceContent2 {
         (::windows_core::Interface::vtable(self).UpdateObjectWithPropertiesAndData)(::windows_core::Interface::as_raw(self), pszobjectid.into_param().abi(), pproperties.into_param().abi(), ::core::mem::transmute(ppdata), pdwoptimalwritebuffersize).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IPortableDeviceContent2, ::windows_core::IUnknown, IPortableDeviceContent);
-unsafe impl ::windows_core::Interface for IPortableDeviceContent2 {
-    type Vtable = IPortableDeviceContent2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPortableDeviceContent2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9b4add96_f6bf_4034_8708_eca72bf10554);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDeviceContent2_Vtbl {
@@ -558,11 +478,15 @@ pub struct IPortableDeviceContent2_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     UpdateObjectWithPropertiesAndData: usize,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPortableDeviceDataStream(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IPortableDeviceDataStream,
+    IPortableDeviceDataStream_Vtbl,
+    0x88e04db3_1012_4d64_9996_f703a950d3f4
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IPortableDeviceDataStream, ::windows_core::IUnknown, super::super::System::Com::ISequentialStream, super::super::System::Com::IStream);
 #[cfg(feature = "Win32_System_Com")]
 impl IPortableDeviceDataStream {
     #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -633,16 +557,6 @@ impl IPortableDeviceDataStream {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IPortableDeviceDataStream, ::windows_core::IUnknown, super::super::System::Com::ISequentialStream, super::super::System::Com::IStream);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IPortableDeviceDataStream {
-    type Vtable = IPortableDeviceDataStream_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IPortableDeviceDataStream {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x88e04db3_1012_4d64_9996_f703a950d3f4);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDeviceDataStream_Vtbl {
@@ -650,9 +564,8 @@ pub struct IPortableDeviceDataStream_Vtbl {
     pub GetObjectID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszobjectid: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
     pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPortableDeviceDispatchFactory(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IPortableDeviceDispatchFactory, IPortableDeviceDispatchFactory_Vtbl, 0x5e1eafc3_e3d7_4132_96fa_759c0f9d1e0f);
+::windows_core::imp::interface_hierarchy!(IPortableDeviceDispatchFactory, ::windows_core::IUnknown);
 impl IPortableDeviceDispatchFactory {
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -664,13 +577,6 @@ impl IPortableDeviceDispatchFactory {
         (::windows_core::Interface::vtable(self).GetDeviceDispatch)(::windows_core::Interface::as_raw(self), pszpnpdeviceid.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IPortableDeviceDispatchFactory, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPortableDeviceDispatchFactory {
-    type Vtable = IPortableDeviceDispatchFactory_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPortableDeviceDispatchFactory {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5e1eafc3_e3d7_4132_96fa_759c0f9d1e0f);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDeviceDispatchFactory_Vtbl {
@@ -680,9 +586,8 @@ pub struct IPortableDeviceDispatchFactory_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetDeviceDispatch: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPortableDeviceEventCallback(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IPortableDeviceEventCallback, IPortableDeviceEventCallback_Vtbl, 0xa8792a31_f385_493c_a893_40f64eb45f6e);
+::windows_core::imp::interface_hierarchy!(IPortableDeviceEventCallback, ::windows_core::IUnknown);
 impl IPortableDeviceEventCallback {
     pub unsafe fn OnEvent<P0>(&self, peventparameters: P0) -> ::windows_core::Result<()>
     where
@@ -691,22 +596,14 @@ impl IPortableDeviceEventCallback {
         (::windows_core::Interface::vtable(self).OnEvent)(::windows_core::Interface::as_raw(self), peventparameters.into_param().abi()).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IPortableDeviceEventCallback, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPortableDeviceEventCallback {
-    type Vtable = IPortableDeviceEventCallback_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPortableDeviceEventCallback {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa8792a31_f385_493c_a893_40f64eb45f6e);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDeviceEventCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub OnEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peventparameters: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPortableDeviceKeyCollection(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IPortableDeviceKeyCollection, IPortableDeviceKeyCollection_Vtbl, 0xdada2357_e0ad_492e_98db_dd61c53ba353);
+::windows_core::imp::interface_hierarchy!(IPortableDeviceKeyCollection, ::windows_core::IUnknown);
 impl IPortableDeviceKeyCollection {
     pub unsafe fn GetCount(&self, pcelems: *const u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetCount)(::windows_core::Interface::as_raw(self), pcelems).ok()
@@ -728,13 +625,6 @@ impl IPortableDeviceKeyCollection {
         (::windows_core::Interface::vtable(self).RemoveAt)(::windows_core::Interface::as_raw(self), dwindex).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IPortableDeviceKeyCollection, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPortableDeviceKeyCollection {
-    type Vtable = IPortableDeviceKeyCollection_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPortableDeviceKeyCollection {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdada2357_e0ad_492e_98db_dd61c53ba353);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDeviceKeyCollection_Vtbl {
@@ -751,9 +641,8 @@ pub struct IPortableDeviceKeyCollection_Vtbl {
     pub Clear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub RemoveAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPortableDeviceManager(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IPortableDeviceManager, IPortableDeviceManager_Vtbl, 0xa1567595_4c2f_4574_a6fa_ecef917b9a40);
+::windows_core::imp::interface_hierarchy!(IPortableDeviceManager, ::windows_core::IUnknown);
 impl IPortableDeviceManager {
     pub unsafe fn GetDevices(&self, ppnpdeviceids: *mut ::windows_core::PWSTR, pcpnpdeviceids: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetDevices)(::windows_core::Interface::as_raw(self), ppnpdeviceids, pcpnpdeviceids).ok()
@@ -790,13 +679,6 @@ impl IPortableDeviceManager {
         (::windows_core::Interface::vtable(self).GetPrivateDevices)(::windows_core::Interface::as_raw(self), ppnpdeviceids, pcpnpdeviceids).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IPortableDeviceManager, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPortableDeviceManager {
-    type Vtable = IPortableDeviceManager_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPortableDeviceManager {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa1567595_4c2f_4574_a6fa_ecef917b9a40);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDeviceManager_Vtbl {
@@ -809,9 +691,8 @@ pub struct IPortableDeviceManager_Vtbl {
     pub GetDeviceProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpnpdeviceid: ::windows_core::PCWSTR, pszdevicepropertyname: ::windows_core::PCWSTR, pdata: *mut u8, pcbdata: *mut u32, pdwtype: *mut u32) -> ::windows_core::HRESULT,
     pub GetPrivateDevices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppnpdeviceids: *mut ::windows_core::PWSTR, pcpnpdeviceids: *mut u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPortableDevicePropVariantCollection(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IPortableDevicePropVariantCollection, IPortableDevicePropVariantCollection_Vtbl, 0x89b2e422_4f1b_4316_bcef_a44afea83eb3);
+::windows_core::imp::interface_hierarchy!(IPortableDevicePropVariantCollection, ::windows_core::IUnknown);
 impl IPortableDevicePropVariantCollection {
     pub unsafe fn GetCount(&self, pcelems: *const u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetCount)(::windows_core::Interface::as_raw(self), pcelems).ok()
@@ -840,13 +721,6 @@ impl IPortableDevicePropVariantCollection {
         (::windows_core::Interface::vtable(self).RemoveAt)(::windows_core::Interface::as_raw(self), dwindex).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IPortableDevicePropVariantCollection, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPortableDevicePropVariantCollection {
-    type Vtable = IPortableDevicePropVariantCollection_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPortableDevicePropVariantCollection {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x89b2e422_4f1b_4316_bcef_a44afea83eb3);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDevicePropVariantCollection_Vtbl {
@@ -865,9 +739,8 @@ pub struct IPortableDevicePropVariantCollection_Vtbl {
     pub Clear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub RemoveAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPortableDeviceProperties(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IPortableDeviceProperties, IPortableDeviceProperties_Vtbl, 0x7f6d695c_03df_4439_a809_59266beee3a6);
+::windows_core::imp::interface_hierarchy!(IPortableDeviceProperties, ::windows_core::IUnknown);
 impl IPortableDeviceProperties {
     pub unsafe fn GetSupportedProperties<P0>(&self, pszobjectid: P0) -> ::windows_core::Result<IPortableDeviceKeyCollection>
     where
@@ -912,13 +785,6 @@ impl IPortableDeviceProperties {
         (::windows_core::Interface::vtable(self).Cancel)(::windows_core::Interface::as_raw(self)).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IPortableDeviceProperties, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPortableDeviceProperties {
-    type Vtable = IPortableDeviceProperties_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPortableDeviceProperties {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7f6d695c_03df_4439_a809_59266beee3a6);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDeviceProperties_Vtbl {
@@ -933,9 +799,8 @@ pub struct IPortableDeviceProperties_Vtbl {
     pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszobjectid: ::windows_core::PCWSTR, pkeys: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPortableDevicePropertiesBulk(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IPortableDevicePropertiesBulk, IPortableDevicePropertiesBulk_Vtbl, 0x482b05c0_4056_44ed_9e0f_5e23b009da93);
+::windows_core::imp::interface_hierarchy!(IPortableDevicePropertiesBulk, ::windows_core::IUnknown);
 impl IPortableDevicePropertiesBulk {
     pub unsafe fn QueueGetValuesByObjectList<P0, P1, P2>(&self, pobjectids: P0, pkeys: P1, pcallback: P2) -> ::windows_core::Result<::windows_core::GUID>
     where
@@ -970,13 +835,6 @@ impl IPortableDevicePropertiesBulk {
         (::windows_core::Interface::vtable(self).Cancel)(::windows_core::Interface::as_raw(self), pcontext).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IPortableDevicePropertiesBulk, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPortableDevicePropertiesBulk {
-    type Vtable = IPortableDevicePropertiesBulk_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPortableDevicePropertiesBulk {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x482b05c0_4056_44ed_9e0f_5e23b009da93);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDevicePropertiesBulk_Vtbl {
@@ -987,9 +845,8 @@ pub struct IPortableDevicePropertiesBulk_Vtbl {
     pub Start: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcontext: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
     pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcontext: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPortableDevicePropertiesBulkCallback(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IPortableDevicePropertiesBulkCallback, IPortableDevicePropertiesBulkCallback_Vtbl, 0x9deacb80_11e8_40e3_a9f3_f557986a7845);
+::windows_core::imp::interface_hierarchy!(IPortableDevicePropertiesBulkCallback, ::windows_core::IUnknown);
 impl IPortableDevicePropertiesBulkCallback {
     pub unsafe fn OnStart(&self, pcontext: *const ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OnStart)(::windows_core::Interface::as_raw(self), pcontext).ok()
@@ -1004,13 +861,6 @@ impl IPortableDevicePropertiesBulkCallback {
         (::windows_core::Interface::vtable(self).OnEnd)(::windows_core::Interface::as_raw(self), pcontext, hrstatus).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IPortableDevicePropertiesBulkCallback, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPortableDevicePropertiesBulkCallback {
-    type Vtable = IPortableDevicePropertiesBulkCallback_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPortableDevicePropertiesBulkCallback {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9deacb80_11e8_40e3_a9f3_f557986a7845);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDevicePropertiesBulkCallback_Vtbl {
@@ -1019,9 +869,8 @@ pub struct IPortableDevicePropertiesBulkCallback_Vtbl {
     pub OnProgress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcontext: *const ::windows_core::GUID, presults: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub OnEnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcontext: *const ::windows_core::GUID, hrstatus: ::windows_core::HRESULT) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPortableDeviceResources(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IPortableDeviceResources, IPortableDeviceResources_Vtbl, 0xfd8878ac_d841_4d17_891c_e6829cdb6934);
+::windows_core::imp::interface_hierarchy!(IPortableDeviceResources, ::windows_core::IUnknown);
 impl IPortableDeviceResources {
     pub unsafe fn GetSupportedResources<P0>(&self, pszobjectid: P0) -> ::windows_core::Result<IPortableDeviceKeyCollection>
     where
@@ -1066,13 +915,6 @@ impl IPortableDeviceResources {
         (::windows_core::Interface::vtable(self).CreateResource)(::windows_core::Interface::as_raw(self), presourceattributes.into_param().abi(), ::core::mem::transmute(ppdata), pdwoptimalwritebuffersize, ppszcookie).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IPortableDeviceResources, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPortableDeviceResources {
-    type Vtable = IPortableDeviceResources_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPortableDeviceResources {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfd8878ac_d841_4d17_891c_e6829cdb6934);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDeviceResources_Vtbl {
@@ -1093,9 +935,8 @@ pub struct IPortableDeviceResources_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     CreateResource: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPortableDeviceService(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IPortableDeviceService, IPortableDeviceService_Vtbl, 0xd3bd3a44_d7b5_40a9_98b7_2fa4d01dec08);
+::windows_core::imp::interface_hierarchy!(IPortableDeviceService, ::windows_core::IUnknown);
 impl IPortableDeviceService {
     pub unsafe fn Open<P0, P1>(&self, pszpnpserviceid: P0, pclientinfo: P1) -> ::windows_core::Result<()>
     where
@@ -1152,13 +993,6 @@ impl IPortableDeviceService {
         (::windows_core::Interface::vtable(self).SendCommand)(::windows_core::Interface::as_raw(self), dwflags, pparameters.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IPortableDeviceService, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPortableDeviceService {
-    type Vtable = IPortableDeviceService_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPortableDeviceService {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd3bd3a44_d7b5_40a9_98b7_2fa4d01dec08);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDeviceService_Vtbl {
@@ -1175,9 +1009,8 @@ pub struct IPortableDeviceService_Vtbl {
     pub Unadvise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszcookie: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
     pub SendCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, pparameters: *mut ::core::ffi::c_void, ppresults: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPortableDeviceServiceActivation(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IPortableDeviceServiceActivation, IPortableDeviceServiceActivation_Vtbl, 0xe56b0534_d9b9_425c_9b99_75f97cb3d7c8);
+::windows_core::imp::interface_hierarchy!(IPortableDeviceServiceActivation, ::windows_core::IUnknown);
 impl IPortableDeviceServiceActivation {
     pub unsafe fn OpenAsync<P0, P1, P2>(&self, pszpnpserviceid: P0, pclientinfo: P1, pcallback: P2) -> ::windows_core::Result<()>
     where
@@ -1191,13 +1024,6 @@ impl IPortableDeviceServiceActivation {
         (::windows_core::Interface::vtable(self).CancelOpenAsync)(::windows_core::Interface::as_raw(self)).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IPortableDeviceServiceActivation, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPortableDeviceServiceActivation {
-    type Vtable = IPortableDeviceServiceActivation_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPortableDeviceServiceActivation {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe56b0534_d9b9_425c_9b99_75f97cb3d7c8);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDeviceServiceActivation_Vtbl {
@@ -1205,9 +1031,8 @@ pub struct IPortableDeviceServiceActivation_Vtbl {
     pub OpenAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpnpserviceid: ::windows_core::PCWSTR, pclientinfo: *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub CancelOpenAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPortableDeviceServiceCapabilities(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IPortableDeviceServiceCapabilities, IPortableDeviceServiceCapabilities_Vtbl, 0x24dbd89d_413e_43e0_bd5b_197f3c56c886);
+::windows_core::imp::interface_hierarchy!(IPortableDeviceServiceCapabilities, ::windows_core::IUnknown);
 impl IPortableDeviceServiceCapabilities {
     pub unsafe fn GetSupportedMethods(&self) -> ::windows_core::Result<IPortableDevicePropVariantCollection> {
         let mut result__ = ::std::mem::zeroed();
@@ -1281,13 +1106,6 @@ impl IPortableDeviceServiceCapabilities {
         (::windows_core::Interface::vtable(self).Cancel)(::windows_core::Interface::as_raw(self)).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IPortableDeviceServiceCapabilities, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPortableDeviceServiceCapabilities {
-    type Vtable = IPortableDeviceServiceCapabilities_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPortableDeviceServiceCapabilities {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x24dbd89d_413e_43e0_bd5b_197f3c56c886);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDeviceServiceCapabilities_Vtbl {
@@ -1321,9 +1139,8 @@ pub struct IPortableDeviceServiceCapabilities_Vtbl {
     GetCommandOptions: usize,
     pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPortableDeviceServiceManager(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IPortableDeviceServiceManager, IPortableDeviceServiceManager_Vtbl, 0xa8abc4e9_a84a_47a9_80b3_c5d9b172a961);
+::windows_core::imp::interface_hierarchy!(IPortableDeviceServiceManager, ::windows_core::IUnknown);
 impl IPortableDeviceServiceManager {
     pub unsafe fn GetDeviceServices<P0>(&self, pszpnpdeviceid: P0, guidservicecategory: *const ::windows_core::GUID, pservices: *mut ::windows_core::PWSTR, pcservices: *mut u32) -> ::windows_core::Result<()>
     where
@@ -1339,13 +1156,6 @@ impl IPortableDeviceServiceManager {
         (::windows_core::Interface::vtable(self).GetDeviceForService)(::windows_core::Interface::as_raw(self), pszpnpserviceid.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IPortableDeviceServiceManager, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPortableDeviceServiceManager {
-    type Vtable = IPortableDeviceServiceManager_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPortableDeviceServiceManager {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa8abc4e9_a84a_47a9_80b3_c5d9b172a961);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDeviceServiceManager_Vtbl {
@@ -1353,9 +1163,8 @@ pub struct IPortableDeviceServiceManager_Vtbl {
     pub GetDeviceServices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpnpdeviceid: ::windows_core::PCWSTR, guidservicecategory: *const ::windows_core::GUID, pservices: *mut ::windows_core::PWSTR, pcservices: *mut u32) -> ::windows_core::HRESULT,
     pub GetDeviceForService: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpnpserviceid: ::windows_core::PCWSTR, ppszpnpdeviceid: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPortableDeviceServiceMethodCallback(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IPortableDeviceServiceMethodCallback, IPortableDeviceServiceMethodCallback_Vtbl, 0xc424233c_afce_4828_a756_7ed7a2350083);
+::windows_core::imp::interface_hierarchy!(IPortableDeviceServiceMethodCallback, ::windows_core::IUnknown);
 impl IPortableDeviceServiceMethodCallback {
     pub unsafe fn OnComplete<P0>(&self, hrstatus: ::windows_core::HRESULT, presults: P0) -> ::windows_core::Result<()>
     where
@@ -1364,22 +1173,14 @@ impl IPortableDeviceServiceMethodCallback {
         (::windows_core::Interface::vtable(self).OnComplete)(::windows_core::Interface::as_raw(self), hrstatus, presults.into_param().abi()).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IPortableDeviceServiceMethodCallback, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPortableDeviceServiceMethodCallback {
-    type Vtable = IPortableDeviceServiceMethodCallback_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPortableDeviceServiceMethodCallback {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc424233c_afce_4828_a756_7ed7a2350083);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDeviceServiceMethodCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub OnComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrstatus: ::windows_core::HRESULT, presults: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPortableDeviceServiceMethods(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IPortableDeviceServiceMethods, IPortableDeviceServiceMethods_Vtbl, 0xe20333c9_fd34_412d_a381_cc6f2d820df7);
+::windows_core::imp::interface_hierarchy!(IPortableDeviceServiceMethods, ::windows_core::IUnknown);
 impl IPortableDeviceServiceMethods {
     pub unsafe fn Invoke<P0>(&self, method: *const ::windows_core::GUID, pparameters: P0, ppresults: *mut ::core::option::Option<IPortableDeviceValues>) -> ::windows_core::Result<()>
     where
@@ -1401,13 +1202,6 @@ impl IPortableDeviceServiceMethods {
         (::windows_core::Interface::vtable(self).Cancel)(::windows_core::Interface::as_raw(self), pcallback.into_param().abi()).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IPortableDeviceServiceMethods, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPortableDeviceServiceMethods {
-    type Vtable = IPortableDeviceServiceMethods_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPortableDeviceServiceMethods {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe20333c9_fd34_412d_a381_cc6f2d820df7);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDeviceServiceMethods_Vtbl {
@@ -1416,20 +1210,12 @@ pub struct IPortableDeviceServiceMethods_Vtbl {
     pub InvokeAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, method: *const ::windows_core::GUID, pparameters: *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPortableDeviceServiceOpenCallback(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IPortableDeviceServiceOpenCallback, IPortableDeviceServiceOpenCallback_Vtbl, 0xbced49c8_8efe_41ed_960b_61313abd47a9);
+::windows_core::imp::interface_hierarchy!(IPortableDeviceServiceOpenCallback, ::windows_core::IUnknown);
 impl IPortableDeviceServiceOpenCallback {
     pub unsafe fn OnComplete(&self, hrstatus: ::windows_core::HRESULT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OnComplete)(::windows_core::Interface::as_raw(self), hrstatus).ok()
     }
-}
-::windows_core::imp::interface_hierarchy!(IPortableDeviceServiceOpenCallback, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPortableDeviceServiceOpenCallback {
-    type Vtable = IPortableDeviceServiceOpenCallback_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPortableDeviceServiceOpenCallback {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbced49c8_8efe_41ed_960b_61313abd47a9);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1437,9 +1223,8 @@ pub struct IPortableDeviceServiceOpenCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub OnComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrstatus: ::windows_core::HRESULT) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPortableDeviceUnitsStream(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IPortableDeviceUnitsStream, IPortableDeviceUnitsStream_Vtbl, 0x5e98025f_bfc4_47a2_9a5f_bc900a507c67);
+::windows_core::imp::interface_hierarchy!(IPortableDeviceUnitsStream, ::windows_core::IUnknown);
 impl IPortableDeviceUnitsStream {
     pub unsafe fn SeekInUnits(&self, dlibmove: i64, units: WPD_STREAM_UNITS, dworigin: u32, plibnewposition: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SeekInUnits)(::windows_core::Interface::as_raw(self), dlibmove, units, dworigin, ::core::mem::transmute(plibnewposition.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -1448,13 +1233,6 @@ impl IPortableDeviceUnitsStream {
         (::windows_core::Interface::vtable(self).Cancel)(::windows_core::Interface::as_raw(self)).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IPortableDeviceUnitsStream, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPortableDeviceUnitsStream {
-    type Vtable = IPortableDeviceUnitsStream_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPortableDeviceUnitsStream {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5e98025f_bfc4_47a2_9a5f_bc900a507c67);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDeviceUnitsStream_Vtbl {
@@ -1462,9 +1240,8 @@ pub struct IPortableDeviceUnitsStream_Vtbl {
     pub SeekInUnits: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dlibmove: i64, units: WPD_STREAM_UNITS, dworigin: u32, plibnewposition: *mut u64) -> ::windows_core::HRESULT,
     pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPortableDeviceValues(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IPortableDeviceValues, IPortableDeviceValues_Vtbl, 0x6848f6f2_3155_4f86_b6f5_263eeeab3143);
+::windows_core::imp::interface_hierarchy!(IPortableDeviceValues, ::windows_core::IUnknown);
 impl IPortableDeviceValues {
     pub unsafe fn GetCount(&self, pcelt: *const u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetCount)(::windows_core::Interface::as_raw(self), pcelt).ok()
@@ -1705,13 +1482,6 @@ impl IPortableDeviceValues {
         (::windows_core::Interface::vtable(self).Clear)(::windows_core::Interface::as_raw(self)).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IPortableDeviceValues, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPortableDeviceValues {
-    type Vtable = IPortableDeviceValues_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPortableDeviceValues {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6848f6f2_3155_4f86_b6f5_263eeeab3143);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDeviceValues_Vtbl {
@@ -1871,9 +1641,8 @@ pub struct IPortableDeviceValues_Vtbl {
     CopyValuesToPropertyStore: usize,
     pub Clear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPortableDeviceValuesCollection(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IPortableDeviceValuesCollection, IPortableDeviceValuesCollection_Vtbl, 0x6e3f2d79_4e07_48c4_8208_d8c2e5af4a99);
+::windows_core::imp::interface_hierarchy!(IPortableDeviceValuesCollection, ::windows_core::IUnknown);
 impl IPortableDeviceValuesCollection {
     pub unsafe fn GetCount(&self, pcelems: *const u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetCount)(::windows_core::Interface::as_raw(self), pcelems).ok()
@@ -1895,13 +1664,6 @@ impl IPortableDeviceValuesCollection {
         (::windows_core::Interface::vtable(self).RemoveAt)(::windows_core::Interface::as_raw(self), dwindex).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IPortableDeviceValuesCollection, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPortableDeviceValuesCollection {
-    type Vtable = IPortableDeviceValuesCollection_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPortableDeviceValuesCollection {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6e3f2d79_4e07_48c4_8208_d8c2e5af4a99);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDeviceValuesCollection_Vtbl {
@@ -1912,11 +1674,15 @@ pub struct IPortableDeviceValuesCollection_Vtbl {
     pub Clear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub RemoveAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPortableDeviceWebControl(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IPortableDeviceWebControl,
+    IPortableDeviceWebControl_Vtbl,
+    0x94fc7953_5ca1_483a_8aee_df52e7747d00
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IPortableDeviceWebControl, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IPortableDeviceWebControl {
     #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1940,16 +1706,6 @@ impl IPortableDeviceWebControl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IPortableDeviceWebControl, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IPortableDeviceWebControl {
-    type Vtable = IPortableDeviceWebControl_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IPortableDeviceWebControl {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x94fc7953_5ca1_483a_8aee_df52e7747d00);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPortableDeviceWebControl_Vtbl {
@@ -1963,9 +1719,8 @@ pub struct IPortableDeviceWebControl_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetDeviceFromIdAsync: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRadioInstance(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IRadioInstance, IRadioInstance_Vtbl, 0x70aa1c9e_f2b4_4c61_86d3_6b9fb75fd1a2);
+::windows_core::imp::interface_hierarchy!(IRadioInstance, ::windows_core::IUnknown);
 impl IRadioInstance {
     pub unsafe fn GetRadioManagerSignature(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::std::mem::zeroed();
@@ -1993,13 +1748,6 @@ impl IRadioInstance {
         (::windows_core::Interface::vtable(self).IsAssociatingDevice)(::windows_core::Interface::as_raw(self))
     }
 }
-::windows_core::imp::interface_hierarchy!(IRadioInstance, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IRadioInstance {
-    type Vtable = IRadioInstance_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRadioInstance {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x70aa1c9e_f2b4_4c61_86d3_6b9fb75fd1a2);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadioInstance_Vtbl {
@@ -2012,9 +1760,8 @@ pub struct IRadioInstance_Vtbl {
     pub IsMultiComm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL,
     pub IsAssociatingDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRadioInstanceCollection(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IRadioInstanceCollection, IRadioInstanceCollection_Vtbl, 0xe5791fae_5665_4e0c_95be_5fde31644185);
+::windows_core::imp::interface_hierarchy!(IRadioInstanceCollection, ::windows_core::IUnknown);
 impl IRadioInstanceCollection {
     pub unsafe fn GetCount(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -2025,13 +1772,6 @@ impl IRadioInstanceCollection {
         (::windows_core::Interface::vtable(self).GetAt)(::windows_core::Interface::as_raw(self), uindex, &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IRadioInstanceCollection, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IRadioInstanceCollection {
-    type Vtable = IRadioInstanceCollection_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRadioInstanceCollection {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe5791fae_5665_4e0c_95be_5fde31644185);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadioInstanceCollection_Vtbl {
@@ -2039,9 +1779,8 @@ pub struct IRadioInstanceCollection_Vtbl {
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcinstance: *mut u32) -> ::windows_core::HRESULT,
     pub GetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uindex: u32, ppradioinstance: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWpdSerializer(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWpdSerializer, IWpdSerializer_Vtbl, 0xb32f4002_bb27_45ff_af4f_06631c1e8dad);
+::windows_core::imp::interface_hierarchy!(IWpdSerializer, ::windows_core::IUnknown);
 impl IWpdSerializer {
     pub unsafe fn GetIPortableDeviceValuesFromBuffer(&self, pbuffer: &[u8]) -> ::windows_core::Result<IPortableDeviceValues> {
         let mut result__ = ::std::mem::zeroed();
@@ -2066,13 +1805,6 @@ impl IWpdSerializer {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSerializedSize)(::windows_core::Interface::as_raw(self), psource.into_param().abi(), &mut result__).from_abi(result__)
     }
-}
-::windows_core::imp::interface_hierarchy!(IWpdSerializer, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWpdSerializer {
-    type Vtable = IWpdSerializer_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWpdSerializer {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb32f4002_bb27_45ff_af4f_06631c1e8dad);
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -1,13 +1,4 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IToastOcclusionManagerPreviewStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IToastOcclusionManagerPreviewStatics {
-    type Vtable = IToastOcclusionManagerPreviewStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IToastOcclusionManagerPreviewStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x507e5c83_50f9_5412_8953_b65c18cfab12);
-}
+::windows_core::imp::com_interface!(IToastOcclusionManagerPreviewStatics, IToastOcclusionManagerPreviewStatics_Vtbl, 0x507e5c83_50f9_5412_8953_b65c18cfab12);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IToastOcclusionManagerPreviewStatics_Vtbl {

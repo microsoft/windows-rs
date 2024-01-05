@@ -4,16 +4,7 @@ pub mod Geofencing;
 #[cfg(feature = "Devices_Geolocation_Provider")]
 #[doc = "Required features: `\"Devices_Geolocation_Provider\"`"]
 pub mod Provider;
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ICivicAddress(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ICivicAddress {
-    type Vtable = ICivicAddress_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ICivicAddress {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa8567a1a_64f4_4d48_bcea_f6b008eca34c);
-}
+::windows_core::imp::com_interface!(ICivicAddress, ICivicAddress_Vtbl, 0xa8567a1a_64f4_4d48_bcea_f6b008eca34c);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICivicAddress_Vtbl {
@@ -24,16 +15,7 @@ pub struct ICivicAddress_Vtbl {
     pub PostalCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub Timestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGeoboundingBox(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGeoboundingBox {
-    type Vtable = IGeoboundingBox_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGeoboundingBox {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0896c80b_274f_43da_9a06_cbfcdaeb4ec2);
-}
+::windows_core::imp::com_interface!(IGeoboundingBox, IGeoboundingBox_Vtbl, 0x0896c80b_274f_43da_9a06_cbfcdaeb4ec2);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeoboundingBox_Vtbl {
@@ -44,16 +26,7 @@ pub struct IGeoboundingBox_Vtbl {
     pub MinAltitude: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows_core::HRESULT,
     pub MaxAltitude: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGeoboundingBoxFactory(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGeoboundingBoxFactory {
-    type Vtable = IGeoboundingBoxFactory_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGeoboundingBoxFactory {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4dfba589_0411_4abc_b3b5_5bbccb57d98c);
-}
+::windows_core::imp::com_interface!(IGeoboundingBoxFactory, IGeoboundingBoxFactory_Vtbl, 0x4dfba589_0411_4abc_b3b5_5bbccb57d98c);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeoboundingBoxFactory_Vtbl {
@@ -62,16 +35,7 @@ pub struct IGeoboundingBoxFactory_Vtbl {
     pub CreateWithAltitudeReference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, northwestcorner: BasicGeoposition, southeastcorner: BasicGeoposition, altitudereferencesystem: AltitudeReferenceSystem, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub CreateWithAltitudeReferenceAndSpatialReference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, northwestcorner: BasicGeoposition, southeastcorner: BasicGeoposition, altitudereferencesystem: AltitudeReferenceSystem, spatialreferenceid: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGeoboundingBoxStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGeoboundingBoxStatics {
-    type Vtable = IGeoboundingBoxStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGeoboundingBoxStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x67b80708_e61a_4cd0_841b_93233792b5ca);
-}
+::windows_core::imp::com_interface!(IGeoboundingBoxStatics, IGeoboundingBoxStatics_Vtbl, 0x67b80708_e61a_4cd0_841b_93233792b5ca);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeoboundingBoxStatics_Vtbl {
@@ -89,16 +53,7 @@ pub struct IGeoboundingBoxStatics_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     TryComputeWithAltitudeReferenceAndSpatialReference: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGeocircle(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGeocircle {
-    type Vtable = IGeocircle_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGeocircle {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x39e45843_a7f9_4e63_92a7_ba0c28d124b1);
-}
+::windows_core::imp::com_interface!(IGeocircle, IGeocircle_Vtbl, 0x39e45843_a7f9_4e63_92a7_ba0c28d124b1);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeocircle_Vtbl {
@@ -106,16 +61,7 @@ pub struct IGeocircle_Vtbl {
     pub Center: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut BasicGeoposition) -> ::windows_core::HRESULT,
     pub Radius: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGeocircleFactory(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGeocircleFactory {
-    type Vtable = IGeocircleFactory_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGeocircleFactory {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xafd6531f_72b1_4f7d_87cc_4ed4c9849c05);
-}
+::windows_core::imp::com_interface!(IGeocircleFactory, IGeocircleFactory_Vtbl, 0xafd6531f_72b1_4f7d_87cc_4ed4c9849c05);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeocircleFactory_Vtbl {
@@ -124,16 +70,7 @@ pub struct IGeocircleFactory_Vtbl {
     pub CreateWithAltitudeReferenceSystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, position: BasicGeoposition, radius: f64, altitudereferencesystem: AltitudeReferenceSystem, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub CreateWithAltitudeReferenceSystemAndSpatialReferenceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, position: BasicGeoposition, radius: f64, altitudereferencesystem: AltitudeReferenceSystem, spatialreferenceid: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGeocoordinate(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGeocoordinate {
-    type Vtable = IGeocoordinate_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGeocoordinate {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xee21a3aa_976a_4c70_803d_083ea55bcbc4);
-}
+::windows_core::imp::com_interface!(IGeocoordinate, IGeocoordinate_Vtbl, 0xee21a3aa_976a_4c70_803d_083ea55bcbc4);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeocoordinate_Vtbl {
@@ -156,16 +93,7 @@ pub struct IGeocoordinate_Vtbl {
     pub Speed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Timestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGeocoordinateSatelliteData(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGeocoordinateSatelliteData {
-    type Vtable = IGeocoordinateSatelliteData_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGeocoordinateSatelliteData {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc32a74d9_2608_474c_912c_06dd490f4af7);
-}
+::windows_core::imp::com_interface!(IGeocoordinateSatelliteData, IGeocoordinateSatelliteData_Vtbl, 0xc32a74d9_2608_474c_912c_06dd490f4af7);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeocoordinateSatelliteData_Vtbl {
@@ -174,16 +102,7 @@ pub struct IGeocoordinateSatelliteData_Vtbl {
     pub HorizontalDilutionOfPrecision: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub VerticalDilutionOfPrecision: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGeocoordinateSatelliteData2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGeocoordinateSatelliteData2 {
-    type Vtable = IGeocoordinateSatelliteData2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGeocoordinateSatelliteData2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x761c8cfd_a19d_5a51_80f5_71676115483e);
-}
+::windows_core::imp::com_interface!(IGeocoordinateSatelliteData2, IGeocoordinateSatelliteData2_Vtbl, 0x761c8cfd_a19d_5a51_80f5_71676115483e);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeocoordinateSatelliteData2_Vtbl {
@@ -191,32 +110,14 @@ pub struct IGeocoordinateSatelliteData2_Vtbl {
     pub GeometricDilutionOfPrecision: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub TimeDilutionOfPrecision: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGeocoordinateWithPoint(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGeocoordinateWithPoint {
-    type Vtable = IGeocoordinateWithPoint_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGeocoordinateWithPoint {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfeea0525_d22c_4d46_b527_0b96066fc7db);
-}
+::windows_core::imp::com_interface!(IGeocoordinateWithPoint, IGeocoordinateWithPoint_Vtbl, 0xfeea0525_d22c_4d46_b527_0b96066fc7db);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeocoordinateWithPoint_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Point: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGeocoordinateWithPositionData(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGeocoordinateWithPositionData {
-    type Vtable = IGeocoordinateWithPositionData_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGeocoordinateWithPositionData {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x95e634be_dbd6_40ac_b8f2_a65c0340d9a6);
-}
+::windows_core::imp::com_interface!(IGeocoordinateWithPositionData, IGeocoordinateWithPositionData_Vtbl, 0x95e634be_dbd6_40ac_b8f2_a65c0340d9a6);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeocoordinateWithPositionData_Vtbl {
@@ -224,48 +125,21 @@ pub struct IGeocoordinateWithPositionData_Vtbl {
     pub PositionSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PositionSource) -> ::windows_core::HRESULT,
     pub SatelliteData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGeocoordinateWithPositionSourceTimestamp(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGeocoordinateWithPositionSourceTimestamp {
-    type Vtable = IGeocoordinateWithPositionSourceTimestamp_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGeocoordinateWithPositionSourceTimestamp {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8543fc02_c9f1_4610_afe0_8bc3a6a87036);
-}
+::windows_core::imp::com_interface!(IGeocoordinateWithPositionSourceTimestamp, IGeocoordinateWithPositionSourceTimestamp_Vtbl, 0x8543fc02_c9f1_4610_afe0_8bc3a6a87036);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeocoordinateWithPositionSourceTimestamp_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PositionSourceTimestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGeocoordinateWithRemoteSource(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGeocoordinateWithRemoteSource {
-    type Vtable = IGeocoordinateWithRemoteSource_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGeocoordinateWithRemoteSource {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x397cebd7_ee38_5f3b_8900_c4a7bc9cf953);
-}
+::windows_core::imp::com_interface!(IGeocoordinateWithRemoteSource, IGeocoordinateWithRemoteSource_Vtbl, 0x397cebd7_ee38_5f3b_8900_c4a7bc9cf953);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeocoordinateWithRemoteSource_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsRemoteSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGeolocator(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGeolocator {
-    type Vtable = IGeolocator_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGeolocator {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa9c3bf62_4524_4989_8aa9_de019d2e551f);
-}
+::windows_core::imp::com_interface!(IGeolocator, IGeolocator_Vtbl, 0xa9c3bf62_4524_4989_8aa9_de019d2e551f);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeolocator_Vtbl {
@@ -284,32 +158,14 @@ pub struct IGeolocator_Vtbl {
     pub StatusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     pub RemoveStatusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGeolocator2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGeolocator2 {
-    type Vtable = IGeolocator2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGeolocator2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd1b42e6d_8891_43b4_ad36_27c6fe9a97b1);
-}
+::windows_core::imp::com_interface!(IGeolocator2, IGeolocator2_Vtbl, 0xd1b42e6d_8891_43b4_ad36_27c6fe9a97b1);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeolocator2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AllowFallbackToConsentlessPositions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGeolocatorStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGeolocatorStatics {
-    type Vtable = IGeolocatorStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGeolocatorStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9a8e7571_2df5_4591_9f87_eb5fd894e9b7);
-}
+::windows_core::imp::com_interface!(IGeolocatorStatics, IGeolocatorStatics_Vtbl, 0x9a8e7571_2df5_4591_9f87_eb5fd894e9b7);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeolocatorStatics_Vtbl {
@@ -324,16 +180,7 @@ pub struct IGeolocatorStatics_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     GetGeopositionHistoryWithDurationAsync: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGeolocatorStatics2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGeolocatorStatics2 {
-    type Vtable = IGeolocatorStatics2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGeolocatorStatics2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x993011a2_fa1c_4631_a71d_0dbeb1250d9c);
-}
+::windows_core::imp::com_interface!(IGeolocatorStatics2, IGeolocatorStatics2_Vtbl, 0x993011a2_fa1c_4631_a71d_0dbeb1250d9c);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeolocatorStatics2_Vtbl {
@@ -342,16 +189,7 @@ pub struct IGeolocatorStatics2_Vtbl {
     pub SetDefaultGeoposition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub DefaultGeoposition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGeolocatorWithScalarAccuracy(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGeolocatorWithScalarAccuracy {
-    type Vtable = IGeolocatorWithScalarAccuracy_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGeolocatorWithScalarAccuracy {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96f5d3c1_b80f_460a_994d_a96c47a51aa4);
-}
+::windows_core::imp::com_interface!(IGeolocatorWithScalarAccuracy, IGeolocatorWithScalarAccuracy_Vtbl, 0x96f5d3c1_b80f_460a_994d_a96c47a51aa4);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeolocatorWithScalarAccuracy_Vtbl {
@@ -359,16 +197,7 @@ pub struct IGeolocatorWithScalarAccuracy_Vtbl {
     pub DesiredAccuracyInMeters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub SetDesiredAccuracyInMeters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGeopath(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGeopath {
-    type Vtable = IGeopath_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGeopath {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe53fd7b9_2da4_4714_a652_de8593289898);
-}
+::windows_core::imp::com_interface!(IGeopath, IGeopath_Vtbl, 0xe53fd7b9_2da4_4714_a652_de8593289898);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeopath_Vtbl {
@@ -378,16 +207,7 @@ pub struct IGeopath_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     Positions: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGeopathFactory(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGeopathFactory {
-    type Vtable = IGeopathFactory_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGeopathFactory {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x27bea9c8_c7e7_4359_9b9b_fca3e05ef593);
-}
+::windows_core::imp::com_interface!(IGeopathFactory, IGeopathFactory_Vtbl, 0x27bea9c8_c7e7_4359_9b9b_fca3e05ef593);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeopathFactory_Vtbl {
@@ -405,32 +225,14 @@ pub struct IGeopathFactory_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     CreateWithAltitudeReferenceAndSpatialReference: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGeopoint(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGeopoint {
-    type Vtable = IGeopoint_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGeopoint {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6bfa00eb_e56e_49bb_9caf_cbaa78a8bcef);
-}
+::windows_core::imp::com_interface!(IGeopoint, IGeopoint_Vtbl, 0x6bfa00eb_e56e_49bb_9caf_cbaa78a8bcef);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeopoint_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Position: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut BasicGeoposition) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGeopointFactory(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGeopointFactory {
-    type Vtable = IGeopointFactory_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGeopointFactory {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdb6b8d33_76bd_4e30_8af7_a844dc37b7a0);
-}
+::windows_core::imp::com_interface!(IGeopointFactory, IGeopointFactory_Vtbl, 0xdb6b8d33_76bd_4e30_8af7_a844dc37b7a0);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeopointFactory_Vtbl {
@@ -439,16 +241,7 @@ pub struct IGeopointFactory_Vtbl {
     pub CreateWithAltitudeReferenceSystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, position: BasicGeoposition, altitudereferencesystem: AltitudeReferenceSystem, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub CreateWithAltitudeReferenceSystemAndSpatialReferenceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, position: BasicGeoposition, altitudereferencesystem: AltitudeReferenceSystem, spatialreferenceid: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGeoposition(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGeoposition {
-    type Vtable = IGeoposition_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGeoposition {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc18d0454_7d41_4ff7_a957_9dffb4ef7f5b);
-}
+::windows_core::imp::com_interface!(IGeoposition, IGeoposition_Vtbl, 0xc18d0454_7d41_4ff7_a957_9dffb4ef7f5b);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeoposition_Vtbl {
@@ -456,25 +249,15 @@ pub struct IGeoposition_Vtbl {
     pub Coordinate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub CivicAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGeoposition2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGeoposition2 {
-    type Vtable = IGeoposition2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGeoposition2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7f62f697_8671_4b0d_86f8_474a8496187c);
-}
+::windows_core::imp::com_interface!(IGeoposition2, IGeoposition2_Vtbl, 0x7f62f697_8671_4b0d_86f8_474a8496187c);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeoposition2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub VenueData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGeoshape(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IGeoshape, IGeoshape_Vtbl, 0xc99ca2af_c729_43c1_8fab_d6dec914df7e);
+::windows_core::imp::interface_hierarchy!(IGeoshape, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl IGeoshape {
     pub fn GeoshapeType(&self) -> ::windows_core::Result<GeoshapeType> {
         let this = self;
@@ -498,15 +281,8 @@ impl IGeoshape {
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IGeoshape, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IGeoshape {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IGeoshape {
-    type Vtable = IGeoshape_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGeoshape {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc99ca2af_c729_43c1_8fab_d6dec914df7e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -516,16 +292,7 @@ pub struct IGeoshape_Vtbl {
     pub SpatialReferenceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
     pub AltitudeReferenceSystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AltitudeReferenceSystem) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGeovisit(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGeovisit {
-    type Vtable = IGeovisit_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGeovisit {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb1877a76_9ef6_41ab_a0dd_793ece76e2de);
-}
+::windows_core::imp::com_interface!(IGeovisit, IGeovisit_Vtbl, 0xb1877a76_9ef6_41ab_a0dd_793ece76e2de);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeovisit_Vtbl {
@@ -534,16 +301,7 @@ pub struct IGeovisit_Vtbl {
     pub StateChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut VisitStateChange) -> ::windows_core::HRESULT,
     pub Timestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGeovisitMonitor(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGeovisitMonitor {
-    type Vtable = IGeovisitMonitor_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGeovisitMonitor {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x80118aaf_5944_4591_83c1_396647f54f2c);
-}
+::windows_core::imp::com_interface!(IGeovisitMonitor, IGeovisitMonitor_Vtbl, 0x80118aaf_5944_4591_83c1_396647f54f2c);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeovisitMonitor_Vtbl {
@@ -554,48 +312,21 @@ pub struct IGeovisitMonitor_Vtbl {
     pub VisitStateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     pub RemoveVisitStateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGeovisitMonitorStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGeovisitMonitorStatics {
-    type Vtable = IGeovisitMonitorStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGeovisitMonitorStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbcf976a7_bbf2_4cdd_95cf_554c82edfb87);
-}
+::windows_core::imp::com_interface!(IGeovisitMonitorStatics, IGeovisitMonitorStatics_Vtbl, 0xbcf976a7_bbf2_4cdd_95cf_554c82edfb87);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeovisitMonitorStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetLastReportAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGeovisitStateChangedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGeovisitStateChangedEventArgs {
-    type Vtable = IGeovisitStateChangedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGeovisitStateChangedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xceb4d1ff_8b53_4968_beed_4cecd029ce15);
-}
+::windows_core::imp::com_interface!(IGeovisitStateChangedEventArgs, IGeovisitStateChangedEventArgs_Vtbl, 0xceb4d1ff_8b53_4968_beed_4cecd029ce15);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeovisitStateChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Visit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGeovisitTriggerDetails(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGeovisitTriggerDetails {
-    type Vtable = IGeovisitTriggerDetails_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGeovisitTriggerDetails {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xea770d9e_d1c9_454b_99b7_b2f8cdd2482f);
-}
+::windows_core::imp::com_interface!(IGeovisitTriggerDetails, IGeovisitTriggerDetails_Vtbl, 0xea770d9e_d1c9_454b_99b7_b2f8cdd2482f);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGeovisitTriggerDetails_Vtbl {
@@ -605,48 +336,21 @@ pub struct IGeovisitTriggerDetails_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     ReadReports: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPositionChangedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPositionChangedEventArgs {
-    type Vtable = IPositionChangedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPositionChangedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x37859ce5_9d1e_46c5_bf3b_6ad8cac1a093);
-}
+::windows_core::imp::com_interface!(IPositionChangedEventArgs, IPositionChangedEventArgs_Vtbl, 0x37859ce5_9d1e_46c5_bf3b_6ad8cac1a093);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPositionChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Position: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IStatusChangedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IStatusChangedEventArgs {
-    type Vtable = IStatusChangedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IStatusChangedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3453d2da_8c93_4111_a205_9aecfc9be5c0);
-}
+::windows_core::imp::com_interface!(IStatusChangedEventArgs, IStatusChangedEventArgs_Vtbl, 0x3453d2da_8c93_4111_a205_9aecfc9be5c0);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStatusChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PositionStatus) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IVenueData(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IVenueData {
-    type Vtable = IVenueData_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IVenueData {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x66f39187_60e3_4b2f_b527_4f53f1c3c677);
-}
+::windows_core::imp::com_interface!(IVenueData, IVenueData_Vtbl, 0x66f39187_60e3_4b2f_b527_4f53f1c3c677);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVenueData_Vtbl {
@@ -657,6 +361,7 @@ pub struct IVenueData_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CivicAddress(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(CivicAddress, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl CivicAddress {
     pub fn Country(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -699,19 +404,18 @@ impl ::windows_core::RuntimeType for CivicAddress {
 }
 unsafe impl ::windows_core::Interface for CivicAddress {
     type Vtable = ICivicAddress_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for CivicAddress {
-    const IID: ::windows_core::GUID = <ICivicAddress as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ICivicAddress as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for CivicAddress {
     const NAME: &'static str = "Windows.Devices.Geolocation.CivicAddress";
 }
-::windows_core::imp::interface_hierarchy!(CivicAddress, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for CivicAddress {}
 unsafe impl ::core::marker::Sync for CivicAddress {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GeoboundingBox(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GeoboundingBox, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(GeoboundingBox, IGeoshape);
 impl GeoboundingBox {
     pub fn NorthwestCorner(&self) -> ::windows_core::Result<BasicGeoposition> {
         let this = self;
@@ -770,51 +474,51 @@ impl GeoboundingBox {
     #[cfg(feature = "Foundation_Collections")]
     pub fn TryCompute<P0>(positions: P0) -> ::windows_core::Result<GeoboundingBox>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<BasicGeoposition>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::Collections::IIterable<BasicGeoposition>>,
     {
         Self::IGeoboundingBoxStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TryCompute)(::windows_core::Interface::as_raw(this), positions.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TryCompute)(::windows_core::Interface::as_raw(this), positions.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn TryComputeWithAltitudeReference<P0>(positions: P0, altituderefsystem: AltitudeReferenceSystem) -> ::windows_core::Result<GeoboundingBox>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<BasicGeoposition>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::Collections::IIterable<BasicGeoposition>>,
     {
         Self::IGeoboundingBoxStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TryComputeWithAltitudeReference)(::windows_core::Interface::as_raw(this), positions.try_into_param()?.abi(), altituderefsystem, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TryComputeWithAltitudeReference)(::windows_core::Interface::as_raw(this), positions.into_param().abi(), altituderefsystem, &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn TryComputeWithAltitudeReferenceAndSpatialReference<P0>(positions: P0, altituderefsystem: AltitudeReferenceSystem, spatialreferenceid: u32) -> ::windows_core::Result<GeoboundingBox>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<BasicGeoposition>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::Collections::IIterable<BasicGeoposition>>,
     {
         Self::IGeoboundingBoxStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TryComputeWithAltitudeReferenceAndSpatialReference)(::windows_core::Interface::as_raw(this), positions.try_into_param()?.abi(), altituderefsystem, spatialreferenceid, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TryComputeWithAltitudeReferenceAndSpatialReference)(::windows_core::Interface::as_raw(this), positions.into_param().abi(), altituderefsystem, spatialreferenceid, &mut result__).from_abi(result__)
         })
     }
     pub fn GeoshapeType(&self) -> ::windows_core::Result<GeoshapeType> {
-        let this = &::windows_core::ComInterface::cast::<IGeoshape>(self)?;
+        let this = &::windows_core::Interface::cast::<IGeoshape>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GeoshapeType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SpatialReferenceId(&self) -> ::windows_core::Result<u32> {
-        let this = &::windows_core::ComInterface::cast::<IGeoshape>(self)?;
+        let this = &::windows_core::Interface::cast::<IGeoshape>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SpatialReferenceId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn AltitudeReferenceSystem(&self) -> ::windows_core::Result<AltitudeReferenceSystem> {
-        let this = &::windows_core::ComInterface::cast::<IGeoshape>(self)?;
+        let this = &::windows_core::Interface::cast::<IGeoshape>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AltitudeReferenceSystem)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -836,20 +540,18 @@ impl ::windows_core::RuntimeType for GeoboundingBox {
 }
 unsafe impl ::windows_core::Interface for GeoboundingBox {
     type Vtable = IGeoboundingBox_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GeoboundingBox {
-    const IID: ::windows_core::GUID = <IGeoboundingBox as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGeoboundingBox as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GeoboundingBox {
     const NAME: &'static str = "Windows.Devices.Geolocation.GeoboundingBox";
 }
-::windows_core::imp::interface_hierarchy!(GeoboundingBox, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IGeoshape> for GeoboundingBox {}
 unsafe impl ::core::marker::Send for GeoboundingBox {}
 unsafe impl ::core::marker::Sync for GeoboundingBox {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Geocircle(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(Geocircle, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(Geocircle, IGeoshape);
 impl Geocircle {
     pub fn Center(&self) -> ::windows_core::Result<BasicGeoposition> {
         let this = self;
@@ -884,21 +586,21 @@ impl Geocircle {
         })
     }
     pub fn GeoshapeType(&self) -> ::windows_core::Result<GeoshapeType> {
-        let this = &::windows_core::ComInterface::cast::<IGeoshape>(self)?;
+        let this = &::windows_core::Interface::cast::<IGeoshape>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GeoshapeType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SpatialReferenceId(&self) -> ::windows_core::Result<u32> {
-        let this = &::windows_core::ComInterface::cast::<IGeoshape>(self)?;
+        let this = &::windows_core::Interface::cast::<IGeoshape>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SpatialReferenceId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn AltitudeReferenceSystem(&self) -> ::windows_core::Result<AltitudeReferenceSystem> {
-        let this = &::windows_core::ComInterface::cast::<IGeoshape>(self)?;
+        let this = &::windows_core::Interface::cast::<IGeoshape>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AltitudeReferenceSystem)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -915,20 +617,17 @@ impl ::windows_core::RuntimeType for Geocircle {
 }
 unsafe impl ::windows_core::Interface for Geocircle {
     type Vtable = IGeocircle_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for Geocircle {
-    const IID: ::windows_core::GUID = <IGeocircle as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGeocircle as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for Geocircle {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geocircle";
 }
-::windows_core::imp::interface_hierarchy!(Geocircle, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IGeoshape> for Geocircle {}
 unsafe impl ::core::marker::Send for Geocircle {}
 unsafe impl ::core::marker::Sync for Geocircle {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Geocoordinate(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(Geocoordinate, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl Geocoordinate {
     #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
@@ -993,35 +692,35 @@ impl Geocoordinate {
         }
     }
     pub fn Point(&self) -> ::windows_core::Result<Geopoint> {
-        let this = &::windows_core::ComInterface::cast::<IGeocoordinateWithPoint>(self)?;
+        let this = &::windows_core::Interface::cast::<IGeocoordinateWithPoint>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Point)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PositionSource(&self) -> ::windows_core::Result<PositionSource> {
-        let this = &::windows_core::ComInterface::cast::<IGeocoordinateWithPositionData>(self)?;
+        let this = &::windows_core::Interface::cast::<IGeocoordinateWithPositionData>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PositionSource)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SatelliteData(&self) -> ::windows_core::Result<GeocoordinateSatelliteData> {
-        let this = &::windows_core::ComInterface::cast::<IGeocoordinateWithPositionData>(self)?;
+        let this = &::windows_core::Interface::cast::<IGeocoordinateWithPositionData>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SatelliteData)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PositionSourceTimestamp(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
-        let this = &::windows_core::ComInterface::cast::<IGeocoordinateWithPositionSourceTimestamp>(self)?;
+        let this = &::windows_core::Interface::cast::<IGeocoordinateWithPositionSourceTimestamp>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PositionSourceTimestamp)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsRemoteSource(&self) -> ::windows_core::Result<bool> {
-        let this = &::windows_core::ComInterface::cast::<IGeocoordinateWithRemoteSource>(self)?;
+        let this = &::windows_core::Interface::cast::<IGeocoordinateWithRemoteSource>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsRemoteSource)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -1033,19 +732,17 @@ impl ::windows_core::RuntimeType for Geocoordinate {
 }
 unsafe impl ::windows_core::Interface for Geocoordinate {
     type Vtable = IGeocoordinate_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for Geocoordinate {
-    const IID: ::windows_core::GUID = <IGeocoordinate as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGeocoordinate as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for Geocoordinate {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geocoordinate";
 }
-::windows_core::imp::interface_hierarchy!(Geocoordinate, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Geocoordinate {}
 unsafe impl ::core::marker::Sync for Geocoordinate {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GeocoordinateSatelliteData(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GeocoordinateSatelliteData, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl GeocoordinateSatelliteData {
     pub fn PositionDilutionOfPrecision(&self) -> ::windows_core::Result<super::super::Foundation::IReference<f64>> {
         let this = self;
@@ -1069,14 +766,14 @@ impl GeocoordinateSatelliteData {
         }
     }
     pub fn GeometricDilutionOfPrecision(&self) -> ::windows_core::Result<super::super::Foundation::IReference<f64>> {
-        let this = &::windows_core::ComInterface::cast::<IGeocoordinateSatelliteData2>(self)?;
+        let this = &::windows_core::Interface::cast::<IGeocoordinateSatelliteData2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GeometricDilutionOfPrecision)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TimeDilutionOfPrecision(&self) -> ::windows_core::Result<super::super::Foundation::IReference<f64>> {
-        let this = &::windows_core::ComInterface::cast::<IGeocoordinateSatelliteData2>(self)?;
+        let this = &::windows_core::Interface::cast::<IGeocoordinateSatelliteData2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TimeDilutionOfPrecision)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -1088,19 +785,17 @@ impl ::windows_core::RuntimeType for GeocoordinateSatelliteData {
 }
 unsafe impl ::windows_core::Interface for GeocoordinateSatelliteData {
     type Vtable = IGeocoordinateSatelliteData_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GeocoordinateSatelliteData {
-    const IID: ::windows_core::GUID = <IGeocoordinateSatelliteData as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGeocoordinateSatelliteData as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GeocoordinateSatelliteData {
     const NAME: &'static str = "Windows.Devices.Geolocation.GeocoordinateSatelliteData";
 }
-::windows_core::imp::interface_hierarchy!(GeocoordinateSatelliteData, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GeocoordinateSatelliteData {}
 unsafe impl ::core::marker::Sync for GeocoordinateSatelliteData {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Geolocator(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(Geolocator, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl Geolocator {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1192,7 +887,7 @@ impl Geolocator {
         unsafe { (::windows_core::Interface::vtable(this).RemoveStatusChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
     pub fn AllowFallbackToConsentlessPositions(&self) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<IGeolocator2>(self)?;
+        let this = &::windows_core::Interface::cast::<IGeolocator2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).AllowFallbackToConsentlessPositions)(::windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn RequestAccessAsync() -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<GeolocationAccessStatus>> {
@@ -1225,9 +920,9 @@ impl Geolocator {
     }
     pub fn SetDefaultGeoposition<P0>(value: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::IReference<BasicGeoposition>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::IReference<BasicGeoposition>>,
     {
-        Self::IGeolocatorStatics2(|this| unsafe { (::windows_core::Interface::vtable(this).SetDefaultGeoposition)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() })
+        Self::IGeolocatorStatics2(|this| unsafe { (::windows_core::Interface::vtable(this).SetDefaultGeoposition)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() })
     }
     pub fn DefaultGeoposition() -> ::windows_core::Result<super::super::Foundation::IReference<BasicGeoposition>> {
         Self::IGeolocatorStatics2(|this| unsafe {
@@ -1236,7 +931,7 @@ impl Geolocator {
         })
     }
     pub fn DesiredAccuracyInMeters(&self) -> ::windows_core::Result<super::super::Foundation::IReference<u32>> {
-        let this = &::windows_core::ComInterface::cast::<IGeolocatorWithScalarAccuracy>(self)?;
+        let this = &::windows_core::Interface::cast::<IGeolocatorWithScalarAccuracy>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DesiredAccuracyInMeters)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -1244,10 +939,10 @@ impl Geolocator {
     }
     pub fn SetDesiredAccuracyInMeters<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::IReference<u32>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::IReference<u32>>,
     {
-        let this = &::windows_core::ComInterface::cast::<IGeolocatorWithScalarAccuracy>(self)?;
-        unsafe { (::windows_core::Interface::vtable(this).SetDesiredAccuracyInMeters)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+        let this = &::windows_core::Interface::cast::<IGeolocatorWithScalarAccuracy>(self)?;
+        unsafe { (::windows_core::Interface::vtable(this).SetDesiredAccuracyInMeters)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc(hidden)]
     pub fn IGeolocatorStatics<R, F: FnOnce(&IGeolocatorStatics) -> ::windows_core::Result<R>>(callback: F) -> ::windows_core::Result<R> {
@@ -1265,19 +960,18 @@ impl ::windows_core::RuntimeType for Geolocator {
 }
 unsafe impl ::windows_core::Interface for Geolocator {
     type Vtable = IGeolocator_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for Geolocator {
-    const IID: ::windows_core::GUID = <IGeolocator as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGeolocator as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for Geolocator {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geolocator";
 }
-::windows_core::imp::interface_hierarchy!(Geolocator, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Geolocator {}
 unsafe impl ::core::marker::Sync for Geolocator {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Geopath(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(Geopath, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(Geopath, IGeoshape);
 impl Geopath {
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
@@ -1292,51 +986,51 @@ impl Geopath {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Create<P0>(positions: P0) -> ::windows_core::Result<Geopath>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<BasicGeoposition>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::Collections::IIterable<BasicGeoposition>>,
     {
         Self::IGeopathFactory(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), positions.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), positions.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateWithAltitudeReference<P0>(positions: P0, altitudereferencesystem: AltitudeReferenceSystem) -> ::windows_core::Result<Geopath>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<BasicGeoposition>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::Collections::IIterable<BasicGeoposition>>,
     {
         Self::IGeopathFactory(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateWithAltitudeReference)(::windows_core::Interface::as_raw(this), positions.try_into_param()?.abi(), altitudereferencesystem, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateWithAltitudeReference)(::windows_core::Interface::as_raw(this), positions.into_param().abi(), altitudereferencesystem, &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateWithAltitudeReferenceAndSpatialReference<P0>(positions: P0, altitudereferencesystem: AltitudeReferenceSystem, spatialreferenceid: u32) -> ::windows_core::Result<Geopath>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<BasicGeoposition>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::Collections::IIterable<BasicGeoposition>>,
     {
         Self::IGeopathFactory(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateWithAltitudeReferenceAndSpatialReference)(::windows_core::Interface::as_raw(this), positions.try_into_param()?.abi(), altitudereferencesystem, spatialreferenceid, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateWithAltitudeReferenceAndSpatialReference)(::windows_core::Interface::as_raw(this), positions.into_param().abi(), altitudereferencesystem, spatialreferenceid, &mut result__).from_abi(result__)
         })
     }
     pub fn GeoshapeType(&self) -> ::windows_core::Result<GeoshapeType> {
-        let this = &::windows_core::ComInterface::cast::<IGeoshape>(self)?;
+        let this = &::windows_core::Interface::cast::<IGeoshape>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GeoshapeType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SpatialReferenceId(&self) -> ::windows_core::Result<u32> {
-        let this = &::windows_core::ComInterface::cast::<IGeoshape>(self)?;
+        let this = &::windows_core::Interface::cast::<IGeoshape>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SpatialReferenceId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn AltitudeReferenceSystem(&self) -> ::windows_core::Result<AltitudeReferenceSystem> {
-        let this = &::windows_core::ComInterface::cast::<IGeoshape>(self)?;
+        let this = &::windows_core::Interface::cast::<IGeoshape>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AltitudeReferenceSystem)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -1353,20 +1047,18 @@ impl ::windows_core::RuntimeType for Geopath {
 }
 unsafe impl ::windows_core::Interface for Geopath {
     type Vtable = IGeopath_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for Geopath {
-    const IID: ::windows_core::GUID = <IGeopath as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGeopath as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for Geopath {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geopath";
 }
-::windows_core::imp::interface_hierarchy!(Geopath, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IGeoshape> for Geopath {}
 unsafe impl ::core::marker::Send for Geopath {}
 unsafe impl ::core::marker::Sync for Geopath {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Geopoint(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(Geopoint, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(Geopoint, IGeoshape);
 impl Geopoint {
     pub fn Position(&self) -> ::windows_core::Result<BasicGeoposition> {
         let this = self;
@@ -1394,21 +1086,21 @@ impl Geopoint {
         })
     }
     pub fn GeoshapeType(&self) -> ::windows_core::Result<GeoshapeType> {
-        let this = &::windows_core::ComInterface::cast::<IGeoshape>(self)?;
+        let this = &::windows_core::Interface::cast::<IGeoshape>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GeoshapeType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SpatialReferenceId(&self) -> ::windows_core::Result<u32> {
-        let this = &::windows_core::ComInterface::cast::<IGeoshape>(self)?;
+        let this = &::windows_core::Interface::cast::<IGeoshape>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SpatialReferenceId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn AltitudeReferenceSystem(&self) -> ::windows_core::Result<AltitudeReferenceSystem> {
-        let this = &::windows_core::ComInterface::cast::<IGeoshape>(self)?;
+        let this = &::windows_core::Interface::cast::<IGeoshape>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AltitudeReferenceSystem)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -1425,20 +1117,17 @@ impl ::windows_core::RuntimeType for Geopoint {
 }
 unsafe impl ::windows_core::Interface for Geopoint {
     type Vtable = IGeopoint_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for Geopoint {
-    const IID: ::windows_core::GUID = <IGeopoint as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGeopoint as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for Geopoint {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geopoint";
 }
-::windows_core::imp::interface_hierarchy!(Geopoint, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IGeoshape> for Geopoint {}
 unsafe impl ::core::marker::Send for Geopoint {}
 unsafe impl ::core::marker::Sync for Geopoint {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Geoposition(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(Geoposition, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl Geoposition {
     pub fn Coordinate(&self) -> ::windows_core::Result<Geocoordinate> {
         let this = self;
@@ -1455,7 +1144,7 @@ impl Geoposition {
         }
     }
     pub fn VenueData(&self) -> ::windows_core::Result<VenueData> {
-        let this = &::windows_core::ComInterface::cast::<IGeoposition2>(self)?;
+        let this = &::windows_core::Interface::cast::<IGeoposition2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).VenueData)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -1467,19 +1156,17 @@ impl ::windows_core::RuntimeType for Geoposition {
 }
 unsafe impl ::windows_core::Interface for Geoposition {
     type Vtable = IGeoposition_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for Geoposition {
-    const IID: ::windows_core::GUID = <IGeoposition as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGeoposition as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for Geoposition {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geoposition";
 }
-::windows_core::imp::interface_hierarchy!(Geoposition, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Geoposition {}
 unsafe impl ::core::marker::Sync for Geoposition {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Geovisit(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(Geovisit, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl Geovisit {
     pub fn Position(&self) -> ::windows_core::Result<Geoposition> {
         let this = self;
@@ -1508,19 +1195,17 @@ impl ::windows_core::RuntimeType for Geovisit {
 }
 unsafe impl ::windows_core::Interface for Geovisit {
     type Vtable = IGeovisit_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for Geovisit {
-    const IID: ::windows_core::GUID = <IGeovisit as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGeovisit as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for Geovisit {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geovisit";
 }
-::windows_core::imp::interface_hierarchy!(Geovisit, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Geovisit {}
 unsafe impl ::core::marker::Sync for Geovisit {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GeovisitMonitor(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GeovisitMonitor, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl GeovisitMonitor {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1575,19 +1260,17 @@ impl ::windows_core::RuntimeType for GeovisitMonitor {
 }
 unsafe impl ::windows_core::Interface for GeovisitMonitor {
     type Vtable = IGeovisitMonitor_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GeovisitMonitor {
-    const IID: ::windows_core::GUID = <IGeovisitMonitor as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGeovisitMonitor as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GeovisitMonitor {
     const NAME: &'static str = "Windows.Devices.Geolocation.GeovisitMonitor";
 }
-::windows_core::imp::interface_hierarchy!(GeovisitMonitor, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GeovisitMonitor {}
 unsafe impl ::core::marker::Sync for GeovisitMonitor {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GeovisitStateChangedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GeovisitStateChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl GeovisitStateChangedEventArgs {
     pub fn Visit(&self) -> ::windows_core::Result<Geovisit> {
         let this = self;
@@ -1602,19 +1285,17 @@ impl ::windows_core::RuntimeType for GeovisitStateChangedEventArgs {
 }
 unsafe impl ::windows_core::Interface for GeovisitStateChangedEventArgs {
     type Vtable = IGeovisitStateChangedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GeovisitStateChangedEventArgs {
-    const IID: ::windows_core::GUID = <IGeovisitStateChangedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGeovisitStateChangedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GeovisitStateChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Geolocation.GeovisitStateChangedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(GeovisitStateChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GeovisitStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for GeovisitStateChangedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GeovisitTriggerDetails(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GeovisitTriggerDetails, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl GeovisitTriggerDetails {
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
@@ -1631,19 +1312,17 @@ impl ::windows_core::RuntimeType for GeovisitTriggerDetails {
 }
 unsafe impl ::windows_core::Interface for GeovisitTriggerDetails {
     type Vtable = IGeovisitTriggerDetails_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GeovisitTriggerDetails {
-    const IID: ::windows_core::GUID = <IGeovisitTriggerDetails as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGeovisitTriggerDetails as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GeovisitTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Geolocation.GeovisitTriggerDetails";
 }
-::windows_core::imp::interface_hierarchy!(GeovisitTriggerDetails, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GeovisitTriggerDetails {}
 unsafe impl ::core::marker::Sync for GeovisitTriggerDetails {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PositionChangedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(PositionChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl PositionChangedEventArgs {
     pub fn Position(&self) -> ::windows_core::Result<Geoposition> {
         let this = self;
@@ -1658,19 +1337,17 @@ impl ::windows_core::RuntimeType for PositionChangedEventArgs {
 }
 unsafe impl ::windows_core::Interface for PositionChangedEventArgs {
     type Vtable = IPositionChangedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for PositionChangedEventArgs {
-    const IID: ::windows_core::GUID = <IPositionChangedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPositionChangedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for PositionChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Geolocation.PositionChangedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(PositionChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PositionChangedEventArgs {}
 unsafe impl ::core::marker::Sync for PositionChangedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StatusChangedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(StatusChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl StatusChangedEventArgs {
     pub fn Status(&self) -> ::windows_core::Result<PositionStatus> {
         let this = self;
@@ -1685,19 +1362,17 @@ impl ::windows_core::RuntimeType for StatusChangedEventArgs {
 }
 unsafe impl ::windows_core::Interface for StatusChangedEventArgs {
     type Vtable = IStatusChangedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for StatusChangedEventArgs {
-    const IID: ::windows_core::GUID = <IStatusChangedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IStatusChangedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for StatusChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Geolocation.StatusChangedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(StatusChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for StatusChangedEventArgs {}
 unsafe impl ::core::marker::Sync for StatusChangedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VenueData(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(VenueData, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl VenueData {
     pub fn Id(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -1719,14 +1394,11 @@ impl ::windows_core::RuntimeType for VenueData {
 }
 unsafe impl ::windows_core::Interface for VenueData {
     type Vtable = IVenueData_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for VenueData {
-    const IID: ::windows_core::GUID = <IVenueData as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IVenueData as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for VenueData {
     const NAME: &'static str = "Windows.Devices.Geolocation.VenueData";
 }
-::windows_core::imp::interface_hierarchy!(VenueData, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for VenueData {}
 unsafe impl ::core::marker::Sync for VenueData {}
 #[repr(transparent)]

@@ -546,9 +546,8 @@ where
     ::windows_targets::link!("advapi32.dll" "system" fn UpdateTraceW(tracehandle : CONTROLTRACE_HANDLE, instancename : ::windows_core::PCWSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation:: WIN32_ERROR);
     UpdateTraceW(::core::mem::transmute(tracehandle), instancename.into_param().abi(), properties).ok()
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ITraceEvent(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(ITraceEvent, ITraceEvent_Vtbl, 0x8cc97f40_9028_4ff3_9b62_7d1f79ca7bcb);
+::windows_core::imp::interface_hierarchy!(ITraceEvent, ::windows_core::IUnknown);
 impl ITraceEvent {
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ITraceEvent> {
         let mut result__ = ::std::mem::zeroed();
@@ -590,13 +589,6 @@ impl ITraceEvent {
         (::windows_core::Interface::vtable(self).SetProviderId)(::windows_core::Interface::as_raw(self), providerid).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(ITraceEvent, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ITraceEvent {
-    type Vtable = ITraceEvent_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ITraceEvent {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8cc97f40_9028_4ff3_9b62_7d1f79ca7bcb);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITraceEvent_Vtbl {
@@ -614,9 +606,8 @@ pub struct ITraceEvent_Vtbl {
     pub SetTimeStamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, timestamp: *const i64) -> ::windows_core::HRESULT,
     pub SetProviderId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, providerid: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ITraceEventCallback(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(ITraceEventCallback, ITraceEventCallback_Vtbl, 0x3ed25501_593f_43e9_8f38_3ab46f5a4a52);
+::windows_core::imp::interface_hierarchy!(ITraceEventCallback, ::windows_core::IUnknown);
 impl ITraceEventCallback {
     pub unsafe fn OnBeginProcessTrace<P0, P1>(&self, headerevent: P0, relogger: P1) -> ::windows_core::Result<()>
     where
@@ -639,13 +630,6 @@ impl ITraceEventCallback {
         (::windows_core::Interface::vtable(self).OnEvent)(::windows_core::Interface::as_raw(self), event.into_param().abi(), relogger.into_param().abi()).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(ITraceEventCallback, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ITraceEventCallback {
-    type Vtable = ITraceEventCallback_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ITraceEventCallback {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3ed25501_593f_43e9_8f38_3ab46f5a4a52);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITraceEventCallback_Vtbl {
@@ -654,9 +638,8 @@ pub struct ITraceEventCallback_Vtbl {
     pub OnFinalizeProcessTrace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, relogger: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub OnEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, event: *mut ::core::ffi::c_void, relogger: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ITraceRelogger(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(ITraceRelogger, ITraceRelogger_Vtbl, 0xf754ad43_3bcc_4286_8009_9c5da214e84e);
+::windows_core::imp::interface_hierarchy!(ITraceRelogger, ::windows_core::IUnknown);
 impl ITraceRelogger {
     pub unsafe fn AddLogfileTraceStream<P0>(&self, logfilename: P0, usercontext: *const ::core::ffi::c_void) -> ::windows_core::Result<RELOGSTREAM_HANDLE>
     where
@@ -706,13 +689,6 @@ impl ITraceRelogger {
     pub unsafe fn Cancel(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Cancel)(::windows_core::Interface::as_raw(self)).ok()
     }
-}
-::windows_core::imp::interface_hierarchy!(ITraceRelogger, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ITraceRelogger {
-    type Vtable = ITraceRelogger_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ITraceRelogger {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf754ad43_3bcc_4286_8009_9c5da214e84e);
 }
 #[repr(C)]
 #[doc(hidden)]

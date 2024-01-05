@@ -15,7 +15,7 @@ impl IRadialControllerConfigurationInterop_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRadialControllerConfigurationInterop as ::windows_core::ComInterface>::IID
+        iid == &<IRadialControllerConfigurationInterop as ::windows_core::Interface>::IID
     }
 }
 pub trait IRadialControllerIndependentInputSourceInterop_Impl: Sized {
@@ -35,7 +35,7 @@ impl IRadialControllerIndependentInputSourceInterop_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRadialControllerIndependentInputSourceInterop as ::windows_core::ComInterface>::IID
+        iid == &<IRadialControllerIndependentInputSourceInterop as ::windows_core::Interface>::IID
     }
 }
 pub trait IRadialControllerInterop_Impl: Sized {
@@ -55,6 +55,6 @@ impl IRadialControllerInterop_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRadialControllerInterop as ::windows_core::ComInterface>::IID
+        iid == &<IRadialControllerInterop as ::windows_core::Interface>::IID
     }
 }

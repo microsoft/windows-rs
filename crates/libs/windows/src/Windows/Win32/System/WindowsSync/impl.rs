@@ -36,7 +36,7 @@ impl IAsynchronousDataRetriever_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAsynchronousDataRetriever as ::windows_core::ComInterface>::IID
+        iid == &<IAsynchronousDataRetriever as ::windows_core::Interface>::IID
     }
 }
 pub trait IChangeConflict_Impl: Sized {
@@ -129,7 +129,7 @@ impl IChangeConflict_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IChangeConflict as ::windows_core::ComInterface>::IID
+        iid == &<IChangeConflict as ::windows_core::Interface>::IID
     }
 }
 pub trait IChangeUnitException_Impl: Sized {
@@ -163,7 +163,7 @@ impl IChangeUnitException_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IChangeUnitException as ::windows_core::ComInterface>::IID
+        iid == &<IChangeUnitException as ::windows_core::Interface>::IID
     }
 }
 pub trait IChangeUnitListFilterInfo_Impl: Sized + ISyncFilterInfo_Impl {
@@ -197,7 +197,7 @@ impl IChangeUnitListFilterInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IChangeUnitListFilterInfo as ::windows_core::ComInterface>::IID || iid == &<ISyncFilterInfo as ::windows_core::ComInterface>::IID
+        iid == &<IChangeUnitListFilterInfo as ::windows_core::Interface>::IID || iid == &<ISyncFilterInfo as ::windows_core::Interface>::IID
     }
 }
 pub trait IClockVector_Impl: Sized {
@@ -224,7 +224,7 @@ impl IClockVector_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IClockVector as ::windows_core::ComInterface>::IID
+        iid == &<IClockVector as ::windows_core::Interface>::IID
     }
 }
 pub trait IClockVectorElement_Impl: Sized {
@@ -251,7 +251,7 @@ impl IClockVectorElement_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IClockVectorElement as ::windows_core::ComInterface>::IID
+        iid == &<IClockVectorElement as ::windows_core::Interface>::IID
     }
 }
 pub trait ICombinedFilterInfo_Impl: Sized + ISyncFilterInfo_Impl {
@@ -291,7 +291,7 @@ impl ICombinedFilterInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICombinedFilterInfo as ::windows_core::ComInterface>::IID || iid == &<ISyncFilterInfo as ::windows_core::ComInterface>::IID
+        iid == &<ICombinedFilterInfo as ::windows_core::Interface>::IID || iid == &<ISyncFilterInfo as ::windows_core::Interface>::IID
     }
 }
 pub trait IConstraintConflict_Impl: Sized {
@@ -424,7 +424,7 @@ impl IConstraintConflict_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IConstraintConflict as ::windows_core::ComInterface>::IID
+        iid == &<IConstraintConflict as ::windows_core::Interface>::IID
     }
 }
 pub trait IConstructReplicaKeyMap_Impl: Sized {
@@ -441,7 +441,7 @@ impl IConstructReplicaKeyMap_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), FindOrAddReplica: FindOrAddReplica::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IConstructReplicaKeyMap as ::windows_core::ComInterface>::IID
+        iid == &<IConstructReplicaKeyMap as ::windows_core::Interface>::IID
     }
 }
 pub trait ICoreFragment_Impl: Sized {
@@ -489,7 +489,7 @@ impl ICoreFragment_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICoreFragment as ::windows_core::ComInterface>::IID
+        iid == &<ICoreFragment as ::windows_core::Interface>::IID
     }
 }
 pub trait ICoreFragmentInspector_Impl: Sized {
@@ -516,7 +516,7 @@ impl ICoreFragmentInspector_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICoreFragmentInspector as ::windows_core::ComInterface>::IID
+        iid == &<ICoreFragmentInspector as ::windows_core::Interface>::IID
     }
 }
 pub trait ICustomFilterInfo_Impl: Sized + ISyncFilterInfo_Impl {
@@ -539,7 +539,7 @@ impl ICustomFilterInfo_Vtbl {
         Self { base__: ISyncFilterInfo_Vtbl::new::<Identity, Impl, OFFSET>(), GetSyncFilter: GetSyncFilter::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICustomFilterInfo as ::windows_core::ComInterface>::IID || iid == &<ISyncFilterInfo as ::windows_core::ComInterface>::IID
+        iid == &<ICustomFilterInfo as ::windows_core::Interface>::IID || iid == &<ISyncFilterInfo as ::windows_core::Interface>::IID
     }
 }
 pub trait IDataRetrieverCallback_Impl: Sized {
@@ -566,7 +566,7 @@ impl IDataRetrieverCallback_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDataRetrieverCallback as ::windows_core::ComInterface>::IID
+        iid == &<IDataRetrieverCallback as ::windows_core::Interface>::IID
     }
 }
 pub trait IEnumChangeUnitExceptions_Impl: Sized {
@@ -613,7 +613,7 @@ impl IEnumChangeUnitExceptions_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumChangeUnitExceptions as ::windows_core::ComInterface>::IID
+        iid == &<IEnumChangeUnitExceptions as ::windows_core::Interface>::IID
     }
 }
 pub trait IEnumClockVector_Impl: Sized {
@@ -660,7 +660,7 @@ impl IEnumClockVector_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumClockVector as ::windows_core::ComInterface>::IID
+        iid == &<IEnumClockVector as ::windows_core::Interface>::IID
     }
 }
 pub trait IEnumFeedClockVector_Impl: Sized {
@@ -707,7 +707,7 @@ impl IEnumFeedClockVector_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumFeedClockVector as ::windows_core::ComInterface>::IID
+        iid == &<IEnumFeedClockVector as ::windows_core::Interface>::IID
     }
 }
 pub trait IEnumItemIds_Impl: Sized {
@@ -724,7 +724,7 @@ impl IEnumItemIds_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Next: Next::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumItemIds as ::windows_core::ComInterface>::IID
+        iid == &<IEnumItemIds as ::windows_core::Interface>::IID
     }
 }
 pub trait IEnumRangeExceptions_Impl: Sized {
@@ -771,7 +771,7 @@ impl IEnumRangeExceptions_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumRangeExceptions as ::windows_core::ComInterface>::IID
+        iid == &<IEnumRangeExceptions as ::windows_core::Interface>::IID
     }
 }
 pub trait IEnumSingleItemExceptions_Impl: Sized {
@@ -818,7 +818,7 @@ impl IEnumSingleItemExceptions_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumSingleItemExceptions as ::windows_core::ComInterface>::IID
+        iid == &<IEnumSingleItemExceptions as ::windows_core::Interface>::IID
     }
 }
 pub trait IEnumSyncChangeUnits_Impl: Sized {
@@ -865,7 +865,7 @@ impl IEnumSyncChangeUnits_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumSyncChangeUnits as ::windows_core::ComInterface>::IID
+        iid == &<IEnumSyncChangeUnits as ::windows_core::Interface>::IID
     }
 }
 pub trait IEnumSyncChanges_Impl: Sized {
@@ -912,7 +912,7 @@ impl IEnumSyncChanges_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumSyncChanges as ::windows_core::ComInterface>::IID
+        iid == &<IEnumSyncChanges as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
@@ -963,7 +963,7 @@ impl IEnumSyncProviderConfigUIInfos_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumSyncProviderConfigUIInfos as ::windows_core::ComInterface>::IID
+        iid == &<IEnumSyncProviderConfigUIInfos as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
@@ -1014,7 +1014,7 @@ impl IEnumSyncProviderInfos_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumSyncProviderInfos as ::windows_core::ComInterface>::IID
+        iid == &<IEnumSyncProviderInfos as ::windows_core::Interface>::IID
     }
 }
 pub trait IFeedClockVector_Impl: Sized + IClockVector_Impl {
@@ -1041,7 +1041,7 @@ impl IFeedClockVector_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IFeedClockVector as ::windows_core::ComInterface>::IID || iid == &<IClockVector as ::windows_core::ComInterface>::IID
+        iid == &<IFeedClockVector as ::windows_core::Interface>::IID || iid == &<IClockVector as ::windows_core::Interface>::IID
     }
 }
 pub trait IFeedClockVectorElement_Impl: Sized + IClockVectorElement_Impl {
@@ -1068,7 +1068,7 @@ impl IFeedClockVectorElement_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IFeedClockVectorElement as ::windows_core::ComInterface>::IID || iid == &<IClockVectorElement as ::windows_core::ComInterface>::IID
+        iid == &<IFeedClockVectorElement as ::windows_core::Interface>::IID || iid == &<IClockVectorElement as ::windows_core::Interface>::IID
     }
 }
 pub trait IFilterKeyMap_Impl: Sized {
@@ -1115,7 +1115,7 @@ impl IFilterKeyMap_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IFilterKeyMap as ::windows_core::ComInterface>::IID
+        iid == &<IFilterKeyMap as ::windows_core::Interface>::IID
     }
 }
 pub trait IFilterRequestCallback_Impl: Sized {
@@ -1132,7 +1132,7 @@ impl IFilterRequestCallback_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), RequestFilter: RequestFilter::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IFilterRequestCallback as ::windows_core::ComInterface>::IID
+        iid == &<IFilterRequestCallback as ::windows_core::Interface>::IID
     }
 }
 pub trait IFilterTrackingProvider_Impl: Sized {
@@ -1159,7 +1159,7 @@ impl IFilterTrackingProvider_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IFilterTrackingProvider as ::windows_core::ComInterface>::IID
+        iid == &<IFilterTrackingProvider as ::windows_core::Interface>::IID
     }
 }
 pub trait IFilterTrackingRequestCallback_Impl: Sized {
@@ -1176,7 +1176,7 @@ impl IFilterTrackingRequestCallback_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), RequestTrackedFilter: RequestTrackedFilter::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IFilterTrackingRequestCallback as ::windows_core::ComInterface>::IID
+        iid == &<IFilterTrackingRequestCallback as ::windows_core::Interface>::IID
     }
 }
 pub trait IFilterTrackingSyncChangeBuilder_Impl: Sized {
@@ -1203,7 +1203,7 @@ impl IFilterTrackingSyncChangeBuilder_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IFilterTrackingSyncChangeBuilder as ::windows_core::ComInterface>::IID
+        iid == &<IFilterTrackingSyncChangeBuilder as ::windows_core::Interface>::IID
     }
 }
 pub trait IForgottenKnowledge_Impl: Sized + ISyncKnowledge_Impl {
@@ -1220,7 +1220,7 @@ impl IForgottenKnowledge_Vtbl {
         Self { base__: ISyncKnowledge_Vtbl::new::<Identity, Impl, OFFSET>(), ForgetToVersion: ForgetToVersion::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IForgottenKnowledge as ::windows_core::ComInterface>::IID || iid == &<ISyncKnowledge as ::windows_core::ComInterface>::IID
+        iid == &<IForgottenKnowledge as ::windows_core::Interface>::IID || iid == &<ISyncKnowledge as ::windows_core::Interface>::IID
     }
 }
 pub trait IKnowledgeSyncProvider_Impl: Sized + ISyncProvider_Impl {
@@ -1282,7 +1282,7 @@ impl IKnowledgeSyncProvider_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IKnowledgeSyncProvider as ::windows_core::ComInterface>::IID || iid == &<ISyncProvider as ::windows_core::ComInterface>::IID
+        iid == &<IKnowledgeSyncProvider as ::windows_core::Interface>::IID || iid == &<ISyncProvider as ::windows_core::Interface>::IID
     }
 }
 pub trait ILoadChangeContext_Impl: Sized {
@@ -1322,7 +1322,7 @@ impl ILoadChangeContext_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ILoadChangeContext as ::windows_core::ComInterface>::IID
+        iid == &<ILoadChangeContext as ::windows_core::Interface>::IID
     }
 }
 pub trait IProviderConverter_Impl: Sized {
@@ -1339,7 +1339,7 @@ impl IProviderConverter_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IProviderConverter as ::windows_core::ComInterface>::IID
+        iid == &<IProviderConverter as ::windows_core::Interface>::IID
     }
 }
 pub trait IRangeException_Impl: Sized {
@@ -1373,7 +1373,7 @@ impl IRangeException_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRangeException as ::windows_core::ComInterface>::IID
+        iid == &<IRangeException as ::windows_core::Interface>::IID
     }
 }
 pub trait IRecoverableError_Impl: Sized {
@@ -1427,7 +1427,7 @@ impl IRecoverableError_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRecoverableError as ::windows_core::ComInterface>::IID
+        iid == &<IRecoverableError as ::windows_core::Interface>::IID
     }
 }
 pub trait IRecoverableErrorData_Impl: Sized {
@@ -1461,7 +1461,7 @@ impl IRecoverableErrorData_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRecoverableErrorData as ::windows_core::ComInterface>::IID
+        iid == &<IRecoverableErrorData as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
@@ -1505,7 +1505,7 @@ impl IRegisteredSyncProvider_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRegisteredSyncProvider as ::windows_core::ComInterface>::IID
+        iid == &<IRegisteredSyncProvider as ::windows_core::Interface>::IID
     }
 }
 pub trait IReplicaKeyMap_Impl: Sized {
@@ -1539,7 +1539,7 @@ impl IReplicaKeyMap_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IReplicaKeyMap as ::windows_core::ComInterface>::IID
+        iid == &<IReplicaKeyMap as ::windows_core::Interface>::IID
     }
 }
 pub trait IRequestFilteredSync_Impl: Sized {
@@ -1556,7 +1556,7 @@ impl IRequestFilteredSync_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SpecifyFilter: SpecifyFilter::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRequestFilteredSync as ::windows_core::ComInterface>::IID
+        iid == &<IRequestFilteredSync as ::windows_core::Interface>::IID
     }
 }
 pub trait ISingleItemException_Impl: Sized {
@@ -1583,7 +1583,7 @@ impl ISingleItemException_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISingleItemException as ::windows_core::ComInterface>::IID
+        iid == &<ISingleItemException as ::windows_core::Interface>::IID
     }
 }
 pub trait ISupportFilteredSync_Impl: Sized {
@@ -1600,7 +1600,7 @@ impl ISupportFilteredSync_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), AddFilter: AddFilter::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISupportFilteredSync as ::windows_core::ComInterface>::IID
+        iid == &<ISupportFilteredSync as ::windows_core::Interface>::IID
     }
 }
 pub trait ISupportLastWriteTime_Impl: Sized {
@@ -1627,7 +1627,7 @@ impl ISupportLastWriteTime_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISupportLastWriteTime as ::windows_core::ComInterface>::IID
+        iid == &<ISupportLastWriteTime as ::windows_core::Interface>::IID
     }
 }
 pub trait ISyncCallback_Impl: Sized {
@@ -1675,7 +1675,7 @@ impl ISyncCallback_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISyncCallback as ::windows_core::ComInterface>::IID
+        iid == &<ISyncCallback as ::windows_core::Interface>::IID
     }
 }
 pub trait ISyncCallback2_Impl: Sized + ISyncCallback_Impl {
@@ -1702,7 +1702,7 @@ impl ISyncCallback2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISyncCallback2 as ::windows_core::ComInterface>::IID || iid == &<ISyncCallback as ::windows_core::ComInterface>::IID
+        iid == &<ISyncCallback2 as ::windows_core::Interface>::IID || iid == &<ISyncCallback as ::windows_core::Interface>::IID
     }
 }
 pub trait ISyncChange_Impl: Sized {
@@ -1803,7 +1803,7 @@ impl ISyncChange_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISyncChange as ::windows_core::ComInterface>::IID
+        iid == &<ISyncChange as ::windows_core::Interface>::IID
     }
 }
 pub trait ISyncChangeBatch_Impl: Sized + ISyncChangeBatchBase_Impl {
@@ -1843,7 +1843,7 @@ impl ISyncChangeBatch_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISyncChangeBatch as ::windows_core::ComInterface>::IID || iid == &<ISyncChangeBatchBase as ::windows_core::ComInterface>::IID
+        iid == &<ISyncChangeBatch as ::windows_core::Interface>::IID || iid == &<ISyncChangeBatchBase as ::windows_core::Interface>::IID
     }
 }
 pub trait ISyncChangeBatch2_Impl: Sized + ISyncChangeBatch_Impl {
@@ -1882,7 +1882,7 @@ impl ISyncChangeBatch2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISyncChangeBatch2 as ::windows_core::ComInterface>::IID || iid == &<ISyncChangeBatchBase as ::windows_core::ComInterface>::IID || iid == &<ISyncChangeBatch as ::windows_core::ComInterface>::IID
+        iid == &<ISyncChangeBatch2 as ::windows_core::Interface>::IID || iid == &<ISyncChangeBatchBase as ::windows_core::Interface>::IID || iid == &<ISyncChangeBatch as ::windows_core::Interface>::IID
     }
 }
 pub trait ISyncChangeBatchAdvanced_Impl: Sized {
@@ -1935,7 +1935,7 @@ impl ISyncChangeBatchAdvanced_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISyncChangeBatchAdvanced as ::windows_core::ComInterface>::IID
+        iid == &<ISyncChangeBatchAdvanced as ::windows_core::Interface>::IID
     }
 }
 pub trait ISyncChangeBatchBase_Impl: Sized {
@@ -2076,7 +2076,7 @@ impl ISyncChangeBatchBase_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISyncChangeBatchBase as ::windows_core::ComInterface>::IID
+        iid == &<ISyncChangeBatchBase as ::windows_core::Interface>::IID
     }
 }
 pub trait ISyncChangeBatchBase2_Impl: Sized + ISyncChangeBatchBase_Impl {
@@ -2093,7 +2093,7 @@ impl ISyncChangeBatchBase2_Vtbl {
         Self { base__: ISyncChangeBatchBase_Vtbl::new::<Identity, Impl, OFFSET>(), SerializeWithOptions: SerializeWithOptions::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISyncChangeBatchBase2 as ::windows_core::ComInterface>::IID || iid == &<ISyncChangeBatchBase as ::windows_core::ComInterface>::IID
+        iid == &<ISyncChangeBatchBase2 as ::windows_core::Interface>::IID || iid == &<ISyncChangeBatchBase as ::windows_core::Interface>::IID
     }
 }
 pub trait ISyncChangeBatchWithFilterKeyMap_Impl: Sized {
@@ -2198,7 +2198,7 @@ impl ISyncChangeBatchWithFilterKeyMap_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISyncChangeBatchWithFilterKeyMap as ::windows_core::ComInterface>::IID
+        iid == &<ISyncChangeBatchWithFilterKeyMap as ::windows_core::Interface>::IID
     }
 }
 pub trait ISyncChangeBatchWithPrerequisite_Impl: Sized + ISyncChangeBatchBase_Impl {
@@ -2244,7 +2244,7 @@ impl ISyncChangeBatchWithPrerequisite_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISyncChangeBatchWithPrerequisite as ::windows_core::ComInterface>::IID || iid == &<ISyncChangeBatchBase as ::windows_core::ComInterface>::IID
+        iid == &<ISyncChangeBatchWithPrerequisite as ::windows_core::Interface>::IID || iid == &<ISyncChangeBatchBase as ::windows_core::Interface>::IID
     }
 }
 pub trait ISyncChangeBuilder_Impl: Sized {
@@ -2261,7 +2261,7 @@ impl ISyncChangeBuilder_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), AddChangeUnitMetadata: AddChangeUnitMetadata::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISyncChangeBuilder as ::windows_core::ComInterface>::IID
+        iid == &<ISyncChangeBuilder as ::windows_core::Interface>::IID
     }
 }
 pub trait ISyncChangeUnit_Impl: Sized {
@@ -2301,7 +2301,7 @@ impl ISyncChangeUnit_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISyncChangeUnit as ::windows_core::ComInterface>::IID
+        iid == &<ISyncChangeUnit as ::windows_core::Interface>::IID
     }
 }
 pub trait ISyncChangeWithFilterKeyMap_Impl: Sized {
@@ -2413,7 +2413,7 @@ impl ISyncChangeWithFilterKeyMap_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISyncChangeWithFilterKeyMap as ::windows_core::ComInterface>::IID
+        iid == &<ISyncChangeWithFilterKeyMap as ::windows_core::Interface>::IID
     }
 }
 pub trait ISyncChangeWithPrerequisite_Impl: Sized {
@@ -2452,7 +2452,7 @@ impl ISyncChangeWithPrerequisite_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISyncChangeWithPrerequisite as ::windows_core::ComInterface>::IID
+        iid == &<ISyncChangeWithPrerequisite as ::windows_core::Interface>::IID
     }
 }
 pub trait ISyncConstraintCallback_Impl: Sized {
@@ -2469,7 +2469,7 @@ impl ISyncConstraintCallback_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnConstraintConflict: OnConstraintConflict::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISyncConstraintCallback as ::windows_core::ComInterface>::IID
+        iid == &<ISyncConstraintCallback as ::windows_core::Interface>::IID
     }
 }
 pub trait ISyncDataConverter_Impl: Sized {
@@ -2534,7 +2534,7 @@ impl ISyncDataConverter_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISyncDataConverter as ::windows_core::ComInterface>::IID
+        iid == &<ISyncDataConverter as ::windows_core::Interface>::IID
     }
 }
 pub trait ISyncFilter_Impl: Sized {
@@ -2561,7 +2561,7 @@ impl ISyncFilter_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISyncFilter as ::windows_core::ComInterface>::IID
+        iid == &<ISyncFilter as ::windows_core::Interface>::IID
     }
 }
 pub trait ISyncFilterDeserializer_Impl: Sized {
@@ -2584,7 +2584,7 @@ impl ISyncFilterDeserializer_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), DeserializeSyncFilter: DeserializeSyncFilter::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISyncFilterDeserializer as ::windows_core::ComInterface>::IID
+        iid == &<ISyncFilterDeserializer as ::windows_core::Interface>::IID
     }
 }
 pub trait ISyncFilterInfo_Impl: Sized {
@@ -2601,7 +2601,7 @@ impl ISyncFilterInfo_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Serialize: Serialize::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISyncFilterInfo as ::windows_core::ComInterface>::IID
+        iid == &<ISyncFilterInfo as ::windows_core::Interface>::IID
     }
 }
 pub trait ISyncFilterInfo2_Impl: Sized + ISyncFilterInfo_Impl {
@@ -2618,7 +2618,7 @@ impl ISyncFilterInfo2_Vtbl {
         Self { base__: ISyncFilterInfo_Vtbl::new::<Identity, Impl, OFFSET>(), GetFlags: GetFlags::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISyncFilterInfo2 as ::windows_core::ComInterface>::IID || iid == &<ISyncFilterInfo as ::windows_core::ComInterface>::IID
+        iid == &<ISyncFilterInfo2 as ::windows_core::Interface>::IID || iid == &<ISyncFilterInfo as ::windows_core::Interface>::IID
     }
 }
 pub trait ISyncFullEnumerationChange_Impl: Sized {
@@ -2657,7 +2657,7 @@ impl ISyncFullEnumerationChange_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISyncFullEnumerationChange as ::windows_core::ComInterface>::IID
+        iid == &<ISyncFullEnumerationChange as ::windows_core::Interface>::IID
     }
 }
 pub trait ISyncFullEnumerationChangeBatch_Impl: Sized + ISyncChangeBatchBase_Impl {
@@ -2697,7 +2697,7 @@ impl ISyncFullEnumerationChangeBatch_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISyncFullEnumerationChangeBatch as ::windows_core::ComInterface>::IID || iid == &<ISyncChangeBatchBase as ::windows_core::ComInterface>::IID
+        iid == &<ISyncFullEnumerationChangeBatch as ::windows_core::Interface>::IID || iid == &<ISyncChangeBatchBase as ::windows_core::Interface>::IID
     }
 }
 pub trait ISyncFullEnumerationChangeBatch2_Impl: Sized + ISyncFullEnumerationChangeBatch_Impl {
@@ -2723,7 +2723,7 @@ impl ISyncFullEnumerationChangeBatch2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISyncFullEnumerationChangeBatch2 as ::windows_core::ComInterface>::IID || iid == &<ISyncChangeBatchBase as ::windows_core::ComInterface>::IID || iid == &<ISyncFullEnumerationChangeBatch as ::windows_core::ComInterface>::IID
+        iid == &<ISyncFullEnumerationChangeBatch2 as ::windows_core::Interface>::IID || iid == &<ISyncChangeBatchBase as ::windows_core::Interface>::IID || iid == &<ISyncFullEnumerationChangeBatch as ::windows_core::Interface>::IID
     }
 }
 pub trait ISyncKnowledge_Impl: Sized {
@@ -2940,7 +2940,7 @@ impl ISyncKnowledge_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISyncKnowledge as ::windows_core::ComInterface>::IID
+        iid == &<ISyncKnowledge as ::windows_core::Interface>::IID
     }
 }
 pub trait ISyncKnowledge2_Impl: Sized + ISyncKnowledge_Impl {
@@ -3075,7 +3075,7 @@ impl ISyncKnowledge2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISyncKnowledge2 as ::windows_core::ComInterface>::IID || iid == &<ISyncKnowledge as ::windows_core::ComInterface>::IID
+        iid == &<ISyncKnowledge2 as ::windows_core::Interface>::IID || iid == &<ISyncKnowledge as ::windows_core::Interface>::IID
     }
 }
 pub trait ISyncMergeTombstoneChange_Impl: Sized {
@@ -3092,7 +3092,7 @@ impl ISyncMergeTombstoneChange_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetWinnerItemId: GetWinnerItemId::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISyncMergeTombstoneChange as ::windows_core::ComInterface>::IID
+        iid == &<ISyncMergeTombstoneChange as ::windows_core::Interface>::IID
     }
 }
 pub trait ISyncProvider_Impl: Sized {
@@ -3109,7 +3109,7 @@ impl ISyncProvider_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetIdParameters: GetIdParameters::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISyncProvider as ::windows_core::ComInterface>::IID
+        iid == &<ISyncProvider as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
@@ -3166,7 +3166,7 @@ impl ISyncProviderConfigUI_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISyncProviderConfigUI as ::windows_core::ComInterface>::IID
+        iid == &<ISyncProviderConfigUI as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`"]
@@ -3196,7 +3196,7 @@ impl ISyncProviderConfigUIInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISyncProviderConfigUIInfo as ::windows_core::ComInterface>::IID || iid == &<super::super::UI::Shell::PropertiesSystem::IPropertyStore as ::windows_core::ComInterface>::IID
+        iid == &<ISyncProviderConfigUIInfo as ::windows_core::Interface>::IID || iid == &<super::super::UI::Shell::PropertiesSystem::IPropertyStore as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`"]
@@ -3226,7 +3226,7 @@ impl ISyncProviderInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISyncProviderInfo as ::windows_core::ComInterface>::IID || iid == &<super::super::UI::Shell::PropertiesSystem::IPropertyStore as ::windows_core::ComInterface>::IID
+        iid == &<ISyncProviderInfo as ::windows_core::Interface>::IID || iid == &<super::super::UI::Shell::PropertiesSystem::IPropertyStore as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
@@ -3421,7 +3421,7 @@ impl ISyncProviderRegistration_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISyncProviderRegistration as ::windows_core::ComInterface>::IID
+        iid == &<ISyncProviderRegistration as ::windows_core::Interface>::IID
     }
 }
 pub trait ISyncRegistrationChange_Impl: Sized {
@@ -3460,7 +3460,7 @@ impl ISyncRegistrationChange_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISyncRegistrationChange as ::windows_core::ComInterface>::IID
+        iid == &<ISyncRegistrationChange as ::windows_core::Interface>::IID
     }
 }
 pub trait ISyncSessionExtendedErrorInfo_Impl: Sized {
@@ -3483,7 +3483,7 @@ impl ISyncSessionExtendedErrorInfo_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetSyncProviderWithError: GetSyncProviderWithError::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISyncSessionExtendedErrorInfo as ::windows_core::ComInterface>::IID
+        iid == &<ISyncSessionExtendedErrorInfo as ::windows_core::Interface>::IID
     }
 }
 pub trait ISyncSessionState_Impl: Sized {
@@ -3545,7 +3545,7 @@ impl ISyncSessionState_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISyncSessionState as ::windows_core::ComInterface>::IID
+        iid == &<ISyncSessionState as ::windows_core::Interface>::IID
     }
 }
 pub trait ISyncSessionState2_Impl: Sized + ISyncSessionState_Impl {
@@ -3572,7 +3572,7 @@ impl ISyncSessionState2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISyncSessionState2 as ::windows_core::ComInterface>::IID || iid == &<ISyncSessionState as ::windows_core::ComInterface>::IID
+        iid == &<ISyncSessionState2 as ::windows_core::Interface>::IID || iid == &<ISyncSessionState as ::windows_core::Interface>::IID
     }
 }
 pub trait ISynchronousDataRetriever_Impl: Sized {
@@ -3605,6 +3605,6 @@ impl ISynchronousDataRetriever_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISynchronousDataRetriever as ::windows_core::ComInterface>::IID
+        iid == &<ISynchronousDataRetriever as ::windows_core::Interface>::IID
     }
 }

@@ -36,7 +36,7 @@ impl ICreateDeviceAccessAsync_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICreateDeviceAccessAsync as ::windows_core::ComInterface>::IID
+        iid == &<ICreateDeviceAccessAsync as ::windows_core::Interface>::IID
     }
 }
 pub trait IDeviceIoControl_Impl: Sized {
@@ -70,7 +70,7 @@ impl IDeviceIoControl_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDeviceIoControl as ::windows_core::ComInterface>::IID
+        iid == &<IDeviceIoControl as ::windows_core::Interface>::IID
     }
 }
 pub trait IDeviceRequestCompletionCallback_Impl: Sized {
@@ -87,6 +87,6 @@ impl IDeviceRequestCompletionCallback_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Invoke: Invoke::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDeviceRequestCompletionCallback as ::windows_core::ComInterface>::IID
+        iid == &<IDeviceRequestCompletionCallback as ::windows_core::Interface>::IID
     }
 }

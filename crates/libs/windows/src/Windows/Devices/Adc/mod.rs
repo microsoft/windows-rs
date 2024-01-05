@@ -1,16 +1,7 @@
 #[cfg(feature = "Devices_Adc_Provider")]
 #[doc = "Required features: `\"Devices_Adc_Provider\"`"]
 pub mod Provider;
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAdcChannel(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAdcChannel {
-    type Vtable = IAdcChannel_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAdcChannel {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x040bf414_2588_4a56_abef_73a260acc60a);
-}
+::windows_core::imp::com_interface!(IAdcChannel, IAdcChannel_Vtbl, 0x040bf414_2588_4a56_abef_73a260acc60a);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdcChannel_Vtbl {
@@ -19,16 +10,7 @@ pub struct IAdcChannel_Vtbl {
     pub ReadValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
     pub ReadRatio: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAdcController(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAdcController {
-    type Vtable = IAdcController_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAdcController {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2a76e4b0_a896_4219_86b6_ea8cdce98f56);
-}
+::windows_core::imp::com_interface!(IAdcController, IAdcController_Vtbl, 0x2a76e4b0_a896_4219_86b6_ea8cdce98f56);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdcController_Vtbl {
@@ -42,16 +24,7 @@ pub struct IAdcController_Vtbl {
     pub IsChannelModeSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, channelmode: AdcChannelMode, result__: *mut bool) -> ::windows_core::HRESULT,
     pub OpenChannel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, channelnumber: i32, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAdcControllerStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAdcControllerStatics {
-    type Vtable = IAdcControllerStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAdcControllerStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcce98e0c_01f8_4891_bc3b_be53ef279ca4);
-}
+::windows_core::imp::com_interface!(IAdcControllerStatics, IAdcControllerStatics_Vtbl, 0xcce98e0c_01f8_4891_bc3b_be53ef279ca4);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdcControllerStatics_Vtbl {
@@ -61,16 +34,7 @@ pub struct IAdcControllerStatics_Vtbl {
     #[cfg(not(all(feature = "Devices_Adc_Provider", feature = "Foundation_Collections")))]
     GetControllersAsync: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAdcControllerStatics2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAdcControllerStatics2 {
-    type Vtable = IAdcControllerStatics2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAdcControllerStatics2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa2b93b1d_977b_4f5a_a5fe_a6abaffe6484);
-}
+::windows_core::imp::com_interface!(IAdcControllerStatics2, IAdcControllerStatics2_Vtbl, 0xa2b93b1d_977b_4f5a_a5fe_a6abaffe6484);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdcControllerStatics2_Vtbl {
@@ -80,6 +44,8 @@ pub struct IAdcControllerStatics2_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AdcChannel(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(AdcChannel, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(AdcChannel, super::super::Foundation::IClosable);
 impl AdcChannel {
     pub fn Controller(&self) -> ::windows_core::Result<AdcController> {
         let this = self;
@@ -103,7 +69,7 @@ impl AdcChannel {
         }
     }
     pub fn Close(&self) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
+        let this = &::windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
 }
@@ -112,20 +78,17 @@ impl ::windows_core::RuntimeType for AdcChannel {
 }
 unsafe impl ::windows_core::Interface for AdcChannel {
     type Vtable = IAdcChannel_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for AdcChannel {
-    const IID: ::windows_core::GUID = <IAdcChannel as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IAdcChannel as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for AdcChannel {
     const NAME: &'static str = "Windows.Devices.Adc.AdcChannel";
 }
-::windows_core::imp::interface_hierarchy!(AdcChannel, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for AdcChannel {}
 unsafe impl ::core::marker::Send for AdcChannel {}
 unsafe impl ::core::marker::Sync for AdcChannel {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AdcController(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(AdcController, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl AdcController {
     pub fn ChannelCount(&self) -> ::windows_core::Result<i32> {
         let this = self;
@@ -184,11 +147,11 @@ impl AdcController {
     #[cfg(all(feature = "Devices_Adc_Provider", feature = "Foundation_Collections"))]
     pub fn GetControllersAsync<P0>(provider: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AdcController>>>
     where
-        P0: ::windows_core::TryIntoParam<Provider::IAdcProvider>,
+        P0: ::windows_core::IntoParam<Provider::IAdcProvider>,
     {
         Self::IAdcControllerStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetControllersAsync)(::windows_core::Interface::as_raw(this), provider.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetControllersAsync)(::windows_core::Interface::as_raw(this), provider.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn GetDefaultAsync() -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<AdcController>> {
@@ -213,14 +176,11 @@ impl ::windows_core::RuntimeType for AdcController {
 }
 unsafe impl ::windows_core::Interface for AdcController {
     type Vtable = IAdcController_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for AdcController {
-    const IID: ::windows_core::GUID = <IAdcController as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IAdcController as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for AdcController {
     const NAME: &'static str = "Windows.Devices.Adc.AdcController";
 }
-::windows_core::imp::interface_hierarchy!(AdcController, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AdcController {}
 unsafe impl ::core::marker::Sync for AdcController {}
 #[repr(transparent)]

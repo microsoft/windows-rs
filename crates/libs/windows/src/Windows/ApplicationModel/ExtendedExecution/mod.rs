@@ -1,32 +1,14 @@
 #[cfg(feature = "ApplicationModel_ExtendedExecution_Foreground")]
 #[doc = "Required features: `\"ApplicationModel_ExtendedExecution_Foreground\"`"]
 pub mod Foreground;
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IExtendedExecutionRevokedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IExtendedExecutionRevokedEventArgs {
-    type Vtable = IExtendedExecutionRevokedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IExtendedExecutionRevokedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbfbc9f16_63b5_4c0b_aad6_828af5373ec3);
-}
+::windows_core::imp::com_interface!(IExtendedExecutionRevokedEventArgs, IExtendedExecutionRevokedEventArgs_Vtbl, 0xbfbc9f16_63b5_4c0b_aad6_828af5373ec3);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IExtendedExecutionRevokedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Reason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ExtendedExecutionRevokedReason) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IExtendedExecutionSession(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IExtendedExecutionSession {
-    type Vtable = IExtendedExecutionSession_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IExtendedExecutionSession {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaf908a2d_118b_48f1_9308_0c4fc41e200f);
-}
+::windows_core::imp::com_interface!(IExtendedExecutionSession, IExtendedExecutionSession_Vtbl, 0xaf908a2d_118b_48f1_9308_0c4fc41e200f);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IExtendedExecutionSession_Vtbl {
@@ -44,6 +26,7 @@ pub struct IExtendedExecutionSession_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ExtendedExecutionRevokedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(ExtendedExecutionRevokedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ExtendedExecutionRevokedEventArgs {
     pub fn Reason(&self) -> ::windows_core::Result<ExtendedExecutionRevokedReason> {
         let this = self;
@@ -58,19 +41,18 @@ impl ::windows_core::RuntimeType for ExtendedExecutionRevokedEventArgs {
 }
 unsafe impl ::windows_core::Interface for ExtendedExecutionRevokedEventArgs {
     type Vtable = IExtendedExecutionRevokedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ExtendedExecutionRevokedEventArgs {
-    const IID: ::windows_core::GUID = <IExtendedExecutionRevokedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IExtendedExecutionRevokedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for ExtendedExecutionRevokedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionRevokedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(ExtendedExecutionRevokedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for ExtendedExecutionRevokedEventArgs {}
 unsafe impl ::core::marker::Sync for ExtendedExecutionRevokedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ExtendedExecutionSession(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(ExtendedExecutionSession, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(ExtendedExecutionSession, super::super::Foundation::IClosable);
 impl ExtendedExecutionSession {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -80,7 +62,7 @@ impl ExtendedExecutionSession {
         SHARED.call(callback)
     }
     pub fn Close(&self) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
+        let this = &::windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Reason(&self) -> ::windows_core::Result<ExtendedExecutionReason> {
@@ -143,15 +125,11 @@ impl ::windows_core::RuntimeType for ExtendedExecutionSession {
 }
 unsafe impl ::windows_core::Interface for ExtendedExecutionSession {
     type Vtable = IExtendedExecutionSession_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ExtendedExecutionSession {
-    const IID: ::windows_core::GUID = <IExtendedExecutionSession as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IExtendedExecutionSession as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for ExtendedExecutionSession {
     const NAME: &'static str = "Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionSession";
 }
-::windows_core::imp::interface_hierarchy!(ExtendedExecutionSession, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for ExtendedExecutionSession {}
 unsafe impl ::core::marker::Send for ExtendedExecutionSession {}
 unsafe impl ::core::marker::Sync for ExtendedExecutionSession {}
 #[repr(transparent)]

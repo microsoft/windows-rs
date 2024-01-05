@@ -595,7 +595,7 @@ impl IWebViewControl_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWebViewControl as ::windows_core::ComInterface>::IID
+        iid == &<IWebViewControl as ::windows_core::Interface>::IID
     }
 }
 pub trait IWebViewControl2_Impl: Sized {
@@ -617,6 +617,6 @@ impl IWebViewControl2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWebViewControl2 as ::windows_core::ComInterface>::IID
+        iid == &<IWebViewControl2 as ::windows_core::Interface>::IID
     }
 }

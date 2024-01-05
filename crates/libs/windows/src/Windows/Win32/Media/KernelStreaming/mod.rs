@@ -112,9 +112,8 @@ where
     ::windows_targets::link!("ksproxy.ax" "system" fn KsSynchronousDeviceControl(handle : super::super::Foundation:: HANDLE, iocontrol : u32, inbuffer : *const ::core::ffi::c_void, inlength : u32, outbuffer : *mut ::core::ffi::c_void, outlength : u32, bytesreturned : *mut u32) -> ::windows_core::HRESULT);
     KsSynchronousDeviceControl(handle.into_param().abi(), iocontrol, ::core::mem::transmute(inbuffer.unwrap_or(::std::ptr::null())), inlength, ::core::mem::transmute(outbuffer.unwrap_or(::std::ptr::null_mut())), outlength, ::core::mem::transmute(bytesreturned.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IKsAggregateControl(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IKsAggregateControl, IKsAggregateControl_Vtbl, 0x7f40eac0_3947_11d2_874e_00a0c9223196);
+::windows_core::imp::interface_hierarchy!(IKsAggregateControl, ::windows_core::IUnknown);
 impl IKsAggregateControl {
     pub unsafe fn KsAddAggregate(&self, aggregateclass: *const ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).KsAddAggregate)(::windows_core::Interface::as_raw(self), aggregateclass).ok()
@@ -123,13 +122,6 @@ impl IKsAggregateControl {
         (::windows_core::Interface::vtable(self).KsRemoveAggregate)(::windows_core::Interface::as_raw(self), aggregateclass).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IKsAggregateControl, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IKsAggregateControl {
-    type Vtable = IKsAggregateControl_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IKsAggregateControl {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7f40eac0_3947_11d2_874e_00a0c9223196);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKsAggregateControl_Vtbl {
@@ -137,9 +129,8 @@ pub struct IKsAggregateControl_Vtbl {
     pub KsAddAggregate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, aggregateclass: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
     pub KsRemoveAggregate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, aggregateclass: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IKsAllocator(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IKsAllocator, IKsAllocator_Vtbl, 0x8da64899_c0d9_11d0_8413_0000f822fe8a);
+::windows_core::imp::interface_hierarchy!(IKsAllocator, ::windows_core::IUnknown);
 impl IKsAllocator {
     pub unsafe fn KsGetAllocatorHandle(&self) -> super::super::Foundation::HANDLE {
         (::windows_core::Interface::vtable(self).KsGetAllocatorHandle)(::windows_core::Interface::as_raw(self))
@@ -154,13 +145,6 @@ impl IKsAllocator {
         (::windows_core::Interface::vtable(self).KsSetAllocatorMode)(::windows_core::Interface::as_raw(self), mode)
     }
 }
-::windows_core::imp::interface_hierarchy!(IKsAllocator, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IKsAllocator {
-    type Vtable = IKsAllocator_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IKsAllocator {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8da64899_c0d9_11d0_8413_0000f822fe8a);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKsAllocator_Vtbl {
@@ -170,9 +154,8 @@ pub struct IKsAllocator_Vtbl {
     pub KsGetAllocatorStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, allocatorstatus: *mut KSSTREAMALLOCATOR_STATUS) -> ::windows_core::HRESULT,
     pub KsSetAllocatorMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: KSALLOCATORMODE),
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IKsAllocatorEx(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IKsAllocatorEx, IKsAllocatorEx_Vtbl, 0x091bb63a_603f_11d1_b067_00a0c9062802);
+::windows_core::imp::interface_hierarchy!(IKsAllocatorEx, ::windows_core::IUnknown, IKsAllocator);
 impl IKsAllocatorEx {
     pub unsafe fn KsGetAllocatorHandle(&self) -> super::super::Foundation::HANDLE {
         (::windows_core::Interface::vtable(self).base__.KsGetAllocatorHandle)(::windows_core::Interface::as_raw(self))
@@ -205,13 +188,6 @@ impl IKsAllocatorEx {
         (::windows_core::Interface::vtable(self).KsCreateAllocatorAndGetHandle)(::windows_core::Interface::as_raw(self), kspin.into_param().abi())
     }
 }
-::windows_core::imp::interface_hierarchy!(IKsAllocatorEx, ::windows_core::IUnknown, IKsAllocator);
-unsafe impl ::windows_core::Interface for IKsAllocatorEx {
-    type Vtable = IKsAllocatorEx_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IKsAllocatorEx {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x091bb63a_603f_11d1_b067_00a0c9062802);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKsAllocatorEx_Vtbl {
@@ -221,9 +197,8 @@ pub struct IKsAllocatorEx_Vtbl {
     pub KsSetAllocatorHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, allocatorhandle: super::super::Foundation::HANDLE),
     pub KsCreateAllocatorAndGetHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, kspin: *mut ::core::ffi::c_void) -> super::super::Foundation::HANDLE,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IKsClockPropertySet(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IKsClockPropertySet, IKsClockPropertySet_Vtbl, 0x5c5cbd84_e755_11d0_ac18_00a0c9223196);
+::windows_core::imp::interface_hierarchy!(IKsClockPropertySet, ::windows_core::IUnknown);
 impl IKsClockPropertySet {
     pub unsafe fn KsGetTime(&self) -> ::windows_core::Result<i64> {
         let mut result__ = ::std::mem::zeroed();
@@ -262,13 +237,6 @@ impl IKsClockPropertySet {
         (::windows_core::Interface::vtable(self).KsGetState)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IKsClockPropertySet, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IKsClockPropertySet {
-    type Vtable = IKsClockPropertySet_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IKsClockPropertySet {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5c5cbd84_e755_11d0_ac18_00a0c9223196);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKsClockPropertySet_Vtbl {
@@ -284,9 +252,8 @@ pub struct IKsClockPropertySet_Vtbl {
     pub KsGetResolution: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resolution: *mut KSRESOLUTION) -> ::windows_core::HRESULT,
     pub KsGetState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, state: *mut KSSTATE) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IKsControl(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IKsControl, IKsControl_Vtbl, 0x28f54685_06fd_11d2_b27a_00a0c9223196);
+::windows_core::imp::interface_hierarchy!(IKsControl, ::windows_core::IUnknown);
 impl IKsControl {
     pub unsafe fn KsProperty(&self, property: *const KSIDENTIFIER, propertylength: u32, propertydata: *mut ::core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).KsProperty)(::windows_core::Interface::as_raw(self), property, propertylength, propertydata, datalength, bytesreturned).ok()
@@ -298,13 +265,6 @@ impl IKsControl {
         (::windows_core::Interface::vtable(self).KsEvent)(::windows_core::Interface::as_raw(self), event, eventlength, eventdata, datalength, bytesreturned).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IKsControl, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IKsControl {
-    type Vtable = IKsControl_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IKsControl {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x28f54685_06fd_11d2_b27a_00a0c9223196);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKsControl_Vtbl {
@@ -313,9 +273,8 @@ pub struct IKsControl_Vtbl {
     pub KsMethod: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, method: *const KSIDENTIFIER, methodlength: u32, methoddata: *mut ::core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> ::windows_core::HRESULT,
     pub KsEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, event: *const KSIDENTIFIER, eventlength: u32, eventdata: *mut ::core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IKsDataTypeCompletion(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IKsDataTypeCompletion, IKsDataTypeCompletion_Vtbl, 0x827d1a0e_0f73_11d2_b27a_00a0c9223196);
+::windows_core::imp::interface_hierarchy!(IKsDataTypeCompletion, ::windows_core::IUnknown);
 impl IKsDataTypeCompletion {
     #[doc = "Required features: `\"Win32_Media_MediaFoundation\"`"]
     #[cfg(feature = "Win32_Media_MediaFoundation")]
@@ -326,13 +285,6 @@ impl IKsDataTypeCompletion {
         (::windows_core::Interface::vtable(self).KsCompleteMediaType)(::windows_core::Interface::as_raw(self), filterhandle.into_param().abi(), pinfactoryid, ammediatype).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IKsDataTypeCompletion, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IKsDataTypeCompletion {
-    type Vtable = IKsDataTypeCompletion_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IKsDataTypeCompletion {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x827d1a0e_0f73_11d2_b27a_00a0c9223196);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKsDataTypeCompletion_Vtbl {
@@ -342,9 +294,8 @@ pub struct IKsDataTypeCompletion_Vtbl {
     #[cfg(not(feature = "Win32_Media_MediaFoundation"))]
     KsCompleteMediaType: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IKsDataTypeHandler(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IKsDataTypeHandler, IKsDataTypeHandler_Vtbl, 0x5ffbaa02_49a3_11d0_9f36_00aa00a216a1);
+::windows_core::imp::interface_hierarchy!(IKsDataTypeHandler, ::windows_core::IUnknown);
 impl IKsDataTypeHandler {
     #[doc = "Required features: `\"Win32_Media_DirectShow\"`"]
     #[cfg(feature = "Win32_Media_DirectShow")]
@@ -376,13 +327,6 @@ impl IKsDataTypeHandler {
         (::windows_core::Interface::vtable(self).KsSetMediaType)(::windows_core::Interface::as_raw(self), ammediatype).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IKsDataTypeHandler, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IKsDataTypeHandler {
-    type Vtable = IKsDataTypeHandler_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IKsDataTypeHandler {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5ffbaa02_49a3_11d0_9f36_00aa00a216a1);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKsDataTypeHandler_Vtbl {
@@ -402,9 +346,8 @@ pub struct IKsDataTypeHandler_Vtbl {
     #[cfg(not(feature = "Win32_Media_MediaFoundation"))]
     KsSetMediaType: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IKsFormatSupport(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IKsFormatSupport, IKsFormatSupport_Vtbl, 0x3cb4a69d_bb6f_4d2b_95b7_452d2c155db5);
+::windows_core::imp::interface_hierarchy!(IKsFormatSupport, ::windows_core::IUnknown);
 impl IKsFormatSupport {
     pub unsafe fn IsFormatSupported(&self, pksformat: *mut KSDATAFORMAT, cbformat: u32, pbsupported: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).IsFormatSupported)(::windows_core::Interface::as_raw(self), pksformat, cbformat, pbsupported).ok()
@@ -414,13 +357,6 @@ impl IKsFormatSupport {
         (::windows_core::Interface::vtable(self).GetDevicePreferredFormat)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IKsFormatSupport, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IKsFormatSupport {
-    type Vtable = IKsFormatSupport_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IKsFormatSupport {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3cb4a69d_bb6f_4d2b_95b7_452d2c155db5);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKsFormatSupport_Vtbl {
@@ -428,9 +364,8 @@ pub struct IKsFormatSupport_Vtbl {
     pub IsFormatSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pksformat: *mut KSDATAFORMAT, cbformat: u32, pbsupported: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
     pub GetDevicePreferredFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppksformat: *mut *mut KSDATAFORMAT) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IKsInterfaceHandler(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IKsInterfaceHandler, IKsInterfaceHandler_Vtbl, 0xd3abc7e0_9a61_11d0_a40d_00a0c9223196);
+::windows_core::imp::interface_hierarchy!(IKsInterfaceHandler, ::windows_core::IUnknown);
 impl IKsInterfaceHandler {
     pub unsafe fn KsSetPin<P0>(&self, kspin: P0) -> ::windows_core::Result<()>
     where
@@ -450,13 +385,6 @@ impl IKsInterfaceHandler {
         (::windows_core::Interface::vtable(self).KsCompleteIo)(::windows_core::Interface::as_raw(self), streamsegment).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IKsInterfaceHandler, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IKsInterfaceHandler {
-    type Vtable = IKsInterfaceHandler_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IKsInterfaceHandler {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd3abc7e0_9a61_11d0_a40d_00a0c9223196);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKsInterfaceHandler_Vtbl {
@@ -468,21 +396,13 @@ pub struct IKsInterfaceHandler_Vtbl {
     KsProcessMediaSamples: usize,
     pub KsCompleteIo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, streamsegment: *mut KSSTREAM_SEGMENT) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IKsJackContainerId(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IKsJackContainerId, IKsJackContainerId_Vtbl, 0xc99af463_d629_4ec4_8c00_e54d68154248);
+::windows_core::imp::interface_hierarchy!(IKsJackContainerId, ::windows_core::IUnknown);
 impl IKsJackContainerId {
     pub unsafe fn GetJackContainerId(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetJackContainerId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-}
-::windows_core::imp::interface_hierarchy!(IKsJackContainerId, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IKsJackContainerId {
-    type Vtable = IKsJackContainerId_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IKsJackContainerId {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc99af463_d629_4ec4_8c00_e54d68154248);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -490,9 +410,8 @@ pub struct IKsJackContainerId_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetJackContainerId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pjackcontainerid: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IKsJackDescription(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IKsJackDescription, IKsJackDescription_Vtbl, 0x4509f757_2d46_4637_8e62_ce7db944f57b);
+::windows_core::imp::interface_hierarchy!(IKsJackDescription, ::windows_core::IUnknown);
 impl IKsJackDescription {
     pub unsafe fn GetJackCount(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -502,13 +421,6 @@ impl IKsJackDescription {
         (::windows_core::Interface::vtable(self).GetJackDescription)(::windows_core::Interface::as_raw(self), njack, pdescription).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IKsJackDescription, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IKsJackDescription {
-    type Vtable = IKsJackDescription_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IKsJackDescription {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4509f757_2d46_4637_8e62_ce7db944f57b);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKsJackDescription_Vtbl {
@@ -516,9 +428,8 @@ pub struct IKsJackDescription_Vtbl {
     pub GetJackCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcjacks: *mut u32) -> ::windows_core::HRESULT,
     pub GetJackDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, njack: u32, pdescription: *mut KSJACK_DESCRIPTION) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IKsJackDescription2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IKsJackDescription2, IKsJackDescription2_Vtbl, 0x478f3a9b_e0c9_4827_9228_6f5505ffe76a);
+::windows_core::imp::interface_hierarchy!(IKsJackDescription2, ::windows_core::IUnknown);
 impl IKsJackDescription2 {
     pub unsafe fn GetJackCount(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -529,13 +440,6 @@ impl IKsJackDescription2 {
         (::windows_core::Interface::vtable(self).GetJackDescription2)(::windows_core::Interface::as_raw(self), njack, &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IKsJackDescription2, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IKsJackDescription2 {
-    type Vtable = IKsJackDescription2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IKsJackDescription2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x478f3a9b_e0c9_4827_9228_6f5505ffe76a);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKsJackDescription2_Vtbl {
@@ -543,9 +447,8 @@ pub struct IKsJackDescription2_Vtbl {
     pub GetJackCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcjacks: *mut u32) -> ::windows_core::HRESULT,
     pub GetJackDescription2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, njack: u32, pdescription2: *mut KSJACK_DESCRIPTION2) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IKsJackDescription3(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IKsJackDescription3, IKsJackDescription3_Vtbl, 0xe3f6778b_6660_4cc8_a291_ecc4192d9967);
+::windows_core::imp::interface_hierarchy!(IKsJackDescription3, ::windows_core::IUnknown);
 impl IKsJackDescription3 {
     pub unsafe fn GetJackCount(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -556,13 +459,6 @@ impl IKsJackDescription3 {
         (::windows_core::Interface::vtable(self).GetJackDescription3)(::windows_core::Interface::as_raw(self), njack, &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IKsJackDescription3, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IKsJackDescription3 {
-    type Vtable = IKsJackDescription3_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IKsJackDescription3 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe3f6778b_6660_4cc8_a291_ecc4192d9967);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKsJackDescription3_Vtbl {
@@ -570,20 +466,12 @@ pub struct IKsJackDescription3_Vtbl {
     pub GetJackCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcjacks: *mut u32) -> ::windows_core::HRESULT,
     pub GetJackDescription3: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, njack: u32, pdescription3: *mut KSJACK_DESCRIPTION3) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IKsJackSinkInformation(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IKsJackSinkInformation, IKsJackSinkInformation_Vtbl, 0xd9bd72ed_290f_4581_9ff3_61027a8fe532);
+::windows_core::imp::interface_hierarchy!(IKsJackSinkInformation, ::windows_core::IUnknown);
 impl IKsJackSinkInformation {
     pub unsafe fn GetJackSinkInformation(&self, pjacksinkinformation: *mut KSJACK_SINK_INFORMATION) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetJackSinkInformation)(::windows_core::Interface::as_raw(self), pjacksinkinformation).ok()
     }
-}
-::windows_core::imp::interface_hierarchy!(IKsJackSinkInformation, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IKsJackSinkInformation {
-    type Vtable = IKsJackSinkInformation_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IKsJackSinkInformation {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd9bd72ed_290f_4581_9ff3_61027a8fe532);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -591,9 +479,8 @@ pub struct IKsJackSinkInformation_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetJackSinkInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pjacksinkinformation: *mut KSJACK_SINK_INFORMATION) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IKsNodeControl(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IKsNodeControl, IKsNodeControl_Vtbl, 0x11737c14_24a7_4bb5_81a0_0d003813b0c4);
+::windows_core::imp::interface_hierarchy!(IKsNodeControl, ::windows_core::IUnknown);
 impl IKsNodeControl {
     pub unsafe fn SetNodeId(&self, dwnodeid: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetNodeId)(::windows_core::Interface::as_raw(self), dwnodeid).ok()
@@ -602,13 +489,6 @@ impl IKsNodeControl {
         (::windows_core::Interface::vtable(self).SetKsControl)(::windows_core::Interface::as_raw(self), pkscontrol).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IKsNodeControl, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IKsNodeControl {
-    type Vtable = IKsNodeControl_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IKsNodeControl {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x11737c14_24a7_4bb5_81a0_0d003813b0c4);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKsNodeControl_Vtbl {
@@ -616,20 +496,12 @@ pub struct IKsNodeControl_Vtbl {
     pub SetNodeId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwnodeid: u32) -> ::windows_core::HRESULT,
     pub SetKsControl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pkscontrol: *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IKsNotifyEvent(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IKsNotifyEvent, IKsNotifyEvent_Vtbl, 0x412bd695_f84b_46c1_ac73_54196dbc8fa7);
+::windows_core::imp::interface_hierarchy!(IKsNotifyEvent, ::windows_core::IUnknown);
 impl IKsNotifyEvent {
     pub unsafe fn KsNotifyEvent(&self, event: u32, lparam1: usize, lparam2: usize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).KsNotifyEvent)(::windows_core::Interface::as_raw(self), event, lparam1, lparam2).ok()
     }
-}
-::windows_core::imp::interface_hierarchy!(IKsNotifyEvent, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IKsNotifyEvent {
-    type Vtable = IKsNotifyEvent_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IKsNotifyEvent {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x412bd695_f84b_46c1_ac73_54196dbc8fa7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -637,20 +509,12 @@ pub struct IKsNotifyEvent_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub KsNotifyEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, event: u32, lparam1: usize, lparam2: usize) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IKsObject(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IKsObject, IKsObject_Vtbl, 0x423c13a2_2070_11d0_9ef7_00aa00a216a1);
+::windows_core::imp::interface_hierarchy!(IKsObject, ::windows_core::IUnknown);
 impl IKsObject {
     pub unsafe fn KsGetObjectHandle(&self) -> super::super::Foundation::HANDLE {
         (::windows_core::Interface::vtable(self).KsGetObjectHandle)(::windows_core::Interface::as_raw(self))
     }
-}
-::windows_core::imp::interface_hierarchy!(IKsObject, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IKsObject {
-    type Vtable = IKsObject_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IKsObject {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x423c13a2_2070_11d0_9ef7_00aa00a216a1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -658,9 +522,8 @@ pub struct IKsObject_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub KsGetObjectHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Foundation::HANDLE,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IKsPin(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IKsPin, IKsPin_Vtbl, 0xb61178d1_a2d9_11cf_9e53_00aa00a216a1);
+::windows_core::imp::interface_hierarchy!(IKsPin, ::windows_core::IUnknown);
 impl IKsPin {
     pub unsafe fn KsQueryMediums(&self) -> ::windows_core::Result<*mut KSMULTIPLE_ITEM> {
         let mut result__ = ::std::mem::zeroed();
@@ -716,13 +579,6 @@ impl IKsPin {
         (::windows_core::Interface::vtable(self).KsQualityNotify)(::windows_core::Interface::as_raw(self), proportion, timedelta).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IKsPin, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IKsPin {
-    type Vtable = IKsPin_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IKsPin {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb61178d1_a2d9_11cf_9e53_00aa00a216a1);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKsPin_Vtbl {
@@ -750,9 +606,8 @@ pub struct IKsPin_Vtbl {
     pub KsDecrementPendingIoCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> i32,
     pub KsQualityNotify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, proportion: u32, timedelta: i64) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IKsPinEx(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IKsPinEx, IKsPinEx_Vtbl, 0x7bb38260_d19c_11d2_b38a_00a0c95ec22e);
+::windows_core::imp::interface_hierarchy!(IKsPinEx, ::windows_core::IUnknown, IKsPin);
 impl IKsPinEx {
     pub unsafe fn KsQueryMediums(&self) -> ::windows_core::Result<*mut KSMULTIPLE_ITEM> {
         let mut result__ = ::std::mem::zeroed();
@@ -816,13 +671,6 @@ impl IKsPinEx {
         (::windows_core::Interface::vtable(self).KsNotifyError)(::windows_core::Interface::as_raw(self), sample.into_param().abi(), hr)
     }
 }
-::windows_core::imp::interface_hierarchy!(IKsPinEx, ::windows_core::IUnknown, IKsPin);
-unsafe impl ::windows_core::Interface for IKsPinEx {
-    type Vtable = IKsPinEx_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IKsPinEx {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7bb38260_d19c_11d2_b38a_00a0c95ec22e);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKsPinEx_Vtbl {
@@ -832,21 +680,13 @@ pub struct IKsPinEx_Vtbl {
     #[cfg(not(feature = "Win32_Media_DirectShow"))]
     KsNotifyError: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IKsPinFactory(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IKsPinFactory, IKsPinFactory_Vtbl, 0xcd5ebe6b_8b6e_11d1_8ae0_00a0c9223196);
+::windows_core::imp::interface_hierarchy!(IKsPinFactory, ::windows_core::IUnknown);
 impl IKsPinFactory {
     pub unsafe fn KsPinFactory(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).KsPinFactory)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-}
-::windows_core::imp::interface_hierarchy!(IKsPinFactory, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IKsPinFactory {
-    type Vtable = IKsPinFactory_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IKsPinFactory {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcd5ebe6b_8b6e_11d1_8ae0_00a0c9223196);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -854,9 +694,8 @@ pub struct IKsPinFactory_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub KsPinFactory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfactory: *mut u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IKsPinPipe(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IKsPinPipe, IKsPinPipe_Vtbl, 0xe539cd90_a8b4_11d1_8189_00a0c9062802);
+::windows_core::imp::interface_hierarchy!(IKsPinPipe, ::windows_core::IUnknown);
 impl IKsPinPipe {
     pub unsafe fn KsGetPinFramingCache(&self, framingex: *mut *mut KSALLOCATOR_FRAMING_EX, framingprop: *mut FRAMING_PROP, option: FRAMING_CACHE_OPS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).KsGetPinFramingCache)(::windows_core::Interface::as_raw(self), framingex, framingprop, option).ok()
@@ -899,13 +738,6 @@ impl IKsPinPipe {
         (::windows_core::Interface::vtable(self).KsGetFilterName)(::windows_core::Interface::as_raw(self))
     }
 }
-::windows_core::imp::interface_hierarchy!(IKsPinPipe, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IKsPinPipe {
-    type Vtable = IKsPinPipe_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IKsPinPipe {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe539cd90_a8b4_11d1_8189_00a0c9062802);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKsPinPipe_Vtbl {
@@ -925,9 +757,8 @@ pub struct IKsPinPipe_Vtbl {
     pub KsGetPinName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::PWSTR,
     pub KsGetFilterName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::PWSTR,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IKsPropertySet(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IKsPropertySet, IKsPropertySet_Vtbl, 0x31efac30_515c_11d0_a9aa_00aa0061be93);
+::windows_core::imp::interface_hierarchy!(IKsPropertySet, ::windows_core::IUnknown);
 impl IKsPropertySet {
     pub unsafe fn Set(&self, guidpropset: *const ::windows_core::GUID, dwpropid: u32, pinstancedata: *const ::core::ffi::c_void, cbinstancedata: u32, ppropdata: *const ::core::ffi::c_void, cbpropdata: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Set)(::windows_core::Interface::as_raw(self), guidpropset, dwpropid, pinstancedata, cbinstancedata, ppropdata, cbpropdata).ok()
@@ -940,13 +771,6 @@ impl IKsPropertySet {
         (::windows_core::Interface::vtable(self).QuerySupported)(::windows_core::Interface::as_raw(self), guidpropset, dwpropid, &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IKsPropertySet, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IKsPropertySet {
-    type Vtable = IKsPropertySet_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IKsPropertySet {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x31efac30_515c_11d0_a9aa_00aa0061be93);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKsPropertySet_Vtbl {
@@ -955,9 +779,8 @@ pub struct IKsPropertySet_Vtbl {
     pub Get: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidpropset: *const ::windows_core::GUID, dwpropid: u32, pinstancedata: *const ::core::ffi::c_void, cbinstancedata: u32, ppropdata: *mut ::core::ffi::c_void, cbpropdata: u32, pcbreturned: *mut u32) -> ::windows_core::HRESULT,
     pub QuerySupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidpropset: *const ::windows_core::GUID, dwpropid: u32, ptypesupport: *mut u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IKsQualityForwarder(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IKsQualityForwarder, IKsQualityForwarder_Vtbl, 0x97ebaacb_95bd_11d0_a3ea_00a0c9223196);
+::windows_core::imp::interface_hierarchy!(IKsQualityForwarder, ::windows_core::IUnknown, IKsObject);
 impl IKsQualityForwarder {
     pub unsafe fn KsGetObjectHandle(&self) -> super::super::Foundation::HANDLE {
         (::windows_core::Interface::vtable(self).base__.KsGetObjectHandle)(::windows_core::Interface::as_raw(self))
@@ -969,22 +792,14 @@ impl IKsQualityForwarder {
         (::windows_core::Interface::vtable(self).KsFlushClient)(::windows_core::Interface::as_raw(self), pin.into_param().abi())
     }
 }
-::windows_core::imp::interface_hierarchy!(IKsQualityForwarder, ::windows_core::IUnknown, IKsObject);
-unsafe impl ::windows_core::Interface for IKsQualityForwarder {
-    type Vtable = IKsQualityForwarder_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IKsQualityForwarder {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x97ebaacb_95bd_11d0_a3ea_00a0c9223196);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKsQualityForwarder_Vtbl {
     pub base__: IKsObject_Vtbl,
     pub KsFlushClient: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pin: *mut ::core::ffi::c_void),
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IKsTopology(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IKsTopology, IKsTopology_Vtbl, 0x28f54683_06fd_11d2_b27a_00a0c9223196);
+::windows_core::imp::interface_hierarchy!(IKsTopology, ::windows_core::IUnknown);
 impl IKsTopology {
     pub unsafe fn CreateNodeInstance<P0>(&self, nodeid: u32, flags: u32, desiredaccess: u32, unkouter: P0, interfaceid: *const ::windows_core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
     where
@@ -993,22 +808,14 @@ impl IKsTopology {
         (::windows_core::Interface::vtable(self).CreateNodeInstance)(::windows_core::Interface::as_raw(self), nodeid, flags, desiredaccess, unkouter.into_param().abi(), interfaceid, interface).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IKsTopology, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IKsTopology {
-    type Vtable = IKsTopology_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IKsTopology {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x28f54683_06fd_11d2_b27a_00a0c9223196);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKsTopology_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub CreateNodeInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nodeid: u32, flags: u32, desiredaccess: u32, unkouter: *mut ::core::ffi::c_void, interfaceid: *const ::windows_core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IKsTopologyInfo(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IKsTopologyInfo, IKsTopologyInfo_Vtbl, 0x720d4ac0_7533_11d0_a5d6_28db04c10000);
+::windows_core::imp::interface_hierarchy!(IKsTopologyInfo, ::windows_core::IUnknown);
 impl IKsTopologyInfo {
     pub unsafe fn NumCategories(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -1040,13 +847,6 @@ impl IKsTopologyInfo {
     pub unsafe fn CreateNodeInstance(&self, dwnodeid: u32, iid: *const ::windows_core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CreateNodeInstance)(::windows_core::Interface::as_raw(self), dwnodeid, iid, ppvobject).ok()
     }
-}
-::windows_core::imp::interface_hierarchy!(IKsTopologyInfo, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IKsTopologyInfo {
-    type Vtable = IKsTopologyInfo_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IKsTopologyInfo {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x720d4ac0_7533_11d0_a5d6_28db04c10000);
 }
 #[repr(C)]
 #[doc(hidden)]

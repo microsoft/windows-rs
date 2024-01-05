@@ -22,7 +22,7 @@ impl IWCNConnectNotify_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWCNConnectNotify as ::windows_core::ComInterface>::IID
+        iid == &<IWCNConnectNotify as ::windows_core::Interface>::IID
     }
 }
 pub trait IWCNDevice_Impl: Sized {
@@ -118,6 +118,6 @@ impl IWCNDevice_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWCNDevice as ::windows_core::ComInterface>::IID
+        iid == &<IWCNDevice as ::windows_core::Interface>::IID
     }
 }

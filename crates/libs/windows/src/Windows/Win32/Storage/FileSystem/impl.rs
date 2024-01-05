@@ -189,7 +189,7 @@ impl IDiskQuotaControl_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDiskQuotaControl as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IConnectionPointContainer as ::windows_core::ComInterface>::IID
+        iid == &<IDiskQuotaControl as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IConnectionPointContainer as ::windows_core::Interface>::IID
     }
 }
 pub trait IDiskQuotaEvents_Impl: Sized {
@@ -206,7 +206,7 @@ impl IDiskQuotaEvents_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnUserNameChanged: OnUserNameChanged::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDiskQuotaEvents as ::windows_core::ComInterface>::IID
+        iid == &<IDiskQuotaEvents as ::windows_core::Interface>::IID
     }
 }
 pub trait IDiskQuotaUser_Impl: Sized {
@@ -324,7 +324,7 @@ impl IDiskQuotaUser_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDiskQuotaUser as ::windows_core::ComInterface>::IID
+        iid == &<IDiskQuotaUser as ::windows_core::Interface>::IID
     }
 }
 pub trait IDiskQuotaUserBatch_Impl: Sized {
@@ -365,7 +365,7 @@ impl IDiskQuotaUserBatch_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDiskQuotaUserBatch as ::windows_core::ComInterface>::IID
+        iid == &<IDiskQuotaUserBatch as ::windows_core::Interface>::IID
     }
 }
 pub trait IEnumDiskQuotaUsers_Impl: Sized {
@@ -412,6 +412,6 @@ impl IEnumDiskQuotaUsers_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumDiskQuotaUsers as ::windows_core::ComInterface>::IID
+        iid == &<IEnumDiskQuotaUsers as ::windows_core::Interface>::IID
     }
 }

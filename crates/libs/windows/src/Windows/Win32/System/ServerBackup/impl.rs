@@ -28,7 +28,7 @@ impl IWsbApplicationAsync_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWsbApplicationAsync as ::windows_core::ComInterface>::IID
+        iid == &<IWsbApplicationAsync as ::windows_core::Interface>::IID
     }
 }
 pub trait IWsbApplicationBackupSupport_Impl: Sized {
@@ -51,7 +51,7 @@ impl IWsbApplicationBackupSupport_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CheckConsistency: CheckConsistency::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWsbApplicationBackupSupport as ::windows_core::ComInterface>::IID
+        iid == &<IWsbApplicationBackupSupport as ::windows_core::Interface>::IID
     }
 }
 pub trait IWsbApplicationRestoreSupport_Impl: Sized {
@@ -98,6 +98,6 @@ impl IWsbApplicationRestoreSupport_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWsbApplicationRestoreSupport as ::windows_core::ComInterface>::IID
+        iid == &<IWsbApplicationRestoreSupport as ::windows_core::Interface>::IID
     }
 }

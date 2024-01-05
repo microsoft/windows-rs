@@ -182,7 +182,7 @@ impl IStorageFile_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IStorageFile as ::windows_core::ComInterface>::IID
+        iid == &<IStorageFile as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Storage_Streams\"`"]
@@ -229,7 +229,7 @@ impl IStorageFile2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IStorageFile2 as ::windows_core::ComInterface>::IID
+        iid == &<IStorageFile2 as ::windows_core::Interface>::IID
     }
 }
 pub trait IStorageFilePropertiesWithAvailability_Impl: Sized {
@@ -257,7 +257,7 @@ impl IStorageFilePropertiesWithAvailability_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IStorageFilePropertiesWithAvailability as ::windows_core::ComInterface>::IID
+        iid == &<IStorageFilePropertiesWithAvailability as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Foundation_Collections\"`, `\"Storage_FileProperties\"`"]
@@ -416,7 +416,7 @@ impl IStorageFolder_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IStorageFolder as ::windows_core::ComInterface>::IID
+        iid == &<IStorageFolder as ::windows_core::Interface>::IID
     }
 }
 pub trait IStorageFolder2_Impl: Sized {
@@ -445,7 +445,7 @@ impl IStorageFolder2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IStorageFolder2 as ::windows_core::ComInterface>::IID
+        iid == &<IStorageFolder2 as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Storage_FileProperties\"`"]
@@ -601,7 +601,7 @@ impl IStorageItem_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IStorageItem as ::windows_core::ComInterface>::IID
+        iid == &<IStorageItem as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Storage_FileProperties\"`"]
@@ -647,7 +647,7 @@ impl IStorageItem2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IStorageItem2 as ::windows_core::ComInterface>::IID
+        iid == &<IStorageItem2 as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Storage_FileProperties\"`, `\"Storage_Streams\"`"]
@@ -764,7 +764,7 @@ impl IStorageItemProperties_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IStorageItemProperties as ::windows_core::ComInterface>::IID
+        iid == &<IStorageItemProperties as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Storage_FileProperties\"`, `\"Storage_Streams\"`"]
@@ -825,7 +825,7 @@ impl IStorageItemProperties2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IStorageItemProperties2 as ::windows_core::ComInterface>::IID
+        iid == &<IStorageItemProperties2 as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Storage_FileProperties\"`, `\"Storage_Streams\"`"]
@@ -858,7 +858,7 @@ impl IStorageItemPropertiesWithProvider_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IStorageItemPropertiesWithProvider as ::windows_core::ComInterface>::IID
+        iid == &<IStorageItemPropertiesWithProvider as ::windows_core::Interface>::IID
     }
 }
 pub trait IStreamedFileDataRequest_Impl: Sized {
@@ -880,6 +880,6 @@ impl IStreamedFileDataRequest_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IStreamedFileDataRequest as ::windows_core::ComInterface>::IID
+        iid == &<IStreamedFileDataRequest as ::windows_core::Interface>::IID
     }
 }

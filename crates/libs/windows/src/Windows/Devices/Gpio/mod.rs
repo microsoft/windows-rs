@@ -1,16 +1,7 @@
 #[cfg(feature = "Devices_Gpio_Provider")]
 #[doc = "Required features: `\"Devices_Gpio_Provider\"`"]
 pub mod Provider;
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGpioChangeCounter(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGpioChangeCounter {
-    type Vtable = IGpioChangeCounter_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGpioChangeCounter {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcb5ec0de_6801_43ff_803d_4576628a8b26);
-}
+::windows_core::imp::com_interface!(IGpioChangeCounter, IGpioChangeCounter_Vtbl, 0xcb5ec0de_6801_43ff_803d_4576628a8b26);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGpioChangeCounter_Vtbl {
@@ -23,32 +14,14 @@ pub struct IGpioChangeCounter_Vtbl {
     pub Read: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GpioChangeCount) -> ::windows_core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GpioChangeCount) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGpioChangeCounterFactory(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGpioChangeCounterFactory {
-    type Vtable = IGpioChangeCounterFactory_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGpioChangeCounterFactory {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x147d94b6_0a9e_410c_b4fa_f89f4052084d);
-}
+::windows_core::imp::com_interface!(IGpioChangeCounterFactory, IGpioChangeCounterFactory_Vtbl, 0x147d94b6_0a9e_410c_b4fa_f89f4052084d);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGpioChangeCounterFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pin: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGpioChangeReader(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGpioChangeReader {
-    type Vtable = IGpioChangeReader_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGpioChangeReader {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0abc885f_e031_48e8_8590_70de78363c6d);
-}
+::windows_core::imp::com_interface!(IGpioChangeReader, IGpioChangeReader_Vtbl, 0x0abc885f_e031_48e8_8590_70de78363c6d);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGpioChangeReader_Vtbl {
@@ -71,16 +44,7 @@ pub struct IGpioChangeReader_Vtbl {
     GetAllItems: usize,
     pub WaitForItemsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: i32, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGpioChangeReaderFactory(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGpioChangeReaderFactory {
-    type Vtable = IGpioChangeReaderFactory_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGpioChangeReaderFactory {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa9598ef3_390e_441a_9d1c_e8de0b2df0df);
-}
+::windows_core::imp::com_interface!(IGpioChangeReaderFactory, IGpioChangeReaderFactory_Vtbl, 0xa9598ef3_390e_441a_9d1c_e8de0b2df0df);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGpioChangeReaderFactory_Vtbl {
@@ -88,16 +52,7 @@ pub struct IGpioChangeReaderFactory_Vtbl {
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pin: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub CreateWithCapacity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pin: *mut ::core::ffi::c_void, mincapacity: i32, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGpioController(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGpioController {
-    type Vtable = IGpioController_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGpioController {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x284012e3_7461_469c_a8bc_61d69d08a53c);
-}
+::windows_core::imp::com_interface!(IGpioController, IGpioController_Vtbl, 0x284012e3_7461_469c_a8bc_61d69d08a53c);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGpioController_Vtbl {
@@ -107,32 +62,14 @@ pub struct IGpioController_Vtbl {
     pub OpenPinWithSharingMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinnumber: i32, sharingmode: GpioSharingMode, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub TryOpenPin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinnumber: i32, sharingmode: GpioSharingMode, pin: *mut *mut ::core::ffi::c_void, openstatus: *mut GpioOpenStatus, result__: *mut bool) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGpioControllerStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGpioControllerStatics {
-    type Vtable = IGpioControllerStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGpioControllerStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2ed6f42e_7af7_4116_9533_c43d99a1fb64);
-}
+::windows_core::imp::com_interface!(IGpioControllerStatics, IGpioControllerStatics_Vtbl, 0x2ed6f42e_7af7_4116_9533_c43d99a1fb64);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGpioControllerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGpioControllerStatics2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGpioControllerStatics2 {
-    type Vtable = IGpioControllerStatics2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGpioControllerStatics2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x912b7d20_6ca4_4106_a373_fffd346b0e5b);
-}
+::windows_core::imp::com_interface!(IGpioControllerStatics2, IGpioControllerStatics2_Vtbl, 0x912b7d20_6ca4_4106_a373_fffd346b0e5b);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGpioControllerStatics2_Vtbl {
@@ -143,16 +80,7 @@ pub struct IGpioControllerStatics2_Vtbl {
     GetControllersAsync: usize,
     pub GetDefaultAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGpioPin(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGpioPin {
-    type Vtable = IGpioPin_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGpioPin {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x11d9b087_afae_4790_9ee9_e0eac942d201);
-}
+::windows_core::imp::com_interface!(IGpioPin, IGpioPin_Vtbl, 0x11d9b087_afae_4790_9ee9_e0eac942d201);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGpioPin_Vtbl {
@@ -169,16 +97,7 @@ pub struct IGpioPin_Vtbl {
     pub Write: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: GpioPinValue) -> ::windows_core::HRESULT,
     pub Read: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GpioPinValue) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGpioPinValueChangedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGpioPinValueChangedEventArgs {
-    type Vtable = IGpioPinValueChangedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGpioPinValueChangedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3137aae1_703d_4059_bd24_b5b25dffb84e);
-}
+::windows_core::imp::com_interface!(IGpioPinValueChangedEventArgs, IGpioPinValueChangedEventArgs_Vtbl, 0x3137aae1_703d_4059_bd24_b5b25dffb84e);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGpioPinValueChangedEventArgs_Vtbl {
@@ -188,9 +107,11 @@ pub struct IGpioPinValueChangedEventArgs_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GpioChangeCounter(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GpioChangeCounter, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(GpioChangeCounter, super::super::Foundation::IClosable);
 impl GpioChangeCounter {
     pub fn Close(&self) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
+        let this = &::windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn SetPolarity(&self, value: GpioChangePolarity) -> ::windows_core::Result<()> {
@@ -253,23 +174,21 @@ impl ::windows_core::RuntimeType for GpioChangeCounter {
 }
 unsafe impl ::windows_core::Interface for GpioChangeCounter {
     type Vtable = IGpioChangeCounter_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GpioChangeCounter {
-    const IID: ::windows_core::GUID = <IGpioChangeCounter as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGpioChangeCounter as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GpioChangeCounter {
     const NAME: &'static str = "Windows.Devices.Gpio.GpioChangeCounter";
 }
-::windows_core::imp::interface_hierarchy!(GpioChangeCounter, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for GpioChangeCounter {}
 unsafe impl ::core::marker::Send for GpioChangeCounter {}
 unsafe impl ::core::marker::Sync for GpioChangeCounter {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GpioChangeReader(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GpioChangeReader, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(GpioChangeReader, super::super::Foundation::IClosable);
 impl GpioChangeReader {
     pub fn Close(&self) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
+        let this = &::windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Capacity(&self) -> ::windows_core::Result<i32> {
@@ -389,20 +308,17 @@ impl ::windows_core::RuntimeType for GpioChangeReader {
 }
 unsafe impl ::windows_core::Interface for GpioChangeReader {
     type Vtable = IGpioChangeReader_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GpioChangeReader {
-    const IID: ::windows_core::GUID = <IGpioChangeReader as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGpioChangeReader as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GpioChangeReader {
     const NAME: &'static str = "Windows.Devices.Gpio.GpioChangeReader";
 }
-::windows_core::imp::interface_hierarchy!(GpioChangeReader, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for GpioChangeReader {}
 unsafe impl ::core::marker::Send for GpioChangeReader {}
 unsafe impl ::core::marker::Sync for GpioChangeReader {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GpioController(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GpioController, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl GpioController {
     pub fn PinCount(&self) -> ::windows_core::Result<i32> {
         let this = self;
@@ -442,11 +358,11 @@ impl GpioController {
     #[cfg(all(feature = "Devices_Gpio_Provider", feature = "Foundation_Collections"))]
     pub fn GetControllersAsync<P0>(provider: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<GpioController>>>
     where
-        P0: ::windows_core::TryIntoParam<Provider::IGpioProvider>,
+        P0: ::windows_core::IntoParam<Provider::IGpioProvider>,
     {
         Self::IGpioControllerStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetControllersAsync)(::windows_core::Interface::as_raw(this), provider.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetControllersAsync)(::windows_core::Interface::as_raw(this), provider.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn GetDefaultAsync() -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<GpioController>> {
@@ -471,22 +387,21 @@ impl ::windows_core::RuntimeType for GpioController {
 }
 unsafe impl ::windows_core::Interface for GpioController {
     type Vtable = IGpioController_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GpioController {
-    const IID: ::windows_core::GUID = <IGpioController as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGpioController as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GpioController {
     const NAME: &'static str = "Windows.Devices.Gpio.GpioController";
 }
-::windows_core::imp::interface_hierarchy!(GpioController, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GpioController {}
 unsafe impl ::core::marker::Sync for GpioController {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GpioPin(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GpioPin, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(GpioPin, super::super::Foundation::IClosable);
 impl GpioPin {
     pub fn Close(&self) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
+        let this = &::windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn ValueChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
@@ -563,20 +478,17 @@ impl ::windows_core::RuntimeType for GpioPin {
 }
 unsafe impl ::windows_core::Interface for GpioPin {
     type Vtable = IGpioPin_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GpioPin {
-    const IID: ::windows_core::GUID = <IGpioPin as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGpioPin as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GpioPin {
     const NAME: &'static str = "Windows.Devices.Gpio.GpioPin";
 }
-::windows_core::imp::interface_hierarchy!(GpioPin, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for GpioPin {}
 unsafe impl ::core::marker::Send for GpioPin {}
 unsafe impl ::core::marker::Sync for GpioPin {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GpioPinValueChangedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GpioPinValueChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl GpioPinValueChangedEventArgs {
     pub fn Edge(&self) -> ::windows_core::Result<GpioPinEdge> {
         let this = self;
@@ -591,14 +503,11 @@ impl ::windows_core::RuntimeType for GpioPinValueChangedEventArgs {
 }
 unsafe impl ::windows_core::Interface for GpioPinValueChangedEventArgs {
     type Vtable = IGpioPinValueChangedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GpioPinValueChangedEventArgs {
-    const IID: ::windows_core::GUID = <IGpioPinValueChangedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGpioPinValueChangedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GpioPinValueChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Gpio.GpioPinValueChangedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(GpioPinValueChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GpioPinValueChangedEventArgs {}
 unsafe impl ::core::marker::Sync for GpioPinValueChangedEventArgs {}
 #[repr(transparent)]

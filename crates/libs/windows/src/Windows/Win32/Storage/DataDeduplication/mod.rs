@@ -1,6 +1,5 @@
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDedupBackupSupport(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDedupBackupSupport, IDedupBackupSupport_Vtbl, 0xc719d963_2b2d_415e_acf7_7eb7ca596ff4);
+::windows_core::imp::interface_hierarchy!(IDedupBackupSupport, ::windows_core::IUnknown);
 impl IDedupBackupSupport {
     pub unsafe fn RestoreFiles<P0>(&self, numberoffiles: u32, filefullpaths: *const ::windows_core::BSTR, store: P0, flags: u32, fileresults: *mut ::windows_core::HRESULT) -> ::windows_core::Result<()>
     where
@@ -9,22 +8,14 @@ impl IDedupBackupSupport {
         (::windows_core::Interface::vtable(self).RestoreFiles)(::windows_core::Interface::as_raw(self), numberoffiles, ::core::mem::transmute(filefullpaths), store.into_param().abi(), flags, fileresults).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDedupBackupSupport, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDedupBackupSupport {
-    type Vtable = IDedupBackupSupport_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDedupBackupSupport {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc719d963_2b2d_415e_acf7_7eb7ca596ff4);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDedupBackupSupport_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub RestoreFiles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numberoffiles: u32, filefullpaths: *const ::std::mem::MaybeUninit<::windows_core::BSTR>, store: *mut ::core::ffi::c_void, flags: u32, fileresults: *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDedupChunkLibrary(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDedupChunkLibrary, IDedupChunkLibrary_Vtbl, 0xbb5144d7_2720_4dcc_8777_78597416ec23);
+::windows_core::imp::interface_hierarchy!(IDedupChunkLibrary, ::windows_core::IUnknown);
 impl IDedupChunkLibrary {
     pub unsafe fn InitializeForPushBuffers(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).InitializeForPushBuffers)(::windows_core::Interface::as_raw(self)).ok()
@@ -42,13 +33,6 @@ impl IDedupChunkLibrary {
         (::windows_core::Interface::vtable(self).StartChunking)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(iiditeratorinterfaceid), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IDedupChunkLibrary, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDedupChunkLibrary {
-    type Vtable = IDedupChunkLibrary_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDedupChunkLibrary {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbb5144d7_2720_4dcc_8777_78597416ec23);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDedupChunkLibrary_Vtbl {
@@ -61,9 +45,8 @@ pub struct IDedupChunkLibrary_Vtbl {
     SetParameter: usize,
     pub StartChunking: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iiditeratorinterfaceid: ::windows_core::GUID, ppchunksenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDedupDataPort(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDedupDataPort, IDedupDataPort_Vtbl, 0x7963d734_40a9_4ea3_bbf6_5a89d26f7ae8);
+::windows_core::imp::interface_hierarchy!(IDedupDataPort, ::windows_core::IUnknown);
 impl IDedupDataPort {
     pub unsafe fn GetStatus(&self, pstatus: *mut DedupDataPortVolumeStatus, pdataheadroommb: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetStatus)(::windows_core::Interface::as_raw(self), pstatus, pdataheadroommb).ok()
@@ -120,13 +103,6 @@ impl IDedupDataPort {
         (::windows_core::Interface::vtable(self).GetRequestResults)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(requestid), maxwaitms, pbatchresult, pbatchcount, pstatus, ppitemresults).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDedupDataPort, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDedupDataPort {
-    type Vtable = IDedupDataPort_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDedupDataPort {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7963d734_40a9_4ea3_bbf6_5a89d26f7ae8);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDedupDataPort_Vtbl {
@@ -150,9 +126,8 @@ pub struct IDedupDataPort_Vtbl {
     pub GetRequestStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requestid: ::windows_core::GUID, pstatus: *mut DedupDataPortRequestStatus) -> ::windows_core::HRESULT,
     pub GetRequestResults: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requestid: ::windows_core::GUID, maxwaitms: u32, pbatchresult: *mut ::windows_core::HRESULT, pbatchcount: *mut u32, pstatus: *mut DedupDataPortRequestStatus, ppitemresults: *mut *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDedupDataPortManager(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDedupDataPortManager, IDedupDataPortManager_Vtbl, 0x44677452_b90a_445e_8192_cdcfe81511fb);
+::windows_core::imp::interface_hierarchy!(IDedupDataPortManager, ::windows_core::IUnknown);
 impl IDedupDataPortManager {
     pub unsafe fn GetConfiguration(&self, pminchunksize: *mut u32, pmaxchunksize: *mut u32, pchunkingalgorithm: *mut DedupChunkingAlgorithm, phashingalgorithm: *mut DedupHashingAlgorithm, pcompressionalgorithm: *mut DedupCompressionAlgorithm) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetConfiguration)(::windows_core::Interface::as_raw(self), pminchunksize, pmaxchunksize, pchunkingalgorithm, phashingalgorithm, pcompressionalgorithm).ok()
@@ -172,13 +147,6 @@ impl IDedupDataPortManager {
         (::windows_core::Interface::vtable(self).GetVolumeDataPort)(::windows_core::Interface::as_raw(self), options, path.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IDedupDataPortManager, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDedupDataPortManager {
-    type Vtable = IDedupDataPortManager_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDedupDataPortManager {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x44677452_b90a_445e_8192_cdcfe81511fb);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDedupDataPortManager_Vtbl {
@@ -187,9 +155,8 @@ pub struct IDedupDataPortManager_Vtbl {
     pub GetVolumeStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: u32, path: ::std::mem::MaybeUninit<::windows_core::BSTR>, pstatus: *mut DedupDataPortVolumeStatus) -> ::windows_core::HRESULT,
     pub GetVolumeDataPort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: u32, path: ::std::mem::MaybeUninit<::windows_core::BSTR>, ppdataport: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDedupIterateChunksHash32(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDedupIterateChunksHash32, IDedupIterateChunksHash32_Vtbl, 0x90b584d3_72aa_400f_9767_cad866a5a2d8);
+::windows_core::imp::interface_hierarchy!(IDedupIterateChunksHash32, ::windows_core::IUnknown);
 impl IDedupIterateChunksHash32 {
     pub unsafe fn PushBuffer(&self, pbuffer: &[u8]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).PushBuffer)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len().try_into().unwrap()).ok()
@@ -204,13 +171,6 @@ impl IDedupIterateChunksHash32 {
         (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self)).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDedupIterateChunksHash32, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDedupIterateChunksHash32 {
-    type Vtable = IDedupIterateChunksHash32_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDedupIterateChunksHash32 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x90b584d3_72aa_400f_9767_cad866a5a2d8);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDedupIterateChunksHash32_Vtbl {
@@ -220,9 +180,8 @@ pub struct IDedupIterateChunksHash32_Vtbl {
     pub Drain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDedupReadFileCallback(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDedupReadFileCallback, IDedupReadFileCallback_Vtbl, 0x7bacc67a_2f1d_42d0_897e_6ff62dd533bb);
+::windows_core::imp::interface_hierarchy!(IDedupReadFileCallback, ::windows_core::IUnknown);
 impl IDedupReadFileCallback {
     pub unsafe fn ReadBackupFile<P0>(&self, filefullpath: P0, fileoffset: i64, filebuffer: &mut [u8], returnedsize: *mut u32, flags: u32) -> ::windows_core::Result<()>
     where
@@ -239,13 +198,6 @@ impl IDedupReadFileCallback {
     {
         (::windows_core::Interface::vtable(self).PreviewContainerRead)(::windows_core::Interface::as_raw(self), filefullpath.into_param().abi(), readoffsets.len().try_into().unwrap(), ::core::mem::transmute(readoffsets.as_ptr())).ok()
     }
-}
-::windows_core::imp::interface_hierarchy!(IDedupReadFileCallback, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDedupReadFileCallback {
-    type Vtable = IDedupReadFileCallback_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDedupReadFileCallback {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7bacc67a_2f1d_42d0_897e_6ff62dd533bb);
 }
 #[repr(C)]
 #[doc(hidden)]

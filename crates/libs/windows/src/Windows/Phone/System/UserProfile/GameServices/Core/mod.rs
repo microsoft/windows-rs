@@ -1,13 +1,4 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGameService(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGameService {
-    type Vtable = IGameService_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGameService {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2e2d5098_48a9_4efc_afd6_8e6da09003fb);
-}
+::windows_core::imp::com_interface!(IGameService, IGameService_Vtbl, 0x2e2d5098_48a9_4efc_afd6_8e6da09003fb);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameService_Vtbl {
@@ -24,16 +15,7 @@ pub struct IGameService_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     PostResult: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGameService2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGameService2 {
-    type Vtable = IGameService2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGameService2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd2364ef6_ea17_4be5_8d8a_c860885e051f);
-}
+::windows_core::imp::com_interface!(IGameService2, IGameService2_Vtbl, 0xd2364ef6_ea17_4be5_8d8a_c860885e051f);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameService2_Vtbl {
@@ -41,16 +23,7 @@ pub struct IGameService2_Vtbl {
     pub NotifyPartnerTokenExpired: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, audienceuri: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetAuthenticationStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGameServicePropertyCollection(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGameServicePropertyCollection {
-    type Vtable = IGameServicePropertyCollection_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGameServicePropertyCollection {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x07e57fc8_debb_4609_9cc8_529d16bc2bd9);
-}
+::windows_core::imp::com_interface!(IGameServicePropertyCollection, IGameServicePropertyCollection_Vtbl, 0x07e57fc8_debb_4609_9cc8_529d16bc2bd9);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameServicePropertyCollection_Vtbl {
@@ -102,9 +75,9 @@ impl GameService {
     #[cfg(feature = "Storage_Streams")]
     pub fn PostResult<P0>(gamevariant: u32, scorekind: GameServiceScoreKind, scorevalue: i64, gameoutcome: GameServiceGameOutcome, buffer: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::super::super::super::Storage::Streams::IBuffer>,
+        P0: ::windows_core::IntoParam<super::super::super::super::super::Storage::Streams::IBuffer>,
     {
-        Self::IGameService(|this| unsafe { (::windows_core::Interface::vtable(this).PostResult)(::windows_core::Interface::as_raw(this), gamevariant, scorekind, scorevalue, gameoutcome, buffer.try_into_param()?.abi()).ok() })
+        Self::IGameService(|this| unsafe { (::windows_core::Interface::vtable(this).PostResult)(::windows_core::Interface::as_raw(this), gamevariant, scorekind, scorevalue, gameoutcome, buffer.into_param().abi()).ok() })
     }
     pub fn NotifyPartnerTokenExpired<P0>(audienceuri: P0) -> ::windows_core::Result<()>
     where
@@ -135,6 +108,7 @@ impl ::windows_core::RuntimeName for GameService {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GameServicePropertyCollection(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(GameServicePropertyCollection, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl GameServicePropertyCollection {
     pub fn GetPropertyAsync(&self, propertyname: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::super::super::Foundation::IAsyncOperation<::windows_core::IInspectable>> {
         let this = self;
@@ -149,14 +123,11 @@ impl ::windows_core::RuntimeType for GameServicePropertyCollection {
 }
 unsafe impl ::windows_core::Interface for GameServicePropertyCollection {
     type Vtable = IGameServicePropertyCollection_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for GameServicePropertyCollection {
-    const IID: ::windows_core::GUID = <IGameServicePropertyCollection as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IGameServicePropertyCollection as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for GameServicePropertyCollection {
     const NAME: &'static str = "Windows.Phone.System.UserProfile.GameServices.Core.GameServicePropertyCollection";
 }
-::windows_core::imp::interface_hierarchy!(GameServicePropertyCollection, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GameServicePropertyCollection {}
 unsafe impl ::core::marker::Sync for GameServicePropertyCollection {}
 #[repr(transparent)]

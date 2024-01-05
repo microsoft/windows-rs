@@ -1,16 +1,7 @@
 #[cfg(feature = "ApplicationModel_Payments_Provider")]
 #[doc = "Required features: `\"ApplicationModel_Payments_Provider\"`"]
 pub mod Provider;
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPaymentAddress(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPaymentAddress {
-    type Vtable = IPaymentAddress_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPaymentAddress {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5f2264e9_6f3a_4166_a018_0a0b06bb32b5);
-}
+::windows_core::imp::com_interface!(IPaymentAddress, IPaymentAddress_Vtbl, 0x5f2264e9_6f3a_4166_a018_0a0b06bb32b5);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPaymentAddress_Vtbl {
@@ -48,48 +39,21 @@ pub struct IPaymentAddress_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     Properties: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPaymentCanMakePaymentResult(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPaymentCanMakePaymentResult {
-    type Vtable = IPaymentCanMakePaymentResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPaymentCanMakePaymentResult {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7696fe55_d5d3_4d3d_b345_45591759c510);
-}
+::windows_core::imp::com_interface!(IPaymentCanMakePaymentResult, IPaymentCanMakePaymentResult_Vtbl, 0x7696fe55_d5d3_4d3d_b345_45591759c510);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPaymentCanMakePaymentResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PaymentCanMakePaymentResultStatus) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPaymentCanMakePaymentResultFactory(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPaymentCanMakePaymentResultFactory {
-    type Vtable = IPaymentCanMakePaymentResultFactory_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPaymentCanMakePaymentResultFactory {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbbdcaa3e_7d49_4f69_aa53_2a0f8164b7c9);
-}
+::windows_core::imp::com_interface!(IPaymentCanMakePaymentResultFactory, IPaymentCanMakePaymentResultFactory_Vtbl, 0xbbdcaa3e_7d49_4f69_aa53_2a0f8164b7c9);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPaymentCanMakePaymentResultFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: PaymentCanMakePaymentResultStatus, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPaymentCurrencyAmount(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPaymentCurrencyAmount {
-    type Vtable = IPaymentCurrencyAmount_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPaymentCurrencyAmount {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe3a3e9e0_b41f_4987_bdcb_071331f2daa4);
-}
+::windows_core::imp::com_interface!(IPaymentCurrencyAmount, IPaymentCurrencyAmount_Vtbl, 0xe3a3e9e0_b41f_4987_bdcb_071331f2daa4);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPaymentCurrencyAmount_Vtbl {
@@ -101,16 +65,7 @@ pub struct IPaymentCurrencyAmount_Vtbl {
     pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPaymentCurrencyAmountFactory(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPaymentCurrencyAmountFactory {
-    type Vtable = IPaymentCurrencyAmountFactory_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPaymentCurrencyAmountFactory {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3257d338_140c_4575_8535_f773178c09a7);
-}
+::windows_core::imp::com_interface!(IPaymentCurrencyAmountFactory, IPaymentCurrencyAmountFactory_Vtbl, 0x3257d338_140c_4575_8535_f773178c09a7);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPaymentCurrencyAmountFactory_Vtbl {
@@ -118,16 +73,7 @@ pub struct IPaymentCurrencyAmountFactory_Vtbl {
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>, currency: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub CreateWithCurrencySystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>, currency: ::std::mem::MaybeUninit<::windows_core::HSTRING>, currencysystem: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPaymentDetails(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPaymentDetails {
-    type Vtable = IPaymentDetails_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPaymentDetails {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x53bb2d7d_e0eb_4053_8eae_ce7c48e02945);
-}
+::windows_core::imp::com_interface!(IPaymentDetails, IPaymentDetails_Vtbl, 0x53bb2d7d_e0eb_4053_8eae_ce7c48e02945);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPaymentDetails_Vtbl {
@@ -159,16 +105,7 @@ pub struct IPaymentDetails_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     SetModifiers: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPaymentDetailsFactory(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPaymentDetailsFactory {
-    type Vtable = IPaymentDetailsFactory_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPaymentDetailsFactory {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcfe8afee_c0ea_4ca1_8bc7_6de67b1f3763);
-}
+::windows_core::imp::com_interface!(IPaymentDetailsFactory, IPaymentDetailsFactory_Vtbl, 0xcfe8afee_c0ea_4ca1_8bc7_6de67b1f3763);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPaymentDetailsFactory_Vtbl {
@@ -179,16 +116,7 @@ pub struct IPaymentDetailsFactory_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     CreateWithDisplayItems: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPaymentDetailsModifier(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPaymentDetailsModifier {
-    type Vtable = IPaymentDetailsModifier_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPaymentDetailsModifier {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbe1c7d65_4323_41d7_b305_dfcb765f69de);
-}
+::windows_core::imp::com_interface!(IPaymentDetailsModifier, IPaymentDetailsModifier_Vtbl, 0xbe1c7d65_4323_41d7_b305_dfcb765f69de);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPaymentDetailsModifier_Vtbl {
@@ -204,16 +132,7 @@ pub struct IPaymentDetailsModifier_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     AdditionalDisplayItems: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPaymentDetailsModifierFactory(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPaymentDetailsModifierFactory {
-    type Vtable = IPaymentDetailsModifierFactory_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPaymentDetailsModifierFactory {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x79005286_54de_429c_9e4f_5dce6e10ebce);
-}
+::windows_core::imp::com_interface!(IPaymentDetailsModifierFactory, IPaymentDetailsModifierFactory_Vtbl, 0x79005286_54de_429c_9e4f_5dce6e10ebce);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPaymentDetailsModifierFactory_Vtbl {
@@ -231,16 +150,7 @@ pub struct IPaymentDetailsModifierFactory_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     CreateWithAdditionalDisplayItemsAndJsonData: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPaymentItem(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPaymentItem {
-    type Vtable = IPaymentItem_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPaymentItem {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x685ac88b_79b2_4b76_9e03_a876223dfe72);
-}
+::windows_core::imp::com_interface!(IPaymentItem, IPaymentItem_Vtbl, 0x685ac88b_79b2_4b76_9e03_a876223dfe72);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPaymentItem_Vtbl {
@@ -252,32 +162,14 @@ pub struct IPaymentItem_Vtbl {
     pub Pending: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub SetPending: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPaymentItemFactory(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPaymentItemFactory {
-    type Vtable = IPaymentItemFactory_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPaymentItemFactory {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc6ab7ad8_2503_4d1d_a778_02b2e5927b2c);
-}
+::windows_core::imp::com_interface!(IPaymentItemFactory, IPaymentItemFactory_Vtbl, 0xc6ab7ad8_2503_4d1d_a778_02b2e5927b2c);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPaymentItemFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, label: ::std::mem::MaybeUninit<::windows_core::HSTRING>, amount: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPaymentMediator(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPaymentMediator {
-    type Vtable = IPaymentMediator_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPaymentMediator {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfb0ee829_ec0c_449a_83da_7ae3073365a2);
-}
+::windows_core::imp::com_interface!(IPaymentMediator, IPaymentMediator_Vtbl, 0xfb0ee829_ec0c_449a_83da_7ae3073365a2);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPaymentMediator_Vtbl {
@@ -289,32 +181,14 @@ pub struct IPaymentMediator_Vtbl {
     pub SubmitPaymentRequestAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paymentrequest: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub SubmitPaymentRequestWithChangeHandlerAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paymentrequest: *mut ::core::ffi::c_void, changehandler: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPaymentMediator2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPaymentMediator2 {
-    type Vtable = IPaymentMediator2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPaymentMediator2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xceef98f1_e407_4128_8e73_d93d5f822786);
-}
+::windows_core::imp::com_interface!(IPaymentMediator2, IPaymentMediator2_Vtbl, 0xceef98f1_e407_4128_8e73_d93d5f822786);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPaymentMediator2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CanMakePaymentAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paymentrequest: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPaymentMerchantInfo(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPaymentMerchantInfo {
-    type Vtable = IPaymentMerchantInfo_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPaymentMerchantInfo {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x63445050_0e94_4ed6_aacb_e6012bd327a7);
-}
+::windows_core::imp::com_interface!(IPaymentMerchantInfo, IPaymentMerchantInfo_Vtbl, 0x63445050_0e94_4ed6_aacb_e6012bd327a7);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPaymentMerchantInfo_Vtbl {
@@ -322,32 +196,14 @@ pub struct IPaymentMerchantInfo_Vtbl {
     pub PackageFullName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub Uri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPaymentMerchantInfoFactory(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPaymentMerchantInfoFactory {
-    type Vtable = IPaymentMerchantInfoFactory_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPaymentMerchantInfoFactory {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9e89ced3_ccb7_4167_a8ec_e10ae96dbcd1);
-}
+::windows_core::imp::com_interface!(IPaymentMerchantInfoFactory, IPaymentMerchantInfoFactory_Vtbl, 0x9e89ced3_ccb7_4167_a8ec_e10ae96dbcd1);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPaymentMerchantInfoFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPaymentMethodData(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPaymentMethodData {
-    type Vtable = IPaymentMethodData_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPaymentMethodData {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd1d3caf4_de98_4129_b1b7_c3ad86237bf4);
-}
+::windows_core::imp::com_interface!(IPaymentMethodData, IPaymentMethodData_Vtbl, 0xd1d3caf4_de98_4129_b1b7_c3ad86237bf4);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPaymentMethodData_Vtbl {
@@ -358,16 +214,7 @@ pub struct IPaymentMethodData_Vtbl {
     SupportedMethodIds: usize,
     pub JsonData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPaymentMethodDataFactory(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPaymentMethodDataFactory {
-    type Vtable = IPaymentMethodDataFactory_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPaymentMethodDataFactory {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8addd27f_9baa_4a82_8342_a8210992a36b);
-}
+::windows_core::imp::com_interface!(IPaymentMethodDataFactory, IPaymentMethodDataFactory_Vtbl, 0x8addd27f_9baa_4a82_8342_a8210992a36b);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPaymentMethodDataFactory_Vtbl {
@@ -381,16 +228,7 @@ pub struct IPaymentMethodDataFactory_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     CreateWithJsonData: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPaymentOptions(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPaymentOptions {
-    type Vtable = IPaymentOptions_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPaymentOptions {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaaa30854_1f2b_4365_8251_01b58915a5bc);
-}
+::windows_core::imp::com_interface!(IPaymentOptions, IPaymentOptions_Vtbl, 0xaaa30854_1f2b_4365_8251_01b58915a5bc);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPaymentOptions_Vtbl {
@@ -406,16 +244,7 @@ pub struct IPaymentOptions_Vtbl {
     pub ShippingType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PaymentShippingType) -> ::windows_core::HRESULT,
     pub SetShippingType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: PaymentShippingType) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPaymentRequest(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPaymentRequest {
-    type Vtable = IPaymentRequest_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPaymentRequest {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb74942e1_ed7b_47eb_bc08_78cc5d6896b6);
-}
+::windows_core::imp::com_interface!(IPaymentRequest, IPaymentRequest_Vtbl, 0xb74942e1_ed7b_47eb_bc08_78cc5d6896b6);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPaymentRequest_Vtbl {
@@ -428,32 +257,14 @@ pub struct IPaymentRequest_Vtbl {
     MethodData: usize,
     pub Options: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPaymentRequest2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPaymentRequest2 {
-    type Vtable = IPaymentRequest2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPaymentRequest2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb63ccfb5_5998_493e_a04c_67048a50f141);
-}
+::windows_core::imp::com_interface!(IPaymentRequest2, IPaymentRequest2_Vtbl, 0xb63ccfb5_5998_493e_a04c_67048a50f141);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPaymentRequest2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPaymentRequestChangedArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPaymentRequestChangedArgs {
-    type Vtable = IPaymentRequestChangedArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPaymentRequestChangedArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc6145e44_cd8b_4be4_b555_27c99194c0c5);
-}
+::windows_core::imp::com_interface!(IPaymentRequestChangedArgs, IPaymentRequestChangedArgs_Vtbl, 0xc6145e44_cd8b_4be4_b555_27c99194c0c5);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPaymentRequestChangedArgs_Vtbl {
@@ -463,16 +274,7 @@ pub struct IPaymentRequestChangedArgs_Vtbl {
     pub SelectedShippingOption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Acknowledge: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, changeresult: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPaymentRequestChangedResult(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPaymentRequestChangedResult {
-    type Vtable = IPaymentRequestChangedResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPaymentRequestChangedResult {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdf699e5c_16c4_47ad_9401_8440ec0757db);
-}
+::windows_core::imp::com_interface!(IPaymentRequestChangedResult, IPaymentRequestChangedResult_Vtbl, 0xdf699e5c_16c4_47ad_9401_8440ec0757db);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPaymentRequestChangedResult_Vtbl {
@@ -484,16 +286,7 @@ pub struct IPaymentRequestChangedResult_Vtbl {
     pub UpdatedPaymentDetails: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub SetUpdatedPaymentDetails: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPaymentRequestChangedResultFactory(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPaymentRequestChangedResultFactory {
-    type Vtable = IPaymentRequestChangedResultFactory_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPaymentRequestChangedResultFactory {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x08740f56_1d33_4431_814b_67ea24bf21db);
-}
+::windows_core::imp::com_interface!(IPaymentRequestChangedResultFactory, IPaymentRequestChangedResultFactory_Vtbl, 0x08740f56_1d33_4431_814b_67ea24bf21db);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPaymentRequestChangedResultFactory_Vtbl {
@@ -501,16 +294,7 @@ pub struct IPaymentRequestChangedResultFactory_Vtbl {
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, changeacceptedbymerchant: bool, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub CreateWithPaymentDetails: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, changeacceptedbymerchant: bool, updatedpaymentdetails: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPaymentRequestFactory(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPaymentRequestFactory {
-    type Vtable = IPaymentRequestFactory_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPaymentRequestFactory {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3e8a79dc_6b74_42d3_b103_f0de35fb1848);
-}
+::windows_core::imp::com_interface!(IPaymentRequestFactory, IPaymentRequestFactory_Vtbl, 0x3e8a79dc_6b74_42d3_b103_f0de35fb1848);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPaymentRequestFactory_Vtbl {
@@ -528,16 +312,7 @@ pub struct IPaymentRequestFactory_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     CreateWithMerchantInfoAndOptions: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPaymentRequestFactory2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPaymentRequestFactory2 {
-    type Vtable = IPaymentRequestFactory2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPaymentRequestFactory2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe6ce1325_a506_4372_b7ef_1a031d5662d1);
-}
+::windows_core::imp::com_interface!(IPaymentRequestFactory2, IPaymentRequestFactory2_Vtbl, 0xe6ce1325_a506_4372_b7ef_1a031d5662d1);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPaymentRequestFactory2_Vtbl {
@@ -547,16 +322,7 @@ pub struct IPaymentRequestFactory2_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     CreateWithMerchantInfoOptionsAndId: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPaymentRequestSubmitResult(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPaymentRequestSubmitResult {
-    type Vtable = IPaymentRequestSubmitResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPaymentRequestSubmitResult {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7b9c3912_30f2_4e90_b249_8ce7d78ffe56);
-}
+::windows_core::imp::com_interface!(IPaymentRequestSubmitResult, IPaymentRequestSubmitResult_Vtbl, 0x7b9c3912_30f2_4e90_b249_8ce7d78ffe56);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPaymentRequestSubmitResult_Vtbl {
@@ -564,16 +330,7 @@ pub struct IPaymentRequestSubmitResult_Vtbl {
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PaymentRequestStatus) -> ::windows_core::HRESULT,
     pub Response: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPaymentResponse(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPaymentResponse {
-    type Vtable = IPaymentResponse_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPaymentResponse {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe1389457_8bd2_4888_9fa8_97985545108e);
-}
+::windows_core::imp::com_interface!(IPaymentResponse, IPaymentResponse_Vtbl, 0xe1389457_8bd2_4888_9fa8_97985545108e);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPaymentResponse_Vtbl {
@@ -586,16 +343,7 @@ pub struct IPaymentResponse_Vtbl {
     pub PayerPhoneNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub CompleteAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, status: PaymentRequestCompletionStatus, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPaymentShippingOption(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPaymentShippingOption {
-    type Vtable = IPaymentShippingOption_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPaymentShippingOption {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x13372ada_9753_4574_8966_93145a76c7f9);
-}
+::windows_core::imp::com_interface!(IPaymentShippingOption, IPaymentShippingOption_Vtbl, 0x13372ada_9753_4574_8966_93145a76c7f9);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPaymentShippingOption_Vtbl {
@@ -609,16 +357,7 @@ pub struct IPaymentShippingOption_Vtbl {
     pub IsSelected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub SetIsSelected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPaymentShippingOptionFactory(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPaymentShippingOptionFactory {
-    type Vtable = IPaymentShippingOptionFactory_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPaymentShippingOptionFactory {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5de5f917_b2d7_446b_9d73_6123fbca3bc6);
-}
+::windows_core::imp::com_interface!(IPaymentShippingOptionFactory, IPaymentShippingOptionFactory_Vtbl, 0x5de5f917_b2d7_446b_9d73_6123fbca3bc6);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPaymentShippingOptionFactory_Vtbl {
@@ -627,16 +366,7 @@ pub struct IPaymentShippingOptionFactory_Vtbl {
     pub CreateWithSelected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, label: ::std::mem::MaybeUninit<::windows_core::HSTRING>, amount: *mut ::core::ffi::c_void, selected: bool, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub CreateWithSelectedAndTag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, label: ::std::mem::MaybeUninit<::windows_core::HSTRING>, amount: *mut ::core::ffi::c_void, selected: bool, tag: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPaymentToken(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPaymentToken {
-    type Vtable = IPaymentToken_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPaymentToken {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbbcac013_ccd0_41f2_b2a1_0a2e4b5dce25);
-}
+::windows_core::imp::com_interface!(IPaymentToken, IPaymentToken_Vtbl, 0xbbcac013_ccd0_41f2_b2a1_0a2e4b5dce25);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPaymentToken_Vtbl {
@@ -644,16 +374,7 @@ pub struct IPaymentToken_Vtbl {
     pub PaymentMethodId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub JsonDetails: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPaymentTokenFactory(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPaymentTokenFactory {
-    type Vtable = IPaymentTokenFactory_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPaymentTokenFactory {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x988cd7aa_4753_4904_8373_dd7b08b995c1);
-}
+::windows_core::imp::com_interface!(IPaymentTokenFactory, IPaymentTokenFactory_Vtbl, 0x988cd7aa_4753_4904_8373_dd7b08b995c1);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPaymentTokenFactory_Vtbl {
@@ -664,6 +385,7 @@ pub struct IPaymentTokenFactory_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PaymentAddress(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(PaymentAddress, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl PaymentAddress {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -696,10 +418,10 @@ impl PaymentAddress {
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetAddressLines<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetAddressLines)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetAddressLines)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn Region(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -815,19 +537,17 @@ impl ::windows_core::RuntimeType for PaymentAddress {
 }
 unsafe impl ::windows_core::Interface for PaymentAddress {
     type Vtable = IPaymentAddress_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for PaymentAddress {
-    const IID: ::windows_core::GUID = <IPaymentAddress as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPaymentAddress as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for PaymentAddress {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentAddress";
 }
-::windows_core::imp::interface_hierarchy!(PaymentAddress, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PaymentAddress {}
 unsafe impl ::core::marker::Sync for PaymentAddress {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PaymentCanMakePaymentResult(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(PaymentCanMakePaymentResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl PaymentCanMakePaymentResult {
     pub fn Status(&self) -> ::windows_core::Result<PaymentCanMakePaymentResultStatus> {
         let this = self;
@@ -853,19 +573,17 @@ impl ::windows_core::RuntimeType for PaymentCanMakePaymentResult {
 }
 unsafe impl ::windows_core::Interface for PaymentCanMakePaymentResult {
     type Vtable = IPaymentCanMakePaymentResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for PaymentCanMakePaymentResult {
-    const IID: ::windows_core::GUID = <IPaymentCanMakePaymentResult as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPaymentCanMakePaymentResult as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for PaymentCanMakePaymentResult {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentCanMakePaymentResult";
 }
-::windows_core::imp::interface_hierarchy!(PaymentCanMakePaymentResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PaymentCanMakePaymentResult {}
 unsafe impl ::core::marker::Sync for PaymentCanMakePaymentResult {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PaymentCurrencyAmount(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(PaymentCurrencyAmount, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl PaymentCurrencyAmount {
     pub fn Currency(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -923,19 +641,17 @@ impl ::windows_core::RuntimeType for PaymentCurrencyAmount {
 }
 unsafe impl ::windows_core::Interface for PaymentCurrencyAmount {
     type Vtable = IPaymentCurrencyAmount_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for PaymentCurrencyAmount {
-    const IID: ::windows_core::GUID = <IPaymentCurrencyAmount as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPaymentCurrencyAmount as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for PaymentCurrencyAmount {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentCurrencyAmount";
 }
-::windows_core::imp::interface_hierarchy!(PaymentCurrencyAmount, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PaymentCurrencyAmount {}
 unsafe impl ::core::marker::Sync for PaymentCurrencyAmount {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PaymentDetails(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(PaymentDetails, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl PaymentDetails {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -971,10 +687,10 @@ impl PaymentDetails {
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetDisplayItems<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IVectorView<PaymentItem>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::Collections::IVectorView<PaymentItem>>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetDisplayItems)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetDisplayItems)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
@@ -989,10 +705,10 @@ impl PaymentDetails {
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetShippingOptions<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IVectorView<PaymentShippingOption>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::Collections::IVectorView<PaymentShippingOption>>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetShippingOptions)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetShippingOptions)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
@@ -1007,10 +723,10 @@ impl PaymentDetails {
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetModifiers<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IVectorView<PaymentDetailsModifier>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::Collections::IVectorView<PaymentDetailsModifier>>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetModifiers)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetModifiers)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn Create<P0>(total: P0) -> ::windows_core::Result<PaymentDetails>
     where
@@ -1026,11 +742,11 @@ impl PaymentDetails {
     pub fn CreateWithDisplayItems<P0, P1>(total: P0, displayitems: P1) -> ::windows_core::Result<PaymentDetails>
     where
         P0: ::windows_core::IntoParam<PaymentItem>,
-        P1: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<PaymentItem>>,
+        P1: ::windows_core::IntoParam<super::super::Foundation::Collections::IIterable<PaymentItem>>,
     {
         Self::IPaymentDetailsFactory(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateWithDisplayItems)(::windows_core::Interface::as_raw(this), total.into_param().abi(), displayitems.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateWithDisplayItems)(::windows_core::Interface::as_raw(this), total.into_param().abi(), displayitems.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -1044,19 +760,17 @@ impl ::windows_core::RuntimeType for PaymentDetails {
 }
 unsafe impl ::windows_core::Interface for PaymentDetails {
     type Vtable = IPaymentDetails_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for PaymentDetails {
-    const IID: ::windows_core::GUID = <IPaymentDetails as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPaymentDetails as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for PaymentDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentDetails";
 }
-::windows_core::imp::interface_hierarchy!(PaymentDetails, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PaymentDetails {}
 unsafe impl ::core::marker::Sync for PaymentDetails {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PaymentDetailsModifier(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(PaymentDetailsModifier, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl PaymentDetailsModifier {
     pub fn JsonData(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -1094,38 +808,38 @@ impl PaymentDetailsModifier {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Create<P0, P1>(supportedmethodids: P0, total: P1) -> ::windows_core::Result<PaymentDetailsModifier>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
         P1: ::windows_core::IntoParam<PaymentItem>,
     {
         Self::IPaymentDetailsModifierFactory(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), supportedmethodids.try_into_param()?.abi(), total.into_param().abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), supportedmethodids.into_param().abi(), total.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateWithAdditionalDisplayItems<P0, P1, P2>(supportedmethodids: P0, total: P1, additionaldisplayitems: P2) -> ::windows_core::Result<PaymentDetailsModifier>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
         P1: ::windows_core::IntoParam<PaymentItem>,
-        P2: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<PaymentItem>>,
+        P2: ::windows_core::IntoParam<super::super::Foundation::Collections::IIterable<PaymentItem>>,
     {
         Self::IPaymentDetailsModifierFactory(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateWithAdditionalDisplayItems)(::windows_core::Interface::as_raw(this), supportedmethodids.try_into_param()?.abi(), total.into_param().abi(), additionaldisplayitems.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateWithAdditionalDisplayItems)(::windows_core::Interface::as_raw(this), supportedmethodids.into_param().abi(), total.into_param().abi(), additionaldisplayitems.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateWithAdditionalDisplayItemsAndJsonData<P0, P1, P2>(supportedmethodids: P0, total: P1, additionaldisplayitems: P2, jsondata: &::windows_core::HSTRING) -> ::windows_core::Result<PaymentDetailsModifier>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
         P1: ::windows_core::IntoParam<PaymentItem>,
-        P2: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<PaymentItem>>,
+        P2: ::windows_core::IntoParam<super::super::Foundation::Collections::IIterable<PaymentItem>>,
     {
         Self::IPaymentDetailsModifierFactory(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateWithAdditionalDisplayItemsAndJsonData)(::windows_core::Interface::as_raw(this), supportedmethodids.try_into_param()?.abi(), total.into_param().abi(), additionaldisplayitems.try_into_param()?.abi(), ::core::mem::transmute_copy(jsondata), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateWithAdditionalDisplayItemsAndJsonData)(::windows_core::Interface::as_raw(this), supportedmethodids.into_param().abi(), total.into_param().abi(), additionaldisplayitems.into_param().abi(), ::core::mem::transmute_copy(jsondata), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -1139,19 +853,17 @@ impl ::windows_core::RuntimeType for PaymentDetailsModifier {
 }
 unsafe impl ::windows_core::Interface for PaymentDetailsModifier {
     type Vtable = IPaymentDetailsModifier_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for PaymentDetailsModifier {
-    const IID: ::windows_core::GUID = <IPaymentDetailsModifier as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPaymentDetailsModifier as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for PaymentDetailsModifier {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentDetailsModifier";
 }
-::windows_core::imp::interface_hierarchy!(PaymentDetailsModifier, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PaymentDetailsModifier {}
 unsafe impl ::core::marker::Sync for PaymentDetailsModifier {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PaymentItem(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(PaymentItem, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl PaymentItem {
     pub fn Label(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -1209,19 +921,17 @@ impl ::windows_core::RuntimeType for PaymentItem {
 }
 unsafe impl ::windows_core::Interface for PaymentItem {
     type Vtable = IPaymentItem_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for PaymentItem {
-    const IID: ::windows_core::GUID = <IPaymentItem as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPaymentItem as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for PaymentItem {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentItem";
 }
-::windows_core::imp::interface_hierarchy!(PaymentItem, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PaymentItem {}
 unsafe impl ::core::marker::Sync for PaymentItem {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PaymentMediator(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(PaymentMediator, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl PaymentMediator {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1264,7 +974,7 @@ impl PaymentMediator {
     where
         P0: ::windows_core::IntoParam<PaymentRequest>,
     {
-        let this = &::windows_core::ComInterface::cast::<IPaymentMediator2>(self)?;
+        let this = &::windows_core::Interface::cast::<IPaymentMediator2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CanMakePaymentAsync)(::windows_core::Interface::as_raw(this), paymentrequest.into_param().abi(), &mut result__).from_abi(result__)
@@ -1276,19 +986,17 @@ impl ::windows_core::RuntimeType for PaymentMediator {
 }
 unsafe impl ::windows_core::Interface for PaymentMediator {
     type Vtable = IPaymentMediator_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for PaymentMediator {
-    const IID: ::windows_core::GUID = <IPaymentMediator as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPaymentMediator as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for PaymentMediator {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentMediator";
 }
-::windows_core::imp::interface_hierarchy!(PaymentMediator, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PaymentMediator {}
 unsafe impl ::core::marker::Sync for PaymentMediator {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PaymentMerchantInfo(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(PaymentMerchantInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl PaymentMerchantInfo {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1331,19 +1039,17 @@ impl ::windows_core::RuntimeType for PaymentMerchantInfo {
 }
 unsafe impl ::windows_core::Interface for PaymentMerchantInfo {
     type Vtable = IPaymentMerchantInfo_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for PaymentMerchantInfo {
-    const IID: ::windows_core::GUID = <IPaymentMerchantInfo as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPaymentMerchantInfo as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for PaymentMerchantInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentMerchantInfo";
 }
-::windows_core::imp::interface_hierarchy!(PaymentMerchantInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PaymentMerchantInfo {}
 unsafe impl ::core::marker::Sync for PaymentMerchantInfo {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PaymentMethodData(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(PaymentMethodData, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl PaymentMethodData {
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
@@ -1365,22 +1071,22 @@ impl PaymentMethodData {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Create<P0>(supportedmethodids: P0) -> ::windows_core::Result<PaymentMethodData>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
     {
         Self::IPaymentMethodDataFactory(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), supportedmethodids.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), supportedmethodids.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateWithJsonData<P0>(supportedmethodids: P0, jsondata: &::windows_core::HSTRING) -> ::windows_core::Result<PaymentMethodData>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
     {
         Self::IPaymentMethodDataFactory(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateWithJsonData)(::windows_core::Interface::as_raw(this), supportedmethodids.try_into_param()?.abi(), ::core::mem::transmute_copy(jsondata), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateWithJsonData)(::windows_core::Interface::as_raw(this), supportedmethodids.into_param().abi(), ::core::mem::transmute_copy(jsondata), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -1394,19 +1100,17 @@ impl ::windows_core::RuntimeType for PaymentMethodData {
 }
 unsafe impl ::windows_core::Interface for PaymentMethodData {
     type Vtable = IPaymentMethodData_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for PaymentMethodData {
-    const IID: ::windows_core::GUID = <IPaymentMethodData as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPaymentMethodData as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for PaymentMethodData {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentMethodData";
 }
-::windows_core::imp::interface_hierarchy!(PaymentMethodData, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PaymentMethodData {}
 unsafe impl ::core::marker::Sync for PaymentMethodData {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PaymentOptions(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(PaymentOptions, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl PaymentOptions {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1476,19 +1180,17 @@ impl ::windows_core::RuntimeType for PaymentOptions {
 }
 unsafe impl ::windows_core::Interface for PaymentOptions {
     type Vtable = IPaymentOptions_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for PaymentOptions {
-    const IID: ::windows_core::GUID = <IPaymentOptions as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPaymentOptions as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for PaymentOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentOptions";
 }
-::windows_core::imp::interface_hierarchy!(PaymentOptions, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PaymentOptions {}
 unsafe impl ::core::marker::Sync for PaymentOptions {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PaymentRequest(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(PaymentRequest, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl PaymentRequest {
     pub fn MerchantInfo(&self) -> ::windows_core::Result<PaymentMerchantInfo> {
         let this = self;
@@ -1521,7 +1223,7 @@ impl PaymentRequest {
         }
     }
     pub fn Id(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<IPaymentRequest2>(self)?;
+        let this = &::windows_core::Interface::cast::<IPaymentRequest2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -1532,11 +1234,11 @@ impl PaymentRequest {
     pub fn Create<P0, P1>(details: P0, methoddata: P1) -> ::windows_core::Result<PaymentRequest>
     where
         P0: ::windows_core::IntoParam<PaymentDetails>,
-        P1: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<PaymentMethodData>>,
+        P1: ::windows_core::IntoParam<super::super::Foundation::Collections::IIterable<PaymentMethodData>>,
     {
         Self::IPaymentRequestFactory(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), details.into_param().abi(), methoddata.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), details.into_param().abi(), methoddata.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Foundation_Collections\"`"]
@@ -1544,12 +1246,12 @@ impl PaymentRequest {
     pub fn CreateWithMerchantInfo<P0, P1, P2>(details: P0, methoddata: P1, merchantinfo: P2) -> ::windows_core::Result<PaymentRequest>
     where
         P0: ::windows_core::IntoParam<PaymentDetails>,
-        P1: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<PaymentMethodData>>,
+        P1: ::windows_core::IntoParam<super::super::Foundation::Collections::IIterable<PaymentMethodData>>,
         P2: ::windows_core::IntoParam<PaymentMerchantInfo>,
     {
         Self::IPaymentRequestFactory(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateWithMerchantInfo)(::windows_core::Interface::as_raw(this), details.into_param().abi(), methoddata.try_into_param()?.abi(), merchantinfo.into_param().abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateWithMerchantInfo)(::windows_core::Interface::as_raw(this), details.into_param().abi(), methoddata.into_param().abi(), merchantinfo.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Foundation_Collections\"`"]
@@ -1557,13 +1259,13 @@ impl PaymentRequest {
     pub fn CreateWithMerchantInfoAndOptions<P0, P1, P2, P3>(details: P0, methoddata: P1, merchantinfo: P2, options: P3) -> ::windows_core::Result<PaymentRequest>
     where
         P0: ::windows_core::IntoParam<PaymentDetails>,
-        P1: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<PaymentMethodData>>,
+        P1: ::windows_core::IntoParam<super::super::Foundation::Collections::IIterable<PaymentMethodData>>,
         P2: ::windows_core::IntoParam<PaymentMerchantInfo>,
         P3: ::windows_core::IntoParam<PaymentOptions>,
     {
         Self::IPaymentRequestFactory(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateWithMerchantInfoAndOptions)(::windows_core::Interface::as_raw(this), details.into_param().abi(), methoddata.try_into_param()?.abi(), merchantinfo.into_param().abi(), options.into_param().abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateWithMerchantInfoAndOptions)(::windows_core::Interface::as_raw(this), details.into_param().abi(), methoddata.into_param().abi(), merchantinfo.into_param().abi(), options.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Foundation_Collections\"`"]
@@ -1571,13 +1273,13 @@ impl PaymentRequest {
     pub fn CreateWithMerchantInfoOptionsAndId<P0, P1, P2, P3>(details: P0, methoddata: P1, merchantinfo: P2, options: P3, id: &::windows_core::HSTRING) -> ::windows_core::Result<PaymentRequest>
     where
         P0: ::windows_core::IntoParam<PaymentDetails>,
-        P1: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<PaymentMethodData>>,
+        P1: ::windows_core::IntoParam<super::super::Foundation::Collections::IIterable<PaymentMethodData>>,
         P2: ::windows_core::IntoParam<PaymentMerchantInfo>,
         P3: ::windows_core::IntoParam<PaymentOptions>,
     {
         Self::IPaymentRequestFactory2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateWithMerchantInfoOptionsAndId)(::windows_core::Interface::as_raw(this), details.into_param().abi(), methoddata.try_into_param()?.abi(), merchantinfo.into_param().abi(), options.into_param().abi(), ::core::mem::transmute_copy(id), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateWithMerchantInfoOptionsAndId)(::windows_core::Interface::as_raw(this), details.into_param().abi(), methoddata.into_param().abi(), merchantinfo.into_param().abi(), options.into_param().abi(), ::core::mem::transmute_copy(id), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -1596,19 +1298,17 @@ impl ::windows_core::RuntimeType for PaymentRequest {
 }
 unsafe impl ::windows_core::Interface for PaymentRequest {
     type Vtable = IPaymentRequest_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for PaymentRequest {
-    const IID: ::windows_core::GUID = <IPaymentRequest as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPaymentRequest as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for PaymentRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentRequest";
 }
-::windows_core::imp::interface_hierarchy!(PaymentRequest, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PaymentRequest {}
 unsafe impl ::core::marker::Sync for PaymentRequest {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PaymentRequestChangedArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(PaymentRequestChangedArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl PaymentRequestChangedArgs {
     pub fn ChangeKind(&self) -> ::windows_core::Result<PaymentRequestChangeKind> {
         let this = self;
@@ -1644,19 +1344,17 @@ impl ::windows_core::RuntimeType for PaymentRequestChangedArgs {
 }
 unsafe impl ::windows_core::Interface for PaymentRequestChangedArgs {
     type Vtable = IPaymentRequestChangedArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for PaymentRequestChangedArgs {
-    const IID: ::windows_core::GUID = <IPaymentRequestChangedArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPaymentRequestChangedArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for PaymentRequestChangedArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentRequestChangedArgs";
 }
-::windows_core::imp::interface_hierarchy!(PaymentRequestChangedArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PaymentRequestChangedArgs {}
 unsafe impl ::core::marker::Sync for PaymentRequestChangedArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PaymentRequestChangedResult(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(PaymentRequestChangedResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl PaymentRequestChangedResult {
     pub fn ChangeAcceptedByMerchant(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -1720,19 +1418,17 @@ impl ::windows_core::RuntimeType for PaymentRequestChangedResult {
 }
 unsafe impl ::windows_core::Interface for PaymentRequestChangedResult {
     type Vtable = IPaymentRequestChangedResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for PaymentRequestChangedResult {
-    const IID: ::windows_core::GUID = <IPaymentRequestChangedResult as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPaymentRequestChangedResult as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for PaymentRequestChangedResult {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentRequestChangedResult";
 }
-::windows_core::imp::interface_hierarchy!(PaymentRequestChangedResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PaymentRequestChangedResult {}
 unsafe impl ::core::marker::Sync for PaymentRequestChangedResult {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PaymentRequestSubmitResult(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(PaymentRequestSubmitResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl PaymentRequestSubmitResult {
     pub fn Status(&self) -> ::windows_core::Result<PaymentRequestStatus> {
         let this = self;
@@ -1754,19 +1450,17 @@ impl ::windows_core::RuntimeType for PaymentRequestSubmitResult {
 }
 unsafe impl ::windows_core::Interface for PaymentRequestSubmitResult {
     type Vtable = IPaymentRequestSubmitResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for PaymentRequestSubmitResult {
-    const IID: ::windows_core::GUID = <IPaymentRequestSubmitResult as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPaymentRequestSubmitResult as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for PaymentRequestSubmitResult {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentRequestSubmitResult";
 }
-::windows_core::imp::interface_hierarchy!(PaymentRequestSubmitResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PaymentRequestSubmitResult {}
 unsafe impl ::core::marker::Sync for PaymentRequestSubmitResult {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PaymentResponse(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(PaymentResponse, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl PaymentResponse {
     pub fn PaymentToken(&self) -> ::windows_core::Result<PaymentToken> {
         let this = self;
@@ -1823,19 +1517,17 @@ impl ::windows_core::RuntimeType for PaymentResponse {
 }
 unsafe impl ::windows_core::Interface for PaymentResponse {
     type Vtable = IPaymentResponse_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for PaymentResponse {
-    const IID: ::windows_core::GUID = <IPaymentResponse as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPaymentResponse as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for PaymentResponse {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentResponse";
 }
-::windows_core::imp::interface_hierarchy!(PaymentResponse, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PaymentResponse {}
 unsafe impl ::core::marker::Sync for PaymentResponse {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PaymentShippingOption(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(PaymentShippingOption, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl PaymentShippingOption {
     pub fn Label(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -1922,19 +1614,17 @@ impl ::windows_core::RuntimeType for PaymentShippingOption {
 }
 unsafe impl ::windows_core::Interface for PaymentShippingOption {
     type Vtable = IPaymentShippingOption_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for PaymentShippingOption {
-    const IID: ::windows_core::GUID = <IPaymentShippingOption as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPaymentShippingOption as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for PaymentShippingOption {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentShippingOption";
 }
-::windows_core::imp::interface_hierarchy!(PaymentShippingOption, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PaymentShippingOption {}
 unsafe impl ::core::marker::Sync for PaymentShippingOption {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PaymentToken(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(PaymentToken, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl PaymentToken {
     pub fn PaymentMethodId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -1973,14 +1663,11 @@ impl ::windows_core::RuntimeType for PaymentToken {
 }
 unsafe impl ::windows_core::Interface for PaymentToken {
     type Vtable = IPaymentToken_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for PaymentToken {
-    const IID: ::windows_core::GUID = <IPaymentToken as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPaymentToken as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for PaymentToken {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentToken";
 }
-::windows_core::imp::interface_hierarchy!(PaymentToken, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PaymentToken {}
 unsafe impl ::core::marker::Sync for PaymentToken {}
 #[repr(transparent)]
@@ -2100,9 +1787,7 @@ impl ::core::fmt::Debug for PaymentShippingType {
 impl ::windows_core::RuntimeType for PaymentShippingType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentShippingType;i4)");
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct PaymentRequestChangedHandler(pub ::windows_core::IUnknown);
+::windows_core::imp::com_interface!(PaymentRequestChangedHandler, PaymentRequestChangedHandler_Vtbl, 0x5078b9e1_f398_4f2c_a27e_94d371cf6c7d);
 impl PaymentRequestChangedHandler {
     pub fn new<F: FnMut(::core::option::Option<&PaymentRequest>, ::core::option::Option<&PaymentRequestChangedArgs>) -> ::windows_core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
         let com = PaymentRequestChangedHandlerBox::<F> { vtable: &PaymentRequestChangedHandlerBox::<F>::VTABLE, count: ::windows_core::imp::RefCount::new(1), invoke };
@@ -2133,7 +1818,7 @@ impl<F: FnMut(::core::option::Option<&PaymentRequest>, ::core::option::Option<&P
         if iid.is_null() || interface.is_null() {
             return ::windows_core::HRESULT(-2147467261);
         }
-        *interface = if *iid == <PaymentRequestChangedHandler as ::windows_core::ComInterface>::IID || *iid == <::windows_core::IUnknown as ::windows_core::ComInterface>::IID || *iid == <::windows_core::imp::IAgileObject as ::windows_core::ComInterface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        *interface = if *iid == <PaymentRequestChangedHandler as ::windows_core::Interface>::IID || *iid == <::windows_core::IUnknown as ::windows_core::Interface>::IID || *iid == <::windows_core::imp::IAgileObject as ::windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows_core::HRESULT(-2147467262)
         } else {
@@ -2157,12 +1842,6 @@ impl<F: FnMut(::core::option::Option<&PaymentRequest>, ::core::option::Option<&P
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         ((*this).invoke)(::windows_core::from_raw_borrowed(&paymentrequest), ::windows_core::from_raw_borrowed(&args)).into()
     }
-}
-unsafe impl ::windows_core::Interface for PaymentRequestChangedHandler {
-    type Vtable = PaymentRequestChangedHandler_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for PaymentRequestChangedHandler {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5078b9e1_f398_4f2c_a27e_94d371cf6c7d);
 }
 impl ::windows_core::RuntimeType for PaymentRequestChangedHandler {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();

@@ -28,7 +28,7 @@ impl IObjectArray_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IObjectArray as ::windows_core::ComInterface>::IID
+        iid == &<IObjectArray as ::windows_core::Interface>::IID
     }
 }
 pub trait IObjectCollection_Impl: Sized + IObjectArray_Impl {
@@ -69,6 +69,6 @@ impl IObjectCollection_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IObjectCollection as ::windows_core::ComInterface>::IID || iid == &<IObjectArray as ::windows_core::ComInterface>::IID
+        iid == &<IObjectCollection as ::windows_core::Interface>::IID || iid == &<IObjectArray as ::windows_core::Interface>::IID
     }
 }

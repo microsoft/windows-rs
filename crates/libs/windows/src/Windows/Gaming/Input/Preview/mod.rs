@@ -1,13 +1,4 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGameControllerProviderInfoStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGameControllerProviderInfoStatics {
-    type Vtable = IGameControllerProviderInfoStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGameControllerProviderInfoStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0be1e6c5_d9bd_44ee_8362_488b2e464bfb);
-}
+::windows_core::imp::com_interface!(IGameControllerProviderInfoStatics, IGameControllerProviderInfoStatics_Vtbl, 0x0be1e6c5_d9bd_44ee_8362_488b2e464bfb);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameControllerProviderInfoStatics_Vtbl {
@@ -27,22 +18,22 @@ impl GameControllerProviderInfo {
     #[cfg(feature = "Gaming_Input_Custom")]
     pub fn GetParentProviderId<P0>(provider: P0) -> ::windows_core::Result<::windows_core::HSTRING>
     where
-        P0: ::windows_core::TryIntoParam<super::Custom::IGameControllerProvider>,
+        P0: ::windows_core::IntoParam<super::Custom::IGameControllerProvider>,
     {
         Self::IGameControllerProviderInfoStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetParentProviderId)(::windows_core::Interface::as_raw(this), provider.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetParentProviderId)(::windows_core::Interface::as_raw(this), provider.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Gaming_Input_Custom\"`"]
     #[cfg(feature = "Gaming_Input_Custom")]
     pub fn GetProviderId<P0>(provider: P0) -> ::windows_core::Result<::windows_core::HSTRING>
     where
-        P0: ::windows_core::TryIntoParam<super::Custom::IGameControllerProvider>,
+        P0: ::windows_core::IntoParam<super::Custom::IGameControllerProvider>,
     {
         Self::IGameControllerProviderInfoStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetProviderId)(::windows_core::Interface::as_raw(this), provider.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetProviderId)(::windows_core::Interface::as_raw(this), provider.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]

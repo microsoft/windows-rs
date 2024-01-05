@@ -72,9 +72,8 @@ pub unsafe fn timeSetEvent(udelay: u32, uresolution: u32, fptc: LPTIMECALLBACK, 
     ::windows_targets::link!("winmm.dll" "system" fn timeSetEvent(udelay : u32, uresolution : u32, fptc : LPTIMECALLBACK, dwuser : usize, fuevent : u32) -> u32);
     timeSetEvent(udelay, uresolution, fptc, dwuser, fuevent)
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IReferenceClock(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IReferenceClock, IReferenceClock_Vtbl, 0x56a86897_0ad4_11ce_b03a_0020af0ba770);
+::windows_core::imp::interface_hierarchy!(IReferenceClock, ::windows_core::IUnknown);
 impl IReferenceClock {
     pub unsafe fn GetTime(&self) -> ::windows_core::Result<i64> {
         let mut result__ = ::std::mem::zeroed();
@@ -98,13 +97,6 @@ impl IReferenceClock {
         (::windows_core::Interface::vtable(self).Unadvise)(::windows_core::Interface::as_raw(self), dwadvisecookie).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IReferenceClock, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IReferenceClock {
-    type Vtable = IReferenceClock_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IReferenceClock {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x56a86897_0ad4_11ce_b03a_0020af0ba770);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IReferenceClock_Vtbl {
@@ -114,9 +106,8 @@ pub struct IReferenceClock_Vtbl {
     pub AdvisePeriodic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, starttime: i64, periodtime: i64, hsemaphore: super::Foundation::HANDLE, pdwadvisecookie: *mut usize) -> ::windows_core::HRESULT,
     pub Unadvise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwadvisecookie: usize) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IReferenceClock2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IReferenceClock2, IReferenceClock2_Vtbl, 0x36b73885_c2c8_11cf_8b46_00805f6cef60);
+::windows_core::imp::interface_hierarchy!(IReferenceClock2, ::windows_core::IUnknown, IReferenceClock);
 impl IReferenceClock2 {
     pub unsafe fn GetTime(&self) -> ::windows_core::Result<i64> {
         let mut result__ = ::std::mem::zeroed();
@@ -140,21 +131,13 @@ impl IReferenceClock2 {
         (::windows_core::Interface::vtable(self).base__.Unadvise)(::windows_core::Interface::as_raw(self), dwadvisecookie).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IReferenceClock2, ::windows_core::IUnknown, IReferenceClock);
-unsafe impl ::windows_core::Interface for IReferenceClock2 {
-    type Vtable = IReferenceClock2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IReferenceClock2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x36b73885_c2c8_11cf_8b46_00805f6cef60);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IReferenceClock2_Vtbl {
     pub base__: IReferenceClock_Vtbl,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IReferenceClockTimerControl(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IReferenceClockTimerControl, IReferenceClockTimerControl_Vtbl, 0xebec459c_2eca_4d42_a8af_30df557614b8);
+::windows_core::imp::interface_hierarchy!(IReferenceClockTimerControl, ::windows_core::IUnknown);
 impl IReferenceClockTimerControl {
     pub unsafe fn SetDefaultTimerResolution(&self, timerresolution: i64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetDefaultTimerResolution)(::windows_core::Interface::as_raw(self), timerresolution).ok()
@@ -163,13 +146,6 @@ impl IReferenceClockTimerControl {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDefaultTimerResolution)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-}
-::windows_core::imp::interface_hierarchy!(IReferenceClockTimerControl, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IReferenceClockTimerControl {
-    type Vtable = IReferenceClockTimerControl_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IReferenceClockTimerControl {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xebec459c_2eca_4d42_a8af_30df557614b8);
 }
 #[repr(C)]
 #[doc(hidden)]

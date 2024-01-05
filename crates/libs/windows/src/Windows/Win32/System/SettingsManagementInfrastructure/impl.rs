@@ -45,7 +45,7 @@ impl IItemEnumerator_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IItemEnumerator as ::windows_core::ComInterface>::IID
+        iid == &<IItemEnumerator as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -123,7 +123,7 @@ impl ISettingsContext_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISettingsContext as ::windows_core::ComInterface>::IID
+        iid == &<ISettingsContext as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -312,7 +312,7 @@ impl ISettingsEngine_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISettingsEngine as ::windows_core::ComInterface>::IID
+        iid == &<ISettingsEngine as ::windows_core::Interface>::IID
     }
 }
 pub trait ISettingsIdentity_Impl: Sized {
@@ -365,7 +365,7 @@ impl ISettingsIdentity_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISettingsIdentity as ::windows_core::ComInterface>::IID
+        iid == &<ISettingsIdentity as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -632,7 +632,7 @@ impl ISettingsItem_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISettingsItem as ::windows_core::ComInterface>::IID
+        iid == &<ISettingsItem as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -734,7 +734,7 @@ impl ISettingsNamespace_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISettingsNamespace as ::windows_core::ComInterface>::IID
+        iid == &<ISettingsNamespace as ::windows_core::Interface>::IID
     }
 }
 pub trait ISettingsResult_Impl: Sized {
@@ -825,7 +825,7 @@ impl ISettingsResult_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISettingsResult as ::windows_core::ComInterface>::IID
+        iid == &<ISettingsResult as ::windows_core::Interface>::IID
     }
 }
 pub trait ITargetInfo_Impl: Sized {
@@ -1057,6 +1057,6 @@ impl ITargetInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITargetInfo as ::windows_core::ComInterface>::IID
+        iid == &<ITargetInfo as ::windows_core::Interface>::IID
     }
 }

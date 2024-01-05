@@ -68,7 +68,7 @@ impl IEnhancedStorageACT_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnhancedStorageACT as ::windows_core::ComInterface>::IID
+        iid == &<IEnhancedStorageACT as ::windows_core::Interface>::IID
     }
 }
 pub trait IEnhancedStorageACT2_Impl: Sized + IEnhancedStorageACT_Impl {
@@ -107,7 +107,7 @@ impl IEnhancedStorageACT2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnhancedStorageACT2 as ::windows_core::ComInterface>::IID || iid == &<IEnhancedStorageACT as ::windows_core::ComInterface>::IID
+        iid == &<IEnhancedStorageACT2 as ::windows_core::Interface>::IID || iid == &<IEnhancedStorageACT as ::windows_core::Interface>::IID
     }
 }
 pub trait IEnhancedStorageACT3_Impl: Sized + IEnhancedStorageACT2_Impl {
@@ -153,7 +153,7 @@ impl IEnhancedStorageACT3_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnhancedStorageACT3 as ::windows_core::ComInterface>::IID || iid == &<IEnhancedStorageACT as ::windows_core::ComInterface>::IID || iid == &<IEnhancedStorageACT2 as ::windows_core::ComInterface>::IID
+        iid == &<IEnhancedStorageACT3 as ::windows_core::Interface>::IID || iid == &<IEnhancedStorageACT as ::windows_core::Interface>::IID || iid == &<IEnhancedStorageACT2 as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Devices_PortableDevices\"`"]
@@ -223,7 +223,7 @@ impl IEnhancedStorageSilo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnhancedStorageSilo as ::windows_core::ComInterface>::IID
+        iid == &<IEnhancedStorageSilo as ::windows_core::Interface>::IID
     }
 }
 pub trait IEnhancedStorageSiloAction_Impl: Sized {
@@ -269,7 +269,7 @@ impl IEnhancedStorageSiloAction_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnhancedStorageSiloAction as ::windows_core::ComInterface>::IID
+        iid == &<IEnhancedStorageSiloAction as ::windows_core::Interface>::IID
     }
 }
 pub trait IEnumEnhancedStorageACT_Impl: Sized {
@@ -302,6 +302,6 @@ impl IEnumEnhancedStorageACT_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumEnhancedStorageACT as ::windows_core::ComInterface>::IID
+        iid == &<IEnumEnhancedStorageACT as ::windows_core::Interface>::IID
     }
 }

@@ -1,13 +1,4 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IUserNotificationListener(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IUserNotificationListener {
-    type Vtable = IUserNotificationListener_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IUserNotificationListener {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x62553e41_8a06_4cef_8215_6033a5be4b03);
-}
+::windows_core::imp::com_interface!(IUserNotificationListener, IUserNotificationListener_Vtbl, 0x62553e41_8a06_4cef_8215_6033a5be4b03);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserNotificationListener_Vtbl {
@@ -24,16 +15,7 @@ pub struct IUserNotificationListener_Vtbl {
     pub ClearNotifications: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub RemoveNotification: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, notificationid: u32) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IUserNotificationListenerStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IUserNotificationListenerStatics {
-    type Vtable = IUserNotificationListenerStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IUserNotificationListenerStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xff6123cf_4386_4aa3_b73d_b804e5b63b23);
-}
+::windows_core::imp::com_interface!(IUserNotificationListenerStatics, IUserNotificationListenerStatics_Vtbl, 0xff6123cf_4386_4aa3_b73d_b804e5b63b23);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserNotificationListenerStatics_Vtbl {
@@ -43,6 +25,7 @@ pub struct IUserNotificationListenerStatics_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UserNotificationListener(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(UserNotificationListener, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl UserNotificationListener {
     pub fn RequestAccessAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<UserNotificationListenerAccessStatus>> {
         let this = self;
@@ -113,14 +96,11 @@ impl ::windows_core::RuntimeType for UserNotificationListener {
 }
 unsafe impl ::windows_core::Interface for UserNotificationListener {
     type Vtable = IUserNotificationListener_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for UserNotificationListener {
-    const IID: ::windows_core::GUID = <IUserNotificationListener as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IUserNotificationListener as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for UserNotificationListener {
     const NAME: &'static str = "Windows.UI.Notifications.Management.UserNotificationListener";
 }
-::windows_core::imp::interface_hierarchy!(UserNotificationListener, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for UserNotificationListener {}
 unsafe impl ::core::marker::Sync for UserNotificationListener {}
 #[repr(transparent)]

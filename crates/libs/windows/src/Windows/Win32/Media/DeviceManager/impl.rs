@@ -22,7 +22,7 @@ impl IComponentAuthenticate_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IComponentAuthenticate as ::windows_core::ComInterface>::IID
+        iid == &<IComponentAuthenticate as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Media_Audio\"`"]
@@ -146,7 +146,7 @@ impl IMDSPDevice_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMDSPDevice as ::windows_core::ComInterface>::IID
+        iid == &<IMDSPDevice as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Ole\"`"]
@@ -197,7 +197,7 @@ impl IMDSPDevice2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMDSPDevice2 as ::windows_core::ComInterface>::IID || iid == &<IMDSPDevice as ::windows_core::ComInterface>::IID
+        iid == &<IMDSPDevice2 as ::windows_core::Interface>::IID || iid == &<IMDSPDevice as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -267,7 +267,7 @@ impl IMDSPDevice3_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMDSPDevice3 as ::windows_core::ComInterface>::IID || iid == &<IMDSPDevice as ::windows_core::ComInterface>::IID || iid == &<IMDSPDevice2 as ::windows_core::ComInterface>::IID
+        iid == &<IMDSPDevice3 as ::windows_core::Interface>::IID || iid == &<IMDSPDevice as ::windows_core::Interface>::IID || iid == &<IMDSPDevice2 as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Media_Audio\"`"]
@@ -352,7 +352,7 @@ impl IMDSPDeviceControl_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMDSPDeviceControl as ::windows_core::ComInterface>::IID
+        iid == &<IMDSPDeviceControl as ::windows_core::Interface>::IID
     }
 }
 pub trait IMDSPDirectTransfer_Impl: Sized {
@@ -375,7 +375,7 @@ impl IMDSPDirectTransfer_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), TransferToDevice: TransferToDevice::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMDSPDirectTransfer as ::windows_core::ComInterface>::IID
+        iid == &<IMDSPDirectTransfer as ::windows_core::Interface>::IID
     }
 }
 pub trait IMDSPEnumDevice_Impl: Sized {
@@ -428,7 +428,7 @@ impl IMDSPEnumDevice_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMDSPEnumDevice as ::windows_core::ComInterface>::IID
+        iid == &<IMDSPEnumDevice as ::windows_core::Interface>::IID
     }
 }
 pub trait IMDSPEnumStorage_Impl: Sized {
@@ -481,7 +481,7 @@ impl IMDSPEnumStorage_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMDSPEnumStorage as ::windows_core::ComInterface>::IID
+        iid == &<IMDSPEnumStorage as ::windows_core::Interface>::IID
     }
 }
 pub trait IMDSPObject_Impl: Sized {
@@ -550,7 +550,7 @@ impl IMDSPObject_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMDSPObject as ::windows_core::ComInterface>::IID
+        iid == &<IMDSPObject as ::windows_core::Interface>::IID
     }
 }
 pub trait IMDSPObject2_Impl: Sized + IMDSPObject_Impl {
@@ -577,7 +577,7 @@ impl IMDSPObject2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMDSPObject2 as ::windows_core::ComInterface>::IID || iid == &<IMDSPObject as ::windows_core::ComInterface>::IID
+        iid == &<IMDSPObject2 as ::windows_core::Interface>::IID || iid == &<IMDSPObject as ::windows_core::Interface>::IID
     }
 }
 pub trait IMDSPObjectInfo_Impl: Sized {
@@ -669,7 +669,7 @@ impl IMDSPObjectInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMDSPObjectInfo as ::windows_core::ComInterface>::IID
+        iid == &<IMDSPObjectInfo as ::windows_core::Interface>::IID
     }
 }
 pub trait IMDSPRevoked_Impl: Sized {
@@ -686,7 +686,7 @@ impl IMDSPRevoked_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetRevocationURL: GetRevocationURL::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMDSPRevoked as ::windows_core::ComInterface>::IID
+        iid == &<IMDSPRevoked as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Media_Audio\"`"]
@@ -797,7 +797,7 @@ impl IMDSPStorage_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMDSPStorage as ::windows_core::ComInterface>::IID
+        iid == &<IMDSPStorage as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`"]
@@ -854,7 +854,7 @@ impl IMDSPStorage2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMDSPStorage2 as ::windows_core::ComInterface>::IID || iid == &<IMDSPStorage as ::windows_core::ComInterface>::IID
+        iid == &<IMDSPStorage2 as ::windows_core::Interface>::IID || iid == &<IMDSPStorage as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`"]
@@ -885,7 +885,7 @@ impl IMDSPStorage3_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMDSPStorage3 as ::windows_core::ComInterface>::IID || iid == &<IMDSPStorage as ::windows_core::ComInterface>::IID || iid == &<IMDSPStorage2 as ::windows_core::ComInterface>::IID
+        iid == &<IMDSPStorage3 as ::windows_core::Interface>::IID || iid == &<IMDSPStorage as ::windows_core::Interface>::IID || iid == &<IMDSPStorage2 as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`"]
@@ -962,7 +962,7 @@ impl IMDSPStorage4_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMDSPStorage4 as ::windows_core::ComInterface>::IID || iid == &<IMDSPStorage as ::windows_core::ComInterface>::IID || iid == &<IMDSPStorage2 as ::windows_core::ComInterface>::IID || iid == &<IMDSPStorage3 as ::windows_core::ComInterface>::IID
+        iid == &<IMDSPStorage4 as ::windows_core::Interface>::IID || iid == &<IMDSPStorage as ::windows_core::Interface>::IID || iid == &<IMDSPStorage2 as ::windows_core::Interface>::IID || iid == &<IMDSPStorage3 as ::windows_core::Interface>::IID
     }
 }
 pub trait IMDSPStorageGlobals_Impl: Sized {
@@ -1062,7 +1062,7 @@ impl IMDSPStorageGlobals_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMDSPStorageGlobals as ::windows_core::ComInterface>::IID
+        iid == &<IMDSPStorageGlobals as ::windows_core::Interface>::IID
     }
 }
 pub trait IMDServiceProvider_Impl: Sized {
@@ -1101,7 +1101,7 @@ impl IMDServiceProvider_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMDServiceProvider as ::windows_core::ComInterface>::IID
+        iid == &<IMDServiceProvider as ::windows_core::Interface>::IID
     }
 }
 pub trait IMDServiceProvider2_Impl: Sized + IMDServiceProvider_Impl {
@@ -1118,7 +1118,7 @@ impl IMDServiceProvider2_Vtbl {
         Self { base__: IMDServiceProvider_Vtbl::new::<Identity, Impl, OFFSET>(), CreateDevice: CreateDevice::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMDServiceProvider2 as ::windows_core::ComInterface>::IID || iid == &<IMDServiceProvider as ::windows_core::ComInterface>::IID
+        iid == &<IMDServiceProvider2 as ::windows_core::Interface>::IID || iid == &<IMDServiceProvider as ::windows_core::Interface>::IID
     }
 }
 pub trait IMDServiceProvider3_Impl: Sized + IMDServiceProvider2_Impl {
@@ -1135,7 +1135,7 @@ impl IMDServiceProvider3_Vtbl {
         Self { base__: IMDServiceProvider2_Vtbl::new::<Identity, Impl, OFFSET>(), SetDeviceEnumPreference: SetDeviceEnumPreference::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMDServiceProvider3 as ::windows_core::ComInterface>::IID || iid == &<IMDServiceProvider as ::windows_core::ComInterface>::IID || iid == &<IMDServiceProvider2 as ::windows_core::ComInterface>::IID
+        iid == &<IMDServiceProvider3 as ::windows_core::Interface>::IID || iid == &<IMDServiceProvider as ::windows_core::Interface>::IID || iid == &<IMDServiceProvider2 as ::windows_core::Interface>::IID
     }
 }
 pub trait ISCPSecureAuthenticate_Impl: Sized {
@@ -1158,7 +1158,7 @@ impl ISCPSecureAuthenticate_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetSecureQuery: GetSecureQuery::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISCPSecureAuthenticate as ::windows_core::ComInterface>::IID
+        iid == &<ISCPSecureAuthenticate as ::windows_core::Interface>::IID
     }
 }
 pub trait ISCPSecureAuthenticate2_Impl: Sized + ISCPSecureAuthenticate_Impl {
@@ -1181,7 +1181,7 @@ impl ISCPSecureAuthenticate2_Vtbl {
         Self { base__: ISCPSecureAuthenticate_Vtbl::new::<Identity, Impl, OFFSET>(), GetSCPSession: GetSCPSession::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISCPSecureAuthenticate2 as ::windows_core::ComInterface>::IID || iid == &<ISCPSecureAuthenticate as ::windows_core::ComInterface>::IID
+        iid == &<ISCPSecureAuthenticate2 as ::windows_core::Interface>::IID || iid == &<ISCPSecureAuthenticate as ::windows_core::Interface>::IID
     }
 }
 pub trait ISCPSecureExchange_Impl: Sized {
@@ -1215,7 +1215,7 @@ impl ISCPSecureExchange_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISCPSecureExchange as ::windows_core::ComInterface>::IID
+        iid == &<ISCPSecureExchange as ::windows_core::Interface>::IID
     }
 }
 pub trait ISCPSecureExchange2_Impl: Sized + ISCPSecureExchange_Impl {
@@ -1232,7 +1232,7 @@ impl ISCPSecureExchange2_Vtbl {
         Self { base__: ISCPSecureExchange_Vtbl::new::<Identity, Impl, OFFSET>(), TransferContainerData2: TransferContainerData2::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISCPSecureExchange2 as ::windows_core::ComInterface>::IID || iid == &<ISCPSecureExchange as ::windows_core::ComInterface>::IID
+        iid == &<ISCPSecureExchange2 as ::windows_core::Interface>::IID || iid == &<ISCPSecureExchange as ::windows_core::Interface>::IID
     }
 }
 pub trait ISCPSecureExchange3_Impl: Sized + ISCPSecureExchange2_Impl {
@@ -1272,7 +1272,7 @@ impl ISCPSecureExchange3_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISCPSecureExchange3 as ::windows_core::ComInterface>::IID || iid == &<ISCPSecureExchange as ::windows_core::ComInterface>::IID || iid == &<ISCPSecureExchange2 as ::windows_core::ComInterface>::IID
+        iid == &<ISCPSecureExchange3 as ::windows_core::Interface>::IID || iid == &<ISCPSecureExchange as ::windows_core::Interface>::IID || iid == &<ISCPSecureExchange2 as ::windows_core::Interface>::IID
     }
 }
 pub trait ISCPSecureQuery_Impl: Sized {
@@ -1313,7 +1313,7 @@ impl ISCPSecureQuery_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISCPSecureQuery as ::windows_core::ComInterface>::IID
+        iid == &<ISCPSecureQuery as ::windows_core::Interface>::IID
     }
 }
 pub trait ISCPSecureQuery2_Impl: Sized + ISCPSecureQuery_Impl {
@@ -1350,7 +1350,7 @@ impl ISCPSecureQuery2_Vtbl {
         Self { base__: ISCPSecureQuery_Vtbl::new::<Identity, Impl, OFFSET>(), MakeDecision2: MakeDecision2::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISCPSecureQuery2 as ::windows_core::ComInterface>::IID || iid == &<ISCPSecureQuery as ::windows_core::ComInterface>::IID
+        iid == &<ISCPSecureQuery2 as ::windows_core::Interface>::IID || iid == &<ISCPSecureQuery as ::windows_core::Interface>::IID
     }
 }
 pub trait ISCPSecureQuery3_Impl: Sized + ISCPSecureQuery2_Impl {
@@ -1397,7 +1397,7 @@ impl ISCPSecureQuery3_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISCPSecureQuery3 as ::windows_core::ComInterface>::IID || iid == &<ISCPSecureQuery as ::windows_core::ComInterface>::IID || iid == &<ISCPSecureQuery2 as ::windows_core::ComInterface>::IID
+        iid == &<ISCPSecureQuery3 as ::windows_core::Interface>::IID || iid == &<ISCPSecureQuery as ::windows_core::Interface>::IID || iid == &<ISCPSecureQuery2 as ::windows_core::Interface>::IID
     }
 }
 pub trait ISCPSession_Impl: Sized {
@@ -1437,7 +1437,7 @@ impl ISCPSession_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISCPSession as ::windows_core::ComInterface>::IID
+        iid == &<ISCPSession as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Media_Audio\"`"]
@@ -1561,7 +1561,7 @@ impl IWMDMDevice_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDMDevice as ::windows_core::ComInterface>::IID
+        iid == &<IWMDMDevice as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Ole\"`"]
@@ -1612,7 +1612,7 @@ impl IWMDMDevice2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDMDevice2 as ::windows_core::ComInterface>::IID || iid == &<IWMDMDevice as ::windows_core::ComInterface>::IID
+        iid == &<IWMDMDevice2 as ::windows_core::Interface>::IID || iid == &<IWMDMDevice as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -1682,7 +1682,7 @@ impl IWMDMDevice3_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDMDevice3 as ::windows_core::ComInterface>::IID || iid == &<IWMDMDevice as ::windows_core::ComInterface>::IID || iid == &<IWMDMDevice2 as ::windows_core::ComInterface>::IID
+        iid == &<IWMDMDevice3 as ::windows_core::Interface>::IID || iid == &<IWMDMDevice as ::windows_core::Interface>::IID || iid == &<IWMDMDevice2 as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Media_Audio\"`"]
@@ -1767,7 +1767,7 @@ impl IWMDMDeviceControl_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDMDeviceControl as ::windows_core::ComInterface>::IID
+        iid == &<IWMDMDeviceControl as ::windows_core::Interface>::IID
     }
 }
 pub trait IWMDMDeviceSession_Impl: Sized {
@@ -1794,7 +1794,7 @@ impl IWMDMDeviceSession_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDMDeviceSession as ::windows_core::ComInterface>::IID
+        iid == &<IWMDMDeviceSession as ::windows_core::Interface>::IID
     }
 }
 pub trait IWMDMEnumDevice_Impl: Sized {
@@ -1847,7 +1847,7 @@ impl IWMDMEnumDevice_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDMEnumDevice as ::windows_core::ComInterface>::IID
+        iid == &<IWMDMEnumDevice as ::windows_core::Interface>::IID
     }
 }
 pub trait IWMDMEnumStorage_Impl: Sized {
@@ -1900,7 +1900,7 @@ impl IWMDMEnumStorage_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDMEnumStorage as ::windows_core::ComInterface>::IID
+        iid == &<IWMDMEnumStorage as ::windows_core::Interface>::IID
     }
 }
 pub trait IWMDMLogger_Impl: Sized {
@@ -1982,7 +1982,7 @@ impl IWMDMLogger_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDMLogger as ::windows_core::ComInterface>::IID
+        iid == &<IWMDMLogger as ::windows_core::Interface>::IID
     }
 }
 pub trait IWMDMMetaData_Impl: Sized {
@@ -2029,7 +2029,7 @@ impl IWMDMMetaData_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDMMetaData as ::windows_core::ComInterface>::IID
+        iid == &<IWMDMMetaData as ::windows_core::Interface>::IID
     }
 }
 pub trait IWMDMNotification_Impl: Sized {
@@ -2046,7 +2046,7 @@ impl IWMDMNotification_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), WMDMMessage: WMDMMessage::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDMNotification as ::windows_core::ComInterface>::IID
+        iid == &<IWMDMNotification as ::windows_core::Interface>::IID
     }
 }
 pub trait IWMDMObjectInfo_Impl: Sized {
@@ -2138,7 +2138,7 @@ impl IWMDMObjectInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDMObjectInfo as ::windows_core::ComInterface>::IID
+        iid == &<IWMDMObjectInfo as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Media_Audio\"`"]
@@ -2225,7 +2225,7 @@ impl IWMDMOperation_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDMOperation as ::windows_core::ComInterface>::IID
+        iid == &<IWMDMOperation as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`"]
@@ -2256,7 +2256,7 @@ impl IWMDMOperation2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDMOperation2 as ::windows_core::ComInterface>::IID || iid == &<IWMDMOperation as ::windows_core::ComInterface>::IID
+        iid == &<IWMDMOperation2 as ::windows_core::Interface>::IID || iid == &<IWMDMOperation as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Media_Audio\"`"]
@@ -2280,7 +2280,7 @@ impl IWMDMOperation3_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDMOperation3 as ::windows_core::ComInterface>::IID || iid == &<IWMDMOperation as ::windows_core::ComInterface>::IID
+        iid == &<IWMDMOperation3 as ::windows_core::Interface>::IID || iid == &<IWMDMOperation as ::windows_core::Interface>::IID
     }
 }
 pub trait IWMDMProgress_Impl: Sized {
@@ -2314,7 +2314,7 @@ impl IWMDMProgress_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDMProgress as ::windows_core::ComInterface>::IID
+        iid == &<IWMDMProgress as ::windows_core::Interface>::IID
     }
 }
 pub trait IWMDMProgress2_Impl: Sized + IWMDMProgress_Impl {
@@ -2331,7 +2331,7 @@ impl IWMDMProgress2_Vtbl {
         Self { base__: IWMDMProgress_Vtbl::new::<Identity, Impl, OFFSET>(), End2: End2::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDMProgress2 as ::windows_core::ComInterface>::IID || iid == &<IWMDMProgress as ::windows_core::ComInterface>::IID
+        iid == &<IWMDMProgress2 as ::windows_core::Interface>::IID || iid == &<IWMDMProgress as ::windows_core::Interface>::IID
     }
 }
 pub trait IWMDMProgress3_Impl: Sized + IWMDMProgress2_Impl {
@@ -2365,7 +2365,7 @@ impl IWMDMProgress3_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDMProgress3 as ::windows_core::ComInterface>::IID || iid == &<IWMDMProgress as ::windows_core::ComInterface>::IID || iid == &<IWMDMProgress2 as ::windows_core::ComInterface>::IID
+        iid == &<IWMDMProgress3 as ::windows_core::Interface>::IID || iid == &<IWMDMProgress as ::windows_core::Interface>::IID || iid == &<IWMDMProgress2 as ::windows_core::Interface>::IID
     }
 }
 pub trait IWMDMRevoked_Impl: Sized {
@@ -2382,7 +2382,7 @@ impl IWMDMRevoked_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetRevocationURL: GetRevocationURL::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDMRevoked as ::windows_core::ComInterface>::IID
+        iid == &<IWMDMRevoked as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Media_Audio\"`"]
@@ -2480,7 +2480,7 @@ impl IWMDMStorage_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDMStorage as ::windows_core::ComInterface>::IID
+        iid == &<IWMDMStorage as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`"]
@@ -2524,7 +2524,7 @@ impl IWMDMStorage2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDMStorage2 as ::windows_core::ComInterface>::IID || iid == &<IWMDMStorage as ::windows_core::ComInterface>::IID
+        iid == &<IWMDMStorage2 as ::windows_core::Interface>::IID || iid == &<IWMDMStorage as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`"]
@@ -2581,7 +2581,7 @@ impl IWMDMStorage3_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDMStorage3 as ::windows_core::ComInterface>::IID || iid == &<IWMDMStorage as ::windows_core::ComInterface>::IID || iid == &<IWMDMStorage2 as ::windows_core::ComInterface>::IID
+        iid == &<IWMDMStorage3 as ::windows_core::Interface>::IID || iid == &<IWMDMStorage as ::windows_core::Interface>::IID || iid == &<IWMDMStorage2 as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_Audio\"`, `\"Win32_Media_MediaFoundation\"`"]
@@ -2658,7 +2658,7 @@ impl IWMDMStorage4_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDMStorage4 as ::windows_core::ComInterface>::IID || iid == &<IWMDMStorage as ::windows_core::ComInterface>::IID || iid == &<IWMDMStorage2 as ::windows_core::ComInterface>::IID || iid == &<IWMDMStorage3 as ::windows_core::ComInterface>::IID
+        iid == &<IWMDMStorage4 as ::windows_core::Interface>::IID || iid == &<IWMDMStorage as ::windows_core::Interface>::IID || iid == &<IWMDMStorage2 as ::windows_core::Interface>::IID || iid == &<IWMDMStorage3 as ::windows_core::Interface>::IID
     }
 }
 pub trait IWMDMStorageControl_Impl: Sized {
@@ -2712,7 +2712,7 @@ impl IWMDMStorageControl_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDMStorageControl as ::windows_core::ComInterface>::IID
+        iid == &<IWMDMStorageControl as ::windows_core::Interface>::IID
     }
 }
 pub trait IWMDMStorageControl2_Impl: Sized + IWMDMStorageControl_Impl {
@@ -2729,7 +2729,7 @@ impl IWMDMStorageControl2_Vtbl {
         Self { base__: IWMDMStorageControl_Vtbl::new::<Identity, Impl, OFFSET>(), Insert2: Insert2::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDMStorageControl2 as ::windows_core::ComInterface>::IID || iid == &<IWMDMStorageControl as ::windows_core::ComInterface>::IID
+        iid == &<IWMDMStorageControl2 as ::windows_core::Interface>::IID || iid == &<IWMDMStorageControl as ::windows_core::Interface>::IID
     }
 }
 pub trait IWMDMStorageControl3_Impl: Sized + IWMDMStorageControl2_Impl {
@@ -2746,7 +2746,7 @@ impl IWMDMStorageControl3_Vtbl {
         Self { base__: IWMDMStorageControl2_Vtbl::new::<Identity, Impl, OFFSET>(), Insert3: Insert3::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDMStorageControl3 as ::windows_core::ComInterface>::IID || iid == &<IWMDMStorageControl as ::windows_core::ComInterface>::IID || iid == &<IWMDMStorageControl2 as ::windows_core::ComInterface>::IID
+        iid == &<IWMDMStorageControl3 as ::windows_core::Interface>::IID || iid == &<IWMDMStorageControl as ::windows_core::Interface>::IID || iid == &<IWMDMStorageControl2 as ::windows_core::Interface>::IID
     }
 }
 pub trait IWMDMStorageGlobals_Impl: Sized {
@@ -2820,7 +2820,7 @@ impl IWMDMStorageGlobals_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDMStorageGlobals as ::windows_core::ComInterface>::IID
+        iid == &<IWMDMStorageGlobals as ::windows_core::Interface>::IID
     }
 }
 pub trait IWMDeviceManager_Impl: Sized {
@@ -2872,7 +2872,7 @@ impl IWMDeviceManager_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDeviceManager as ::windows_core::ComInterface>::IID
+        iid == &<IWMDeviceManager as ::windows_core::Interface>::IID
     }
 }
 pub trait IWMDeviceManager2_Impl: Sized + IWMDeviceManager_Impl {
@@ -2918,7 +2918,7 @@ impl IWMDeviceManager2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDeviceManager2 as ::windows_core::ComInterface>::IID || iid == &<IWMDeviceManager as ::windows_core::ComInterface>::IID
+        iid == &<IWMDeviceManager2 as ::windows_core::Interface>::IID || iid == &<IWMDeviceManager as ::windows_core::Interface>::IID
     }
 }
 pub trait IWMDeviceManager3_Impl: Sized + IWMDeviceManager2_Impl {
@@ -2935,6 +2935,6 @@ impl IWMDeviceManager3_Vtbl {
         Self { base__: IWMDeviceManager2_Vtbl::new::<Identity, Impl, OFFSET>(), SetDeviceEnumPreference: SetDeviceEnumPreference::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDeviceManager3 as ::windows_core::ComInterface>::IID || iid == &<IWMDeviceManager as ::windows_core::ComInterface>::IID || iid == &<IWMDeviceManager2 as ::windows_core::ComInterface>::IID
+        iid == &<IWMDeviceManager3 as ::windows_core::Interface>::IID || iid == &<IWMDeviceManager as ::windows_core::Interface>::IID || iid == &<IWMDeviceManager2 as ::windows_core::Interface>::IID
     }
 }

@@ -1,13 +1,4 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IHttpDiagnosticProvider(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IHttpDiagnosticProvider {
-    type Vtable = IHttpDiagnosticProvider_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IHttpDiagnosticProvider {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbd811501_a056_4d39_b174_833b7b03b02c);
-}
+::windows_core::imp::com_interface!(IHttpDiagnosticProvider, IHttpDiagnosticProvider_Vtbl, 0xbd811501_a056_4d39_b174_833b7b03b02c);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHttpDiagnosticProvider_Vtbl {
@@ -21,16 +12,7 @@ pub struct IHttpDiagnosticProvider_Vtbl {
     pub RequestResponseCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     pub RemoveRequestResponseCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IHttpDiagnosticProviderRequestResponseCompletedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IHttpDiagnosticProviderRequestResponseCompletedEventArgs {
-    type Vtable = IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IHttpDiagnosticProviderRequestResponseCompletedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x735f98ee_94f6_4532_b26e_61e1b1e4efd4);
-}
+::windows_core::imp::com_interface!(IHttpDiagnosticProviderRequestResponseCompletedEventArgs, IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Vtbl, 0x735f98ee_94f6_4532_b26e_61e1b1e4efd4);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Vtbl {
@@ -46,16 +28,7 @@ pub struct IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     SourceLocations: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IHttpDiagnosticProviderRequestResponseTimestamps(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IHttpDiagnosticProviderRequestResponseTimestamps {
-    type Vtable = IHttpDiagnosticProviderRequestResponseTimestamps_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IHttpDiagnosticProviderRequestResponseTimestamps {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe0afde10_55cf_4c01_91d4_a20557d849f0);
-}
+::windows_core::imp::com_interface!(IHttpDiagnosticProviderRequestResponseTimestamps, IHttpDiagnosticProviderRequestResponseTimestamps_Vtbl, 0xe0afde10_55cf_4c01_91d4_a20557d849f0);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHttpDiagnosticProviderRequestResponseTimestamps_Vtbl {
@@ -70,16 +43,7 @@ pub struct IHttpDiagnosticProviderRequestResponseTimestamps_Vtbl {
     pub ResponseReceivedTimestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub ResponseCompletedTimestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IHttpDiagnosticProviderRequestSentEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IHttpDiagnosticProviderRequestSentEventArgs {
-    type Vtable = IHttpDiagnosticProviderRequestSentEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IHttpDiagnosticProviderRequestSentEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3f5196d0_4c1f_4ebe_a57a_06930771c50d);
-}
+::windows_core::imp::com_interface!(IHttpDiagnosticProviderRequestSentEventArgs, IHttpDiagnosticProviderRequestSentEventArgs_Vtbl, 0x3f5196d0_4c1f_4ebe_a57a_06930771c50d);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHttpDiagnosticProviderRequestSentEventArgs_Vtbl {
@@ -95,16 +59,7 @@ pub struct IHttpDiagnosticProviderRequestSentEventArgs_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     SourceLocations: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IHttpDiagnosticProviderResponseReceivedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IHttpDiagnosticProviderResponseReceivedEventArgs {
-    type Vtable = IHttpDiagnosticProviderResponseReceivedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IHttpDiagnosticProviderResponseReceivedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa0a2566c_ab5f_4d66_bb2d_084cf41635d0);
-}
+::windows_core::imp::com_interface!(IHttpDiagnosticProviderResponseReceivedEventArgs, IHttpDiagnosticProviderResponseReceivedEventArgs_Vtbl, 0xa0a2566c_ab5f_4d66_bb2d_084cf41635d0);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHttpDiagnosticProviderResponseReceivedEventArgs_Vtbl {
@@ -113,16 +68,7 @@ pub struct IHttpDiagnosticProviderResponseReceivedEventArgs_Vtbl {
     pub ActivityId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
     pub Message: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IHttpDiagnosticProviderStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IHttpDiagnosticProviderStatics {
-    type Vtable = IHttpDiagnosticProviderStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IHttpDiagnosticProviderStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5b824ec1_6a6c_47cc_afec_1e86bc26053b);
-}
+::windows_core::imp::com_interface!(IHttpDiagnosticProviderStatics, IHttpDiagnosticProviderStatics_Vtbl, 0x5b824ec1_6a6c_47cc_afec_1e86bc26053b);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHttpDiagnosticProviderStatics_Vtbl {
@@ -132,16 +78,7 @@ pub struct IHttpDiagnosticProviderStatics_Vtbl {
     #[cfg(not(feature = "System_Diagnostics"))]
     CreateFromProcessDiagnosticInfo: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IHttpDiagnosticSourceLocation(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IHttpDiagnosticSourceLocation {
-    type Vtable = IHttpDiagnosticSourceLocation_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IHttpDiagnosticSourceLocation {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x54a9d260_8860_423f_b6fa_d77716f647a7);
-}
+::windows_core::imp::com_interface!(IHttpDiagnosticSourceLocation, IHttpDiagnosticSourceLocation_Vtbl, 0x54a9d260_8860_423f_b6fa_d77716f647a7);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHttpDiagnosticSourceLocation_Vtbl {
@@ -153,6 +90,7 @@ pub struct IHttpDiagnosticSourceLocation_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HttpDiagnosticProvider(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(HttpDiagnosticProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl HttpDiagnosticProvider {
     pub fn Start(&self) -> ::windows_core::Result<()> {
         let this = self;
@@ -226,19 +164,17 @@ impl ::windows_core::RuntimeType for HttpDiagnosticProvider {
 }
 unsafe impl ::windows_core::Interface for HttpDiagnosticProvider {
     type Vtable = IHttpDiagnosticProvider_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for HttpDiagnosticProvider {
-    const IID: ::windows_core::GUID = <IHttpDiagnosticProvider as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IHttpDiagnosticProvider as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for HttpDiagnosticProvider {
     const NAME: &'static str = "Windows.Web.Http.Diagnostics.HttpDiagnosticProvider";
 }
-::windows_core::imp::interface_hierarchy!(HttpDiagnosticProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for HttpDiagnosticProvider {}
 unsafe impl ::core::marker::Sync for HttpDiagnosticProvider {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HttpDiagnosticProviderRequestResponseCompletedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(HttpDiagnosticProviderRequestResponseCompletedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl HttpDiagnosticProviderRequestResponseCompletedEventArgs {
     pub fn ActivityId(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let this = self;
@@ -297,19 +233,17 @@ impl ::windows_core::RuntimeType for HttpDiagnosticProviderRequestResponseComple
 }
 unsafe impl ::windows_core::Interface for HttpDiagnosticProviderRequestResponseCompletedEventArgs {
     type Vtable = IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for HttpDiagnosticProviderRequestResponseCompletedEventArgs {
-    const IID: ::windows_core::GUID = <IHttpDiagnosticProviderRequestResponseCompletedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IHttpDiagnosticProviderRequestResponseCompletedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for HttpDiagnosticProviderRequestResponseCompletedEventArgs {
     const NAME: &'static str = "Windows.Web.Http.Diagnostics.HttpDiagnosticProviderRequestResponseCompletedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(HttpDiagnosticProviderRequestResponseCompletedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for HttpDiagnosticProviderRequestResponseCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for HttpDiagnosticProviderRequestResponseCompletedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HttpDiagnosticProviderRequestResponseTimestamps(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(HttpDiagnosticProviderRequestResponseTimestamps, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl HttpDiagnosticProviderRequestResponseTimestamps {
     pub fn CacheCheckedTimestamp(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
         let this = self;
@@ -380,19 +314,17 @@ impl ::windows_core::RuntimeType for HttpDiagnosticProviderRequestResponseTimest
 }
 unsafe impl ::windows_core::Interface for HttpDiagnosticProviderRequestResponseTimestamps {
     type Vtable = IHttpDiagnosticProviderRequestResponseTimestamps_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for HttpDiagnosticProviderRequestResponseTimestamps {
-    const IID: ::windows_core::GUID = <IHttpDiagnosticProviderRequestResponseTimestamps as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IHttpDiagnosticProviderRequestResponseTimestamps as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for HttpDiagnosticProviderRequestResponseTimestamps {
     const NAME: &'static str = "Windows.Web.Http.Diagnostics.HttpDiagnosticProviderRequestResponseTimestamps";
 }
-::windows_core::imp::interface_hierarchy!(HttpDiagnosticProviderRequestResponseTimestamps, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for HttpDiagnosticProviderRequestResponseTimestamps {}
 unsafe impl ::core::marker::Sync for HttpDiagnosticProviderRequestResponseTimestamps {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HttpDiagnosticProviderRequestSentEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(HttpDiagnosticProviderRequestSentEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl HttpDiagnosticProviderRequestSentEventArgs {
     pub fn Timestamp(&self) -> ::windows_core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
@@ -451,19 +383,17 @@ impl ::windows_core::RuntimeType for HttpDiagnosticProviderRequestSentEventArgs 
 }
 unsafe impl ::windows_core::Interface for HttpDiagnosticProviderRequestSentEventArgs {
     type Vtable = IHttpDiagnosticProviderRequestSentEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for HttpDiagnosticProviderRequestSentEventArgs {
-    const IID: ::windows_core::GUID = <IHttpDiagnosticProviderRequestSentEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IHttpDiagnosticProviderRequestSentEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for HttpDiagnosticProviderRequestSentEventArgs {
     const NAME: &'static str = "Windows.Web.Http.Diagnostics.HttpDiagnosticProviderRequestSentEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(HttpDiagnosticProviderRequestSentEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for HttpDiagnosticProviderRequestSentEventArgs {}
 unsafe impl ::core::marker::Sync for HttpDiagnosticProviderRequestSentEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HttpDiagnosticProviderResponseReceivedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(HttpDiagnosticProviderResponseReceivedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl HttpDiagnosticProviderResponseReceivedEventArgs {
     pub fn Timestamp(&self) -> ::windows_core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
@@ -492,19 +422,17 @@ impl ::windows_core::RuntimeType for HttpDiagnosticProviderResponseReceivedEvent
 }
 unsafe impl ::windows_core::Interface for HttpDiagnosticProviderResponseReceivedEventArgs {
     type Vtable = IHttpDiagnosticProviderResponseReceivedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for HttpDiagnosticProviderResponseReceivedEventArgs {
-    const IID: ::windows_core::GUID = <IHttpDiagnosticProviderResponseReceivedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IHttpDiagnosticProviderResponseReceivedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for HttpDiagnosticProviderResponseReceivedEventArgs {
     const NAME: &'static str = "Windows.Web.Http.Diagnostics.HttpDiagnosticProviderResponseReceivedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(HttpDiagnosticProviderResponseReceivedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for HttpDiagnosticProviderResponseReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for HttpDiagnosticProviderResponseReceivedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HttpDiagnosticSourceLocation(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(HttpDiagnosticSourceLocation, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl HttpDiagnosticSourceLocation {
     pub fn SourceUri(&self) -> ::windows_core::Result<super::super::super::Foundation::Uri> {
         let this = self;
@@ -533,14 +461,11 @@ impl ::windows_core::RuntimeType for HttpDiagnosticSourceLocation {
 }
 unsafe impl ::windows_core::Interface for HttpDiagnosticSourceLocation {
     type Vtable = IHttpDiagnosticSourceLocation_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for HttpDiagnosticSourceLocation {
-    const IID: ::windows_core::GUID = <IHttpDiagnosticSourceLocation as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IHttpDiagnosticSourceLocation as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for HttpDiagnosticSourceLocation {
     const NAME: &'static str = "Windows.Web.Http.Diagnostics.HttpDiagnosticSourceLocation";
 }
-::windows_core::imp::interface_hierarchy!(HttpDiagnosticSourceLocation, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for HttpDiagnosticSourceLocation {}
 unsafe impl ::core::marker::Sync for HttpDiagnosticSourceLocation {}
 #[repr(transparent)]

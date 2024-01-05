@@ -66,7 +66,7 @@ impl IHumanPresenceSensorExtension_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IHumanPresenceSensorExtension as ::windows_core::ComInterface>::IID
+        iid == &<IHumanPresenceSensorExtension as ::windows_core::Interface>::IID
     }
 }
 pub trait ISensorDataThreshold_Impl: Sized {}
@@ -78,6 +78,6 @@ impl ISensorDataThreshold_Vtbl {
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, ISensorDataThreshold, OFFSET>() }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISensorDataThreshold as ::windows_core::ComInterface>::IID
+        iid == &<ISensorDataThreshold as ::windows_core::Interface>::IID
     }
 }

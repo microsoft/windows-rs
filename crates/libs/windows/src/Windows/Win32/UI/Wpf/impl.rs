@@ -45,7 +45,7 @@ impl IMILBitmapEffect_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMILBitmapEffect as ::windows_core::ComInterface>::IID
+        iid == &<IMILBitmapEffect as ::windows_core::Interface>::IID
     }
 }
 pub trait IMILBitmapEffectConnections_Impl: Sized {
@@ -84,7 +84,7 @@ impl IMILBitmapEffectConnections_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMILBitmapEffectConnections as ::windows_core::ComInterface>::IID
+        iid == &<IMILBitmapEffectConnections as ::windows_core::Interface>::IID
     }
 }
 pub trait IMILBitmapEffectConnectionsInfo_Impl: Sized {
@@ -149,7 +149,7 @@ impl IMILBitmapEffectConnectionsInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMILBitmapEffectConnectionsInfo as ::windows_core::ComInterface>::IID
+        iid == &<IMILBitmapEffectConnectionsInfo as ::windows_core::Interface>::IID
     }
 }
 pub trait IMILBitmapEffectConnector_Impl: Sized + IMILBitmapEffectConnectorInfo_Impl {
@@ -188,7 +188,7 @@ impl IMILBitmapEffectConnector_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMILBitmapEffectConnector as ::windows_core::ComInterface>::IID || iid == &<IMILBitmapEffectConnectorInfo as ::windows_core::ComInterface>::IID
+        iid == &<IMILBitmapEffectConnector as ::windows_core::Interface>::IID || iid == &<IMILBitmapEffectConnectorInfo as ::windows_core::Interface>::IID
     }
 }
 pub trait IMILBitmapEffectConnectorInfo_Impl: Sized {
@@ -253,7 +253,7 @@ impl IMILBitmapEffectConnectorInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMILBitmapEffectConnectorInfo as ::windows_core::ComInterface>::IID
+        iid == &<IMILBitmapEffectConnectorInfo as ::windows_core::Interface>::IID
     }
 }
 pub trait IMILBitmapEffectEvents_Impl: Sized {
@@ -280,7 +280,7 @@ impl IMILBitmapEffectEvents_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMILBitmapEffectEvents as ::windows_core::ComInterface>::IID
+        iid == &<IMILBitmapEffectEvents as ::windows_core::Interface>::IID
     }
 }
 pub trait IMILBitmapEffectFactory_Impl: Sized {
@@ -332,7 +332,7 @@ impl IMILBitmapEffectFactory_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMILBitmapEffectFactory as ::windows_core::ComInterface>::IID
+        iid == &<IMILBitmapEffectFactory as ::windows_core::Interface>::IID
     }
 }
 pub trait IMILBitmapEffectGroup_Impl: Sized {
@@ -378,7 +378,7 @@ impl IMILBitmapEffectGroup_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMILBitmapEffectGroup as ::windows_core::ComInterface>::IID
+        iid == &<IMILBitmapEffectGroup as ::windows_core::Interface>::IID
     }
 }
 pub trait IMILBitmapEffectGroupImpl_Impl: Sized {
@@ -424,7 +424,7 @@ impl IMILBitmapEffectGroupImpl_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMILBitmapEffectGroupImpl as ::windows_core::ComInterface>::IID
+        iid == &<IMILBitmapEffectGroupImpl as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Imaging\"`"]
@@ -502,7 +502,7 @@ impl IMILBitmapEffectImpl_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMILBitmapEffectImpl as ::windows_core::ComInterface>::IID
+        iid == &<IMILBitmapEffectImpl as ::windows_core::Interface>::IID
     }
 }
 pub trait IMILBitmapEffectInputConnector_Impl: Sized + IMILBitmapEffectConnector_Impl {
@@ -535,7 +535,7 @@ impl IMILBitmapEffectInputConnector_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMILBitmapEffectInputConnector as ::windows_core::ComInterface>::IID || iid == &<IMILBitmapEffectConnectorInfo as ::windows_core::ComInterface>::IID || iid == &<IMILBitmapEffectConnector as ::windows_core::ComInterface>::IID
+        iid == &<IMILBitmapEffectInputConnector as ::windows_core::Interface>::IID || iid == &<IMILBitmapEffectConnectorInfo as ::windows_core::Interface>::IID || iid == &<IMILBitmapEffectConnector as ::windows_core::Interface>::IID
     }
 }
 pub trait IMILBitmapEffectInteriorInputConnector_Impl: Sized {
@@ -558,7 +558,7 @@ impl IMILBitmapEffectInteriorInputConnector_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetInputConnector: GetInputConnector::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMILBitmapEffectInteriorInputConnector as ::windows_core::ComInterface>::IID
+        iid == &<IMILBitmapEffectInteriorInputConnector as ::windows_core::Interface>::IID
     }
 }
 pub trait IMILBitmapEffectInteriorOutputConnector_Impl: Sized {
@@ -581,7 +581,7 @@ impl IMILBitmapEffectInteriorOutputConnector_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetOutputConnector: GetOutputConnector::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMILBitmapEffectInteriorOutputConnector as ::windows_core::ComInterface>::IID
+        iid == &<IMILBitmapEffectInteriorOutputConnector as ::windows_core::Interface>::IID
     }
 }
 pub trait IMILBitmapEffectOutputConnector_Impl: Sized + IMILBitmapEffectConnector_Impl {
@@ -620,7 +620,7 @@ impl IMILBitmapEffectOutputConnector_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMILBitmapEffectOutputConnector as ::windows_core::ComInterface>::IID || iid == &<IMILBitmapEffectConnectorInfo as ::windows_core::ComInterface>::IID || iid == &<IMILBitmapEffectConnector as ::windows_core::ComInterface>::IID
+        iid == &<IMILBitmapEffectOutputConnector as ::windows_core::Interface>::IID || iid == &<IMILBitmapEffectConnectorInfo as ::windows_core::Interface>::IID || iid == &<IMILBitmapEffectConnector as ::windows_core::Interface>::IID
     }
 }
 pub trait IMILBitmapEffectOutputConnectorImpl_Impl: Sized {
@@ -647,7 +647,7 @@ impl IMILBitmapEffectOutputConnectorImpl_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMILBitmapEffectOutputConnectorImpl as ::windows_core::ComInterface>::IID
+        iid == &<IMILBitmapEffectOutputConnectorImpl as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Graphics_Imaging\"`"]
@@ -718,7 +718,7 @@ impl IMILBitmapEffectPrimitive_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMILBitmapEffectPrimitive as ::windows_core::ComInterface>::IID
+        iid == &<IMILBitmapEffectPrimitive as ::windows_core::Interface>::IID
     }
 }
 pub trait IMILBitmapEffectPrimitiveImpl_Impl: Sized {
@@ -751,7 +751,7 @@ impl IMILBitmapEffectPrimitiveImpl_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMILBitmapEffectPrimitiveImpl as ::windows_core::ComInterface>::IID
+        iid == &<IMILBitmapEffectPrimitiveImpl as ::windows_core::Interface>::IID
     }
 }
 pub trait IMILBitmapEffectRenderContext_Impl: Sized {
@@ -826,7 +826,7 @@ impl IMILBitmapEffectRenderContext_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMILBitmapEffectRenderContext as ::windows_core::ComInterface>::IID
+        iid == &<IMILBitmapEffectRenderContext as ::windows_core::Interface>::IID
     }
 }
 pub trait IMILBitmapEffectRenderContextImpl_Impl: Sized {
@@ -880,7 +880,7 @@ impl IMILBitmapEffectRenderContextImpl_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMILBitmapEffectRenderContextImpl as ::windows_core::ComInterface>::IID
+        iid == &<IMILBitmapEffectRenderContextImpl as ::windows_core::Interface>::IID
     }
 }
 pub trait IMILBitmapEffects_Impl: Sized {
@@ -945,6 +945,6 @@ impl IMILBitmapEffects_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMILBitmapEffects as ::windows_core::ComInterface>::IID
+        iid == &<IMILBitmapEffects as ::windows_core::Interface>::IID
     }
 }

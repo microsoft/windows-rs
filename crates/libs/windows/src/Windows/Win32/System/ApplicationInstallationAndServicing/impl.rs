@@ -49,7 +49,7 @@ impl IAssemblyCache_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAssemblyCache as ::windows_core::ComInterface>::IID
+        iid == &<IAssemblyCache as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -87,7 +87,7 @@ impl IAssemblyCacheItem_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAssemblyCacheItem as ::windows_core::ComInterface>::IID
+        iid == &<IAssemblyCacheItem as ::windows_core::Interface>::IID
     }
 }
 pub trait IAssemblyName_Impl: Sized {
@@ -169,7 +169,7 @@ impl IAssemblyName_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAssemblyName as ::windows_core::ComInterface>::IID
+        iid == &<IAssemblyName as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -220,7 +220,7 @@ impl IEnumMsmDependency_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumMsmDependency as ::windows_core::ComInterface>::IID
+        iid == &<IEnumMsmDependency as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -271,7 +271,7 @@ impl IEnumMsmError_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumMsmError as ::windows_core::ComInterface>::IID
+        iid == &<IEnumMsmError as ::windows_core::Interface>::IID
     }
 }
 pub trait IEnumMsmString_Impl: Sized {
@@ -318,7 +318,7 @@ impl IEnumMsmString_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumMsmString as ::windows_core::ComInterface>::IID
+        iid == &<IEnumMsmString as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -368,7 +368,7 @@ impl IMsmDependencies_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMsmDependencies as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<IMsmDependencies as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -406,7 +406,7 @@ impl IMsmDependency_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMsmDependency as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<IMsmDependency as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -484,7 +484,7 @@ impl IMsmError_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMsmError as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<IMsmError as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -534,7 +534,7 @@ impl IMsmErrors_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMsmErrors as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<IMsmErrors as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -561,7 +561,7 @@ impl IMsmGetFiles_Vtbl {
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), ModuleFiles: ModuleFiles::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMsmGetFiles as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<IMsmGetFiles as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -681,7 +681,7 @@ impl IMsmMerge_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMsmMerge as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<IMsmMerge as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -725,7 +725,7 @@ impl IMsmStrings_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMsmStrings as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<IMsmStrings as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 pub trait IPMApplicationInfo_Impl: Sized {
@@ -1333,7 +1333,7 @@ impl IPMApplicationInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPMApplicationInfo as ::windows_core::ComInterface>::IID
+        iid == &<IPMApplicationInfo as ::windows_core::Interface>::IID
     }
 }
 pub trait IPMApplicationInfoEnumerator_Impl: Sized {
@@ -1356,7 +1356,7 @@ impl IPMApplicationInfoEnumerator_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Next: Next::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPMApplicationInfoEnumerator as ::windows_core::ComInterface>::IID
+        iid == &<IPMApplicationInfoEnumerator as ::windows_core::Interface>::IID
     }
 }
 pub trait IPMBackgroundServiceAgentInfo_Impl: Sized {
@@ -1503,7 +1503,7 @@ impl IPMBackgroundServiceAgentInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPMBackgroundServiceAgentInfo as ::windows_core::ComInterface>::IID
+        iid == &<IPMBackgroundServiceAgentInfo as ::windows_core::Interface>::IID
     }
 }
 pub trait IPMBackgroundServiceAgentInfoEnumerator_Impl: Sized {
@@ -1526,7 +1526,7 @@ impl IPMBackgroundServiceAgentInfoEnumerator_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Next: Next::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPMBackgroundServiceAgentInfoEnumerator as ::windows_core::ComInterface>::IID
+        iid == &<IPMBackgroundServiceAgentInfoEnumerator as ::windows_core::Interface>::IID
     }
 }
 pub trait IPMBackgroundWorkerInfo_Impl: Sized {
@@ -1605,7 +1605,7 @@ impl IPMBackgroundWorkerInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPMBackgroundWorkerInfo as ::windows_core::ComInterface>::IID
+        iid == &<IPMBackgroundWorkerInfo as ::windows_core::Interface>::IID
     }
 }
 pub trait IPMBackgroundWorkerInfoEnumerator_Impl: Sized {
@@ -1628,7 +1628,7 @@ impl IPMBackgroundWorkerInfoEnumerator_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Next: Next::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPMBackgroundWorkerInfoEnumerator as ::windows_core::ComInterface>::IID
+        iid == &<IPMBackgroundWorkerInfoEnumerator as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1904,7 +1904,7 @@ impl IPMDeploymentManager_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPMDeploymentManager as ::windows_core::ComInterface>::IID
+        iid == &<IPMDeploymentManager as ::windows_core::Interface>::IID
     }
 }
 pub trait IPMEnumerationManager_Impl: Sized {
@@ -2097,7 +2097,7 @@ impl IPMEnumerationManager_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPMEnumerationManager as ::windows_core::ComInterface>::IID
+        iid == &<IPMEnumerationManager as ::windows_core::Interface>::IID
     }
 }
 pub trait IPMExtensionCachedFileUpdaterInfo_Impl: Sized {
@@ -2120,7 +2120,7 @@ impl IPMExtensionCachedFileUpdaterInfo_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SupportsUpdates: SupportsUpdates::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPMExtensionCachedFileUpdaterInfo as ::windows_core::ComInterface>::IID
+        iid == &<IPMExtensionCachedFileUpdaterInfo as ::windows_core::Interface>::IID
     }
 }
 pub trait IPMExtensionContractInfo_Impl: Sized {
@@ -2137,7 +2137,7 @@ impl IPMExtensionContractInfo_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), get_InvocationInfo: get_InvocationInfo::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPMExtensionContractInfo as ::windows_core::ComInterface>::IID
+        iid == &<IPMExtensionContractInfo as ::windows_core::Interface>::IID
     }
 }
 pub trait IPMExtensionFileExtensionInfo_Impl: Sized {
@@ -2199,7 +2199,7 @@ impl IPMExtensionFileExtensionInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPMExtensionFileExtensionInfo as ::windows_core::ComInterface>::IID
+        iid == &<IPMExtensionFileExtensionInfo as ::windows_core::Interface>::IID
     }
 }
 pub trait IPMExtensionFileOpenPickerInfo_Impl: Sized {
@@ -2232,7 +2232,7 @@ impl IPMExtensionFileOpenPickerInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPMExtensionFileOpenPickerInfo as ::windows_core::ComInterface>::IID
+        iid == &<IPMExtensionFileOpenPickerInfo as ::windows_core::Interface>::IID
     }
 }
 pub trait IPMExtensionFileSavePickerInfo_Impl: Sized {
@@ -2265,7 +2265,7 @@ impl IPMExtensionFileSavePickerInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPMExtensionFileSavePickerInfo as ::windows_core::ComInterface>::IID
+        iid == &<IPMExtensionFileSavePickerInfo as ::windows_core::Interface>::IID
     }
 }
 pub trait IPMExtensionInfo_Impl: Sized {
@@ -2326,7 +2326,7 @@ impl IPMExtensionInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPMExtensionInfo as ::windows_core::ComInterface>::IID
+        iid == &<IPMExtensionInfo as ::windows_core::Interface>::IID
     }
 }
 pub trait IPMExtensionInfoEnumerator_Impl: Sized {
@@ -2349,7 +2349,7 @@ impl IPMExtensionInfoEnumerator_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Next: Next::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPMExtensionInfoEnumerator as ::windows_core::ComInterface>::IID
+        iid == &<IPMExtensionInfoEnumerator as ::windows_core::Interface>::IID
     }
 }
 pub trait IPMExtensionProtocolInfo_Impl: Sized {
@@ -2376,7 +2376,7 @@ impl IPMExtensionProtocolInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPMExtensionProtocolInfo as ::windows_core::ComInterface>::IID
+        iid == &<IPMExtensionProtocolInfo as ::windows_core::Interface>::IID
     }
 }
 pub trait IPMExtensionShareTargetInfo_Impl: Sized {
@@ -2416,7 +2416,7 @@ impl IPMExtensionShareTargetInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPMExtensionShareTargetInfo as ::windows_core::ComInterface>::IID
+        iid == &<IPMExtensionShareTargetInfo as ::windows_core::Interface>::IID
     }
 }
 pub trait IPMLiveTileJobInfo_Impl: Sized {
@@ -2657,7 +2657,7 @@ impl IPMLiveTileJobInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPMLiveTileJobInfo as ::windows_core::ComInterface>::IID
+        iid == &<IPMLiveTileJobInfo as ::windows_core::Interface>::IID
     }
 }
 pub trait IPMLiveTileJobInfoEnumerator_Impl: Sized {
@@ -2680,7 +2680,7 @@ impl IPMLiveTileJobInfoEnumerator_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Next: Next::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPMLiveTileJobInfoEnumerator as ::windows_core::ComInterface>::IID
+        iid == &<IPMLiveTileJobInfoEnumerator as ::windows_core::Interface>::IID
     }
 }
 pub trait IPMTaskInfo_Impl: Sized {
@@ -2912,7 +2912,7 @@ impl IPMTaskInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPMTaskInfo as ::windows_core::ComInterface>::IID
+        iid == &<IPMTaskInfo as ::windows_core::Interface>::IID
     }
 }
 pub trait IPMTaskInfoEnumerator_Impl: Sized {
@@ -2935,7 +2935,7 @@ impl IPMTaskInfoEnumerator_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Next: Next::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPMTaskInfoEnumerator as ::windows_core::ComInterface>::IID
+        iid == &<IPMTaskInfoEnumerator as ::windows_core::Interface>::IID
     }
 }
 pub trait IPMTileInfo_Impl: Sized {
@@ -3194,7 +3194,7 @@ impl IPMTileInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPMTileInfo as ::windows_core::ComInterface>::IID
+        iid == &<IPMTileInfo as ::windows_core::Interface>::IID
     }
 }
 pub trait IPMTileInfoEnumerator_Impl: Sized {
@@ -3217,7 +3217,7 @@ impl IPMTileInfoEnumerator_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Next: Next::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPMTileInfoEnumerator as ::windows_core::ComInterface>::IID
+        iid == &<IPMTileInfoEnumerator as ::windows_core::Interface>::IID
     }
 }
 pub trait IPMTilePropertyEnumerator_Impl: Sized {
@@ -3240,7 +3240,7 @@ impl IPMTilePropertyEnumerator_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Next: Next::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPMTilePropertyEnumerator as ::windows_core::ComInterface>::IID
+        iid == &<IPMTilePropertyEnumerator as ::windows_core::Interface>::IID
     }
 }
 pub trait IPMTilePropertyInfo_Impl: Sized {
@@ -3280,7 +3280,7 @@ impl IPMTilePropertyInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPMTilePropertyInfo as ::windows_core::ComInterface>::IID
+        iid == &<IPMTilePropertyInfo as ::windows_core::Interface>::IID
     }
 }
 pub trait IValidate_Impl: Sized {
@@ -3342,6 +3342,6 @@ impl IValidate_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IValidate as ::windows_core::ComInterface>::IID
+        iid == &<IValidate as ::windows_core::Interface>::IID
     }
 }

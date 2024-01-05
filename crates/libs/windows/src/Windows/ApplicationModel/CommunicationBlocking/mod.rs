@@ -1,13 +1,4 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ICommunicationBlockingAccessManagerStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ICommunicationBlockingAccessManagerStatics {
-    type Vtable = ICommunicationBlockingAccessManagerStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ICommunicationBlockingAccessManagerStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1c969998_9d2a_5db7_edd5_0ce407fc2595);
-}
+::windows_core::imp::com_interface!(ICommunicationBlockingAccessManagerStatics, ICommunicationBlockingAccessManagerStatics_Vtbl, 0x1c969998_9d2a_5db7_edd5_0ce407fc2595);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICommunicationBlockingAccessManagerStatics_Vtbl {
@@ -25,16 +16,7 @@ pub struct ICommunicationBlockingAccessManagerStatics_Vtbl {
     pub ShowBlockedCallsUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub ShowBlockedMessagesUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ICommunicationBlockingAppManagerStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ICommunicationBlockingAppManagerStatics {
-    type Vtable = ICommunicationBlockingAppManagerStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ICommunicationBlockingAppManagerStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x77db58ec_14a6_4baa_942a_6a673d999bf2);
-}
+::windows_core::imp::com_interface!(ICommunicationBlockingAppManagerStatics, ICommunicationBlockingAppManagerStatics_Vtbl, 0x77db58ec_14a6_4baa_942a_6a673d999bf2);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICommunicationBlockingAppManagerStatics_Vtbl {
@@ -42,16 +24,7 @@ pub struct ICommunicationBlockingAppManagerStatics_Vtbl {
     pub IsCurrentAppActiveBlockingApp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub ShowCommunicationBlockingSettingsUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ICommunicationBlockingAppManagerStatics2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ICommunicationBlockingAppManagerStatics2 {
-    type Vtable = ICommunicationBlockingAppManagerStatics2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ICommunicationBlockingAppManagerStatics2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x14a68edd_ed88_457a_a364_a3634d6f166d);
-}
+::windows_core::imp::com_interface!(ICommunicationBlockingAppManagerStatics2, ICommunicationBlockingAppManagerStatics2_Vtbl, 0x14a68edd_ed88_457a_a364_a3634d6f166d);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICommunicationBlockingAppManagerStatics2_Vtbl {
@@ -76,22 +49,22 @@ impl CommunicationBlockingAccessManager {
     #[cfg(feature = "Foundation_Collections")]
     pub fn ShowBlockNumbersUI<P0>(phonenumbers: P0) -> ::windows_core::Result<bool>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
     {
         Self::ICommunicationBlockingAccessManagerStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ShowBlockNumbersUI)(::windows_core::Interface::as_raw(this), phonenumbers.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ShowBlockNumbersUI)(::windows_core::Interface::as_raw(this), phonenumbers.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ShowUnblockNumbersUI<P0>(phonenumbers: P0) -> ::windows_core::Result<bool>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
     {
         Self::ICommunicationBlockingAccessManagerStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ShowUnblockNumbersUI)(::windows_core::Interface::as_raw(this), phonenumbers.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ShowUnblockNumbersUI)(::windows_core::Interface::as_raw(this), phonenumbers.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn ShowBlockedCallsUI() -> ::windows_core::Result<()> {

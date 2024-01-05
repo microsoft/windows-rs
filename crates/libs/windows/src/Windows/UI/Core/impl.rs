@@ -30,7 +30,7 @@ impl ICoreAcceleratorKeys_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICoreAcceleratorKeys as ::windows_core::ComInterface>::IID
+        iid == &<ICoreAcceleratorKeys as ::windows_core::Interface>::IID
     }
 }
 pub trait ICoreInputSourceBase_Impl: Sized {
@@ -99,7 +99,7 @@ impl ICoreInputSourceBase_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICoreInputSourceBase as ::windows_core::ComInterface>::IID
+        iid == &<ICoreInputSourceBase as ::windows_core::Interface>::IID
     }
 }
 pub trait ICorePointerInputSource_Impl: Sized {
@@ -315,7 +315,7 @@ impl ICorePointerInputSource_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICorePointerInputSource as ::windows_core::ComInterface>::IID
+        iid == &<ICorePointerInputSource as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"System\"`"]
@@ -348,7 +348,7 @@ impl ICorePointerInputSource2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICorePointerInputSource2 as ::windows_core::ComInterface>::IID
+        iid == &<ICorePointerInputSource2 as ::windows_core::Interface>::IID
     }
 }
 pub trait ICorePointerRedirector_Impl: Sized {
@@ -423,7 +423,7 @@ impl ICorePointerRedirector_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICorePointerRedirector as ::windows_core::ComInterface>::IID
+        iid == &<ICorePointerRedirector as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Foundation_Collections\"`, `\"System\"`"]
@@ -978,7 +978,7 @@ impl ICoreWindow_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICoreWindow as ::windows_core::ComInterface>::IID
+        iid == &<ICoreWindow as ::windows_core::Interface>::IID
     }
 }
 pub trait ICoreWindowEventArgs_Impl: Sized {
@@ -1013,7 +1013,7 @@ impl ICoreWindowEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICoreWindowEventArgs as ::windows_core::ComInterface>::IID
+        iid == &<ICoreWindowEventArgs as ::windows_core::Interface>::IID
     }
 }
 pub trait IInitializeWithCoreWindow_Impl: Sized {
@@ -1035,6 +1035,6 @@ impl IInitializeWithCoreWindow_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInitializeWithCoreWindow as ::windows_core::ComInterface>::IID
+        iid == &<IInitializeWithCoreWindow as ::windows_core::Interface>::IID
     }
 }

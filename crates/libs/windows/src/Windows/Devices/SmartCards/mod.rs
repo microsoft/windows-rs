@@ -1,45 +1,18 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ICardAddedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ICardAddedEventArgs {
-    type Vtable = ICardAddedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ICardAddedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x18bbef98_f18b_4dd3_b118_dfb2c8e23cc6);
-}
+::windows_core::imp::com_interface!(ICardAddedEventArgs, ICardAddedEventArgs_Vtbl, 0x18bbef98_f18b_4dd3_b118_dfb2c8e23cc6);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICardAddedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SmartCard: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ICardRemovedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ICardRemovedEventArgs {
-    type Vtable = ICardRemovedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ICardRemovedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x15331aaf_22d7_4945_afc9_03b46f42a6cd);
-}
+::windows_core::imp::com_interface!(ICardRemovedEventArgs, ICardRemovedEventArgs_Vtbl, 0x15331aaf_22d7_4945_afc9_03b46f42a6cd);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICardRemovedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SmartCard: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IKnownSmartCardAppletIds(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IKnownSmartCardAppletIds {
-    type Vtable = IKnownSmartCardAppletIds_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IKnownSmartCardAppletIds {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7b04d8d8_95b4_4c88_8cea_411e55511efc);
-}
+::windows_core::imp::com_interface!(IKnownSmartCardAppletIds, IKnownSmartCardAppletIds_Vtbl, 0x7b04d8d8_95b4_4c88_8cea_411e55511efc);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKnownSmartCardAppletIds_Vtbl {
@@ -53,16 +26,7 @@ pub struct IKnownSmartCardAppletIds_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     ProximityPaymentSystemEnvironment: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISmartCard(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISmartCard {
-    type Vtable = ISmartCard_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISmartCard {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1b718871_6434_43f4_b55a_6a29623870aa);
-}
+::windows_core::imp::com_interface!(ISmartCard, ISmartCard_Vtbl, 0x1b718871_6434_43f4_b55a_6a29623870aa);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCard_Vtbl {
@@ -74,16 +38,7 @@ pub struct ISmartCard_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     GetAnswerToResetAsync: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISmartCardAppletIdGroup(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISmartCardAppletIdGroup {
-    type Vtable = ISmartCardAppletIdGroup_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISmartCardAppletIdGroup {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7db165e6_6264_56f4_5e03_c86385395eb1);
-}
+::windows_core::imp::com_interface!(ISmartCardAppletIdGroup, ISmartCardAppletIdGroup_Vtbl, 0x7db165e6_6264_56f4_5e03_c86385395eb1);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardAppletIdGroup_Vtbl {
@@ -101,16 +56,7 @@ pub struct ISmartCardAppletIdGroup_Vtbl {
     pub AutomaticEnablement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub SetAutomaticEnablement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISmartCardAppletIdGroup2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISmartCardAppletIdGroup2 {
-    type Vtable = ISmartCardAppletIdGroup2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISmartCardAppletIdGroup2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6b0ef9dc_9956_4a62_8d4e_d37a68ebc3a6);
-}
+::windows_core::imp::com_interface!(ISmartCardAppletIdGroup2, ISmartCardAppletIdGroup2_Vtbl, 0x6b0ef9dc_9956_4a62_8d4e_d37a68ebc3a6);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardAppletIdGroup2_Vtbl {
@@ -132,16 +78,7 @@ pub struct ISmartCardAppletIdGroup2_Vtbl {
     pub SecureUserAuthenticationRequired: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub SetSecureUserAuthenticationRequired: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISmartCardAppletIdGroupFactory(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISmartCardAppletIdGroupFactory {
-    type Vtable = ISmartCardAppletIdGroupFactory_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISmartCardAppletIdGroupFactory {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9105eb4d_4a65_4e41_8061_cbe83f3695e5);
-}
+::windows_core::imp::com_interface!(ISmartCardAppletIdGroupFactory, ISmartCardAppletIdGroupFactory_Vtbl, 0x9105eb4d_4a65_4e41_8061_cbe83f3695e5);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardAppletIdGroupFactory_Vtbl {
@@ -151,16 +88,7 @@ pub struct ISmartCardAppletIdGroupFactory_Vtbl {
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
     Create: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISmartCardAppletIdGroupRegistration(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISmartCardAppletIdGroupRegistration {
-    type Vtable = ISmartCardAppletIdGroupRegistration_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISmartCardAppletIdGroupRegistration {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdf1208d1_31bb_5596_43b1_6d69a0257b3a);
-}
+::windows_core::imp::com_interface!(ISmartCardAppletIdGroupRegistration, ISmartCardAppletIdGroupRegistration_Vtbl, 0xdf1208d1_31bb_5596_43b1_6d69a0257b3a);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardAppletIdGroupRegistration_Vtbl {
@@ -174,16 +102,7 @@ pub struct ISmartCardAppletIdGroupRegistration_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     SetAutomaticResponseApdusAsync: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISmartCardAppletIdGroupRegistration2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISmartCardAppletIdGroupRegistration2 {
-    type Vtable = ISmartCardAppletIdGroupRegistration2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISmartCardAppletIdGroupRegistration2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5f5508d8_98a7_4f2e_91d9_6cfcceda407f);
-}
+::windows_core::imp::com_interface!(ISmartCardAppletIdGroupRegistration2, ISmartCardAppletIdGroupRegistration2_Vtbl, 0x5f5508d8_98a7_4f2e_91d9_6cfcceda407f);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardAppletIdGroupRegistration2_Vtbl {
@@ -194,32 +113,14 @@ pub struct ISmartCardAppletIdGroupRegistration2_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     SetPropertiesAsync: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISmartCardAppletIdGroupStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISmartCardAppletIdGroupStatics {
-    type Vtable = ISmartCardAppletIdGroupStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISmartCardAppletIdGroupStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xab2899a9_e76c_45cf_bf1d_90eaa6205927);
-}
+::windows_core::imp::com_interface!(ISmartCardAppletIdGroupStatics, ISmartCardAppletIdGroupStatics_Vtbl, 0xab2899a9_e76c_45cf_bf1d_90eaa6205927);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardAppletIdGroupStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub MaxAppletIds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISmartCardAutomaticResponseApdu(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISmartCardAutomaticResponseApdu {
-    type Vtable = ISmartCardAutomaticResponseApdu_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISmartCardAutomaticResponseApdu {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x52152bab_c63e_4531_a857_d756d99b986a);
-}
+::windows_core::imp::com_interface!(ISmartCardAutomaticResponseApdu, ISmartCardAutomaticResponseApdu_Vtbl, 0x52152bab_c63e_4531_a857_d756d99b986a);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardAutomaticResponseApdu_Vtbl {
@@ -259,16 +160,7 @@ pub struct ISmartCardAutomaticResponseApdu_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     SetResponseApdu: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISmartCardAutomaticResponseApdu2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISmartCardAutomaticResponseApdu2 {
-    type Vtable = ISmartCardAutomaticResponseApdu2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISmartCardAutomaticResponseApdu2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x44aebb14_559d_4531_4e51_89db6fa8a57a);
-}
+::windows_core::imp::com_interface!(ISmartCardAutomaticResponseApdu2, ISmartCardAutomaticResponseApdu2_Vtbl, 0x44aebb14_559d_4531_4e51_89db6fa8a57a);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardAutomaticResponseApdu2_Vtbl {
@@ -278,16 +170,7 @@ pub struct ISmartCardAutomaticResponseApdu2_Vtbl {
     pub OutputState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub SetOutputState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISmartCardAutomaticResponseApdu3(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISmartCardAutomaticResponseApdu3 {
-    type Vtable = ISmartCardAutomaticResponseApdu3_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISmartCardAutomaticResponseApdu3 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbf43da74_6576_4392_9367_fe3bc9e2d496);
-}
+::windows_core::imp::com_interface!(ISmartCardAutomaticResponseApdu3, ISmartCardAutomaticResponseApdu3_Vtbl, 0xbf43da74_6576_4392_9367_fe3bc9e2d496);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardAutomaticResponseApdu3_Vtbl {
@@ -295,16 +178,7 @@ pub struct ISmartCardAutomaticResponseApdu3_Vtbl {
     pub AllowWhenCryptogramGeneratorNotPrepared: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub SetAllowWhenCryptogramGeneratorNotPrepared: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISmartCardAutomaticResponseApduFactory(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISmartCardAutomaticResponseApduFactory {
-    type Vtable = ISmartCardAutomaticResponseApduFactory_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISmartCardAutomaticResponseApduFactory {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe97ea2fa_d02c_4c55_b02a_8cff7fa9f05b);
-}
+::windows_core::imp::com_interface!(ISmartCardAutomaticResponseApduFactory, ISmartCardAutomaticResponseApduFactory_Vtbl, 0xe97ea2fa_d02c_4c55_b02a_8cff7fa9f05b);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardAutomaticResponseApduFactory_Vtbl {
@@ -314,16 +188,7 @@ pub struct ISmartCardAutomaticResponseApduFactory_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     Create: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISmartCardChallengeContext(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISmartCardChallengeContext {
-    type Vtable = ISmartCardChallengeContext_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISmartCardChallengeContext {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x192a5319_c9c4_4947_81cc_44794a61ef91);
-}
+::windows_core::imp::com_interface!(ISmartCardChallengeContext, ISmartCardChallengeContext_Vtbl, 0x192a5319_c9c4_4947_81cc_44794a61ef91);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardChallengeContext_Vtbl {
@@ -349,32 +214,14 @@ pub struct ISmartCardChallengeContext_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     ChangeAdministrativeKeyAsync: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISmartCardConnect(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISmartCardConnect {
-    type Vtable = ISmartCardConnect_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISmartCardConnect {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2fdf87e5_028d_491e_a058_3382c3986f40);
-}
+::windows_core::imp::com_interface!(ISmartCardConnect, ISmartCardConnect_Vtbl, 0x2fdf87e5_028d_491e_a058_3382c3986f40);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardConnect_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ConnectAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISmartCardConnection(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISmartCardConnection {
-    type Vtable = ISmartCardConnection_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISmartCardConnection {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7edb991a_a81a_47bc_a649_156be6b7f231);
-}
+::windows_core::imp::com_interface!(ISmartCardConnection, ISmartCardConnection_Vtbl, 0x7edb991a_a81a_47bc_a649_156be6b7f231);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardConnection_Vtbl {
@@ -384,16 +231,7 @@ pub struct ISmartCardConnection_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     TransmitAsync: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISmartCardCryptogramGenerator(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISmartCardCryptogramGenerator {
-    type Vtable = ISmartCardCryptogramGenerator_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISmartCardCryptogramGenerator {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe39f587b_edd3_4e49_b594_0ff5e4d0c76f);
-}
+::windows_core::imp::com_interface!(ISmartCardCryptogramGenerator, ISmartCardCryptogramGenerator_Vtbl, 0xe39f587b_edd3_4e49_b594_0ff5e4d0c76f);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardCryptogramGenerator_Vtbl {
@@ -435,16 +273,7 @@ pub struct ISmartCardCryptogramGenerator_Vtbl {
     pub RequestUnlockCryptogramMaterialForUseAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, promptingbehavior: SmartCardUnlockPromptingBehavior, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub DeleteCryptogramMaterialPackageAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, materialpackagename: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISmartCardCryptogramGenerator2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISmartCardCryptogramGenerator2 {
-    type Vtable = ISmartCardCryptogramGenerator2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISmartCardCryptogramGenerator2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7116aa34_5d6d_4b4a_96a3_efa47d2a7e25);
-}
+::windows_core::imp::com_interface!(ISmartCardCryptogramGenerator2, ISmartCardCryptogramGenerator2_Vtbl, 0x7116aa34_5d6d_4b4a_96a3_efa47d2a7e25);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardCryptogramGenerator2_Vtbl {
@@ -458,48 +287,21 @@ pub struct ISmartCardCryptogramGenerator2_Vtbl {
     pub GetAllCryptogramMaterialPackageCharacteristicsWithStorageKeyAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storagekeyname: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetAllCryptogramMaterialCharacteristicsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, promptingbehavior: SmartCardUnlockPromptingBehavior, materialpackagename: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISmartCardCryptogramGeneratorStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISmartCardCryptogramGeneratorStatics {
-    type Vtable = ISmartCardCryptogramGeneratorStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISmartCardCryptogramGeneratorStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x09933910_cb9c_4015_967d_5234f3b02900);
-}
+::windows_core::imp::com_interface!(ISmartCardCryptogramGeneratorStatics, ISmartCardCryptogramGeneratorStatics_Vtbl, 0x09933910_cb9c_4015_967d_5234f3b02900);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardCryptogramGeneratorStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetSmartCardCryptogramGeneratorAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISmartCardCryptogramGeneratorStatics2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISmartCardCryptogramGeneratorStatics2 {
-    type Vtable = ISmartCardCryptogramGeneratorStatics2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISmartCardCryptogramGeneratorStatics2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x09bdf5e5_b4bd_4e23_a588_74469204c128);
-}
+::windows_core::imp::com_interface!(ISmartCardCryptogramGeneratorStatics2, ISmartCardCryptogramGeneratorStatics2_Vtbl, 0x09bdf5e5_b4bd_4e23_a588_74469204c128);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardCryptogramGeneratorStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {
-    type Vtable = ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2798e029_d687_4c92_86c6_399e9a0ecb09);
-}
+::windows_core::imp::com_interface!(ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult, ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult_Vtbl, 0x2798e029_d687_4c92_86c6_399e9a0ecb09);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult_Vtbl {
@@ -510,16 +312,7 @@ pub struct ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult_Vtb
     #[cfg(not(feature = "Foundation_Collections"))]
     Characteristics: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {
-    type Vtable = ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4e6a8a5c_9773_46c4_a32f_b1e543159e04);
-}
+::windows_core::imp::com_interface!(ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult, ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult_Vtbl, 0x4e6a8a5c_9773_46c4_a32f_b1e543159e04);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult_Vtbl {
@@ -530,16 +323,7 @@ pub struct ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsRes
     #[cfg(not(feature = "Foundation_Collections"))]
     Characteristics: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {
-    type Vtable = ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8c7ce857_a7e7_489d_b9d6_368061515012);
-}
+::windows_core::imp::com_interface!(ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult, ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult_Vtbl, 0x8c7ce857_a7e7_489d_b9d6_368061515012);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult_Vtbl {
@@ -550,16 +334,7 @@ pub struct ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult_V
     #[cfg(not(feature = "Foundation_Collections"))]
     Characteristics: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISmartCardCryptogramMaterialCharacteristics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISmartCardCryptogramMaterialCharacteristics {
-    type Vtable = ISmartCardCryptogramMaterialCharacteristics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISmartCardCryptogramMaterialCharacteristics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfc9ac5cc_c1d7_4153_923b_a2d43c6c8d49);
-}
+::windows_core::imp::com_interface!(ISmartCardCryptogramMaterialCharacteristics, ISmartCardCryptogramMaterialCharacteristics_Vtbl, 0xfc9ac5cc_c1d7_4153_923b_a2d43c6c8d49);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardCryptogramMaterialCharacteristics_Vtbl {
@@ -582,16 +357,7 @@ pub struct ISmartCardCryptogramMaterialCharacteristics_Vtbl {
     pub ProtectionVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
     pub MaterialLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISmartCardCryptogramMaterialPackageCharacteristics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISmartCardCryptogramMaterialPackageCharacteristics {
-    type Vtable = ISmartCardCryptogramMaterialPackageCharacteristics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISmartCardCryptogramMaterialPackageCharacteristics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xffb58e1f_0692_4c47_93cf_34d91f9dcd00);
-}
+::windows_core::imp::com_interface!(ISmartCardCryptogramMaterialPackageCharacteristics, ISmartCardCryptogramMaterialPackageCharacteristics_Vtbl, 0xffb58e1f_0692_4c47_93cf_34d91f9dcd00);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardCryptogramMaterialPackageCharacteristics_Vtbl {
@@ -601,16 +367,7 @@ pub struct ISmartCardCryptogramMaterialPackageCharacteristics_Vtbl {
     pub DateImported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
     pub PackageFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SmartCardCryptogramMaterialPackageFormat) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISmartCardCryptogramMaterialPossessionProof(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISmartCardCryptogramMaterialPossessionProof {
-    type Vtable = ISmartCardCryptogramMaterialPossessionProof_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISmartCardCryptogramMaterialPossessionProof {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe5b9ab8c_a141_4135_9add_b0d2e3aa1fc9);
-}
+::windows_core::imp::com_interface!(ISmartCardCryptogramMaterialPossessionProof, ISmartCardCryptogramMaterialPossessionProof_Vtbl, 0xe5b9ab8c_a141_4135_9add_b0d2e3aa1fc9);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardCryptogramMaterialPossessionProof_Vtbl {
@@ -621,16 +378,7 @@ pub struct ISmartCardCryptogramMaterialPossessionProof_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     Proof: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISmartCardCryptogramPlacementStep(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISmartCardCryptogramPlacementStep {
-    type Vtable = ISmartCardCryptogramPlacementStep_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISmartCardCryptogramPlacementStep {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x947b03eb_8342_4792_a2e5_925636378a53);
-}
+::windows_core::imp::com_interface!(ISmartCardCryptogramPlacementStep, ISmartCardCryptogramPlacementStep_Vtbl, 0x947b03eb_8342_4792_a2e5_925636378a53);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardCryptogramPlacementStep_Vtbl {
@@ -660,16 +408,7 @@ pub struct ISmartCardCryptogramPlacementStep_Vtbl {
     pub ChainedOutputStep: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub SetChainedOutputStep: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISmartCardCryptogramStorageKeyCharacteristics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISmartCardCryptogramStorageKeyCharacteristics {
-    type Vtable = ISmartCardCryptogramStorageKeyCharacteristics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISmartCardCryptogramStorageKeyCharacteristics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8552546e_4457_4825_b464_635471a39f5c);
-}
+::windows_core::imp::com_interface!(ISmartCardCryptogramStorageKeyCharacteristics, ISmartCardCryptogramStorageKeyCharacteristics_Vtbl, 0x8552546e_4457_4825_b464_635471a39f5c);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardCryptogramStorageKeyCharacteristics_Vtbl {
@@ -679,16 +418,7 @@ pub struct ISmartCardCryptogramStorageKeyCharacteristics_Vtbl {
     pub Algorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SmartCardCryptogramStorageKeyAlgorithm) -> ::windows_core::HRESULT,
     pub Capabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SmartCardCryptogramStorageKeyCapabilities) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISmartCardCryptogramStorageKeyInfo(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISmartCardCryptogramStorageKeyInfo {
-    type Vtable = ISmartCardCryptogramStorageKeyInfo_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISmartCardCryptogramStorageKeyInfo {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x77b0f00d_b097_4f61_a26a_9561639c9c3a);
-}
+::windows_core::imp::com_interface!(ISmartCardCryptogramStorageKeyInfo, ISmartCardCryptogramStorageKeyInfo_Vtbl, 0x77b0f00d_b097_4f61_a26a_9561639c9c3a);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardCryptogramStorageKeyInfo_Vtbl {
@@ -713,48 +443,21 @@ pub struct ISmartCardCryptogramStorageKeyInfo_Vtbl {
     AttestationCertificateChain: usize,
     pub Capabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SmartCardCryptogramStorageKeyCapabilities) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISmartCardCryptogramStorageKeyInfo2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISmartCardCryptogramStorageKeyInfo2 {
-    type Vtable = ISmartCardCryptogramStorageKeyInfo2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISmartCardCryptogramStorageKeyInfo2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x000440f9_f7fd_417d_89e1_fbb0382adc4d);
-}
+::windows_core::imp::com_interface!(ISmartCardCryptogramStorageKeyInfo2, ISmartCardCryptogramStorageKeyInfo2_Vtbl, 0x000440f9_f7fd_417d_89e1_fbb0382adc4d);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardCryptogramStorageKeyInfo2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub OperationalRequirements: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISmartCardEmulator(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISmartCardEmulator {
-    type Vtable = ISmartCardEmulator_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISmartCardEmulator {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdfb906b2_875e_47e5_8077_e8bff1b1c6fb);
-}
+::windows_core::imp::com_interface!(ISmartCardEmulator, ISmartCardEmulator_Vtbl, 0xdfb906b2_875e_47e5_8077_e8bff1b1c6fb);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardEmulator_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub EnablementPolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SmartCardEmulatorEnablementPolicy) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISmartCardEmulator2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISmartCardEmulator2 {
-    type Vtable = ISmartCardEmulator2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISmartCardEmulator2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfe3fc0b8_8529_411a_807b_48edc2a0ab44);
-}
+::windows_core::imp::com_interface!(ISmartCardEmulator2, ISmartCardEmulator2_Vtbl, 0xfe3fc0b8_8529_411a_807b_48edc2a0ab44);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardEmulator2_Vtbl {
@@ -766,16 +469,7 @@ pub struct ISmartCardEmulator2_Vtbl {
     pub Start: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub IsHostCardEmulationSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISmartCardEmulatorApduReceivedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISmartCardEmulatorApduReceivedEventArgs {
-    type Vtable = ISmartCardEmulatorApduReceivedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISmartCardEmulatorApduReceivedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd55d1576_69d2_5333_5b5f_f8c0d6e9f09f);
-}
+::windows_core::imp::com_interface!(ISmartCardEmulatorApduReceivedEventArgs, ISmartCardEmulatorApduReceivedEventArgs_Vtbl, 0xd55d1576_69d2_5333_5b5f_f8c0d6e9f09f);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardEmulatorApduReceivedEventArgs_Vtbl {
@@ -791,16 +485,7 @@ pub struct ISmartCardEmulatorApduReceivedEventArgs_Vtbl {
     TryRespondAsync: usize,
     pub AutomaticResponseStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SmartCardAutomaticResponseStatus) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISmartCardEmulatorApduReceivedEventArgs2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISmartCardEmulatorApduReceivedEventArgs2 {
-    type Vtable = ISmartCardEmulatorApduReceivedEventArgs2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISmartCardEmulatorApduReceivedEventArgs2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8bf93df0_22e1_4238_8610_94ce4a965425);
-}
+::windows_core::imp::com_interface!(ISmartCardEmulatorApduReceivedEventArgs2, ISmartCardEmulatorApduReceivedEventArgs2_Vtbl, 0x8bf93df0_22e1_4238_8610_94ce4a965425);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardEmulatorApduReceivedEventArgs2_Vtbl {
@@ -811,16 +496,7 @@ pub struct ISmartCardEmulatorApduReceivedEventArgs2_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     TryRespondWithStateAsync: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISmartCardEmulatorApduReceivedEventArgsWithCryptograms(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISmartCardEmulatorApduReceivedEventArgsWithCryptograms {
-    type Vtable = ISmartCardEmulatorApduReceivedEventArgsWithCryptograms_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISmartCardEmulatorApduReceivedEventArgsWithCryptograms {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd550bac7_b7bf_4e29_9294_0c4ac3c941bd);
-}
+::windows_core::imp::com_interface!(ISmartCardEmulatorApduReceivedEventArgsWithCryptograms, ISmartCardEmulatorApduReceivedEventArgsWithCryptograms_Vtbl, 0xd550bac7_b7bf_4e29_9294_0c4ac3c941bd);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardEmulatorApduReceivedEventArgsWithCryptograms_Vtbl {
@@ -834,16 +510,7 @@ pub struct ISmartCardEmulatorApduReceivedEventArgsWithCryptograms_Vtbl {
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
     TryRespondWithCryptogramsAndStateAsync: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISmartCardEmulatorConnectionDeactivatedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISmartCardEmulatorConnectionDeactivatedEventArgs {
-    type Vtable = ISmartCardEmulatorConnectionDeactivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISmartCardEmulatorConnectionDeactivatedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2186d8d3_c5eb_5262_43df_62a0a1b55557);
-}
+::windows_core::imp::com_interface!(ISmartCardEmulatorConnectionDeactivatedEventArgs, ISmartCardEmulatorConnectionDeactivatedEventArgs_Vtbl, 0x2186d8d3_c5eb_5262_43df_62a0a1b55557);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardEmulatorConnectionDeactivatedEventArgs_Vtbl {
@@ -851,16 +518,7 @@ pub struct ISmartCardEmulatorConnectionDeactivatedEventArgs_Vtbl {
     pub ConnectionProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Reason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SmartCardEmulatorConnectionDeactivatedReason) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISmartCardEmulatorConnectionProperties(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISmartCardEmulatorConnectionProperties {
-    type Vtable = ISmartCardEmulatorConnectionProperties_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISmartCardEmulatorConnectionProperties {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4e2ca5ee_f969_507d_6cf9_34e2d18df311);
-}
+::windows_core::imp::com_interface!(ISmartCardEmulatorConnectionProperties, ISmartCardEmulatorConnectionProperties_Vtbl, 0x4e2ca5ee_f969_507d_6cf9_34e2d18df311);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardEmulatorConnectionProperties_Vtbl {
@@ -868,32 +526,14 @@ pub struct ISmartCardEmulatorConnectionProperties_Vtbl {
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
     pub Source: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SmartCardEmulatorConnectionSource) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISmartCardEmulatorStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISmartCardEmulatorStatics {
-    type Vtable = ISmartCardEmulatorStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISmartCardEmulatorStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7a9bfc4b_c4d3_494f_b8a2_6215d81e85b2);
-}
+::windows_core::imp::com_interface!(ISmartCardEmulatorStatics, ISmartCardEmulatorStatics_Vtbl, 0x7a9bfc4b_c4d3_494f_b8a2_6215d81e85b2);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardEmulatorStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDefaultAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISmartCardEmulatorStatics2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISmartCardEmulatorStatics2 {
-    type Vtable = ISmartCardEmulatorStatics2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISmartCardEmulatorStatics2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x69ae9f8a_b775_488b_8436_6c1e28ed731f);
-}
+::windows_core::imp::com_interface!(ISmartCardEmulatorStatics2, ISmartCardEmulatorStatics2_Vtbl, 0x69ae9f8a_b775_488b_8436_6c1e28ed731f);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardEmulatorStatics2_Vtbl {
@@ -906,32 +546,14 @@ pub struct ISmartCardEmulatorStatics2_Vtbl {
     pub UnregisterAppletIdGroupAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, registration: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub MaxAppletIdGroupRegistrations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISmartCardEmulatorStatics3(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISmartCardEmulatorStatics3 {
-    type Vtable = ISmartCardEmulatorStatics3_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISmartCardEmulatorStatics3 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x59ea142a_9f09_43f5_8565_cfa8148e4cb2);
-}
+::windows_core::imp::com_interface!(ISmartCardEmulatorStatics3, ISmartCardEmulatorStatics3_Vtbl, 0x59ea142a_9f09_43f5_8565_cfa8148e4cb2);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardEmulatorStatics3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISmartCardPinPolicy(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISmartCardPinPolicy {
-    type Vtable = ISmartCardPinPolicy_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISmartCardPinPolicy {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x183ce184_4db6_4841_ac9e_2ac1f39b7304);
-}
+::windows_core::imp::com_interface!(ISmartCardPinPolicy, ISmartCardPinPolicy_Vtbl, 0x183ce184_4db6_4841_ac9e_2ac1f39b7304);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardPinPolicy_Vtbl {
@@ -949,32 +571,14 @@ pub struct ISmartCardPinPolicy_Vtbl {
     pub SpecialCharacters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SmartCardPinCharacterPolicyOption) -> ::windows_core::HRESULT,
     pub SetSpecialCharacters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: SmartCardPinCharacterPolicyOption) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISmartCardPinResetDeferral(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISmartCardPinResetDeferral {
-    type Vtable = ISmartCardPinResetDeferral_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISmartCardPinResetDeferral {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x18c94aac_7805_4004_85e4_bbefac8f6884);
-}
+::windows_core::imp::com_interface!(ISmartCardPinResetDeferral, ISmartCardPinResetDeferral_Vtbl, 0x18c94aac_7805_4004_85e4_bbefac8f6884);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardPinResetDeferral_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISmartCardPinResetRequest(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISmartCardPinResetRequest {
-    type Vtable = ISmartCardPinResetRequest_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISmartCardPinResetRequest {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x12fe3c4d_5fb9_4e8e_9ff6_61f475124fef);
-}
+::windows_core::imp::com_interface!(ISmartCardPinResetRequest, ISmartCardPinResetRequest_Vtbl, 0x12fe3c4d_5fb9_4e8e_9ff6_61f475124fef);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardPinResetRequest_Vtbl {
@@ -990,16 +594,7 @@ pub struct ISmartCardPinResetRequest_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     SetResponse: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISmartCardProvisioning(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISmartCardProvisioning {
-    type Vtable = ISmartCardProvisioning_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISmartCardProvisioning {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x19eeedbd_1fab_477c_b712_1a2c5af1fd6e);
-}
+::windows_core::imp::com_interface!(ISmartCardProvisioning, ISmartCardProvisioning_Vtbl, 0x19eeedbd_1fab_477c_b712_1a2c5af1fd6e);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardProvisioning_Vtbl {
@@ -1011,32 +606,14 @@ pub struct ISmartCardProvisioning_Vtbl {
     pub RequestPinChangeAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub RequestPinResetAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISmartCardProvisioning2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISmartCardProvisioning2 {
-    type Vtable = ISmartCardProvisioning2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISmartCardProvisioning2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x10fd28eb_3f79_4b66_9b7c_11c149b7d0bc);
-}
+::windows_core::imp::com_interface!(ISmartCardProvisioning2, ISmartCardProvisioning2_Vtbl, 0x10fd28eb_3f79_4b66_9b7c_11c149b7d0bc);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardProvisioning2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetAuthorityKeyContainerNameAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISmartCardProvisioningStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISmartCardProvisioningStatics {
-    type Vtable = ISmartCardProvisioningStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISmartCardProvisioningStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x13882848_0d13_4e70_9735_51daeca5254f);
-}
+::windows_core::imp::com_interface!(ISmartCardProvisioningStatics, ISmartCardProvisioningStatics_Vtbl, 0x13882848_0d13_4e70_9735_51daeca5254f);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardProvisioningStatics_Vtbl {
@@ -1052,16 +629,7 @@ pub struct ISmartCardProvisioningStatics_Vtbl {
     RequestVirtualSmartCardCreationAsyncWithCardId: usize,
     pub RequestVirtualSmartCardDeletionAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, card: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISmartCardProvisioningStatics2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISmartCardProvisioningStatics2 {
-    type Vtable = ISmartCardProvisioningStatics2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISmartCardProvisioningStatics2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3447c6a8_c9a0_4bd6_b50d_251f4e8d3a62);
-}
+::windows_core::imp::com_interface!(ISmartCardProvisioningStatics2, ISmartCardProvisioningStatics2_Vtbl, 0x3447c6a8_c9a0_4bd6_b50d_251f4e8d3a62);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardProvisioningStatics2_Vtbl {
@@ -1075,16 +643,7 @@ pub struct ISmartCardProvisioningStatics2_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     RequestAttestedVirtualSmartCardCreationAsyncWithCardId: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISmartCardReader(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISmartCardReader {
-    type Vtable = ISmartCardReader_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISmartCardReader {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1074b4e0_54c2_4df0_817a_14c14378f06c);
-}
+::windows_core::imp::com_interface!(ISmartCardReader, ISmartCardReader_Vtbl, 0x1074b4e0_54c2_4df0_817a_14c14378f06c);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardReader_Vtbl {
@@ -1102,16 +661,7 @@ pub struct ISmartCardReader_Vtbl {
     pub CardRemoved: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     pub RemoveCardRemoved: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISmartCardReaderStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISmartCardReaderStatics {
-    type Vtable = ISmartCardReaderStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISmartCardReaderStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x103c04e1_a1ca_48f2_a281_5b6f669af107);
-}
+::windows_core::imp::com_interface!(ISmartCardReaderStatics, ISmartCardReaderStatics_Vtbl, 0x103c04e1_a1ca_48f2_a281_5b6f669af107);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardReaderStatics_Vtbl {
@@ -1120,16 +670,7 @@ pub struct ISmartCardReaderStatics_Vtbl {
     pub GetDeviceSelectorWithKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, kind: SmartCardReaderKind, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub FromIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISmartCardTriggerDetails(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISmartCardTriggerDetails {
-    type Vtable = ISmartCardTriggerDetails_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISmartCardTriggerDetails {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5f9bf11e_39ef_4f2b_b44f_0a9155b177bc);
-}
+::windows_core::imp::com_interface!(ISmartCardTriggerDetails, ISmartCardTriggerDetails_Vtbl, 0x5f9bf11e_39ef_4f2b_b44f_0a9155b177bc);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardTriggerDetails_Vtbl {
@@ -1144,16 +685,7 @@ pub struct ISmartCardTriggerDetails_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     TriggerData: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISmartCardTriggerDetails2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISmartCardTriggerDetails2 {
-    type Vtable = ISmartCardTriggerDetails2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISmartCardTriggerDetails2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2945c569_8975_4a51_9e1a_5f8a76ee51af);
-}
+::windows_core::imp::com_interface!(ISmartCardTriggerDetails2, ISmartCardTriggerDetails2_Vtbl, 0x2945c569_8975_4a51_9e1a_5f8a76ee51af);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardTriggerDetails2_Vtbl {
@@ -1162,16 +694,7 @@ pub struct ISmartCardTriggerDetails2_Vtbl {
     pub TryLaunchCurrentAppAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, arguments: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub TryLaunchCurrentAppWithBehaviorAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, arguments: ::std::mem::MaybeUninit<::windows_core::HSTRING>, behavior: SmartCardLaunchBehavior, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISmartCardTriggerDetails3(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISmartCardTriggerDetails3 {
-    type Vtable = ISmartCardTriggerDetails3_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISmartCardTriggerDetails3 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb3e2c27d_18c6_4ba8_8376_ef03d4912666);
-}
+::windows_core::imp::com_interface!(ISmartCardTriggerDetails3, ISmartCardTriggerDetails3_Vtbl, 0xb3e2c27d_18c6_4ba8_8376_ef03d4912666);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISmartCardTriggerDetails3_Vtbl {
@@ -1181,6 +704,7 @@ pub struct ISmartCardTriggerDetails3_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CardAddedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(CardAddedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl CardAddedEventArgs {
     pub fn SmartCard(&self) -> ::windows_core::Result<SmartCard> {
         let this = self;
@@ -1195,19 +719,17 @@ impl ::windows_core::RuntimeType for CardAddedEventArgs {
 }
 unsafe impl ::windows_core::Interface for CardAddedEventArgs {
     type Vtable = ICardAddedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for CardAddedEventArgs {
-    const IID: ::windows_core::GUID = <ICardAddedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ICardAddedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for CardAddedEventArgs {
     const NAME: &'static str = "Windows.Devices.SmartCards.CardAddedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(CardAddedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for CardAddedEventArgs {}
 unsafe impl ::core::marker::Sync for CardAddedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CardRemovedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(CardRemovedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl CardRemovedEventArgs {
     pub fn SmartCard(&self) -> ::windows_core::Result<SmartCard> {
         let this = self;
@@ -1222,14 +744,11 @@ impl ::windows_core::RuntimeType for CardRemovedEventArgs {
 }
 unsafe impl ::windows_core::Interface for CardRemovedEventArgs {
     type Vtable = ICardRemovedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for CardRemovedEventArgs {
-    const IID: ::windows_core::GUID = <ICardRemovedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ICardRemovedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for CardRemovedEventArgs {
     const NAME: &'static str = "Windows.Devices.SmartCards.CardRemovedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(CardRemovedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for CardRemovedEventArgs {}
 unsafe impl ::core::marker::Sync for CardRemovedEventArgs {}
 pub struct KnownSmartCardAppletIds;
@@ -1262,6 +781,7 @@ impl ::windows_core::RuntimeName for KnownSmartCardAppletIds {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SmartCard(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(SmartCard, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl SmartCard {
     pub fn Reader(&self) -> ::windows_core::Result<SmartCardReader> {
         let this = self;
@@ -1287,7 +807,7 @@ impl SmartCard {
         }
     }
     pub fn ConnectAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardConnection>> {
-        let this = &::windows_core::ComInterface::cast::<ISmartCardConnect>(self)?;
+        let this = &::windows_core::Interface::cast::<ISmartCardConnect>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ConnectAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -1299,19 +819,17 @@ impl ::windows_core::RuntimeType for SmartCard {
 }
 unsafe impl ::windows_core::Interface for SmartCard {
     type Vtable = ISmartCard_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for SmartCard {
-    const IID: ::windows_core::GUID = <ISmartCard as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ISmartCard as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for SmartCard {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCard";
 }
-::windows_core::imp::interface_hierarchy!(SmartCard, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCard {}
 unsafe impl ::core::marker::Sync for SmartCard {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SmartCardAppletIdGroup(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(SmartCardAppletIdGroup, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl SmartCardAppletIdGroup {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1376,7 +894,7 @@ impl SmartCardAppletIdGroup {
     #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Logo(&self) -> ::windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
-        let this = &::windows_core::ComInterface::cast::<ISmartCardAppletIdGroup2>(self)?;
+        let this = &::windows_core::Interface::cast::<ISmartCardAppletIdGroup2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Logo)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -1386,51 +904,51 @@ impl SmartCardAppletIdGroup {
     #[cfg(feature = "Storage_Streams")]
     pub fn SetLogo<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IRandomAccessStreamReference>,
+        P0: ::windows_core::IntoParam<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
-        let this = &::windows_core::ComInterface::cast::<ISmartCardAppletIdGroup2>(self)?;
-        unsafe { (::windows_core::Interface::vtable(this).SetLogo)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+        let this = &::windows_core::Interface::cast::<ISmartCardAppletIdGroup2>(self)?;
+        unsafe { (::windows_core::Interface::vtable(this).SetLogo)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn Description(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<ISmartCardAppletIdGroup2>(self)?;
+        let this = &::windows_core::Interface::cast::<ISmartCardAppletIdGroup2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Description)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetDescription(&self, value: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<ISmartCardAppletIdGroup2>(self)?;
+        let this = &::windows_core::Interface::cast::<ISmartCardAppletIdGroup2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetDescription)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::ValueSet> {
-        let this = &::windows_core::ComInterface::cast::<ISmartCardAppletIdGroup2>(self)?;
+        let this = &::windows_core::Interface::cast::<ISmartCardAppletIdGroup2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Properties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SecureUserAuthenticationRequired(&self) -> ::windows_core::Result<bool> {
-        let this = &::windows_core::ComInterface::cast::<ISmartCardAppletIdGroup2>(self)?;
+        let this = &::windows_core::Interface::cast::<ISmartCardAppletIdGroup2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SecureUserAuthenticationRequired)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetSecureUserAuthenticationRequired(&self, value: bool) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<ISmartCardAppletIdGroup2>(self)?;
+        let this = &::windows_core::Interface::cast::<ISmartCardAppletIdGroup2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetSecureUserAuthenticationRequired)(::windows_core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "Required features: `\"Foundation_Collections\"`, `\"Storage_Streams\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn Create<P0>(displayname: &::windows_core::HSTRING, appletids: P0, emulationcategory: SmartCardEmulationCategory, emulationtype: SmartCardEmulationType) -> ::windows_core::Result<SmartCardAppletIdGroup>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IVector<super::super::Storage::Streams::IBuffer>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::Collections::IVector<super::super::Storage::Streams::IBuffer>>,
     {
         Self::ISmartCardAppletIdGroupFactory(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(displayname), appletids.try_into_param()?.abi(), emulationcategory, emulationtype, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(displayname), appletids.into_param().abi(), emulationcategory, emulationtype, &mut result__).from_abi(result__)
         })
     }
     pub fn MaxAppletIds() -> ::windows_core::Result<u16> {
@@ -1455,19 +973,17 @@ impl ::windows_core::RuntimeType for SmartCardAppletIdGroup {
 }
 unsafe impl ::windows_core::Interface for SmartCardAppletIdGroup {
     type Vtable = ISmartCardAppletIdGroup_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for SmartCardAppletIdGroup {
-    const IID: ::windows_core::GUID = <ISmartCardAppletIdGroup as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ISmartCardAppletIdGroup as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for SmartCardAppletIdGroup {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardAppletIdGroup";
 }
-::windows_core::imp::interface_hierarchy!(SmartCardAppletIdGroup, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardAppletIdGroup {}
 unsafe impl ::core::marker::Sync for SmartCardAppletIdGroup {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SmartCardAppletIdGroupRegistration(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(SmartCardAppletIdGroupRegistration, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl SmartCardAppletIdGroupRegistration {
     pub fn ActivationPolicy(&self) -> ::windows_core::Result<SmartCardAppletIdGroupActivationPolicy> {
         let this = self;
@@ -1501,16 +1017,16 @@ impl SmartCardAppletIdGroupRegistration {
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetAutomaticResponseApdusAsync<P0>(&self, apdus: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<SmartCardAutomaticResponseApdu>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::Collections::IIterable<SmartCardAutomaticResponseApdu>>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SetAutomaticResponseApdusAsync)(::windows_core::Interface::as_raw(this), apdus.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SetAutomaticResponseApdusAsync)(::windows_core::Interface::as_raw(this), apdus.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn SmartCardReaderId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<ISmartCardAppletIdGroupRegistration2>(self)?;
+        let this = &::windows_core::Interface::cast::<ISmartCardAppletIdGroupRegistration2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SmartCardReaderId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -1522,7 +1038,7 @@ impl SmartCardAppletIdGroupRegistration {
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::Collections::ValueSet>,
     {
-        let this = &::windows_core::ComInterface::cast::<ISmartCardAppletIdGroupRegistration2>(self)?;
+        let this = &::windows_core::Interface::cast::<ISmartCardAppletIdGroupRegistration2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SetPropertiesAsync)(::windows_core::Interface::as_raw(this), props.into_param().abi(), &mut result__).from_abi(result__)
@@ -1534,19 +1050,17 @@ impl ::windows_core::RuntimeType for SmartCardAppletIdGroupRegistration {
 }
 unsafe impl ::windows_core::Interface for SmartCardAppletIdGroupRegistration {
     type Vtable = ISmartCardAppletIdGroupRegistration_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for SmartCardAppletIdGroupRegistration {
-    const IID: ::windows_core::GUID = <ISmartCardAppletIdGroupRegistration as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ISmartCardAppletIdGroupRegistration as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for SmartCardAppletIdGroupRegistration {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardAppletIdGroupRegistration";
 }
-::windows_core::imp::interface_hierarchy!(SmartCardAppletIdGroupRegistration, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardAppletIdGroupRegistration {}
 unsafe impl ::core::marker::Sync for SmartCardAppletIdGroupRegistration {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SmartCardAutomaticResponseApdu(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(SmartCardAutomaticResponseApdu, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl SmartCardAutomaticResponseApdu {
     #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
@@ -1561,10 +1075,10 @@ impl SmartCardAutomaticResponseApdu {
     #[cfg(feature = "Storage_Streams")]
     pub fn SetCommandApdu<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: ::windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetCommandApdu)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetCommandApdu)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
@@ -1579,10 +1093,10 @@ impl SmartCardAutomaticResponseApdu {
     #[cfg(feature = "Storage_Streams")]
     pub fn SetCommandApduBitMask<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: ::windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetCommandApduBitMask)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetCommandApduBitMask)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn ShouldMatchLength(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -1608,10 +1122,10 @@ impl SmartCardAutomaticResponseApdu {
     #[cfg(feature = "Storage_Streams")]
     pub fn SetAppletId<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: ::windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetAppletId)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetAppletId)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
@@ -1626,13 +1140,13 @@ impl SmartCardAutomaticResponseApdu {
     #[cfg(feature = "Storage_Streams")]
     pub fn SetResponseApdu<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: ::windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetResponseApdu)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetResponseApdu)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn InputState(&self) -> ::windows_core::Result<super::super::Foundation::IReference<u32>> {
-        let this = &::windows_core::ComInterface::cast::<ISmartCardAutomaticResponseApdu2>(self)?;
+        let this = &::windows_core::Interface::cast::<ISmartCardAutomaticResponseApdu2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InputState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -1640,13 +1154,13 @@ impl SmartCardAutomaticResponseApdu {
     }
     pub fn SetInputState<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::IReference<u32>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::IReference<u32>>,
     {
-        let this = &::windows_core::ComInterface::cast::<ISmartCardAutomaticResponseApdu2>(self)?;
-        unsafe { (::windows_core::Interface::vtable(this).SetInputState)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+        let this = &::windows_core::Interface::cast::<ISmartCardAutomaticResponseApdu2>(self)?;
+        unsafe { (::windows_core::Interface::vtable(this).SetInputState)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn OutputState(&self) -> ::windows_core::Result<super::super::Foundation::IReference<u32>> {
-        let this = &::windows_core::ComInterface::cast::<ISmartCardAutomaticResponseApdu2>(self)?;
+        let this = &::windows_core::Interface::cast::<ISmartCardAutomaticResponseApdu2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).OutputState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -1654,32 +1168,32 @@ impl SmartCardAutomaticResponseApdu {
     }
     pub fn SetOutputState<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::IReference<u32>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::IReference<u32>>,
     {
-        let this = &::windows_core::ComInterface::cast::<ISmartCardAutomaticResponseApdu2>(self)?;
-        unsafe { (::windows_core::Interface::vtable(this).SetOutputState)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+        let this = &::windows_core::Interface::cast::<ISmartCardAutomaticResponseApdu2>(self)?;
+        unsafe { (::windows_core::Interface::vtable(this).SetOutputState)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn AllowWhenCryptogramGeneratorNotPrepared(&self) -> ::windows_core::Result<bool> {
-        let this = &::windows_core::ComInterface::cast::<ISmartCardAutomaticResponseApdu3>(self)?;
+        let this = &::windows_core::Interface::cast::<ISmartCardAutomaticResponseApdu3>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AllowWhenCryptogramGeneratorNotPrepared)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetAllowWhenCryptogramGeneratorNotPrepared(&self, value: bool) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<ISmartCardAutomaticResponseApdu3>(self)?;
+        let this = &::windows_core::Interface::cast::<ISmartCardAutomaticResponseApdu3>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetAllowWhenCryptogramGeneratorNotPrepared)(::windows_core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Create<P0, P1>(commandapdu: P0, responseapdu: P1) -> ::windows_core::Result<SmartCardAutomaticResponseApdu>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IBuffer>,
-        P1: ::windows_core::TryIntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: ::windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
+        P1: ::windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
     {
         Self::ISmartCardAutomaticResponseApduFactory(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), commandapdu.try_into_param()?.abi(), responseapdu.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), commandapdu.into_param().abi(), responseapdu.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -1693,22 +1207,21 @@ impl ::windows_core::RuntimeType for SmartCardAutomaticResponseApdu {
 }
 unsafe impl ::windows_core::Interface for SmartCardAutomaticResponseApdu {
     type Vtable = ISmartCardAutomaticResponseApdu_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for SmartCardAutomaticResponseApdu {
-    const IID: ::windows_core::GUID = <ISmartCardAutomaticResponseApdu as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ISmartCardAutomaticResponseApdu as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for SmartCardAutomaticResponseApdu {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardAutomaticResponseApdu";
 }
-::windows_core::imp::interface_hierarchy!(SmartCardAutomaticResponseApdu, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardAutomaticResponseApdu {}
 unsafe impl ::core::marker::Sync for SmartCardAutomaticResponseApdu {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SmartCardChallengeContext(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(SmartCardChallengeContext, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(SmartCardChallengeContext, super::super::Foundation::IClosable);
 impl SmartCardChallengeContext {
     pub fn Close(&self) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
+        let this = &::windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
@@ -1724,49 +1237,49 @@ impl SmartCardChallengeContext {
     #[cfg(feature = "Storage_Streams")]
     pub fn VerifyResponseAsync<P0>(&self, response: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: ::windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).VerifyResponseAsync)(::windows_core::Interface::as_raw(this), response.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).VerifyResponseAsync)(::windows_core::Interface::as_raw(this), response.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn ProvisionAsync<P0>(&self, response: P0, formatcard: bool) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: ::windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ProvisionAsync)(::windows_core::Interface::as_raw(this), response.try_into_param()?.abi(), formatcard, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ProvisionAsync)(::windows_core::Interface::as_raw(this), response.into_param().abi(), formatcard, &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn ProvisionAsyncWithNewCardId<P0>(&self, response: P0, formatcard: bool, newcardid: ::windows_core::GUID) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: ::windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ProvisionAsyncWithNewCardId)(::windows_core::Interface::as_raw(this), response.try_into_param()?.abi(), formatcard, newcardid, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ProvisionAsyncWithNewCardId)(::windows_core::Interface::as_raw(this), response.into_param().abi(), formatcard, newcardid, &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn ChangeAdministrativeKeyAsync<P0, P1>(&self, response: P0, newadministrativekey: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IBuffer>,
-        P1: ::windows_core::TryIntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: ::windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
+        P1: ::windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ChangeAdministrativeKeyAsync)(::windows_core::Interface::as_raw(this), response.try_into_param()?.abi(), newadministrativekey.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ChangeAdministrativeKeyAsync)(::windows_core::Interface::as_raw(this), response.into_param().abi(), newadministrativekey.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1775,35 +1288,33 @@ impl ::windows_core::RuntimeType for SmartCardChallengeContext {
 }
 unsafe impl ::windows_core::Interface for SmartCardChallengeContext {
     type Vtable = ISmartCardChallengeContext_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for SmartCardChallengeContext {
-    const IID: ::windows_core::GUID = <ISmartCardChallengeContext as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ISmartCardChallengeContext as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for SmartCardChallengeContext {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardChallengeContext";
 }
-::windows_core::imp::interface_hierarchy!(SmartCardChallengeContext, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for SmartCardChallengeContext {}
 unsafe impl ::core::marker::Send for SmartCardChallengeContext {}
 unsafe impl ::core::marker::Sync for SmartCardChallengeContext {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SmartCardConnection(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(SmartCardConnection, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(SmartCardConnection, super::super::Foundation::IClosable);
 impl SmartCardConnection {
     pub fn Close(&self) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
+        let this = &::windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn TransmitAsync<P0>(&self, command: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: ::windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TransmitAsync)(::windows_core::Interface::as_raw(this), command.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TransmitAsync)(::windows_core::Interface::as_raw(this), command.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1812,20 +1323,17 @@ impl ::windows_core::RuntimeType for SmartCardConnection {
 }
 unsafe impl ::windows_core::Interface for SmartCardConnection {
     type Vtable = ISmartCardConnection_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for SmartCardConnection {
-    const IID: ::windows_core::GUID = <ISmartCardConnection as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ISmartCardConnection as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for SmartCardConnection {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardConnection";
 }
-::windows_core::imp::interface_hierarchy!(SmartCardConnection, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for SmartCardConnection {}
 unsafe impl ::core::marker::Send for SmartCardConnection {}
 unsafe impl ::core::marker::Sync for SmartCardConnection {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SmartCardCryptogramGenerator(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(SmartCardCryptogramGenerator, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl SmartCardCryptogramGenerator {
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
@@ -1899,24 +1407,24 @@ impl SmartCardCryptogramGenerator {
     #[cfg(feature = "Storage_Streams")]
     pub fn ImportCryptogramMaterialPackageAsync<P0>(&self, format: SmartCardCryptogramMaterialPackageFormat, storagekeyname: &::windows_core::HSTRING, materialpackagename: &::windows_core::HSTRING, cryptogrammaterialpackage: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: ::windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ImportCryptogramMaterialPackageAsync)(::windows_core::Interface::as_raw(this), format, ::core::mem::transmute_copy(storagekeyname), ::core::mem::transmute_copy(materialpackagename), cryptogrammaterialpackage.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ImportCryptogramMaterialPackageAsync)(::windows_core::Interface::as_raw(this), format, ::core::mem::transmute_copy(storagekeyname), ::core::mem::transmute_copy(materialpackagename), cryptogrammaterialpackage.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn TryProvePossessionOfCryptogramMaterialPackageAsync<P0>(&self, promptingbehavior: SmartCardUnlockPromptingBehavior, responseformat: SmartCardCryptogramMaterialPackageConfirmationResponseFormat, materialpackagename: &::windows_core::HSTRING, materialname: &::windows_core::HSTRING, challenge: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramMaterialPossessionProof>>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: ::windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TryProvePossessionOfCryptogramMaterialPackageAsync)(::windows_core::Interface::as_raw(this), promptingbehavior, responseformat, ::core::mem::transmute_copy(materialpackagename), ::core::mem::transmute_copy(materialname), challenge.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TryProvePossessionOfCryptogramMaterialPackageAsync)(::windows_core::Interface::as_raw(this), promptingbehavior, responseformat, ::core::mem::transmute_copy(materialpackagename), ::core::mem::transmute_copy(materialname), challenge.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn RequestUnlockCryptogramMaterialForUseAsync(&self, promptingbehavior: SmartCardUnlockPromptingBehavior) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>> {
@@ -1937,38 +1445,38 @@ impl SmartCardCryptogramGenerator {
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn ValidateRequestApduAsync<P0, P1>(&self, promptingbehavior: SmartCardUnlockPromptingBehavior, apdutovalidate: P0, cryptogramplacementsteps: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IBuffer>,
-        P1: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<SmartCardCryptogramPlacementStep>>,
+        P0: ::windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
+        P1: ::windows_core::IntoParam<super::super::Foundation::Collections::IIterable<SmartCardCryptogramPlacementStep>>,
     {
-        let this = &::windows_core::ComInterface::cast::<ISmartCardCryptogramGenerator2>(self)?;
+        let this = &::windows_core::Interface::cast::<ISmartCardCryptogramGenerator2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ValidateRequestApduAsync)(::windows_core::Interface::as_raw(this), promptingbehavior, apdutovalidate.try_into_param()?.abi(), cryptogramplacementsteps.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ValidateRequestApduAsync)(::windows_core::Interface::as_raw(this), promptingbehavior, apdutovalidate.into_param().abi(), cryptogramplacementsteps.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn GetAllCryptogramStorageKeyCharacteristicsAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult>> {
-        let this = &::windows_core::ComInterface::cast::<ISmartCardCryptogramGenerator2>(self)?;
+        let this = &::windows_core::Interface::cast::<ISmartCardCryptogramGenerator2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetAllCryptogramStorageKeyCharacteristicsAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetAllCryptogramMaterialPackageCharacteristicsAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult>> {
-        let this = &::windows_core::ComInterface::cast::<ISmartCardCryptogramGenerator2>(self)?;
+        let this = &::windows_core::Interface::cast::<ISmartCardCryptogramGenerator2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetAllCryptogramMaterialPackageCharacteristicsAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetAllCryptogramMaterialPackageCharacteristicsWithStorageKeyAsync(&self, storagekeyname: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult>> {
-        let this = &::windows_core::ComInterface::cast::<ISmartCardCryptogramGenerator2>(self)?;
+        let this = &::windows_core::Interface::cast::<ISmartCardCryptogramGenerator2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetAllCryptogramMaterialPackageCharacteristicsWithStorageKeyAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(storagekeyname), &mut result__).from_abi(result__)
         }
     }
     pub fn GetAllCryptogramMaterialCharacteristicsAsync(&self, promptingbehavior: SmartCardUnlockPromptingBehavior, materialpackagename: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult>> {
-        let this = &::windows_core::ComInterface::cast::<ISmartCardCryptogramGenerator2>(self)?;
+        let this = &::windows_core::Interface::cast::<ISmartCardCryptogramGenerator2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetAllCryptogramMaterialCharacteristicsAsync)(::windows_core::Interface::as_raw(this), promptingbehavior, ::core::mem::transmute_copy(materialpackagename), &mut result__).from_abi(result__)
@@ -2002,19 +1510,17 @@ impl ::windows_core::RuntimeType for SmartCardCryptogramGenerator {
 }
 unsafe impl ::windows_core::Interface for SmartCardCryptogramGenerator {
     type Vtable = ISmartCardCryptogramGenerator_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for SmartCardCryptogramGenerator {
-    const IID: ::windows_core::GUID = <ISmartCardCryptogramGenerator as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ISmartCardCryptogramGenerator as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for SmartCardCryptogramGenerator {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramGenerator";
 }
-::windows_core::imp::interface_hierarchy!(SmartCardCryptogramGenerator, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardCryptogramGenerator {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramGenerator {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -2045,19 +1551,17 @@ impl ::windows_core::RuntimeType for SmartCardCryptogramGetAllCryptogramMaterial
 }
 unsafe impl ::windows_core::Interface for SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {
     type Vtable = ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {
-    const IID: ::windows_core::GUID = <ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult";
 }
-::windows_core::imp::interface_hierarchy!(SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -2088,19 +1592,17 @@ impl ::windows_core::RuntimeType for SmartCardCryptogramGetAllCryptogramMaterial
 }
 unsafe impl ::windows_core::Interface for SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {
     type Vtable = ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {
-    const IID: ::windows_core::GUID = <ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult";
 }
-::windows_core::imp::interface_hierarchy!(SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -2131,19 +1633,17 @@ impl ::windows_core::RuntimeType for SmartCardCryptogramGetAllCryptogramStorageK
 }
 unsafe impl ::windows_core::Interface for SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {
     type Vtable = ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {
-    const IID: ::windows_core::GUID = <ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult";
 }
-::windows_core::imp::interface_hierarchy!(SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SmartCardCryptogramMaterialCharacteristics(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(SmartCardCryptogramMaterialCharacteristics, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl SmartCardCryptogramMaterialCharacteristics {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -2220,19 +1720,17 @@ impl ::windows_core::RuntimeType for SmartCardCryptogramMaterialCharacteristics 
 }
 unsafe impl ::windows_core::Interface for SmartCardCryptogramMaterialCharacteristics {
     type Vtable = ISmartCardCryptogramMaterialCharacteristics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for SmartCardCryptogramMaterialCharacteristics {
-    const IID: ::windows_core::GUID = <ISmartCardCryptogramMaterialCharacteristics as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ISmartCardCryptogramMaterialCharacteristics as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for SmartCardCryptogramMaterialCharacteristics {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramMaterialCharacteristics";
 }
-::windows_core::imp::interface_hierarchy!(SmartCardCryptogramMaterialCharacteristics, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardCryptogramMaterialCharacteristics {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramMaterialCharacteristics {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SmartCardCryptogramMaterialPackageCharacteristics(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(SmartCardCryptogramMaterialPackageCharacteristics, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl SmartCardCryptogramMaterialPackageCharacteristics {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -2275,19 +1773,17 @@ impl ::windows_core::RuntimeType for SmartCardCryptogramMaterialPackageCharacter
 }
 unsafe impl ::windows_core::Interface for SmartCardCryptogramMaterialPackageCharacteristics {
     type Vtable = ISmartCardCryptogramMaterialPackageCharacteristics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for SmartCardCryptogramMaterialPackageCharacteristics {
-    const IID: ::windows_core::GUID = <ISmartCardCryptogramMaterialPackageCharacteristics as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ISmartCardCryptogramMaterialPackageCharacteristics as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for SmartCardCryptogramMaterialPackageCharacteristics {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramMaterialPackageCharacteristics";
 }
-::windows_core::imp::interface_hierarchy!(SmartCardCryptogramMaterialPackageCharacteristics, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardCryptogramMaterialPackageCharacteristics {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramMaterialPackageCharacteristics {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SmartCardCryptogramMaterialPossessionProof(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(SmartCardCryptogramMaterialPossessionProof, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl SmartCardCryptogramMaterialPossessionProof {
     pub fn OperationStatus(&self) -> ::windows_core::Result<SmartCardCryptogramGeneratorOperationStatus> {
         let this = self;
@@ -2311,19 +1807,17 @@ impl ::windows_core::RuntimeType for SmartCardCryptogramMaterialPossessionProof 
 }
 unsafe impl ::windows_core::Interface for SmartCardCryptogramMaterialPossessionProof {
     type Vtable = ISmartCardCryptogramMaterialPossessionProof_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for SmartCardCryptogramMaterialPossessionProof {
-    const IID: ::windows_core::GUID = <ISmartCardCryptogramMaterialPossessionProof as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ISmartCardCryptogramMaterialPossessionProof as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for SmartCardCryptogramMaterialPossessionProof {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramMaterialPossessionProof";
 }
-::windows_core::imp::interface_hierarchy!(SmartCardCryptogramMaterialPossessionProof, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardCryptogramMaterialPossessionProof {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramMaterialPossessionProof {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SmartCardCryptogramPlacementStep(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(SmartCardCryptogramPlacementStep, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl SmartCardCryptogramPlacementStep {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -2356,10 +1850,10 @@ impl SmartCardCryptogramPlacementStep {
     #[cfg(feature = "Storage_Streams")]
     pub fn SetSourceData<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: ::windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetSourceData)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetSourceData)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn CryptogramMaterialPackageName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -2447,19 +1941,17 @@ impl ::windows_core::RuntimeType for SmartCardCryptogramPlacementStep {
 }
 unsafe impl ::windows_core::Interface for SmartCardCryptogramPlacementStep {
     type Vtable = ISmartCardCryptogramPlacementStep_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for SmartCardCryptogramPlacementStep {
-    const IID: ::windows_core::GUID = <ISmartCardCryptogramPlacementStep as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ISmartCardCryptogramPlacementStep as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for SmartCardCryptogramPlacementStep {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramPlacementStep";
 }
-::windows_core::imp::interface_hierarchy!(SmartCardCryptogramPlacementStep, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardCryptogramPlacementStep {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramPlacementStep {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SmartCardCryptogramStorageKeyCharacteristics(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(SmartCardCryptogramStorageKeyCharacteristics, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl SmartCardCryptogramStorageKeyCharacteristics {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -2502,19 +1994,17 @@ impl ::windows_core::RuntimeType for SmartCardCryptogramStorageKeyCharacteristic
 }
 unsafe impl ::windows_core::Interface for SmartCardCryptogramStorageKeyCharacteristics {
     type Vtable = ISmartCardCryptogramStorageKeyCharacteristics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for SmartCardCryptogramStorageKeyCharacteristics {
-    const IID: ::windows_core::GUID = <ISmartCardCryptogramStorageKeyCharacteristics as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ISmartCardCryptogramStorageKeyCharacteristics as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for SmartCardCryptogramStorageKeyCharacteristics {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramStorageKeyCharacteristics";
 }
-::windows_core::imp::interface_hierarchy!(SmartCardCryptogramStorageKeyCharacteristics, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardCryptogramStorageKeyCharacteristics {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramStorageKeyCharacteristics {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SmartCardCryptogramStorageKeyInfo(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(SmartCardCryptogramStorageKeyInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl SmartCardCryptogramStorageKeyInfo {
     pub fn OperationStatus(&self) -> ::windows_core::Result<SmartCardCryptogramGeneratorOperationStatus> {
         let this = self;
@@ -2574,7 +2064,7 @@ impl SmartCardCryptogramStorageKeyInfo {
         }
     }
     pub fn OperationalRequirements(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<ISmartCardCryptogramStorageKeyInfo2>(self)?;
+        let this = &::windows_core::Interface::cast::<ISmartCardCryptogramStorageKeyInfo2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).OperationalRequirements)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -2586,19 +2076,17 @@ impl ::windows_core::RuntimeType for SmartCardCryptogramStorageKeyInfo {
 }
 unsafe impl ::windows_core::Interface for SmartCardCryptogramStorageKeyInfo {
     type Vtable = ISmartCardCryptogramStorageKeyInfo_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for SmartCardCryptogramStorageKeyInfo {
-    const IID: ::windows_core::GUID = <ISmartCardCryptogramStorageKeyInfo as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ISmartCardCryptogramStorageKeyInfo as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for SmartCardCryptogramStorageKeyInfo {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramStorageKeyInfo";
 }
-::windows_core::imp::interface_hierarchy!(SmartCardCryptogramStorageKeyInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardCryptogramStorageKeyInfo {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramStorageKeyInfo {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SmartCardEmulator(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(SmartCardEmulator, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl SmartCardEmulator {
     pub fn EnablementPolicy(&self) -> ::windows_core::Result<SmartCardEmulatorEnablementPolicy> {
         let this = self;
@@ -2611,36 +2099,36 @@ impl SmartCardEmulator {
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<SmartCardEmulator, SmartCardEmulatorApduReceivedEventArgs>>,
     {
-        let this = &::windows_core::ComInterface::cast::<ISmartCardEmulator2>(self)?;
+        let this = &::windows_core::Interface::cast::<ISmartCardEmulator2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ApduReceived)(::windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn RemoveApduReceived(&self, value: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<ISmartCardEmulator2>(self)?;
+        let this = &::windows_core::Interface::cast::<ISmartCardEmulator2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveApduReceived)(::windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn ConnectionDeactivated<P0>(&self, value: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<SmartCardEmulator, SmartCardEmulatorConnectionDeactivatedEventArgs>>,
     {
-        let this = &::windows_core::ComInterface::cast::<ISmartCardEmulator2>(self)?;
+        let this = &::windows_core::Interface::cast::<ISmartCardEmulator2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ConnectionDeactivated)(::windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn RemoveConnectionDeactivated(&self, value: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<ISmartCardEmulator2>(self)?;
+        let this = &::windows_core::Interface::cast::<ISmartCardEmulator2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveConnectionDeactivated)(::windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn Start(&self) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<ISmartCardEmulator2>(self)?;
+        let this = &::windows_core::Interface::cast::<ISmartCardEmulator2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Start)(::windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn IsHostCardEmulationSupported(&self) -> ::windows_core::Result<bool> {
-        let this = &::windows_core::ComInterface::cast::<ISmartCardEmulator2>(self)?;
+        let this = &::windows_core::Interface::cast::<ISmartCardEmulator2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsHostCardEmulationSupported)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -2711,19 +2199,17 @@ impl ::windows_core::RuntimeType for SmartCardEmulator {
 }
 unsafe impl ::windows_core::Interface for SmartCardEmulator {
     type Vtable = ISmartCardEmulator_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for SmartCardEmulator {
-    const IID: ::windows_core::GUID = <ISmartCardEmulator as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ISmartCardEmulator as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for SmartCardEmulator {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardEmulator";
 }
-::windows_core::imp::interface_hierarchy!(SmartCardEmulator, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardEmulator {}
 unsafe impl ::core::marker::Sync for SmartCardEmulator {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SmartCardEmulatorApduReceivedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(SmartCardEmulatorApduReceivedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl SmartCardEmulatorApduReceivedEventArgs {
     #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
@@ -2745,12 +2231,12 @@ impl SmartCardEmulatorApduReceivedEventArgs {
     #[cfg(feature = "Storage_Streams")]
     pub fn TryRespondAsync<P0>(&self, responseapdu: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: ::windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TryRespondAsync)(::windows_core::Interface::as_raw(this), responseapdu.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TryRespondAsync)(::windows_core::Interface::as_raw(this), responseapdu.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn AutomaticResponseStatus(&self) -> ::windows_core::Result<SmartCardAutomaticResponseStatus> {
@@ -2761,7 +2247,7 @@ impl SmartCardEmulatorApduReceivedEventArgs {
         }
     }
     pub fn State(&self) -> ::windows_core::Result<u32> {
-        let this = &::windows_core::ComInterface::cast::<ISmartCardEmulatorApduReceivedEventArgs2>(self)?;
+        let this = &::windows_core::Interface::cast::<ISmartCardEmulatorApduReceivedEventArgs2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).State)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -2771,40 +2257,40 @@ impl SmartCardEmulatorApduReceivedEventArgs {
     #[cfg(feature = "Storage_Streams")]
     pub fn TryRespondWithStateAsync<P0, P1>(&self, responseapdu: P0, nextstate: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IBuffer>,
-        P1: ::windows_core::TryIntoParam<super::super::Foundation::IReference<u32>>,
+        P0: ::windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
+        P1: ::windows_core::IntoParam<super::super::Foundation::IReference<u32>>,
     {
-        let this = &::windows_core::ComInterface::cast::<ISmartCardEmulatorApduReceivedEventArgs2>(self)?;
+        let this = &::windows_core::Interface::cast::<ISmartCardEmulatorApduReceivedEventArgs2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TryRespondWithStateAsync)(::windows_core::Interface::as_raw(this), responseapdu.try_into_param()?.abi(), nextstate.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TryRespondWithStateAsync)(::windows_core::Interface::as_raw(this), responseapdu.into_param().abi(), nextstate.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"Foundation_Collections\"`, `\"Storage_Streams\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn TryRespondWithCryptogramsAsync<P0, P1>(&self, responsetemplate: P0, cryptogramplacementsteps: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IBuffer>,
-        P1: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<SmartCardCryptogramPlacementStep>>,
+        P0: ::windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
+        P1: ::windows_core::IntoParam<super::super::Foundation::Collections::IIterable<SmartCardCryptogramPlacementStep>>,
     {
-        let this = &::windows_core::ComInterface::cast::<ISmartCardEmulatorApduReceivedEventArgsWithCryptograms>(self)?;
+        let this = &::windows_core::Interface::cast::<ISmartCardEmulatorApduReceivedEventArgsWithCryptograms>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TryRespondWithCryptogramsAsync)(::windows_core::Interface::as_raw(this), responsetemplate.try_into_param()?.abi(), cryptogramplacementsteps.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TryRespondWithCryptogramsAsync)(::windows_core::Interface::as_raw(this), responsetemplate.into_param().abi(), cryptogramplacementsteps.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"Foundation_Collections\"`, `\"Storage_Streams\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn TryRespondWithCryptogramsAndStateAsync<P0, P1, P2>(&self, responsetemplate: P0, cryptogramplacementsteps: P1, nextstate: P2) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IBuffer>,
-        P1: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<SmartCardCryptogramPlacementStep>>,
-        P2: ::windows_core::TryIntoParam<super::super::Foundation::IReference<u32>>,
+        P0: ::windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
+        P1: ::windows_core::IntoParam<super::super::Foundation::Collections::IIterable<SmartCardCryptogramPlacementStep>>,
+        P2: ::windows_core::IntoParam<super::super::Foundation::IReference<u32>>,
     {
-        let this = &::windows_core::ComInterface::cast::<ISmartCardEmulatorApduReceivedEventArgsWithCryptograms>(self)?;
+        let this = &::windows_core::Interface::cast::<ISmartCardEmulatorApduReceivedEventArgsWithCryptograms>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TryRespondWithCryptogramsAndStateAsync)(::windows_core::Interface::as_raw(this), responsetemplate.try_into_param()?.abi(), cryptogramplacementsteps.try_into_param()?.abi(), nextstate.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TryRespondWithCryptogramsAndStateAsync)(::windows_core::Interface::as_raw(this), responsetemplate.into_param().abi(), cryptogramplacementsteps.into_param().abi(), nextstate.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
 }
@@ -2813,19 +2299,17 @@ impl ::windows_core::RuntimeType for SmartCardEmulatorApduReceivedEventArgs {
 }
 unsafe impl ::windows_core::Interface for SmartCardEmulatorApduReceivedEventArgs {
     type Vtable = ISmartCardEmulatorApduReceivedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for SmartCardEmulatorApduReceivedEventArgs {
-    const IID: ::windows_core::GUID = <ISmartCardEmulatorApduReceivedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ISmartCardEmulatorApduReceivedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for SmartCardEmulatorApduReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardEmulatorApduReceivedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(SmartCardEmulatorApduReceivedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardEmulatorApduReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for SmartCardEmulatorApduReceivedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SmartCardEmulatorConnectionDeactivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(SmartCardEmulatorConnectionDeactivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl SmartCardEmulatorConnectionDeactivatedEventArgs {
     pub fn ConnectionProperties(&self) -> ::windows_core::Result<SmartCardEmulatorConnectionProperties> {
         let this = self;
@@ -2847,19 +2331,17 @@ impl ::windows_core::RuntimeType for SmartCardEmulatorConnectionDeactivatedEvent
 }
 unsafe impl ::windows_core::Interface for SmartCardEmulatorConnectionDeactivatedEventArgs {
     type Vtable = ISmartCardEmulatorConnectionDeactivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for SmartCardEmulatorConnectionDeactivatedEventArgs {
-    const IID: ::windows_core::GUID = <ISmartCardEmulatorConnectionDeactivatedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ISmartCardEmulatorConnectionDeactivatedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for SmartCardEmulatorConnectionDeactivatedEventArgs {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardEmulatorConnectionDeactivatedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(SmartCardEmulatorConnectionDeactivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardEmulatorConnectionDeactivatedEventArgs {}
 unsafe impl ::core::marker::Sync for SmartCardEmulatorConnectionDeactivatedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SmartCardEmulatorConnectionProperties(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(SmartCardEmulatorConnectionProperties, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl SmartCardEmulatorConnectionProperties {
     pub fn Id(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let this = self;
@@ -2881,19 +2363,17 @@ impl ::windows_core::RuntimeType for SmartCardEmulatorConnectionProperties {
 }
 unsafe impl ::windows_core::Interface for SmartCardEmulatorConnectionProperties {
     type Vtable = ISmartCardEmulatorConnectionProperties_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for SmartCardEmulatorConnectionProperties {
-    const IID: ::windows_core::GUID = <ISmartCardEmulatorConnectionProperties as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ISmartCardEmulatorConnectionProperties as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for SmartCardEmulatorConnectionProperties {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardEmulatorConnectionProperties";
 }
-::windows_core::imp::interface_hierarchy!(SmartCardEmulatorConnectionProperties, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardEmulatorConnectionProperties {}
 unsafe impl ::core::marker::Sync for SmartCardEmulatorConnectionProperties {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SmartCardPinPolicy(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(SmartCardPinPolicy, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl SmartCardPinPolicy {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -2974,19 +2454,17 @@ impl ::windows_core::RuntimeType for SmartCardPinPolicy {
 }
 unsafe impl ::windows_core::Interface for SmartCardPinPolicy {
     type Vtable = ISmartCardPinPolicy_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for SmartCardPinPolicy {
-    const IID: ::windows_core::GUID = <ISmartCardPinPolicy as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ISmartCardPinPolicy as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for SmartCardPinPolicy {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardPinPolicy";
 }
-::windows_core::imp::interface_hierarchy!(SmartCardPinPolicy, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardPinPolicy {}
 unsafe impl ::core::marker::Sync for SmartCardPinPolicy {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SmartCardPinResetDeferral(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(SmartCardPinResetDeferral, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl SmartCardPinResetDeferral {
     pub fn Complete(&self) -> ::windows_core::Result<()> {
         let this = self;
@@ -2998,19 +2476,17 @@ impl ::windows_core::RuntimeType for SmartCardPinResetDeferral {
 }
 unsafe impl ::windows_core::Interface for SmartCardPinResetDeferral {
     type Vtable = ISmartCardPinResetDeferral_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for SmartCardPinResetDeferral {
-    const IID: ::windows_core::GUID = <ISmartCardPinResetDeferral as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ISmartCardPinResetDeferral as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for SmartCardPinResetDeferral {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardPinResetDeferral";
 }
-::windows_core::imp::interface_hierarchy!(SmartCardPinResetDeferral, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardPinResetDeferral {}
 unsafe impl ::core::marker::Sync for SmartCardPinResetDeferral {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SmartCardPinResetRequest(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(SmartCardPinResetRequest, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl SmartCardPinResetRequest {
     #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
@@ -3039,10 +2515,10 @@ impl SmartCardPinResetRequest {
     #[cfg(feature = "Storage_Streams")]
     pub fn SetResponse<P0>(&self, response: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: ::windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetResponse)(::windows_core::Interface::as_raw(this), response.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetResponse)(::windows_core::Interface::as_raw(this), response.into_param().abi()).ok() }
     }
 }
 impl ::windows_core::RuntimeType for SmartCardPinResetRequest {
@@ -3050,19 +2526,17 @@ impl ::windows_core::RuntimeType for SmartCardPinResetRequest {
 }
 unsafe impl ::windows_core::Interface for SmartCardPinResetRequest {
     type Vtable = ISmartCardPinResetRequest_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for SmartCardPinResetRequest {
-    const IID: ::windows_core::GUID = <ISmartCardPinResetRequest as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ISmartCardPinResetRequest as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for SmartCardPinResetRequest {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardPinResetRequest";
 }
-::windows_core::imp::interface_hierarchy!(SmartCardPinResetRequest, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardPinResetRequest {}
 unsafe impl ::core::marker::Sync for SmartCardPinResetRequest {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SmartCardProvisioning(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(SmartCardProvisioning, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl SmartCardProvisioning {
     pub fn SmartCard(&self) -> ::windows_core::Result<SmartCard> {
         let this = self;
@@ -3110,7 +2584,7 @@ impl SmartCardProvisioning {
         }
     }
     pub fn GetAuthorityKeyContainerNameAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>> {
-        let this = &::windows_core::ComInterface::cast::<ISmartCardProvisioning2>(self)?;
+        let this = &::windows_core::Interface::cast::<ISmartCardProvisioning2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetAuthorityKeyContainerNameAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -3129,24 +2603,24 @@ impl SmartCardProvisioning {
     #[cfg(feature = "Storage_Streams")]
     pub fn RequestVirtualSmartCardCreationAsync<P0, P1>(friendlyname: &::windows_core::HSTRING, administrativekey: P0, pinpolicy: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: ::windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
         P1: ::windows_core::IntoParam<SmartCardPinPolicy>,
     {
         Self::ISmartCardProvisioningStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).RequestVirtualSmartCardCreationAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(friendlyname), administrativekey.try_into_param()?.abi(), pinpolicy.into_param().abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).RequestVirtualSmartCardCreationAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(friendlyname), administrativekey.into_param().abi(), pinpolicy.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn RequestVirtualSmartCardCreationAsyncWithCardId<P0, P1>(friendlyname: &::windows_core::HSTRING, administrativekey: P0, pinpolicy: P1, cardid: ::windows_core::GUID) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: ::windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
         P1: ::windows_core::IntoParam<SmartCardPinPolicy>,
     {
         Self::ISmartCardProvisioningStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).RequestVirtualSmartCardCreationAsyncWithCardId)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(friendlyname), administrativekey.try_into_param()?.abi(), pinpolicy.into_param().abi(), cardid, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).RequestVirtualSmartCardCreationAsyncWithCardId)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(friendlyname), administrativekey.into_param().abi(), pinpolicy.into_param().abi(), cardid, &mut result__).from_abi(result__)
         })
     }
     pub fn RequestVirtualSmartCardDeletionAsync<P0>(card: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
@@ -3162,24 +2636,24 @@ impl SmartCardProvisioning {
     #[cfg(feature = "Storage_Streams")]
     pub fn RequestAttestedVirtualSmartCardCreationAsync<P0, P1>(friendlyname: &::windows_core::HSTRING, administrativekey: P0, pinpolicy: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: ::windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
         P1: ::windows_core::IntoParam<SmartCardPinPolicy>,
     {
         Self::ISmartCardProvisioningStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).RequestAttestedVirtualSmartCardCreationAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(friendlyname), administrativekey.try_into_param()?.abi(), pinpolicy.into_param().abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).RequestAttestedVirtualSmartCardCreationAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(friendlyname), administrativekey.into_param().abi(), pinpolicy.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn RequestAttestedVirtualSmartCardCreationAsyncWithCardId<P0, P1>(friendlyname: &::windows_core::HSTRING, administrativekey: P0, pinpolicy: P1, cardid: ::windows_core::GUID) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IBuffer>,
+        P0: ::windows_core::IntoParam<super::super::Storage::Streams::IBuffer>,
         P1: ::windows_core::IntoParam<SmartCardPinPolicy>,
     {
         Self::ISmartCardProvisioningStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).RequestAttestedVirtualSmartCardCreationAsyncWithCardId)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(friendlyname), administrativekey.try_into_param()?.abi(), pinpolicy.into_param().abi(), cardid, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).RequestAttestedVirtualSmartCardCreationAsyncWithCardId)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(friendlyname), administrativekey.into_param().abi(), pinpolicy.into_param().abi(), cardid, &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -3198,19 +2672,17 @@ impl ::windows_core::RuntimeType for SmartCardProvisioning {
 }
 unsafe impl ::windows_core::Interface for SmartCardProvisioning {
     type Vtable = ISmartCardProvisioning_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for SmartCardProvisioning {
-    const IID: ::windows_core::GUID = <ISmartCardProvisioning as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ISmartCardProvisioning as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for SmartCardProvisioning {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardProvisioning";
 }
-::windows_core::imp::interface_hierarchy!(SmartCardProvisioning, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardProvisioning {}
 unsafe impl ::core::marker::Sync for SmartCardProvisioning {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SmartCardReader(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(SmartCardReader, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl SmartCardReader {
     pub fn DeviceId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -3306,19 +2778,17 @@ impl ::windows_core::RuntimeType for SmartCardReader {
 }
 unsafe impl ::windows_core::Interface for SmartCardReader {
     type Vtable = ISmartCardReader_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for SmartCardReader {
-    const IID: ::windows_core::GUID = <ISmartCardReader as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ISmartCardReader as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for SmartCardReader {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardReader";
 }
-::windows_core::imp::interface_hierarchy!(SmartCardReader, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardReader {}
 unsafe impl ::core::marker::Sync for SmartCardReader {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SmartCardTriggerDetails(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(SmartCardTriggerDetails, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl SmartCardTriggerDetails {
     pub fn TriggerType(&self) -> ::windows_core::Result<SmartCardTriggerType> {
         let this = self;
@@ -3346,28 +2816,28 @@ impl SmartCardTriggerDetails {
         }
     }
     pub fn Emulator(&self) -> ::windows_core::Result<SmartCardEmulator> {
-        let this = &::windows_core::ComInterface::cast::<ISmartCardTriggerDetails2>(self)?;
+        let this = &::windows_core::Interface::cast::<ISmartCardTriggerDetails2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Emulator)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TryLaunchCurrentAppAsync(&self, arguments: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
-        let this = &::windows_core::ComInterface::cast::<ISmartCardTriggerDetails2>(self)?;
+        let this = &::windows_core::Interface::cast::<ISmartCardTriggerDetails2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TryLaunchCurrentAppAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(arguments), &mut result__).from_abi(result__)
         }
     }
     pub fn TryLaunchCurrentAppWithBehaviorAsync(&self, arguments: &::windows_core::HSTRING, behavior: SmartCardLaunchBehavior) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
-        let this = &::windows_core::ComInterface::cast::<ISmartCardTriggerDetails2>(self)?;
+        let this = &::windows_core::Interface::cast::<ISmartCardTriggerDetails2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TryLaunchCurrentAppWithBehaviorAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(arguments), behavior, &mut result__).from_abi(result__)
         }
     }
     pub fn SmartCard(&self) -> ::windows_core::Result<SmartCard> {
-        let this = &::windows_core::ComInterface::cast::<ISmartCardTriggerDetails3>(self)?;
+        let this = &::windows_core::Interface::cast::<ISmartCardTriggerDetails3>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SmartCard)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -3379,14 +2849,11 @@ impl ::windows_core::RuntimeType for SmartCardTriggerDetails {
 }
 unsafe impl ::windows_core::Interface for SmartCardTriggerDetails {
     type Vtable = ISmartCardTriggerDetails_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for SmartCardTriggerDetails {
-    const IID: ::windows_core::GUID = <ISmartCardTriggerDetails as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ISmartCardTriggerDetails as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for SmartCardTriggerDetails {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardTriggerDetails";
 }
-::windows_core::imp::interface_hierarchy!(SmartCardTriggerDetails, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardTriggerDetails {}
 unsafe impl ::core::marker::Sync for SmartCardTriggerDetails {}
 #[repr(transparent)]
@@ -3954,9 +3421,7 @@ impl ::core::fmt::Debug for SmartCardUnlockPromptingBehavior {
 impl ::windows_core::RuntimeType for SmartCardUnlockPromptingBehavior {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardUnlockPromptingBehavior;i4)");
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct SmartCardPinResetHandler(pub ::windows_core::IUnknown);
+::windows_core::imp::com_interface!(SmartCardPinResetHandler, SmartCardPinResetHandler_Vtbl, 0x138d5e40_f3bc_4a5c_b41d_4b4ef684e237);
 impl SmartCardPinResetHandler {
     pub fn new<F: FnMut(::core::option::Option<&SmartCardProvisioning>, ::core::option::Option<&SmartCardPinResetRequest>) -> ::windows_core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
         let com = SmartCardPinResetHandlerBox::<F> { vtable: &SmartCardPinResetHandlerBox::<F>::VTABLE, count: ::windows_core::imp::RefCount::new(1), invoke };
@@ -3987,7 +3452,7 @@ impl<F: FnMut(::core::option::Option<&SmartCardProvisioning>, ::core::option::Op
         if iid.is_null() || interface.is_null() {
             return ::windows_core::HRESULT(-2147467261);
         }
-        *interface = if *iid == <SmartCardPinResetHandler as ::windows_core::ComInterface>::IID || *iid == <::windows_core::IUnknown as ::windows_core::ComInterface>::IID || *iid == <::windows_core::imp::IAgileObject as ::windows_core::ComInterface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        *interface = if *iid == <SmartCardPinResetHandler as ::windows_core::Interface>::IID || *iid == <::windows_core::IUnknown as ::windows_core::Interface>::IID || *iid == <::windows_core::imp::IAgileObject as ::windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows_core::HRESULT(-2147467262)
         } else {
@@ -4011,12 +3476,6 @@ impl<F: FnMut(::core::option::Option<&SmartCardProvisioning>, ::core::option::Op
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         ((*this).invoke)(::windows_core::from_raw_borrowed(&sender), ::windows_core::from_raw_borrowed(&request)).into()
     }
-}
-unsafe impl ::windows_core::Interface for SmartCardPinResetHandler {
-    type Vtable = SmartCardPinResetHandler_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for SmartCardPinResetHandler {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x138d5e40_f3bc_4a5c_b41d_4b4ef684e237);
 }
 impl ::windows_core::RuntimeType for SmartCardPinResetHandler {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();

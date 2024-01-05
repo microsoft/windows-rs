@@ -32,7 +32,7 @@ impl IDialBranding_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDialBranding as ::windows_core::ComInterface>::IID
+        iid == &<IDialBranding as ::windows_core::Interface>::IID
     }
 }
 pub trait IDialEngine_Impl: Sized {
@@ -106,7 +106,7 @@ impl IDialEngine_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDialEngine as ::windows_core::ComInterface>::IID
+        iid == &<IDialEngine as ::windows_core::Interface>::IID
     }
 }
 pub trait IDialEventSink_Impl: Sized {
@@ -123,7 +123,7 @@ impl IDialEventSink_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnEvent: OnEvent::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDialEventSink as ::windows_core::ComInterface>::IID
+        iid == &<IDialEventSink as ::windows_core::Interface>::IID
     }
 }
 pub trait IProofOfPossessionCookieInfoManager_Impl: Sized {
@@ -140,7 +140,7 @@ impl IProofOfPossessionCookieInfoManager_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetCookieInfoForUri: GetCookieInfoForUri::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IProofOfPossessionCookieInfoManager as ::windows_core::ComInterface>::IID
+        iid == &<IProofOfPossessionCookieInfoManager as ::windows_core::Interface>::IID
     }
 }
 pub trait IProofOfPossessionCookieInfoManager2_Impl: Sized {
@@ -160,6 +160,6 @@ impl IProofOfPossessionCookieInfoManager2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IProofOfPossessionCookieInfoManager2 as ::windows_core::ComInterface>::IID
+        iid == &<IProofOfPossessionCookieInfoManager2 as ::windows_core::Interface>::IID
     }
 }

@@ -4,16 +4,7 @@ pub mod LicenseManagement;
 #[cfg(feature = "ApplicationModel_Store_Preview")]
 #[doc = "Required features: `\"ApplicationModel_Store_Preview\"`"]
 pub mod Preview;
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ICurrentApp(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ICurrentApp {
-    type Vtable = ICurrentApp_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ICurrentApp {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd52dc065_da3f_4685_995e_9b482eb5e603);
-}
+::windows_core::imp::com_interface!(ICurrentApp, ICurrentApp_Vtbl, 0xd52dc065_da3f_4685_995e_9b482eb5e603);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICurrentApp_Vtbl {
@@ -30,16 +21,7 @@ pub struct ICurrentApp_Vtbl {
     pub GetAppReceiptAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetProductReceiptAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, productid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ICurrentApp2Statics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ICurrentApp2Statics {
-    type Vtable = ICurrentApp2Statics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ICurrentApp2Statics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdf4e6e2d_3171_4ad3_8614_2c61244373cb);
-}
+::windows_core::imp::com_interface!(ICurrentApp2Statics, ICurrentApp2Statics_Vtbl, 0xdf4e6e2d_3171_4ad3_8614_2c61244373cb);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICurrentApp2Statics_Vtbl {
@@ -47,16 +29,7 @@ pub struct ICurrentApp2Statics_Vtbl {
     pub GetCustomerPurchaseIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, serviceticket: ::std::mem::MaybeUninit<::windows_core::HSTRING>, publisheruserid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetCustomerCollectionsIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, serviceticket: ::std::mem::MaybeUninit<::windows_core::HSTRING>, publisheruserid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ICurrentAppSimulator(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ICurrentAppSimulator {
-    type Vtable = ICurrentAppSimulator_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ICurrentAppSimulator {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf17f9db1_74cd_4787_9787_19866e9a5559);
-}
+::windows_core::imp::com_interface!(ICurrentAppSimulator, ICurrentAppSimulator_Vtbl, 0xf17f9db1_74cd_4787_9787_19866e9a5559);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICurrentAppSimulator_Vtbl {
@@ -77,16 +50,7 @@ pub struct ICurrentAppSimulator_Vtbl {
     #[cfg(not(feature = "Storage"))]
     ReloadSimulatorAsync: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ICurrentAppSimulatorStaticsWithFiltering(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ICurrentAppSimulatorStaticsWithFiltering {
-    type Vtable = ICurrentAppSimulatorStaticsWithFiltering_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ICurrentAppSimulatorStaticsWithFiltering {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x617e70e2_f86f_4b54_9666_dde285092c68);
-}
+::windows_core::imp::com_interface!(ICurrentAppSimulatorStaticsWithFiltering, ICurrentAppSimulatorStaticsWithFiltering_Vtbl, 0x617e70e2_f86f_4b54_9666_dde285092c68);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICurrentAppSimulatorStaticsWithFiltering_Vtbl {
@@ -100,32 +64,14 @@ pub struct ICurrentAppSimulatorStaticsWithFiltering_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     LoadListingInformationByKeywordsAsync: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ICurrentAppSimulatorWithCampaignId(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ICurrentAppSimulatorWithCampaignId {
-    type Vtable = ICurrentAppSimulatorWithCampaignId_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ICurrentAppSimulatorWithCampaignId {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x84678a43_df00_4672_a43f_b25b1441cfcf);
-}
+::windows_core::imp::com_interface!(ICurrentAppSimulatorWithCampaignId, ICurrentAppSimulatorWithCampaignId_Vtbl, 0x84678a43_df00_4672_a43f_b25b1441cfcf);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICurrentAppSimulatorWithCampaignId_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetAppPurchaseCampaignIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ICurrentAppSimulatorWithConsumables(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ICurrentAppSimulatorWithConsumables {
-    type Vtable = ICurrentAppSimulatorWithConsumables_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ICurrentAppSimulatorWithConsumables {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4e51f0ab_20e7_4412_9b85_59bb78388667);
-}
+::windows_core::imp::com_interface!(ICurrentAppSimulatorWithConsumables, ICurrentAppSimulatorWithConsumables_Vtbl, 0x4e51f0ab_20e7_4412_9b85_59bb78388667);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICurrentAppSimulatorWithConsumables_Vtbl {
@@ -138,16 +84,7 @@ pub struct ICurrentAppSimulatorWithConsumables_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     GetUnfulfilledConsumablesAsync: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ICurrentAppStaticsWithFiltering(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ICurrentAppStaticsWithFiltering {
-    type Vtable = ICurrentAppStaticsWithFiltering_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ICurrentAppStaticsWithFiltering {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd36d6542_9085_438e_97ba_a25c976be2fd);
-}
+::windows_core::imp::com_interface!(ICurrentAppStaticsWithFiltering, ICurrentAppStaticsWithFiltering_Vtbl, 0xd36d6542_9085_438e_97ba_a25c976be2fd);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICurrentAppStaticsWithFiltering_Vtbl {
@@ -162,32 +99,14 @@ pub struct ICurrentAppStaticsWithFiltering_Vtbl {
     LoadListingInformationByKeywordsAsync: usize,
     pub ReportProductFulfillment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, productid: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ICurrentAppWithCampaignId(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ICurrentAppWithCampaignId {
-    type Vtable = ICurrentAppWithCampaignId_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ICurrentAppWithCampaignId {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x312f4cd0_36c1_44a6_b32b_432d608e4dd6);
-}
+::windows_core::imp::com_interface!(ICurrentAppWithCampaignId, ICurrentAppWithCampaignId_Vtbl, 0x312f4cd0_36c1_44a6_b32b_432d608e4dd6);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICurrentAppWithCampaignId_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetAppPurchaseCampaignIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ICurrentAppWithConsumables(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ICurrentAppWithConsumables {
-    type Vtable = ICurrentAppWithConsumables_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ICurrentAppWithConsumables {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x844e0071_9e4f_4f79_995a_5f91172e6cef);
-}
+::windows_core::imp::com_interface!(ICurrentAppWithConsumables, ICurrentAppWithConsumables_Vtbl, 0x844e0071_9e4f_4f79_995a_5f91172e6cef);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICurrentAppWithConsumables_Vtbl {
@@ -200,16 +119,7 @@ pub struct ICurrentAppWithConsumables_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     GetUnfulfilledConsumablesAsync: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ILicenseInformation(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ILicenseInformation {
-    type Vtable = ILicenseInformation_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ILicenseInformation {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8eb7dc30_f170_4ed5_8e21_1516da3fd367);
-}
+::windows_core::imp::com_interface!(ILicenseInformation, ILicenseInformation_Vtbl, 0x8eb7dc30_f170_4ed5_8e21_1516da3fd367);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILicenseInformation_Vtbl {
@@ -224,16 +134,7 @@ pub struct ILicenseInformation_Vtbl {
     pub LicenseChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     pub RemoveLicenseChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IListingInformation(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IListingInformation {
-    type Vtable = IListingInformation_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IListingInformation {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x588b4abf_bc74_4383_b78c_99606323dece);
-}
+::windows_core::imp::com_interface!(IListingInformation, IListingInformation_Vtbl, 0x588b4abf_bc74_4383_b78c_99606323dece);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IListingInformation_Vtbl {
@@ -248,16 +149,7 @@ pub struct IListingInformation_Vtbl {
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub AgeRating: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IListingInformation2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IListingInformation2 {
-    type Vtable = IListingInformation2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IListingInformation2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc0fd2c1d_b30e_4384_84ea_72fefa82223e);
-}
+::windows_core::imp::com_interface!(IListingInformation2, IListingInformation2_Vtbl, 0xc0fd2c1d_b30e_4384_84ea_72fefa82223e);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IListingInformation2_Vtbl {
@@ -267,16 +159,7 @@ pub struct IListingInformation2_Vtbl {
     pub IsOnSale: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub CurrencyCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IProductLicense(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IProductLicense {
-    type Vtable = IProductLicense_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IProductLicense {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x363308c7_2bcf_4c0e_8f2f_e808aaa8f99d);
-}
+::windows_core::imp::com_interface!(IProductLicense, IProductLicense_Vtbl, 0x363308c7_2bcf_4c0e_8f2f_e808aaa8f99d);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProductLicense_Vtbl {
@@ -285,32 +168,14 @@ pub struct IProductLicense_Vtbl {
     pub IsActive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub ExpirationDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IProductLicenseWithFulfillment(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IProductLicenseWithFulfillment {
-    type Vtable = IProductLicenseWithFulfillment_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IProductLicenseWithFulfillment {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfc535c8a_f667_40f3_ba3c_045a63abb3ac);
-}
+::windows_core::imp::com_interface!(IProductLicenseWithFulfillment, IProductLicenseWithFulfillment_Vtbl, 0xfc535c8a_f667_40f3_ba3c_045a63abb3ac);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProductLicenseWithFulfillment_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsConsumable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IProductListing(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IProductListing {
-    type Vtable = IProductListing_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IProductListing {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x45a7d6ad_c750_4d9c_947c_b00dcbf9e9c2);
-}
+::windows_core::imp::com_interface!(IProductListing, IProductListing_Vtbl, 0x45a7d6ad_c750_4d9c_947c_b00dcbf9e9c2);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProductListing_Vtbl {
@@ -319,16 +184,7 @@ pub struct IProductListing_Vtbl {
     pub FormattedPrice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IProductListing2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IProductListing2 {
-    type Vtable = IProductListing2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IProductListing2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf89e290f_73fe_494d_a939_08a9b2495abe);
-}
+::windows_core::imp::com_interface!(IProductListing2, IProductListing2_Vtbl, 0xf89e290f_73fe_494d_a939_08a9b2495abe);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProductListing2_Vtbl {
@@ -338,32 +194,14 @@ pub struct IProductListing2_Vtbl {
     pub IsOnSale: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub CurrencyCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IProductListingWithConsumables(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IProductListingWithConsumables {
-    type Vtable = IProductListingWithConsumables_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IProductListingWithConsumables {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeb9e9790_8f6b_481f_93a7_5c3a63068149);
-}
+::windows_core::imp::com_interface!(IProductListingWithConsumables, IProductListingWithConsumables_Vtbl, 0xeb9e9790_8f6b_481f_93a7_5c3a63068149);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProductListingWithConsumables_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ProductType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ProductType) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IProductListingWithMetadata(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IProductListingWithMetadata {
-    type Vtable = IProductListingWithMetadata_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IProductListingWithMetadata {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x124da567_23f8_423e_9532_189943c40ace);
-}
+::windows_core::imp::com_interface!(IProductListingWithMetadata, IProductListingWithMetadata_Vtbl, 0x124da567_23f8_423e_9532_189943c40ace);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProductListingWithMetadata_Vtbl {
@@ -377,16 +215,7 @@ pub struct IProductListingWithMetadata_Vtbl {
     pub Tag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub ImageUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IProductPurchaseDisplayProperties(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IProductPurchaseDisplayProperties {
-    type Vtable = IProductPurchaseDisplayProperties_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IProductPurchaseDisplayProperties {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd70b7420_bc92_401b_a809_c9b2e5dbbdaf);
-}
+::windows_core::imp::com_interface!(IProductPurchaseDisplayProperties, IProductPurchaseDisplayProperties_Vtbl, 0xd70b7420_bc92_401b_a809_c9b2e5dbbdaf);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProductPurchaseDisplayProperties_Vtbl {
@@ -398,32 +227,14 @@ pub struct IProductPurchaseDisplayProperties_Vtbl {
     pub Image: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub SetImage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IProductPurchaseDisplayPropertiesFactory(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IProductPurchaseDisplayPropertiesFactory {
-    type Vtable = IProductPurchaseDisplayPropertiesFactory_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IProductPurchaseDisplayPropertiesFactory {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6f491df4_32d6_4b40_b474_b83038a4d9cf);
-}
+::windows_core::imp::com_interface!(IProductPurchaseDisplayPropertiesFactory, IProductPurchaseDisplayPropertiesFactory_Vtbl, 0x6f491df4_32d6_4b40_b474_b83038a4d9cf);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProductPurchaseDisplayPropertiesFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateProductPurchaseDisplayProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPurchaseResults(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPurchaseResults {
-    type Vtable = IPurchaseResults_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPurchaseResults {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xed50b37e_8656_4f65_b8c8_ac7e0cb1a1c2);
-}
+::windows_core::imp::com_interface!(IPurchaseResults, IPurchaseResults_Vtbl, 0xed50b37e_8656_4f65_b8c8_ac7e0cb1a1c2);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPurchaseResults_Vtbl {
@@ -433,16 +244,7 @@ pub struct IPurchaseResults_Vtbl {
     pub ReceiptXml: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub OfferId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IUnfulfilledConsumable(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IUnfulfilledConsumable {
-    type Vtable = IUnfulfilledConsumable_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IUnfulfilledConsumable {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2df7fbbb_1cdd_4cb8_a014_7b9cf8986927);
-}
+::windows_core::imp::com_interface!(IUnfulfilledConsumable, IUnfulfilledConsumable_Vtbl, 0x2df7fbbb_1cdd_4cb8_a014_7b9cf8986927);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUnfulfilledConsumable_Vtbl {
@@ -519,22 +321,22 @@ impl CurrentApp {
     #[cfg(feature = "Foundation_Collections")]
     pub fn LoadListingInformationByProductIdsAsync<P0>(productids: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ListingInformation>>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
     {
         Self::ICurrentAppStaticsWithFiltering(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).LoadListingInformationByProductIdsAsync)(::windows_core::Interface::as_raw(this), productids.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).LoadListingInformationByProductIdsAsync)(::windows_core::Interface::as_raw(this), productids.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn LoadListingInformationByKeywordsAsync<P0>(keywords: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ListingInformation>>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
     {
         Self::ICurrentAppStaticsWithFiltering(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).LoadListingInformationByKeywordsAsync)(::windows_core::Interface::as_raw(this), keywords.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).LoadListingInformationByKeywordsAsync)(::windows_core::Interface::as_raw(this), keywords.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn ReportProductFulfillment(productid: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
@@ -671,22 +473,22 @@ impl CurrentAppSimulator {
     #[cfg(feature = "Foundation_Collections")]
     pub fn LoadListingInformationByProductIdsAsync<P0>(productids: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ListingInformation>>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
     {
         Self::ICurrentAppSimulatorStaticsWithFiltering(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).LoadListingInformationByProductIdsAsync)(::windows_core::Interface::as_raw(this), productids.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).LoadListingInformationByProductIdsAsync)(::windows_core::Interface::as_raw(this), productids.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn LoadListingInformationByKeywordsAsync<P0>(keywords: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ListingInformation>>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
     {
         Self::ICurrentAppSimulatorStaticsWithFiltering(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).LoadListingInformationByKeywordsAsync)(::windows_core::Interface::as_raw(this), keywords.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).LoadListingInformationByKeywordsAsync)(::windows_core::Interface::as_raw(this), keywords.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn GetAppPurchaseCampaignIdAsync() -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>> {
@@ -751,6 +553,7 @@ impl ::windows_core::RuntimeName for CurrentAppSimulator {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LicenseInformation(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(LicenseInformation, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl LicenseInformation {
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
@@ -802,19 +605,17 @@ impl ::windows_core::RuntimeType for LicenseInformation {
 }
 unsafe impl ::windows_core::Interface for LicenseInformation {
     type Vtable = ILicenseInformation_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for LicenseInformation {
-    const IID: ::windows_core::GUID = <ILicenseInformation as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ILicenseInformation as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for LicenseInformation {
     const NAME: &'static str = "Windows.ApplicationModel.Store.LicenseInformation";
 }
-::windows_core::imp::interface_hierarchy!(LicenseInformation, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for LicenseInformation {}
 unsafe impl ::core::marker::Sync for LicenseInformation {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ListingInformation(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(ListingInformation, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ListingInformation {
     pub fn CurrentMarket(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -861,28 +662,28 @@ impl ListingInformation {
         }
     }
     pub fn FormattedBasePrice(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<IListingInformation2>(self)?;
+        let this = &::windows_core::Interface::cast::<IListingInformation2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FormattedBasePrice)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SaleEndDate(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
-        let this = &::windows_core::ComInterface::cast::<IListingInformation2>(self)?;
+        let this = &::windows_core::Interface::cast::<IListingInformation2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SaleEndDate)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsOnSale(&self) -> ::windows_core::Result<bool> {
-        let this = &::windows_core::ComInterface::cast::<IListingInformation2>(self)?;
+        let this = &::windows_core::Interface::cast::<IListingInformation2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsOnSale)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CurrencyCode(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<IListingInformation2>(self)?;
+        let this = &::windows_core::Interface::cast::<IListingInformation2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CurrencyCode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -894,19 +695,17 @@ impl ::windows_core::RuntimeType for ListingInformation {
 }
 unsafe impl ::windows_core::Interface for ListingInformation {
     type Vtable = IListingInformation_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ListingInformation {
-    const IID: ::windows_core::GUID = <IListingInformation as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IListingInformation as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for ListingInformation {
     const NAME: &'static str = "Windows.ApplicationModel.Store.ListingInformation";
 }
-::windows_core::imp::interface_hierarchy!(ListingInformation, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for ListingInformation {}
 unsafe impl ::core::marker::Sync for ListingInformation {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ProductLicense(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(ProductLicense, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ProductLicense {
     pub fn ProductId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -930,7 +729,7 @@ impl ProductLicense {
         }
     }
     pub fn IsConsumable(&self) -> ::windows_core::Result<bool> {
-        let this = &::windows_core::ComInterface::cast::<IProductLicenseWithFulfillment>(self)?;
+        let this = &::windows_core::Interface::cast::<IProductLicenseWithFulfillment>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsConsumable)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -942,19 +741,17 @@ impl ::windows_core::RuntimeType for ProductLicense {
 }
 unsafe impl ::windows_core::Interface for ProductLicense {
     type Vtable = IProductLicense_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ProductLicense {
-    const IID: ::windows_core::GUID = <IProductLicense as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IProductLicense as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for ProductLicense {
     const NAME: &'static str = "Windows.ApplicationModel.Store.ProductLicense";
 }
-::windows_core::imp::interface_hierarchy!(ProductLicense, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for ProductLicense {}
 unsafe impl ::core::marker::Sync for ProductLicense {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ProductListing(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(ProductListing, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ProductListing {
     pub fn ProductId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -978,35 +775,35 @@ impl ProductListing {
         }
     }
     pub fn FormattedBasePrice(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<IProductListing2>(self)?;
+        let this = &::windows_core::Interface::cast::<IProductListing2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FormattedBasePrice)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SaleEndDate(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
-        let this = &::windows_core::ComInterface::cast::<IProductListing2>(self)?;
+        let this = &::windows_core::Interface::cast::<IProductListing2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SaleEndDate)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsOnSale(&self) -> ::windows_core::Result<bool> {
-        let this = &::windows_core::ComInterface::cast::<IProductListing2>(self)?;
+        let this = &::windows_core::Interface::cast::<IProductListing2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsOnSale)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CurrencyCode(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<IProductListing2>(self)?;
+        let this = &::windows_core::Interface::cast::<IProductListing2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CurrencyCode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Description(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<IProductListingWithMetadata>(self)?;
+        let this = &::windows_core::Interface::cast::<IProductListingWithMetadata>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Description)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -1015,28 +812,28 @@ impl ProductListing {
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Keywords(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>> {
-        let this = &::windows_core::ComInterface::cast::<IProductListingWithMetadata>(self)?;
+        let this = &::windows_core::Interface::cast::<IProductListingWithMetadata>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Keywords)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ProductType(&self) -> ::windows_core::Result<ProductType> {
-        let this = &::windows_core::ComInterface::cast::<IProductListingWithMetadata>(self)?;
+        let this = &::windows_core::Interface::cast::<IProductListingWithMetadata>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ProductType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Tag(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<IProductListingWithMetadata>(self)?;
+        let this = &::windows_core::Interface::cast::<IProductListingWithMetadata>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Tag)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ImageUri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
-        let this = &::windows_core::ComInterface::cast::<IProductListingWithMetadata>(self)?;
+        let this = &::windows_core::Interface::cast::<IProductListingWithMetadata>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ImageUri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -1048,19 +845,17 @@ impl ::windows_core::RuntimeType for ProductListing {
 }
 unsafe impl ::windows_core::Interface for ProductListing {
     type Vtable = IProductListing_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ProductListing {
-    const IID: ::windows_core::GUID = <IProductListing as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IProductListing as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for ProductListing {
     const NAME: &'static str = "Windows.ApplicationModel.Store.ProductListing";
 }
-::windows_core::imp::interface_hierarchy!(ProductListing, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for ProductListing {}
 unsafe impl ::core::marker::Sync for ProductListing {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ProductPurchaseDisplayProperties(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(ProductPurchaseDisplayProperties, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ProductPurchaseDisplayProperties {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1122,19 +917,17 @@ impl ::windows_core::RuntimeType for ProductPurchaseDisplayProperties {
 }
 unsafe impl ::windows_core::Interface for ProductPurchaseDisplayProperties {
     type Vtable = IProductPurchaseDisplayProperties_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ProductPurchaseDisplayProperties {
-    const IID: ::windows_core::GUID = <IProductPurchaseDisplayProperties as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IProductPurchaseDisplayProperties as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for ProductPurchaseDisplayProperties {
     const NAME: &'static str = "Windows.ApplicationModel.Store.ProductPurchaseDisplayProperties";
 }
-::windows_core::imp::interface_hierarchy!(ProductPurchaseDisplayProperties, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for ProductPurchaseDisplayProperties {}
 unsafe impl ::core::marker::Sync for ProductPurchaseDisplayProperties {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PurchaseResults(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(PurchaseResults, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl PurchaseResults {
     pub fn Status(&self) -> ::windows_core::Result<ProductPurchaseStatus> {
         let this = self;
@@ -1170,19 +963,17 @@ impl ::windows_core::RuntimeType for PurchaseResults {
 }
 unsafe impl ::windows_core::Interface for PurchaseResults {
     type Vtable = IPurchaseResults_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for PurchaseResults {
-    const IID: ::windows_core::GUID = <IPurchaseResults as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPurchaseResults as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for PurchaseResults {
     const NAME: &'static str = "Windows.ApplicationModel.Store.PurchaseResults";
 }
-::windows_core::imp::interface_hierarchy!(PurchaseResults, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PurchaseResults {}
 unsafe impl ::core::marker::Sync for PurchaseResults {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UnfulfilledConsumable(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(UnfulfilledConsumable, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl UnfulfilledConsumable {
     pub fn ProductId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -1211,14 +1002,11 @@ impl ::windows_core::RuntimeType for UnfulfilledConsumable {
 }
 unsafe impl ::windows_core::Interface for UnfulfilledConsumable {
     type Vtable = IUnfulfilledConsumable_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for UnfulfilledConsumable {
-    const IID: ::windows_core::GUID = <IUnfulfilledConsumable as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IUnfulfilledConsumable as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for UnfulfilledConsumable {
     const NAME: &'static str = "Windows.ApplicationModel.Store.UnfulfilledConsumable";
 }
-::windows_core::imp::interface_hierarchy!(UnfulfilledConsumable, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for UnfulfilledConsumable {}
 unsafe impl ::core::marker::Sync for UnfulfilledConsumable {}
 #[repr(transparent)]
@@ -1281,9 +1069,7 @@ impl ::core::fmt::Debug for ProductType {
 impl ::windows_core::RuntimeType for ProductType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.ProductType;i4)");
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct LicenseChangedEventHandler(pub ::windows_core::IUnknown);
+::windows_core::imp::com_interface!(LicenseChangedEventHandler, LicenseChangedEventHandler_Vtbl, 0xd4a50255_1369_4c36_832f_6f2d88e3659b);
 impl LicenseChangedEventHandler {
     pub fn new<F: FnMut() -> ::windows_core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
         let com = LicenseChangedEventHandlerBox::<F> { vtable: &LicenseChangedEventHandlerBox::<F>::VTABLE, count: ::windows_core::imp::RefCount::new(1), invoke };
@@ -1310,7 +1096,7 @@ impl<F: FnMut() -> ::windows_core::Result<()> + ::core::marker::Send + 'static> 
         if iid.is_null() || interface.is_null() {
             return ::windows_core::HRESULT(-2147467261);
         }
-        *interface = if *iid == <LicenseChangedEventHandler as ::windows_core::ComInterface>::IID || *iid == <::windows_core::IUnknown as ::windows_core::ComInterface>::IID || *iid == <::windows_core::imp::IAgileObject as ::windows_core::ComInterface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        *interface = if *iid == <LicenseChangedEventHandler as ::windows_core::Interface>::IID || *iid == <::windows_core::IUnknown as ::windows_core::Interface>::IID || *iid == <::windows_core::imp::IAgileObject as ::windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows_core::HRESULT(-2147467262)
         } else {
@@ -1334,12 +1120,6 @@ impl<F: FnMut() -> ::windows_core::Result<()> + ::core::marker::Send + 'static> 
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         ((*this).invoke)().into()
     }
-}
-unsafe impl ::windows_core::Interface for LicenseChangedEventHandler {
-    type Vtable = LicenseChangedEventHandler_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for LicenseChangedEventHandler {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd4a50255_1369_4c36_832f_6f2d88e3659b);
 }
 impl ::windows_core::RuntimeType for LicenseChangedEventHandler {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();

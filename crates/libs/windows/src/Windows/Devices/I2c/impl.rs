@@ -52,6 +52,6 @@ impl II2cDeviceStatics_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<II2cDeviceStatics as ::windows_core::ComInterface>::IID
+        iid == &<II2cDeviceStatics as ::windows_core::Interface>::IID
     }
 }

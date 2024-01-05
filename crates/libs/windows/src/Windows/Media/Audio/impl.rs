@@ -49,7 +49,7 @@ impl IAudioInputNode_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAudioInputNode as ::windows_core::ComInterface>::IID
+        iid == &<IAudioInputNode as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Foundation_Collections\"`, `\"Media_Effects\"`, `\"Media_MediaProperties\"`"]
@@ -79,7 +79,7 @@ impl IAudioInputNode2_Vtbl {
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, IAudioInputNode2, OFFSET>(), Emitter: Emitter::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAudioInputNode2 as ::windows_core::ComInterface>::IID
+        iid == &<IAudioInputNode2 as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Foundation_Collections\"`, `\"Media_Effects\"`, `\"Media_MediaProperties\"`"]
@@ -201,7 +201,7 @@ impl IAudioNode_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAudioNode as ::windows_core::ComInterface>::IID
+        iid == &<IAudioNode as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Foundation_Collections\"`, `\"Media_Effects\"`, `\"Media_MediaProperties\"`"]
@@ -241,6 +241,6 @@ impl IAudioNodeWithListener_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAudioNodeWithListener as ::windows_core::ComInterface>::IID
+        iid == &<IAudioNodeWithListener as ::windows_core::Interface>::IID
     }
 }

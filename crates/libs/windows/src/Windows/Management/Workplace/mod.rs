@@ -1,13 +1,4 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMdmAllowPolicyStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IMdmAllowPolicyStatics {
-    type Vtable = IMdmAllowPolicyStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IMdmAllowPolicyStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc39709e7_741c_41f2_a4b6_314c31502586);
-}
+::windows_core::imp::com_interface!(IMdmAllowPolicyStatics, IMdmAllowPolicyStatics_Vtbl, 0xc39709e7_741c_41f2_a4b6_314c31502586);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMdmAllowPolicyStatics_Vtbl {
@@ -17,32 +8,14 @@ pub struct IMdmAllowPolicyStatics_Vtbl {
     pub IsMicrosoftAccountAllowed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub IsStoreAllowed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMdmPolicyStatics2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IMdmPolicyStatics2 {
-    type Vtable = IMdmPolicyStatics2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IMdmPolicyStatics2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc99c7526_03d4_49f9_a993_43efccd265c4);
-}
+::windows_core::imp::com_interface!(IMdmPolicyStatics2, IMdmPolicyStatics2_Vtbl, 0xc99c7526_03d4_49f9_a993_43efccd265c4);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMdmPolicyStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetMessagingSyncPolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MessagingSyncPolicy) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWorkplaceSettingsStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWorkplaceSettingsStatics {
-    type Vtable = IWorkplaceSettingsStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWorkplaceSettingsStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe4676ffd_2d92_4c08_bad4_f6590b54a6d3);
-}
+::windows_core::imp::com_interface!(IWorkplaceSettingsStatics, IWorkplaceSettingsStatics_Vtbl, 0xe4676ffd_2d92_4c08_bad4_f6590b54a6d3);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWorkplaceSettingsStatics_Vtbl {

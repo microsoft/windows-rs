@@ -1,16 +1,7 @@
 #[cfg(feature = "UI_WindowManagement_Preview")]
 #[doc = "Required features: `\"UI_WindowManagement_Preview\"`"]
 pub mod Preview;
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAppWindow(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAppWindow {
-    type Vtable = IAppWindow_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAppWindow {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x663014a6_b75e_5dbd_995c_f0117fa3fb61);
-}
+::windows_core::imp::com_interface!(IAppWindow, IAppWindow_Vtbl, 0x663014a6_b75e_5dbd_995c_f0117fa3fb61);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppWindow_Vtbl {
@@ -51,16 +42,7 @@ pub struct IAppWindow_Vtbl {
     pub CloseRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     pub RemoveCloseRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAppWindowChangedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAppWindowChangedEventArgs {
-    type Vtable = IAppWindowChangedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAppWindowChangedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1de1f3be_a655_55ad_b2b6_eb240f880356);
-}
+::windows_core::imp::com_interface!(IAppWindowChangedEventArgs, IAppWindowChangedEventArgs_Vtbl, 0x1de1f3be_a655_55ad_b2b6_eb240f880356);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppWindowChangedEventArgs_Vtbl {
@@ -74,16 +56,7 @@ pub struct IAppWindowChangedEventArgs_Vtbl {
     pub DidWindowingEnvironmentChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub DidWindowPresentationChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAppWindowCloseRequestedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAppWindowCloseRequestedEventArgs {
-    type Vtable = IAppWindowCloseRequestedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAppWindowCloseRequestedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe9ff01da_e7a2_57a8_8b5e_39c4003afdbb);
-}
+::windows_core::imp::com_interface!(IAppWindowCloseRequestedEventArgs, IAppWindowCloseRequestedEventArgs_Vtbl, 0xe9ff01da_e7a2_57a8_8b5e_39c4003afdbb);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppWindowCloseRequestedEventArgs_Vtbl {
@@ -92,32 +65,14 @@ pub struct IAppWindowCloseRequestedEventArgs_Vtbl {
     pub SetCancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAppWindowClosedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAppWindowClosedEventArgs {
-    type Vtable = IAppWindowClosedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAppWindowClosedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcc7df816_9520_5a06_821e_456ad8b358aa);
-}
+::windows_core::imp::com_interface!(IAppWindowClosedEventArgs, IAppWindowClosedEventArgs_Vtbl, 0xcc7df816_9520_5a06_821e_456ad8b358aa);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppWindowClosedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Reason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AppWindowClosedReason) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAppWindowFrame(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAppWindowFrame {
-    type Vtable = IAppWindowFrame_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAppWindowFrame {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9ee22601_7e5d_52af_846b_01dc6c296567);
-}
+::windows_core::imp::com_interface!(IAppWindowFrame, IAppWindowFrame_Vtbl, 0x9ee22601_7e5d_52af_846b_01dc6c296567);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppWindowFrame_Vtbl {
@@ -127,16 +82,7 @@ pub struct IAppWindowFrame_Vtbl {
     #[cfg(not(all(feature = "Foundation_Collections", feature = "UI_Composition")))]
     DragRegionVisuals: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAppWindowFrameStyle(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAppWindowFrameStyle {
-    type Vtable = IAppWindowFrameStyle_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAppWindowFrameStyle {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xac412946_e1ac_5230_944a_c60873dcf4a9);
-}
+::windows_core::imp::com_interface!(IAppWindowFrameStyle, IAppWindowFrameStyle_Vtbl, 0xac412946_e1ac_5230_944a_c60873dcf4a9);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppWindowFrameStyle_Vtbl {
@@ -144,16 +90,7 @@ pub struct IAppWindowFrameStyle_Vtbl {
     pub GetFrameStyle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AppWindowFrameStyle) -> ::windows_core::HRESULT,
     pub SetFrameStyle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, framestyle: AppWindowFrameStyle) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAppWindowPlacement(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAppWindowPlacement {
-    type Vtable = IAppWindowPlacement_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAppWindowPlacement {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x03dc815e_e7a9_5857_9c03_7d670594410e);
-}
+::windows_core::imp::com_interface!(IAppWindowPlacement, IAppWindowPlacement_Vtbl, 0x03dc815e_e7a9_5857_9c03_7d670594410e);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppWindowPlacement_Vtbl {
@@ -162,47 +99,20 @@ pub struct IAppWindowPlacement_Vtbl {
     pub Offset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows_core::HRESULT,
     pub Size: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAppWindowPresentationConfiguration(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAppWindowPresentationConfiguration {
-    type Vtable = IAppWindowPresentationConfiguration_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAppWindowPresentationConfiguration {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb5a43ee3_df33_5e67_bd31_1072457300df);
-}
+::windows_core::imp::com_interface!(IAppWindowPresentationConfiguration, IAppWindowPresentationConfiguration_Vtbl, 0xb5a43ee3_df33_5e67_bd31_1072457300df);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppWindowPresentationConfiguration_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Kind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AppWindowPresentationKind) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAppWindowPresentationConfigurationFactory(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAppWindowPresentationConfigurationFactory {
-    type Vtable = IAppWindowPresentationConfigurationFactory_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAppWindowPresentationConfigurationFactory {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfd3606a6_7875_5de8_84ff_6351ee13dd0d);
-}
+::windows_core::imp::com_interface!(IAppWindowPresentationConfigurationFactory, IAppWindowPresentationConfigurationFactory_Vtbl, 0xfd3606a6_7875_5de8_84ff_6351ee13dd0d);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppWindowPresentationConfigurationFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAppWindowPresenter(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAppWindowPresenter {
-    type Vtable = IAppWindowPresenter_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAppWindowPresenter {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5ae9ed73_e1fd_5317_ad78_5a3ed271bbde);
-}
+::windows_core::imp::com_interface!(IAppWindowPresenter, IAppWindowPresenter_Vtbl, 0x5ae9ed73_e1fd_5317_ad78_5a3ed271bbde);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppWindowPresenter_Vtbl {
@@ -212,16 +122,7 @@ pub struct IAppWindowPresenter_Vtbl {
     pub RequestPresentation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, configuration: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub RequestPresentationByKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presentationkind: AppWindowPresentationKind, result__: *mut bool) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAppWindowStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAppWindowStatics {
-    type Vtable = IAppWindowStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAppWindowStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xff1f3ea3_b769_50ef_9873_108cd0e89746);
-}
+::windows_core::imp::com_interface!(IAppWindowStatics, IAppWindowStatics_Vtbl, 0xff1f3ea3_b769_50ef_9873_108cd0e89746);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppWindowStatics_Vtbl {
@@ -230,16 +131,7 @@ pub struct IAppWindowStatics_Vtbl {
     pub ClearAllPersistedState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub ClearPersistedState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAppWindowTitleBar(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAppWindowTitleBar {
-    type Vtable = IAppWindowTitleBar_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAppWindowTitleBar {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6e932c84_f644_541d_a2d7_0c262437842d);
-}
+::windows_core::imp::com_interface!(IAppWindowTitleBar, IAppWindowTitleBar_Vtbl, 0x6e932c84_f644_541d_a2d7_0c262437842d);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppWindowTitleBar_Vtbl {
@@ -276,32 +168,14 @@ pub struct IAppWindowTitleBar_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     GetTitleBarOcclusions: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAppWindowTitleBarOcclusion(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAppWindowTitleBarOcclusion {
-    type Vtable = IAppWindowTitleBarOcclusion_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAppWindowTitleBarOcclusion {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfea3cffd_2ccf_5fc3_aeae_f843876bf37e);
-}
+::windows_core::imp::com_interface!(IAppWindowTitleBarOcclusion, IAppWindowTitleBarOcclusion_Vtbl, 0xfea3cffd_2ccf_5fc3_aeae_f843876bf37e);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppWindowTitleBarOcclusion_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub OccludingRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAppWindowTitleBarVisibility(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAppWindowTitleBarVisibility {
-    type Vtable = IAppWindowTitleBarVisibility_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAppWindowTitleBarVisibility {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa215a4e3_6e7e_5651_8c3b_624819528154);
-}
+::windows_core::imp::com_interface!(IAppWindowTitleBarVisibility, IAppWindowTitleBarVisibility_Vtbl, 0xa215a4e3_6e7e_5651_8c3b_624819528154);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppWindowTitleBarVisibility_Vtbl {
@@ -309,46 +183,19 @@ pub struct IAppWindowTitleBarVisibility_Vtbl {
     pub GetPreferredVisibility: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AppWindowTitleBarVisibility) -> ::windows_core::HRESULT,
     pub SetPreferredVisibility: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, visibilitymode: AppWindowTitleBarVisibility) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ICompactOverlayPresentationConfiguration(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ICompactOverlayPresentationConfiguration {
-    type Vtable = ICompactOverlayPresentationConfiguration_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ICompactOverlayPresentationConfiguration {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa7e5750f_5730_56c6_8e1f_d63ff4d7980d);
-}
+::windows_core::imp::com_interface!(ICompactOverlayPresentationConfiguration, ICompactOverlayPresentationConfiguration_Vtbl, 0xa7e5750f_5730_56c6_8e1f_d63ff4d7980d);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompactOverlayPresentationConfiguration_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDefaultPresentationConfiguration(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDefaultPresentationConfiguration {
-    type Vtable = IDefaultPresentationConfiguration_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDefaultPresentationConfiguration {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd8c2b53b_2168_5703_a853_d525589fe2b9);
-}
+::windows_core::imp::com_interface!(IDefaultPresentationConfiguration, IDefaultPresentationConfiguration_Vtbl, 0xd8c2b53b_2168_5703_a853_d525589fe2b9);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDefaultPresentationConfiguration_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDisplayRegion(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDisplayRegion {
-    type Vtable = IDisplayRegion_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDisplayRegion {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdb50c3a2_4094_5f47_8cb1_ea01ddafaa94);
-}
+::windows_core::imp::com_interface!(IDisplayRegion, IDisplayRegion_Vtbl, 0xdb50c3a2_4094_5f47_8cb1_ea01ddafaa94);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayRegion_Vtbl {
@@ -361,16 +208,7 @@ pub struct IDisplayRegion_Vtbl {
     pub Changed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     pub RemoveChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IFullScreenPresentationConfiguration(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IFullScreenPresentationConfiguration {
-    type Vtable = IFullScreenPresentationConfiguration_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IFullScreenPresentationConfiguration {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x43d3dcd8_d2a8_503d_a626_15533d6d5f62);
-}
+::windows_core::imp::com_interface!(IFullScreenPresentationConfiguration, IFullScreenPresentationConfiguration_Vtbl, 0x43d3dcd8_d2a8_503d_a626_15533d6d5f62);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFullScreenPresentationConfiguration_Vtbl {
@@ -378,16 +216,7 @@ pub struct IFullScreenPresentationConfiguration_Vtbl {
     pub IsExclusive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub SetIsExclusive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWindowServicesStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWindowServicesStatics {
-    type Vtable = IWindowServicesStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWindowServicesStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcff4d519_50a6_5c64_97f6_c2d96add7f42);
-}
+::windows_core::imp::com_interface!(IWindowServicesStatics, IWindowServicesStatics_Vtbl, 0xcff4d519_50a6_5c64_97f6_c2d96add7f42);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWindowServicesStatics_Vtbl {
@@ -397,16 +226,7 @@ pub struct IWindowServicesStatics_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     FindAllTopLevelWindowIds: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWindowingEnvironment(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWindowingEnvironment {
-    type Vtable = IWindowingEnvironment_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWindowingEnvironment {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x264363c0_2a49_5417_b3ae_48a71c63a3bd);
-}
+::windows_core::imp::com_interface!(IWindowingEnvironment, IWindowingEnvironment_Vtbl, 0x264363c0_2a49_5417_b3ae_48a71c63a3bd);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWindowingEnvironment_Vtbl {
@@ -420,63 +240,27 @@ pub struct IWindowingEnvironment_Vtbl {
     pub Changed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     pub RemoveChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWindowingEnvironmentAddedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWindowingEnvironmentAddedEventArgs {
-    type Vtable = IWindowingEnvironmentAddedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWindowingEnvironmentAddedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xff2a5b7f_f183_5c66_99b2_429082069299);
-}
+::windows_core::imp::com_interface!(IWindowingEnvironmentAddedEventArgs, IWindowingEnvironmentAddedEventArgs_Vtbl, 0xff2a5b7f_f183_5c66_99b2_429082069299);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWindowingEnvironmentAddedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub WindowingEnvironment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWindowingEnvironmentChangedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWindowingEnvironmentChangedEventArgs {
-    type Vtable = IWindowingEnvironmentChangedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWindowingEnvironmentChangedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4160cfc6_023d_5e9a_b431_350e67dc978a);
-}
+::windows_core::imp::com_interface!(IWindowingEnvironmentChangedEventArgs, IWindowingEnvironmentChangedEventArgs_Vtbl, 0x4160cfc6_023d_5e9a_b431_350e67dc978a);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWindowingEnvironmentChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWindowingEnvironmentRemovedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWindowingEnvironmentRemovedEventArgs {
-    type Vtable = IWindowingEnvironmentRemovedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWindowingEnvironmentRemovedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2e5b5473_beff_5e53_9316_7e775fe568b3);
-}
+::windows_core::imp::com_interface!(IWindowingEnvironmentRemovedEventArgs, IWindowingEnvironmentRemovedEventArgs_Vtbl, 0x2e5b5473_beff_5e53_9316_7e775fe568b3);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWindowingEnvironmentRemovedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub WindowingEnvironment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWindowingEnvironmentStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWindowingEnvironmentStatics {
-    type Vtable = IWindowingEnvironmentStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWindowingEnvironmentStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x874e9fb7_c642_55ab_8aa2_162f734a9a72);
-}
+::windows_core::imp::com_interface!(IWindowingEnvironmentStatics, IWindowingEnvironmentStatics_Vtbl, 0x874e9fb7_c642_55ab_8aa2_162f734a9a72);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWindowingEnvironmentStatics_Vtbl {
@@ -493,6 +277,7 @@ pub struct IWindowingEnvironmentStatics_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppWindow(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(AppWindow, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl AppWindow {
     pub fn Content(&self) -> ::windows_core::Result<super::UIContentRoot> {
         let this = self;
@@ -709,19 +494,17 @@ impl ::windows_core::RuntimeType for AppWindow {
 }
 unsafe impl ::windows_core::Interface for AppWindow {
     type Vtable = IAppWindow_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for AppWindow {
-    const IID: ::windows_core::GUID = <IAppWindow as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IAppWindow as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for AppWindow {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindow";
 }
-::windows_core::imp::interface_hierarchy!(AppWindow, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AppWindow {}
 unsafe impl ::core::marker::Sync for AppWindow {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppWindowChangedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(AppWindowChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl AppWindowChangedEventArgs {
     pub fn DidAvailableWindowPresentationsChange(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -785,19 +568,17 @@ impl ::windows_core::RuntimeType for AppWindowChangedEventArgs {
 }
 unsafe impl ::windows_core::Interface for AppWindowChangedEventArgs {
     type Vtable = IAppWindowChangedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for AppWindowChangedEventArgs {
-    const IID: ::windows_core::GUID = <IAppWindowChangedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IAppWindowChangedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for AppWindowChangedEventArgs {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowChangedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(AppWindowChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AppWindowChangedEventArgs {}
 unsafe impl ::core::marker::Sync for AppWindowChangedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppWindowCloseRequestedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(AppWindowCloseRequestedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl AppWindowCloseRequestedEventArgs {
     pub fn Cancel(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -823,19 +604,17 @@ impl ::windows_core::RuntimeType for AppWindowCloseRequestedEventArgs {
 }
 unsafe impl ::windows_core::Interface for AppWindowCloseRequestedEventArgs {
     type Vtable = IAppWindowCloseRequestedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for AppWindowCloseRequestedEventArgs {
-    const IID: ::windows_core::GUID = <IAppWindowCloseRequestedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IAppWindowCloseRequestedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for AppWindowCloseRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowCloseRequestedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(AppWindowCloseRequestedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AppWindowCloseRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for AppWindowCloseRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppWindowClosedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(AppWindowClosedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl AppWindowClosedEventArgs {
     pub fn Reason(&self) -> ::windows_core::Result<AppWindowClosedReason> {
         let this = self;
@@ -850,19 +629,17 @@ impl ::windows_core::RuntimeType for AppWindowClosedEventArgs {
 }
 unsafe impl ::windows_core::Interface for AppWindowClosedEventArgs {
     type Vtable = IAppWindowClosedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for AppWindowClosedEventArgs {
-    const IID: ::windows_core::GUID = <IAppWindowClosedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IAppWindowClosedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for AppWindowClosedEventArgs {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowClosedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(AppWindowClosedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AppWindowClosedEventArgs {}
 unsafe impl ::core::marker::Sync for AppWindowClosedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppWindowFrame(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(AppWindowFrame, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl AppWindowFrame {
     #[doc = "Required features: `\"Foundation_Collections\"`, `\"UI_Composition\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "UI_Composition"))]
@@ -874,14 +651,14 @@ impl AppWindowFrame {
         }
     }
     pub fn GetFrameStyle(&self) -> ::windows_core::Result<AppWindowFrameStyle> {
-        let this = &::windows_core::ComInterface::cast::<IAppWindowFrameStyle>(self)?;
+        let this = &::windows_core::Interface::cast::<IAppWindowFrameStyle>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetFrameStyle)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetFrameStyle(&self, framestyle: AppWindowFrameStyle) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<IAppWindowFrameStyle>(self)?;
+        let this = &::windows_core::Interface::cast::<IAppWindowFrameStyle>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetFrameStyle)(::windows_core::Interface::as_raw(this), framestyle).ok() }
     }
 }
@@ -890,19 +667,17 @@ impl ::windows_core::RuntimeType for AppWindowFrame {
 }
 unsafe impl ::windows_core::Interface for AppWindowFrame {
     type Vtable = IAppWindowFrame_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for AppWindowFrame {
-    const IID: ::windows_core::GUID = <IAppWindowFrame as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IAppWindowFrame as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for AppWindowFrame {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowFrame";
 }
-::windows_core::imp::interface_hierarchy!(AppWindowFrame, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AppWindowFrame {}
 unsafe impl ::core::marker::Sync for AppWindowFrame {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppWindowPlacement(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(AppWindowPlacement, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl AppWindowPlacement {
     pub fn DisplayRegion(&self) -> ::windows_core::Result<DisplayRegion> {
         let this = self;
@@ -931,19 +706,17 @@ impl ::windows_core::RuntimeType for AppWindowPlacement {
 }
 unsafe impl ::windows_core::Interface for AppWindowPlacement {
     type Vtable = IAppWindowPlacement_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for AppWindowPlacement {
-    const IID: ::windows_core::GUID = <IAppWindowPlacement as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IAppWindowPlacement as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for AppWindowPlacement {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowPlacement";
 }
-::windows_core::imp::interface_hierarchy!(AppWindowPlacement, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AppWindowPlacement {}
 unsafe impl ::core::marker::Sync for AppWindowPlacement {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppWindowPresentationConfiguration(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(AppWindowPresentationConfiguration, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl AppWindowPresentationConfiguration {
     pub fn Kind(&self) -> ::windows_core::Result<AppWindowPresentationKind> {
         let this = self;
@@ -958,19 +731,17 @@ impl ::windows_core::RuntimeType for AppWindowPresentationConfiguration {
 }
 unsafe impl ::windows_core::Interface for AppWindowPresentationConfiguration {
     type Vtable = IAppWindowPresentationConfiguration_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for AppWindowPresentationConfiguration {
-    const IID: ::windows_core::GUID = <IAppWindowPresentationConfiguration as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IAppWindowPresentationConfiguration as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for AppWindowPresentationConfiguration {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowPresentationConfiguration";
 }
-::windows_core::imp::interface_hierarchy!(AppWindowPresentationConfiguration, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AppWindowPresentationConfiguration {}
 unsafe impl ::core::marker::Sync for AppWindowPresentationConfiguration {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppWindowPresenter(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(AppWindowPresenter, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl AppWindowPresenter {
     pub fn GetConfiguration(&self) -> ::windows_core::Result<AppWindowPresentationConfiguration> {
         let this = self;
@@ -988,12 +759,12 @@ impl AppWindowPresenter {
     }
     pub fn RequestPresentation<P0>(&self, configuration: P0) -> ::windows_core::Result<bool>
     where
-        P0: ::windows_core::TryIntoParam<AppWindowPresentationConfiguration>,
+        P0: ::windows_core::IntoParam<AppWindowPresentationConfiguration>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).RequestPresentation)(::windows_core::Interface::as_raw(this), configuration.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).RequestPresentation)(::windows_core::Interface::as_raw(this), configuration.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn RequestPresentationByKind(&self, presentationkind: AppWindowPresentationKind) -> ::windows_core::Result<bool> {
@@ -1009,19 +780,17 @@ impl ::windows_core::RuntimeType for AppWindowPresenter {
 }
 unsafe impl ::windows_core::Interface for AppWindowPresenter {
     type Vtable = IAppWindowPresenter_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for AppWindowPresenter {
-    const IID: ::windows_core::GUID = <IAppWindowPresenter as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IAppWindowPresenter as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for AppWindowPresenter {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowPresenter";
 }
-::windows_core::imp::interface_hierarchy!(AppWindowPresenter, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AppWindowPresenter {}
 unsafe impl ::core::marker::Sync for AppWindowPresenter {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppWindowTitleBar(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(AppWindowTitleBar, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl AppWindowTitleBar {
     pub fn BackgroundColor(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -1032,10 +801,10 @@ impl AppWindowTitleBar {
     }
     pub fn SetBackgroundColor<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::IReference<super::Color>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetBackgroundColor)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetBackgroundColor)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn ButtonBackgroundColor(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -1046,10 +815,10 @@ impl AppWindowTitleBar {
     }
     pub fn SetButtonBackgroundColor<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::IReference<super::Color>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetButtonBackgroundColor)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetButtonBackgroundColor)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn ButtonForegroundColor(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -1060,10 +829,10 @@ impl AppWindowTitleBar {
     }
     pub fn SetButtonForegroundColor<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::IReference<super::Color>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetButtonForegroundColor)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetButtonForegroundColor)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn ButtonHoverBackgroundColor(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -1074,10 +843,10 @@ impl AppWindowTitleBar {
     }
     pub fn SetButtonHoverBackgroundColor<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::IReference<super::Color>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetButtonHoverBackgroundColor)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetButtonHoverBackgroundColor)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn ButtonHoverForegroundColor(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -1088,10 +857,10 @@ impl AppWindowTitleBar {
     }
     pub fn SetButtonHoverForegroundColor<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::IReference<super::Color>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetButtonHoverForegroundColor)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetButtonHoverForegroundColor)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn ButtonInactiveBackgroundColor(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -1102,10 +871,10 @@ impl AppWindowTitleBar {
     }
     pub fn SetButtonInactiveBackgroundColor<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::IReference<super::Color>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetButtonInactiveBackgroundColor)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetButtonInactiveBackgroundColor)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn ButtonInactiveForegroundColor(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -1116,10 +885,10 @@ impl AppWindowTitleBar {
     }
     pub fn SetButtonInactiveForegroundColor<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::IReference<super::Color>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetButtonInactiveForegroundColor)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetButtonInactiveForegroundColor)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn ButtonPressedBackgroundColor(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -1130,10 +899,10 @@ impl AppWindowTitleBar {
     }
     pub fn SetButtonPressedBackgroundColor<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::IReference<super::Color>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetButtonPressedBackgroundColor)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetButtonPressedBackgroundColor)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn ButtonPressedForegroundColor(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -1144,10 +913,10 @@ impl AppWindowTitleBar {
     }
     pub fn SetButtonPressedForegroundColor<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::IReference<super::Color>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetButtonPressedForegroundColor)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetButtonPressedForegroundColor)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn ExtendsContentIntoTitleBar(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -1169,10 +938,10 @@ impl AppWindowTitleBar {
     }
     pub fn SetForegroundColor<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::IReference<super::Color>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetForegroundColor)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetForegroundColor)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn InactiveBackgroundColor(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -1183,10 +952,10 @@ impl AppWindowTitleBar {
     }
     pub fn SetInactiveBackgroundColor<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::IReference<super::Color>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetInactiveBackgroundColor)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetInactiveBackgroundColor)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn InactiveForegroundColor(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -1197,10 +966,10 @@ impl AppWindowTitleBar {
     }
     pub fn SetInactiveForegroundColor<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::IReference<super::Color>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetInactiveForegroundColor)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetInactiveForegroundColor)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn IsVisible(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -1219,14 +988,14 @@ impl AppWindowTitleBar {
         }
     }
     pub fn GetPreferredVisibility(&self) -> ::windows_core::Result<AppWindowTitleBarVisibility> {
-        let this = &::windows_core::ComInterface::cast::<IAppWindowTitleBarVisibility>(self)?;
+        let this = &::windows_core::Interface::cast::<IAppWindowTitleBarVisibility>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetPreferredVisibility)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetPreferredVisibility(&self, visibilitymode: AppWindowTitleBarVisibility) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<IAppWindowTitleBarVisibility>(self)?;
+        let this = &::windows_core::Interface::cast::<IAppWindowTitleBarVisibility>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetPreferredVisibility)(::windows_core::Interface::as_raw(this), visibilitymode).ok() }
     }
 }
@@ -1235,19 +1004,17 @@ impl ::windows_core::RuntimeType for AppWindowTitleBar {
 }
 unsafe impl ::windows_core::Interface for AppWindowTitleBar {
     type Vtable = IAppWindowTitleBar_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for AppWindowTitleBar {
-    const IID: ::windows_core::GUID = <IAppWindowTitleBar as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IAppWindowTitleBar as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for AppWindowTitleBar {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowTitleBar";
 }
-::windows_core::imp::interface_hierarchy!(AppWindowTitleBar, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AppWindowTitleBar {}
 unsafe impl ::core::marker::Sync for AppWindowTitleBar {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppWindowTitleBarOcclusion(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(AppWindowTitleBarOcclusion, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl AppWindowTitleBarOcclusion {
     pub fn OccludingRect(&self) -> ::windows_core::Result<super::super::Foundation::Rect> {
         let this = self;
@@ -1262,19 +1029,18 @@ impl ::windows_core::RuntimeType for AppWindowTitleBarOcclusion {
 }
 unsafe impl ::windows_core::Interface for AppWindowTitleBarOcclusion {
     type Vtable = IAppWindowTitleBarOcclusion_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for AppWindowTitleBarOcclusion {
-    const IID: ::windows_core::GUID = <IAppWindowTitleBarOcclusion as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IAppWindowTitleBarOcclusion as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for AppWindowTitleBarOcclusion {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowTitleBarOcclusion";
 }
-::windows_core::imp::interface_hierarchy!(AppWindowTitleBarOcclusion, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AppWindowTitleBarOcclusion {}
 unsafe impl ::core::marker::Sync for AppWindowTitleBarOcclusion {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CompactOverlayPresentationConfiguration(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(CompactOverlayPresentationConfiguration, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(CompactOverlayPresentationConfiguration, AppWindowPresentationConfiguration);
 impl CompactOverlayPresentationConfiguration {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1284,7 +1050,7 @@ impl CompactOverlayPresentationConfiguration {
         SHARED.call(callback)
     }
     pub fn Kind(&self) -> ::windows_core::Result<AppWindowPresentationKind> {
-        let this = &::windows_core::ComInterface::cast::<IAppWindowPresentationConfiguration>(self)?;
+        let this = &::windows_core::Interface::cast::<IAppWindowPresentationConfiguration>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -1296,20 +1062,18 @@ impl ::windows_core::RuntimeType for CompactOverlayPresentationConfiguration {
 }
 unsafe impl ::windows_core::Interface for CompactOverlayPresentationConfiguration {
     type Vtable = ICompactOverlayPresentationConfiguration_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for CompactOverlayPresentationConfiguration {
-    const IID: ::windows_core::GUID = <ICompactOverlayPresentationConfiguration as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ICompactOverlayPresentationConfiguration as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for CompactOverlayPresentationConfiguration {
     const NAME: &'static str = "Windows.UI.WindowManagement.CompactOverlayPresentationConfiguration";
 }
-::windows_core::imp::interface_hierarchy!(CompactOverlayPresentationConfiguration, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<AppWindowPresentationConfiguration> for CompactOverlayPresentationConfiguration {}
 unsafe impl ::core::marker::Send for CompactOverlayPresentationConfiguration {}
 unsafe impl ::core::marker::Sync for CompactOverlayPresentationConfiguration {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DefaultPresentationConfiguration(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(DefaultPresentationConfiguration, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(DefaultPresentationConfiguration, AppWindowPresentationConfiguration);
 impl DefaultPresentationConfiguration {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1319,7 +1083,7 @@ impl DefaultPresentationConfiguration {
         SHARED.call(callback)
     }
     pub fn Kind(&self) -> ::windows_core::Result<AppWindowPresentationKind> {
-        let this = &::windows_core::ComInterface::cast::<IAppWindowPresentationConfiguration>(self)?;
+        let this = &::windows_core::Interface::cast::<IAppWindowPresentationConfiguration>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -1331,20 +1095,17 @@ impl ::windows_core::RuntimeType for DefaultPresentationConfiguration {
 }
 unsafe impl ::windows_core::Interface for DefaultPresentationConfiguration {
     type Vtable = IDefaultPresentationConfiguration_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for DefaultPresentationConfiguration {
-    const IID: ::windows_core::GUID = <IDefaultPresentationConfiguration as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IDefaultPresentationConfiguration as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for DefaultPresentationConfiguration {
     const NAME: &'static str = "Windows.UI.WindowManagement.DefaultPresentationConfiguration";
 }
-::windows_core::imp::interface_hierarchy!(DefaultPresentationConfiguration, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<AppWindowPresentationConfiguration> for DefaultPresentationConfiguration {}
 unsafe impl ::core::marker::Send for DefaultPresentationConfiguration {}
 unsafe impl ::core::marker::Sync for DefaultPresentationConfiguration {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DisplayRegion(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(DisplayRegion, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl DisplayRegion {
     pub fn DisplayMonitorDeviceId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -1401,19 +1162,18 @@ impl ::windows_core::RuntimeType for DisplayRegion {
 }
 unsafe impl ::windows_core::Interface for DisplayRegion {
     type Vtable = IDisplayRegion_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for DisplayRegion {
-    const IID: ::windows_core::GUID = <IDisplayRegion as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IDisplayRegion as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for DisplayRegion {
     const NAME: &'static str = "Windows.UI.WindowManagement.DisplayRegion";
 }
-::windows_core::imp::interface_hierarchy!(DisplayRegion, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for DisplayRegion {}
 unsafe impl ::core::marker::Sync for DisplayRegion {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct FullScreenPresentationConfiguration(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(FullScreenPresentationConfiguration, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(FullScreenPresentationConfiguration, AppWindowPresentationConfiguration);
 impl FullScreenPresentationConfiguration {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1423,7 +1183,7 @@ impl FullScreenPresentationConfiguration {
         SHARED.call(callback)
     }
     pub fn Kind(&self) -> ::windows_core::Result<AppWindowPresentationKind> {
-        let this = &::windows_core::ComInterface::cast::<IAppWindowPresentationConfiguration>(self)?;
+        let this = &::windows_core::Interface::cast::<IAppWindowPresentationConfiguration>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -1446,15 +1206,11 @@ impl ::windows_core::RuntimeType for FullScreenPresentationConfiguration {
 }
 unsafe impl ::windows_core::Interface for FullScreenPresentationConfiguration {
     type Vtable = IFullScreenPresentationConfiguration_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for FullScreenPresentationConfiguration {
-    const IID: ::windows_core::GUID = <IFullScreenPresentationConfiguration as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IFullScreenPresentationConfiguration as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for FullScreenPresentationConfiguration {
     const NAME: &'static str = "Windows.UI.WindowManagement.FullScreenPresentationConfiguration";
 }
-::windows_core::imp::interface_hierarchy!(FullScreenPresentationConfiguration, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<AppWindowPresentationConfiguration> for FullScreenPresentationConfiguration {}
 unsafe impl ::core::marker::Send for FullScreenPresentationConfiguration {}
 unsafe impl ::core::marker::Sync for FullScreenPresentationConfiguration {}
 pub struct WindowServices;
@@ -1479,6 +1235,7 @@ impl ::windows_core::RuntimeName for WindowServices {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WindowingEnvironment(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(WindowingEnvironment, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl WindowingEnvironment {
     pub fn IsEnabled(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -1544,19 +1301,17 @@ impl ::windows_core::RuntimeType for WindowingEnvironment {
 }
 unsafe impl ::windows_core::Interface for WindowingEnvironment {
     type Vtable = IWindowingEnvironment_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for WindowingEnvironment {
-    const IID: ::windows_core::GUID = <IWindowingEnvironment as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IWindowingEnvironment as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for WindowingEnvironment {
     const NAME: &'static str = "Windows.UI.WindowManagement.WindowingEnvironment";
 }
-::windows_core::imp::interface_hierarchy!(WindowingEnvironment, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for WindowingEnvironment {}
 unsafe impl ::core::marker::Sync for WindowingEnvironment {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WindowingEnvironmentAddedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(WindowingEnvironmentAddedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl WindowingEnvironmentAddedEventArgs {
     pub fn WindowingEnvironment(&self) -> ::windows_core::Result<WindowingEnvironment> {
         let this = self;
@@ -1571,38 +1326,34 @@ impl ::windows_core::RuntimeType for WindowingEnvironmentAddedEventArgs {
 }
 unsafe impl ::windows_core::Interface for WindowingEnvironmentAddedEventArgs {
     type Vtable = IWindowingEnvironmentAddedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for WindowingEnvironmentAddedEventArgs {
-    const IID: ::windows_core::GUID = <IWindowingEnvironmentAddedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IWindowingEnvironmentAddedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for WindowingEnvironmentAddedEventArgs {
     const NAME: &'static str = "Windows.UI.WindowManagement.WindowingEnvironmentAddedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(WindowingEnvironmentAddedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for WindowingEnvironmentAddedEventArgs {}
 unsafe impl ::core::marker::Sync for WindowingEnvironmentAddedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WindowingEnvironmentChangedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(WindowingEnvironmentChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl WindowingEnvironmentChangedEventArgs {}
 impl ::windows_core::RuntimeType for WindowingEnvironmentChangedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for WindowingEnvironmentChangedEventArgs {
     type Vtable = IWindowingEnvironmentChangedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for WindowingEnvironmentChangedEventArgs {
-    const IID: ::windows_core::GUID = <IWindowingEnvironmentChangedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IWindowingEnvironmentChangedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for WindowingEnvironmentChangedEventArgs {
     const NAME: &'static str = "Windows.UI.WindowManagement.WindowingEnvironmentChangedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(WindowingEnvironmentChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for WindowingEnvironmentChangedEventArgs {}
 unsafe impl ::core::marker::Sync for WindowingEnvironmentChangedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WindowingEnvironmentRemovedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(WindowingEnvironmentRemovedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl WindowingEnvironmentRemovedEventArgs {
     pub fn WindowingEnvironment(&self) -> ::windows_core::Result<WindowingEnvironment> {
         let this = self;
@@ -1617,14 +1368,11 @@ impl ::windows_core::RuntimeType for WindowingEnvironmentRemovedEventArgs {
 }
 unsafe impl ::windows_core::Interface for WindowingEnvironmentRemovedEventArgs {
     type Vtable = IWindowingEnvironmentRemovedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for WindowingEnvironmentRemovedEventArgs {
-    const IID: ::windows_core::GUID = <IWindowingEnvironmentRemovedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IWindowingEnvironmentRemovedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for WindowingEnvironmentRemovedEventArgs {
     const NAME: &'static str = "Windows.UI.WindowManagement.WindowingEnvironmentRemovedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(WindowingEnvironmentRemovedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for WindowingEnvironmentRemovedEventArgs {}
 unsafe impl ::core::marker::Sync for WindowingEnvironmentRemovedEventArgs {}
 #[repr(transparent)]
