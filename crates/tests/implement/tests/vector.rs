@@ -275,3 +275,18 @@ fn test() -> Result<()> {
 
     Ok(())
 }
+
+// Test for https://github.com/microsoft/windows-rs/issues/2759
+#[test]
+fn test_2759() -> Result<()> {
+    let v: IVector<IStringable> = Vector::new(vec![]).into();
+    let uri = Uri::CreateUri(h!("https://github.com/"))?;
+    v.Append(&uri)?;
+    let uri = Uri::CreateUri(h!("https://microsoft.com/"))?;
+    v.Append(&uri)?;
+
+    assert_eq!(&v.GetAt(0)?.ToString()?, h!("https://github.com/"));
+    assert_eq!(&v.GetAt(1)?.ToString()?, h!("https://microsoft.com/"));
+
+    Ok(())
+}
