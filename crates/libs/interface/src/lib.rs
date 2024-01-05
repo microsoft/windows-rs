@@ -96,8 +96,6 @@ impl Interface {
             #implementation
             unsafe impl ::windows::core::Interface for #name {
                 type Vtable = #vtable_name;
-            }
-            unsafe impl ::windows::core::ComInterface for #name {
                 const IID: ::windows::core::GUID = #guid;
             }
             impl ::windows::core::RuntimeName for #name {}
@@ -259,7 +257,7 @@ impl Interface {
                     }
 
                     pub fn matches(iid: &windows::core::GUID) -> bool {
-                        iid == &<#name as ::windows::core::ComInterface>::IID
+                        iid == &<#name as ::windows::core::Interface>::IID
                     }
                 }
             }
