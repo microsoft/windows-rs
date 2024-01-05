@@ -2,6 +2,8 @@ use windows::Win32::Foundation::*;
 
 #[test]
 fn conversions() {
+    assert!(helpers::set_thread_ui_language());
+
     // Baseline HRESULT
     assert_eq!(E_INVALIDARG.message(), "The parameter is incorrect.");
     assert_eq!(E_INVALIDARG.0, -2147024809);
