@@ -235,7 +235,7 @@ fn test() -> Result<()> {
     assert_eq!(30, v.GetAt(2)?);
     assert!(v.GetAt(20).is_err());
     assert_eq!(3, v.Size()?);
-    let c: &IInspectable = v.can_into();
+    let c: &IInspectable = unsafe { std::mem::transmute(&v) };
     assert_eq!(
         c.GetRuntimeClassName()?,
         "Windows.Foundation.Collections.IVector"

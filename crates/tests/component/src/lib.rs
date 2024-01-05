@@ -49,8 +49,8 @@ impl bindings::IClass_Impl for Class {
         let c = c.ok_or_else(|| Error::from(E_INVALIDARG))?;
         let d = d.ok_or_else(|| Error::from(E_INVALIDARG))?;
 
-        let a: IUnknown = a.can_clone_into();
-        let b: IUnknown = b.can_clone_into();
+        let a: IUnknown = a.cast()?;
+        let b: IUnknown = b.cast()?;
         assert_eq!(a, b);
         assert_eq!(c.ToString()?, "client");
         assert_eq!(d.Invoke(123)?, 123);

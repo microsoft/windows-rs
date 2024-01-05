@@ -8,9 +8,11 @@
     clippy::all
 )]
 pub mod Nested {
-    #[repr(transparent)]
-    #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-    pub struct IThing(::windows_core::IUnknown);
+    ::windows_core::imp::com_interface!(
+        IThing,
+        IThing_Vtbl,
+        0x5448be22_9873_5ae6_9106_f6e8455d2fdd
+    );
     impl IThing {
         pub fn Method(&self) -> ::windows_core::Result<()> {
             let this = self;
@@ -30,13 +32,6 @@ pub mod Nested {
     impl ::windows_core::RuntimeType for IThing {
         const SIGNATURE: ::windows_core::imp::ConstBuffer =
             ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-    }
-    unsafe impl ::windows_core::Interface for IThing {
-        type Vtable = IThing_Vtbl;
-    }
-    unsafe impl ::windows_core::ComInterface for IThing {
-        const IID: ::windows_core::GUID =
-            ::windows_core::GUID::from_u128(0x5448be22_9873_5ae6_9106_f6e8455d2fdd);
     }
     #[repr(C)]
     #[doc(hidden)]
@@ -74,21 +69,11 @@ pub mod Nested {
             }
         }
         pub fn matches(iid: &::windows_core::GUID) -> bool {
-            iid == &<IThing as ::windows_core::ComInterface>::IID
+            iid == &<IThing as ::windows_core::Interface>::IID
         }
     }
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IClass(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IClass {
-    type Vtable = IClass_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IClass {
-    const IID: ::windows_core::GUID =
-        ::windows_core::GUID::from_u128(0x97540591_1323_59c0_9ae0_f510cae62e54);
-}
+::windows_core::imp::com_interface!(IClass, IClass_Vtbl, 0x97540591_1323_59c0_9ae0_f510cae62e54);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IClass_Vtbl {
@@ -238,7 +223,7 @@ impl Class {
     where
         P0: ::windows_core::IntoParam<::windows_core::IInspectable>,
         P1: ::windows_core::IntoParam<Class>,
-        P2: ::windows_core::TryIntoParam<::windows::Foundation::IStringable>,
+        P2: ::windows_core::IntoParam<::windows::Foundation::IStringable>,
         P3: ::windows_core::IntoParam<Callback>,
     {
         let this = self;
@@ -247,7 +232,7 @@ impl Class {
                 ::windows_core::Interface::as_raw(this),
                 a.into_param().abi(),
                 b.into_param().abi(),
-                c.try_into_param()?.abi(),
+                c.into_param().abi(),
                 d.into_param().abi(),
             )
             .ok()
@@ -260,9 +245,7 @@ impl ::windows_core::RuntimeType for Class {
 }
 unsafe impl ::windows_core::Interface for Class {
     type Vtable = IClass_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for Class {
-    const IID: ::windows_core::GUID = <IClass as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IClass as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for Class {
     const NAME: &'static str = "test_component.Class";
@@ -331,9 +314,11 @@ impl ::windows_core::RuntimeType for Flags {
     const SIGNATURE: ::windows_core::imp::ConstBuffer =
         ::windows_core::imp::ConstBuffer::from_slice(b"enum(test_component.Flags;u4)");
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct Callback(pub ::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    Callback,
+    Callback_Vtbl,
+    0xe39afc7e_93f1_5a1d_92ef_bd5f71c62cb8
+);
 impl Callback {
     pub fn new<F: FnMut(i32) -> ::windows_core::Result<i32> + ::core::marker::Send + 'static>(
         invoke: F,
@@ -382,9 +367,9 @@ impl<F: FnMut(i32) -> ::windows_core::Result<i32> + ::core::marker::Send + 'stat
         if iid.is_null() || interface.is_null() {
             return ::windows_core::HRESULT(-2147467261);
         }
-        *interface = if *iid == <Callback as ::windows_core::ComInterface>::IID
-            || *iid == <::windows_core::IUnknown as ::windows_core::ComInterface>::IID
-            || *iid == <::windows_core::imp::IAgileObject as ::windows_core::ComInterface>::IID
+        *interface = if *iid == <Callback as ::windows_core::Interface>::IID
+            || *iid == <::windows_core::IUnknown as ::windows_core::Interface>::IID
+            || *iid == <::windows_core::imp::IAgileObject as ::windows_core::Interface>::IID
         {
             &mut (*this).vtable as *mut _ as _
         } else {
@@ -423,13 +408,6 @@ impl<F: FnMut(i32) -> ::windows_core::Result<i32> + ::core::marker::Send + 'stat
             ::core::result::Result::Err(err) => err.into(),
         }
     }
-}
-unsafe impl ::windows_core::Interface for Callback {
-    type Vtable = Callback_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for Callback {
-    const IID: ::windows_core::GUID =
-        ::windows_core::GUID::from_u128(0xe39afc7e_93f1_5a1d_92ef_bd5f71c62cb8);
 }
 impl ::windows_core::RuntimeType for Callback {
     const SIGNATURE: ::windows_core::imp::ConstBuffer =
@@ -640,6 +618,6 @@ impl IClass_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IClass as ::windows_core::ComInterface>::IID
+        iid == &<IClass as ::windows_core::Interface>::IID
     }
 }

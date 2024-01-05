@@ -7,9 +7,7 @@
     dead_code,
     clippy::all
 )]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IParams(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IParams, IParams_Vtbl, 0);
 impl IParams {
     pub fn Nothing(&self) -> ::windows_core::Result<()> {
         let this = self;
@@ -198,12 +196,6 @@ impl IParams {
 impl ::windows_core::RuntimeType for IParams {
     const SIGNATURE: ::windows_core::imp::ConstBuffer =
         ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IParams {
-    type Vtable = IParams_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IParams {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
 }
 #[repr(C)]
 #[doc(hidden)]

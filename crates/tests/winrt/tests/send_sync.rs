@@ -1,5 +1,5 @@
 use std::thread;
-use windows::core::{ComInterface, HRESULT, HSTRING};
+use windows::core::{Interface, HRESULT, HSTRING};
 use windows::Foundation::*;
 use windows::Storage::Streams::*;
 

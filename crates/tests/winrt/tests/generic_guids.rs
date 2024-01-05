@@ -15,7 +15,7 @@ fn signatures() {
 
 #[test]
 fn generic_guids() {
-    use windows::core::ComInterface;
+    use windows::core::Interface;
 
     type A = IIterable<IStringable>;
     type B = IKeyValuePair<windows::core::HSTRING, IAsyncOperationWithProgress<A, f32>>;

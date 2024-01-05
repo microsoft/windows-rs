@@ -45,10 +45,6 @@ impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::RuntimeType for I
 }
 unsafe impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::Interface for IIterable<T> {
     type Vtable = IIterable_Vtbl<T>;
-}
-unsafe impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::ComInterface
-    for IIterable<T>
-{
     const IID: ::windows_core::GUID =
         ::windows_core::GUID::from_signature(<Self as ::windows_core::RuntimeType>::SIGNATURE);
 }
@@ -125,10 +121,6 @@ impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::RuntimeType for I
 }
 unsafe impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::Interface for IIterator<T> {
     type Vtable = IIterator_Vtbl<T>;
-}
-unsafe impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::ComInterface
-    for IIterator<T>
-{
     const IID: ::windows_core::GUID =
         ::windows_core::GUID::from_signature(<Self as ::windows_core::RuntimeType>::SIGNATURE);
 }
@@ -215,10 +207,6 @@ unsafe impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::Runtime
     ::windows_core::Interface for IKeyValuePair<K, V>
 {
     type Vtable = IKeyValuePair_Vtbl<K, V>;
-}
-unsafe impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 'static>
-    ::windows_core::ComInterface for IKeyValuePair<K, V>
-{
     const IID: ::windows_core::GUID =
         ::windows_core::GUID::from_signature(<Self as ::windows_core::RuntimeType>::SIGNATURE);
 }
@@ -302,7 +290,7 @@ impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 
         }
     }
     pub fn First(&self) -> ::windows_core::Result<IIterator<IKeyValuePair<K, V>>> {
-        let this = &::windows_core::ComInterface::cast::<IIterable<IKeyValuePair<K, V>>>(self)?;
+        let this = &::windows_core::Interface::cast::<IIterable<IKeyValuePair<K, V>>>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).First)(
@@ -322,8 +310,9 @@ impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 
 {
 }
 impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 'static>
-    ::windows_core::CanTryInto<IIterable<IKeyValuePair<K, V>>> for IMapView<K, V>
+    ::windows_core::CanInto<IIterable<IKeyValuePair<K, V>>> for IMapView<K, V>
 {
+    const QUERY: bool = true;
 }
 impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 'static>
     ::windows_core::RuntimeType for IMapView<K, V>
@@ -343,10 +332,6 @@ unsafe impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::Runtime
     ::windows_core::Interface for IMapView<K, V>
 {
     type Vtable = IMapView_Vtbl<K, V>;
-}
-unsafe impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 'static>
-    ::windows_core::ComInterface for IMapView<K, V>
-{
     const IID: ::windows_core::GUID =
         ::windows_core::GUID::from_signature(<Self as ::windows_core::RuntimeType>::SIGNATURE);
 }

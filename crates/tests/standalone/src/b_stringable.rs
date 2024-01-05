@@ -7,9 +7,11 @@
     dead_code,
     clippy::all
 )]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IStringable(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    IStringable,
+    IStringable_Vtbl,
+    0x96369f54_8eb6_48f0_abce_c1b211e627c3
+);
 impl IStringable {
     pub fn ToString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -31,13 +33,6 @@ impl IStringable {
 impl ::windows_core::RuntimeType for IStringable {
     const SIGNATURE: ::windows_core::imp::ConstBuffer =
         ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IStringable {
-    type Vtable = IStringable_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IStringable {
-    const IID: ::windows_core::GUID =
-        ::windows_core::GUID::from_u128(0x96369f54_8eb6_48f0_abce_c1b211e627c3);
 }
 #[repr(C)]
 #[doc(hidden)]

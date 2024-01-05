@@ -28,7 +28,7 @@ fn test() {
     }
 }
 
-fn test_query<I: ComInterface>(interface: &I) {
+fn test_query<I: Interface>(interface: &I) {
     unsafe {
         // Successful query
         {

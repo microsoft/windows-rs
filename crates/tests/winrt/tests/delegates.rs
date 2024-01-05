@@ -7,7 +7,7 @@ use windows::{
     Foundation::{AsyncActionCompletedHandler, AsyncStatus, TypedEventHandler, Uri},
 };
 
-use windows::core::ComInterface;
+use windows::core::Interface;
 
 #[test]
 fn non_generic() -> windows::core::Result<()> {

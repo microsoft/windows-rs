@@ -197,6 +197,8 @@ fn test() -> Result<()> {
             None,
         );
 
+        // TODO: also test that the actual non-COM interface parameter binding works with null and non-null interface args.
+
         Ok(())
     }
 }
