@@ -311,18 +311,10 @@ impl Writer {
             name
         };
         for (position, param) in self.generic_params(params) {
-            match param.kind {
-                metadata::SignatureParamKind::TryInto => {
-                    let name: TokenStream = gen_name(position);
-                    let into = self.type_name(&param.ty);
-                    tokens.combine(&quote! { #name: ::windows_core::TryIntoParam<#into>, });
-                }
-                metadata::SignatureParamKind::IntoParam => {
-                    let name: TokenStream = gen_name(position);
-                    let into = self.type_name(&param.ty);
-                    tokens.combine(&quote! { #name: ::windows_core::IntoParam<#into>, });
-                }
-                _ => {}
+            if param.kind == metadata::SignatureParamKind::IntoParam {
+                let name: TokenStream = gen_name(position);
+                let into = self.type_name(&param.ty);
+                tokens.combine(&quote! { #name: ::windows_core::IntoParam<#into>, });
             }
         }
         tokens
@@ -552,6 +544,14 @@ impl Writer {
         let guid = self.type_name(&metadata::Type::GUID);
         format!("{}::from_u128(0x{:08x?}_{:04x?}_{:04x?}_{:02x?}{:02x?}_{:02x?}{:02x?}{:02x?}{:02x?}{:02x?}{:02x?})", guid.into_string(), value.0, value.1, value.2, value.3, value.4, value.5, value.6, value.7, value.8, value.9, value.10).into()
     }
+
+    pub fn guid_literal(&self, value: Option<metadata::Guid>) -> TokenStream {
+        match value {
+            Some(value) => format!("0x{:08x?}_{:04x?}_{:04x?}_{:02x?}{:02x?}_{:02x?}{:02x?}{:02x?}{:02x?}{:02x?}{:02x?}", value.0, value.1, value.2, value.3, value.4, value.5, value.6, value.7, value.8, value.9, value.10).into(),
+            None => quote! { 0 },
+        }
+    }
+
     pub fn agile(&self, def: metadata::TypeDef, ident: &TokenStream, constraints: &TokenStream, features: &TokenStream) -> TokenStream {
         if type_def_is_agile(def) {
             quote! {
@@ -714,10 +714,7 @@ impl Writer {
                 #features
                 unsafe impl ::windows_core::Interface for #ident {
                     type Vtable = #vtbl;
-                }
-                #features
-                unsafe impl ::windows_core::ComInterface for #ident {
-                    const IID: ::windows_core::GUID = <#default_name as ::windows_core::ComInterface>::IID;
+                    const IID: ::windows_core::GUID = <#default_name as ::windows_core::Interface>::IID;
                 }
             }
         } else {
@@ -737,23 +734,21 @@ impl Writer {
                 }
             };
 
-            let mut tokens = quote! {
-                #features
-                unsafe impl<#constraints> ::windows_core::Interface for #ident {
-                    type Vtable = #vtbl;
-                }
-            };
-
             if has_unknown_base {
-                tokens.combine(&quote! {
-                    #features
-                    unsafe impl<#constraints> ::windows_core::ComInterface for #ident {
-                        const IID: ::windows_core::GUID = #guid;
+                if generics.is_empty() {
+                    quote! {}
+                } else {
+                    quote! {
+                        #features
+                        unsafe impl<#constraints> ::windows_core::Interface for #ident {
+                            type Vtable = #vtbl;
+                            const IID: ::windows_core::GUID = #guid;
+                        }
                     }
-                });
+                }
+            } else {
+                quote! {}
             }
-
-            tokens
         }
     }
     pub fn interface_vtbl(&self, def: metadata::TypeDef, generics: &[metadata::Type], _ident: &TokenStream, constraints: &TokenStream, features: &TokenStream) -> TokenStream {
@@ -923,9 +918,6 @@ impl Writer {
                                 quote! { #name.len().try_into().unwrap(), }
                             }
                         }
-                        metadata::SignatureParamKind::TryInto => {
-                            quote! { #name.try_into_param()?.abi(), }
-                        }
                         metadata::SignatureParamKind::IntoParam => {
                             quote! { #name.into_param().abi(), }
                         }
@@ -1019,7 +1011,7 @@ impl Writer {
                     }
                 }
                 metadata::SignatureParamKind::ArrayRelativePtr(_) => {}
-                metadata::SignatureParamKind::TryInto | metadata::SignatureParamKind::IntoParam => {
+                metadata::SignatureParamKind::IntoParam => {
                     let (position, _) = generic_params.next().unwrap();
                     let kind: TokenStream = format!("P{position}").into();
                     tokens.combine(&quote! { #name: #kind, });

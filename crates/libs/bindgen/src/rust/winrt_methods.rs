@@ -78,7 +78,7 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef, generic_types: &[metadata
                 #doc
                 #features
                 pub fn #name<#generics>(&self, #params) -> ::windows_core::Result<#return_type_tokens> #where_clause {
-                    let this = &::windows_core::ComInterface::cast::<#interface_name>(self)?;
+                    let this = &::windows_core::Interface::cast::<#interface_name>(self)?;
                     unsafe {
                         #vcall
                     }
@@ -142,8 +142,6 @@ fn gen_winrt_abi_args(writer: &Writer, params: &[metadata::SignatureParam]) -> T
                 } else {
                     quote! { #name.len().try_into().unwrap(), ::core::mem::transmute(#name.as_ptr()), }
                 }
-            } else if metadata::type_is_non_exclusive_winrt_interface(&param.ty) {
-                quote! { #name.try_into_param()?.abi(), }
             } else if metadata::type_is_borrowed(&param.ty) {
                 quote! { #name.into_param().abi(), }
             } else if metadata::type_is_blittable(&param.ty) {

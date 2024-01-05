@@ -172,7 +172,7 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef, generics: &[metadata::Typ
                             type IntoIter = #wfc VectorViewIterator<Self::Item>;
 
                             fn into_iter(self) -> Self::IntoIter {
-                                #wfc VectorViewIterator::new(::windows_core::ComInterface::cast(self).ok())
+                                #wfc VectorViewIterator::new(::windows_core::Interface::cast(self).ok())
                             }
                         }
                     };
@@ -199,7 +199,7 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef, generics: &[metadata::Typ
                             type IntoIter = #wfc VectorIterator<Self::Item>;
 
                             fn into_iter(self) -> Self::IntoIter {
-                                #wfc VectorIterator::new(::windows_core::ComInterface::cast(self).ok())
+                                #wfc VectorIterator::new(::windows_core::Interface::cast(self).ok())
                             }
                         }
                     };
