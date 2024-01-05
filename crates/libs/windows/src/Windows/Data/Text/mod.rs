@@ -1042,7 +1042,12 @@ impl ::core::default::Default for TextSegment {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-::windows_core::imp::com_interface!(SelectableWordSegmentsTokenizingHandler, SelectableWordSegmentsTokenizingHandler_Vtbl, 0x3a3dfc9c_aede_4dc7_9e6c_41c044bd3592);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
+    SelectableWordSegmentsTokenizingHandler,
+    SelectableWordSegmentsTokenizingHandler_Vtbl,
+    0x3a3dfc9c_aede_4dc7_9e6c_41c044bd3592
+);
 #[cfg(feature = "Foundation_Collections")]
 impl SelectableWordSegmentsTokenizingHandler {
     pub fn new<F: FnMut(::core::option::Option<&super::super::Foundation::Collections::IIterable<SelectableWordSegment>>, ::core::option::Option<&super::super::Foundation::Collections::IIterable<SelectableWordSegment>>) -> ::windows_core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
@@ -1118,7 +1123,12 @@ pub struct SelectableWordSegmentsTokenizingHandler_Vtbl {
     Invoke: usize,
 }
 #[cfg(feature = "Foundation_Collections")]
-::windows_core::imp::com_interface!(WordSegmentsTokenizingHandler, WordSegmentsTokenizingHandler_Vtbl, 0xa5dd6357_bf2a_4c4f_a31f_29e71c6f8b35);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
+    WordSegmentsTokenizingHandler,
+    WordSegmentsTokenizingHandler_Vtbl,
+    0xa5dd6357_bf2a_4c4f_a31f_29e71c6f8b35
+);
 #[cfg(feature = "Foundation_Collections")]
 impl WordSegmentsTokenizingHandler {
     pub fn new<F: FnMut(::core::option::Option<&super::super::Foundation::Collections::IIterable<WordSegment>>, ::core::option::Option<&super::super::Foundation::Collections::IIterable<WordSegment>>) -> ::windows_core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {

@@ -3778,7 +3778,12 @@ impl ::core::default::Default for SmsEncodedLength {
     }
 }
 #[cfg(feature = "deprecated")]
-::windows_core::imp::com_interface!(SmsDeviceStatusChangedEventHandler, SmsDeviceStatusChangedEventHandler_Vtbl, 0x982b1162_3dd7_4618_af89_0c272d5d06d8);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"deprecated\"`"]
+    SmsDeviceStatusChangedEventHandler,
+    SmsDeviceStatusChangedEventHandler_Vtbl,
+    0x982b1162_3dd7_4618_af89_0c272d5d06d8
+);
 #[cfg(feature = "deprecated")]
 impl SmsDeviceStatusChangedEventHandler {
     pub fn new<F: FnMut(::core::option::Option<&SmsDevice>) -> ::windows_core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
@@ -3853,7 +3858,12 @@ pub struct SmsDeviceStatusChangedEventHandler_Vtbl {
     Invoke: usize,
 }
 #[cfg(feature = "deprecated")]
-::windows_core::imp::com_interface!(SmsMessageReceivedEventHandler, SmsMessageReceivedEventHandler_Vtbl, 0x0b7ad409_ec2d_47ce_a253_732beeebcacd);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"deprecated\"`"]
+    SmsMessageReceivedEventHandler,
+    SmsMessageReceivedEventHandler_Vtbl,
+    0x0b7ad409_ec2d_47ce_a253_732beeebcacd
+);
 #[cfg(feature = "deprecated")]
 impl SmsMessageReceivedEventHandler {
     pub fn new<F: FnMut(::core::option::Option<&SmsDevice>, ::core::option::Option<&SmsMessageReceivedEventArgs>) -> ::windows_core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {

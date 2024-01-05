@@ -1465,7 +1465,12 @@ impl ::core::default::Default for NitRange {
     }
 }
 #[cfg(feature = "deprecated")]
-::windows_core::imp::com_interface!(DisplayPropertiesEventHandler, DisplayPropertiesEventHandler_Vtbl, 0xdbdd8b01_f1a1_46d1_9ee3_543bcc995980);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"deprecated\"`"]
+    DisplayPropertiesEventHandler,
+    DisplayPropertiesEventHandler_Vtbl,
+    0xdbdd8b01_f1a1_46d1_9ee3_543bcc995980
+);
 #[cfg(feature = "deprecated")]
 impl DisplayPropertiesEventHandler {
     pub fn new<F: FnMut(::core::option::Option<&::windows_core::IInspectable>) -> ::windows_core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {

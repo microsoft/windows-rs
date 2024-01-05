@@ -5463,7 +5463,12 @@ pub struct ApplicationDataSetVersionHandler_Vtbl {
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, setversionrequest: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Storage_Streams")]
-::windows_core::imp::com_interface!(StreamedFileDataRequestedHandler, StreamedFileDataRequestedHandler_Vtbl, 0xfef6a824_2fe1_4d07_a35b_b77c50b5f4cc);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Storage_Streams\"`"]
+    StreamedFileDataRequestedHandler,
+    StreamedFileDataRequestedHandler_Vtbl,
+    0xfef6a824_2fe1_4d07_a35b_b77c50b5f4cc
+);
 #[cfg(feature = "Storage_Streams")]
 impl StreamedFileDataRequestedHandler {
     pub fn new<F: FnMut(::core::option::Option<&StreamedFileDataRequest>) -> ::windows_core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {

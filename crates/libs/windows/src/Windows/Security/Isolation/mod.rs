@@ -1787,7 +1787,12 @@ impl ::core::default::Default for IsolatedWindowsEnvironmentCreateProgress {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-::windows_core::imp::com_interface!(HostMessageReceivedCallback, HostMessageReceivedCallback_Vtbl, 0xfaf26ffa_8ce1_4cc1_b278_322d31a5e4a3);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
+    HostMessageReceivedCallback,
+    HostMessageReceivedCallback_Vtbl,
+    0xfaf26ffa_8ce1_4cc1_b278_322d31a5e4a3
+);
 #[cfg(feature = "Foundation_Collections")]
 impl HostMessageReceivedCallback {
     pub fn new<F: FnMut(&::windows_core::GUID, ::core::option::Option<&super::super::Foundation::Collections::IVectorView<::windows_core::IInspectable>>) -> ::windows_core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
@@ -1862,7 +1867,12 @@ pub struct HostMessageReceivedCallback_Vtbl {
     Invoke: usize,
 }
 #[cfg(feature = "Foundation_Collections")]
-::windows_core::imp::com_interface!(MessageReceivedCallback, MessageReceivedCallback_Vtbl, 0xf5b4c8ff_1d9d_4995_9fea_4d15257c0757);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
+    MessageReceivedCallback,
+    MessageReceivedCallback_Vtbl,
+    0xf5b4c8ff_1d9d_4995_9fea_4d15257c0757
+);
 #[cfg(feature = "Foundation_Collections")]
 impl MessageReceivedCallback {
     pub fn new<F: FnMut(&::windows_core::GUID, ::core::option::Option<&super::super::Foundation::Collections::IVectorView<::windows_core::IInspectable>>) -> ::windows_core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {

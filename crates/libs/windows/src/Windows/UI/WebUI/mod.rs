@@ -5501,7 +5501,12 @@ impl ::windows_core::RuntimeType for PrintContent {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.WebUI.PrintContent;i4)");
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-::windows_core::imp::com_interface!(ActivatedEventHandler, ActivatedEventHandler_Vtbl, 0x50f1e730_c5d1_4b6b_9adb_8a11756be29c);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
+    ActivatedEventHandler,
+    ActivatedEventHandler_Vtbl,
+    0x50f1e730_c5d1_4b6b_9adb_8a11756be29c
+);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ActivatedEventHandler {
     pub fn new<F: FnMut(::core::option::Option<&::windows_core::IInspectable>, ::core::option::Option<&super::super::ApplicationModel::Activation::IActivatedEventArgs>) -> ::windows_core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
@@ -5577,7 +5582,12 @@ pub struct ActivatedEventHandler_Vtbl {
     Invoke: usize,
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-::windows_core::imp::com_interface!(BackgroundActivatedEventHandler, BackgroundActivatedEventHandler_Vtbl, 0xedb19fbb_0761_47cc_9a77_24d7072965ca);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
+    BackgroundActivatedEventHandler,
+    BackgroundActivatedEventHandler_Vtbl,
+    0xedb19fbb_0761_47cc_9a77_24d7072965ca
+);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl BackgroundActivatedEventHandler {
     pub fn new<F: FnMut(::core::option::Option<&::windows_core::IInspectable>, ::core::option::Option<&super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs>) -> ::windows_core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
@@ -5653,7 +5663,12 @@ pub struct BackgroundActivatedEventHandler_Vtbl {
     Invoke: usize,
 }
 #[cfg(feature = "ApplicationModel")]
-::windows_core::imp::com_interface!(EnteredBackgroundEventHandler, EnteredBackgroundEventHandler_Vtbl, 0x2b09a173_b68e_4def_88c1_8de84e5aab2f);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"ApplicationModel\"`"]
+    EnteredBackgroundEventHandler,
+    EnteredBackgroundEventHandler_Vtbl,
+    0x2b09a173_b68e_4def_88c1_8de84e5aab2f
+);
 #[cfg(feature = "ApplicationModel")]
 impl EnteredBackgroundEventHandler {
     pub fn new<F: FnMut(::core::option::Option<&::windows_core::IInspectable>, ::core::option::Option<&super::super::ApplicationModel::IEnteredBackgroundEventArgs>) -> ::windows_core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
@@ -5729,7 +5744,12 @@ pub struct EnteredBackgroundEventHandler_Vtbl {
     Invoke: usize,
 }
 #[cfg(feature = "ApplicationModel")]
-::windows_core::imp::com_interface!(LeavingBackgroundEventHandler, LeavingBackgroundEventHandler_Vtbl, 0x00b4ccd9_7a9c_4b6b_9ac4_13474f268bc4);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"ApplicationModel\"`"]
+    LeavingBackgroundEventHandler,
+    LeavingBackgroundEventHandler_Vtbl,
+    0x00b4ccd9_7a9c_4b6b_9ac4_13474f268bc4
+);
 #[cfg(feature = "ApplicationModel")]
 impl LeavingBackgroundEventHandler {
     pub fn new<F: FnMut(::core::option::Option<&::windows_core::IInspectable>, ::core::option::Option<&super::super::ApplicationModel::ILeavingBackgroundEventArgs>) -> ::windows_core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
@@ -5934,7 +5954,12 @@ pub struct ResumingEventHandler_Vtbl {
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "ApplicationModel")]
-::windows_core::imp::com_interface!(SuspendingEventHandler, SuspendingEventHandler_Vtbl, 0x509c429c_78e2_4883_abc8_8960dcde1b5c);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"ApplicationModel\"`"]
+    SuspendingEventHandler,
+    SuspendingEventHandler_Vtbl,
+    0x509c429c_78e2_4883_abc8_8960dcde1b5c
+);
 #[cfg(feature = "ApplicationModel")]
 impl SuspendingEventHandler {
     pub fn new<F: FnMut(::core::option::Option<&::windows_core::IInspectable>, ::core::option::Option<&super::super::ApplicationModel::ISuspendingEventArgs>) -> ::windows_core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
