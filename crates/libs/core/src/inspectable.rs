@@ -39,9 +39,6 @@ pub struct IInspectable_Vtbl {
 
 unsafe impl Interface for IInspectable {
     type Vtable = IInspectable_Vtbl;
-}
-
-unsafe impl ComInterface for IInspectable {
     const IID: GUID = GUID::from_u128(0xaf86e2e0_b12d_4c6a_9c5a_d7aa65101e90);
 }
 
@@ -87,7 +84,7 @@ impl std::fmt::Debug for IInspectable {
         // Attempts to retrieve the string representation of the object via the
         // IStringable interface. If that fails, it will use the canonical type
         // name to give some idea of what the object represents.
-        let name = <Self as ComInterface>::cast::<imp::IStringable>(self).and_then(|s| s.ToString()).or_else(|_| self.GetRuntimeClassName()).unwrap_or_default();
+        let name = <Self as Interface>::cast::<imp::IStringable>(self).and_then(|s| s.ToString()).or_else(|_| self.GetRuntimeClassName()).unwrap_or_default();
         write!(f, "\"{}\"", name)
     }
 }
@@ -103,13 +100,13 @@ macro_rules! primitive_boxed_type {
         impl TryFrom<IInspectable> for $t {
             type Error = Error;
             fn try_from(value: IInspectable) -> Result<Self> {
-                <IInspectable as ComInterface>::cast::<imp::IReference<$t>>(&value)?.Value()
+                <IInspectable as Interface>::cast::<imp::IReference<$t>>(&value)?.Value()
             }
         }
         impl TryFrom<&IInspectable> for $t {
             type Error = Error;
             fn try_from(value: &IInspectable) -> Result<Self> {
-                <IInspectable as ComInterface>::cast::<imp::IReference<$t>>(value)?.Value()
+                <IInspectable as Interface>::cast::<imp::IReference<$t>>(value)?.Value()
             }
         })*
     };
@@ -148,12 +145,12 @@ impl TryFrom<&HSTRING> for IInspectable {
 impl TryFrom<IInspectable> for HSTRING {
     type Error = Error;
     fn try_from(value: IInspectable) -> Result<Self> {
-        <IInspectable as ComInterface>::cast::<imp::IReference<HSTRING>>(&value)?.Value()
+        <IInspectable as Interface>::cast::<imp::IReference<HSTRING>>(&value)?.Value()
     }
 }
 impl TryFrom<&IInspectable> for HSTRING {
     type Error = Error;
     fn try_from(value: &IInspectable) -> Result<Self> {
-        <IInspectable as ComInterface>::cast::<imp::IReference<HSTRING>>(value)?.Value()
+        <IInspectable as Interface>::cast::<imp::IReference<HSTRING>>(value)?.Value()
     }
 }

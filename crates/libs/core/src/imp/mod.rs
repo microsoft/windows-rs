@@ -33,10 +33,10 @@ pub fn wide_trim_end(mut wide: &[u16]) -> &[u16] {
 #[doc(hidden)]
 #[macro_export]
 macro_rules! interface_hierarchy {
-    ($child:ty, $parent:ty) => {
+    ($child:ident, $parent:ty) => {
         impl ::windows_core::CanInto<$parent> for $child {}
     };
-    ($child:ty, $first:ty, $($rest:ty),+) => {
+    ($child:ident, $first:ty, $($rest:ty),+) => {
         $crate::imp::interface_hierarchy!($child, $first);
         $crate::imp::interface_hierarchy!($child, $($rest),+);
     };
@@ -44,3 +44,55 @@ macro_rules! interface_hierarchy {
 
 #[doc(hidden)]
 pub use interface_hierarchy;
+
+#[doc(hidden)]
+#[macro_export]
+macro_rules! required_hierarchy {
+    ($child:ident, $parent:ty) => {
+        impl ::windows_core::CanInto<$parent> for $child { const QUERY: bool = true; }
+    };
+    ($child:ident, $first:ty, $($rest:ty),+) => {
+        $crate::imp::required_hierarchy!($child, $first);
+        $crate::imp::required_hierarchy!($child, $($rest),+);
+    };
+}
+
+#[doc(hidden)]
+pub use required_hierarchy;
+
+#[doc(hidden)]
+#[macro_export]
+macro_rules! interface {
+    ($(#[$doc:meta])? $name:ident, $vtbl:ident) => {
+        $(#[$doc])?
+        #[repr(transparent)]
+        #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
+        pub struct $name(::std::ptr::NonNull<::std::ffi::c_void>);
+        unsafe impl ::windows_core::Interface for $name {
+            type Vtable = $vtbl;
+            const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
+            const UNKNOWN: bool = false;
+        }
+    };
+}
+
+#[doc(hidden)]
+pub use interface;
+
+#[doc(hidden)]
+#[macro_export]
+macro_rules! com_interface {
+    ($(#[$doc:meta])? $name:ident, $vtbl:ident, $iid:literal) => {
+        $(#[$doc])?
+        #[repr(transparent)]
+        #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
+        pub struct $name(::windows_core::IUnknown);
+        unsafe impl ::windows_core::Interface for $name {
+            type Vtable = $vtbl;
+            const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128($iid);
+        }
+    };
+}
+
+#[doc(hidden)]
+pub use com_interface;

@@ -1,5 +1,5 @@
 use super::*;
-use crate::ComInterface;
+use crate::Interface;
 use std::sync::atomic::{AtomicIsize, Ordering};
 
 #[doc(hidden)]

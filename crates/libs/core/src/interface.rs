@@ -1,11 +1,15 @@
+use super::*;
+
 /// Provides low-level access to an interface vtable.
 ///
 /// This trait is automatically implemented by the generated bindings and should not be
 /// implemented manually.
 ///
 /// # Safety
-pub unsafe trait Interface: Sized {
+pub unsafe trait Interface: Sized + Clone {
     type Vtable;
+    const IID: GUID;
+    const UNKNOWN: bool = true;
 
     /// A reference to the interface's vtable
     #[doc(hidden)]
@@ -61,6 +65,36 @@ pub unsafe trait Interface: Sized {
             None
         } else {
             Some(std::mem::transmute_copy(&raw))
+        }
+    }
+
+    /// Attempts to cast the current interface to another interface using `QueryInterface`.
+    ///
+    /// The name `cast` is preferred to `query` because there is a WinRT method named query but not one
+    /// named cast.
+    fn cast<T: Interface>(&self) -> Result<T> {
+        let mut result = None;
+        // SAFETY: `result` is valid for writing an interface pointer and it is safe
+        // to cast the `result` pointer as `T` on success because we are using the `IID` tied
+        // to `T` which the implementor of `Interface` has guaranteed is correct
+        unsafe { self.query(&T::IID, &mut result as *mut _ as _).and_some(result) }
+    }
+
+    /// Attempts to create a [`Weak`] reference to this object.
+    fn downgrade(&self) -> Result<Weak<Self>> {
+        self.cast::<crate::imp::IWeakReferenceSource>().and_then(|source| Weak::downgrade(&source))
+    }
+
+    /// Call `QueryInterface` on this interface
+    ///
+    /// # Safety
+    ///
+    /// `interface` must be a non-null, valid pointer for writing an interface pointer.
+    unsafe fn query(&self, iid: *const GUID, interface: *mut *mut std::ffi::c_void) -> HRESULT {
+        if Self::UNKNOWN {
+            (self.assume_vtable::<IUnknown>().QueryInterface)(self.as_raw(), iid, interface)
+        } else {
+            panic!()
         }
     }
 }

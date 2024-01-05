@@ -14,7 +14,6 @@ pub mod imp;
 mod agile_reference;
 mod array;
 mod as_impl;
-mod com_interface;
 mod error;
 mod event;
 mod guid;
@@ -33,7 +32,6 @@ mod weak;
 pub use agile_reference::*;
 pub use array::*;
 pub use as_impl::*;
-pub use com_interface::*;
 pub use error::*;
 pub use event::*;
 pub use guid::*;
@@ -54,6 +52,6 @@ pub type Result<T> = std::result::Result<T, Error>;
 
 /// Attempts to load the factory object for the given WinRT class.
 /// This can be used to access COM interfaces implemented on a Windows Runtime class factory.
-pub fn factory<C: RuntimeName, I: ComInterface>() -> Result<I> {
+pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
     crate::imp::factory::<C, I>()
 }
