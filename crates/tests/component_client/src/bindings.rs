@@ -13,6 +13,11 @@ pub mod Nested {
         IThing_Vtbl,
         0x5448be22_9873_5ae6_9106_f6e8455d2fdd
     );
+    ::windows_core::imp::interface_hierarchy!(
+        IThing,
+        ::windows_core::IUnknown,
+        ::windows_core::IInspectable
+    );
     impl IThing {
         pub fn Method(&self) -> ::windows_core::Result<()> {
             let this = self;
@@ -24,11 +29,6 @@ pub mod Nested {
             }
         }
     }
-    ::windows_core::imp::interface_hierarchy!(
-        IThing,
-        ::windows_core::IUnknown,
-        ::windows_core::IInspectable
-    );
     impl ::windows_core::RuntimeType for IThing {
         const SIGNATURE: ::windows_core::imp::ConstBuffer =
             ::windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -91,6 +91,11 @@ pub struct IClass_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Class(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(
+    Class,
+    ::windows_core::IUnknown,
+    ::windows_core::IInspectable
+);
 impl Class {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -218,11 +223,6 @@ unsafe impl ::windows_core::Interface for Class {
 impl ::windows_core::RuntimeName for Class {
     const NAME: &'static str = "test_component.Class";
 }
-::windows_core::imp::interface_hierarchy!(
-    Class,
-    ::windows_core::IUnknown,
-    ::windows_core::IInspectable
-);
 unsafe impl ::core::marker::Send for Class {}
 unsafe impl ::core::marker::Sync for Class {}
 #[repr(transparent)]

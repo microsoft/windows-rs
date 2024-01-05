@@ -12,6 +12,14 @@
 pub struct IIterable<T>(::windows_core::IUnknown, ::core::marker::PhantomData<T>)
 where
     T: ::windows_core::RuntimeType + 'static;
+impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows_core::IUnknown>
+    for IIterable<T>
+{
+}
+impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows_core::IInspectable>
+    for IIterable<T>
+{
+}
 impl<T: ::windows_core::RuntimeType + 'static> IIterable<T> {
     pub fn First(&self) -> ::windows_core::Result<IIterator<T>> {
         let this = self;
@@ -24,14 +32,6 @@ impl<T: ::windows_core::RuntimeType + 'static> IIterable<T> {
             .from_abi(result__)
         }
     }
-}
-impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows_core::IUnknown>
-    for IIterable<T>
-{
-}
-impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows_core::IInspectable>
-    for IIterable<T>
-{
 }
 impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::RuntimeType for IIterable<T> {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = {
@@ -66,6 +66,14 @@ where
 pub struct IIterator<T>(::windows_core::IUnknown, ::core::marker::PhantomData<T>)
 where
     T: ::windows_core::RuntimeType + 'static;
+impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows_core::IUnknown>
+    for IIterator<T>
+{
+}
+impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows_core::IInspectable>
+    for IIterator<T>
+{
+}
 impl<T: ::windows_core::RuntimeType + 'static> IIterator<T> {
     pub fn get_Current(&self) -> ::windows_core::Result<T> {
         let this = self;
@@ -100,14 +108,6 @@ impl<T: ::windows_core::RuntimeType + 'static> IIterator<T> {
             .from_abi(result__)
         }
     }
-}
-impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows_core::IUnknown>
-    for IIterator<T>
-{
-}
-impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows_core::IInspectable>
-    for IIterator<T>
-{
 }
 impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::RuntimeType for IIterator<T> {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = {
@@ -156,6 +156,14 @@ where
     K: ::windows_core::RuntimeType + 'static,
     V: ::windows_core::RuntimeType + 'static;
 impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 'static>
+    ::windows_core::CanInto<::windows_core::IUnknown> for IKeyValuePair<K, V>
+{
+}
+impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 'static>
+    ::windows_core::CanInto<::windows_core::IInspectable> for IKeyValuePair<K, V>
+{
+}
+impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 'static>
     IKeyValuePair<K, V>
 {
     pub fn get_Key(&self) -> ::windows_core::Result<K> {
@@ -180,14 +188,6 @@ impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 
             .from_abi(result__)
         }
     }
-}
-impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 'static>
-    ::windows_core::CanInto<::windows_core::IUnknown> for IKeyValuePair<K, V>
-{
-}
-impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 'static>
-    ::windows_core::CanInto<::windows_core::IInspectable> for IKeyValuePair<K, V>
-{
 }
 impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 'static>
     ::windows_core::RuntimeType for IKeyValuePair<K, V>
@@ -239,6 +239,19 @@ pub struct IMapView<K, V>(
 where
     K: ::windows_core::RuntimeType + 'static,
     V: ::windows_core::RuntimeType + 'static;
+impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 'static>
+    ::windows_core::CanInto<::windows_core::IUnknown> for IMapView<K, V>
+{
+}
+impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 'static>
+    ::windows_core::CanInto<::windows_core::IInspectable> for IMapView<K, V>
+{
+}
+impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 'static>
+    ::windows_core::CanInto<IIterable<IKeyValuePair<K, V>>> for IMapView<K, V>
+{
+    const QUERY: bool = true;
+}
 impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 'static>
     IMapView<K, V>
 {
@@ -300,19 +313,6 @@ impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 
             .from_abi(result__)
         }
     }
-}
-impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 'static>
-    ::windows_core::CanInto<::windows_core::IUnknown> for IMapView<K, V>
-{
-}
-impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 'static>
-    ::windows_core::CanInto<::windows_core::IInspectable> for IMapView<K, V>
-{
-}
-impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 'static>
-    ::windows_core::CanInto<IIterable<IKeyValuePair<K, V>>> for IMapView<K, V>
-{
-    const QUERY: bool = true;
 }
 impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 'static>
     ::windows_core::RuntimeType for IMapView<K, V>

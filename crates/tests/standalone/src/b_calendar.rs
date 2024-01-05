@@ -10,6 +10,11 @@
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Calendar(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(
+    Calendar,
+    ::windows_core::IUnknown,
+    ::windows_core::IInspectable
+);
 impl Calendar {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1274,11 +1279,6 @@ unsafe impl ::windows_core::Interface for Calendar {
 impl ::windows_core::RuntimeName for Calendar {
     const NAME: &'static str = "Windows.Globalization.Calendar";
 }
-::windows_core::imp::interface_hierarchy!(
-    Calendar,
-    ::windows_core::IUnknown,
-    ::windows_core::IInspectable
-);
 unsafe impl ::core::marker::Send for Calendar {}
 unsafe impl ::core::marker::Sync for Calendar {}
 #[repr(C)]
@@ -1804,6 +1804,14 @@ pub struct ICalendarFactory2_Vtbl {
 pub struct IIterable<T>(::windows_core::IUnknown, ::core::marker::PhantomData<T>)
 where
     T: ::windows_core::RuntimeType + 'static;
+impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows_core::IUnknown>
+    for IIterable<T>
+{
+}
+impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows_core::IInspectable>
+    for IIterable<T>
+{
+}
 impl<T: ::windows_core::RuntimeType + 'static> IIterable<T> {
     pub fn First(&self) -> ::windows_core::Result<IIterator<T>> {
         let this = self;
@@ -1816,14 +1824,6 @@ impl<T: ::windows_core::RuntimeType + 'static> IIterable<T> {
             .from_abi(result__)
         }
     }
-}
-impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows_core::IUnknown>
-    for IIterable<T>
-{
-}
-impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows_core::IInspectable>
-    for IIterable<T>
-{
 }
 impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::RuntimeType for IIterable<T> {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = {
@@ -1872,6 +1872,14 @@ where
 pub struct IIterator<T>(::windows_core::IUnknown, ::core::marker::PhantomData<T>)
 where
     T: ::windows_core::RuntimeType + 'static;
+impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows_core::IUnknown>
+    for IIterator<T>
+{
+}
+impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows_core::IInspectable>
+    for IIterator<T>
+{
+}
 impl<T: ::windows_core::RuntimeType + 'static> IIterator<T> {
     pub fn Current(&self) -> ::windows_core::Result<T> {
         let this = self;
@@ -1922,14 +1930,6 @@ impl<T: ::windows_core::RuntimeType + 'static> IIterator<T> {
             .from_abi(result__)
         }
     }
-}
-impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows_core::IUnknown>
-    for IIterator<T>
-{
-}
-impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows_core::IInspectable>
-    for IIterator<T>
-{
 }
 impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::RuntimeType for IIterator<T> {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = {
@@ -2015,6 +2015,19 @@ pub struct ITimeZoneOnCalendar_Vtbl {
 pub struct IVectorView<T>(::windows_core::IUnknown, ::core::marker::PhantomData<T>)
 where
     T: ::windows_core::RuntimeType + 'static;
+impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows_core::IUnknown>
+    for IVectorView<T>
+{
+}
+impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows_core::IInspectable>
+    for IVectorView<T>
+{
+}
+impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<IIterable<T>>
+    for IVectorView<T>
+{
+    const QUERY: bool = true;
+}
 impl<T: ::windows_core::RuntimeType + 'static> IVectorView<T> {
     pub fn GetAt(&self, index: u32) -> ::windows_core::Result<T> {
         let this = self;
@@ -2084,19 +2097,6 @@ impl<T: ::windows_core::RuntimeType + 'static> IVectorView<T> {
             .from_abi(result__)
         }
     }
-}
-impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows_core::IUnknown>
-    for IVectorView<T>
-{
-}
-impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows_core::IInspectable>
-    for IVectorView<T>
-{
-}
-impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<IIterable<T>>
-    for IVectorView<T>
-{
-    const QUERY: bool = true;
 }
 impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::RuntimeType for IVectorView<T> {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = {

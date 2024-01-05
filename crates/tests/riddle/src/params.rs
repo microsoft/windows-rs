@@ -8,6 +8,11 @@
     clippy::all
 )]
 ::windows_core::imp::com_interface!(IParams, IParams_Vtbl, 0);
+::windows_core::imp::interface_hierarchy!(
+    IParams,
+    ::windows_core::IUnknown,
+    ::windows_core::IInspectable
+);
 impl IParams {
     pub fn Nothing(&self) -> ::windows_core::Result<()> {
         let this = self;
@@ -188,11 +193,6 @@ impl IParams {
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(
-    IParams,
-    ::windows_core::IUnknown,
-    ::windows_core::IInspectable
-);
 impl ::windows_core::RuntimeType for IParams {
     const SIGNATURE: ::windows_core::imp::ConstBuffer =
         ::windows_core::imp::ConstBuffer::for_interface::<Self>();

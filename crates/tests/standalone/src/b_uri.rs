@@ -12,6 +12,14 @@
 pub struct IIterable<T>(::windows_core::IUnknown, ::core::marker::PhantomData<T>)
 where
     T: ::windows_core::RuntimeType + 'static;
+impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows_core::IUnknown>
+    for IIterable<T>
+{
+}
+impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows_core::IInspectable>
+    for IIterable<T>
+{
+}
 impl<T: ::windows_core::RuntimeType + 'static> IIterable<T> {
     pub fn First(&self) -> ::windows_core::Result<IIterator<T>> {
         let this = self;
@@ -24,14 +32,6 @@ impl<T: ::windows_core::RuntimeType + 'static> IIterable<T> {
             .from_abi(result__)
         }
     }
-}
-impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows_core::IUnknown>
-    for IIterable<T>
-{
-}
-impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows_core::IInspectable>
-    for IIterable<T>
-{
 }
 impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::RuntimeType for IIterable<T> {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = {
@@ -80,6 +80,14 @@ where
 pub struct IIterator<T>(::windows_core::IUnknown, ::core::marker::PhantomData<T>)
 where
     T: ::windows_core::RuntimeType + 'static;
+impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows_core::IUnknown>
+    for IIterator<T>
+{
+}
+impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows_core::IInspectable>
+    for IIterator<T>
+{
+}
 impl<T: ::windows_core::RuntimeType + 'static> IIterator<T> {
     pub fn Current(&self) -> ::windows_core::Result<T> {
         let this = self;
@@ -130,14 +138,6 @@ impl<T: ::windows_core::RuntimeType + 'static> IIterator<T> {
             .from_abi(result__)
         }
     }
-}
-impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows_core::IUnknown>
-    for IIterator<T>
-{
-}
-impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows_core::IInspectable>
-    for IIterator<T>
-{
 }
 impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::RuntimeType for IIterator<T> {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = {
@@ -196,6 +196,11 @@ where
     IStringable_Vtbl,
     0x96369f54_8eb6_48f0_abce_c1b211e627c3
 );
+::windows_core::imp::interface_hierarchy!(
+    IStringable,
+    ::windows_core::IUnknown,
+    ::windows_core::IInspectable
+);
 impl IStringable {
     pub fn ToString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -209,11 +214,6 @@ impl IStringable {
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(
-    IStringable,
-    ::windows_core::IUnknown,
-    ::windows_core::IInspectable
-);
 impl ::windows_core::RuntimeType for IStringable {
     const SIGNATURE: ::windows_core::imp::ConstBuffer =
         ::windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -371,6 +371,19 @@ pub struct IUriRuntimeClassWithAbsoluteCanonicalUri_Vtbl {
 pub struct IVectorView<T>(::windows_core::IUnknown, ::core::marker::PhantomData<T>)
 where
     T: ::windows_core::RuntimeType + 'static;
+impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows_core::IUnknown>
+    for IVectorView<T>
+{
+}
+impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows_core::IInspectable>
+    for IVectorView<T>
+{
+}
+impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<IIterable<T>>
+    for IVectorView<T>
+{
+    const QUERY: bool = true;
+}
 impl<T: ::windows_core::RuntimeType + 'static> IVectorView<T> {
     pub fn GetAt(&self, index: u32) -> ::windows_core::Result<T> {
         let this = self;
@@ -440,19 +453,6 @@ impl<T: ::windows_core::RuntimeType + 'static> IVectorView<T> {
             .from_abi(result__)
         }
     }
-}
-impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows_core::IUnknown>
-    for IVectorView<T>
-{
-}
-impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows_core::IInspectable>
-    for IVectorView<T>
-{
-}
-impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<IIterable<T>>
-    for IVectorView<T>
-{
-    const QUERY: bool = true;
 }
 impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::RuntimeType for IVectorView<T> {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = {
@@ -542,6 +542,11 @@ where
     IWwwFormUrlDecoderEntry_Vtbl,
     0x125e7431_f678_4e8e_b670_20a9b06c512d
 );
+::windows_core::imp::interface_hierarchy!(
+    IWwwFormUrlDecoderEntry,
+    ::windows_core::IUnknown,
+    ::windows_core::IInspectable
+);
 impl IWwwFormUrlDecoderEntry {
     pub fn Name(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -566,11 +571,6 @@ impl IWwwFormUrlDecoderEntry {
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(
-    IWwwFormUrlDecoderEntry,
-    ::windows_core::IUnknown,
-    ::windows_core::IInspectable
-);
 impl ::windows_core::RuntimeType for IWwwFormUrlDecoderEntry {
     const SIGNATURE: ::windows_core::imp::ConstBuffer =
         ::windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -621,6 +621,12 @@ pub struct IWwwFormUrlDecoderRuntimeClassFactory_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Uri(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(
+    Uri,
+    ::windows_core::IUnknown,
+    ::windows_core::IInspectable
+);
+::windows_core::imp::required_hierarchy!(Uri, IStringable);
 impl Uri {
     pub fn ToString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::Interface::cast::<IStringable>(self)?;
@@ -932,17 +938,21 @@ unsafe impl ::windows_core::Interface for Uri {
 impl ::windows_core::RuntimeName for Uri {
     const NAME: &'static str = "Windows.Foundation.Uri";
 }
-::windows_core::imp::interface_hierarchy!(
-    Uri,
-    ::windows_core::IUnknown,
-    ::windows_core::IInspectable
-);
-::windows_core::imp::required_hierarchy!(Uri, IStringable);
 unsafe impl ::core::marker::Send for Uri {}
 unsafe impl ::core::marker::Sync for Uri {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WwwFormUrlDecoder(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(
+    WwwFormUrlDecoder,
+    ::windows_core::IUnknown,
+    ::windows_core::IInspectable
+);
+::windows_core::imp::required_hierarchy!(
+    WwwFormUrlDecoder,
+    IIterable<IWwwFormUrlDecoderEntry>,
+    IVectorView<IWwwFormUrlDecoderEntry>
+);
 impl WwwFormUrlDecoder {
     pub fn First(&self) -> ::windows_core::Result<IIterator<IWwwFormUrlDecoderEntry>> {
         let this = &::windows_core::Interface::cast::<IIterable<IWwwFormUrlDecoderEntry>>(self)?;
@@ -1080,15 +1090,5 @@ impl ::core::iter::IntoIterator for &WwwFormUrlDecoder {
         VectorViewIterator::new(::windows_core::Interface::cast(self).ok())
     }
 }
-::windows_core::imp::interface_hierarchy!(
-    WwwFormUrlDecoder,
-    ::windows_core::IUnknown,
-    ::windows_core::IInspectable
-);
-::windows_core::imp::required_hierarchy!(
-    WwwFormUrlDecoder,
-    IIterable<IWwwFormUrlDecoderEntry>,
-    IVectorView<IWwwFormUrlDecoderEntry>
-);
 unsafe impl ::core::marker::Send for WwwFormUrlDecoder {}
 unsafe impl ::core::marker::Sync for WwwFormUrlDecoder {}
