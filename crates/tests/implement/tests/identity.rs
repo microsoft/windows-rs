@@ -5,14 +5,14 @@ use windows::{core::*, Foundation::*};
 static mut COUNTER: isize = 0;
 
 #[implement(IStringable, IClosable)]
-struct Test(String, i128);
+struct Test(String);
 
 impl Test {
     fn new(value: &str) -> Self {
         unsafe {
             COUNTER += 1;
         }
-        Self(value.to_string(), 0)
+        Self(value.to_string())
     }
 }
 
