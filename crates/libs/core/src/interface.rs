@@ -94,7 +94,7 @@ pub unsafe trait Interface: Sized + Clone {
         if Self::UNKNOWN {
             (self.assume_vtable::<IUnknown>().QueryInterface)(self.as_raw(), iid, interface)
         } else {
-            panic!()
+            panic!("Non-COM interfaces cannot be queried.")
         }
     }
 }
