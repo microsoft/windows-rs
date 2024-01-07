@@ -11,3 +11,6 @@ features = [
     "Foundation",
     "Win32_Foundation",
 ]
+
+[dev-dependencies]
+helpers = { package = "test_helpers", path = "../helpers" }

@@ -2,6 +2,8 @@ use windows::{core::*, Win32::Foundation::*, Win32::Media::Audio::*};
 
 #[test]
 fn display_debug() {
+    assert!(helpers::set_thread_ui_language());
+
     let e = Error::from(ERROR_NO_UNICODE_TRANSLATION);
     let display = format!("{e}");
     let debug = format!("{e:?}");
