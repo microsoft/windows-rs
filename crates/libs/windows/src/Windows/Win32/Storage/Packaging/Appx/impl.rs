@@ -22,7 +22,7 @@ impl IAppxAppInstallerReader_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetXmlDom: GetXmlDom::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxAppInstallerReader as ::windows_core::ComInterface>::IID
+        iid == &<IAppxAppInstallerReader as ::windows_core::Interface>::IID
     }
 }
 pub trait IAppxBlockMapBlock_Impl: Sized {
@@ -55,7 +55,7 @@ impl IAppxBlockMapBlock_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxBlockMapBlock as ::windows_core::ComInterface>::IID
+        iid == &<IAppxBlockMapBlock as ::windows_core::Interface>::IID
     }
 }
 pub trait IAppxBlockMapBlocksEnumerator_Impl: Sized {
@@ -107,7 +107,7 @@ impl IAppxBlockMapBlocksEnumerator_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxBlockMapBlocksEnumerator as ::windows_core::ComInterface>::IID
+        iid == &<IAppxBlockMapBlocksEnumerator as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -189,7 +189,7 @@ impl IAppxBlockMapFile_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxBlockMapFile as ::windows_core::ComInterface>::IID
+        iid == &<IAppxBlockMapFile as ::windows_core::Interface>::IID
     }
 }
 pub trait IAppxBlockMapFilesEnumerator_Impl: Sized {
@@ -241,7 +241,7 @@ impl IAppxBlockMapFilesEnumerator_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxBlockMapFilesEnumerator as ::windows_core::ComInterface>::IID
+        iid == &<IAppxBlockMapFilesEnumerator as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -310,7 +310,7 @@ impl IAppxBlockMapReader_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxBlockMapReader as ::windows_core::ComInterface>::IID
+        iid == &<IAppxBlockMapReader as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -366,7 +366,7 @@ impl IAppxBundleFactory_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxBundleFactory as ::windows_core::ComInterface>::IID
+        iid == &<IAppxBundleFactory as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -393,7 +393,7 @@ impl IAppxBundleFactory2_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateBundleReader2: CreateBundleReader2::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxBundleFactory2 as ::windows_core::ComInterface>::IID
+        iid == &<IAppxBundleFactory2 as ::windows_core::Interface>::IID
     }
 }
 pub trait IAppxBundleManifestOptionalBundleInfo_Impl: Sized {
@@ -445,7 +445,7 @@ impl IAppxBundleManifestOptionalBundleInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxBundleManifestOptionalBundleInfo as ::windows_core::ComInterface>::IID
+        iid == &<IAppxBundleManifestOptionalBundleInfo as ::windows_core::Interface>::IID
     }
 }
 pub trait IAppxBundleManifestOptionalBundleInfoEnumerator_Impl: Sized {
@@ -497,7 +497,7 @@ impl IAppxBundleManifestOptionalBundleInfoEnumerator_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxBundleManifestOptionalBundleInfoEnumerator as ::windows_core::ComInterface>::IID
+        iid == &<IAppxBundleManifestOptionalBundleInfoEnumerator as ::windows_core::Interface>::IID
     }
 }
 pub trait IAppxBundleManifestPackageInfo_Impl: Sized {
@@ -588,7 +588,7 @@ impl IAppxBundleManifestPackageInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxBundleManifestPackageInfo as ::windows_core::ComInterface>::IID
+        iid == &<IAppxBundleManifestPackageInfo as ::windows_core::Interface>::IID
     }
 }
 pub trait IAppxBundleManifestPackageInfo2_Impl: Sized {
@@ -640,7 +640,7 @@ impl IAppxBundleManifestPackageInfo2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxBundleManifestPackageInfo2 as ::windows_core::ComInterface>::IID
+        iid == &<IAppxBundleManifestPackageInfo2 as ::windows_core::Interface>::IID
     }
 }
 pub trait IAppxBundleManifestPackageInfo3_Impl: Sized {
@@ -663,7 +663,7 @@ impl IAppxBundleManifestPackageInfo3_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetTargetDeviceFamilies: GetTargetDeviceFamilies::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxBundleManifestPackageInfo3 as ::windows_core::ComInterface>::IID
+        iid == &<IAppxBundleManifestPackageInfo3 as ::windows_core::Interface>::IID
     }
 }
 pub trait IAppxBundleManifestPackageInfo4_Impl: Sized {
@@ -686,7 +686,7 @@ impl IAppxBundleManifestPackageInfo4_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetIsStub: GetIsStub::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxBundleManifestPackageInfo4 as ::windows_core::ComInterface>::IID
+        iid == &<IAppxBundleManifestPackageInfo4 as ::windows_core::Interface>::IID
     }
 }
 pub trait IAppxBundleManifestPackageInfoEnumerator_Impl: Sized {
@@ -738,7 +738,7 @@ impl IAppxBundleManifestPackageInfoEnumerator_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxBundleManifestPackageInfoEnumerator as ::windows_core::ComInterface>::IID
+        iid == &<IAppxBundleManifestPackageInfoEnumerator as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -794,7 +794,7 @@ impl IAppxBundleManifestReader_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxBundleManifestReader as ::windows_core::ComInterface>::IID
+        iid == &<IAppxBundleManifestReader as ::windows_core::Interface>::IID
     }
 }
 pub trait IAppxBundleManifestReader2_Impl: Sized {
@@ -817,7 +817,7 @@ impl IAppxBundleManifestReader2_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetOptionalBundles: GetOptionalBundles::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxBundleManifestReader2 as ::windows_core::ComInterface>::IID
+        iid == &<IAppxBundleManifestReader2 as ::windows_core::Interface>::IID
     }
 }
 pub trait IAppxBundleReader_Impl: Sized {
@@ -895,7 +895,7 @@ impl IAppxBundleReader_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxBundleReader as ::windows_core::ComInterface>::IID
+        iid == &<IAppxBundleReader as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -926,7 +926,7 @@ impl IAppxBundleWriter_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxBundleWriter as ::windows_core::ComInterface>::IID
+        iid == &<IAppxBundleWriter as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -950,7 +950,7 @@ impl IAppxBundleWriter2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxBundleWriter2 as ::windows_core::ComInterface>::IID
+        iid == &<IAppxBundleWriter2 as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -981,7 +981,7 @@ impl IAppxBundleWriter3_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxBundleWriter3 as ::windows_core::ComInterface>::IID
+        iid == &<IAppxBundleWriter3 as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1019,7 +1019,7 @@ impl IAppxBundleWriter4_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxBundleWriter4 as ::windows_core::ComInterface>::IID
+        iid == &<IAppxBundleWriter4 as ::windows_core::Interface>::IID
     }
 }
 pub trait IAppxContentGroup_Impl: Sized {
@@ -1058,7 +1058,7 @@ impl IAppxContentGroup_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxContentGroup as ::windows_core::ComInterface>::IID
+        iid == &<IAppxContentGroup as ::windows_core::Interface>::IID
     }
 }
 pub trait IAppxContentGroupFilesEnumerator_Impl: Sized {
@@ -1110,7 +1110,7 @@ impl IAppxContentGroupFilesEnumerator_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxContentGroupFilesEnumerator as ::windows_core::ComInterface>::IID
+        iid == &<IAppxContentGroupFilesEnumerator as ::windows_core::Interface>::IID
     }
 }
 pub trait IAppxContentGroupMapReader_Impl: Sized {
@@ -1149,7 +1149,7 @@ impl IAppxContentGroupMapReader_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxContentGroupMapReader as ::windows_core::ComInterface>::IID
+        iid == &<IAppxContentGroupMapReader as ::windows_core::Interface>::IID
     }
 }
 pub trait IAppxContentGroupMapWriter_Impl: Sized {
@@ -1183,7 +1183,7 @@ impl IAppxContentGroupMapWriter_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxContentGroupMapWriter as ::windows_core::ComInterface>::IID
+        iid == &<IAppxContentGroupMapWriter as ::windows_core::Interface>::IID
     }
 }
 pub trait IAppxContentGroupsEnumerator_Impl: Sized {
@@ -1235,7 +1235,7 @@ impl IAppxContentGroupsEnumerator_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxContentGroupsEnumerator as ::windows_core::ComInterface>::IID
+        iid == &<IAppxContentGroupsEnumerator as ::windows_core::Interface>::IID
     }
 }
 pub trait IAppxDigestProvider_Impl: Sized {
@@ -1258,7 +1258,7 @@ impl IAppxDigestProvider_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetDigest: GetDigest::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxDigestProvider as ::windows_core::ComInterface>::IID
+        iid == &<IAppxDigestProvider as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1289,7 +1289,7 @@ impl IAppxEncryptedBundleWriter_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxEncryptedBundleWriter as ::windows_core::ComInterface>::IID
+        iid == &<IAppxEncryptedBundleWriter as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1313,7 +1313,7 @@ impl IAppxEncryptedBundleWriter2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxEncryptedBundleWriter2 as ::windows_core::ComInterface>::IID
+        iid == &<IAppxEncryptedBundleWriter2 as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1344,7 +1344,7 @@ impl IAppxEncryptedBundleWriter3_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxEncryptedBundleWriter3 as ::windows_core::ComInterface>::IID
+        iid == &<IAppxEncryptedBundleWriter3 as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1375,7 +1375,7 @@ impl IAppxEncryptedPackageWriter_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxEncryptedPackageWriter as ::windows_core::ComInterface>::IID
+        iid == &<IAppxEncryptedPackageWriter as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1396,7 +1396,7 @@ impl IAppxEncryptedPackageWriter2_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), AddPayloadFilesEncrypted: AddPayloadFilesEncrypted::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxEncryptedPackageWriter2 as ::windows_core::ComInterface>::IID
+        iid == &<IAppxEncryptedPackageWriter2 as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1493,7 +1493,7 @@ impl IAppxEncryptionFactory_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxEncryptionFactory as ::windows_core::ComInterface>::IID
+        iid == &<IAppxEncryptionFactory as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1523,7 +1523,7 @@ impl IAppxEncryptionFactory2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxEncryptionFactory2 as ::windows_core::ComInterface>::IID
+        iid == &<IAppxEncryptionFactory2 as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1580,7 +1580,7 @@ impl IAppxEncryptionFactory3_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxEncryptionFactory3 as ::windows_core::ComInterface>::IID
+        iid == &<IAppxEncryptionFactory3 as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1601,7 +1601,7 @@ impl IAppxEncryptionFactory4_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), EncryptPackage: EncryptPackage::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxEncryptionFactory4 as ::windows_core::ComInterface>::IID
+        iid == &<IAppxEncryptionFactory4 as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1644,7 +1644,7 @@ impl IAppxEncryptionFactory5_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxEncryptionFactory5 as ::windows_core::ComInterface>::IID
+        iid == &<IAppxEncryptionFactory5 as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1726,7 +1726,7 @@ impl IAppxFactory_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxFactory as ::windows_core::ComInterface>::IID
+        iid == &<IAppxFactory as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1782,7 +1782,7 @@ impl IAppxFactory2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxFactory2 as ::windows_core::ComInterface>::IID
+        iid == &<IAppxFactory2 as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1838,7 +1838,7 @@ impl IAppxFactory3_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxFactory3 as ::windows_core::ComInterface>::IID
+        iid == &<IAppxFactory3 as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1920,7 +1920,7 @@ impl IAppxFile_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxFile as ::windows_core::ComInterface>::IID
+        iid == &<IAppxFile as ::windows_core::Interface>::IID
     }
 }
 pub trait IAppxFilesEnumerator_Impl: Sized {
@@ -1972,7 +1972,7 @@ impl IAppxFilesEnumerator_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxFilesEnumerator as ::windows_core::ComInterface>::IID
+        iid == &<IAppxFilesEnumerator as ::windows_core::Interface>::IID
     }
 }
 pub trait IAppxManifestApplication_Impl: Sized {
@@ -2011,7 +2011,7 @@ impl IAppxManifestApplication_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxManifestApplication as ::windows_core::ComInterface>::IID
+        iid == &<IAppxManifestApplication as ::windows_core::Interface>::IID
     }
 }
 pub trait IAppxManifestApplicationsEnumerator_Impl: Sized {
@@ -2063,7 +2063,7 @@ impl IAppxManifestApplicationsEnumerator_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxManifestApplicationsEnumerator as ::windows_core::ComInterface>::IID
+        iid == &<IAppxManifestApplicationsEnumerator as ::windows_core::Interface>::IID
     }
 }
 pub trait IAppxManifestCapabilitiesEnumerator_Impl: Sized {
@@ -2115,7 +2115,7 @@ impl IAppxManifestCapabilitiesEnumerator_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxManifestCapabilitiesEnumerator as ::windows_core::ComInterface>::IID
+        iid == &<IAppxManifestCapabilitiesEnumerator as ::windows_core::Interface>::IID
     }
 }
 pub trait IAppxManifestDeviceCapabilitiesEnumerator_Impl: Sized {
@@ -2167,7 +2167,7 @@ impl IAppxManifestDeviceCapabilitiesEnumerator_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxManifestDeviceCapabilitiesEnumerator as ::windows_core::ComInterface>::IID
+        iid == &<IAppxManifestDeviceCapabilitiesEnumerator as ::windows_core::Interface>::IID
     }
 }
 pub trait IAppxManifestDriverConstraint_Impl: Sized {
@@ -2219,7 +2219,7 @@ impl IAppxManifestDriverConstraint_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxManifestDriverConstraint as ::windows_core::ComInterface>::IID
+        iid == &<IAppxManifestDriverConstraint as ::windows_core::Interface>::IID
     }
 }
 pub trait IAppxManifestDriverConstraintsEnumerator_Impl: Sized {
@@ -2271,7 +2271,7 @@ impl IAppxManifestDriverConstraintsEnumerator_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxManifestDriverConstraintsEnumerator as ::windows_core::ComInterface>::IID
+        iid == &<IAppxManifestDriverConstraintsEnumerator as ::windows_core::Interface>::IID
     }
 }
 pub trait IAppxManifestDriverDependenciesEnumerator_Impl: Sized {
@@ -2323,7 +2323,7 @@ impl IAppxManifestDriverDependenciesEnumerator_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxManifestDriverDependenciesEnumerator as ::windows_core::ComInterface>::IID
+        iid == &<IAppxManifestDriverDependenciesEnumerator as ::windows_core::Interface>::IID
     }
 }
 pub trait IAppxManifestDriverDependency_Impl: Sized {
@@ -2346,7 +2346,7 @@ impl IAppxManifestDriverDependency_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetDriverConstraints: GetDriverConstraints::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxManifestDriverDependency as ::windows_core::ComInterface>::IID
+        iid == &<IAppxManifestDriverDependency as ::windows_core::Interface>::IID
     }
 }
 pub trait IAppxManifestHostRuntimeDependenciesEnumerator_Impl: Sized {
@@ -2398,7 +2398,7 @@ impl IAppxManifestHostRuntimeDependenciesEnumerator_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxManifestHostRuntimeDependenciesEnumerator as ::windows_core::ComInterface>::IID
+        iid == &<IAppxManifestHostRuntimeDependenciesEnumerator as ::windows_core::Interface>::IID
     }
 }
 pub trait IAppxManifestHostRuntimeDependency_Impl: Sized {
@@ -2450,7 +2450,7 @@ impl IAppxManifestHostRuntimeDependency_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxManifestHostRuntimeDependency as ::windows_core::ComInterface>::IID
+        iid == &<IAppxManifestHostRuntimeDependency as ::windows_core::Interface>::IID
     }
 }
 pub trait IAppxManifestHostRuntimeDependency2_Impl: Sized {
@@ -2473,7 +2473,7 @@ impl IAppxManifestHostRuntimeDependency2_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetPackageFamilyName: GetPackageFamilyName::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxManifestHostRuntimeDependency2 as ::windows_core::ComInterface>::IID
+        iid == &<IAppxManifestHostRuntimeDependency2 as ::windows_core::Interface>::IID
     }
 }
 pub trait IAppxManifestMainPackageDependenciesEnumerator_Impl: Sized {
@@ -2525,7 +2525,7 @@ impl IAppxManifestMainPackageDependenciesEnumerator_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxManifestMainPackageDependenciesEnumerator as ::windows_core::ComInterface>::IID
+        iid == &<IAppxManifestMainPackageDependenciesEnumerator as ::windows_core::Interface>::IID
     }
 }
 pub trait IAppxManifestMainPackageDependency_Impl: Sized {
@@ -2577,7 +2577,7 @@ impl IAppxManifestMainPackageDependency_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxManifestMainPackageDependency as ::windows_core::ComInterface>::IID
+        iid == &<IAppxManifestMainPackageDependency as ::windows_core::Interface>::IID
     }
 }
 pub trait IAppxManifestOSPackageDependenciesEnumerator_Impl: Sized {
@@ -2629,7 +2629,7 @@ impl IAppxManifestOSPackageDependenciesEnumerator_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxManifestOSPackageDependenciesEnumerator as ::windows_core::ComInterface>::IID
+        iid == &<IAppxManifestOSPackageDependenciesEnumerator as ::windows_core::Interface>::IID
     }
 }
 pub trait IAppxManifestOSPackageDependency_Impl: Sized {
@@ -2668,7 +2668,7 @@ impl IAppxManifestOSPackageDependency_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxManifestOSPackageDependency as ::windows_core::ComInterface>::IID
+        iid == &<IAppxManifestOSPackageDependency as ::windows_core::Interface>::IID
     }
 }
 pub trait IAppxManifestOptionalPackageInfo_Impl: Sized {
@@ -2707,7 +2707,7 @@ impl IAppxManifestOptionalPackageInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxManifestOptionalPackageInfo as ::windows_core::ComInterface>::IID
+        iid == &<IAppxManifestOptionalPackageInfo as ::windows_core::Interface>::IID
     }
 }
 pub trait IAppxManifestPackageDependenciesEnumerator_Impl: Sized {
@@ -2759,7 +2759,7 @@ impl IAppxManifestPackageDependenciesEnumerator_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxManifestPackageDependenciesEnumerator as ::windows_core::ComInterface>::IID
+        iid == &<IAppxManifestPackageDependenciesEnumerator as ::windows_core::Interface>::IID
     }
 }
 pub trait IAppxManifestPackageDependency_Impl: Sized {
@@ -2811,7 +2811,7 @@ impl IAppxManifestPackageDependency_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxManifestPackageDependency as ::windows_core::ComInterface>::IID
+        iid == &<IAppxManifestPackageDependency as ::windows_core::Interface>::IID
     }
 }
 pub trait IAppxManifestPackageDependency2_Impl: Sized + IAppxManifestPackageDependency_Impl {
@@ -2837,7 +2837,7 @@ impl IAppxManifestPackageDependency2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxManifestPackageDependency2 as ::windows_core::ComInterface>::IID || iid == &<IAppxManifestPackageDependency as ::windows_core::ComInterface>::IID
+        iid == &<IAppxManifestPackageDependency2 as ::windows_core::Interface>::IID || iid == &<IAppxManifestPackageDependency as ::windows_core::Interface>::IID
     }
 }
 pub trait IAppxManifestPackageDependency3_Impl: Sized {
@@ -2860,7 +2860,7 @@ impl IAppxManifestPackageDependency3_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetIsOptional: GetIsOptional::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxManifestPackageDependency3 as ::windows_core::ComInterface>::IID
+        iid == &<IAppxManifestPackageDependency3 as ::windows_core::Interface>::IID
     }
 }
 pub trait IAppxManifestPackageId_Impl: Sized {
@@ -2977,7 +2977,7 @@ impl IAppxManifestPackageId_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxManifestPackageId as ::windows_core::ComInterface>::IID
+        iid == &<IAppxManifestPackageId as ::windows_core::Interface>::IID
     }
 }
 pub trait IAppxManifestPackageId2_Impl: Sized + IAppxManifestPackageId_Impl {
@@ -3000,7 +3000,7 @@ impl IAppxManifestPackageId2_Vtbl {
         Self { base__: IAppxManifestPackageId_Vtbl::new::<Identity, Impl, OFFSET>(), GetArchitecture2: GetArchitecture2::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxManifestPackageId2 as ::windows_core::ComInterface>::IID || iid == &<IAppxManifestPackageId as ::windows_core::ComInterface>::IID
+        iid == &<IAppxManifestPackageId2 as ::windows_core::Interface>::IID || iid == &<IAppxManifestPackageId as ::windows_core::Interface>::IID
     }
 }
 pub trait IAppxManifestProperties_Impl: Sized {
@@ -3039,7 +3039,7 @@ impl IAppxManifestProperties_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxManifestProperties as ::windows_core::ComInterface>::IID
+        iid == &<IAppxManifestProperties as ::windows_core::Interface>::IID
     }
 }
 pub trait IAppxManifestQualifiedResource_Impl: Sized {
@@ -3091,7 +3091,7 @@ impl IAppxManifestQualifiedResource_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxManifestQualifiedResource as ::windows_core::ComInterface>::IID
+        iid == &<IAppxManifestQualifiedResource as ::windows_core::Interface>::IID
     }
 }
 pub trait IAppxManifestQualifiedResourcesEnumerator_Impl: Sized {
@@ -3143,7 +3143,7 @@ impl IAppxManifestQualifiedResourcesEnumerator_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxManifestQualifiedResourcesEnumerator as ::windows_core::ComInterface>::IID
+        iid == &<IAppxManifestQualifiedResourcesEnumerator as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -3277,7 +3277,7 @@ impl IAppxManifestReader_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxManifestReader as ::windows_core::ComInterface>::IID
+        iid == &<IAppxManifestReader as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -3304,7 +3304,7 @@ impl IAppxManifestReader2_Vtbl {
         Self { base__: IAppxManifestReader_Vtbl::new::<Identity, Impl, OFFSET>(), GetQualifiedResources: GetQualifiedResources::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxManifestReader2 as ::windows_core::ComInterface>::IID || iid == &<IAppxManifestReader as ::windows_core::ComInterface>::IID
+        iid == &<IAppxManifestReader2 as ::windows_core::Interface>::IID || iid == &<IAppxManifestReader as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -3347,7 +3347,7 @@ impl IAppxManifestReader3_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxManifestReader3 as ::windows_core::ComInterface>::IID || iid == &<IAppxManifestReader as ::windows_core::ComInterface>::IID || iid == &<IAppxManifestReader2 as ::windows_core::ComInterface>::IID
+        iid == &<IAppxManifestReader3 as ::windows_core::Interface>::IID || iid == &<IAppxManifestReader as ::windows_core::Interface>::IID || iid == &<IAppxManifestReader2 as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -3374,7 +3374,7 @@ impl IAppxManifestReader4_Vtbl {
         Self { base__: IAppxManifestReader3_Vtbl::new::<Identity, Impl, OFFSET>(), GetOptionalPackageInfo: GetOptionalPackageInfo::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxManifestReader4 as ::windows_core::ComInterface>::IID || iid == &<IAppxManifestReader as ::windows_core::ComInterface>::IID || iid == &<IAppxManifestReader2 as ::windows_core::ComInterface>::IID || iid == &<IAppxManifestReader3 as ::windows_core::ComInterface>::IID
+        iid == &<IAppxManifestReader4 as ::windows_core::Interface>::IID || iid == &<IAppxManifestReader as ::windows_core::Interface>::IID || iid == &<IAppxManifestReader2 as ::windows_core::Interface>::IID || iid == &<IAppxManifestReader3 as ::windows_core::Interface>::IID
     }
 }
 pub trait IAppxManifestReader5_Impl: Sized {
@@ -3400,7 +3400,7 @@ impl IAppxManifestReader5_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxManifestReader5 as ::windows_core::ComInterface>::IID
+        iid == &<IAppxManifestReader5 as ::windows_core::Interface>::IID
     }
 }
 pub trait IAppxManifestReader6_Impl: Sized {
@@ -3426,7 +3426,7 @@ impl IAppxManifestReader6_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxManifestReader6 as ::windows_core::ComInterface>::IID
+        iid == &<IAppxManifestReader6 as ::windows_core::Interface>::IID
     }
 }
 pub trait IAppxManifestReader7_Impl: Sized {
@@ -3478,7 +3478,7 @@ impl IAppxManifestReader7_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxManifestReader7 as ::windows_core::ComInterface>::IID
+        iid == &<IAppxManifestReader7 as ::windows_core::Interface>::IID
     }
 }
 pub trait IAppxManifestResourcesEnumerator_Impl: Sized {
@@ -3530,7 +3530,7 @@ impl IAppxManifestResourcesEnumerator_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxManifestResourcesEnumerator as ::windows_core::ComInterface>::IID
+        iid == &<IAppxManifestResourcesEnumerator as ::windows_core::Interface>::IID
     }
 }
 pub trait IAppxManifestTargetDeviceFamiliesEnumerator_Impl: Sized {
@@ -3582,7 +3582,7 @@ impl IAppxManifestTargetDeviceFamiliesEnumerator_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxManifestTargetDeviceFamiliesEnumerator as ::windows_core::ComInterface>::IID
+        iid == &<IAppxManifestTargetDeviceFamiliesEnumerator as ::windows_core::Interface>::IID
     }
 }
 pub trait IAppxManifestTargetDeviceFamily_Impl: Sized {
@@ -3634,7 +3634,7 @@ impl IAppxManifestTargetDeviceFamily_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxManifestTargetDeviceFamily as ::windows_core::ComInterface>::IID
+        iid == &<IAppxManifestTargetDeviceFamily as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -3693,7 +3693,7 @@ impl IAppxPackageEditor_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxPackageEditor as ::windows_core::ComInterface>::IID
+        iid == &<IAppxPackageEditor as ::windows_core::Interface>::IID
     }
 }
 pub trait IAppxPackageReader_Impl: Sized {
@@ -3771,7 +3771,7 @@ impl IAppxPackageReader_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxPackageReader as ::windows_core::ComInterface>::IID
+        iid == &<IAppxPackageReader as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -3802,7 +3802,7 @@ impl IAppxPackageWriter_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxPackageWriter as ::windows_core::ComInterface>::IID
+        iid == &<IAppxPackageWriter as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -3823,7 +3823,7 @@ impl IAppxPackageWriter2_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Close: Close::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxPackageWriter2 as ::windows_core::ComInterface>::IID
+        iid == &<IAppxPackageWriter2 as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -3844,7 +3844,7 @@ impl IAppxPackageWriter3_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), AddPayloadFiles: AddPayloadFiles::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxPackageWriter3 as ::windows_core::ComInterface>::IID
+        iid == &<IAppxPackageWriter3 as ::windows_core::Interface>::IID
     }
 }
 pub trait IAppxPackagingDiagnosticEventSink_Impl: Sized {
@@ -3871,7 +3871,7 @@ impl IAppxPackagingDiagnosticEventSink_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxPackagingDiagnosticEventSink as ::windows_core::ComInterface>::IID
+        iid == &<IAppxPackagingDiagnosticEventSink as ::windows_core::Interface>::IID
     }
 }
 pub trait IAppxPackagingDiagnosticEventSinkManager_Impl: Sized {
@@ -3888,7 +3888,7 @@ impl IAppxPackagingDiagnosticEventSinkManager_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetSinkForProcess: SetSinkForProcess::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxPackagingDiagnosticEventSinkManager as ::windows_core::ComInterface>::IID
+        iid == &<IAppxPackagingDiagnosticEventSinkManager as ::windows_core::Interface>::IID
     }
 }
 pub trait IAppxSourceContentGroupMapReader_Impl: Sized {
@@ -3927,6 +3927,6 @@ impl IAppxSourceContentGroupMapReader_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppxSourceContentGroupMapReader as ::windows_core::ComInterface>::IID
+        iid == &<IAppxSourceContentGroupMapReader as ::windows_core::Interface>::IID
     }
 }

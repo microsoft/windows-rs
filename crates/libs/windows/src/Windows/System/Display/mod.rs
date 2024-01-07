@@ -1,13 +1,4 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDisplayRequest(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDisplayRequest {
-    type Vtable = IDisplayRequest_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDisplayRequest {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe5732044_f49f_4b60_8dd4_5e7e3a632ac0);
-}
+::windows_core::imp::com_interface!(IDisplayRequest, IDisplayRequest_Vtbl, 0xe5732044_f49f_4b60_8dd4_5e7e3a632ac0);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayRequest_Vtbl {
@@ -18,6 +9,7 @@ pub struct IDisplayRequest_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DisplayRequest(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(DisplayRequest, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl DisplayRequest {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -40,11 +32,8 @@ impl ::windows_core::RuntimeType for DisplayRequest {
 }
 unsafe impl ::windows_core::Interface for DisplayRequest {
     type Vtable = IDisplayRequest_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for DisplayRequest {
-    const IID: ::windows_core::GUID = <IDisplayRequest as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IDisplayRequest as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for DisplayRequest {
     const NAME: &'static str = "Windows.System.Display.DisplayRequest";
 }
-::windows_core::imp::interface_hierarchy!(DisplayRequest, ::windows_core::IUnknown, ::windows_core::IInspectable);

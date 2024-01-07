@@ -77,7 +77,7 @@ impl ContextInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ContextInfo as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ContextInfo as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -133,7 +133,7 @@ impl ContextInfo2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ContextInfo2 as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID || iid == &<ContextInfo as ::windows_core::ComInterface>::IID
+        iid == &<ContextInfo2 as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ContextInfo as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -164,7 +164,7 @@ impl IAppDomainHelper_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppDomainHelper as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<IAppDomainHelper as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -191,7 +191,7 @@ impl IAssemblyLocator_Vtbl {
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), GetModules: GetModules::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAssemblyLocator as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<IAssemblyLocator as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 pub trait IAsyncErrorNotify_Impl: Sized {
@@ -208,7 +208,7 @@ impl IAsyncErrorNotify_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnError: OnError::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAsyncErrorNotify as ::windows_core::ComInterface>::IID
+        iid == &<IAsyncErrorNotify as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -443,7 +443,7 @@ impl ICOMAdminCatalog_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICOMAdminCatalog as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ICOMAdminCatalog as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -761,7 +761,7 @@ impl ICOMAdminCatalog2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICOMAdminCatalog2 as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID || iid == &<ICOMAdminCatalog as ::windows_core::ComInterface>::IID
+        iid == &<ICOMAdminCatalog2 as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ICOMAdminCatalog as ::windows_core::Interface>::IID
     }
 }
 pub trait ICOMLBArguments_Impl: Sized {
@@ -802,7 +802,7 @@ impl ICOMLBArguments_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICOMLBArguments as ::windows_core::ComInterface>::IID
+        iid == &<ICOMLBArguments as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -1003,7 +1003,7 @@ impl ICatalogCollection_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICatalogCollection as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ICatalogCollection as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -1105,7 +1105,7 @@ impl ICatalogObject_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICatalogObject as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ICatalogObject as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 pub trait ICheckSxsConfig_Impl: Sized {
@@ -1122,7 +1122,7 @@ impl ICheckSxsConfig_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), IsSameSxsConfig: IsSameSxsConfig::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICheckSxsConfig as ::windows_core::ComInterface>::IID
+        iid == &<ICheckSxsConfig as ::windows_core::Interface>::IID
     }
 }
 pub trait IComActivityEvents_Impl: Sized {
@@ -1184,7 +1184,7 @@ impl IComActivityEvents_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IComActivityEvents as ::windows_core::ComInterface>::IID
+        iid == &<IComActivityEvents as ::windows_core::Interface>::IID
     }
 }
 pub trait IComApp2Events_Impl: Sized {
@@ -1232,7 +1232,7 @@ impl IComApp2Events_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IComApp2Events as ::windows_core::ComInterface>::IID
+        iid == &<IComApp2Events as ::windows_core::Interface>::IID
     }
 }
 pub trait IComAppEvents_Impl: Sized {
@@ -1266,7 +1266,7 @@ impl IComAppEvents_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IComAppEvents as ::windows_core::ComInterface>::IID
+        iid == &<IComAppEvents as ::windows_core::Interface>::IID
     }
 }
 pub trait IComCRMEvents_Impl: Sized {
@@ -1384,7 +1384,7 @@ impl IComCRMEvents_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IComCRMEvents as ::windows_core::ComInterface>::IID
+        iid == &<IComCRMEvents as ::windows_core::Interface>::IID
     }
 }
 pub trait IComExceptionEvents_Impl: Sized {
@@ -1401,7 +1401,7 @@ impl IComExceptionEvents_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnExceptionUser: OnExceptionUser::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IComExceptionEvents as ::windows_core::ComInterface>::IID
+        iid == &<IComExceptionEvents as ::windows_core::Interface>::IID
     }
 }
 pub trait IComIdentityEvents_Impl: Sized {
@@ -1418,7 +1418,7 @@ impl IComIdentityEvents_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnIISRequestInfo: OnIISRequestInfo::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IComIdentityEvents as ::windows_core::ComInterface>::IID
+        iid == &<IComIdentityEvents as ::windows_core::Interface>::IID
     }
 }
 pub trait IComInstance2Events_Impl: Sized {
@@ -1445,7 +1445,7 @@ impl IComInstance2Events_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IComInstance2Events as ::windows_core::ComInterface>::IID
+        iid == &<IComInstance2Events as ::windows_core::Interface>::IID
     }
 }
 pub trait IComInstanceEvents_Impl: Sized {
@@ -1472,7 +1472,7 @@ impl IComInstanceEvents_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IComInstanceEvents as ::windows_core::ComInterface>::IID
+        iid == &<IComInstanceEvents as ::windows_core::Interface>::IID
     }
 }
 pub trait IComLTxEvents_Impl: Sized {
@@ -1520,7 +1520,7 @@ impl IComLTxEvents_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IComLTxEvents as ::windows_core::ComInterface>::IID
+        iid == &<IComLTxEvents as ::windows_core::Interface>::IID
     }
 }
 pub trait IComMethod2Events_Impl: Sized {
@@ -1554,7 +1554,7 @@ impl IComMethod2Events_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IComMethod2Events as ::windows_core::ComInterface>::IID
+        iid == &<IComMethod2Events as ::windows_core::Interface>::IID
     }
 }
 pub trait IComMethodEvents_Impl: Sized {
@@ -1588,7 +1588,7 @@ impl IComMethodEvents_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IComMethodEvents as ::windows_core::ComInterface>::IID
+        iid == &<IComMethodEvents as ::windows_core::Interface>::IID
     }
 }
 pub trait IComMtaThreadPoolKnobs_Impl: Sized {
@@ -1641,7 +1641,7 @@ impl IComMtaThreadPoolKnobs_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IComMtaThreadPoolKnobs as ::windows_core::ComInterface>::IID
+        iid == &<IComMtaThreadPoolKnobs as ::windows_core::Interface>::IID
     }
 }
 pub trait IComObjectConstruction2Events_Impl: Sized {
@@ -1658,7 +1658,7 @@ impl IComObjectConstruction2Events_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnObjectConstruct2: OnObjectConstruct2::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IComObjectConstruction2Events as ::windows_core::ComInterface>::IID
+        iid == &<IComObjectConstruction2Events as ::windows_core::Interface>::IID
     }
 }
 pub trait IComObjectConstructionEvents_Impl: Sized {
@@ -1675,7 +1675,7 @@ impl IComObjectConstructionEvents_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnObjectConstruct: OnObjectConstruct::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IComObjectConstructionEvents as ::windows_core::ComInterface>::IID
+        iid == &<IComObjectConstructionEvents as ::windows_core::Interface>::IID
     }
 }
 pub trait IComObjectEvents_Impl: Sized {
@@ -1730,7 +1730,7 @@ impl IComObjectEvents_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IComObjectEvents as ::windows_core::ComInterface>::IID
+        iid == &<IComObjectEvents as ::windows_core::Interface>::IID
     }
 }
 pub trait IComObjectPool2Events_Impl: Sized {
@@ -1771,7 +1771,7 @@ impl IComObjectPool2Events_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IComObjectPool2Events as ::windows_core::ComInterface>::IID
+        iid == &<IComObjectPool2Events as ::windows_core::Interface>::IID
     }
 }
 pub trait IComObjectPoolEvents_Impl: Sized {
@@ -1812,7 +1812,7 @@ impl IComObjectPoolEvents_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IComObjectPoolEvents as ::windows_core::ComInterface>::IID
+        iid == &<IComObjectPoolEvents as ::windows_core::Interface>::IID
     }
 }
 pub trait IComObjectPoolEvents2_Impl: Sized {
@@ -1860,7 +1860,7 @@ impl IComObjectPoolEvents2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IComObjectPoolEvents2 as ::windows_core::ComInterface>::IID
+        iid == &<IComObjectPoolEvents2 as ::windows_core::Interface>::IID
     }
 }
 pub trait IComQCEvents_Impl: Sized {
@@ -1922,7 +1922,7 @@ impl IComQCEvents_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IComQCEvents as ::windows_core::ComInterface>::IID
+        iid == &<IComQCEvents as ::windows_core::Interface>::IID
     }
 }
 pub trait IComResourceEvents_Impl: Sized {
@@ -1970,7 +1970,7 @@ impl IComResourceEvents_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IComResourceEvents as ::windows_core::ComInterface>::IID
+        iid == &<IComResourceEvents as ::windows_core::Interface>::IID
     }
 }
 pub trait IComSecurityEvents_Impl: Sized {
@@ -1997,7 +1997,7 @@ impl IComSecurityEvents_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IComSecurityEvents as ::windows_core::ComInterface>::IID
+        iid == &<IComSecurityEvents as ::windows_core::Interface>::IID
     }
 }
 pub trait IComStaThreadPoolKnobs_Impl: Sized {
@@ -2123,7 +2123,7 @@ impl IComStaThreadPoolKnobs_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IComStaThreadPoolKnobs as ::windows_core::ComInterface>::IID
+        iid == &<IComStaThreadPoolKnobs as ::windows_core::Interface>::IID
     }
 }
 pub trait IComStaThreadPoolKnobs2_Impl: Sized + IComStaThreadPoolKnobs_Impl {
@@ -2236,7 +2236,7 @@ impl IComStaThreadPoolKnobs2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IComStaThreadPoolKnobs2 as ::windows_core::ComInterface>::IID || iid == &<IComStaThreadPoolKnobs as ::windows_core::ComInterface>::IID
+        iid == &<IComStaThreadPoolKnobs2 as ::windows_core::Interface>::IID || iid == &<IComStaThreadPoolKnobs as ::windows_core::Interface>::IID
     }
 }
 pub trait IComThreadEvents_Impl: Sized {
@@ -2326,7 +2326,7 @@ impl IComThreadEvents_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IComThreadEvents as ::windows_core::ComInterface>::IID
+        iid == &<IComThreadEvents as ::windows_core::Interface>::IID
     }
 }
 pub trait IComTrackingInfoCollection_Impl: Sized {
@@ -2372,7 +2372,7 @@ impl IComTrackingInfoCollection_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IComTrackingInfoCollection as ::windows_core::ComInterface>::IID
+        iid == &<IComTrackingInfoCollection as ::windows_core::Interface>::IID
     }
 }
 pub trait IComTrackingInfoEvents_Impl: Sized {
@@ -2389,7 +2389,7 @@ impl IComTrackingInfoEvents_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnNewTrackingInfo: OnNewTrackingInfo::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IComTrackingInfoEvents as ::windows_core::ComInterface>::IID
+        iid == &<IComTrackingInfoEvents as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -2416,7 +2416,7 @@ impl IComTrackingInfoObject_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetValue: GetValue::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IComTrackingInfoObject as ::windows_core::ComInterface>::IID
+        iid == &<IComTrackingInfoObject as ::windows_core::Interface>::IID
     }
 }
 pub trait IComTrackingInfoProperties_Impl: Sized {
@@ -2455,7 +2455,7 @@ impl IComTrackingInfoProperties_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IComTrackingInfoProperties as ::windows_core::ComInterface>::IID
+        iid == &<IComTrackingInfoProperties as ::windows_core::Interface>::IID
     }
 }
 pub trait IComTransaction2Events_Impl: Sized {
@@ -2496,7 +2496,7 @@ impl IComTransaction2Events_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IComTransaction2Events as ::windows_core::ComInterface>::IID
+        iid == &<IComTransaction2Events as ::windows_core::Interface>::IID
     }
 }
 pub trait IComTransactionEvents_Impl: Sized {
@@ -2537,7 +2537,7 @@ impl IComTransactionEvents_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IComTransactionEvents as ::windows_core::ComInterface>::IID
+        iid == &<IComTransactionEvents as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -2558,7 +2558,7 @@ impl IComUserEvent_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnUserEvent: OnUserEvent::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IComUserEvent as ::windows_core::ComInterface>::IID
+        iid == &<IComUserEvent as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -2616,7 +2616,7 @@ impl IContextProperties_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IContextProperties as ::windows_core::ComInterface>::IID
+        iid == &<IContextProperties as ::windows_core::Interface>::IID
     }
 }
 pub trait IContextSecurityPerimeter_Impl: Sized {
@@ -2643,7 +2643,7 @@ impl IContextSecurityPerimeter_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IContextSecurityPerimeter as ::windows_core::ComInterface>::IID
+        iid == &<IContextSecurityPerimeter as ::windows_core::Interface>::IID
     }
 }
 pub trait IContextState_Impl: Sized {
@@ -2684,7 +2684,7 @@ impl IContextState_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IContextState as ::windows_core::ComInterface>::IID
+        iid == &<IContextState as ::windows_core::Interface>::IID
     }
 }
 pub trait ICreateWithLocalTransaction_Impl: Sized {
@@ -2701,7 +2701,7 @@ impl ICreateWithLocalTransaction_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateInstanceWithSysTx: CreateInstanceWithSysTx::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICreateWithLocalTransaction as ::windows_core::ComInterface>::IID
+        iid == &<ICreateWithLocalTransaction as ::windows_core::Interface>::IID
     }
 }
 pub trait ICreateWithTipTransactionEx_Impl: Sized {
@@ -2718,7 +2718,7 @@ impl ICreateWithTipTransactionEx_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateInstance: CreateInstance::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICreateWithTipTransactionEx as ::windows_core::ComInterface>::IID
+        iid == &<ICreateWithTipTransactionEx as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_DistributedTransactionCoordinator\"`"]
@@ -2739,7 +2739,7 @@ impl ICreateWithTransactionEx_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateInstance: CreateInstance::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICreateWithTransactionEx as ::windows_core::ComInterface>::IID
+        iid == &<ICreateWithTransactionEx as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -2850,7 +2850,7 @@ impl ICrmCompensator_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICrmCompensator as ::windows_core::ComInterface>::IID
+        iid == &<ICrmCompensator as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -2961,7 +2961,7 @@ impl ICrmCompensatorVariants_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICrmCompensatorVariants as ::windows_core::ComInterface>::IID
+        iid == &<ICrmCompensatorVariants as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -3030,7 +3030,7 @@ impl ICrmFormatLogRecords_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICrmFormatLogRecords as ::windows_core::ComInterface>::IID
+        iid == &<ICrmFormatLogRecords as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -3102,7 +3102,7 @@ impl ICrmLogControl_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICrmLogControl as ::windows_core::ComInterface>::IID
+        iid == &<ICrmLogControl as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -3145,7 +3145,7 @@ impl ICrmMonitor_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICrmMonitor as ::windows_core::ComInterface>::IID
+        iid == &<ICrmMonitor as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -3253,7 +3253,7 @@ impl ICrmMonitorClerks_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICrmMonitorClerks as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ICrmMonitorClerks as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -3329,7 +3329,7 @@ impl ICrmMonitorLogRecords_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICrmMonitorLogRecords as ::windows_core::ComInterface>::IID
+        iid == &<ICrmMonitorLogRecords as ::windows_core::Interface>::IID
     }
 }
 pub trait IDispenserDriver_Impl: Sized {
@@ -3384,7 +3384,7 @@ impl IDispenserDriver_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDispenserDriver as ::windows_core::ComInterface>::IID
+        iid == &<IDispenserDriver as ::windows_core::Interface>::IID
     }
 }
 pub trait IDispenserManager_Impl: Sized {
@@ -3417,7 +3417,7 @@ impl IDispenserManager_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDispenserManager as ::windows_core::ComInterface>::IID
+        iid == &<IDispenserManager as ::windows_core::Interface>::IID
     }
 }
 pub trait IEnumNames_Impl: Sized {
@@ -3464,7 +3464,7 @@ impl IEnumNames_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumNames as ::windows_core::ComInterface>::IID
+        iid == &<IEnumNames as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -3502,7 +3502,7 @@ impl IEventServerTrace_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEventServerTrace as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<IEventServerTrace as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 pub trait IGetAppTrackerData_Impl: Sized {
@@ -3576,7 +3576,7 @@ impl IGetAppTrackerData_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IGetAppTrackerData as ::windows_core::ComInterface>::IID
+        iid == &<IGetAppTrackerData as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -3620,7 +3620,7 @@ impl IGetContextProperties_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IGetContextProperties as ::windows_core::ComInterface>::IID
+        iid == &<IGetContextProperties as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -3647,7 +3647,7 @@ impl IGetSecurityCallContext_Vtbl {
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), GetSecurityCallContext: GetSecurityCallContext::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IGetSecurityCallContext as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<IGetSecurityCallContext as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 pub trait IHolder_Impl: Sized {
@@ -3716,7 +3716,7 @@ impl IHolder_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IHolder as ::windows_core::ComInterface>::IID
+        iid == &<IHolder as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -3754,7 +3754,7 @@ impl ILBEvents_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ILBEvents as ::windows_core::ComInterface>::IID
+        iid == &<ILBEvents as ::windows_core::Interface>::IID
     }
 }
 pub trait IMTSActivity_Impl: Sized {
@@ -3802,7 +3802,7 @@ impl IMTSActivity_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMTSActivity as ::windows_core::ComInterface>::IID
+        iid == &<IMTSActivity as ::windows_core::Interface>::IID
     }
 }
 pub trait IMTSCall_Impl: Sized {
@@ -3819,7 +3819,7 @@ impl IMTSCall_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnCall: OnCall::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMTSCall as ::windows_core::ComInterface>::IID
+        iid == &<IMTSCall as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -3846,7 +3846,7 @@ impl IMTSLocator_Vtbl {
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), GetEventDispatcher: GetEventDispatcher::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMTSLocator as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<IMTSLocator as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 pub trait IManagedActivationEvents_Impl: Sized {
@@ -3873,7 +3873,7 @@ impl IManagedActivationEvents_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IManagedActivationEvents as ::windows_core::ComInterface>::IID
+        iid == &<IManagedActivationEvents as ::windows_core::Interface>::IID
     }
 }
 pub trait IManagedObjectInfo_Impl: Sized {
@@ -3926,7 +3926,7 @@ impl IManagedObjectInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IManagedObjectInfo as ::windows_core::ComInterface>::IID
+        iid == &<IManagedObjectInfo as ::windows_core::Interface>::IID
     }
 }
 pub trait IManagedPoolAction_Impl: Sized {
@@ -3943,7 +3943,7 @@ impl IManagedPoolAction_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), LastRelease: LastRelease::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IManagedPoolAction as ::windows_core::ComInterface>::IID
+        iid == &<IManagedPoolAction as ::windows_core::Interface>::IID
     }
 }
 pub trait IManagedPooledObj_Impl: Sized {
@@ -3960,7 +3960,7 @@ impl IManagedPooledObj_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetHeld: SetHeld::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IManagedPooledObj as ::windows_core::ComInterface>::IID
+        iid == &<IManagedPooledObj as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -4050,7 +4050,7 @@ impl IMessageMover_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMessageMover as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<IMessageMover as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -4132,7 +4132,7 @@ impl IMtsEventInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMtsEventInfo as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<IMtsEventInfo as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -4208,7 +4208,7 @@ impl IMtsEvents_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMtsEvents as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<IMtsEvents as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -4258,7 +4258,7 @@ impl IMtsGrp_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMtsGrp as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<IMtsGrp as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 pub trait IObjPool_Impl: Sized {
@@ -4320,7 +4320,7 @@ impl IObjPool_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IObjPool as ::windows_core::ComInterface>::IID
+        iid == &<IObjPool as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -4341,7 +4341,7 @@ impl IObjectConstruct_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Construct: Construct::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IObjectConstruct as ::windows_core::ComInterface>::IID
+        iid == &<IObjectConstruct as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -4362,7 +4362,7 @@ impl IObjectConstructString_Vtbl {
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), ConstructString: ConstructString::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IObjectConstructString as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<IObjectConstructString as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 pub trait IObjectContext_Impl: Sized {
@@ -4431,7 +4431,7 @@ impl IObjectContext_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IObjectContext as ::windows_core::ComInterface>::IID
+        iid == &<IObjectContext as ::windows_core::Interface>::IID
     }
 }
 pub trait IObjectContextActivity_Impl: Sized {
@@ -4448,7 +4448,7 @@ impl IObjectContextActivity_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetActivityId: GetActivityId::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IObjectContextActivity as ::windows_core::ComInterface>::IID
+        iid == &<IObjectContextActivity as ::windows_core::Interface>::IID
     }
 }
 pub trait IObjectContextInfo_Impl: Sized {
@@ -4502,7 +4502,7 @@ impl IObjectContextInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IObjectContextInfo as ::windows_core::ComInterface>::IID
+        iid == &<IObjectContextInfo as ::windows_core::Interface>::IID
     }
 }
 pub trait IObjectContextInfo2_Impl: Sized + IObjectContextInfo_Impl {
@@ -4536,7 +4536,7 @@ impl IObjectContextInfo2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IObjectContextInfo2 as ::windows_core::ComInterface>::IID || iid == &<IObjectContextInfo as ::windows_core::ComInterface>::IID
+        iid == &<IObjectContextInfo2 as ::windows_core::Interface>::IID || iid == &<IObjectContextInfo as ::windows_core::Interface>::IID
     }
 }
 pub trait IObjectContextTip_Impl: Sized {
@@ -4553,7 +4553,7 @@ impl IObjectContextTip_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetTipUrl: GetTipUrl::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IObjectContextTip as ::windows_core::ComInterface>::IID
+        iid == &<IObjectContextTip as ::windows_core::Interface>::IID
     }
 }
 pub trait IObjectControl_Impl: Sized {
@@ -4587,7 +4587,7 @@ impl IObjectControl_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IObjectControl as ::windows_core::ComInterface>::IID
+        iid == &<IObjectControl as ::windows_core::Interface>::IID
     }
 }
 pub trait IPlaybackControl_Impl: Sized {
@@ -4614,7 +4614,7 @@ impl IPlaybackControl_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPlaybackControl as ::windows_core::ComInterface>::IID
+        iid == &<IPlaybackControl as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -4635,7 +4635,7 @@ impl IPoolManager_Vtbl {
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), ShutdownPool: ShutdownPool::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPoolManager as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<IPoolManager as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 pub trait IProcessInitializer_Impl: Sized {
@@ -4662,7 +4662,7 @@ impl IProcessInitializer_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IProcessInitializer as ::windows_core::ComInterface>::IID
+        iid == &<IProcessInitializer as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -4757,7 +4757,7 @@ impl ISecurityCallContext_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISecurityCallContext as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ISecurityCallContext as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -4813,7 +4813,7 @@ impl ISecurityCallersColl_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISecurityCallersColl as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ISecurityCallersColl as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -4869,7 +4869,7 @@ impl ISecurityIdentityColl_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISecurityIdentityColl as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ISecurityIdentityColl as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 pub trait ISecurityProperty_Impl: Sized {
@@ -4917,7 +4917,7 @@ impl ISecurityProperty_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISecurityProperty as ::windows_core::ComInterface>::IID
+        iid == &<ISecurityProperty as ::windows_core::Interface>::IID
     }
 }
 pub trait ISelectCOMLBServer_Impl: Sized {
@@ -4944,7 +4944,7 @@ impl ISelectCOMLBServer_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISelectCOMLBServer as ::windows_core::ComInterface>::IID
+        iid == &<ISelectCOMLBServer as ::windows_core::Interface>::IID
     }
 }
 pub trait ISendMethodEvents_Impl: Sized {
@@ -4971,7 +4971,7 @@ impl ISendMethodEvents_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISendMethodEvents as ::windows_core::ComInterface>::IID
+        iid == &<ISendMethodEvents as ::windows_core::Interface>::IID
     }
 }
 pub trait IServiceActivity_Impl: Sized {
@@ -5012,7 +5012,7 @@ impl IServiceActivity_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IServiceActivity as ::windows_core::ComInterface>::IID
+        iid == &<IServiceActivity as ::windows_core::Interface>::IID
     }
 }
 pub trait IServiceCall_Impl: Sized {
@@ -5029,7 +5029,7 @@ impl IServiceCall_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnCall: OnCall::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IServiceCall as ::windows_core::ComInterface>::IID
+        iid == &<IServiceCall as ::windows_core::Interface>::IID
     }
 }
 pub trait IServiceComTIIntrinsicsConfig_Impl: Sized {
@@ -5046,7 +5046,7 @@ impl IServiceComTIIntrinsicsConfig_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ComTIIntrinsicsConfig: ComTIIntrinsicsConfig::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IServiceComTIIntrinsicsConfig as ::windows_core::ComInterface>::IID
+        iid == &<IServiceComTIIntrinsicsConfig as ::windows_core::Interface>::IID
     }
 }
 pub trait IServiceIISIntrinsicsConfig_Impl: Sized {
@@ -5063,7 +5063,7 @@ impl IServiceIISIntrinsicsConfig_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), IISIntrinsicsConfig: IISIntrinsicsConfig::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IServiceIISIntrinsicsConfig as ::windows_core::ComInterface>::IID
+        iid == &<IServiceIISIntrinsicsConfig as ::windows_core::Interface>::IID
     }
 }
 pub trait IServiceInheritanceConfig_Impl: Sized {
@@ -5083,7 +5083,7 @@ impl IServiceInheritanceConfig_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IServiceInheritanceConfig as ::windows_core::ComInterface>::IID
+        iid == &<IServiceInheritanceConfig as ::windows_core::Interface>::IID
     }
 }
 pub trait IServicePartitionConfig_Impl: Sized {
@@ -5110,7 +5110,7 @@ impl IServicePartitionConfig_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IServicePartitionConfig as ::windows_core::ComInterface>::IID
+        iid == &<IServicePartitionConfig as ::windows_core::Interface>::IID
     }
 }
 pub trait IServicePool_Impl: Sized {
@@ -5144,7 +5144,7 @@ impl IServicePool_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IServicePool as ::windows_core::ComInterface>::IID
+        iid == &<IServicePool as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -5237,7 +5237,7 @@ impl IServicePoolConfig_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IServicePoolConfig as ::windows_core::ComInterface>::IID
+        iid == &<IServicePoolConfig as ::windows_core::Interface>::IID
     }
 }
 pub trait IServiceSxsConfig_Impl: Sized {
@@ -5271,7 +5271,7 @@ impl IServiceSxsConfig_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IServiceSxsConfig as ::windows_core::ComInterface>::IID
+        iid == &<IServiceSxsConfig as ::windows_core::Interface>::IID
     }
 }
 pub trait IServiceSynchronizationConfig_Impl: Sized {
@@ -5288,7 +5288,7 @@ impl IServiceSynchronizationConfig_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ConfigureSynchronization: ConfigureSynchronization::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IServiceSynchronizationConfig as ::windows_core::ComInterface>::IID
+        iid == &<IServiceSynchronizationConfig as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_DistributedTransactionCoordinator\"`"]
@@ -5309,7 +5309,7 @@ impl IServiceSysTxnConfig_Vtbl {
         Self { base__: IServiceTransactionConfig_Vtbl::new::<Identity, Impl, OFFSET>(), ConfigureBYOTSysTxn: ConfigureBYOTSysTxn::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IServiceSysTxnConfig as ::windows_core::ComInterface>::IID || iid == &<IServiceTransactionConfigBase as ::windows_core::ComInterface>::IID || iid == &<IServiceTransactionConfig as ::windows_core::ComInterface>::IID
+        iid == &<IServiceSysTxnConfig as ::windows_core::Interface>::IID || iid == &<IServiceTransactionConfigBase as ::windows_core::Interface>::IID || iid == &<IServiceTransactionConfig as ::windows_core::Interface>::IID
     }
 }
 pub trait IServiceThreadPoolConfig_Impl: Sized {
@@ -5336,7 +5336,7 @@ impl IServiceThreadPoolConfig_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IServiceThreadPoolConfig as ::windows_core::ComInterface>::IID
+        iid == &<IServiceThreadPoolConfig as ::windows_core::Interface>::IID
     }
 }
 pub trait IServiceTrackerConfig_Impl: Sized {
@@ -5353,7 +5353,7 @@ impl IServiceTrackerConfig_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), TrackerConfig: TrackerConfig::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IServiceTrackerConfig as ::windows_core::ComInterface>::IID
+        iid == &<IServiceTrackerConfig as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_DistributedTransactionCoordinator\"`"]
@@ -5374,7 +5374,7 @@ impl IServiceTransactionConfig_Vtbl {
         Self { base__: IServiceTransactionConfigBase_Vtbl::new::<Identity, Impl, OFFSET>(), ConfigureBYOT: ConfigureBYOT::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IServiceTransactionConfig as ::windows_core::ComInterface>::IID || iid == &<IServiceTransactionConfigBase as ::windows_core::ComInterface>::IID
+        iid == &<IServiceTransactionConfig as ::windows_core::Interface>::IID || iid == &<IServiceTransactionConfigBase as ::windows_core::Interface>::IID
     }
 }
 pub trait IServiceTransactionConfigBase_Impl: Sized {
@@ -5422,7 +5422,7 @@ impl IServiceTransactionConfigBase_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IServiceTransactionConfigBase as ::windows_core::ComInterface>::IID
+        iid == &<IServiceTransactionConfigBase as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -5459,7 +5459,7 @@ impl ISharedProperty_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISharedProperty as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ISharedProperty as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -5516,7 +5516,7 @@ impl ISharedPropertyGroup_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISharedPropertyGroup as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ISharedPropertyGroup as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -5566,7 +5566,7 @@ impl ISharedPropertyGroupManager_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISharedPropertyGroupManager as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ISharedPropertyGroupManager as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 pub trait ISystemAppEventData_Impl: Sized {
@@ -5593,7 +5593,7 @@ impl ISystemAppEventData_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISystemAppEventData as ::windows_core::ComInterface>::IID
+        iid == &<ISystemAppEventData as ::windows_core::Interface>::IID
     }
 }
 pub trait IThreadPoolKnobs_Impl: Sized {
@@ -5676,7 +5676,7 @@ impl IThreadPoolKnobs_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IThreadPoolKnobs as ::windows_core::ComInterface>::IID
+        iid == &<IThreadPoolKnobs as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -5720,7 +5720,7 @@ impl ITransactionContext_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITransactionContext as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITransactionContext as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 pub trait ITransactionContextEx_Impl: Sized {
@@ -5754,7 +5754,7 @@ impl ITransactionContextEx_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITransactionContextEx as ::windows_core::ComInterface>::IID
+        iid == &<ITransactionContextEx as ::windows_core::Interface>::IID
     }
 }
 pub trait ITransactionProperty_Impl: Sized {
@@ -5899,7 +5899,7 @@ impl ITransactionProperty_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITransactionProperty as ::windows_core::ComInterface>::IID
+        iid == &<ITransactionProperty as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_DistributedTransactionCoordinator\"`"]
@@ -5977,7 +5977,7 @@ impl ITransactionProxy_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITransactionProxy as ::windows_core::ComInterface>::IID
+        iid == &<ITransactionProxy as ::windows_core::Interface>::IID
     }
 }
 pub trait ITransactionResourcePool_Impl: Sized {
@@ -6010,7 +6010,7 @@ impl ITransactionResourcePool_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITransactionResourcePool as ::windows_core::ComInterface>::IID
+        iid == &<ITransactionResourcePool as ::windows_core::Interface>::IID
     }
 }
 pub trait ITransactionStatus_Impl: Sized {
@@ -6037,7 +6037,7 @@ impl ITransactionStatus_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITransactionStatus as ::windows_core::ComInterface>::IID
+        iid == &<ITransactionStatus as ::windows_core::Interface>::IID
     }
 }
 pub trait ITxProxyHolder_Impl: Sized {
@@ -6054,7 +6054,7 @@ impl ITxProxyHolder_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetIdentifier: GetIdentifier::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITxProxyHolder as ::windows_core::ComInterface>::IID
+        iid == &<ITxProxyHolder as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -6216,7 +6216,7 @@ impl ObjectContext_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ObjectContext as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ObjectContext as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 pub trait ObjectControl_Impl: Sized {
@@ -6250,7 +6250,7 @@ impl ObjectControl_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ObjectControl as ::windows_core::ComInterface>::IID
+        iid == &<ObjectControl as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -6319,6 +6319,6 @@ impl SecurityProperty_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<SecurityProperty as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<SecurityProperty as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }

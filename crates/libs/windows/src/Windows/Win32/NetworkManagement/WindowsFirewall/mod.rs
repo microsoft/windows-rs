@@ -99,11 +99,15 @@ where
     ::windows_targets::link!("api-ms-win-net-isolation-l1-1-0.dll" "system" fn NetworkIsolationUnregisterForAppContainerChanges(registrationobject : super::super::Foundation:: HANDLE) -> u32);
     NetworkIsolationUnregisterForAppContainerChanges(registrationobject.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDynamicPortMapping(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IDynamicPortMapping,
+    IDynamicPortMapping_Vtbl,
+    0x4fc80282_23b6_4378_9a27_cd8f17c9400c
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IDynamicPortMapping, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IDynamicPortMapping {
     pub unsafe fn ExternalIPAddress(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -169,16 +173,6 @@ impl IDynamicPortMapping {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IDynamicPortMapping, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IDynamicPortMapping {
-    type Vtable = IDynamicPortMapping_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IDynamicPortMapping {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4fc80282_23b6_4378_9a27_cd8f17c9400c);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDynamicPortMapping_Vtbl {
@@ -198,11 +192,15 @@ pub struct IDynamicPortMapping_Vtbl {
     pub EditDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdescription: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub EditInternalPort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, linternalport: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDynamicPortMappingCollection(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IDynamicPortMappingCollection,
+    IDynamicPortMappingCollection_Vtbl,
+    0xb60de00f_156e_4e8d_9ec1_3a2342c10899
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IDynamicPortMappingCollection, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IDynamicPortMappingCollection {
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
@@ -245,16 +243,6 @@ impl IDynamicPortMappingCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IDynamicPortMappingCollection, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IDynamicPortMappingCollection {
-    type Vtable = IDynamicPortMappingCollection_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IDynamicPortMappingCollection {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb60de00f_156e_4e8d_9ec1_3a2342c10899);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDynamicPortMappingCollection_Vtbl {
@@ -271,9 +259,8 @@ pub struct IDynamicPortMappingCollection_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Add: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IEnumNetConnection(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IEnumNetConnection, IEnumNetConnection_Vtbl, 0xc08956a0_1cd3_11d1_b1c5_00805fc1270e);
+::windows_core::imp::interface_hierarchy!(IEnumNetConnection, ::windows_core::IUnknown);
 impl IEnumNetConnection {
     pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<INetConnection>], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
@@ -289,13 +276,6 @@ impl IEnumNetConnection {
         (::windows_core::Interface::vtable(self).Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IEnumNetConnection, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IEnumNetConnection {
-    type Vtable = IEnumNetConnection_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IEnumNetConnection {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc08956a0_1cd3_11d1_b1c5_00805fc1270e);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumNetConnection_Vtbl {
@@ -305,9 +285,8 @@ pub struct IEnumNetConnection_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IEnumNetSharingEveryConnection(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IEnumNetSharingEveryConnection, IEnumNetSharingEveryConnection_Vtbl, 0xc08956b8_1cd3_11d1_b1c5_00805fc1270e);
+::windows_core::imp::interface_hierarchy!(IEnumNetSharingEveryConnection, ::windows_core::IUnknown);
 impl IEnumNetSharingEveryConnection {
     #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -325,13 +304,6 @@ impl IEnumNetSharingEveryConnection {
         (::windows_core::Interface::vtable(self).Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IEnumNetSharingEveryConnection, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IEnumNetSharingEveryConnection {
-    type Vtable = IEnumNetSharingEveryConnection_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IEnumNetSharingEveryConnection {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc08956b8_1cd3_11d1_b1c5_00805fc1270e);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumNetSharingEveryConnection_Vtbl {
@@ -344,9 +316,8 @@ pub struct IEnumNetSharingEveryConnection_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IEnumNetSharingPortMapping(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IEnumNetSharingPortMapping, IEnumNetSharingPortMapping_Vtbl, 0xc08956b0_1cd3_11d1_b1c5_00805fc1270e);
+::windows_core::imp::interface_hierarchy!(IEnumNetSharingPortMapping, ::windows_core::IUnknown);
 impl IEnumNetSharingPortMapping {
     #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -364,13 +335,6 @@ impl IEnumNetSharingPortMapping {
         (::windows_core::Interface::vtable(self).Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IEnumNetSharingPortMapping, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IEnumNetSharingPortMapping {
-    type Vtable = IEnumNetSharingPortMapping_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IEnumNetSharingPortMapping {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc08956b0_1cd3_11d1_b1c5_00805fc1270e);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumNetSharingPortMapping_Vtbl {
@@ -383,9 +347,8 @@ pub struct IEnumNetSharingPortMapping_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IEnumNetSharingPrivateConnection(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IEnumNetSharingPrivateConnection, IEnumNetSharingPrivateConnection_Vtbl, 0xc08956b5_1cd3_11d1_b1c5_00805fc1270e);
+::windows_core::imp::interface_hierarchy!(IEnumNetSharingPrivateConnection, ::windows_core::IUnknown);
 impl IEnumNetSharingPrivateConnection {
     #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -403,13 +366,6 @@ impl IEnumNetSharingPrivateConnection {
         (::windows_core::Interface::vtable(self).Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IEnumNetSharingPrivateConnection, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IEnumNetSharingPrivateConnection {
-    type Vtable = IEnumNetSharingPrivateConnection_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IEnumNetSharingPrivateConnection {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc08956b5_1cd3_11d1_b1c5_00805fc1270e);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumNetSharingPrivateConnection_Vtbl {
@@ -422,9 +378,8 @@ pub struct IEnumNetSharingPrivateConnection_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IEnumNetSharingPublicConnection(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IEnumNetSharingPublicConnection, IEnumNetSharingPublicConnection_Vtbl, 0xc08956b4_1cd3_11d1_b1c5_00805fc1270e);
+::windows_core::imp::interface_hierarchy!(IEnumNetSharingPublicConnection, ::windows_core::IUnknown);
 impl IEnumNetSharingPublicConnection {
     #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -442,13 +397,6 @@ impl IEnumNetSharingPublicConnection {
         (::windows_core::Interface::vtable(self).Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IEnumNetSharingPublicConnection, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IEnumNetSharingPublicConnection {
-    type Vtable = IEnumNetSharingPublicConnection_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IEnumNetSharingPublicConnection {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc08956b4_1cd3_11d1_b1c5_00805fc1270e);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumNetSharingPublicConnection_Vtbl {
@@ -461,11 +409,15 @@ pub struct IEnumNetSharingPublicConnection_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct INATEventManager(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    INATEventManager,
+    INATEventManager_Vtbl,
+    0x624bd588_9060_4109_b0b0_1adbbcac32df
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(INATEventManager, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl INATEventManager {
     pub unsafe fn SetExternalIPAddressCallback<P0>(&self, punk: P0) -> ::windows_core::Result<()>
@@ -482,16 +434,6 @@ impl INATEventManager {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(INATEventManager, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for INATEventManager {
-    type Vtable = INATEventManager_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for INATEventManager {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x624bd588_9060_4109_b0b0_1adbbcac32df);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INATEventManager_Vtbl {
@@ -499,9 +441,8 @@ pub struct INATEventManager_Vtbl {
     pub SetExternalIPAddressCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punk: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub SetNumberOfEntriesCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punk: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct INATExternalIPAddressCallback(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(INATExternalIPAddressCallback, INATExternalIPAddressCallback_Vtbl, 0x9c416740_a34e_446f_ba06_abd04c3149ae);
+::windows_core::imp::interface_hierarchy!(INATExternalIPAddressCallback, ::windows_core::IUnknown);
 impl INATExternalIPAddressCallback {
     pub unsafe fn NewExternalIPAddress<P0>(&self, bstrnewexternalipaddress: P0) -> ::windows_core::Result<()>
     where
@@ -510,33 +451,18 @@ impl INATExternalIPAddressCallback {
         (::windows_core::Interface::vtable(self).NewExternalIPAddress)(::windows_core::Interface::as_raw(self), bstrnewexternalipaddress.into_param().abi()).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(INATExternalIPAddressCallback, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for INATExternalIPAddressCallback {
-    type Vtable = INATExternalIPAddressCallback_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for INATExternalIPAddressCallback {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9c416740_a34e_446f_ba06_abd04c3149ae);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INATExternalIPAddressCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub NewExternalIPAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrnewexternalipaddress: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct INATNumberOfEntriesCallback(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(INATNumberOfEntriesCallback, INATNumberOfEntriesCallback_Vtbl, 0xc83a0a74_91ee_41b6_b67a_67e0f00bbd78);
+::windows_core::imp::interface_hierarchy!(INATNumberOfEntriesCallback, ::windows_core::IUnknown);
 impl INATNumberOfEntriesCallback {
     pub unsafe fn NewNumberOfEntries(&self, lnewnumberofentries: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).NewNumberOfEntries)(::windows_core::Interface::as_raw(self), lnewnumberofentries).ok()
     }
-}
-::windows_core::imp::interface_hierarchy!(INATNumberOfEntriesCallback, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for INATNumberOfEntriesCallback {
-    type Vtable = INATNumberOfEntriesCallback_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for INATNumberOfEntriesCallback {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc83a0a74_91ee_41b6_b67a_67e0f00bbd78);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -544,9 +470,8 @@ pub struct INATNumberOfEntriesCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub NewNumberOfEntries: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lnewnumberofentries: i32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct INetConnection(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(INetConnection, INetConnection_Vtbl, 0xc08956a1_1cd3_11d1_b1c5_00805fc1270e);
+::windows_core::imp::interface_hierarchy!(INetConnection, ::windows_core::IUnknown);
 impl INetConnection {
     pub unsafe fn Connect(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Connect)(::windows_core::Interface::as_raw(self)).ok()
@@ -579,13 +504,6 @@ impl INetConnection {
         (::windows_core::Interface::vtable(self).Rename)(::windows_core::Interface::as_raw(self), pszwnewname.into_param().abi()).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(INetConnection, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for INetConnection {
-    type Vtable = INetConnection_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for INetConnection {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc08956a1_1cd3_11d1_b1c5_00805fc1270e);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetConnection_Vtbl {
@@ -598,9 +516,8 @@ pub struct INetConnection_Vtbl {
     pub GetUiObjectClassId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclsid: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
     pub Rename: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszwnewname: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct INetConnectionConnectUi(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(INetConnectionConnectUi, INetConnectionConnectUi_Vtbl, 0xc08956a3_1cd3_11d1_b1c5_00805fc1270e);
+::windows_core::imp::interface_hierarchy!(INetConnectionConnectUi, ::windows_core::IUnknown);
 impl INetConnectionConnectUi {
     pub unsafe fn SetConnection<P0>(&self, pcon: P0) -> ::windows_core::Result<()>
     where
@@ -621,13 +538,6 @@ impl INetConnectionConnectUi {
         (::windows_core::Interface::vtable(self).Disconnect)(::windows_core::Interface::as_raw(self), hwndparent.into_param().abi(), dwflags).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(INetConnectionConnectUi, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for INetConnectionConnectUi {
-    type Vtable = INetConnectionConnectUi_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for INetConnectionConnectUi {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc08956a3_1cd3_11d1_b1c5_00805fc1270e);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetConnectionConnectUi_Vtbl {
@@ -636,21 +546,13 @@ pub struct INetConnectionConnectUi_Vtbl {
     pub Connect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, dwflags: u32) -> ::windows_core::HRESULT,
     pub Disconnect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, dwflags: u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct INetConnectionManager(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(INetConnectionManager, INetConnectionManager_Vtbl, 0xc08956a2_1cd3_11d1_b1c5_00805fc1270e);
+::windows_core::imp::interface_hierarchy!(INetConnectionManager, ::windows_core::IUnknown);
 impl INetConnectionManager {
     pub unsafe fn EnumConnections(&self, flags: NETCONMGR_ENUM_FLAGS) -> ::windows_core::Result<IEnumNetConnection> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumConnections)(::windows_core::Interface::as_raw(self), flags, &mut result__).from_abi(result__)
     }
-}
-::windows_core::imp::interface_hierarchy!(INetConnectionManager, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for INetConnectionManager {
-    type Vtable = INetConnectionManager_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for INetConnectionManager {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc08956a2_1cd3_11d1_b1c5_00805fc1270e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -658,11 +560,15 @@ pub struct INetConnectionManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub EnumConnections: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: NETCONMGR_ENUM_FLAGS, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct INetConnectionProps(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    INetConnectionProps,
+    INetConnectionProps_Vtbl,
+    0xf4277c95_ce5b_463d_8167_5662d9bcaa72
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(INetConnectionProps, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl INetConnectionProps {
     pub unsafe fn Guid(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -691,16 +597,6 @@ impl INetConnectionProps {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(INetConnectionProps, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for INetConnectionProps {
-    type Vtable = INetConnectionProps_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for INetConnectionProps {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf4277c95_ce5b_463d_8167_5662d9bcaa72);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetConnectionProps_Vtbl {
@@ -712,11 +608,15 @@ pub struct INetConnectionProps_Vtbl {
     pub MediaType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmediatype: *mut NETCON_MEDIATYPE) -> ::windows_core::HRESULT,
     pub Characteristics: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwflags: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct INetFwAuthorizedApplication(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    INetFwAuthorizedApplication,
+    INetFwAuthorizedApplication_Vtbl,
+    0xb5e64ffa_c2c5_444e_a301_fb5e00018050
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(INetFwAuthorizedApplication, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl INetFwAuthorizedApplication {
     pub unsafe fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -775,16 +675,6 @@ impl INetFwAuthorizedApplication {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(INetFwAuthorizedApplication, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for INetFwAuthorizedApplication {
-    type Vtable = INetFwAuthorizedApplication_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for INetFwAuthorizedApplication {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb5e64ffa_c2c5_444e_a301_fb5e00018050);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetFwAuthorizedApplication_Vtbl {
@@ -802,11 +692,15 @@ pub struct INetFwAuthorizedApplication_Vtbl {
     pub Enabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
     pub SetEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enabled: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct INetFwAuthorizedApplications(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    INetFwAuthorizedApplications,
+    INetFwAuthorizedApplications_Vtbl,
+    0x644efd52_ccf9_486c_97a2_39f352570b30
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(INetFwAuthorizedApplications, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl INetFwAuthorizedApplications {
     pub unsafe fn Count(&self) -> ::windows_core::Result<i32> {
@@ -842,16 +736,6 @@ impl INetFwAuthorizedApplications {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(INetFwAuthorizedApplications, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for INetFwAuthorizedApplications {
-    type Vtable = INetFwAuthorizedApplications_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for INetFwAuthorizedApplications {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x644efd52_ccf9_486c_97a2_39f352570b30);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetFwAuthorizedApplications_Vtbl {
@@ -868,11 +752,15 @@ pub struct INetFwAuthorizedApplications_Vtbl {
     Item: usize,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct INetFwIcmpSettings(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    INetFwIcmpSettings,
+    INetFwIcmpSettings_Vtbl,
+    0xa6207b2e_7cdd_426a_951e_5e1cbc5afead
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(INetFwIcmpSettings, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl INetFwIcmpSettings {
     pub unsafe fn AllowOutboundDestinationUnreachable(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
@@ -977,16 +865,6 @@ impl INetFwIcmpSettings {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(INetFwIcmpSettings, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for INetFwIcmpSettings {
-    type Vtable = INetFwIcmpSettings_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for INetFwIcmpSettings {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa6207b2e_7cdd_426a_951e_5e1cbc5afead);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetFwIcmpSettings_Vtbl {
@@ -1012,11 +890,15 @@ pub struct INetFwIcmpSettings_Vtbl {
     pub AllowOutboundPacketTooBig: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, allow: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
     pub SetAllowOutboundPacketTooBig: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, allow: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct INetFwMgr(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    INetFwMgr,
+    INetFwMgr_Vtbl,
+    0xf7898af5_cac4_4632_a2ec_da06e5111af2
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(INetFwMgr, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl INetFwMgr {
     #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1051,16 +933,6 @@ impl INetFwMgr {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(INetFwMgr, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for INetFwMgr {
-    type Vtable = INetFwMgr_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for INetFwMgr {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf7898af5_cac4_4632_a2ec_da06e5111af2);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetFwMgr_Vtbl {
@@ -1080,11 +952,15 @@ pub struct INetFwMgr_Vtbl {
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     IsIcmpTypeAllowed: usize,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct INetFwOpenPort(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    INetFwOpenPort,
+    INetFwOpenPort_Vtbl,
+    0xe0483ba0_47ff_4d9c_a6d6_7741d0b195f7
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(INetFwOpenPort, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl INetFwOpenPort {
     pub unsafe fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -1151,16 +1027,6 @@ impl INetFwOpenPort {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(INetFwOpenPort, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for INetFwOpenPort {
-    type Vtable = INetFwOpenPort_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for INetFwOpenPort {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe0483ba0_47ff_4d9c_a6d6_7741d0b195f7);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetFwOpenPort_Vtbl {
@@ -1181,11 +1047,15 @@ pub struct INetFwOpenPort_Vtbl {
     pub SetEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enabled: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
     pub BuiltIn: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, builtin: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct INetFwOpenPorts(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    INetFwOpenPorts,
+    INetFwOpenPorts_Vtbl,
+    0xc0e9d7fa_e07e_430a_b19a_090ce82d92e2
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(INetFwOpenPorts, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl INetFwOpenPorts {
     pub unsafe fn Count(&self) -> ::windows_core::Result<i32> {
@@ -1215,16 +1085,6 @@ impl INetFwOpenPorts {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(INetFwOpenPorts, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for INetFwOpenPorts {
-    type Vtable = INetFwOpenPorts_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for INetFwOpenPorts {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc0e9d7fa_e07e_430a_b19a_090ce82d92e2);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetFwOpenPorts_Vtbl {
@@ -1241,11 +1101,15 @@ pub struct INetFwOpenPorts_Vtbl {
     Item: usize,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct INetFwPolicy(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    INetFwPolicy,
+    INetFwPolicy_Vtbl,
+    0xd46d2478_9ac9_4008_9dc7_5563ce5536cc
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(INetFwPolicy, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl INetFwPolicy {
     #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1262,16 +1126,6 @@ impl INetFwPolicy {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(INetFwPolicy, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for INetFwPolicy {
-    type Vtable = INetFwPolicy_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for INetFwPolicy {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd46d2478_9ac9_4008_9dc7_5563ce5536cc);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetFwPolicy_Vtbl {
@@ -1285,11 +1139,15 @@ pub struct INetFwPolicy_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetProfileByType: usize,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct INetFwPolicy2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    INetFwPolicy2,
+    INetFwPolicy2_Vtbl,
+    0x98325047_c671_4174_8d81_defcd3f03186
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(INetFwPolicy2, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl INetFwPolicy2 {
     pub unsafe fn CurrentProfileTypes(&self) -> ::windows_core::Result<i32> {
@@ -1403,16 +1261,6 @@ impl INetFwPolicy2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(INetFwPolicy2, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for INetFwPolicy2 {
-    type Vtable = INetFwPolicy2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for INetFwPolicy2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x98325047_c671_4174_8d81_defcd3f03186);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetFwPolicy2_Vtbl {
@@ -1452,11 +1300,15 @@ pub struct INetFwPolicy2_Vtbl {
     pub get_IsRuleGroupCurrentlyEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, group: ::std::mem::MaybeUninit<::windows_core::BSTR>, enabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
     pub LocalPolicyModifyState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, modifystate: *mut NET_FW_MODIFY_STATE) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct INetFwProduct(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    INetFwProduct,
+    INetFwProduct_Vtbl,
+    0x71881699_18f4_458b_b892_3ffce5e07f75
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(INetFwProduct, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl INetFwProduct {
     #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -1486,16 +1338,6 @@ impl INetFwProduct {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(INetFwProduct, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for INetFwProduct {
-    type Vtable = INetFwProduct_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for INetFwProduct {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x71881699_18f4_458b_b892_3ffce5e07f75);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetFwProduct_Vtbl {
@@ -1512,11 +1354,15 @@ pub struct INetFwProduct_Vtbl {
     pub SetDisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, displayname: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub PathToSignedProductExe: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, path: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct INetFwProducts(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    INetFwProducts,
+    INetFwProducts_Vtbl,
+    0x39eb36e0_2097_40bd_8af2_63a13b525362
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(INetFwProducts, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl INetFwProducts {
     pub unsafe fn Count(&self) -> ::windows_core::Result<i32> {
@@ -1544,16 +1390,6 @@ impl INetFwProducts {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(INetFwProducts, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for INetFwProducts {
-    type Vtable = INetFwProducts_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for INetFwProducts {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x39eb36e0_2097_40bd_8af2_63a13b525362);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetFwProducts_Vtbl {
@@ -1569,11 +1405,15 @@ pub struct INetFwProducts_Vtbl {
     Item: usize,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct INetFwProfile(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    INetFwProfile,
+    INetFwProfile_Vtbl,
+    0x174a0dda_e9f9_449d_993b_21ab667ca456
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(INetFwProfile, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl INetFwProfile {
     pub unsafe fn Type(&self) -> ::windows_core::Result<NET_FW_PROFILE_TYPE> {
@@ -1652,16 +1492,6 @@ impl INetFwProfile {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(INetFwProfile, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for INetFwProfile {
-    type Vtable = INetFwProfile_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for INetFwProfile {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x174a0dda_e9f9_449d_993b_21ab667ca456);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetFwProfile_Vtbl {
@@ -1696,11 +1526,15 @@ pub struct INetFwProfile_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     AuthorizedApplications: usize,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct INetFwRemoteAdminSettings(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    INetFwRemoteAdminSettings,
+    INetFwRemoteAdminSettings_Vtbl,
+    0xd4becddf_6f73_4a83_b832_9c66874cd20e
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(INetFwRemoteAdminSettings, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl INetFwRemoteAdminSettings {
     pub unsafe fn IpVersion(&self) -> ::windows_core::Result<NET_FW_IP_VERSION> {
@@ -1739,16 +1573,6 @@ impl INetFwRemoteAdminSettings {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(INetFwRemoteAdminSettings, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for INetFwRemoteAdminSettings {
-    type Vtable = INetFwRemoteAdminSettings_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for INetFwRemoteAdminSettings {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd4becddf_6f73_4a83_b832_9c66874cd20e);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetFwRemoteAdminSettings_Vtbl {
@@ -1762,11 +1586,15 @@ pub struct INetFwRemoteAdminSettings_Vtbl {
     pub Enabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
     pub SetEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enabled: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct INetFwRule(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    INetFwRule,
+    INetFwRule_Vtbl,
+    0xaf230d27_baba_4e42_aced_f524f22cfce2
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(INetFwRule, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl INetFwRule {
     pub unsafe fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -1940,16 +1768,6 @@ impl INetFwRule {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(INetFwRule, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for INetFwRule {
-    type Vtable = INetFwRule_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for INetFwRule {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaf230d27_baba_4e42_aced_f524f22cfce2);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetFwRule_Vtbl {
@@ -1997,11 +1815,15 @@ pub struct INetFwRule_Vtbl {
     pub Action: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, action: *mut NET_FW_ACTION) -> ::windows_core::HRESULT,
     pub SetAction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, action: NET_FW_ACTION) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct INetFwRule2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    INetFwRule2,
+    INetFwRule2_Vtbl,
+    0x9c27c8da_189b_4dde_89f7_8b39a316782c
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(INetFwRule2, ::windows_core::IUnknown, super::super::System::Com::IDispatch, INetFwRule);
 #[cfg(feature = "Win32_System_Com")]
 impl INetFwRule2 {
     pub unsafe fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -2182,16 +2004,6 @@ impl INetFwRule2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(INetFwRule2, ::windows_core::IUnknown, super::super::System::Com::IDispatch, INetFwRule);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for INetFwRule2 {
-    type Vtable = INetFwRule2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for INetFwRule2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9c27c8da_189b_4dde_89f7_8b39a316782c);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetFwRule2_Vtbl {
@@ -2199,11 +2011,15 @@ pub struct INetFwRule2_Vtbl {
     pub EdgeTraversalOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, loptions: *mut i32) -> ::windows_core::HRESULT,
     pub SetEdgeTraversalOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, loptions: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct INetFwRule3(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    INetFwRule3,
+    INetFwRule3_Vtbl,
+    0xb21563ff_d696_4222_ab46_4e89b73ab34a
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(INetFwRule3, ::windows_core::IUnknown, super::super::System::Com::IDispatch, INetFwRule, INetFwRule2);
 #[cfg(feature = "Win32_System_Com")]
 impl INetFwRule3 {
     pub unsafe fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -2441,16 +2257,6 @@ impl INetFwRule3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(INetFwRule3, ::windows_core::IUnknown, super::super::System::Com::IDispatch, INetFwRule, INetFwRule2);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for INetFwRule3 {
-    type Vtable = INetFwRule3_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for INetFwRule3 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb21563ff_d696_4222_ab46_4e89b73ab34a);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetFwRule3_Vtbl {
@@ -2468,11 +2274,15 @@ pub struct INetFwRule3_Vtbl {
     pub SecureFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, loptions: *mut i32) -> ::windows_core::HRESULT,
     pub SetSecureFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, loptions: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct INetFwRules(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    INetFwRules,
+    INetFwRules_Vtbl,
+    0x9c4c6277_5027_441e_afae_ca1f542da009
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(INetFwRules, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl INetFwRules {
     pub unsafe fn Count(&self) -> ::windows_core::Result<i32> {
@@ -2508,16 +2318,6 @@ impl INetFwRules {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(INetFwRules, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for INetFwRules {
-    type Vtable = INetFwRules_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for INetFwRules {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9c4c6277_5027_441e_afae_ca1f542da009);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetFwRules_Vtbl {
@@ -2534,11 +2334,15 @@ pub struct INetFwRules_Vtbl {
     Item: usize,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct INetFwService(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    INetFwService,
+    INetFwService_Vtbl,
+    0x79fd57c8_908e_4a36_9888_d5b3f0a444cf
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(INetFwService, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl INetFwService {
     pub unsafe fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -2595,16 +2399,6 @@ impl INetFwService {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(INetFwService, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for INetFwService {
-    type Vtable = INetFwService_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for INetFwService {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x79fd57c8_908e_4a36_9888_d5b3f0a444cf);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetFwService_Vtbl {
@@ -2625,11 +2419,15 @@ pub struct INetFwService_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GloballyOpenPorts: usize,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct INetFwServiceRestriction(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    INetFwServiceRestriction,
+    INetFwServiceRestriction_Vtbl,
+    0x8267bbe3_f890_491c_b7b6_2db1ef0e5d2b
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(INetFwServiceRestriction, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl INetFwServiceRestriction {
     pub unsafe fn RestrictService<P0, P1, P2, P3>(&self, servicename: P0, appname: P1, restrictservice: P2, servicesidrestricted: P3) -> ::windows_core::Result<()>
@@ -2657,16 +2455,6 @@ impl INetFwServiceRestriction {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(INetFwServiceRestriction, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for INetFwServiceRestriction {
-    type Vtable = INetFwServiceRestriction_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for INetFwServiceRestriction {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8267bbe3_f890_491c_b7b6_2db1ef0e5d2b);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetFwServiceRestriction_Vtbl {
@@ -2678,11 +2466,15 @@ pub struct INetFwServiceRestriction_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Rules: usize,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct INetFwServices(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    INetFwServices,
+    INetFwServices_Vtbl,
+    0x79649bb4_903e_421b_94c9_79848e79f6ee
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(INetFwServices, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl INetFwServices {
     pub unsafe fn Count(&self) -> ::windows_core::Result<i32> {
@@ -2701,16 +2493,6 @@ impl INetFwServices {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(INetFwServices, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for INetFwServices {
-    type Vtable = INetFwServices_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for INetFwServices {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x79649bb4_903e_421b_94c9_79848e79f6ee);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetFwServices_Vtbl {
@@ -2722,11 +2504,15 @@ pub struct INetFwServices_Vtbl {
     Item: usize,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct INetSharingConfiguration(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    INetSharingConfiguration,
+    INetSharingConfiguration_Vtbl,
+    0xc08956b6_1cd3_11d1_b1c5_00805fc1270e
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(INetSharingConfiguration, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl INetSharingConfiguration {
     pub unsafe fn SharingEnabled(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
@@ -2779,16 +2565,6 @@ impl INetSharingConfiguration {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(INetSharingConfiguration, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for INetSharingConfiguration {
-    type Vtable = INetSharingConfiguration_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for INetSharingConfiguration {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc08956b6_1cd3_11d1_b1c5_00805fc1270e);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetSharingConfiguration_Vtbl {
@@ -2813,11 +2589,15 @@ pub struct INetSharingConfiguration_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     RemovePortMapping: usize,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct INetSharingEveryConnectionCollection(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    INetSharingEveryConnectionCollection,
+    INetSharingEveryConnectionCollection_Vtbl,
+    0x33c4643c_7811_46fa_a89a_768597bd7223
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(INetSharingEveryConnectionCollection, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl INetSharingEveryConnectionCollection {
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
@@ -2830,16 +2610,6 @@ impl INetSharingEveryConnectionCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(INetSharingEveryConnectionCollection, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for INetSharingEveryConnectionCollection {
-    type Vtable = INetSharingEveryConnectionCollection_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for INetSharingEveryConnectionCollection {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x33c4643c_7811_46fa_a89a_768597bd7223);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetSharingEveryConnectionCollection_Vtbl {
@@ -2847,11 +2617,15 @@ pub struct INetSharingEveryConnectionCollection_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct INetSharingManager(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    INetSharingManager,
+    INetSharingManager_Vtbl,
+    0xc08956b7_1cd3_11d1_b1c5_00805fc1270e
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(INetSharingManager, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl INetSharingManager {
     pub unsafe fn SharingInstalled(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
@@ -2896,16 +2670,6 @@ impl INetSharingManager {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(INetSharingManager, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for INetSharingManager {
-    type Vtable = INetSharingManager_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for INetSharingManager {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc08956b7_1cd3_11d1_b1c5_00805fc1270e);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetSharingManager_Vtbl {
@@ -2932,11 +2696,15 @@ pub struct INetSharingManager_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     get_NetConnectionProps: usize,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct INetSharingPortMapping(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    INetSharingPortMapping,
+    INetSharingPortMapping_Vtbl,
+    0xc08956b1_1cd3_11d1_b1c5_00805fc1270e
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(INetSharingPortMapping, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl INetSharingPortMapping {
     pub unsafe fn Disable(&self) -> ::windows_core::Result<()> {
@@ -2956,16 +2724,6 @@ impl INetSharingPortMapping {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(INetSharingPortMapping, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for INetSharingPortMapping {
-    type Vtable = INetSharingPortMapping_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for INetSharingPortMapping {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc08956b1_1cd3_11d1_b1c5_00805fc1270e);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetSharingPortMapping_Vtbl {
@@ -2978,11 +2736,15 @@ pub struct INetSharingPortMapping_Vtbl {
     Properties: usize,
     pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct INetSharingPortMappingCollection(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    INetSharingPortMappingCollection,
+    INetSharingPortMappingCollection_Vtbl,
+    0x02e4a2de_da20_4e34_89c8_ac22275a010b
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(INetSharingPortMappingCollection, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl INetSharingPortMappingCollection {
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
@@ -2995,16 +2757,6 @@ impl INetSharingPortMappingCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(INetSharingPortMappingCollection, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for INetSharingPortMappingCollection {
-    type Vtable = INetSharingPortMappingCollection_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for INetSharingPortMappingCollection {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x02e4a2de_da20_4e34_89c8_ac22275a010b);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetSharingPortMappingCollection_Vtbl {
@@ -3012,11 +2764,15 @@ pub struct INetSharingPortMappingCollection_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct INetSharingPortMappingProps(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    INetSharingPortMappingProps,
+    INetSharingPortMappingProps_Vtbl,
+    0x24b7e9b5_e38f_4685_851b_00892cf5f940
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(INetSharingPortMappingProps, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl INetSharingPortMappingProps {
     pub unsafe fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -3053,16 +2809,6 @@ impl INetSharingPortMappingProps {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(INetSharingPortMappingProps, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for INetSharingPortMappingProps {
-    type Vtable = INetSharingPortMappingProps_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for INetSharingPortMappingProps {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x24b7e9b5_e38f_4685_851b_00892cf5f940);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetSharingPortMappingProps_Vtbl {
@@ -3076,11 +2822,15 @@ pub struct INetSharingPortMappingProps_Vtbl {
     pub TargetIPAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrtargetipaddress: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub Enabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbool: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct INetSharingPrivateConnectionCollection(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    INetSharingPrivateConnectionCollection,
+    INetSharingPrivateConnectionCollection_Vtbl,
+    0x38ae69e0_4409_402a_a2cb_e965c727f840
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(INetSharingPrivateConnectionCollection, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl INetSharingPrivateConnectionCollection {
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
@@ -3093,16 +2843,6 @@ impl INetSharingPrivateConnectionCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(INetSharingPrivateConnectionCollection, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for INetSharingPrivateConnectionCollection {
-    type Vtable = INetSharingPrivateConnectionCollection_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for INetSharingPrivateConnectionCollection {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x38ae69e0_4409_402a_a2cb_e965c727f840);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetSharingPrivateConnectionCollection_Vtbl {
@@ -3110,11 +2850,15 @@ pub struct INetSharingPrivateConnectionCollection_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct INetSharingPublicConnectionCollection(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    INetSharingPublicConnectionCollection,
+    INetSharingPublicConnectionCollection_Vtbl,
+    0x7d7a6355_f372_4971_a149_bfc927be762a
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(INetSharingPublicConnectionCollection, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl INetSharingPublicConnectionCollection {
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
@@ -3127,16 +2871,6 @@ impl INetSharingPublicConnectionCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(INetSharingPublicConnectionCollection, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for INetSharingPublicConnectionCollection {
-    type Vtable = INetSharingPublicConnectionCollection_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for INetSharingPublicConnectionCollection {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7d7a6355_f372_4971_a149_bfc927be762a);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetSharingPublicConnectionCollection_Vtbl {
@@ -3144,11 +2878,15 @@ pub struct INetSharingPublicConnectionCollection_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IStaticPortMapping(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IStaticPortMapping,
+    IStaticPortMapping_Vtbl,
+    0x6f10711f_729b_41e5_93b8_f21d0f818df1
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IStaticPortMapping, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IStaticPortMapping {
     pub unsafe fn ExternalIPAddress(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -3202,16 +2940,6 @@ impl IStaticPortMapping {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IStaticPortMapping, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IStaticPortMapping {
-    type Vtable = IStaticPortMapping_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IStaticPortMapping {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6f10711f_729b_41e5_93b8_f21d0f818df1);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStaticPortMapping_Vtbl {
@@ -3228,11 +2956,15 @@ pub struct IStaticPortMapping_Vtbl {
     pub EditDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdescription: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub EditInternalPort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, linternalport: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IStaticPortMappingCollection(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IStaticPortMappingCollection,
+    IStaticPortMappingCollection_Vtbl,
+    0xcd1f3e77_66d6_4664_82c7_36dbb641d0f1
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IStaticPortMappingCollection, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IStaticPortMappingCollection {
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
@@ -3272,16 +3004,6 @@ impl IStaticPortMappingCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IStaticPortMappingCollection, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IStaticPortMappingCollection {
-    type Vtable = IStaticPortMappingCollection_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IStaticPortMappingCollection {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcd1f3e77_66d6_4664_82c7_36dbb641d0f1);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStaticPortMappingCollection_Vtbl {
@@ -3298,11 +3020,15 @@ pub struct IStaticPortMappingCollection_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Add: usize,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IUPnPNAT(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IUPnPNAT,
+    IUPnPNAT_Vtbl,
+    0xb171c812_cc76_485a_94d8_b6b3a2794e99
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IUPnPNAT, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IUPnPNAT {
     #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -3323,16 +3049,6 @@ impl IUPnPNAT {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).NATEventManager)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-}
-#[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IUPnPNAT, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IUPnPNAT {
-    type Vtable = IUPnPNAT_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IUPnPNAT {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb171c812_cc76_485a_94d8_b6b3a2794e99);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]

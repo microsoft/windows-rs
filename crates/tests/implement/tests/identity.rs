@@ -5,14 +5,14 @@ use windows::{core::*, Foundation::*};
 static mut COUNTER: isize = 0;
 
 #[implement(IStringable, IClosable)]
-struct Test(String, i128);
+struct Test(String);
 
 impl Test {
     fn new(value: &str) -> Self {
         unsafe {
             COUNTER += 1;
         }
-        Self(value.to_string(), 0)
+        Self(value.to_string())
     }
 }
 
@@ -69,11 +69,11 @@ fn identity() -> Result<()> {
             assert_eq!(a.GetRuntimeClassName()?, "Windows.Foundation.IStringable");
 
             let b: IStringable = a.cast()?;
-            let c: &IInspectable = b.can_into();
+            let c: &IInspectable = &b.cast()?;
             assert_eq!(c.GetRuntimeClassName()?, "Windows.Foundation.IStringable");
 
             let d: IClosable = a.cast()?;
-            let e: &IInspectable = d.can_into();
+            let e: &IInspectable = std::mem::transmute(&d);
             assert_eq!(e.GetRuntimeClassName()?, "Windows.Foundation.IClosable");
 
             let f: IInspectable = e.cast()?;

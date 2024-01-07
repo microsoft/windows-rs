@@ -19,7 +19,7 @@ impl IPrintDocumentPackageStatusEvent_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPrintDocumentPackageStatusEvent as ::windows_core::ComInterface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<IPrintDocumentPackageStatusEvent as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 pub trait IPrintDocumentPackageTarget_Impl: Sized {
@@ -53,7 +53,7 @@ impl IPrintDocumentPackageTarget_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPrintDocumentPackageTarget as ::windows_core::ComInterface>::IID
+        iid == &<IPrintDocumentPackageTarget as ::windows_core::Interface>::IID
     }
 }
 pub trait IPrintDocumentPackageTarget2_Impl: Sized {
@@ -86,7 +86,7 @@ impl IPrintDocumentPackageTarget2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPrintDocumentPackageTarget2 as ::windows_core::ComInterface>::IID
+        iid == &<IPrintDocumentPackageTarget2 as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -116,7 +116,7 @@ impl IPrintDocumentPackageTargetFactory_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPrintDocumentPackageTargetFactory as ::windows_core::ComInterface>::IID
+        iid == &<IPrintDocumentPackageTargetFactory as ::windows_core::Interface>::IID
     }
 }
 pub trait IXpsPrintJob_Impl: Sized {
@@ -143,7 +143,7 @@ impl IXpsPrintJob_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsPrintJob as ::windows_core::ComInterface>::IID
+        iid == &<IXpsPrintJob as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -164,6 +164,6 @@ impl IXpsPrintJobStream_Vtbl {
         Self { base__: super::super::super::System::Com::ISequentialStream_Vtbl::new::<Identity, Impl, OFFSET>(), Close: Close::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXpsPrintJobStream as ::windows_core::ComInterface>::IID || iid == &<super::super::super::System::Com::ISequentialStream as ::windows_core::ComInterface>::IID
+        iid == &<IXpsPrintJobStream as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::ISequentialStream as ::windows_core::Interface>::IID
     }
 }

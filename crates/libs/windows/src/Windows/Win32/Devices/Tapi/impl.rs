@@ -46,7 +46,7 @@ impl IEnumACDGroup_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumACDGroup as ::windows_core::ComInterface>::IID
+        iid == &<IEnumACDGroup as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -97,7 +97,7 @@ impl IEnumAddress_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumAddress as ::windows_core::ComInterface>::IID
+        iid == &<IEnumAddress as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -148,7 +148,7 @@ impl IEnumAgent_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumAgent as ::windows_core::ComInterface>::IID
+        iid == &<IEnumAgent as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -199,7 +199,7 @@ impl IEnumAgentHandler_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumAgentHandler as ::windows_core::ComInterface>::IID
+        iid == &<IEnumAgentHandler as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -250,7 +250,7 @@ impl IEnumAgentSession_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumAgentSession as ::windows_core::ComInterface>::IID
+        iid == &<IEnumAgentSession as ::windows_core::Interface>::IID
     }
 }
 pub trait IEnumBstr_Impl: Sized {
@@ -297,7 +297,7 @@ impl IEnumBstr_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumBstr as ::windows_core::ComInterface>::IID
+        iid == &<IEnumBstr as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -348,7 +348,7 @@ impl IEnumCall_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumCall as ::windows_core::ComInterface>::IID
+        iid == &<IEnumCall as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -399,7 +399,7 @@ impl IEnumCallHub_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumCallHub as ::windows_core::ComInterface>::IID
+        iid == &<IEnumCallHub as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -450,7 +450,7 @@ impl IEnumCallingCard_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumCallingCard as ::windows_core::ComInterface>::IID
+        iid == &<IEnumCallingCard as ::windows_core::Interface>::IID
     }
 }
 pub trait IEnumDialableAddrs_Impl: Sized {
@@ -497,7 +497,7 @@ impl IEnumDialableAddrs_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumDialableAddrs as ::windows_core::ComInterface>::IID
+        iid == &<IEnumDialableAddrs as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -548,7 +548,7 @@ impl IEnumDirectory_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumDirectory as ::windows_core::ComInterface>::IID
+        iid == &<IEnumDirectory as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -599,7 +599,7 @@ impl IEnumDirectoryObject_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumDirectoryObject as ::windows_core::ComInterface>::IID
+        iid == &<IEnumDirectoryObject as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -650,7 +650,7 @@ impl IEnumLocation_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumLocation as ::windows_core::ComInterface>::IID
+        iid == &<IEnumLocation as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -701,7 +701,7 @@ impl IEnumMcastScope_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumMcastScope as ::windows_core::ComInterface>::IID
+        iid == &<IEnumMcastScope as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -752,7 +752,7 @@ impl IEnumPhone_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumPhone as ::windows_core::ComInterface>::IID
+        iid == &<IEnumPhone as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -803,7 +803,7 @@ impl IEnumPluggableSuperclassInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumPluggableSuperclassInfo as ::windows_core::ComInterface>::IID
+        iid == &<IEnumPluggableSuperclassInfo as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -854,7 +854,7 @@ impl IEnumPluggableTerminalClassInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumPluggableTerminalClassInfo as ::windows_core::ComInterface>::IID
+        iid == &<IEnumPluggableTerminalClassInfo as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -905,7 +905,7 @@ impl IEnumQueue_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumQueue as ::windows_core::ComInterface>::IID
+        iid == &<IEnumQueue as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -956,7 +956,7 @@ impl IEnumStream_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumStream as ::windows_core::ComInterface>::IID
+        iid == &<IEnumStream as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1007,7 +1007,7 @@ impl IEnumSubStream_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumSubStream as ::windows_core::ComInterface>::IID
+        iid == &<IEnumSubStream as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1058,7 +1058,7 @@ impl IEnumTerminal_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumTerminal as ::windows_core::ComInterface>::IID
+        iid == &<IEnumTerminal as ::windows_core::Interface>::IID
     }
 }
 pub trait IEnumTerminalClass_Impl: Sized {
@@ -1105,7 +1105,7 @@ impl IEnumTerminalClass_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumTerminalClass as ::windows_core::ComInterface>::IID
+        iid == &<IEnumTerminalClass as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -1207,7 +1207,7 @@ impl IMcastAddressAllocation_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMcastAddressAllocation as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<IMcastAddressAllocation as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -1342,7 +1342,7 @@ impl IMcastLeaseInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMcastLeaseInfo as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<IMcastLeaseInfo as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -1424,7 +1424,7 @@ impl IMcastScope_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMcastScope as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<IMcastScope as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -1480,7 +1480,7 @@ impl ITACDGroup_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITACDGroup as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITACDGroup as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -1523,7 +1523,7 @@ impl ITACDGroupEvent_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITACDGroupEvent as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITACDGroupEvent as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Media_MediaFoundation\"`"]
@@ -1560,7 +1560,7 @@ impl ITAMMediaFormat_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITAMMediaFormat as ::windows_core::ComInterface>::IID
+        iid == &<ITAMMediaFormat as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -1616,7 +1616,7 @@ impl ITASRTerminalEvent_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITASRTerminalEvent as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITASRTerminalEvent as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -1810,7 +1810,7 @@ impl ITAddress_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITAddress as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITAddress as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -1939,7 +1939,7 @@ impl ITAddress2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITAddress2 as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || iid == &<ITAddress as ::windows_core::ComInterface>::IID
+        iid == &<ITAddress2 as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ITAddress as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -2060,7 +2060,7 @@ impl ITAddressCapabilities_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITAddressCapabilities as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITAddressCapabilities as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -2142,7 +2142,7 @@ impl ITAddressDeviceSpecificEvent_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITAddressDeviceSpecificEvent as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITAddressDeviceSpecificEvent as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -2198,7 +2198,7 @@ impl ITAddressEvent_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITAddressEvent as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITAddressEvent as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -2287,7 +2287,7 @@ impl ITAddressTranslation_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITAddressTranslation as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITAddressTranslation as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -2369,7 +2369,7 @@ impl ITAddressTranslationInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITAddressTranslationInfo as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITAddressTranslationInfo as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -2595,7 +2595,7 @@ impl ITAgent_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITAgent as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITAgent as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -2638,7 +2638,7 @@ impl ITAgentEvent_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITAgentEvent as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITAgentEvent as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -2746,7 +2746,7 @@ impl ITAgentHandler_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITAgentHandler as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITAgentHandler as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -2789,7 +2789,7 @@ impl ITAgentHandlerEvent_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITAgentHandlerEvent as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITAgentHandlerEvent as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -3021,7 +3021,7 @@ impl ITAgentSession_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITAgentSession as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITAgentSession as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -3064,7 +3064,7 @@ impl ITAgentSessionEvent_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITAgentSessionEvent as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITAgentSessionEvent as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Media_DirectShow\"`"]
@@ -3141,7 +3141,7 @@ impl ITAllocatorProperties_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITAllocatorProperties as ::windows_core::ComInterface>::IID
+        iid == &<ITAllocatorProperties as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -3472,7 +3472,7 @@ impl ITAutomatedPhoneControl_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITAutomatedPhoneControl as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITAutomatedPhoneControl as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -3529,7 +3529,7 @@ impl ITBasicAudioTerminal_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITBasicAudioTerminal as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITBasicAudioTerminal as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -3678,7 +3678,7 @@ impl ITBasicCallControl_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITBasicCallControl as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITBasicCallControl as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -3722,7 +3722,7 @@ impl ITBasicCallControl2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITBasicCallControl2 as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || iid == &<ITBasicCallControl as ::windows_core::ComInterface>::IID
+        iid == &<ITBasicCallControl2 as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ITBasicCallControl as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -3798,7 +3798,7 @@ impl ITCallHub_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITCallHub as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITCallHub as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -3854,7 +3854,7 @@ impl ITCallHubEvent_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITCallHubEvent as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITCallHubEvent as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -4004,7 +4004,7 @@ impl ITCallInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITCallInfo as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITCallInfo as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -4041,7 +4041,7 @@ impl ITCallInfo2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITCallInfo2 as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || iid == &<ITCallInfo as ::windows_core::ComInterface>::IID
+        iid == &<ITCallInfo2 as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ITCallInfo as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -4097,7 +4097,7 @@ impl ITCallInfoChangeEvent_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITCallInfoChangeEvent as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITCallInfoChangeEvent as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -4192,7 +4192,7 @@ impl ITCallMediaEvent_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITCallMediaEvent as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITCallMediaEvent as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -4248,7 +4248,7 @@ impl ITCallNotificationEvent_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITCallNotificationEvent as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITCallNotificationEvent as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -4317,7 +4317,7 @@ impl ITCallStateEvent_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITCallStateEvent as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITCallStateEvent as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -4425,7 +4425,7 @@ impl ITCallingCard_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITCallingCard as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITCallingCard as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -4481,7 +4481,7 @@ impl ITCollection_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITCollection as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITCollection as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -4508,7 +4508,7 @@ impl ITCollection2_Vtbl {
         Self { base__: ITCollection_Vtbl::new::<Identity, Impl, OFFSET>(), Add: Add::<Identity, Impl, OFFSET>, Remove: Remove::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITCollection2 as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || iid == &<ITCollection as ::windows_core::ComInterface>::IID
+        iid == &<ITCollection2 as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ITCollection as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -4605,7 +4605,7 @@ impl ITCustomTone_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITCustomTone as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITCustomTone as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -4682,7 +4682,7 @@ impl ITDetectTone_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITDetectTone as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITDetectTone as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -4764,7 +4764,7 @@ impl ITDigitDetectionEvent_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITDigitDetectionEvent as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITDigitDetectionEvent as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -4833,7 +4833,7 @@ impl ITDigitGenerationEvent_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITDigitGenerationEvent as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITDigitGenerationEvent as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -4915,7 +4915,7 @@ impl ITDigitsGatheredEvent_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITDigitsGatheredEvent as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITDigitsGatheredEvent as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -5066,7 +5066,7 @@ impl ITDirectory_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITDirectory as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITDirectory as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -5162,7 +5162,7 @@ impl ITDirectoryObject_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITDirectoryObject as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITDirectoryObject as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -5332,7 +5332,7 @@ impl ITDirectoryObjectConference_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITDirectoryObjectConference as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITDirectoryObjectConference as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -5369,7 +5369,7 @@ impl ITDirectoryObjectUser_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITDirectoryObjectUser as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITDirectoryObjectUser as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -5399,7 +5399,7 @@ impl ITDispatchMapper_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITDispatchMapper as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITDispatchMapper as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -5494,7 +5494,7 @@ impl ITFileTerminalEvent_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITFileTerminalEvent as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITFileTerminalEvent as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -5577,7 +5577,7 @@ impl ITFileTrack_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITFileTrack as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITFileTrack as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -5661,7 +5661,7 @@ impl ITForwardInformation_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITForwardInformation as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITForwardInformation as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -5718,7 +5718,7 @@ impl ITForwardInformation2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITForwardInformation2 as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || iid == &<ITForwardInformation as ::windows_core::ComInterface>::IID
+        iid == &<ITForwardInformation2 as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ITForwardInformation as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -5755,7 +5755,7 @@ impl ITILSConfig_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITILSConfig as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITILSConfig as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 pub trait ITLegacyAddressMediaControl_Impl: Sized {
@@ -5789,7 +5789,7 @@ impl ITLegacyAddressMediaControl_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITLegacyAddressMediaControl as ::windows_core::ComInterface>::IID
+        iid == &<ITLegacyAddressMediaControl as ::windows_core::Interface>::IID
     }
 }
 pub trait ITLegacyAddressMediaControl2_Impl: Sized + ITLegacyAddressMediaControl_Impl {
@@ -5816,7 +5816,7 @@ impl ITLegacyAddressMediaControl2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITLegacyAddressMediaControl2 as ::windows_core::ComInterface>::IID || iid == &<ITLegacyAddressMediaControl as ::windows_core::ComInterface>::IID
+        iid == &<ITLegacyAddressMediaControl2 as ::windows_core::Interface>::IID || iid == &<ITLegacyAddressMediaControl as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -5868,7 +5868,7 @@ impl ITLegacyCallMediaControl_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITLegacyCallMediaControl as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITLegacyCallMediaControl as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -5973,7 +5973,7 @@ impl ITLegacyCallMediaControl2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITLegacyCallMediaControl2 as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || iid == &<ITLegacyCallMediaControl as ::windows_core::ComInterface>::IID
+        iid == &<ITLegacyCallMediaControl2 as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ITLegacyCallMediaControl as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -6000,7 +6000,7 @@ impl ITLegacyWaveSupport_Vtbl {
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), IsFullDuplex: IsFullDuplex::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITLegacyWaveSupport as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITLegacyWaveSupport as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -6160,7 +6160,7 @@ impl ITLocationInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITLocationInfo as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITLocationInfo as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 pub trait ITMSPAddress_Impl: Sized {
@@ -6221,7 +6221,7 @@ impl ITMSPAddress_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITMSPAddress as ::windows_core::ComInterface>::IID
+        iid == &<ITMSPAddress as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -6272,7 +6272,7 @@ impl ITMediaControl_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITMediaControl as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITMediaControl as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -6309,7 +6309,7 @@ impl ITMediaPlayback_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITMediaPlayback as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITMediaPlayback as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -6346,7 +6346,7 @@ impl ITMediaRecord_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITMediaRecord as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITMediaRecord as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -6389,7 +6389,7 @@ impl ITMediaSupport_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITMediaSupport as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITMediaSupport as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -6478,7 +6478,7 @@ impl ITMultiTrackTerminal_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITMultiTrackTerminal as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITMultiTrackTerminal as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -6846,7 +6846,7 @@ impl ITPhone_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITPhone as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITPhone as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -6915,7 +6915,7 @@ impl ITPhoneDeviceSpecificEvent_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITPhoneDeviceSpecificEvent as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITPhoneDeviceSpecificEvent as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -7049,7 +7049,7 @@ impl ITPhoneEvent_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITPhoneEvent as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITPhoneEvent as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -7157,7 +7157,7 @@ impl ITPluggableTerminalClassInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITPluggableTerminalClassInfo as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITPluggableTerminalClassInfo as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -7178,7 +7178,7 @@ impl ITPluggableTerminalEventSink_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), FireEvent: FireEvent::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITPluggableTerminalEventSink as ::windows_core::ComInterface>::IID
+        iid == &<ITPluggableTerminalEventSink as ::windows_core::Interface>::IID
     }
 }
 pub trait ITPluggableTerminalEventSinkRegistration_Impl: Sized {
@@ -7205,7 +7205,7 @@ impl ITPluggableTerminalEventSinkRegistration_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITPluggableTerminalEventSinkRegistration as ::windows_core::ComInterface>::IID
+        iid == &<ITPluggableTerminalEventSinkRegistration as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -7248,7 +7248,7 @@ impl ITPluggableTerminalSuperclassInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITPluggableTerminalSuperclassInfo as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITPluggableTerminalSuperclassInfo as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -7330,7 +7330,7 @@ impl ITPrivateEvent_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITPrivateEvent as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITPrivateEvent as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -7386,7 +7386,7 @@ impl ITQOSEvent_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITQOSEvent as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITQOSEvent as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -7553,7 +7553,7 @@ impl ITQueue_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITQueue as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITQueue as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -7596,7 +7596,7 @@ impl ITQueueEvent_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITQueueEvent as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITQueueEvent as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -7665,7 +7665,7 @@ impl ITRendezvous_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITRendezvous as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITRendezvous as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -7686,7 +7686,7 @@ impl ITRequest_Vtbl {
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), MakeCall: MakeCall::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITRequest as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITRequest as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -7781,7 +7781,7 @@ impl ITRequestEvent_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITRequestEvent as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITRequestEvent as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -7918,7 +7918,7 @@ impl ITScriptableAudioFormat_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITScriptableAudioFormat as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITScriptableAudioFormat as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -7945,7 +7945,7 @@ impl ITStaticAudioTerminal_Vtbl {
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), WaveId: WaveId::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITStaticAudioTerminal as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITStaticAudioTerminal as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -8062,7 +8062,7 @@ impl ITStream_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITStream as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITStream as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -8125,7 +8125,7 @@ impl ITStreamControl_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITStreamControl as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITStreamControl as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -8216,7 +8216,7 @@ impl ITSubStream_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITSubStream as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITSubStream as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -8279,7 +8279,7 @@ impl ITSubStreamControl_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITSubStreamControl as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITSubStreamControl as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -8456,7 +8456,7 @@ impl ITTAPI_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITTAPI as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITTAPI as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -8512,7 +8512,7 @@ impl ITTAPI2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITTAPI2 as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || iid == &<ITTAPI as ::windows_core::ComInterface>::IID
+        iid == &<ITTAPI2 as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ITTAPI as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -8555,7 +8555,7 @@ impl ITTAPICallCenter_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITTAPICallCenter as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITTAPICallCenter as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -8569,7 +8569,7 @@ impl ITTAPIDispatchEventNotification_Vtbl {
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITTAPIDispatchEventNotification as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITTAPIDispatchEventNotification as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -8590,7 +8590,7 @@ impl ITTAPIEventNotification_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Event: Event::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITTAPIEventNotification as ::windows_core::ComInterface>::IID
+        iid == &<ITTAPIEventNotification as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -8659,7 +8659,7 @@ impl ITTAPIObjectEvent_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITTAPIObjectEvent as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITTAPIObjectEvent as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -8686,7 +8686,7 @@ impl ITTAPIObjectEvent2_Vtbl {
         Self { base__: ITTAPIObjectEvent_Vtbl::new::<Identity, Impl, OFFSET>(), Phone: Phone::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITTAPIObjectEvent2 as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || iid == &<ITTAPIObjectEvent as ::windows_core::ComInterface>::IID
+        iid == &<ITTAPIObjectEvent2 as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ITTAPIObjectEvent as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -8742,7 +8742,7 @@ impl ITTTSTerminalEvent_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITTTSTerminalEvent as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITTTSTerminalEvent as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -8837,7 +8837,7 @@ impl ITTerminal_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITTerminal as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITTerminal as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -8932,7 +8932,7 @@ impl ITTerminalSupport_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITTerminalSupport as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITTerminalSupport as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -9001,7 +9001,7 @@ impl ITTerminalSupport2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITTerminalSupport2 as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || iid == &<ITTerminalSupport as ::windows_core::ComInterface>::IID
+        iid == &<ITTerminalSupport2 as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ITTerminalSupport as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -9070,7 +9070,7 @@ impl ITToneDetectionEvent_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITToneDetectionEvent as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITToneDetectionEvent as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -9126,7 +9126,7 @@ impl ITToneTerminalEvent_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITToneTerminalEvent as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ITToneTerminalEvent as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_AddressBook\"`, `\"Win32_System_Com\"`"]
@@ -9198,6 +9198,6 @@ impl ITnef_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITnef as ::windows_core::ComInterface>::IID
+        iid == &<ITnef as ::windows_core::Interface>::IID
     }
 }

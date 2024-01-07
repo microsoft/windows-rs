@@ -30,7 +30,7 @@ impl IErrorReportingSettings_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IErrorReportingSettings as ::windows_core::ComInterface>::IID
+        iid == &<IErrorReportingSettings as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Storage\"`"]
@@ -118,7 +118,7 @@ impl IFileLoggingSession_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IFileLoggingSession as ::windows_core::ComInterface>::IID
+        iid == &<IFileLoggingSession as ::windows_core::Interface>::IID
     }
 }
 pub trait ILoggingChannel_Impl: Sized + super::IClosable_Impl {
@@ -221,7 +221,7 @@ impl ILoggingChannel_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ILoggingChannel as ::windows_core::ComInterface>::IID
+        iid == &<ILoggingChannel as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Storage\"`"]
@@ -289,7 +289,7 @@ impl ILoggingSession_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ILoggingSession as ::windows_core::ComInterface>::IID
+        iid == &<ILoggingSession as ::windows_core::Interface>::IID
     }
 }
 pub trait ILoggingTarget_Impl: Sized {
@@ -427,6 +427,6 @@ impl ILoggingTarget_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ILoggingTarget as ::windows_core::ComInterface>::IID
+        iid == &<ILoggingTarget as ::windows_core::Interface>::IID
     }
 }

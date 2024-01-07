@@ -28,6 +28,6 @@ impl IUriToStreamResolver_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUriToStreamResolver as ::windows_core::ComInterface>::IID
+        iid == &<IUriToStreamResolver as ::windows_core::Interface>::IID
     }
 }

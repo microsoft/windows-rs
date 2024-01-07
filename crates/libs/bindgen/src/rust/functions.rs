@@ -46,7 +46,7 @@ fn gen_win_function(writer: &Writer, namespace: &str, def: metadata::MethodDef) 
             let args = writer.win32_args(&signature.params, kind);
             let params = writer.win32_params(&signature.params, kind);
             let generics = expand_generics(generics, quote!(T));
-            let where_clause = expand_where_clause(where_clause, quote!(T: ::windows_core::ComInterface));
+            let where_clause = expand_where_clause(where_clause, quote!(T: ::windows_core::Interface));
 
             quote! {
                 #doc
@@ -63,7 +63,7 @@ fn gen_win_function(writer: &Writer, namespace: &str, def: metadata::MethodDef) 
             let args = writer.win32_args(&signature.params, kind);
             let params = writer.win32_params(&signature.params, kind);
             let generics = expand_generics(generics, quote!(T));
-            let where_clause = expand_where_clause(where_clause, quote!(T: ::windows_core::ComInterface));
+            let where_clause = expand_where_clause(where_clause, quote!(T: ::windows_core::Interface));
 
             quote! {
                 #doc

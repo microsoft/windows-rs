@@ -411,7 +411,7 @@ mod d3d12_hello_triangle {
                 populate_command_list(resources).unwrap();
 
                 // Execute the command list.
-                let command_list = Some(resources.command_list.can_clone_into());
+                let command_list = Some(resources.command_list.cast().unwrap());
                 unsafe { resources.command_queue.ExecuteCommandLists(&[command_list]) };
 
                 // Present the frame.

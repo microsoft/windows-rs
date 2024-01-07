@@ -2862,11 +2862,15 @@ where
     let mut result__ = ::std::mem::zeroed();
     VerifyHash(hcrypto, phash.len().try_into().unwrap(), ::core::mem::transmute(phash.as_ptr()), hashalgoid.into_param().abi(), psig.len().try_into().unwrap(), ::core::mem::transmute(psig.as_ptr()), &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ICertSrvSetup(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    ICertSrvSetup,
+    ICertSrvSetup_Vtbl,
+    0xb760a1bb_4784_44c0_8f12_555f0780ff25
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(ICertSrvSetup, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertSrvSetup {
     pub unsafe fn CAErrorId(&self) -> ::windows_core::Result<i32> {
@@ -2999,16 +3003,6 @@ impl ICertSrvSetup {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(ICertSrvSetup, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for ICertSrvSetup {
-    type Vtable = ICertSrvSetup_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for ICertSrvSetup {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb760a1bb_4784_44c0_8f12_555f0780ff25);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertSrvSetup_Vtbl {
@@ -3061,11 +3055,15 @@ pub struct ICertSrvSetup_Vtbl {
     pub PreUnInstall: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bclientonly: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
     pub PostUnInstall: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ICertSrvSetupKeyInformation(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    ICertSrvSetupKeyInformation,
+    ICertSrvSetupKeyInformation_Vtbl,
+    0x6ba73778_36da_4c39_8a85_bcfa7d000793
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(ICertSrvSetupKeyInformation, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertSrvSetupKeyInformation {
     pub unsafe fn ProviderName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -3128,16 +3126,6 @@ impl ICertSrvSetupKeyInformation {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(ICertSrvSetupKeyInformation, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for ICertSrvSetupKeyInformation {
-    type Vtable = ICertSrvSetupKeyInformation_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for ICertSrvSetupKeyInformation {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6ba73778_36da_4c39_8a85_bcfa7d000793);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertSrvSetupKeyInformation_Vtbl {
@@ -3161,11 +3149,15 @@ pub struct ICertSrvSetupKeyInformation_Vtbl {
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     SetExistingCACertificate: usize,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ICertSrvSetupKeyInformationCollection(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    ICertSrvSetupKeyInformationCollection,
+    ICertSrvSetupKeyInformationCollection_Vtbl,
+    0xe65c8b00_e58f_41f9_a9ec_a28d7427c844
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(ICertSrvSetupKeyInformationCollection, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertSrvSetupKeyInformationCollection {
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
@@ -3192,16 +3184,6 @@ impl ICertSrvSetupKeyInformationCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(ICertSrvSetupKeyInformationCollection, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for ICertSrvSetupKeyInformationCollection {
-    type Vtable = ICertSrvSetupKeyInformationCollection_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for ICertSrvSetupKeyInformationCollection {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe65c8b00_e58f_41f9_a9ec_a28d7427c844);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertSrvSetupKeyInformationCollection_Vtbl {
@@ -3217,11 +3199,15 @@ pub struct ICertSrvSetupKeyInformationCollection_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Add: usize,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ICertificateEnrollmentPolicyServerSetup(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    ICertificateEnrollmentPolicyServerSetup,
+    ICertificateEnrollmentPolicyServerSetup_Vtbl,
+    0x859252cc_238c_4a88_b8fd_a37e7d04e68b
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(ICertificateEnrollmentPolicyServerSetup, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertificateEnrollmentPolicyServerSetup {
     pub unsafe fn ErrorString(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -3252,16 +3238,6 @@ impl ICertificateEnrollmentPolicyServerSetup {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(ICertificateEnrollmentPolicyServerSetup, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for ICertificateEnrollmentPolicyServerSetup {
-    type Vtable = ICertificateEnrollmentPolicyServerSetup_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for ICertificateEnrollmentPolicyServerSetup {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x859252cc_238c_4a88_b8fd_a37e7d04e68b);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertificateEnrollmentPolicyServerSetup_Vtbl {
@@ -3282,11 +3258,15 @@ pub struct ICertificateEnrollmentPolicyServerSetup_Vtbl {
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     UnInstall: usize,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ICertificateEnrollmentServerSetup(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    ICertificateEnrollmentServerSetup,
+    ICertificateEnrollmentServerSetup_Vtbl,
+    0x70027fdb_9dd9_4921_8944_b35cb31bd2ec
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(ICertificateEnrollmentServerSetup, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertificateEnrollmentServerSetup {
     pub unsafe fn ErrorString(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -3324,16 +3304,6 @@ impl ICertificateEnrollmentServerSetup {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(ICertificateEnrollmentServerSetup, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for ICertificateEnrollmentServerSetup {
-    type Vtable = ICertificateEnrollmentServerSetup_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for ICertificateEnrollmentServerSetup {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x70027fdb_9dd9_4921_8944_b35cb31bd2ec);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICertificateEnrollmentServerSetup_Vtbl {
@@ -3355,11 +3325,15 @@ pub struct ICertificateEnrollmentServerSetup_Vtbl {
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     UnInstall: usize,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMSCEPSetup(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IMSCEPSetup,
+    IMSCEPSetup_Vtbl,
+    0x4f7761bb_9f3b_4592_9ee0_9a73259c313e
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IMSCEPSetup, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSCEPSetup {
     pub unsafe fn MSCEPErrorId(&self) -> ::windows_core::Result<i32> {
@@ -3423,16 +3397,6 @@ impl IMSCEPSetup {
     pub unsafe fn PostUnInstall(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).PostUnInstall)(::windows_core::Interface::as_raw(self)).ok()
     }
-}
-#[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IMSCEPSetup, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IMSCEPSetup {
-    type Vtable = IMSCEPSetup_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IMSCEPSetup {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4f7761bb_9f3b_4592_9ee0_9a73259c313e);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]

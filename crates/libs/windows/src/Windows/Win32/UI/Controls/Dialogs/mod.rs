@@ -121,9 +121,8 @@ pub unsafe fn ReplaceTextW(param0: *mut FINDREPLACEW) -> super::super::super::Fo
     ::windows_targets::link!("comdlg32.dll" "system" fn ReplaceTextW(param0 : *mut FINDREPLACEW) -> super::super::super::Foundation:: HWND);
     ReplaceTextW(param0)
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPrintDialogCallback(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IPrintDialogCallback, IPrintDialogCallback_Vtbl, 0x5852a2c3_6530_11d1_b6a3_0000f8757bf9);
+::windows_core::imp::interface_hierarchy!(IPrintDialogCallback, ::windows_core::IUnknown);
 impl IPrintDialogCallback {
     pub unsafe fn InitDone(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).InitDone)(::windows_core::Interface::as_raw(self)).ok()
@@ -140,13 +139,6 @@ impl IPrintDialogCallback {
         (::windows_core::Interface::vtable(self).HandleMessage)(::windows_core::Interface::as_raw(self), hdlg.into_param().abi(), umsg, wparam.into_param().abi(), lparam.into_param().abi(), presult).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IPrintDialogCallback, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPrintDialogCallback {
-    type Vtable = IPrintDialogCallback_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPrintDialogCallback {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5852a2c3_6530_11d1_b6a3_0000f8757bf9);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintDialogCallback_Vtbl {
@@ -155,9 +147,8 @@ pub struct IPrintDialogCallback_Vtbl {
     pub SelectionChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub HandleMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdlg: super::super::super::Foundation::HWND, umsg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM, presult: *mut super::super::super::Foundation::LRESULT) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPrintDialogServices(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IPrintDialogServices, IPrintDialogServices_Vtbl, 0x509aaeda_5639_11d1_b6a1_0000f8757bf9);
+::windows_core::imp::interface_hierarchy!(IPrintDialogServices, ::windows_core::IUnknown);
 impl IPrintDialogServices {
     #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -170,13 +161,6 @@ impl IPrintDialogServices {
     pub unsafe fn GetCurrentPortName(&self, pportname: ::windows_core::PWSTR, pcchsize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetCurrentPortName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pportname), pcchsize).ok()
     }
-}
-::windows_core::imp::interface_hierarchy!(IPrintDialogServices, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPrintDialogServices {
-    type Vtable = IPrintDialogServices_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPrintDialogServices {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x509aaeda_5639_11d1_b6a1_0000f8757bf9);
 }
 #[repr(C)]
 #[doc(hidden)]

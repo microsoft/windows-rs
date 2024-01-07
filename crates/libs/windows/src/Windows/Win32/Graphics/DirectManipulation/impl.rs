@@ -12,7 +12,7 @@ impl IDirectManipulationAutoScrollBehavior_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetConfiguration: SetConfiguration::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectManipulationAutoScrollBehavior as ::windows_core::ComInterface>::IID
+        iid == &<IDirectManipulationAutoScrollBehavior as ::windows_core::Interface>::IID
     }
 }
 pub trait IDirectManipulationCompositor_Impl: Sized {
@@ -53,7 +53,7 @@ impl IDirectManipulationCompositor_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectManipulationCompositor as ::windows_core::ComInterface>::IID
+        iid == &<IDirectManipulationCompositor as ::windows_core::Interface>::IID
     }
 }
 pub trait IDirectManipulationCompositor2_Impl: Sized + IDirectManipulationCompositor_Impl {
@@ -73,7 +73,7 @@ impl IDirectManipulationCompositor2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectManipulationCompositor2 as ::windows_core::ComInterface>::IID || iid == &<IDirectManipulationCompositor as ::windows_core::ComInterface>::IID
+        iid == &<IDirectManipulationCompositor2 as ::windows_core::Interface>::IID || iid == &<IDirectManipulationCompositor as ::windows_core::Interface>::IID
     }
 }
 pub trait IDirectManipulationContent_Impl: Sized {
@@ -148,7 +148,7 @@ impl IDirectManipulationContent_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectManipulationContent as ::windows_core::ComInterface>::IID
+        iid == &<IDirectManipulationContent as ::windows_core::Interface>::IID
     }
 }
 pub trait IDirectManipulationDeferContactService_Impl: Sized {
@@ -182,7 +182,7 @@ impl IDirectManipulationDeferContactService_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectManipulationDeferContactService as ::windows_core::ComInterface>::IID
+        iid == &<IDirectManipulationDeferContactService as ::windows_core::Interface>::IID
     }
 }
 pub trait IDirectManipulationDragDropBehavior_Impl: Sized {
@@ -215,7 +215,7 @@ impl IDirectManipulationDragDropBehavior_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectManipulationDragDropBehavior as ::windows_core::ComInterface>::IID
+        iid == &<IDirectManipulationDragDropBehavior as ::windows_core::Interface>::IID
     }
 }
 pub trait IDirectManipulationDragDropEventHandler_Impl: Sized {
@@ -232,7 +232,7 @@ impl IDirectManipulationDragDropEventHandler_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnDragDropStatusChange: OnDragDropStatusChange::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectManipulationDragDropEventHandler as ::windows_core::ComInterface>::IID
+        iid == &<IDirectManipulationDragDropEventHandler as ::windows_core::Interface>::IID
     }
 }
 pub trait IDirectManipulationFrameInfoProvider_Impl: Sized {
@@ -249,7 +249,7 @@ impl IDirectManipulationFrameInfoProvider_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetNextFrameInfo: GetNextFrameInfo::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectManipulationFrameInfoProvider as ::windows_core::ComInterface>::IID
+        iid == &<IDirectManipulationFrameInfoProvider as ::windows_core::Interface>::IID
     }
 }
 pub trait IDirectManipulationInteractionEventHandler_Impl: Sized {
@@ -266,7 +266,7 @@ impl IDirectManipulationInteractionEventHandler_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnInteraction: OnInteraction::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectManipulationInteractionEventHandler as ::windows_core::ComInterface>::IID
+        iid == &<IDirectManipulationInteractionEventHandler as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
@@ -338,7 +338,7 @@ impl IDirectManipulationManager_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectManipulationManager as ::windows_core::ComInterface>::IID
+        iid == &<IDirectManipulationManager as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
@@ -359,7 +359,7 @@ impl IDirectManipulationManager2_Vtbl {
         Self { base__: IDirectManipulationManager_Vtbl::new::<Identity, Impl, OFFSET>(), CreateBehavior: CreateBehavior::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectManipulationManager2 as ::windows_core::ComInterface>::IID || iid == &<IDirectManipulationManager as ::windows_core::ComInterface>::IID
+        iid == &<IDirectManipulationManager2 as ::windows_core::Interface>::IID || iid == &<IDirectManipulationManager as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
@@ -380,7 +380,7 @@ impl IDirectManipulationManager3_Vtbl {
         Self { base__: IDirectManipulationManager2_Vtbl::new::<Identity, Impl, OFFSET>(), GetService: GetService::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectManipulationManager3 as ::windows_core::ComInterface>::IID || iid == &<IDirectManipulationManager as ::windows_core::ComInterface>::IID || iid == &<IDirectManipulationManager2 as ::windows_core::ComInterface>::IID
+        iid == &<IDirectManipulationManager3 as ::windows_core::Interface>::IID || iid == &<IDirectManipulationManager as ::windows_core::Interface>::IID || iid == &<IDirectManipulationManager2 as ::windows_core::Interface>::IID
     }
 }
 pub trait IDirectManipulationPrimaryContent_Impl: Sized {
@@ -456,7 +456,7 @@ impl IDirectManipulationPrimaryContent_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectManipulationPrimaryContent as ::windows_core::ComInterface>::IID
+        iid == &<IDirectManipulationPrimaryContent as ::windows_core::Interface>::IID
     }
 }
 pub trait IDirectManipulationUpdateHandler_Impl: Sized {
@@ -473,7 +473,7 @@ impl IDirectManipulationUpdateHandler_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Update: Update::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectManipulationUpdateHandler as ::windows_core::ComInterface>::IID
+        iid == &<IDirectManipulationUpdateHandler as ::windows_core::Interface>::IID
     }
 }
 pub trait IDirectManipulationUpdateManager_Impl: Sized {
@@ -513,7 +513,7 @@ impl IDirectManipulationUpdateManager_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectManipulationUpdateManager as ::windows_core::ComInterface>::IID
+        iid == &<IDirectManipulationUpdateManager as ::windows_core::Interface>::IID
     }
 }
 pub trait IDirectManipulationViewport_Impl: Sized {
@@ -740,7 +740,7 @@ impl IDirectManipulationViewport_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectManipulationViewport as ::windows_core::ComInterface>::IID
+        iid == &<IDirectManipulationViewport as ::windows_core::Interface>::IID
     }
 }
 pub trait IDirectManipulationViewport2_Impl: Sized + IDirectManipulationViewport_Impl {
@@ -780,7 +780,7 @@ impl IDirectManipulationViewport2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectManipulationViewport2 as ::windows_core::ComInterface>::IID || iid == &<IDirectManipulationViewport as ::windows_core::ComInterface>::IID
+        iid == &<IDirectManipulationViewport2 as ::windows_core::Interface>::IID || iid == &<IDirectManipulationViewport as ::windows_core::Interface>::IID
     }
 }
 pub trait IDirectManipulationViewportEventHandler_Impl: Sized {
@@ -814,6 +814,6 @@ impl IDirectManipulationViewportEventHandler_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectManipulationViewportEventHandler as ::windows_core::ComInterface>::IID
+        iid == &<IDirectManipulationViewportEventHandler as ::windows_core::Interface>::IID
     }
 }

@@ -1,13 +1,4 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAppointmentCalendarCancelMeetingRequest(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAppointmentCalendarCancelMeetingRequest {
-    type Vtable = IAppointmentCalendarCancelMeetingRequest_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAppointmentCalendarCancelMeetingRequest {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x49460f8d_6434_40d7_ad46_6297419314d1);
-}
+::windows_core::imp::com_interface!(IAppointmentCalendarCancelMeetingRequest, IAppointmentCalendarCancelMeetingRequest_Vtbl, 0x49460f8d_6434_40d7_ad46_6297419314d1);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppointmentCalendarCancelMeetingRequest_Vtbl {
@@ -21,16 +12,7 @@ pub struct IAppointmentCalendarCancelMeetingRequest_Vtbl {
     pub ReportCompletedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub ReportFailedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAppointmentCalendarCancelMeetingRequestEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAppointmentCalendarCancelMeetingRequestEventArgs {
-    type Vtable = IAppointmentCalendarCancelMeetingRequestEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAppointmentCalendarCancelMeetingRequestEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1a79be16_7f30_4e35_beef_9d2c7b6dcae1);
-}
+::windows_core::imp::com_interface!(IAppointmentCalendarCancelMeetingRequestEventArgs, IAppointmentCalendarCancelMeetingRequestEventArgs_Vtbl, 0x1a79be16_7f30_4e35_beef_9d2c7b6dcae1);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppointmentCalendarCancelMeetingRequestEventArgs_Vtbl {
@@ -38,16 +20,7 @@ pub struct IAppointmentCalendarCancelMeetingRequestEventArgs_Vtbl {
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAppointmentCalendarCreateOrUpdateAppointmentRequest(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAppointmentCalendarCreateOrUpdateAppointmentRequest {
-    type Vtable = IAppointmentCalendarCreateOrUpdateAppointmentRequest_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAppointmentCalendarCreateOrUpdateAppointmentRequest {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2e62f2b2_ca96_48ac_9124_406b19fefa70);
-}
+::windows_core::imp::com_interface!(IAppointmentCalendarCreateOrUpdateAppointmentRequest, IAppointmentCalendarCreateOrUpdateAppointmentRequest_Vtbl, 0x2e62f2b2_ca96_48ac_9124_406b19fefa70);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppointmentCalendarCreateOrUpdateAppointmentRequest_Vtbl {
@@ -62,16 +35,7 @@ pub struct IAppointmentCalendarCreateOrUpdateAppointmentRequest_Vtbl {
     pub ReportCompletedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, createdorupdatedappointment: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub ReportFailedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {
-    type Vtable = IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcf8ded28_002e_4bf7_8e9d_5e20d49aa3ba);
-}
+::windows_core::imp::com_interface!(IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs, IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs_Vtbl, 0xcf8ded28_002e_4bf7_8e9d_5e20d49aa3ba);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs_Vtbl {
@@ -79,16 +43,7 @@ pub struct IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs_Vtbl {
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAppointmentCalendarForwardMeetingRequest(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAppointmentCalendarForwardMeetingRequest {
-    type Vtable = IAppointmentCalendarForwardMeetingRequest_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAppointmentCalendarForwardMeetingRequest {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x82e5ee56_26b6_4253_8a8f_6cf5f2ff7884);
-}
+::windows_core::imp::com_interface!(IAppointmentCalendarForwardMeetingRequest, IAppointmentCalendarForwardMeetingRequest_Vtbl, 0x82e5ee56_26b6_4253_8a8f_6cf5f2ff7884);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppointmentCalendarForwardMeetingRequest_Vtbl {
@@ -106,16 +61,7 @@ pub struct IAppointmentCalendarForwardMeetingRequest_Vtbl {
     pub ReportCompletedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub ReportFailedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAppointmentCalendarForwardMeetingRequestEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAppointmentCalendarForwardMeetingRequestEventArgs {
-    type Vtable = IAppointmentCalendarForwardMeetingRequestEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAppointmentCalendarForwardMeetingRequestEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3109151a_23a2_42fd_9c82_c9a60d59f8a8);
-}
+::windows_core::imp::com_interface!(IAppointmentCalendarForwardMeetingRequestEventArgs, IAppointmentCalendarForwardMeetingRequestEventArgs_Vtbl, 0x3109151a_23a2_42fd_9c82_c9a60d59f8a8);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppointmentCalendarForwardMeetingRequestEventArgs_Vtbl {
@@ -123,16 +69,7 @@ pub struct IAppointmentCalendarForwardMeetingRequestEventArgs_Vtbl {
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAppointmentCalendarProposeNewTimeForMeetingRequest(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAppointmentCalendarProposeNewTimeForMeetingRequest {
-    type Vtable = IAppointmentCalendarProposeNewTimeForMeetingRequest_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAppointmentCalendarProposeNewTimeForMeetingRequest {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xce1c63f5_edf6_43c3_82b7_be6b368c6900);
-}
+::windows_core::imp::com_interface!(IAppointmentCalendarProposeNewTimeForMeetingRequest, IAppointmentCalendarProposeNewTimeForMeetingRequest_Vtbl, 0xce1c63f5_edf6_43c3_82b7_be6b368c6900);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppointmentCalendarProposeNewTimeForMeetingRequest_Vtbl {
@@ -147,16 +84,7 @@ pub struct IAppointmentCalendarProposeNewTimeForMeetingRequest_Vtbl {
     pub ReportCompletedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub ReportFailedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {
-    type Vtable = IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd2d777d8_fed1_4280_a3ba_2e1f47609aa2);
-}
+::windows_core::imp::com_interface!(IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs, IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs_Vtbl, 0xd2d777d8_fed1_4280_a3ba_2e1f47609aa2);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs_Vtbl {
@@ -164,16 +92,7 @@ pub struct IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs_Vtbl {
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAppointmentCalendarSyncManagerSyncRequest(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAppointmentCalendarSyncManagerSyncRequest {
-    type Vtable = IAppointmentCalendarSyncManagerSyncRequest_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAppointmentCalendarSyncManagerSyncRequest {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x12ab382b_7163_4a56_9a4e_7223a84adf46);
-}
+::windows_core::imp::com_interface!(IAppointmentCalendarSyncManagerSyncRequest, IAppointmentCalendarSyncManagerSyncRequest_Vtbl, 0x12ab382b_7163_4a56_9a4e_7223a84adf46);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppointmentCalendarSyncManagerSyncRequest_Vtbl {
@@ -182,16 +101,7 @@ pub struct IAppointmentCalendarSyncManagerSyncRequest_Vtbl {
     pub ReportCompletedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub ReportFailedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAppointmentCalendarSyncManagerSyncRequestEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAppointmentCalendarSyncManagerSyncRequestEventArgs {
-    type Vtable = IAppointmentCalendarSyncManagerSyncRequestEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAppointmentCalendarSyncManagerSyncRequestEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xca17c6f7_0284_4edd_87ba_4d8f69dcf5c0);
-}
+::windows_core::imp::com_interface!(IAppointmentCalendarSyncManagerSyncRequestEventArgs, IAppointmentCalendarSyncManagerSyncRequestEventArgs_Vtbl, 0xca17c6f7_0284_4edd_87ba_4d8f69dcf5c0);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppointmentCalendarSyncManagerSyncRequestEventArgs_Vtbl {
@@ -199,16 +109,7 @@ pub struct IAppointmentCalendarSyncManagerSyncRequestEventArgs_Vtbl {
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAppointmentCalendarUpdateMeetingResponseRequest(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAppointmentCalendarUpdateMeetingResponseRequest {
-    type Vtable = IAppointmentCalendarUpdateMeetingResponseRequest_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAppointmentCalendarUpdateMeetingResponseRequest {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa36d608c_c29d_4b94_b086_7e9ff7bd84a0);
-}
+::windows_core::imp::com_interface!(IAppointmentCalendarUpdateMeetingResponseRequest, IAppointmentCalendarUpdateMeetingResponseRequest_Vtbl, 0xa36d608c_c29d_4b94_b086_7e9ff7bd84a0);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppointmentCalendarUpdateMeetingResponseRequest_Vtbl {
@@ -223,16 +124,7 @@ pub struct IAppointmentCalendarUpdateMeetingResponseRequest_Vtbl {
     pub ReportCompletedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub ReportFailedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAppointmentCalendarUpdateMeetingResponseRequestEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAppointmentCalendarUpdateMeetingResponseRequestEventArgs {
-    type Vtable = IAppointmentCalendarUpdateMeetingResponseRequestEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAppointmentCalendarUpdateMeetingResponseRequestEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x88759883_97bf_479d_aed5_0be8ce567d1e);
-}
+::windows_core::imp::com_interface!(IAppointmentCalendarUpdateMeetingResponseRequestEventArgs, IAppointmentCalendarUpdateMeetingResponseRequestEventArgs_Vtbl, 0x88759883_97bf_479d_aed5_0be8ce567d1e);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppointmentCalendarUpdateMeetingResponseRequestEventArgs_Vtbl {
@@ -240,16 +132,7 @@ pub struct IAppointmentCalendarUpdateMeetingResponseRequestEventArgs_Vtbl {
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAppointmentDataProviderConnection(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAppointmentDataProviderConnection {
-    type Vtable = IAppointmentDataProviderConnection_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAppointmentDataProviderConnection {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf3dd9d83_3254_465f_abdb_928046552cf4);
-}
+::windows_core::imp::com_interface!(IAppointmentDataProviderConnection, IAppointmentDataProviderConnection_Vtbl, 0xf3dd9d83_3254_465f_abdb_928046552cf4);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppointmentDataProviderConnection_Vtbl {
@@ -268,16 +151,7 @@ pub struct IAppointmentDataProviderConnection_Vtbl {
     pub RemoveUpdateMeetingResponseRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     pub Start: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAppointmentDataProviderTriggerDetails(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAppointmentDataProviderTriggerDetails {
-    type Vtable = IAppointmentDataProviderTriggerDetails_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAppointmentDataProviderTriggerDetails {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb3283c01_7e12_4e5e_b1ef_74fb68ac6f2a);
-}
+::windows_core::imp::com_interface!(IAppointmentDataProviderTriggerDetails, IAppointmentDataProviderTriggerDetails_Vtbl, 0xb3283c01_7e12_4e5e_b1ef_74fb68ac6f2a);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppointmentDataProviderTriggerDetails_Vtbl {
@@ -287,6 +161,7 @@ pub struct IAppointmentDataProviderTriggerDetails_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppointmentCalendarCancelMeetingRequest(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(AppointmentCalendarCancelMeetingRequest, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl AppointmentCalendarCancelMeetingRequest {
     pub fn AppointmentCalendarLocalId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -350,19 +225,17 @@ impl ::windows_core::RuntimeType for AppointmentCalendarCancelMeetingRequest {
 }
 unsafe impl ::windows_core::Interface for AppointmentCalendarCancelMeetingRequest {
     type Vtable = IAppointmentCalendarCancelMeetingRequest_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for AppointmentCalendarCancelMeetingRequest {
-    const IID: ::windows_core::GUID = <IAppointmentCalendarCancelMeetingRequest as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IAppointmentCalendarCancelMeetingRequest as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for AppointmentCalendarCancelMeetingRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarCancelMeetingRequest";
 }
-::windows_core::imp::interface_hierarchy!(AppointmentCalendarCancelMeetingRequest, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AppointmentCalendarCancelMeetingRequest {}
 unsafe impl ::core::marker::Sync for AppointmentCalendarCancelMeetingRequest {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppointmentCalendarCancelMeetingRequestEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(AppointmentCalendarCancelMeetingRequestEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl AppointmentCalendarCancelMeetingRequestEventArgs {
     pub fn Request(&self) -> ::windows_core::Result<AppointmentCalendarCancelMeetingRequest> {
         let this = self;
@@ -384,19 +257,17 @@ impl ::windows_core::RuntimeType for AppointmentCalendarCancelMeetingRequestEven
 }
 unsafe impl ::windows_core::Interface for AppointmentCalendarCancelMeetingRequestEventArgs {
     type Vtable = IAppointmentCalendarCancelMeetingRequestEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for AppointmentCalendarCancelMeetingRequestEventArgs {
-    const IID: ::windows_core::GUID = <IAppointmentCalendarCancelMeetingRequestEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IAppointmentCalendarCancelMeetingRequestEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for AppointmentCalendarCancelMeetingRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarCancelMeetingRequestEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(AppointmentCalendarCancelMeetingRequestEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AppointmentCalendarCancelMeetingRequestEventArgs {}
 unsafe impl ::core::marker::Sync for AppointmentCalendarCancelMeetingRequestEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppointmentCalendarCreateOrUpdateAppointmentRequest(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(AppointmentCalendarCreateOrUpdateAppointmentRequest, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl AppointmentCalendarCreateOrUpdateAppointmentRequest {
     pub fn AppointmentCalendarLocalId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -451,19 +322,17 @@ impl ::windows_core::RuntimeType for AppointmentCalendarCreateOrUpdateAppointmen
 }
 unsafe impl ::windows_core::Interface for AppointmentCalendarCreateOrUpdateAppointmentRequest {
     type Vtable = IAppointmentCalendarCreateOrUpdateAppointmentRequest_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for AppointmentCalendarCreateOrUpdateAppointmentRequest {
-    const IID: ::windows_core::GUID = <IAppointmentCalendarCreateOrUpdateAppointmentRequest as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IAppointmentCalendarCreateOrUpdateAppointmentRequest as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for AppointmentCalendarCreateOrUpdateAppointmentRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarCreateOrUpdateAppointmentRequest";
 }
-::windows_core::imp::interface_hierarchy!(AppointmentCalendarCreateOrUpdateAppointmentRequest, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AppointmentCalendarCreateOrUpdateAppointmentRequest {}
 unsafe impl ::core::marker::Sync for AppointmentCalendarCreateOrUpdateAppointmentRequest {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {
     pub fn Request(&self) -> ::windows_core::Result<AppointmentCalendarCreateOrUpdateAppointmentRequest> {
         let this = self;
@@ -485,19 +354,17 @@ impl ::windows_core::RuntimeType for AppointmentCalendarCreateOrUpdateAppointmen
 }
 unsafe impl ::windows_core::Interface for AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {
     type Vtable = IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {
-    const IID: ::windows_core::GUID = <IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {}
 unsafe impl ::core::marker::Sync for AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppointmentCalendarForwardMeetingRequest(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(AppointmentCalendarForwardMeetingRequest, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl AppointmentCalendarForwardMeetingRequest {
     pub fn AppointmentCalendarLocalId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -570,19 +437,17 @@ impl ::windows_core::RuntimeType for AppointmentCalendarForwardMeetingRequest {
 }
 unsafe impl ::windows_core::Interface for AppointmentCalendarForwardMeetingRequest {
     type Vtable = IAppointmentCalendarForwardMeetingRequest_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for AppointmentCalendarForwardMeetingRequest {
-    const IID: ::windows_core::GUID = <IAppointmentCalendarForwardMeetingRequest as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IAppointmentCalendarForwardMeetingRequest as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for AppointmentCalendarForwardMeetingRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarForwardMeetingRequest";
 }
-::windows_core::imp::interface_hierarchy!(AppointmentCalendarForwardMeetingRequest, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AppointmentCalendarForwardMeetingRequest {}
 unsafe impl ::core::marker::Sync for AppointmentCalendarForwardMeetingRequest {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppointmentCalendarForwardMeetingRequestEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(AppointmentCalendarForwardMeetingRequestEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl AppointmentCalendarForwardMeetingRequestEventArgs {
     pub fn Request(&self) -> ::windows_core::Result<AppointmentCalendarForwardMeetingRequest> {
         let this = self;
@@ -604,19 +469,17 @@ impl ::windows_core::RuntimeType for AppointmentCalendarForwardMeetingRequestEve
 }
 unsafe impl ::windows_core::Interface for AppointmentCalendarForwardMeetingRequestEventArgs {
     type Vtable = IAppointmentCalendarForwardMeetingRequestEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for AppointmentCalendarForwardMeetingRequestEventArgs {
-    const IID: ::windows_core::GUID = <IAppointmentCalendarForwardMeetingRequestEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IAppointmentCalendarForwardMeetingRequestEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for AppointmentCalendarForwardMeetingRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarForwardMeetingRequestEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(AppointmentCalendarForwardMeetingRequestEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AppointmentCalendarForwardMeetingRequestEventArgs {}
 unsafe impl ::core::marker::Sync for AppointmentCalendarForwardMeetingRequestEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppointmentCalendarProposeNewTimeForMeetingRequest(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(AppointmentCalendarProposeNewTimeForMeetingRequest, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl AppointmentCalendarProposeNewTimeForMeetingRequest {
     pub fn AppointmentCalendarLocalId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -687,19 +550,17 @@ impl ::windows_core::RuntimeType for AppointmentCalendarProposeNewTimeForMeeting
 }
 unsafe impl ::windows_core::Interface for AppointmentCalendarProposeNewTimeForMeetingRequest {
     type Vtable = IAppointmentCalendarProposeNewTimeForMeetingRequest_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for AppointmentCalendarProposeNewTimeForMeetingRequest {
-    const IID: ::windows_core::GUID = <IAppointmentCalendarProposeNewTimeForMeetingRequest as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IAppointmentCalendarProposeNewTimeForMeetingRequest as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for AppointmentCalendarProposeNewTimeForMeetingRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarProposeNewTimeForMeetingRequest";
 }
-::windows_core::imp::interface_hierarchy!(AppointmentCalendarProposeNewTimeForMeetingRequest, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AppointmentCalendarProposeNewTimeForMeetingRequest {}
 unsafe impl ::core::marker::Sync for AppointmentCalendarProposeNewTimeForMeetingRequest {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {
     pub fn Request(&self) -> ::windows_core::Result<AppointmentCalendarProposeNewTimeForMeetingRequest> {
         let this = self;
@@ -721,19 +582,17 @@ impl ::windows_core::RuntimeType for AppointmentCalendarProposeNewTimeForMeeting
 }
 unsafe impl ::windows_core::Interface for AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {
     type Vtable = IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {
-    const IID: ::windows_core::GUID = <IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {}
 unsafe impl ::core::marker::Sync for AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppointmentCalendarSyncManagerSyncRequest(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(AppointmentCalendarSyncManagerSyncRequest, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl AppointmentCalendarSyncManagerSyncRequest {
     pub fn AppointmentCalendarLocalId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -762,19 +621,17 @@ impl ::windows_core::RuntimeType for AppointmentCalendarSyncManagerSyncRequest {
 }
 unsafe impl ::windows_core::Interface for AppointmentCalendarSyncManagerSyncRequest {
     type Vtable = IAppointmentCalendarSyncManagerSyncRequest_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for AppointmentCalendarSyncManagerSyncRequest {
-    const IID: ::windows_core::GUID = <IAppointmentCalendarSyncManagerSyncRequest as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IAppointmentCalendarSyncManagerSyncRequest as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for AppointmentCalendarSyncManagerSyncRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarSyncManagerSyncRequest";
 }
-::windows_core::imp::interface_hierarchy!(AppointmentCalendarSyncManagerSyncRequest, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AppointmentCalendarSyncManagerSyncRequest {}
 unsafe impl ::core::marker::Sync for AppointmentCalendarSyncManagerSyncRequest {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppointmentCalendarSyncManagerSyncRequestEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(AppointmentCalendarSyncManagerSyncRequestEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl AppointmentCalendarSyncManagerSyncRequestEventArgs {
     pub fn Request(&self) -> ::windows_core::Result<AppointmentCalendarSyncManagerSyncRequest> {
         let this = self;
@@ -796,19 +653,17 @@ impl ::windows_core::RuntimeType for AppointmentCalendarSyncManagerSyncRequestEv
 }
 unsafe impl ::windows_core::Interface for AppointmentCalendarSyncManagerSyncRequestEventArgs {
     type Vtable = IAppointmentCalendarSyncManagerSyncRequestEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for AppointmentCalendarSyncManagerSyncRequestEventArgs {
-    const IID: ::windows_core::GUID = <IAppointmentCalendarSyncManagerSyncRequestEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IAppointmentCalendarSyncManagerSyncRequestEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for AppointmentCalendarSyncManagerSyncRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarSyncManagerSyncRequestEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(AppointmentCalendarSyncManagerSyncRequestEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AppointmentCalendarSyncManagerSyncRequestEventArgs {}
 unsafe impl ::core::marker::Sync for AppointmentCalendarSyncManagerSyncRequestEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppointmentCalendarUpdateMeetingResponseRequest(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(AppointmentCalendarUpdateMeetingResponseRequest, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl AppointmentCalendarUpdateMeetingResponseRequest {
     pub fn AppointmentCalendarLocalId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -879,19 +734,17 @@ impl ::windows_core::RuntimeType for AppointmentCalendarUpdateMeetingResponseReq
 }
 unsafe impl ::windows_core::Interface for AppointmentCalendarUpdateMeetingResponseRequest {
     type Vtable = IAppointmentCalendarUpdateMeetingResponseRequest_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for AppointmentCalendarUpdateMeetingResponseRequest {
-    const IID: ::windows_core::GUID = <IAppointmentCalendarUpdateMeetingResponseRequest as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IAppointmentCalendarUpdateMeetingResponseRequest as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for AppointmentCalendarUpdateMeetingResponseRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarUpdateMeetingResponseRequest";
 }
-::windows_core::imp::interface_hierarchy!(AppointmentCalendarUpdateMeetingResponseRequest, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AppointmentCalendarUpdateMeetingResponseRequest {}
 unsafe impl ::core::marker::Sync for AppointmentCalendarUpdateMeetingResponseRequest {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppointmentCalendarUpdateMeetingResponseRequestEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(AppointmentCalendarUpdateMeetingResponseRequestEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl AppointmentCalendarUpdateMeetingResponseRequestEventArgs {
     pub fn Request(&self) -> ::windows_core::Result<AppointmentCalendarUpdateMeetingResponseRequest> {
         let this = self;
@@ -913,19 +766,17 @@ impl ::windows_core::RuntimeType for AppointmentCalendarUpdateMeetingResponseReq
 }
 unsafe impl ::windows_core::Interface for AppointmentCalendarUpdateMeetingResponseRequestEventArgs {
     type Vtable = IAppointmentCalendarUpdateMeetingResponseRequestEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for AppointmentCalendarUpdateMeetingResponseRequestEventArgs {
-    const IID: ::windows_core::GUID = <IAppointmentCalendarUpdateMeetingResponseRequestEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IAppointmentCalendarUpdateMeetingResponseRequestEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for AppointmentCalendarUpdateMeetingResponseRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarUpdateMeetingResponseRequestEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(AppointmentCalendarUpdateMeetingResponseRequestEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AppointmentCalendarUpdateMeetingResponseRequestEventArgs {}
 unsafe impl ::core::marker::Sync for AppointmentCalendarUpdateMeetingResponseRequestEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppointmentDataProviderConnection(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(AppointmentDataProviderConnection, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl AppointmentDataProviderConnection {
     pub fn SyncRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -1021,19 +872,17 @@ impl ::windows_core::RuntimeType for AppointmentDataProviderConnection {
 }
 unsafe impl ::windows_core::Interface for AppointmentDataProviderConnection {
     type Vtable = IAppointmentDataProviderConnection_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for AppointmentDataProviderConnection {
-    const IID: ::windows_core::GUID = <IAppointmentDataProviderConnection as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IAppointmentDataProviderConnection as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for AppointmentDataProviderConnection {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentDataProviderConnection";
 }
-::windows_core::imp::interface_hierarchy!(AppointmentDataProviderConnection, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AppointmentDataProviderConnection {}
 unsafe impl ::core::marker::Sync for AppointmentDataProviderConnection {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppointmentDataProviderTriggerDetails(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(AppointmentDataProviderTriggerDetails, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl AppointmentDataProviderTriggerDetails {
     pub fn Connection(&self) -> ::windows_core::Result<AppointmentDataProviderConnection> {
         let this = self;
@@ -1048,13 +897,10 @@ impl ::windows_core::RuntimeType for AppointmentDataProviderTriggerDetails {
 }
 unsafe impl ::windows_core::Interface for AppointmentDataProviderTriggerDetails {
     type Vtable = IAppointmentDataProviderTriggerDetails_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for AppointmentDataProviderTriggerDetails {
-    const IID: ::windows_core::GUID = <IAppointmentDataProviderTriggerDetails as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IAppointmentDataProviderTriggerDetails as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for AppointmentDataProviderTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentDataProviderTriggerDetails";
 }
-::windows_core::imp::interface_hierarchy!(AppointmentDataProviderTriggerDetails, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AppointmentDataProviderTriggerDetails {}
 unsafe impl ::core::marker::Sync for AppointmentDataProviderTriggerDetails {}

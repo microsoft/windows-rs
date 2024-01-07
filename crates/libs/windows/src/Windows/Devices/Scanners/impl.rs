@@ -56,7 +56,7 @@ impl IImageScannerFormatConfiguration_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IImageScannerFormatConfiguration as ::windows_core::ComInterface>::IID
+        iid == &<IImageScannerFormatConfiguration as ::windows_core::Interface>::IID
     }
 }
 pub trait IImageScannerSourceConfiguration_Impl: Sized + IImageScannerFormatConfiguration_Impl {
@@ -412,6 +412,6 @@ impl IImageScannerSourceConfiguration_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IImageScannerSourceConfiguration as ::windows_core::ComInterface>::IID
+        iid == &<IImageScannerSourceConfiguration as ::windows_core::Interface>::IID
     }
 }

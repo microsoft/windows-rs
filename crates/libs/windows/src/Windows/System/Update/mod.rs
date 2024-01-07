@@ -1,13 +1,4 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISystemUpdateItem(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISystemUpdateItem {
-    type Vtable = ISystemUpdateItem_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISystemUpdateItem {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x779740eb_5624_519e_a8e2_09e9173b3fb7);
-}
+::windows_core::imp::com_interface!(ISystemUpdateItem, ISystemUpdateItem_Vtbl, 0x779740eb_5624_519e_a8e2_09e9173b3fb7);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemUpdateItem_Vtbl {
@@ -21,16 +12,7 @@ pub struct ISystemUpdateItem_Vtbl {
     pub InstallProgress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows_core::HRESULT,
     pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISystemUpdateLastErrorInfo(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISystemUpdateLastErrorInfo {
-    type Vtable = ISystemUpdateLastErrorInfo_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISystemUpdateLastErrorInfo {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7ee887f7_8a44_5b6e_bd07_7aece4116ea9);
-}
+::windows_core::imp::com_interface!(ISystemUpdateLastErrorInfo, ISystemUpdateLastErrorInfo_Vtbl, 0x7ee887f7_8a44_5b6e_bd07_7aece4116ea9);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemUpdateLastErrorInfo_Vtbl {
@@ -39,16 +21,7 @@ pub struct ISystemUpdateLastErrorInfo_Vtbl {
     pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
     pub IsInteractive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISystemUpdateManagerStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISystemUpdateManagerStatics {
-    type Vtable = ISystemUpdateManagerStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISystemUpdateManagerStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb2d3fcef_2971_51be_b41a_8bd703bb701a);
-}
+::windows_core::imp::com_interface!(ISystemUpdateManagerStatics, ISystemUpdateManagerStatics_Vtbl, 0xb2d3fcef_2971_51be_b41a_8bd703bb701a);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemUpdateManagerStatics_Vtbl {
@@ -87,6 +60,7 @@ pub struct ISystemUpdateManagerStatics_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SystemUpdateItem(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(SystemUpdateItem, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl SystemUpdateItem {
     pub fn State(&self) -> ::windows_core::Result<SystemUpdateItemState> {
         let this = self;
@@ -150,19 +124,17 @@ impl ::windows_core::RuntimeType for SystemUpdateItem {
 }
 unsafe impl ::windows_core::Interface for SystemUpdateItem {
     type Vtable = ISystemUpdateItem_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for SystemUpdateItem {
-    const IID: ::windows_core::GUID = <ISystemUpdateItem as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ISystemUpdateItem as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for SystemUpdateItem {
     const NAME: &'static str = "Windows.System.Update.SystemUpdateItem";
 }
-::windows_core::imp::interface_hierarchy!(SystemUpdateItem, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SystemUpdateItem {}
 unsafe impl ::core::marker::Sync for SystemUpdateItem {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SystemUpdateLastErrorInfo(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(SystemUpdateLastErrorInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl SystemUpdateLastErrorInfo {
     pub fn State(&self) -> ::windows_core::Result<SystemUpdateManagerState> {
         let this = self;
@@ -191,14 +163,11 @@ impl ::windows_core::RuntimeType for SystemUpdateLastErrorInfo {
 }
 unsafe impl ::windows_core::Interface for SystemUpdateLastErrorInfo {
     type Vtable = ISystemUpdateLastErrorInfo_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for SystemUpdateLastErrorInfo {
-    const IID: ::windows_core::GUID = <ISystemUpdateLastErrorInfo as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ISystemUpdateLastErrorInfo as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for SystemUpdateLastErrorInfo {
     const NAME: &'static str = "Windows.System.Update.SystemUpdateLastErrorInfo";
 }
-::windows_core::imp::interface_hierarchy!(SystemUpdateLastErrorInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SystemUpdateLastErrorInfo {}
 unsafe impl ::core::marker::Sync for SystemUpdateLastErrorInfo {}
 pub struct SystemUpdateManager;

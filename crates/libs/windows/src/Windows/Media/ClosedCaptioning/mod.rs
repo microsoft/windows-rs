@@ -1,13 +1,4 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IClosedCaptionPropertiesStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IClosedCaptionPropertiesStatics {
-    type Vtable = IClosedCaptionPropertiesStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IClosedCaptionPropertiesStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x10aa1f84_cc30_4141_b503_5272289e0c20);
-}
+::windows_core::imp::com_interface!(IClosedCaptionPropertiesStatics, IClosedCaptionPropertiesStatics_Vtbl, 0x10aa1f84_cc30_4141_b503_5272289e0c20);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IClosedCaptionPropertiesStatics_Vtbl {
@@ -34,16 +25,7 @@ pub struct IClosedCaptionPropertiesStatics_Vtbl {
     ComputedRegionColor: usize,
     pub RegionOpacity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ClosedCaptionOpacity) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IClosedCaptionPropertiesStatics2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IClosedCaptionPropertiesStatics2 {
-    type Vtable = IClosedCaptionPropertiesStatics2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IClosedCaptionPropertiesStatics2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9de26870_37de_4197_8845_9a48dc5ac317);
-}
+::windows_core::imp::com_interface!(IClosedCaptionPropertiesStatics2, IClosedCaptionPropertiesStatics2_Vtbl, 0x9de26870_37de_4197_8845_9a48dc5ac317);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IClosedCaptionPropertiesStatics2_Vtbl {

@@ -44,7 +44,7 @@ impl ITpmVirtualSmartCardManager_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITpmVirtualSmartCardManager as ::windows_core::ComInterface>::IID
+        iid == &<ITpmVirtualSmartCardManager as ::windows_core::Interface>::IID
     }
 }
 pub trait ITpmVirtualSmartCardManager2_Impl: Sized + ITpmVirtualSmartCardManager_Impl {
@@ -82,7 +82,7 @@ impl ITpmVirtualSmartCardManager2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITpmVirtualSmartCardManager2 as ::windows_core::ComInterface>::IID || iid == &<ITpmVirtualSmartCardManager as ::windows_core::ComInterface>::IID
+        iid == &<ITpmVirtualSmartCardManager2 as ::windows_core::Interface>::IID || iid == &<ITpmVirtualSmartCardManager as ::windows_core::Interface>::IID
     }
 }
 pub trait ITpmVirtualSmartCardManager3_Impl: Sized + ITpmVirtualSmartCardManager2_Impl {
@@ -124,7 +124,7 @@ impl ITpmVirtualSmartCardManager3_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITpmVirtualSmartCardManager3 as ::windows_core::ComInterface>::IID || iid == &<ITpmVirtualSmartCardManager as ::windows_core::ComInterface>::IID || iid == &<ITpmVirtualSmartCardManager2 as ::windows_core::ComInterface>::IID
+        iid == &<ITpmVirtualSmartCardManager3 as ::windows_core::Interface>::IID || iid == &<ITpmVirtualSmartCardManager as ::windows_core::Interface>::IID || iid == &<ITpmVirtualSmartCardManager2 as ::windows_core::Interface>::IID
     }
 }
 pub trait ITpmVirtualSmartCardManagerStatusCallback_Impl: Sized {
@@ -151,6 +151,6 @@ impl ITpmVirtualSmartCardManagerStatusCallback_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITpmVirtualSmartCardManagerStatusCallback as ::windows_core::ComInterface>::IID
+        iid == &<ITpmVirtualSmartCardManagerStatusCallback as ::windows_core::Interface>::IID
     }
 }

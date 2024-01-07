@@ -12,7 +12,7 @@ impl IInkCommitRequestHandler_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnCommitRequested: OnCommitRequested::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInkCommitRequestHandler as ::windows_core::ComInterface>::IID
+        iid == &<IInkCommitRequestHandler as ::windows_core::Interface>::IID
     }
 }
 pub trait IInkD2DRenderer_Impl: Sized {
@@ -29,7 +29,7 @@ impl IInkD2DRenderer_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Draw: Draw::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInkD2DRenderer as ::windows_core::ComInterface>::IID
+        iid == &<IInkD2DRenderer as ::windows_core::Interface>::IID
     }
 }
 pub trait IInkD2DRenderer2_Impl: Sized {
@@ -46,7 +46,7 @@ impl IInkD2DRenderer2_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Draw: Draw::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInkD2DRenderer2 as ::windows_core::ComInterface>::IID
+        iid == &<IInkD2DRenderer2 as ::windows_core::Interface>::IID
     }
 }
 pub trait IInkDesktopHost_Impl: Sized {
@@ -80,7 +80,7 @@ impl IInkDesktopHost_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInkDesktopHost as ::windows_core::ComInterface>::IID
+        iid == &<IInkDesktopHost as ::windows_core::Interface>::IID
     }
 }
 pub trait IInkHostWorkItem_Impl: Sized {
@@ -97,7 +97,7 @@ impl IInkHostWorkItem_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Invoke: Invoke::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInkHostWorkItem as ::windows_core::ComInterface>::IID
+        iid == &<IInkHostWorkItem as ::windows_core::Interface>::IID
     }
 }
 pub trait IInkPresenterDesktop_Impl: Sized {
@@ -145,6 +145,6 @@ impl IInkPresenterDesktop_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInkPresenterDesktop as ::windows_core::ComInterface>::IID
+        iid == &<IInkPresenterDesktop as ::windows_core::Interface>::IID
     }
 }

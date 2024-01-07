@@ -1,13 +1,4 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IInkWorkspaceHostedAppManager(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IInkWorkspaceHostedAppManager {
-    type Vtable = IInkWorkspaceHostedAppManager_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IInkWorkspaceHostedAppManager {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfe0a7990_5e59_4bb7_8a63_7d218cd96300);
-}
+::windows_core::imp::com_interface!(IInkWorkspaceHostedAppManager, IInkWorkspaceHostedAppManager_Vtbl, 0xfe0a7990_5e59_4bb7_8a63_7d218cd96300);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkWorkspaceHostedAppManager_Vtbl {
@@ -17,16 +8,7 @@ pub struct IInkWorkspaceHostedAppManager_Vtbl {
     #[cfg(not(feature = "Graphics_Imaging"))]
     SetThumbnailAsync: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IInkWorkspaceHostedAppManagerStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IInkWorkspaceHostedAppManagerStatics {
-    type Vtable = IInkWorkspaceHostedAppManagerStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IInkWorkspaceHostedAppManagerStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcbfd8cc5_a162_4bc4_84ee_e8716d5233c5);
-}
+::windows_core::imp::com_interface!(IInkWorkspaceHostedAppManagerStatics, IInkWorkspaceHostedAppManagerStatics_Vtbl, 0xcbfd8cc5_a162_4bc4_84ee_e8716d5233c5);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkWorkspaceHostedAppManagerStatics_Vtbl {
@@ -36,6 +18,7 @@ pub struct IInkWorkspaceHostedAppManagerStatics_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct InkWorkspaceHostedAppManager(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(InkWorkspaceHostedAppManager, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl InkWorkspaceHostedAppManager {
     #[doc = "Required features: `\"Graphics_Imaging\"`"]
     #[cfg(feature = "Graphics_Imaging")]
@@ -66,13 +49,10 @@ impl ::windows_core::RuntimeType for InkWorkspaceHostedAppManager {
 }
 unsafe impl ::windows_core::Interface for InkWorkspaceHostedAppManager {
     type Vtable = IInkWorkspaceHostedAppManager_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for InkWorkspaceHostedAppManager {
-    const IID: ::windows_core::GUID = <IInkWorkspaceHostedAppManager as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IInkWorkspaceHostedAppManager as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for InkWorkspaceHostedAppManager {
     const NAME: &'static str = "Windows.ApplicationModel.Preview.InkWorkspace.InkWorkspaceHostedAppManager";
 }
-::windows_core::imp::interface_hierarchy!(InkWorkspaceHostedAppManager, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for InkWorkspaceHostedAppManager {}
 unsafe impl ::core::marker::Sync for InkWorkspaceHostedAppManager {}

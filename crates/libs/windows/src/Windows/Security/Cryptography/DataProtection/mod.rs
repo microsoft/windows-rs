@@ -1,13 +1,4 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDataProtectionProvider(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDataProtectionProvider {
-    type Vtable = IDataProtectionProvider_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDataProtectionProvider {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x09639948_ed22_4270_bd1c_6d72c00f8787);
-}
+::windows_core::imp::com_interface!(IDataProtectionProvider, IDataProtectionProvider_Vtbl, 0x09639948_ed22_4270_bd1c_6d72c00f8787);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataProtectionProvider_Vtbl {
@@ -29,16 +20,7 @@ pub struct IDataProtectionProvider_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     UnprotectStreamAsync: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDataProtectionProviderFactory(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDataProtectionProviderFactory {
-    type Vtable = IDataProtectionProviderFactory_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDataProtectionProviderFactory {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xadf33dac_4932_4cdf_ac41_7214333514ca);
-}
+::windows_core::imp::com_interface!(IDataProtectionProviderFactory, IDataProtectionProviderFactory_Vtbl, 0xadf33dac_4932_4cdf_ac41_7214333514ca);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataProtectionProviderFactory_Vtbl {
@@ -48,6 +30,7 @@ pub struct IDataProtectionProviderFactory_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DataProtectionProvider(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(DataProtectionProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl DataProtectionProvider {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -60,50 +43,50 @@ impl DataProtectionProvider {
     #[cfg(feature = "Storage_Streams")]
     pub fn ProtectAsync<P0>(&self, data: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>
     where
-        P0: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P0: ::windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ProtectAsync)(::windows_core::Interface::as_raw(this), data.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ProtectAsync)(::windows_core::Interface::as_raw(this), data.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn UnprotectAsync<P0>(&self, data: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>
     where
-        P0: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P0: ::windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).UnprotectAsync)(::windows_core::Interface::as_raw(this), data.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).UnprotectAsync)(::windows_core::Interface::as_raw(this), data.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn ProtectStreamAsync<P0, P1>(&self, src: P0, dest: P1) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where
-        P0: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IInputStream>,
-        P1: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IOutputStream>,
+        P0: ::windows_core::IntoParam<super::super::super::Storage::Streams::IInputStream>,
+        P1: ::windows_core::IntoParam<super::super::super::Storage::Streams::IOutputStream>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ProtectStreamAsync)(::windows_core::Interface::as_raw(this), src.try_into_param()?.abi(), dest.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ProtectStreamAsync)(::windows_core::Interface::as_raw(this), src.into_param().abi(), dest.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn UnprotectStreamAsync<P0, P1>(&self, src: P0, dest: P1) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where
-        P0: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IInputStream>,
-        P1: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IOutputStream>,
+        P0: ::windows_core::IntoParam<super::super::super::Storage::Streams::IInputStream>,
+        P1: ::windows_core::IntoParam<super::super::super::Storage::Streams::IOutputStream>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).UnprotectStreamAsync)(::windows_core::Interface::as_raw(this), src.try_into_param()?.abi(), dest.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).UnprotectStreamAsync)(::windows_core::Interface::as_raw(this), src.into_param().abi(), dest.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn CreateOverloadExplicit(protectiondescriptor: &::windows_core::HSTRING) -> ::windows_core::Result<DataProtectionProvider> {
@@ -123,13 +106,10 @@ impl ::windows_core::RuntimeType for DataProtectionProvider {
 }
 unsafe impl ::windows_core::Interface for DataProtectionProvider {
     type Vtable = IDataProtectionProvider_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for DataProtectionProvider {
-    const IID: ::windows_core::GUID = <IDataProtectionProvider as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IDataProtectionProvider as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for DataProtectionProvider {
     const NAME: &'static str = "Windows.Security.Cryptography.DataProtection.DataProtectionProvider";
 }
-::windows_core::imp::interface_hierarchy!(DataProtectionProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for DataProtectionProvider {}
 unsafe impl ::core::marker::Sync for DataProtectionProvider {}

@@ -49,6 +49,6 @@ impl IGeoshape_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IGeoshape as ::windows_core::ComInterface>::IID
+        iid == &<IGeoshape as ::windows_core::Interface>::IID
     }
 }

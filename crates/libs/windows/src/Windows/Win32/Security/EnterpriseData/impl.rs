@@ -22,7 +22,7 @@ impl IProtectionPolicyManagerInterop_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IProtectionPolicyManagerInterop as ::windows_core::ComInterface>::IID
+        iid == &<IProtectionPolicyManagerInterop as ::windows_core::Interface>::IID
     }
 }
 pub trait IProtectionPolicyManagerInterop2_Impl: Sized {
@@ -70,7 +70,7 @@ impl IProtectionPolicyManagerInterop2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IProtectionPolicyManagerInterop2 as ::windows_core::ComInterface>::IID
+        iid == &<IProtectionPolicyManagerInterop2 as ::windows_core::Interface>::IID
     }
 }
 pub trait IProtectionPolicyManagerInterop3_Impl: Sized {
@@ -125,6 +125,6 @@ impl IProtectionPolicyManagerInterop3_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IProtectionPolicyManagerInterop3 as ::windows_core::ComInterface>::IID
+        iid == &<IProtectionPolicyManagerInterop3 as ::windows_core::Interface>::IID
     }
 }

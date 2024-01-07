@@ -28,7 +28,7 @@ impl IStorageProviderItemPropertySource_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IStorageProviderItemPropertySource as ::windows_core::ComInterface>::IID
+        iid == &<IStorageProviderItemPropertySource as ::windows_core::Interface>::IID
     }
 }
 pub trait IStorageProviderKnownFolderSyncInfoSource_Impl: Sized {
@@ -77,7 +77,7 @@ impl IStorageProviderKnownFolderSyncInfoSource_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IStorageProviderKnownFolderSyncInfoSource as ::windows_core::ComInterface>::IID
+        iid == &<IStorageProviderKnownFolderSyncInfoSource as ::windows_core::Interface>::IID
     }
 }
 pub trait IStorageProviderKnownFolderSyncInfoSourceFactory_Impl: Sized {
@@ -106,7 +106,7 @@ impl IStorageProviderKnownFolderSyncInfoSourceFactory_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IStorageProviderKnownFolderSyncInfoSourceFactory as ::windows_core::ComInterface>::IID
+        iid == &<IStorageProviderKnownFolderSyncInfoSourceFactory as ::windows_core::Interface>::IID
     }
 }
 pub trait IStorageProviderPropertyCapabilities_Impl: Sized {
@@ -134,7 +134,7 @@ impl IStorageProviderPropertyCapabilities_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IStorageProviderPropertyCapabilities as ::windows_core::ComInterface>::IID
+        iid == &<IStorageProviderPropertyCapabilities as ::windows_core::Interface>::IID
     }
 }
 pub trait IStorageProviderStatusUISource_Impl: Sized {
@@ -183,7 +183,7 @@ impl IStorageProviderStatusUISource_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IStorageProviderStatusUISource as ::windows_core::ComInterface>::IID
+        iid == &<IStorageProviderStatusUISource as ::windows_core::Interface>::IID
     }
 }
 pub trait IStorageProviderStatusUISourceFactory_Impl: Sized {
@@ -212,7 +212,7 @@ impl IStorageProviderStatusUISourceFactory_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IStorageProviderStatusUISourceFactory as ::windows_core::ComInterface>::IID
+        iid == &<IStorageProviderStatusUISourceFactory as ::windows_core::Interface>::IID
     }
 }
 pub trait IStorageProviderUICommand_Impl: Sized {
@@ -289,7 +289,7 @@ impl IStorageProviderUICommand_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IStorageProviderUICommand as ::windows_core::ComInterface>::IID
+        iid == &<IStorageProviderUICommand as ::windows_core::Interface>::IID
     }
 }
 pub trait IStorageProviderUriSource_Impl: Sized {
@@ -318,6 +318,6 @@ impl IStorageProviderUriSource_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IStorageProviderUriSource as ::windows_core::ComInterface>::IID
+        iid == &<IStorageProviderUriSource as ::windows_core::Interface>::IID
     }
 }

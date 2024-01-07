@@ -5,19 +5,19 @@ use std::sync::*;
 ///
 /// The implementation is thread-safe and designed to avoid contention between events being
 /// raised and delegates being added or removed.
-pub struct Event<T: ComInterface> {
+pub struct Event<T: Interface> {
     swap: Mutex<()>,
     change: Mutex<()>,
     delegates: Array<T>,
 }
 
-impl<T: ComInterface> Default for Event<T> {
+impl<T: Interface> Default for Event<T> {
     fn default() -> Self {
         Self::new()
     }
 }
 
-impl<T: ComInterface> Event<T> {
+impl<T: Interface> Event<T> {
     /// Creates a new, empty `Event<T>`.
     pub fn new() -> Self {
         Self { delegates: Array::new(), swap: Mutex::default(), change: Mutex::default() }
@@ -109,19 +109,19 @@ impl<T: ComInterface> Event<T> {
 }
 
 /// A thread-safe reference-counted array of delegates.
-struct Array<T: ComInterface> {
+struct Array<T: Interface> {
     buffer: *mut Buffer<T>,
     len: usize,
     _phantom: std::marker::PhantomData<T>,
 }
 
-impl<T: ComInterface> Default for Array<T> {
+impl<T: Interface> Default for Array<T> {
     fn default() -> Self {
         Self::new()
     }
 }
 
-impl<T: ComInterface> Array<T> {
+impl<T: Interface> Array<T> {
     /// Creates a new, empty `Array<T>` with no capacity.
     fn new() -> Self {
         Self { buffer: std::ptr::null_mut(), len: 0, _phantom: std::marker::PhantomData }
@@ -176,7 +176,7 @@ impl<T: ComInterface> Array<T> {
     }
 }
 
-impl<T: ComInterface> Clone for Array<T> {
+impl<T: Interface> Clone for Array<T> {
     fn clone(&self) -> Self {
         if !self.is_empty() {
             unsafe { (*self.buffer).0.add_ref() };
@@ -185,7 +185,7 @@ impl<T: ComInterface> Clone for Array<T> {
     }
 }
 
-impl<T: ComInterface> Drop for Array<T> {
+impl<T: Interface> Drop for Array<T> {
     fn drop(&mut self) {
         unsafe {
             if !self.is_empty() && (*self.buffer).0.release() == 0 {
@@ -200,7 +200,7 @@ impl<T: ComInterface> Drop for Array<T> {
 #[repr(C)]
 struct Buffer<T>(crate::imp::RefCount, std::marker::PhantomData<T>);
 
-impl<T: ComInterface> Buffer<T> {
+impl<T: Interface> Buffer<T> {
     /// Creates a new `Buffer` with the specified size in bytes.
     fn new(len: usize) -> Result<*mut Self> {
         if len == 0 {
@@ -234,7 +234,7 @@ enum Delegate<T> {
     Indirect(AgileReference<T>),
 }
 
-impl<T: ComInterface> Delegate<T> {
+impl<T: Interface> Delegate<T> {
     /// Creates a new `Delegate<T>`, containing a suitable reference to the specified delegate.
     fn new(delegate: &T) -> Result<Self> {
         if delegate.cast::<crate::imp::IAgileObject>().is_ok() {

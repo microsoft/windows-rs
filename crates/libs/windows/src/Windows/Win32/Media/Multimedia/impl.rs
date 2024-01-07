@@ -49,7 +49,7 @@ impl IAVIEditStream_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAVIEditStream as ::windows_core::ComInterface>::IID
+        iid == &<IAVIEditStream as ::windows_core::Interface>::IID
     }
 }
 pub trait IAVIFile_Impl: Sized {
@@ -111,7 +111,7 @@ impl IAVIFile_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAVIFile as ::windows_core::ComInterface>::IID
+        iid == &<IAVIFile as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -132,7 +132,7 @@ impl IAVIPersistFile_Vtbl {
         Self { base__: super::super::System::Com::IPersistFile_Vtbl::new::<Identity, Impl, OFFSET>(), Reserved1: Reserved1::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAVIPersistFile as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IPersist as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IPersistFile as ::windows_core::ComInterface>::IID
+        iid == &<IAVIPersistFile as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IPersist as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IPersistFile as ::windows_core::Interface>::IID
     }
 }
 pub trait IAVIStream_Impl: Sized {
@@ -222,7 +222,7 @@ impl IAVIStream_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAVIStream as ::windows_core::ComInterface>::IID
+        iid == &<IAVIStream as ::windows_core::Interface>::IID
     }
 }
 pub trait IAVIStreaming_Impl: Sized {
@@ -245,7 +245,7 @@ impl IAVIStreaming_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Begin: Begin::<Identity, Impl, OFFSET>, End: End::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAVIStreaming as ::windows_core::ComInterface>::IID
+        iid == &<IAVIStreaming as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
@@ -290,6 +290,6 @@ impl IGetFrame_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IGetFrame as ::windows_core::ComInterface>::IID
+        iid == &<IGetFrame as ::windows_core::Interface>::IID
     }
 }

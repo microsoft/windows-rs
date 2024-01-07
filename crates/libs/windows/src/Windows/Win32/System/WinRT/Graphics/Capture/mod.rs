@@ -1,11 +1,10 @@
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGraphicsCaptureItemInterop(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IGraphicsCaptureItemInterop, IGraphicsCaptureItemInterop_Vtbl, 0x3628e81b_3cac_4c60_b7f4_23ce0e0c3356);
+::windows_core::imp::interface_hierarchy!(IGraphicsCaptureItemInterop, ::windows_core::IUnknown);
 impl IGraphicsCaptureItemInterop {
     pub unsafe fn CreateForWindow<P0, T>(&self, window: P0) -> ::windows_core::Result<T>
     where
         P0: ::windows_core::IntoParam<super::super::super::super::Foundation::HWND>,
-        T: ::windows_core::ComInterface,
+        T: ::windows_core::Interface,
     {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).CreateForWindow)(::windows_core::Interface::as_raw(self), window.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
@@ -15,18 +14,11 @@ impl IGraphicsCaptureItemInterop {
     pub unsafe fn CreateForMonitor<P0, T>(&self, monitor: P0) -> ::windows_core::Result<T>
     where
         P0: ::windows_core::IntoParam<super::super::super::super::Graphics::Gdi::HMONITOR>,
-        T: ::windows_core::ComInterface,
+        T: ::windows_core::Interface,
     {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).CreateForMonitor)(::windows_core::Interface::as_raw(self), monitor.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
     }
-}
-::windows_core::imp::interface_hierarchy!(IGraphicsCaptureItemInterop, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGraphicsCaptureItemInterop {
-    type Vtable = IGraphicsCaptureItemInterop_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGraphicsCaptureItemInterop {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3628e81b_3cac_4c60_b7f4_23ce0e0c3356);
 }
 #[repr(C)]
 #[doc(hidden)]

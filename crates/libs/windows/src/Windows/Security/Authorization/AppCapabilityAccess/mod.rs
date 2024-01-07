@@ -1,13 +1,4 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAppCapability(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAppCapability {
-    type Vtable = IAppCapability_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAppCapability {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4c49d915_8a2a_4295_9437_2df7c396aff4);
-}
+::windows_core::imp::com_interface!(IAppCapability, IAppCapability_Vtbl, 0x4c49d915_8a2a_4295_9437_2df7c396aff4);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppCapability_Vtbl {
@@ -22,16 +13,7 @@ pub struct IAppCapability_Vtbl {
     pub AccessChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     pub RemoveAccessChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAppCapability2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAppCapability2 {
-    type Vtable = IAppCapability2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAppCapability2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x11c7ccb6_c74f_50a3_b960_88008767d939);
-}
+::windows_core::imp::com_interface!(IAppCapability2, IAppCapability2_Vtbl, 0x11c7ccb6_c74f_50a3_b960_88008767d939);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppCapability2_Vtbl {
@@ -39,31 +21,13 @@ pub struct IAppCapability2_Vtbl {
     pub DisplayMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub SetDisplayMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAppCapabilityAccessChangedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAppCapabilityAccessChangedEventArgs {
-    type Vtable = IAppCapabilityAccessChangedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAppCapabilityAccessChangedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0a578d15_bdd7_457e_8cca_6f53bd2e5944);
-}
+::windows_core::imp::com_interface!(IAppCapabilityAccessChangedEventArgs, IAppCapabilityAccessChangedEventArgs_Vtbl, 0x0a578d15_bdd7_457e_8cca_6f53bd2e5944);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppCapabilityAccessChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAppCapabilityStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAppCapabilityStatics {
-    type Vtable = IAppCapabilityStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAppCapabilityStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7c353e2a_46ee_44e5_af3d_6ad3fc49bd22);
-}
+::windows_core::imp::com_interface!(IAppCapabilityStatics, IAppCapabilityStatics_Vtbl, 0x7c353e2a_46ee_44e5_af3d_6ad3fc49bd22);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAppCapabilityStatics_Vtbl {
@@ -85,6 +49,7 @@ pub struct IAppCapabilityStatics_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppCapability(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(AppCapability, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl AppCapability {
     pub fn CapabilityName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -131,25 +96,25 @@ impl AppCapability {
         unsafe { (::windows_core::Interface::vtable(this).RemoveAccessChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
     pub fn DisplayMessage(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<IAppCapability2>(self)?;
+        let this = &::windows_core::Interface::cast::<IAppCapability2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DisplayMessage)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetDisplayMessage(&self, value: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<IAppCapability2>(self)?;
+        let this = &::windows_core::Interface::cast::<IAppCapability2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetDisplayMessage)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RequestAccessForCapabilitiesAsync<P0>(capabilitynames: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, AppCapabilityAccessStatus>>>
     where
-        P0: ::windows_core::TryIntoParam<super::super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
+        P0: ::windows_core::IntoParam<super::super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
     {
         Self::IAppCapabilityStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).RequestAccessForCapabilitiesAsync)(::windows_core::Interface::as_raw(this), capabilitynames.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).RequestAccessForCapabilitiesAsync)(::windows_core::Interface::as_raw(this), capabilitynames.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Foundation_Collections\"`, `\"System\"`"]
@@ -157,11 +122,11 @@ impl AppCapability {
     pub fn RequestAccessForCapabilitiesForUserAsync<P0, P1>(user: P0, capabilitynames: P1) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, AppCapabilityAccessStatus>>>
     where
         P0: ::windows_core::IntoParam<super::super::super::System::User>,
-        P1: ::windows_core::TryIntoParam<super::super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
+        P1: ::windows_core::IntoParam<super::super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
     {
         Self::IAppCapabilityStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).RequestAccessForCapabilitiesForUserAsync)(::windows_core::Interface::as_raw(this), user.into_param().abi(), capabilitynames.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).RequestAccessForCapabilitiesForUserAsync)(::windows_core::Interface::as_raw(this), user.into_param().abi(), capabilitynames.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn Create(capabilityname: &::windows_core::HSTRING) -> ::windows_core::Result<AppCapability> {
@@ -192,33 +157,28 @@ impl ::windows_core::RuntimeType for AppCapability {
 }
 unsafe impl ::windows_core::Interface for AppCapability {
     type Vtable = IAppCapability_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for AppCapability {
-    const IID: ::windows_core::GUID = <IAppCapability as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IAppCapability as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for AppCapability {
     const NAME: &'static str = "Windows.Security.Authorization.AppCapabilityAccess.AppCapability";
 }
-::windows_core::imp::interface_hierarchy!(AppCapability, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AppCapability {}
 unsafe impl ::core::marker::Sync for AppCapability {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppCapabilityAccessChangedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(AppCapabilityAccessChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl AppCapabilityAccessChangedEventArgs {}
 impl ::windows_core::RuntimeType for AppCapabilityAccessChangedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for AppCapabilityAccessChangedEventArgs {
     type Vtable = IAppCapabilityAccessChangedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for AppCapabilityAccessChangedEventArgs {
-    const IID: ::windows_core::GUID = <IAppCapabilityAccessChangedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IAppCapabilityAccessChangedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for AppCapabilityAccessChangedEventArgs {
     const NAME: &'static str = "Windows.Security.Authorization.AppCapabilityAccess.AppCapabilityAccessChangedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(AppCapabilityAccessChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AppCapabilityAccessChangedEventArgs {}
 unsafe impl ::core::marker::Sync for AppCapabilityAccessChangedEventArgs {}
 #[repr(transparent)]

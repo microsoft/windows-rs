@@ -110,7 +110,7 @@ impl ITraceEvent_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITraceEvent as ::windows_core::ComInterface>::IID
+        iid == &<ITraceEvent as ::windows_core::Interface>::IID
     }
 }
 pub trait ITraceEventCallback_Impl: Sized {
@@ -144,7 +144,7 @@ impl ITraceEventCallback_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITraceEventCallback as ::windows_core::ComInterface>::IID
+        iid == &<ITraceEventCallback as ::windows_core::Interface>::IID
     }
 }
 pub trait ITraceRelogger_Impl: Sized {
@@ -238,6 +238,6 @@ impl ITraceRelogger_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITraceRelogger as ::windows_core::ComInterface>::IID
+        iid == &<ITraceRelogger as ::windows_core::Interface>::IID
     }
 }

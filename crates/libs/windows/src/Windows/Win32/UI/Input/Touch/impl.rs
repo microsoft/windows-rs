@@ -495,7 +495,7 @@ impl IInertiaProcessor_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInertiaProcessor as ::windows_core::ComInterface>::IID
+        iid == &<IInertiaProcessor as ::windows_core::Interface>::IID
     }
 }
 pub trait IManipulationProcessor_Impl: Sized {
@@ -709,7 +709,7 @@ impl IManipulationProcessor_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IManipulationProcessor as ::windows_core::ComInterface>::IID
+        iid == &<IManipulationProcessor as ::windows_core::Interface>::IID
     }
 }
 pub trait _IManipulationEvents_Impl: Sized {
@@ -757,6 +757,6 @@ impl _IManipulationEvents_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<_IManipulationEvents as ::windows_core::ComInterface>::IID
+        iid == &<_IManipulationEvents as ::windows_core::Interface>::IID
     }
 }

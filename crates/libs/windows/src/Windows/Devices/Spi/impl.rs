@@ -66,6 +66,6 @@ impl ISpiDeviceStatics_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISpiDeviceStatics as ::windows_core::ComInterface>::IID
+        iid == &<ISpiDeviceStatics as ::windows_core::Interface>::IID
     }
 }

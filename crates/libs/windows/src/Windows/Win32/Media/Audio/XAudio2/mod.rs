@@ -26,9 +26,8 @@ pub unsafe fn XAudio2CreateWithVersionInfo(ppxaudio2: *mut ::core::option::Optio
     ::windows_targets::link!("xaudio2_8.dll" "system" fn XAudio2CreateWithVersionInfo(ppxaudio2 : *mut * mut::core::ffi::c_void, flags : u32, xaudio2processor : u32, ntddiversion : u32) -> ::windows_core::HRESULT);
     XAudio2CreateWithVersionInfo(::core::mem::transmute(ppxaudio2), flags, xaudio2processor, ntddiversion).ok()
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IXAPO(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IXAPO, IXAPO_Vtbl, 0xa410b984_9839_4819_a0be_2856ae6b3adb);
+::windows_core::imp::interface_hierarchy!(IXAPO, ::windows_core::IUnknown);
 impl IXAPO {
     pub unsafe fn GetRegistrationProperties(&self) -> ::windows_core::Result<*mut XAPO_REGISTRATION_PROPERTIES> {
         let mut result__ = ::std::mem::zeroed();
@@ -65,13 +64,6 @@ impl IXAPO {
         (::windows_core::Interface::vtable(self).CalcOutputFrames)(::windows_core::Interface::as_raw(self), inputframecount)
     }
 }
-::windows_core::imp::interface_hierarchy!(IXAPO, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IXAPO {
-    type Vtable = IXAPO_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IXAPO {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa410b984_9839_4819_a0be_2856ae6b3adb);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXAPO_Vtbl {
@@ -87,9 +79,8 @@ pub struct IXAPO_Vtbl {
     pub CalcInputFrames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, outputframecount: u32) -> u32,
     pub CalcOutputFrames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputframecount: u32) -> u32,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IXAPOHrtfParameters(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IXAPOHrtfParameters, IXAPOHrtfParameters_Vtbl, 0x15b3cd66_e9de_4464_b6e6_2bc3cf63d455);
+::windows_core::imp::interface_hierarchy!(IXAPOHrtfParameters, ::windows_core::IUnknown);
 impl IXAPOHrtfParameters {
     pub unsafe fn SetSourcePosition(&self, position: *const HrtfPosition) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetSourcePosition)(::windows_core::Interface::as_raw(self), position).ok()
@@ -104,13 +95,6 @@ impl IXAPOHrtfParameters {
         (::windows_core::Interface::vtable(self).SetEnvironment)(::windows_core::Interface::as_raw(self), environment).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IXAPOHrtfParameters, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IXAPOHrtfParameters {
-    type Vtable = IXAPOHrtfParameters_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IXAPOHrtfParameters {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x15b3cd66_e9de_4464_b6e6_2bc3cf63d455);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXAPOHrtfParameters_Vtbl {
@@ -120,9 +104,8 @@ pub struct IXAPOHrtfParameters_Vtbl {
     pub SetSourceGain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gain: f32) -> ::windows_core::HRESULT,
     pub SetEnvironment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, environment: HrtfEnvironment) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IXAPOParameters(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IXAPOParameters, IXAPOParameters_Vtbl, 0x26d95c66_80f2_499a_ad54_5ae7f01c6d98);
+::windows_core::imp::interface_hierarchy!(IXAPOParameters, ::windows_core::IUnknown);
 impl IXAPOParameters {
     pub unsafe fn SetParameters(&self, pparameters: *const ::core::ffi::c_void, parameterbytesize: u32) {
         (::windows_core::Interface::vtable(self).SetParameters)(::windows_core::Interface::as_raw(self), pparameters, parameterbytesize)
@@ -131,13 +114,6 @@ impl IXAPOParameters {
         (::windows_core::Interface::vtable(self).GetParameters)(::windows_core::Interface::as_raw(self), pparameters, parameterbytesize)
     }
 }
-::windows_core::imp::interface_hierarchy!(IXAPOParameters, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IXAPOParameters {
-    type Vtable = IXAPOParameters_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IXAPOParameters {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x26d95c66_80f2_499a_ad54_5ae7f01c6d98);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXAPOParameters_Vtbl {
@@ -145,9 +121,8 @@ pub struct IXAPOParameters_Vtbl {
     pub SetParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pparameters: *const ::core::ffi::c_void, parameterbytesize: u32),
     pub GetParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pparameters: *mut ::core::ffi::c_void, parameterbytesize: u32),
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IXAudio2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IXAudio2, IXAudio2_Vtbl, 0x2b02e3cf_2e0b_4ec3_be45_1b2a3fe7210d);
+::windows_core::imp::interface_hierarchy!(IXAudio2, ::windows_core::IUnknown);
 impl IXAudio2 {
     pub unsafe fn RegisterForCallbacks<P0>(&self, pcallback: P0) -> ::windows_core::Result<()>
     where
@@ -192,13 +167,6 @@ impl IXAudio2 {
         (::windows_core::Interface::vtable(self).SetDebugConfiguration)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pdebugconfiguration.unwrap_or(::std::ptr::null())), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())))
     }
 }
-::windows_core::imp::interface_hierarchy!(IXAudio2, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IXAudio2 {
-    type Vtable = IXAudio2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IXAudio2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2b02e3cf_2e0b_4ec3_be45_1b2a3fe7210d);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXAudio2_Vtbl {
@@ -214,9 +182,7 @@ pub struct IXAudio2_Vtbl {
     pub GetPerformanceData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pperfdata: *mut XAUDIO2_PERFORMANCE_DATA),
     pub SetDebugConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdebugconfiguration: *const XAUDIO2_DEBUG_CONFIGURATION, preserved: *const ::core::ffi::c_void),
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IXAudio2EngineCallback(::std::ptr::NonNull<::std::ffi::c_void>);
+::windows_core::imp::interface!(IXAudio2EngineCallback, IXAudio2EngineCallback_Vtbl);
 impl IXAudio2EngineCallback {
     pub unsafe fn OnProcessingPassStart(&self) {
         (::windows_core::Interface::vtable(self).OnProcessingPassStart)(::windows_core::Interface::as_raw(self))
@@ -228,9 +194,6 @@ impl IXAudio2EngineCallback {
         (::windows_core::Interface::vtable(self).OnCriticalError)(::windows_core::Interface::as_raw(self), error)
     }
 }
-unsafe impl ::windows_core::Interface for IXAudio2EngineCallback {
-    type Vtable = IXAudio2EngineCallback_Vtbl;
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXAudio2EngineCallback_Vtbl {
@@ -238,9 +201,8 @@ pub struct IXAudio2EngineCallback_Vtbl {
     pub OnProcessingPassEnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
     pub OnCriticalError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, error: ::windows_core::HRESULT),
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IXAudio2Extension(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IXAudio2Extension, IXAudio2Extension_Vtbl, 0x84ac29bb_d619_44d2_b197_e4acf7df3ed6);
+::windows_core::imp::interface_hierarchy!(IXAudio2Extension, ::windows_core::IUnknown);
 impl IXAudio2Extension {
     pub unsafe fn GetProcessingQuantum(&self, quantumnumerator: *mut u32, quantumdenominator: *mut u32) {
         (::windows_core::Interface::vtable(self).GetProcessingQuantum)(::windows_core::Interface::as_raw(self), quantumnumerator, quantumdenominator)
@@ -249,13 +211,6 @@ impl IXAudio2Extension {
         (::windows_core::Interface::vtable(self).GetProcessor)(::windows_core::Interface::as_raw(self), processor)
     }
 }
-::windows_core::imp::interface_hierarchy!(IXAudio2Extension, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IXAudio2Extension {
-    type Vtable = IXAudio2Extension_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IXAudio2Extension {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x84ac29bb_d619_44d2_b197_e4acf7df3ed6);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXAudio2Extension_Vtbl {
@@ -263,9 +218,8 @@ pub struct IXAudio2Extension_Vtbl {
     pub GetProcessingQuantum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, quantumnumerator: *mut u32, quantumdenominator: *mut u32),
     pub GetProcessor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, processor: *mut u32),
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IXAudio2MasteringVoice(::std::ptr::NonNull<::std::ffi::c_void>);
+::windows_core::imp::interface!(IXAudio2MasteringVoice, IXAudio2MasteringVoice_Vtbl);
+::windows_core::imp::interface_hierarchy!(IXAudio2MasteringVoice, IXAudio2Voice);
 impl IXAudio2MasteringVoice {
     pub unsafe fn GetVoiceDetails(&self) -> XAUDIO2_VOICE_DETAILS {
         let mut result__ = ::std::mem::zeroed();
@@ -353,19 +307,14 @@ impl IXAudio2MasteringVoice {
         (::windows_core::Interface::vtable(self).GetChannelMask)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IXAudio2MasteringVoice, IXAudio2Voice);
-unsafe impl ::windows_core::Interface for IXAudio2MasteringVoice {
-    type Vtable = IXAudio2MasteringVoice_Vtbl;
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXAudio2MasteringVoice_Vtbl {
     pub base__: IXAudio2Voice_Vtbl,
     pub GetChannelMask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pchannelmask: *mut u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IXAudio2SourceVoice(::std::ptr::NonNull<::std::ffi::c_void>);
+::windows_core::imp::interface!(IXAudio2SourceVoice, IXAudio2SourceVoice_Vtbl);
+::windows_core::imp::interface_hierarchy!(IXAudio2SourceVoice, IXAudio2Voice);
 impl IXAudio2SourceVoice {
     pub unsafe fn GetVoiceDetails(&self) -> XAUDIO2_VOICE_DETAILS {
         let mut result__ = ::std::mem::zeroed();
@@ -481,10 +430,6 @@ impl IXAudio2SourceVoice {
         (::windows_core::Interface::vtable(self).SetSourceSampleRate)(::windows_core::Interface::as_raw(self), newsourcesamplerate).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IXAudio2SourceVoice, IXAudio2Voice);
-unsafe impl ::windows_core::Interface for IXAudio2SourceVoice {
-    type Vtable = IXAudio2SourceVoice_Vtbl;
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXAudio2SourceVoice_Vtbl {
@@ -500,9 +445,8 @@ pub struct IXAudio2SourceVoice_Vtbl {
     pub GetFrequencyRatio: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pratio: *mut f32),
     pub SetSourceSampleRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newsourcesamplerate: u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IXAudio2SubmixVoice(::std::ptr::NonNull<::std::ffi::c_void>);
+::windows_core::imp::interface!(IXAudio2SubmixVoice, IXAudio2SubmixVoice_Vtbl);
+::windows_core::imp::interface_hierarchy!(IXAudio2SubmixVoice, IXAudio2Voice);
 impl IXAudio2SubmixVoice {
     pub unsafe fn GetVoiceDetails(&self) -> XAUDIO2_VOICE_DETAILS {
         let mut result__ = ::std::mem::zeroed();
@@ -586,18 +530,12 @@ impl IXAudio2SubmixVoice {
         (::windows_core::Interface::vtable(self).base__.DestroyVoice)(::windows_core::Interface::as_raw(self))
     }
 }
-::windows_core::imp::interface_hierarchy!(IXAudio2SubmixVoice, IXAudio2Voice);
-unsafe impl ::windows_core::Interface for IXAudio2SubmixVoice {
-    type Vtable = IXAudio2SubmixVoice_Vtbl;
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXAudio2SubmixVoice_Vtbl {
     pub base__: IXAudio2Voice_Vtbl,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IXAudio2Voice(::std::ptr::NonNull<::std::ffi::c_void>);
+::windows_core::imp::interface!(IXAudio2Voice, IXAudio2Voice_Vtbl);
 impl IXAudio2Voice {
     pub unsafe fn GetVoiceDetails(&self) -> XAUDIO2_VOICE_DETAILS {
         let mut result__ = ::std::mem::zeroed();
@@ -681,9 +619,6 @@ impl IXAudio2Voice {
         (::windows_core::Interface::vtable(self).DestroyVoice)(::windows_core::Interface::as_raw(self))
     }
 }
-unsafe impl ::windows_core::Interface for IXAudio2Voice {
-    type Vtable = IXAudio2Voice_Vtbl;
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXAudio2Voice_Vtbl {
@@ -707,9 +642,7 @@ pub struct IXAudio2Voice_Vtbl {
     pub GetOutputMatrix: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdestinationvoice: *mut ::core::ffi::c_void, sourcechannels: u32, destinationchannels: u32, plevelmatrix: *mut f32),
     pub DestroyVoice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IXAudio2VoiceCallback(::std::ptr::NonNull<::std::ffi::c_void>);
+::windows_core::imp::interface!(IXAudio2VoiceCallback, IXAudio2VoiceCallback_Vtbl);
 impl IXAudio2VoiceCallback {
     pub unsafe fn OnVoiceProcessingPassStart(&self, bytesrequired: u32) {
         (::windows_core::Interface::vtable(self).OnVoiceProcessingPassStart)(::windows_core::Interface::as_raw(self), bytesrequired)
@@ -732,9 +665,6 @@ impl IXAudio2VoiceCallback {
     pub unsafe fn OnVoiceError(&self, pbuffercontext: *mut ::core::ffi::c_void, error: ::windows_core::HRESULT) {
         (::windows_core::Interface::vtable(self).OnVoiceError)(::windows_core::Interface::as_raw(self), pbuffercontext, error)
     }
-}
-unsafe impl ::windows_core::Interface for IXAudio2VoiceCallback {
-    type Vtable = IXAudio2VoiceCallback_Vtbl;
 }
 #[repr(C)]
 #[doc(hidden)]

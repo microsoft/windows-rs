@@ -280,11 +280,15 @@ where
     ::windows_targets::link!("mqrt.dll" "system" fn MQSetQueueSecurity(lpwcsformatname : ::windows_core::PCWSTR, securityinformation : super::super::Security:: OBJECT_SECURITY_INFORMATION, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR) -> ::windows_core::HRESULT);
     MQSetQueueSecurity(lpwcsformatname.into_param().abi(), securityinformation, psecuritydescriptor.into_param().abi()).ok()
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMSMQApplication(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IMSMQApplication,
+    IMSMQApplication_Vtbl,
+    0xd7d6e085_dccd_11d0_aa4b_0060970debae
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IMSMQApplication, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQApplication {
     pub unsafe fn MachineIdOfMachineName<P0>(&self, machinename: P0) -> ::windows_core::Result<::windows_core::BSTR>
@@ -296,27 +300,21 @@ impl IMSMQApplication {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IMSMQApplication, ::windows_core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IMSMQApplication {
-    type Vtable = IMSMQApplication_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IMSMQApplication {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd7d6e085_dccd_11d0_aa4b_0060970debae);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQApplication_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub MachineIdOfMachineName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, machinename: ::std::mem::MaybeUninit<::windows_core::BSTR>, pbstrguid: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMSMQApplication2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IMSMQApplication2,
+    IMSMQApplication2_Vtbl,
+    0x12a30900_7300_11d2_b0e6_00e02c074f6b
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IMSMQApplication2, ::windows_core::IUnknown, super::Com::IDispatch, IMSMQApplication);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQApplication2 {
     pub unsafe fn MachineIdOfMachineName<P0>(&self, machinename: P0) -> ::windows_core::Result<::windows_core::BSTR>
@@ -362,16 +360,6 @@ impl IMSMQApplication2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IMSMQApplication2, ::windows_core::IUnknown, super::Com::IDispatch, IMSMQApplication);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IMSMQApplication2 {
-    type Vtable = IMSMQApplication2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IMSMQApplication2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x12a30900_7300_11d2_b0e6_00e02c074f6b);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQApplication2_Vtbl {
@@ -390,11 +378,15 @@ pub struct IMSMQApplication2_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Properties: usize,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMSMQApplication3(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IMSMQApplication3,
+    IMSMQApplication3_Vtbl,
+    0xeba96b1f_2168_11d3_898c_00e02c074f6b
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IMSMQApplication3, ::windows_core::IUnknown, super::Com::IDispatch, IMSMQApplication, IMSMQApplication2);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQApplication3 {
     pub unsafe fn MachineIdOfMachineName<P0>(&self, machinename: P0) -> ::windows_core::Result<::windows_core::BSTR>
@@ -485,16 +477,6 @@ impl IMSMQApplication3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IMSMQApplication3, ::windows_core::IUnknown, super::Com::IDispatch, IMSMQApplication, IMSMQApplication2);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IMSMQApplication3 {
-    type Vtable = IMSMQApplication3_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IMSMQApplication3 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeba96b1f_2168_11d3_898c_00e02c074f6b);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQApplication3_Vtbl {
@@ -519,11 +501,15 @@ pub struct IMSMQApplication3_Vtbl {
     pub Disconnect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Tidy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMSMQCollection(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IMSMQCollection,
+    IMSMQCollection_Vtbl,
+    0x0188ac2f_ecb3_4173_9779_635ca2039c72
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IMSMQCollection, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQCollection {
     #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -542,16 +528,6 @@ impl IMSMQCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IMSMQCollection, ::windows_core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IMSMQCollection {
-    type Vtable = IMSMQCollection_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IMSMQCollection {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0188ac2f_ecb3_4173_9779_635ca2039c72);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQCollection_Vtbl {
@@ -563,11 +539,15 @@ pub struct IMSMQCollection_Vtbl {
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut i32) -> ::windows_core::HRESULT,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMSMQCoordinatedTransactionDispenser(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IMSMQCoordinatedTransactionDispenser,
+    IMSMQCoordinatedTransactionDispenser_Vtbl,
+    0xd7d6e081_dccd_11d0_aa4b_0060970debae
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IMSMQCoordinatedTransactionDispenser, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQCoordinatedTransactionDispenser {
     #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -576,16 +556,6 @@ impl IMSMQCoordinatedTransactionDispenser {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).BeginTransaction)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-}
-#[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IMSMQCoordinatedTransactionDispenser, ::windows_core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IMSMQCoordinatedTransactionDispenser {
-    type Vtable = IMSMQCoordinatedTransactionDispenser_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IMSMQCoordinatedTransactionDispenser {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd7d6e081_dccd_11d0_aa4b_0060970debae);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
@@ -597,11 +567,15 @@ pub struct IMSMQCoordinatedTransactionDispenser_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     BeginTransaction: usize,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMSMQCoordinatedTransactionDispenser2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IMSMQCoordinatedTransactionDispenser2,
+    IMSMQCoordinatedTransactionDispenser2_Vtbl,
+    0xeba96b10_2168_11d3_898c_00e02c074f6b
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IMSMQCoordinatedTransactionDispenser2, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQCoordinatedTransactionDispenser2 {
     #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -618,16 +592,6 @@ impl IMSMQCoordinatedTransactionDispenser2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IMSMQCoordinatedTransactionDispenser2, ::windows_core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IMSMQCoordinatedTransactionDispenser2 {
-    type Vtable = IMSMQCoordinatedTransactionDispenser2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IMSMQCoordinatedTransactionDispenser2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeba96b10_2168_11d3_898c_00e02c074f6b);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQCoordinatedTransactionDispenser2_Vtbl {
@@ -641,11 +605,15 @@ pub struct IMSMQCoordinatedTransactionDispenser2_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Properties: usize,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMSMQCoordinatedTransactionDispenser3(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IMSMQCoordinatedTransactionDispenser3,
+    IMSMQCoordinatedTransactionDispenser3_Vtbl,
+    0xeba96b14_2168_11d3_898c_00e02c074f6b
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IMSMQCoordinatedTransactionDispenser3, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQCoordinatedTransactionDispenser3 {
     #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -662,16 +630,6 @@ impl IMSMQCoordinatedTransactionDispenser3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IMSMQCoordinatedTransactionDispenser3, ::windows_core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IMSMQCoordinatedTransactionDispenser3 {
-    type Vtable = IMSMQCoordinatedTransactionDispenser3_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IMSMQCoordinatedTransactionDispenser3 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeba96b14_2168_11d3_898c_00e02c074f6b);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQCoordinatedTransactionDispenser3_Vtbl {
@@ -685,11 +643,15 @@ pub struct IMSMQCoordinatedTransactionDispenser3_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Properties: usize,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMSMQDestination(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IMSMQDestination,
+    IMSMQDestination_Vtbl,
+    0xeba96b16_2168_11d3_898c_00e02c074f6b
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IMSMQDestination, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQDestination {
     pub unsafe fn Open(&self) -> ::windows_core::Result<()> {
@@ -768,16 +730,6 @@ impl IMSMQDestination {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IMSMQDestination, ::windows_core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IMSMQDestination {
-    type Vtable = IMSMQDestination_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IMSMQDestination {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeba96b16_2168_11d3_898c_00e02c074f6b);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQDestination_Vtbl {
@@ -812,34 +764,32 @@ pub struct IMSMQDestination_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Properties: usize,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMSMQEvent(::windows_core::IUnknown);
-#[cfg(feature = "Win32_System_Com")]
-impl IMSMQEvent {}
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IMSMQEvent,
+    IMSMQEvent_Vtbl,
+    0xd7d6e077_dccd_11d0_aa4b_0060970debae
+);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSMQEvent, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IMSMQEvent {
-    type Vtable = IMSMQEvent_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IMSMQEvent {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd7d6e077_dccd_11d0_aa4b_0060970debae);
-}
+impl IMSMQEvent {}
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQEvent_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMSMQEvent2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IMSMQEvent2,
+    IMSMQEvent2_Vtbl,
+    0xeba96b12_2168_11d3_898c_00e02c074f6b
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IMSMQEvent2, ::windows_core::IUnknown, super::Com::IDispatch, IMSMQEvent);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQEvent2 {
     #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -848,16 +798,6 @@ impl IMSMQEvent2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Properties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-}
-#[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IMSMQEvent2, ::windows_core::IUnknown, super::Com::IDispatch, IMSMQEvent);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IMSMQEvent2 {
-    type Vtable = IMSMQEvent2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IMSMQEvent2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeba96b12_2168_11d3_898c_00e02c074f6b);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
@@ -869,11 +809,15 @@ pub struct IMSMQEvent2_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Properties: usize,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMSMQEvent3(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IMSMQEvent3,
+    IMSMQEvent3_Vtbl,
+    0xeba96b1c_2168_11d3_898c_00e02c074f6b
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IMSMQEvent3, ::windows_core::IUnknown, super::Com::IDispatch, IMSMQEvent, IMSMQEvent2);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQEvent3 {
     #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -884,26 +828,20 @@ impl IMSMQEvent3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IMSMQEvent3, ::windows_core::IUnknown, super::Com::IDispatch, IMSMQEvent, IMSMQEvent2);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IMSMQEvent3 {
-    type Vtable = IMSMQEvent3_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IMSMQEvent3 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeba96b1c_2168_11d3_898c_00e02c074f6b);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQEvent3_Vtbl {
     pub base__: IMSMQEvent2_Vtbl,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMSMQManagement(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IMSMQManagement,
+    IMSMQManagement_Vtbl,
+    0xbe5f0241_e489_4957_8cc4_a452fcf3e23e
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IMSMQManagement, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQManagement {
     #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -947,16 +885,6 @@ impl IMSMQManagement {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IMSMQManagement, ::windows_core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IMSMQManagement {
-    type Vtable = IMSMQManagement_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IMSMQManagement {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbe5f0241_e489_4957_8cc4_a452fcf3e23e);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQManagement_Vtbl {
@@ -977,11 +905,15 @@ pub struct IMSMQManagement_Vtbl {
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     BytesInQueue: usize,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMSMQMessage(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IMSMQMessage,
+    IMSMQMessage_Vtbl,
+    0xd7d6e074_dccd_11d0_aa4b_0060970debae
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IMSMQMessage, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQMessage {
     pub unsafe fn Class(&self) -> ::windows_core::Result<i32> {
@@ -1205,16 +1137,6 @@ impl IMSMQMessage {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IMSMQMessage, ::windows_core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IMSMQMessage {
-    type Vtable = IMSMQMessage_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IMSMQMessage {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd7d6e074_dccd_11d0_aa4b_0060970debae);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQMessage_Vtbl {
@@ -1317,11 +1239,15 @@ pub struct IMSMQMessage_Vtbl {
     Send: usize,
     pub AttachCurrentSecurityContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMSMQMessage2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IMSMQMessage2,
+    IMSMQMessage2_Vtbl,
+    0xd9933be0_a567_11d2_b0f3_00e02c074f6b
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IMSMQMessage2, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQMessage2 {
     pub unsafe fn Class(&self) -> ::windows_core::Result<i32> {
@@ -1679,16 +1605,6 @@ impl IMSMQMessage2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IMSMQMessage2, ::windows_core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IMSMQMessage2 {
-    type Vtable = IMSMQMessage2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IMSMQMessage2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd9933be0_a567_11d2_b0f3_00e02c074f6b);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQMessage2_Vtbl {
@@ -1859,11 +1775,15 @@ pub struct IMSMQMessage2_Vtbl {
     putref_AdminQueueInfo: usize,
     pub ReceivedAuthenticationLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psreceivedauthenticationlevel: *mut i16) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMSMQMessage3(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IMSMQMessage3,
+    IMSMQMessage3_Vtbl,
+    0xeba96b1a_2168_11d3_898c_00e02c074f6b
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IMSMQMessage3, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQMessage3 {
     pub unsafe fn Class(&self) -> ::windows_core::Result<i32> {
@@ -2312,16 +2232,6 @@ impl IMSMQMessage3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IMSMQMessage3, ::windows_core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IMSMQMessage3 {
-    type Vtable = IMSMQMessage3_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IMSMQMessage3 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeba96b1a_2168_11d3_898c_00e02c074f6b);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQMessage3_Vtbl {
@@ -2535,11 +2445,15 @@ pub struct IMSMQMessage3_Vtbl {
     pub SetSoapHeader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrsoapheader: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub SetSoapBody: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrsoapbody: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMSMQMessage4(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IMSMQMessage4,
+    IMSMQMessage4_Vtbl,
+    0xeba96b23_2168_11d3_898c_00e02c074f6b
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IMSMQMessage4, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQMessage4 {
     pub unsafe fn Class(&self) -> ::windows_core::Result<i32> {
@@ -2988,16 +2902,6 @@ impl IMSMQMessage4 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IMSMQMessage4, ::windows_core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IMSMQMessage4 {
-    type Vtable = IMSMQMessage4_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IMSMQMessage4 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeba96b23_2168_11d3_898c_00e02c074f6b);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQMessage4_Vtbl {
@@ -3211,11 +3115,15 @@ pub struct IMSMQMessage4_Vtbl {
     pub SetSoapHeader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrsoapheader: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub SetSoapBody: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrsoapbody: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMSMQOutgoingQueueManagement(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IMSMQOutgoingQueueManagement,
+    IMSMQOutgoingQueueManagement_Vtbl,
+    0x64c478fb_f9b0_4695_8a7f_439ac94326d3
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IMSMQOutgoingQueueManagement, ::windows_core::IUnknown, super::Com::IDispatch, IMSMQManagement);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQOutgoingQueueManagement {
     #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -3284,16 +3192,6 @@ impl IMSMQOutgoingQueueManagement {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IMSMQOutgoingQueueManagement, ::windows_core::IUnknown, super::Com::IDispatch, IMSMQManagement);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IMSMQOutgoingQueueManagement {
-    type Vtable = IMSMQOutgoingQueueManagement_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IMSMQOutgoingQueueManagement {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x64c478fb_f9b0_4695_8a7f_439ac94326d3);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQOutgoingQueueManagement_Vtbl {
@@ -3311,11 +3209,15 @@ pub struct IMSMQOutgoingQueueManagement_Vtbl {
     pub Pause: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub EodResend: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMSMQPrivateDestination(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IMSMQPrivateDestination,
+    IMSMQPrivateDestination_Vtbl,
+    0xeba96b17_2168_11d3_898c_00e02c074f6b
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IMSMQPrivateDestination, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQPrivateDestination {
     #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -3331,16 +3233,6 @@ impl IMSMQPrivateDestination {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IMSMQPrivateDestination, ::windows_core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IMSMQPrivateDestination {
-    type Vtable = IMSMQPrivateDestination_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IMSMQPrivateDestination {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeba96b17_2168_11d3_898c_00e02c074f6b);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQPrivateDestination_Vtbl {
@@ -3354,11 +3246,15 @@ pub struct IMSMQPrivateDestination_Vtbl {
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     SetHandle: usize,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMSMQPrivateEvent(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IMSMQPrivateEvent,
+    IMSMQPrivateEvent_Vtbl,
+    0xd7ab3341_c9d3_11d1_bb47_0080c7c5a2c0
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IMSMQPrivateEvent, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQPrivateEvent {
     pub unsafe fn Hwnd(&self) -> ::windows_core::Result<i32> {
@@ -3383,16 +3279,6 @@ impl IMSMQPrivateEvent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IMSMQPrivateEvent, ::windows_core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IMSMQPrivateEvent {
-    type Vtable = IMSMQPrivateEvent_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IMSMQPrivateEvent {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd7ab3341_c9d3_11d1_bb47_0080c7c5a2c0);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQPrivateEvent_Vtbl {
@@ -3407,11 +3293,15 @@ pub struct IMSMQPrivateEvent_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     FireArrivedErrorEvent: usize,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMSMQQuery(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IMSMQQuery,
+    IMSMQQuery_Vtbl,
+    0xd7d6e072_dccd_11d0_aa4b_0060970debae
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IMSMQQuery, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQQuery {
     #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -3420,16 +3310,6 @@ impl IMSMQQuery {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).LookupQueue)(::windows_core::Interface::as_raw(self), queueguid, servicetypeguid, label, createtime, modifytime, relservicetype, rellabel, relcreatetime, relmodifytime, &mut result__).from_abi(result__)
     }
-}
-#[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IMSMQQuery, ::windows_core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IMSMQQuery {
-    type Vtable = IMSMQQuery_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IMSMQQuery {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd7d6e072_dccd_11d0_aa4b_0060970debae);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
@@ -3441,11 +3321,15 @@ pub struct IMSMQQuery_Vtbl {
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     LookupQueue: usize,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMSMQQuery2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IMSMQQuery2,
+    IMSMQQuery2_Vtbl,
+    0xeba96b0e_2168_11d3_898c_00e02c074f6b
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IMSMQQuery2, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQQuery2 {
     #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -3462,16 +3346,6 @@ impl IMSMQQuery2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IMSMQQuery2, ::windows_core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IMSMQQuery2 {
-    type Vtable = IMSMQQuery2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IMSMQQuery2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeba96b0e_2168_11d3_898c_00e02c074f6b);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQQuery2_Vtbl {
@@ -3485,11 +3359,15 @@ pub struct IMSMQQuery2_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Properties: usize,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMSMQQuery3(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IMSMQQuery3,
+    IMSMQQuery3_Vtbl,
+    0xeba96b19_2168_11d3_898c_00e02c074f6b
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IMSMQQuery3, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQQuery3 {
     #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -3512,16 +3390,6 @@ impl IMSMQQuery3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IMSMQQuery3, ::windows_core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IMSMQQuery3 {
-    type Vtable = IMSMQQuery3_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IMSMQQuery3 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeba96b19_2168_11d3_898c_00e02c074f6b);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQQuery3_Vtbl {
@@ -3539,11 +3407,15 @@ pub struct IMSMQQuery3_Vtbl {
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     LookupQueue: usize,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMSMQQuery4(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IMSMQQuery4,
+    IMSMQQuery4_Vtbl,
+    0xeba96b24_2168_11d3_898c_00e02c074f6b
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IMSMQQuery4, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQQuery4 {
     #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -3566,16 +3438,6 @@ impl IMSMQQuery4 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IMSMQQuery4, ::windows_core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IMSMQQuery4 {
-    type Vtable = IMSMQQuery4_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IMSMQQuery4 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeba96b24_2168_11d3_898c_00e02c074f6b);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQQuery4_Vtbl {
@@ -3593,11 +3455,15 @@ pub struct IMSMQQuery4_Vtbl {
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     LookupQueue: usize,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMSMQQueue(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IMSMQQueue,
+    IMSMQQueue_Vtbl,
+    0xd7d6e076_dccd_11d0_aa4b_0060970debae
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IMSMQQueue, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQQueue {
     pub unsafe fn Access(&self) -> ::windows_core::Result<i32> {
@@ -3668,16 +3534,6 @@ impl IMSMQQueue {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IMSMQQueue, ::windows_core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IMSMQQueue {
-    type Vtable = IMSMQQueue_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IMSMQQueue {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd7d6e076_dccd_11d0_aa4b_0060970debae);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQQueue_Vtbl {
@@ -3717,11 +3573,15 @@ pub struct IMSMQQueue_Vtbl {
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     PeekCurrent: usize,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMSMQQueue2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IMSMQQueue2,
+    IMSMQQueue2_Vtbl,
+    0xef0574e0_06d8_11d3_b100_00e02c074f6b
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IMSMQQueue2, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQQueue2 {
     pub unsafe fn Access(&self) -> ::windows_core::Result<i32> {
@@ -3828,16 +3688,6 @@ impl IMSMQQueue2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IMSMQQueue2, ::windows_core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IMSMQQueue2 {
-    type Vtable = IMSMQQueue2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IMSMQQueue2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xef0574e0_06d8_11d3_b100_00e02c074f6b);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQQueue2_Vtbl {
@@ -3901,11 +3751,15 @@ pub struct IMSMQQueue2_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Properties: usize,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMSMQQueue3(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IMSMQQueue3,
+    IMSMQQueue3_Vtbl,
+    0xeba96b1b_2168_11d3_898c_00e02c074f6b
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IMSMQQueue3, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQQueue3 {
     pub unsafe fn Access(&self) -> ::windows_core::Result<i32> {
@@ -4085,16 +3939,6 @@ impl IMSMQQueue3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IMSMQQueue3, ::windows_core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IMSMQQueue3 {
-    type Vtable = IMSMQQueue3_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IMSMQQueue3 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeba96b1b_2168_11d3_898c_00e02c074f6b);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQQueue3_Vtbl {
@@ -4204,11 +4048,15 @@ pub struct IMSMQQueue3_Vtbl {
     pub Purge: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub IsOpen2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisopen: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMSMQQueue4(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IMSMQQueue4,
+    IMSMQQueue4_Vtbl,
+    0xeba96b20_2168_11d3_898c_00e02c074f6b
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IMSMQQueue4, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQQueue4 {
     pub unsafe fn Access(&self) -> ::windows_core::Result<i32> {
@@ -4394,16 +4242,6 @@ impl IMSMQQueue4 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IMSMQQueue4, ::windows_core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IMSMQQueue4 {
-    type Vtable = IMSMQQueue4_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IMSMQQueue4 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeba96b20_2168_11d3_898c_00e02c074f6b);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQQueue4_Vtbl {
@@ -4517,11 +4355,15 @@ pub struct IMSMQQueue4_Vtbl {
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     ReceiveByLookupIdAllowPeek: usize,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMSMQQueueInfo(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IMSMQQueueInfo,
+    IMSMQQueueInfo_Vtbl,
+    0xd7d6e07b_dccd_11d0_aa4b_0060970debae
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IMSMQQueueInfo, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQQueueInfo {
     pub unsafe fn QueueGuid(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -4652,16 +4494,6 @@ impl IMSMQQueueInfo {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IMSMQQueueInfo, ::windows_core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IMSMQQueueInfo {
-    type Vtable = IMSMQQueueInfo_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IMSMQQueueInfo {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd7d6e07b_dccd_11d0_aa4b_0060970debae);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQQueueInfo_Vtbl {
@@ -4709,11 +4541,15 @@ pub struct IMSMQQueueInfo_Vtbl {
     pub Refresh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Update: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMSMQQueueInfo2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IMSMQQueueInfo2,
+    IMSMQQueueInfo2_Vtbl,
+    0xfd174a80_89cf_11d2_b0f2_00e02c074f6b
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IMSMQQueueInfo2, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQQueueInfo2 {
     pub unsafe fn QueueGuid(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -4865,16 +4701,6 @@ impl IMSMQQueueInfo2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IMSMQQueueInfo2, ::windows_core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IMSMQQueueInfo2 {
-    type Vtable = IMSMQQueueInfo2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IMSMQQueueInfo2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfd174a80_89cf_11d2_b0f2_00e02c074f6b);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQQueueInfo2_Vtbl {
@@ -4935,11 +4761,15 @@ pub struct IMSMQQueueInfo2_Vtbl {
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     SetSecurity: usize,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMSMQQueueInfo3(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IMSMQQueueInfo3,
+    IMSMQQueueInfo3_Vtbl,
+    0xeba96b1d_2168_11d3_898c_00e02c074f6b
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IMSMQQueueInfo3, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQQueueInfo3 {
     pub unsafe fn QueueGuid(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -5113,16 +4943,6 @@ impl IMSMQQueueInfo3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IMSMQQueueInfo3, ::windows_core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IMSMQQueueInfo3 {
-    type Vtable = IMSMQQueueInfo3_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IMSMQQueueInfo3 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeba96b1d_2168_11d3_898c_00e02c074f6b);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQQueueInfo3_Vtbl {
@@ -5188,11 +5008,15 @@ pub struct IMSMQQueueInfo3_Vtbl {
     pub SetMulticastAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrmulticastaddress: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub ADsPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstradspath: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMSMQQueueInfo4(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IMSMQQueueInfo4,
+    IMSMQQueueInfo4_Vtbl,
+    0xeba96b21_2168_11d3_898c_00e02c074f6b
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IMSMQQueueInfo4, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQQueueInfo4 {
     pub unsafe fn QueueGuid(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -5366,16 +5190,6 @@ impl IMSMQQueueInfo4 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IMSMQQueueInfo4, ::windows_core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IMSMQQueueInfo4 {
-    type Vtable = IMSMQQueueInfo4_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IMSMQQueueInfo4 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeba96b21_2168_11d3_898c_00e02c074f6b);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQQueueInfo4_Vtbl {
@@ -5441,11 +5255,15 @@ pub struct IMSMQQueueInfo4_Vtbl {
     pub SetMulticastAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrmulticastaddress: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub ADsPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstradspath: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMSMQQueueInfos(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IMSMQQueueInfos,
+    IMSMQQueueInfos_Vtbl,
+    0xd7d6e07d_dccd_11d0_aa4b_0060970debae
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IMSMQQueueInfos, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQQueueInfos {
     pub unsafe fn Reset(&self) -> ::windows_core::Result<()> {
@@ -5459,16 +5277,6 @@ impl IMSMQQueueInfos {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IMSMQQueueInfos, ::windows_core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IMSMQQueueInfos {
-    type Vtable = IMSMQQueueInfos_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IMSMQQueueInfos {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd7d6e07d_dccd_11d0_aa4b_0060970debae);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQQueueInfos_Vtbl {
@@ -5479,11 +5287,15 @@ pub struct IMSMQQueueInfos_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Next: usize,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMSMQQueueInfos2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IMSMQQueueInfos2,
+    IMSMQQueueInfos2_Vtbl,
+    0xeba96b0f_2168_11d3_898c_00e02c074f6b
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IMSMQQueueInfos2, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQQueueInfos2 {
     pub unsafe fn Reset(&self) -> ::windows_core::Result<()> {
@@ -5503,16 +5315,6 @@ impl IMSMQQueueInfos2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IMSMQQueueInfos2, ::windows_core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IMSMQQueueInfos2 {
-    type Vtable = IMSMQQueueInfos2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IMSMQQueueInfos2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeba96b0f_2168_11d3_898c_00e02c074f6b);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQQueueInfos2_Vtbl {
@@ -5527,11 +5329,15 @@ pub struct IMSMQQueueInfos2_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Properties: usize,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMSMQQueueInfos3(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IMSMQQueueInfos3,
+    IMSMQQueueInfos3_Vtbl,
+    0xeba96b1e_2168_11d3_898c_00e02c074f6b
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IMSMQQueueInfos3, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQQueueInfos3 {
     pub unsafe fn Reset(&self) -> ::windows_core::Result<()> {
@@ -5551,16 +5357,6 @@ impl IMSMQQueueInfos3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IMSMQQueueInfos3, ::windows_core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IMSMQQueueInfos3 {
-    type Vtable = IMSMQQueueInfos3_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IMSMQQueueInfos3 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeba96b1e_2168_11d3_898c_00e02c074f6b);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQQueueInfos3_Vtbl {
@@ -5575,11 +5371,15 @@ pub struct IMSMQQueueInfos3_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Properties: usize,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMSMQQueueInfos4(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IMSMQQueueInfos4,
+    IMSMQQueueInfos4_Vtbl,
+    0xeba96b22_2168_11d3_898c_00e02c074f6b
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IMSMQQueueInfos4, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQQueueInfos4 {
     pub unsafe fn Reset(&self) -> ::windows_core::Result<()> {
@@ -5599,16 +5399,6 @@ impl IMSMQQueueInfos4 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IMSMQQueueInfos4, ::windows_core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IMSMQQueueInfos4 {
-    type Vtable = IMSMQQueueInfos4_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IMSMQQueueInfos4 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeba96b22_2168_11d3_898c_00e02c074f6b);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQQueueInfos4_Vtbl {
@@ -5623,11 +5413,15 @@ pub struct IMSMQQueueInfos4_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Properties: usize,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMSMQQueueManagement(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IMSMQQueueManagement,
+    IMSMQQueueManagement_Vtbl,
+    0x7fbe7759_5760_444d_b8a5_5e7ab9a84cce
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IMSMQQueueManagement, ::windows_core::IUnknown, super::Com::IDispatch, IMSMQManagement);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQQueueManagement {
     #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -5687,16 +5481,6 @@ impl IMSMQQueueManagement {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IMSMQQueueManagement, ::windows_core::IUnknown, super::Com::IDispatch, IMSMQManagement);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IMSMQQueueManagement {
-    type Vtable = IMSMQQueueManagement_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IMSMQQueueManagement {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7fbe7759_5760_444d_b8a5_5e7ab9a84cce);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQQueueManagement_Vtbl {
@@ -5711,11 +5495,15 @@ pub struct IMSMQQueueManagement_Vtbl {
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     EodGetReceiveInfo: usize,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMSMQTransaction(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IMSMQTransaction,
+    IMSMQTransaction_Vtbl,
+    0xd7d6e07f_dccd_11d0_aa4b_0060970debae
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IMSMQTransaction, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQTransaction {
     pub unsafe fn Transaction(&self) -> ::windows_core::Result<i32> {
@@ -5734,16 +5522,6 @@ impl IMSMQTransaction {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IMSMQTransaction, ::windows_core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IMSMQTransaction {
-    type Vtable = IMSMQTransaction_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IMSMQTransaction {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd7d6e07f_dccd_11d0_aa4b_0060970debae);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQTransaction_Vtbl {
@@ -5758,11 +5536,15 @@ pub struct IMSMQTransaction_Vtbl {
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Abort: usize,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMSMQTransaction2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IMSMQTransaction2,
+    IMSMQTransaction2_Vtbl,
+    0x2ce0c5b0_6e67_11d2_b0e6_00e02c074f6b
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IMSMQTransaction2, ::windows_core::IUnknown, super::Com::IDispatch, IMSMQTransaction);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQTransaction2 {
     pub unsafe fn Transaction(&self) -> ::windows_core::Result<i32> {
@@ -5792,16 +5574,6 @@ impl IMSMQTransaction2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IMSMQTransaction2, ::windows_core::IUnknown, super::Com::IDispatch, IMSMQTransaction);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IMSMQTransaction2 {
-    type Vtable = IMSMQTransaction2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IMSMQTransaction2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2ce0c5b0_6e67_11d2_b0e6_00e02c074f6b);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQTransaction2_Vtbl {
@@ -5815,11 +5587,15 @@ pub struct IMSMQTransaction2_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Properties: usize,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMSMQTransaction3(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IMSMQTransaction3,
+    IMSMQTransaction3_Vtbl,
+    0xeba96b13_2168_11d3_898c_00e02c074f6b
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IMSMQTransaction3, ::windows_core::IUnknown, super::Com::IDispatch, IMSMQTransaction, IMSMQTransaction2);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQTransaction3 {
     pub unsafe fn Transaction(&self) -> ::windows_core::Result<i32> {
@@ -5855,16 +5631,6 @@ impl IMSMQTransaction3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IMSMQTransaction3, ::windows_core::IUnknown, super::Com::IDispatch, IMSMQTransaction, IMSMQTransaction2);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IMSMQTransaction3 {
-    type Vtable = IMSMQTransaction3_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IMSMQTransaction3 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeba96b13_2168_11d3_898c_00e02c074f6b);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQTransaction3_Vtbl {
@@ -5874,11 +5640,15 @@ pub struct IMSMQTransaction3_Vtbl {
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     ITransaction: usize,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMSMQTransactionDispenser(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IMSMQTransactionDispenser,
+    IMSMQTransactionDispenser_Vtbl,
+    0xd7d6e083_dccd_11d0_aa4b_0060970debae
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IMSMQTransactionDispenser, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQTransactionDispenser {
     #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -5887,16 +5657,6 @@ impl IMSMQTransactionDispenser {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).BeginTransaction)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-}
-#[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IMSMQTransactionDispenser, ::windows_core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IMSMQTransactionDispenser {
-    type Vtable = IMSMQTransactionDispenser_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IMSMQTransactionDispenser {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd7d6e083_dccd_11d0_aa4b_0060970debae);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
@@ -5908,11 +5668,15 @@ pub struct IMSMQTransactionDispenser_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     BeginTransaction: usize,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMSMQTransactionDispenser2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IMSMQTransactionDispenser2,
+    IMSMQTransactionDispenser2_Vtbl,
+    0xeba96b11_2168_11d3_898c_00e02c074f6b
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IMSMQTransactionDispenser2, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQTransactionDispenser2 {
     #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -5929,16 +5693,6 @@ impl IMSMQTransactionDispenser2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IMSMQTransactionDispenser2, ::windows_core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IMSMQTransactionDispenser2 {
-    type Vtable = IMSMQTransactionDispenser2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IMSMQTransactionDispenser2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeba96b11_2168_11d3_898c_00e02c074f6b);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQTransactionDispenser2_Vtbl {
@@ -5952,11 +5706,15 @@ pub struct IMSMQTransactionDispenser2_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Properties: usize,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMSMQTransactionDispenser3(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IMSMQTransactionDispenser3,
+    IMSMQTransactionDispenser3_Vtbl,
+    0xeba96b15_2168_11d3_898c_00e02c074f6b
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IMSMQTransactionDispenser3, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQTransactionDispenser3 {
     #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -5973,16 +5731,6 @@ impl IMSMQTransactionDispenser3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IMSMQTransactionDispenser3, ::windows_core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IMSMQTransactionDispenser3 {
-    type Vtable = IMSMQTransactionDispenser3_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IMSMQTransactionDispenser3 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeba96b15_2168_11d3_898c_00e02c074f6b);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMSMQTransactionDispenser3_Vtbl {
@@ -5996,23 +5744,17 @@ pub struct IMSMQTransactionDispenser3_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Properties: usize,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct _DMSMQEventEvents(::windows_core::IUnknown);
-#[cfg(feature = "Win32_System_Com")]
-impl _DMSMQEventEvents {}
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    _DMSMQEventEvents,
+    _DMSMQEventEvents_Vtbl,
+    0xd7d6e078_dccd_11d0_aa4b_0060970debae
+);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(_DMSMQEventEvents, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for _DMSMQEventEvents {
-    type Vtable = _DMSMQEventEvents_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for _DMSMQEventEvents {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd7d6e078_dccd_11d0_aa4b_0060970debae);
-}
+impl _DMSMQEventEvents {}
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]

@@ -40,7 +40,6 @@ pub enum SignatureParamKind {
     ArrayRelativeLen(usize),
     ArrayRelativeByteLen(usize),
     ArrayRelativePtr(usize),
-    TryInto,
     IntoParam,
     OptionalPointer,
     ValueType,
@@ -115,7 +114,7 @@ impl SignatureParamKind {
 
 impl SignatureParam {
     pub fn is_convertible(&self) -> bool {
-        !self.def.flags().contains(ParamAttributes::Out) && !self.ty.is_winrt_array() && !self.ty.is_pointer() && !self.kind.is_array() && (type_is_borrowed(&self.ty) || type_is_non_exclusive_winrt_interface(&self.ty) || type_is_trivially_convertible(&self.ty))
+        !self.def.flags().contains(ParamAttributes::Out) && !self.ty.is_winrt_array() && !self.ty.is_pointer() && !self.kind.is_array() && (type_is_borrowed(&self.ty) || type_is_trivially_convertible(&self.ty))
     }
 
     fn is_retval(&self) -> bool {
@@ -292,11 +291,7 @@ pub fn method_def_signature(namespace: &str, row: MethodDef, generics: &[Type]) 
     for param in &mut params {
         if param.kind == SignatureParamKind::Other {
             if param.is_convertible() {
-                if type_is_non_exclusive_winrt_interface(&param.ty) {
-                    param.kind = SignatureParamKind::TryInto;
-                } else {
-                    param.kind = SignatureParamKind::IntoParam;
-                }
+                param.kind = SignatureParamKind::IntoParam;
             } else {
                 let flags = param.def.flags();
                 if param.ty.is_pointer() && (flags.contains(ParamAttributes::Optional) || param.def.has_attribute("ReservedAttribute")) {
@@ -372,24 +367,6 @@ pub fn type_is_borrowed(ty: &Type) -> bool {
     match ty {
         Type::TypeDef(row, _) => !type_def_is_blittable(*row),
         Type::BSTR | Type::PCSTR | Type::PCWSTR | Type::IInspectable | Type::IUnknown | Type::GenericParam(_) => true,
-        _ => false,
-    }
-}
-
-pub fn type_is_non_exclusive_winrt_interface(ty: &Type) -> bool {
-    match ty {
-        Type::TypeDef(row, _) => {
-            let flags = row.flags();
-            if !flags.contains(TypeAttributes::WindowsRuntime) {
-                false
-            } else {
-                match row.kind() {
-                    TypeKind::Interface => !type_def_is_exclusive(*row),
-                    TypeKind::Class => row.has_attribute("ComposableAttribute"),
-                    _ => false,
-                }
-            }
-        }
         _ => false,
     }
 }

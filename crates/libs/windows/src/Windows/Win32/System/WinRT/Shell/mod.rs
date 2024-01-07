@@ -1,6 +1,5 @@
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDDEInitializer(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDDEInitializer, IDDEInitializer_Vtbl, 0x30dc931f_33fc_4ffd_a168_942258cf3ca4);
+::windows_core::imp::interface_hierarchy!(IDDEInitializer, ::windows_core::IUnknown);
 impl IDDEInitializer {
     #[doc = "Required features: `\"Win32_UI_Shell\"`"]
     #[cfg(feature = "Win32_UI_Shell")]
@@ -17,13 +16,6 @@ impl IDDEInitializer {
     {
         (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), fileextensionorprotocol.into_param().abi(), method, currentdirectory.into_param().abi(), exectarget.into_param().abi(), site.into_param().abi(), application.into_param().abi(), targetfile.into_param().abi(), arguments.into_param().abi(), verb.into_param().abi()).ok()
     }
-}
-::windows_core::imp::interface_hierarchy!(IDDEInitializer, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDDEInitializer {
-    type Vtable = IDDEInitializer_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDDEInitializer {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x30dc931f_33fc_4ffd_a168_942258cf3ca4);
 }
 #[repr(C)]
 #[doc(hidden)]

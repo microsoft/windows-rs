@@ -1,16 +1,7 @@
 #[cfg(feature = "UI_Input_Preview_Injection")]
 #[doc = "Required features: `\"UI_Input_Preview_Injection\"`"]
 pub mod Injection;
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IInputActivationListenerPreviewStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IInputActivationListenerPreviewStatics {
-    type Vtable = IInputActivationListenerPreviewStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IInputActivationListenerPreviewStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf0551ce5_0de6_5be0_a589_f737201a4582);
-}
+::windows_core::imp::com_interface!(IInputActivationListenerPreviewStatics, IInputActivationListenerPreviewStatics_Vtbl, 0xf0551ce5_0de6_5be0_a589_f737201a4582);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInputActivationListenerPreviewStatics_Vtbl {

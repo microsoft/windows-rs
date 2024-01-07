@@ -56,7 +56,7 @@ impl ISmsBinaryMessage_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISmsBinaryMessage as ::windows_core::ComInterface>::IID
+        iid == &<ISmsBinaryMessage as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"deprecated\"`"]
@@ -196,7 +196,7 @@ impl ISmsDevice_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISmsDevice as ::windows_core::ComInterface>::IID
+        iid == &<ISmsDevice as ::windows_core::Interface>::IID
     }
 }
 pub trait ISmsMessage_Impl: Sized {
@@ -237,7 +237,7 @@ impl ISmsMessage_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISmsMessage as ::windows_core::ComInterface>::IID
+        iid == &<ISmsMessage as ::windows_core::Interface>::IID
     }
 }
 pub trait ISmsMessageBase_Impl: Sized {
@@ -319,7 +319,7 @@ impl ISmsMessageBase_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISmsMessageBase as ::windows_core::ComInterface>::IID
+        iid == &<ISmsMessageBase as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Foundation_Collections\"`, `\"deprecated\"`"]
@@ -487,6 +487,6 @@ impl ISmsTextMessage_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISmsTextMessage as ::windows_core::ComInterface>::IID
+        iid == &<ISmsTextMessage as ::windows_core::Interface>::IID
     }
 }

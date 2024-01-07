@@ -1,13 +1,4 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IInjectedInputGamepadInfo(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IInjectedInputGamepadInfo {
-    type Vtable = IInjectedInputGamepadInfo_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IInjectedInputGamepadInfo {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x20ae9a3f_df11_4572_a9ab_d75b8a5e48ad);
-}
+::windows_core::imp::com_interface!(IInjectedInputGamepadInfo, IInjectedInputGamepadInfo_Vtbl, 0x20ae9a3f_df11_4572_a9ab_d75b8a5e48ad);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInjectedInputGamepadInfo_Vtbl {
@@ -33,16 +24,7 @@ pub struct IInjectedInputGamepadInfo_Vtbl {
     pub RightTrigger: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows_core::HRESULT,
     pub SetRightTrigger: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IInjectedInputGamepadInfoFactory(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IInjectedInputGamepadInfoFactory {
-    type Vtable = IInjectedInputGamepadInfoFactory_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IInjectedInputGamepadInfoFactory {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x59596876_6c39_4ec4_8b2a_29ef7de18aca);
-}
+::windows_core::imp::com_interface!(IInjectedInputGamepadInfoFactory, IInjectedInputGamepadInfoFactory_Vtbl, 0x59596876_6c39_4ec4_8b2a_29ef7de18aca);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInjectedInputGamepadInfoFactory_Vtbl {
@@ -52,16 +34,7 @@ pub struct IInjectedInputGamepadInfoFactory_Vtbl {
     #[cfg(not(feature = "Gaming_Input"))]
     CreateInstanceFromGamepadReading: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IInjectedInputKeyboardInfo(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IInjectedInputKeyboardInfo {
-    type Vtable = IInjectedInputKeyboardInfo_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IInjectedInputKeyboardInfo {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4b46d140_2b6a_5ffa_7eae_bd077b052acd);
-}
+::windows_core::imp::com_interface!(IInjectedInputKeyboardInfo, IInjectedInputKeyboardInfo_Vtbl, 0x4b46d140_2b6a_5ffa_7eae_bd077b052acd);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInjectedInputKeyboardInfo_Vtbl {
@@ -73,16 +46,7 @@ pub struct IInjectedInputKeyboardInfo_Vtbl {
     pub VirtualKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows_core::HRESULT,
     pub SetVirtualKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u16) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IInjectedInputMouseInfo(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IInjectedInputMouseInfo {
-    type Vtable = IInjectedInputMouseInfo_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IInjectedInputMouseInfo {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96f56e6b_e47a_5cf4_418d_8a5fb9670c7d);
-}
+::windows_core::imp::com_interface!(IInjectedInputMouseInfo, IInjectedInputMouseInfo_Vtbl, 0x96f56e6b_e47a_5cf4_418d_8a5fb9670c7d);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInjectedInputMouseInfo_Vtbl {
@@ -98,16 +62,7 @@ pub struct IInjectedInputMouseInfo_Vtbl {
     pub TimeOffsetInMilliseconds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
     pub SetTimeOffsetInMilliseconds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IInjectedInputPenInfo(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IInjectedInputPenInfo {
-    type Vtable = IInjectedInputPenInfo_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IInjectedInputPenInfo {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6b40ad03_ca1e_5527_7e02_2828540bb1d4);
-}
+::windows_core::imp::com_interface!(IInjectedInputPenInfo, IInjectedInputPenInfo_Vtbl, 0x6b40ad03_ca1e_5527_7e02_2828540bb1d4);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInjectedInputPenInfo_Vtbl {
@@ -127,16 +82,7 @@ pub struct IInjectedInputPenInfo_Vtbl {
     pub TiltY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
     pub SetTiltY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IInjectedInputTouchInfo(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IInjectedInputTouchInfo {
-    type Vtable = IInjectedInputTouchInfo_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IInjectedInputTouchInfo {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x224fd1df_43e8_5ef5_510a_69ca8c9b4c28);
-}
+::windows_core::imp::com_interface!(IInjectedInputTouchInfo, IInjectedInputTouchInfo_Vtbl, 0x224fd1df_43e8_5ef5_510a_69ca8c9b4c28);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInjectedInputTouchInfo_Vtbl {
@@ -152,16 +98,7 @@ pub struct IInjectedInputTouchInfo_Vtbl {
     pub TouchParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut InjectedInputTouchParameters) -> ::windows_core::HRESULT,
     pub SetTouchParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: InjectedInputTouchParameters) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IInputInjector(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IInputInjector {
-    type Vtable = IInputInjector_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IInputInjector {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8ec26f84_0b02_4bd2_ad7a_3d4658be3e18);
-}
+::windows_core::imp::com_interface!(IInputInjector, IInputInjector_Vtbl, 0x8ec26f84_0b02_4bd2_ad7a_3d4658be3e18);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInputInjector_Vtbl {
@@ -185,16 +122,7 @@ pub struct IInputInjector_Vtbl {
     pub UninitializePenInjection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub InjectShortcut: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shortcut: InjectedInputShortcut) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IInputInjector2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IInputInjector2 {
-    type Vtable = IInputInjector2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IInputInjector2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8e7a905d_1453_43a7_9bcb_06d6d7b305f7);
-}
+::windows_core::imp::com_interface!(IInputInjector2, IInputInjector2_Vtbl, 0x8e7a905d_1453_43a7_9bcb_06d6d7b305f7);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInputInjector2_Vtbl {
@@ -203,32 +131,14 @@ pub struct IInputInjector2_Vtbl {
     pub InjectGamepadInput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, input: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub UninitializeGamepadInjection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IInputInjectorStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IInputInjectorStatics {
-    type Vtable = IInputInjectorStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IInputInjectorStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdeae6943_7402_4141_a5c6_0c01aa57b16a);
-}
+::windows_core::imp::com_interface!(IInputInjectorStatics, IInputInjectorStatics_Vtbl, 0xdeae6943_7402_4141_a5c6_0c01aa57b16a);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInputInjectorStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub TryCreate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IInputInjectorStatics2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IInputInjectorStatics2 {
-    type Vtable = IInputInjectorStatics2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IInputInjectorStatics2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa4db38fb_dd8c_414f_95ea_f87ef4c0ae6c);
-}
+::windows_core::imp::com_interface!(IInputInjectorStatics2, IInputInjectorStatics2_Vtbl, 0xa4db38fb_dd8c_414f_95ea_f87ef4c0ae6c);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInputInjectorStatics2_Vtbl {
@@ -238,6 +148,7 @@ pub struct IInputInjectorStatics2_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct InjectedInputGamepadInfo(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(InjectedInputGamepadInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl InjectedInputGamepadInfo {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -346,17 +257,15 @@ impl ::windows_core::RuntimeType for InjectedInputGamepadInfo {
 }
 unsafe impl ::windows_core::Interface for InjectedInputGamepadInfo {
     type Vtable = IInjectedInputGamepadInfo_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for InjectedInputGamepadInfo {
-    const IID: ::windows_core::GUID = <IInjectedInputGamepadInfo as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IInjectedInputGamepadInfo as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for InjectedInputGamepadInfo {
     const NAME: &'static str = "Windows.UI.Input.Preview.Injection.InjectedInputGamepadInfo";
 }
-::windows_core::imp::interface_hierarchy!(InjectedInputGamepadInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct InjectedInputKeyboardInfo(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(InjectedInputKeyboardInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl InjectedInputKeyboardInfo {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -404,17 +313,15 @@ impl ::windows_core::RuntimeType for InjectedInputKeyboardInfo {
 }
 unsafe impl ::windows_core::Interface for InjectedInputKeyboardInfo {
     type Vtable = IInjectedInputKeyboardInfo_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for InjectedInputKeyboardInfo {
-    const IID: ::windows_core::GUID = <IInjectedInputKeyboardInfo as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IInjectedInputKeyboardInfo as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for InjectedInputKeyboardInfo {
     const NAME: &'static str = "Windows.UI.Input.Preview.Injection.InjectedInputKeyboardInfo";
 }
-::windows_core::imp::interface_hierarchy!(InjectedInputKeyboardInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct InjectedInputMouseInfo(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(InjectedInputMouseInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl InjectedInputMouseInfo {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -484,17 +391,15 @@ impl ::windows_core::RuntimeType for InjectedInputMouseInfo {
 }
 unsafe impl ::windows_core::Interface for InjectedInputMouseInfo {
     type Vtable = IInjectedInputMouseInfo_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for InjectedInputMouseInfo {
-    const IID: ::windows_core::GUID = <IInjectedInputMouseInfo as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IInjectedInputMouseInfo as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for InjectedInputMouseInfo {
     const NAME: &'static str = "Windows.UI.Input.Preview.Injection.InjectedInputMouseInfo";
 }
-::windows_core::imp::interface_hierarchy!(InjectedInputMouseInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct InjectedInputPenInfo(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(InjectedInputPenInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl InjectedInputPenInfo {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -586,17 +491,15 @@ impl ::windows_core::RuntimeType for InjectedInputPenInfo {
 }
 unsafe impl ::windows_core::Interface for InjectedInputPenInfo {
     type Vtable = IInjectedInputPenInfo_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for InjectedInputPenInfo {
-    const IID: ::windows_core::GUID = <IInjectedInputPenInfo as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IInjectedInputPenInfo as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for InjectedInputPenInfo {
     const NAME: &'static str = "Windows.UI.Input.Preview.Injection.InjectedInputPenInfo";
 }
-::windows_core::imp::interface_hierarchy!(InjectedInputPenInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct InjectedInputTouchInfo(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(InjectedInputTouchInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl InjectedInputTouchInfo {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -666,35 +569,33 @@ impl ::windows_core::RuntimeType for InjectedInputTouchInfo {
 }
 unsafe impl ::windows_core::Interface for InjectedInputTouchInfo {
     type Vtable = IInjectedInputTouchInfo_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for InjectedInputTouchInfo {
-    const IID: ::windows_core::GUID = <IInjectedInputTouchInfo as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IInjectedInputTouchInfo as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for InjectedInputTouchInfo {
     const NAME: &'static str = "Windows.UI.Input.Preview.Injection.InjectedInputTouchInfo";
 }
-::windows_core::imp::interface_hierarchy!(InjectedInputTouchInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct InputInjector(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(InputInjector, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl InputInjector {
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InjectKeyboardInput<P0>(&self, input: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::super::super::Foundation::Collections::IIterable<InjectedInputKeyboardInfo>>,
+        P0: ::windows_core::IntoParam<super::super::super::super::Foundation::Collections::IIterable<InjectedInputKeyboardInfo>>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).InjectKeyboardInput)(::windows_core::Interface::as_raw(this), input.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).InjectKeyboardInput)(::windows_core::Interface::as_raw(this), input.into_param().abi()).ok() }
     }
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InjectMouseInput<P0>(&self, input: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::super::super::Foundation::Collections::IIterable<InjectedInputMouseInfo>>,
+        P0: ::windows_core::IntoParam<super::super::super::super::Foundation::Collections::IIterable<InjectedInputMouseInfo>>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).InjectMouseInput)(::windows_core::Interface::as_raw(this), input.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).InjectMouseInput)(::windows_core::Interface::as_raw(this), input.into_param().abi()).ok() }
     }
     pub fn InitializeTouchInjection(&self, visualmode: InjectedInputVisualizationMode) -> ::windows_core::Result<()> {
         let this = self;
@@ -704,10 +605,10 @@ impl InputInjector {
     #[cfg(feature = "Foundation_Collections")]
     pub fn InjectTouchInput<P0>(&self, input: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::super::super::Foundation::Collections::IIterable<InjectedInputTouchInfo>>,
+        P0: ::windows_core::IntoParam<super::super::super::super::Foundation::Collections::IIterable<InjectedInputTouchInfo>>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).InjectTouchInput)(::windows_core::Interface::as_raw(this), input.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).InjectTouchInput)(::windows_core::Interface::as_raw(this), input.into_param().abi()).ok() }
     }
     pub fn UninitializeTouchInjection(&self) -> ::windows_core::Result<()> {
         let this = self;
@@ -733,18 +634,18 @@ impl InputInjector {
         unsafe { (::windows_core::Interface::vtable(this).InjectShortcut)(::windows_core::Interface::as_raw(this), shortcut).ok() }
     }
     pub fn InitializeGamepadInjection(&self) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<IInputInjector2>(self)?;
+        let this = &::windows_core::Interface::cast::<IInputInjector2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).InitializeGamepadInjection)(::windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn InjectGamepadInput<P0>(&self, input: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<InjectedInputGamepadInfo>,
     {
-        let this = &::windows_core::ComInterface::cast::<IInputInjector2>(self)?;
+        let this = &::windows_core::Interface::cast::<IInputInjector2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).InjectGamepadInput)(::windows_core::Interface::as_raw(this), input.into_param().abi()).ok() }
     }
     pub fn UninitializeGamepadInjection(&self) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<IInputInjector2>(self)?;
+        let this = &::windows_core::Interface::cast::<IInputInjector2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).UninitializeGamepadInjection)(::windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn TryCreate() -> ::windows_core::Result<InputInjector> {
@@ -775,14 +676,11 @@ impl ::windows_core::RuntimeType for InputInjector {
 }
 unsafe impl ::windows_core::Interface for InputInjector {
     type Vtable = IInputInjector_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for InputInjector {
-    const IID: ::windows_core::GUID = <IInputInjector as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IInputInjector as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for InputInjector {
     const NAME: &'static str = "Windows.UI.Input.Preview.Injection.InputInjector";
 }
-::windows_core::imp::interface_hierarchy!(InputInjector, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct InjectedInputButtonChangeKind(pub i32);

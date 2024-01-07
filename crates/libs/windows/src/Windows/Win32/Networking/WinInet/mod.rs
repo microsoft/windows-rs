@@ -2144,9 +2144,8 @@ where
     ::windows_targets::link!("wininet.dll" "system" fn UrlCacheUpdateEntryExtraData(happcache : *const ::core::ffi::c_void, pcwszurl : ::windows_core::PCWSTR, pbextradata : *const u8, cbextradata : u32) -> u32);
     UrlCacheUpdateEntryExtraData(::core::mem::transmute(happcache.unwrap_or(::std::ptr::null())), pcwszurl.into_param().abi(), ::core::mem::transmute(pbextradata.as_ptr()), pbextradata.len().try_into().unwrap())
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDialBranding(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDialBranding, IDialBranding_Vtbl, 0x8aecafa9_4306_43cc_8c5a_765f2979cc16);
+::windows_core::imp::interface_hierarchy!(IDialBranding, ::windows_core::IUnknown);
 impl IDialBranding {
     pub unsafe fn Initialize<P0>(&self, pwzconnectoid: P0) -> ::windows_core::Result<()>
     where
@@ -2161,13 +2160,6 @@ impl IDialBranding {
         (::windows_core::Interface::vtable(self).GetBitmap)(::windows_core::Interface::as_raw(self), dwindex, &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IDialBranding, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDialBranding {
-    type Vtable = IDialBranding_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDialBranding {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8aecafa9_4306_43cc_8c5a_765f2979cc16);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDialBranding_Vtbl {
@@ -2178,9 +2170,8 @@ pub struct IDialBranding_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     GetBitmap: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDialEngine(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDialEngine, IDialEngine_Vtbl, 0x39fd782b_7905_40d5_9148_3c9b190423d5);
+::windows_core::imp::interface_hierarchy!(IDialEngine, ::windows_core::IUnknown);
 impl IDialEngine {
     pub unsafe fn Initialize<P0, P1>(&self, pwzconnectoid: P0, pides: P1) -> ::windows_core::Result<()>
     where
@@ -2218,13 +2209,6 @@ impl IDialEngine {
         (::windows_core::Interface::vtable(self).GetConnectHandle)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IDialEngine, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDialEngine {
-    type Vtable = IDialEngine_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDialEngine {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x39fd782b_7905_40d5_9148_3c9b190423d5);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDialEngine_Vtbl {
@@ -2237,20 +2221,12 @@ pub struct IDialEngine_Vtbl {
     pub GetConnectedState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwstate: *mut u32) -> ::windows_core::HRESULT,
     pub GetConnectHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwhandle: *mut usize) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDialEventSink(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDialEventSink, IDialEventSink_Vtbl, 0x2d86f4ff_6e2d_4488_b2e9_6934afd41bea);
+::windows_core::imp::interface_hierarchy!(IDialEventSink, ::windows_core::IUnknown);
 impl IDialEventSink {
     pub unsafe fn OnEvent(&self, dwevent: u32, dwstatus: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OnEvent)(::windows_core::Interface::as_raw(self), dwevent, dwstatus).ok()
     }
-}
-::windows_core::imp::interface_hierarchy!(IDialEventSink, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDialEventSink {
-    type Vtable = IDialEventSink_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDialEventSink {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2d86f4ff_6e2d_4488_b2e9_6934afd41bea);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2258,9 +2234,8 @@ pub struct IDialEventSink_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub OnEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwevent: u32, dwstatus: u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IProofOfPossessionCookieInfoManager(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IProofOfPossessionCookieInfoManager, IProofOfPossessionCookieInfoManager_Vtbl, 0xcdaece56_4edf_43df_b113_88e4556fa1bb);
+::windows_core::imp::interface_hierarchy!(IProofOfPossessionCookieInfoManager, ::windows_core::IUnknown);
 impl IProofOfPossessionCookieInfoManager {
     pub unsafe fn GetCookieInfoForUri<P0>(&self, uri: P0, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> ::windows_core::Result<()>
     where
@@ -2269,22 +2244,14 @@ impl IProofOfPossessionCookieInfoManager {
         (::windows_core::Interface::vtable(self).GetCookieInfoForUri)(::windows_core::Interface::as_raw(self), uri.into_param().abi(), cookieinfocount, cookieinfo).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IProofOfPossessionCookieInfoManager, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IProofOfPossessionCookieInfoManager {
-    type Vtable = IProofOfPossessionCookieInfoManager_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IProofOfPossessionCookieInfoManager {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcdaece56_4edf_43df_b113_88e4556fa1bb);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProofOfPossessionCookieInfoManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetCookieInfoForUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: ::windows_core::PCWSTR, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IProofOfPossessionCookieInfoManager2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IProofOfPossessionCookieInfoManager2, IProofOfPossessionCookieInfoManager2_Vtbl, 0x15e41407_b42f_4ae7_9966_34a087b2d713);
+::windows_core::imp::interface_hierarchy!(IProofOfPossessionCookieInfoManager2, ::windows_core::IUnknown);
 impl IProofOfPossessionCookieInfoManager2 {
     pub unsafe fn GetCookieInfoWithUriForAccount<P0, P1>(&self, webaccount: P0, uri: P1, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> ::windows_core::Result<()>
     where
@@ -2293,13 +2260,6 @@ impl IProofOfPossessionCookieInfoManager2 {
     {
         (::windows_core::Interface::vtable(self).GetCookieInfoWithUriForAccount)(::windows_core::Interface::as_raw(self), webaccount.into_param().abi(), uri.into_param().abi(), cookieinfocount, cookieinfo).ok()
     }
-}
-::windows_core::imp::interface_hierarchy!(IProofOfPossessionCookieInfoManager2, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IProofOfPossessionCookieInfoManager2 {
-    type Vtable = IProofOfPossessionCookieInfoManager2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IProofOfPossessionCookieInfoManager2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x15e41407_b42f_4ae7_9966_34a087b2d713);
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -1,13 +1,4 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDnssdRegistrationResult(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDnssdRegistrationResult {
-    type Vtable = IDnssdRegistrationResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDnssdRegistrationResult {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3d786ad2_e606_5350_73ea_7e97f066162f);
-}
+::windows_core::imp::com_interface!(IDnssdRegistrationResult, IDnssdRegistrationResult_Vtbl, 0x3d786ad2_e606_5350_73ea_7e97f066162f);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDnssdRegistrationResult_Vtbl {
@@ -16,16 +7,7 @@ pub struct IDnssdRegistrationResult_Vtbl {
     pub IPAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub HasInstanceNameChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDnssdServiceInstance(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDnssdServiceInstance {
-    type Vtable = IDnssdServiceInstance_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDnssdServiceInstance {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe246db7e_98a5_4ca1_b9e4_c253d33c35ff);
-}
+::windows_core::imp::com_interface!(IDnssdServiceInstance, IDnssdServiceInstance_Vtbl, 0xe246db7e_98a5_4ca1_b9e4_c253d33c35ff);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDnssdServiceInstance_Vtbl {
@@ -61,32 +43,14 @@ pub struct IDnssdServiceInstance_Vtbl {
     #[cfg(not(all(feature = "Networking_Connectivity", feature = "Networking_Sockets")))]
     RegisterDatagramSocketAsync2: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDnssdServiceInstanceFactory(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDnssdServiceInstanceFactory {
-    type Vtable = IDnssdServiceInstanceFactory_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDnssdServiceInstanceFactory {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6cb061a1_c478_4331_9684_4af2186c0a2b);
-}
+::windows_core::imp::com_interface!(IDnssdServiceInstanceFactory, IDnssdServiceInstanceFactory_Vtbl, 0x6cb061a1_c478_4331_9684_4af2186c0a2b);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDnssdServiceInstanceFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dnssdserviceinstancename: ::std::mem::MaybeUninit<::windows_core::HSTRING>, hostname: *mut ::core::ffi::c_void, port: u16, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDnssdServiceWatcher(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDnssdServiceWatcher {
-    type Vtable = IDnssdServiceWatcher_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDnssdServiceWatcher {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcc34d9c1_db7d_4b69_983d_c6f83f205682);
-}
+::windows_core::imp::com_interface!(IDnssdServiceWatcher, IDnssdServiceWatcher_Vtbl, 0xcc34d9c1_db7d_4b69_983d_c6f83f205682);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDnssdServiceWatcher_Vtbl {
@@ -104,6 +68,8 @@ pub struct IDnssdServiceWatcher_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DnssdRegistrationResult(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(DnssdRegistrationResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(DnssdRegistrationResult, super::super::super::Foundation::IStringable);
 impl DnssdRegistrationResult {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -134,7 +100,7 @@ impl DnssdRegistrationResult {
         }
     }
     pub fn ToString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IStringable>(self)?;
+        let this = &::windows_core::Interface::cast::<super::super::super::Foundation::IStringable>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ToString)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -146,20 +112,18 @@ impl ::windows_core::RuntimeType for DnssdRegistrationResult {
 }
 unsafe impl ::windows_core::Interface for DnssdRegistrationResult {
     type Vtable = IDnssdRegistrationResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for DnssdRegistrationResult {
-    const IID: ::windows_core::GUID = <IDnssdRegistrationResult as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IDnssdRegistrationResult as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for DnssdRegistrationResult {
     const NAME: &'static str = "Windows.Networking.ServiceDiscovery.Dnssd.DnssdRegistrationResult";
 }
-::windows_core::imp::interface_hierarchy!(DnssdRegistrationResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<super::super::super::Foundation::IStringable> for DnssdRegistrationResult {}
 unsafe impl ::core::marker::Send for DnssdRegistrationResult {}
 unsafe impl ::core::marker::Sync for DnssdRegistrationResult {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DnssdServiceInstance(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(DnssdServiceInstance, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(DnssdServiceInstance, super::super::super::Foundation::IStringable);
 impl DnssdServiceInstance {
     pub fn DnssdServiceInstanceName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -288,7 +252,7 @@ impl DnssdServiceInstance {
         })
     }
     pub fn ToString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IStringable>(self)?;
+        let this = &::windows_core::Interface::cast::<super::super::super::Foundation::IStringable>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ToString)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -305,15 +269,11 @@ impl ::windows_core::RuntimeType for DnssdServiceInstance {
 }
 unsafe impl ::windows_core::Interface for DnssdServiceInstance {
     type Vtable = IDnssdServiceInstance_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for DnssdServiceInstance {
-    const IID: ::windows_core::GUID = <IDnssdServiceInstance as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IDnssdServiceInstance as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for DnssdServiceInstance {
     const NAME: &'static str = "Windows.Networking.ServiceDiscovery.Dnssd.DnssdServiceInstance";
 }
-::windows_core::imp::interface_hierarchy!(DnssdServiceInstance, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<super::super::super::Foundation::IStringable> for DnssdServiceInstance {}
 unsafe impl ::core::marker::Send for DnssdServiceInstance {}
 unsafe impl ::core::marker::Sync for DnssdServiceInstance {}
 #[doc = "Required features: `\"Foundation_Collections\"`"]
@@ -322,11 +282,15 @@ unsafe impl ::core::marker::Sync for DnssdServiceInstance {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DnssdServiceInstanceCollection(::windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
+::windows_core::imp::interface_hierarchy!(DnssdServiceInstanceCollection, ::windows_core::IUnknown, ::windows_core::IInspectable);
+#[cfg(feature = "Foundation_Collections")]
+::windows_core::imp::required_hierarchy!(DnssdServiceInstanceCollection, super::super::super::Foundation::Collections::IIterable::<DnssdServiceInstance>, super::super::super::Foundation::Collections::IVectorView::<DnssdServiceInstance>);
+#[cfg(feature = "Foundation_Collections")]
 impl DnssdServiceInstanceCollection {
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IIterator<DnssdServiceInstance>> {
-        let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::Collections::IIterable<DnssdServiceInstance>>(self)?;
+        let this = &::windows_core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<DnssdServiceInstance>>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).First)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -379,10 +343,7 @@ impl ::windows_core::RuntimeType for DnssdServiceInstanceCollection {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows_core::Interface for DnssdServiceInstanceCollection {
     type Vtable = super::super::super::Foundation::Collections::IVectorView_Vtbl<DnssdServiceInstance>;
-}
-#[cfg(feature = "Foundation_Collections")]
-unsafe impl ::windows_core::ComInterface for DnssdServiceInstanceCollection {
-    const IID: ::windows_core::GUID = <super::super::super::Foundation::Collections::IVectorView<DnssdServiceInstance> as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <super::super::super::Foundation::Collections::IVectorView<DnssdServiceInstance> as ::windows_core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows_core::RuntimeName for DnssdServiceInstanceCollection {
@@ -401,15 +362,9 @@ impl ::core::iter::IntoIterator for &DnssdServiceInstanceCollection {
     type Item = DnssdServiceInstance;
     type IntoIter = super::super::super::Foundation::Collections::VectorViewIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        super::super::super::Foundation::Collections::VectorViewIterator::new(::windows_core::ComInterface::cast(self).ok())
+        super::super::super::Foundation::Collections::VectorViewIterator::new(::windows_core::Interface::cast(self).ok())
     }
 }
-#[cfg(feature = "Foundation_Collections")]
-::windows_core::imp::interface_hierarchy!(DnssdServiceInstanceCollection, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "Foundation_Collections")]
-impl ::windows_core::CanTryInto<super::super::super::Foundation::Collections::IIterable<DnssdServiceInstance>> for DnssdServiceInstanceCollection {}
-#[cfg(feature = "Foundation_Collections")]
-impl ::windows_core::CanTryInto<super::super::super::Foundation::Collections::IVectorView<DnssdServiceInstance>> for DnssdServiceInstanceCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Send for DnssdServiceInstanceCollection {}
 #[cfg(feature = "Foundation_Collections")]
@@ -417,6 +372,7 @@ unsafe impl ::core::marker::Sync for DnssdServiceInstanceCollection {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DnssdServiceWatcher(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(DnssdServiceWatcher, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl DnssdServiceWatcher {
     pub fn Added<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -481,14 +437,11 @@ impl ::windows_core::RuntimeType for DnssdServiceWatcher {
 }
 unsafe impl ::windows_core::Interface for DnssdServiceWatcher {
     type Vtable = IDnssdServiceWatcher_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for DnssdServiceWatcher {
-    const IID: ::windows_core::GUID = <IDnssdServiceWatcher as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IDnssdServiceWatcher as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for DnssdServiceWatcher {
     const NAME: &'static str = "Windows.Networking.ServiceDiscovery.Dnssd.DnssdServiceWatcher";
 }
-::windows_core::imp::interface_hierarchy!(DnssdServiceWatcher, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for DnssdServiceWatcher {}
 unsafe impl ::core::marker::Sync for DnssdServiceWatcher {}
 #[repr(transparent)]

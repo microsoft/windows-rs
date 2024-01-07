@@ -1,45 +1,18 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IErrorReceivedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IErrorReceivedEventArgs {
-    type Vtable = IErrorReceivedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IErrorReceivedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfcc6bf59_1283_4d8a_bfdf_566b33ddb28f);
-}
+::windows_core::imp::com_interface!(IErrorReceivedEventArgs, IErrorReceivedEventArgs_Vtbl, 0xfcc6bf59_1283_4d8a_bfdf_566b33ddb28f);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IErrorReceivedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Error: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SerialError) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPinChangedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPinChangedEventArgs {
-    type Vtable = IPinChangedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPinChangedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa2bf1db0_fc9c_4607_93d0_fa5e8343ee22);
-}
+::windows_core::imp::com_interface!(IPinChangedEventArgs, IPinChangedEventArgs_Vtbl, 0xa2bf1db0_fc9c_4607_93d0_fa5e8343ee22);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPinChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PinChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SerialPinChange) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISerialDevice(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISerialDevice {
-    type Vtable = ISerialDevice_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISerialDevice {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe187ccc6_2210_414f_b65a_f5553a03372a);
-}
+::windows_core::imp::com_interface!(ISerialDevice, ISerialDevice_Vtbl, 0xe187ccc6_2210_414f_b65a_f5553a03372a);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISerialDevice_Vtbl {
@@ -84,16 +57,7 @@ pub struct ISerialDevice_Vtbl {
     pub PinChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reporthandler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     pub RemovePinChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISerialDeviceStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISerialDeviceStatics {
-    type Vtable = ISerialDeviceStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISerialDeviceStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x058c4a70_0836_4993_ae1a_b61ae3be056b);
-}
+::windows_core::imp::com_interface!(ISerialDeviceStatics, ISerialDeviceStatics_Vtbl, 0x058c4a70_0836_4993_ae1a_b61ae3be056b);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISerialDeviceStatics_Vtbl {
@@ -106,6 +70,7 @@ pub struct ISerialDeviceStatics_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ErrorReceivedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(ErrorReceivedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ErrorReceivedEventArgs {
     pub fn Error(&self) -> ::windows_core::Result<SerialError> {
         let this = self;
@@ -120,19 +85,17 @@ impl ::windows_core::RuntimeType for ErrorReceivedEventArgs {
 }
 unsafe impl ::windows_core::Interface for ErrorReceivedEventArgs {
     type Vtable = IErrorReceivedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ErrorReceivedEventArgs {
-    const IID: ::windows_core::GUID = <IErrorReceivedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IErrorReceivedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for ErrorReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.SerialCommunication.ErrorReceivedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(ErrorReceivedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for ErrorReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for ErrorReceivedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PinChangedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(PinChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl PinChangedEventArgs {
     pub fn PinChange(&self) -> ::windows_core::Result<SerialPinChange> {
         let this = self;
@@ -147,22 +110,21 @@ impl ::windows_core::RuntimeType for PinChangedEventArgs {
 }
 unsafe impl ::windows_core::Interface for PinChangedEventArgs {
     type Vtable = IPinChangedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for PinChangedEventArgs {
-    const IID: ::windows_core::GUID = <IPinChangedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPinChangedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for PinChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.SerialCommunication.PinChangedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(PinChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PinChangedEventArgs {}
 unsafe impl ::core::marker::Sync for PinChangedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SerialDevice(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(SerialDevice, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(SerialDevice, super::super::Foundation::IClosable);
 impl SerialDevice {
     pub fn Close(&self) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
+        let this = &::windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn BaudRate(&self) -> ::windows_core::Result<u32> {
@@ -405,15 +367,11 @@ impl ::windows_core::RuntimeType for SerialDevice {
 }
 unsafe impl ::windows_core::Interface for SerialDevice {
     type Vtable = ISerialDevice_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for SerialDevice {
-    const IID: ::windows_core::GUID = <ISerialDevice as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ISerialDevice as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for SerialDevice {
     const NAME: &'static str = "Windows.Devices.SerialCommunication.SerialDevice";
 }
-::windows_core::imp::interface_hierarchy!(SerialDevice, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for SerialDevice {}
 unsafe impl ::core::marker::Send for SerialDevice {}
 unsafe impl ::core::marker::Sync for SerialDevice {}
 #[repr(transparent)]

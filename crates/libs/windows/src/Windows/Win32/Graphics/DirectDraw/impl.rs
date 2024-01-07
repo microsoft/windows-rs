@@ -36,7 +36,7 @@ impl IDDVideoPortContainer_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDDVideoPortContainer as ::windows_core::ComInterface>::IID
+        iid == &<IDDVideoPortContainer as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
@@ -205,7 +205,7 @@ impl IDirectDraw_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectDraw as ::windows_core::ComInterface>::IID
+        iid == &<IDirectDraw as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
@@ -381,7 +381,7 @@ impl IDirectDraw2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectDraw2 as ::windows_core::ComInterface>::IID
+        iid == &<IDirectDraw2 as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
@@ -591,7 +591,7 @@ impl IDirectDraw4_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectDraw4 as ::windows_core::ComInterface>::IID
+        iid == &<IDirectDraw4 as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
@@ -815,7 +815,7 @@ impl IDirectDraw7_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectDraw7 as ::windows_core::ComInterface>::IID
+        iid == &<IDirectDraw7 as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
@@ -874,7 +874,7 @@ impl IDirectDrawClipper_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectDrawClipper as ::windows_core::ComInterface>::IID
+        iid == &<IDirectDrawClipper as ::windows_core::Interface>::IID
     }
 }
 pub trait IDirectDrawColorControl_Impl: Sized {
@@ -901,7 +901,7 @@ impl IDirectDrawColorControl_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectDrawColorControl as ::windows_core::ComInterface>::IID
+        iid == &<IDirectDrawColorControl as ::windows_core::Interface>::IID
     }
 }
 pub trait IDirectDrawGammaControl_Impl: Sized {
@@ -928,7 +928,7 @@ impl IDirectDrawGammaControl_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectDrawGammaControl as ::windows_core::ComInterface>::IID
+        iid == &<IDirectDrawGammaControl as ::windows_core::Interface>::IID
     }
 }
 pub trait IDirectDrawKernel_Impl: Sized {
@@ -962,7 +962,7 @@ impl IDirectDrawKernel_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectDrawKernel as ::windows_core::ComInterface>::IID
+        iid == &<IDirectDrawKernel as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
@@ -1007,7 +1007,7 @@ impl IDirectDrawPalette_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectDrawPalette as ::windows_core::ComInterface>::IID
+        iid == &<IDirectDrawPalette as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
@@ -1267,7 +1267,7 @@ impl IDirectDrawSurface_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectDrawSurface as ::windows_core::ComInterface>::IID
+        iid == &<IDirectDrawSurface as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
@@ -1548,7 +1548,7 @@ impl IDirectDrawSurface2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectDrawSurface2 as ::windows_core::ComInterface>::IID
+        iid == &<IDirectDrawSurface2 as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
@@ -1836,7 +1836,7 @@ impl IDirectDrawSurface3_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectDrawSurface3 as ::windows_core::ComInterface>::IID
+        iid == &<IDirectDrawSurface3 as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
@@ -2159,7 +2159,7 @@ impl IDirectDrawSurface4_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectDrawSurface4 as ::windows_core::ComInterface>::IID
+        iid == &<IDirectDrawSurface4 as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
@@ -2510,7 +2510,7 @@ impl IDirectDrawSurface7_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectDrawSurface7 as ::windows_core::ComInterface>::IID
+        iid == &<IDirectDrawSurface7 as ::windows_core::Interface>::IID
     }
 }
 pub trait IDirectDrawSurfaceKernel_Impl: Sized {
@@ -2537,7 +2537,7 @@ impl IDirectDrawSurfaceKernel_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectDrawSurfaceKernel as ::windows_core::ComInterface>::IID
+        iid == &<IDirectDrawSurfaceKernel as ::windows_core::Interface>::IID
     }
 }
 pub trait IDirectDrawVideoPort_Impl: Sized {
@@ -2648,7 +2648,7 @@ impl IDirectDrawVideoPort_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectDrawVideoPort as ::windows_core::ComInterface>::IID
+        iid == &<IDirectDrawVideoPort as ::windows_core::Interface>::IID
     }
 }
 pub trait IDirectDrawVideoPortNotify_Impl: Sized {
@@ -2675,6 +2675,6 @@ impl IDirectDrawVideoPortNotify_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectDrawVideoPortNotify as ::windows_core::ComInterface>::IID
+        iid == &<IDirectDrawVideoPortNotify as ::windows_core::Interface>::IID
     }
 }

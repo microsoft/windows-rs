@@ -59,7 +59,7 @@ impl IEnumNetworkConnections_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumNetworkConnections as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<IEnumNetworkConnections as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -123,7 +123,7 @@ impl IEnumNetworks_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumNetworks as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<IEnumNetworks as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -285,7 +285,7 @@ impl INetwork_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<INetwork as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<INetwork as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -312,7 +312,7 @@ impl INetwork2_Vtbl {
         Self { base__: INetwork_Vtbl::new::<Identity, Impl, OFFSET>(), IsDomainAuthenticatedBy: IsDomainAuthenticatedBy::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<INetwork2 as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || iid == &<INetwork as ::windows_core::ComInterface>::IID
+        iid == &<INetwork2 as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<INetwork as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -420,7 +420,7 @@ impl INetworkConnection_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<INetworkConnection as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<INetworkConnection as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -447,7 +447,7 @@ impl INetworkConnection2_Vtbl {
         Self { base__: INetworkConnection_Vtbl::new::<Identity, Impl, OFFSET>(), IsDomainAuthenticatedBy: IsDomainAuthenticatedBy::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<INetworkConnection2 as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID || iid == &<INetworkConnection as ::windows_core::ComInterface>::IID
+        iid == &<INetworkConnection2 as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<INetworkConnection as ::windows_core::Interface>::IID
     }
 }
 pub trait INetworkConnectionCost_Impl: Sized {
@@ -480,7 +480,7 @@ impl INetworkConnectionCost_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<INetworkConnectionCost as ::windows_core::ComInterface>::IID
+        iid == &<INetworkConnectionCost as ::windows_core::Interface>::IID
     }
 }
 pub trait INetworkConnectionCostEvents_Impl: Sized {
@@ -507,7 +507,7 @@ impl INetworkConnectionCostEvents_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<INetworkConnectionCostEvents as ::windows_core::ComInterface>::IID
+        iid == &<INetworkConnectionCostEvents as ::windows_core::Interface>::IID
     }
 }
 pub trait INetworkConnectionEvents_Impl: Sized {
@@ -534,7 +534,7 @@ impl INetworkConnectionEvents_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<INetworkConnectionEvents as ::windows_core::ComInterface>::IID
+        iid == &<INetworkConnectionEvents as ::windows_core::Interface>::IID
     }
 }
 pub trait INetworkCostManager_Impl: Sized {
@@ -568,7 +568,7 @@ impl INetworkCostManager_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<INetworkCostManager as ::windows_core::ComInterface>::IID
+        iid == &<INetworkCostManager as ::windows_core::Interface>::IID
     }
 }
 pub trait INetworkCostManagerEvents_Impl: Sized {
@@ -595,7 +595,7 @@ impl INetworkCostManagerEvents_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<INetworkCostManagerEvents as ::windows_core::ComInterface>::IID
+        iid == &<INetworkCostManagerEvents as ::windows_core::Interface>::IID
     }
 }
 pub trait INetworkEvents_Impl: Sized {
@@ -636,7 +636,7 @@ impl INetworkEvents_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<INetworkEvents as ::windows_core::ComInterface>::IID
+        iid == &<INetworkEvents as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -758,7 +758,7 @@ impl INetworkListManager_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<INetworkListManager as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<INetworkListManager as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 pub trait INetworkListManagerEvents_Impl: Sized {
@@ -775,6 +775,6 @@ impl INetworkListManagerEvents_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ConnectivityChanged: ConnectivityChanged::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<INetworkListManagerEvents as ::windows_core::ComInterface>::IID
+        iid == &<INetworkListManagerEvents as ::windows_core::Interface>::IID
     }
 }

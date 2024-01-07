@@ -312,7 +312,7 @@ impl IADsTSUserEx_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IADsTSUserEx as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<IADsTSUserEx as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 pub trait IAudioDeviceEndpoint_Impl: Sized {
@@ -365,7 +365,7 @@ impl IAudioDeviceEndpoint_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAudioDeviceEndpoint as ::windows_core::ComInterface>::IID
+        iid == &<IAudioDeviceEndpoint as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Media_Audio\"`"]
@@ -435,7 +435,7 @@ impl IAudioEndpoint_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAudioEndpoint as ::windows_core::ComInterface>::IID
+        iid == &<IAudioEndpoint as ::windows_core::Interface>::IID
     }
 }
 pub trait IAudioEndpointControl_Impl: Sized {
@@ -469,7 +469,7 @@ impl IAudioEndpointControl_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAudioEndpointControl as ::windows_core::ComInterface>::IID
+        iid == &<IAudioEndpointControl as ::windows_core::Interface>::IID
     }
 }
 pub trait IAudioEndpointRT_Impl: Sized {
@@ -510,7 +510,7 @@ impl IAudioEndpointRT_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAudioEndpointRT as ::windows_core::ComInterface>::IID
+        iid == &<IAudioEndpointRT as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Media_Audio_Apo\"`"]
@@ -548,7 +548,7 @@ impl IAudioInputEndpointRT_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAudioInputEndpointRT as ::windows_core::ComInterface>::IID
+        iid == &<IAudioInputEndpointRT as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Media_Audio_Apo\"`"]
@@ -586,7 +586,7 @@ impl IAudioOutputEndpointRT_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAudioOutputEndpointRT as ::windows_core::ComInterface>::IID
+        iid == &<IAudioOutputEndpointRT as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -691,7 +691,7 @@ impl IRemoteDesktopClient_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRemoteDesktopClient as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<IRemoteDesktopClient as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -742,7 +742,7 @@ impl IRemoteDesktopClientActions_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRemoteDesktopClientActions as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<IRemoteDesktopClientActions as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -799,7 +799,7 @@ impl IRemoteDesktopClientSettings_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRemoteDesktopClientSettings as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<IRemoteDesktopClientSettings as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -876,7 +876,7 @@ impl IRemoteDesktopClientTouchPointer_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRemoteDesktopClientTouchPointer as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<IRemoteDesktopClientTouchPointer as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 pub trait IRemoteSystemAdditionalInfoProvider_Impl: Sized {
@@ -893,7 +893,7 @@ impl IRemoteSystemAdditionalInfoProvider_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetAdditionalInfo: GetAdditionalInfo::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRemoteSystemAdditionalInfoProvider as ::windows_core::ComInterface>::IID
+        iid == &<IRemoteSystemAdditionalInfoProvider as ::windows_core::Interface>::IID
     }
 }
 pub trait ITSGAccountingEngine_Impl: Sized {
@@ -910,7 +910,7 @@ impl ITSGAccountingEngine_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), DoAccounting: DoAccounting::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITSGAccountingEngine as ::windows_core::ComInterface>::IID
+        iid == &<ITSGAccountingEngine as ::windows_core::Interface>::IID
     }
 }
 pub trait ITSGAuthenticateUserSink_Impl: Sized {
@@ -951,7 +951,7 @@ impl ITSGAuthenticateUserSink_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITSGAuthenticateUserSink as ::windows_core::ComInterface>::IID
+        iid == &<ITSGAuthenticateUserSink as ::windows_core::Interface>::IID
     }
 }
 pub trait ITSGAuthenticationEngine_Impl: Sized {
@@ -978,7 +978,7 @@ impl ITSGAuthenticationEngine_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITSGAuthenticationEngine as ::windows_core::ComInterface>::IID
+        iid == &<ITSGAuthenticationEngine as ::windows_core::Interface>::IID
     }
 }
 pub trait ITSGAuthorizeConnectionSink_Impl: Sized {
@@ -995,7 +995,7 @@ impl ITSGAuthorizeConnectionSink_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnConnectionAuthorized: OnConnectionAuthorized::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITSGAuthorizeConnectionSink as ::windows_core::ComInterface>::IID
+        iid == &<ITSGAuthorizeConnectionSink as ::windows_core::Interface>::IID
     }
 }
 pub trait ITSGAuthorizeResourceSink_Impl: Sized {
@@ -1012,7 +1012,7 @@ impl ITSGAuthorizeResourceSink_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnChannelAuthorized: OnChannelAuthorized::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITSGAuthorizeResourceSink as ::windows_core::ComInterface>::IID
+        iid == &<ITSGAuthorizeResourceSink as ::windows_core::Interface>::IID
     }
 }
 pub trait ITSGPolicyEngine_Impl: Sized {
@@ -1074,7 +1074,7 @@ impl ITSGPolicyEngine_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITSGPolicyEngine as ::windows_core::ComInterface>::IID
+        iid == &<ITSGPolicyEngine as ::windows_core::Interface>::IID
     }
 }
 pub trait ITsSbBaseNotifySink_Impl: Sized {
@@ -1101,7 +1101,7 @@ impl ITsSbBaseNotifySink_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITsSbBaseNotifySink as ::windows_core::ComInterface>::IID
+        iid == &<ITsSbBaseNotifySink as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -1301,7 +1301,7 @@ impl ITsSbClientConnection_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITsSbClientConnection as ::windows_core::ComInterface>::IID
+        iid == &<ITsSbClientConnection as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -1315,7 +1315,7 @@ impl ITsSbClientConnectionPropertySet_Vtbl {
         Self { base__: ITsSbPropertySet_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITsSbClientConnectionPropertySet as ::windows_core::ComInterface>::IID || iid == &<super::Com::StructuredStorage::IPropertyBag as ::windows_core::ComInterface>::IID || iid == &<ITsSbPropertySet as ::windows_core::ComInterface>::IID
+        iid == &<ITsSbClientConnectionPropertySet as ::windows_core::Interface>::IID || iid == &<super::Com::StructuredStorage::IPropertyBag as ::windows_core::Interface>::IID || iid == &<ITsSbPropertySet as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
@@ -1378,7 +1378,7 @@ impl ITsSbEnvironment_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITsSbEnvironment as ::windows_core::ComInterface>::IID
+        iid == &<ITsSbEnvironment as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -1392,7 +1392,7 @@ impl ITsSbEnvironmentPropertySet_Vtbl {
         Self { base__: ITsSbPropertySet_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITsSbEnvironmentPropertySet as ::windows_core::ComInterface>::IID || iid == &<super::Com::StructuredStorage::IPropertyBag as ::windows_core::ComInterface>::IID || iid == &<ITsSbPropertySet as ::windows_core::ComInterface>::IID
+        iid == &<ITsSbEnvironmentPropertySet as ::windows_core::Interface>::IID || iid == &<super::Com::StructuredStorage::IPropertyBag as ::windows_core::Interface>::IID || iid == &<ITsSbPropertySet as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
@@ -1436,7 +1436,7 @@ impl ITsSbFilterPluginStore_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITsSbFilterPluginStore as ::windows_core::ComInterface>::IID
+        iid == &<ITsSbFilterPluginStore as ::windows_core::Interface>::IID
     }
 }
 pub trait ITsSbGenericNotifySink_Impl: Sized {
@@ -1469,7 +1469,7 @@ impl ITsSbGenericNotifySink_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITsSbGenericNotifySink as ::windows_core::ComInterface>::IID
+        iid == &<ITsSbGenericNotifySink as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -1547,7 +1547,7 @@ impl ITsSbGlobalStore_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITsSbGlobalStore as ::windows_core::ComInterface>::IID
+        iid == &<ITsSbGlobalStore as ::windows_core::Interface>::IID
     }
 }
 pub trait ITsSbLoadBalanceResult_Impl: Sized {
@@ -1570,7 +1570,7 @@ impl ITsSbLoadBalanceResult_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), TargetName: TargetName::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITsSbLoadBalanceResult as ::windows_core::ComInterface>::IID
+        iid == &<ITsSbLoadBalanceResult as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
@@ -1591,7 +1591,7 @@ impl ITsSbLoadBalancing_Vtbl {
         Self { base__: ITsSbPlugin_Vtbl::new::<Identity, Impl, OFFSET>(), GetMostSuitableTarget: GetMostSuitableTarget::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITsSbLoadBalancing as ::windows_core::ComInterface>::IID || iid == &<ITsSbPlugin as ::windows_core::ComInterface>::IID
+        iid == &<ITsSbLoadBalancing as ::windows_core::Interface>::IID || iid == &<ITsSbPlugin as ::windows_core::Interface>::IID
     }
 }
 pub trait ITsSbLoadBalancingNotifySink_Impl: Sized + ITsSbBaseNotifySink_Impl {
@@ -1608,7 +1608,7 @@ impl ITsSbLoadBalancingNotifySink_Vtbl {
         Self { base__: ITsSbBaseNotifySink_Vtbl::new::<Identity, Impl, OFFSET>(), OnGetMostSuitableTarget: OnGetMostSuitableTarget::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITsSbLoadBalancingNotifySink as ::windows_core::ComInterface>::IID || iid == &<ITsSbBaseNotifySink as ::windows_core::ComInterface>::IID
+        iid == &<ITsSbLoadBalancingNotifySink as ::windows_core::Interface>::IID || iid == &<ITsSbBaseNotifySink as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
@@ -1629,7 +1629,7 @@ impl ITsSbOrchestration_Vtbl {
         Self { base__: ITsSbPlugin_Vtbl::new::<Identity, Impl, OFFSET>(), PrepareTargetForConnect: PrepareTargetForConnect::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITsSbOrchestration as ::windows_core::ComInterface>::IID || iid == &<ITsSbPlugin as ::windows_core::ComInterface>::IID
+        iid == &<ITsSbOrchestration as ::windows_core::Interface>::IID || iid == &<ITsSbPlugin as ::windows_core::Interface>::IID
     }
 }
 pub trait ITsSbOrchestrationNotifySink_Impl: Sized + ITsSbBaseNotifySink_Impl {
@@ -1646,7 +1646,7 @@ impl ITsSbOrchestrationNotifySink_Vtbl {
         Self { base__: ITsSbBaseNotifySink_Vtbl::new::<Identity, Impl, OFFSET>(), OnReadyToConnect: OnReadyToConnect::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITsSbOrchestrationNotifySink as ::windows_core::ComInterface>::IID || iid == &<ITsSbBaseNotifySink as ::windows_core::ComInterface>::IID
+        iid == &<ITsSbOrchestrationNotifySink as ::windows_core::Interface>::IID || iid == &<ITsSbBaseNotifySink as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
@@ -1667,7 +1667,7 @@ impl ITsSbPlacement_Vtbl {
         Self { base__: ITsSbPlugin_Vtbl::new::<Identity, Impl, OFFSET>(), QueryEnvironmentForTarget: QueryEnvironmentForTarget::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITsSbPlacement as ::windows_core::ComInterface>::IID || iid == &<ITsSbPlugin as ::windows_core::ComInterface>::IID
+        iid == &<ITsSbPlacement as ::windows_core::Interface>::IID || iid == &<ITsSbPlugin as ::windows_core::Interface>::IID
     }
 }
 pub trait ITsSbPlacementNotifySink_Impl: Sized + ITsSbBaseNotifySink_Impl {
@@ -1687,7 +1687,7 @@ impl ITsSbPlacementNotifySink_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITsSbPlacementNotifySink as ::windows_core::ComInterface>::IID || iid == &<ITsSbBaseNotifySink as ::windows_core::ComInterface>::IID
+        iid == &<ITsSbPlacementNotifySink as ::windows_core::Interface>::IID || iid == &<ITsSbBaseNotifySink as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
@@ -1718,7 +1718,7 @@ impl ITsSbPlugin_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITsSbPlugin as ::windows_core::ComInterface>::IID
+        iid == &<ITsSbPlugin as ::windows_core::Interface>::IID
     }
 }
 pub trait ITsSbPluginNotifySink_Impl: Sized + ITsSbBaseNotifySink_Impl {
@@ -1745,7 +1745,7 @@ impl ITsSbPluginNotifySink_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITsSbPluginNotifySink as ::windows_core::ComInterface>::IID || iid == &<ITsSbBaseNotifySink as ::windows_core::ComInterface>::IID
+        iid == &<ITsSbPluginNotifySink as ::windows_core::Interface>::IID || iid == &<ITsSbBaseNotifySink as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -1759,7 +1759,7 @@ impl ITsSbPluginPropertySet_Vtbl {
         Self { base__: ITsSbPropertySet_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITsSbPluginPropertySet as ::windows_core::ComInterface>::IID || iid == &<super::Com::StructuredStorage::IPropertyBag as ::windows_core::ComInterface>::IID || iid == &<ITsSbPropertySet as ::windows_core::ComInterface>::IID
+        iid == &<ITsSbPluginPropertySet as ::windows_core::Interface>::IID || iid == &<super::Com::StructuredStorage::IPropertyBag as ::windows_core::Interface>::IID || iid == &<ITsSbPropertySet as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -1773,7 +1773,7 @@ impl ITsSbPropertySet_Vtbl {
         Self { base__: super::Com::StructuredStorage::IPropertyBag_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITsSbPropertySet as ::windows_core::ComInterface>::IID || iid == &<super::Com::StructuredStorage::IPropertyBag as ::windows_core::ComInterface>::IID
+        iid == &<ITsSbPropertySet as ::windows_core::Interface>::IID || iid == &<super::Com::StructuredStorage::IPropertyBag as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
@@ -1934,7 +1934,7 @@ impl ITsSbProvider_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITsSbProvider as ::windows_core::ComInterface>::IID
+        iid == &<ITsSbProvider as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
@@ -1979,7 +1979,7 @@ impl ITsSbProvisioning_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITsSbProvisioning as ::windows_core::ComInterface>::IID || iid == &<ITsSbPlugin as ::windows_core::ComInterface>::IID
+        iid == &<ITsSbProvisioning as ::windows_core::Interface>::IID || iid == &<ITsSbPlugin as ::windows_core::Interface>::IID
     }
 }
 pub trait ITsSbProvisioningPluginNotifySink_Impl: Sized {
@@ -2034,7 +2034,7 @@ impl ITsSbProvisioningPluginNotifySink_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITsSbProvisioningPluginNotifySink as ::windows_core::ComInterface>::IID
+        iid == &<ITsSbProvisioningPluginNotifySink as ::windows_core::Interface>::IID
     }
 }
 pub trait ITsSbResourceNotification_Impl: Sized {
@@ -2068,7 +2068,7 @@ impl ITsSbResourceNotification_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITsSbResourceNotification as ::windows_core::ComInterface>::IID
+        iid == &<ITsSbResourceNotification as ::windows_core::Interface>::IID
     }
 }
 pub trait ITsSbResourceNotificationEx_Impl: Sized {
@@ -2102,7 +2102,7 @@ impl ITsSbResourceNotificationEx_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITsSbResourceNotificationEx as ::windows_core::ComInterface>::IID
+        iid == &<ITsSbResourceNotificationEx as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
@@ -2116,7 +2116,7 @@ impl ITsSbResourcePlugin_Vtbl {
         Self { base__: ITsSbPlugin_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITsSbResourcePlugin as ::windows_core::ComInterface>::IID || iid == &<ITsSbPlugin as ::windows_core::ComInterface>::IID
+        iid == &<ITsSbResourcePlugin as ::windows_core::Interface>::IID || iid == &<ITsSbPlugin as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -2371,7 +2371,7 @@ impl ITsSbResourcePluginStore_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITsSbResourcePluginStore as ::windows_core::ComInterface>::IID
+        iid == &<ITsSbResourcePluginStore as ::windows_core::Interface>::IID
     }
 }
 pub trait ITsSbServiceNotification_Impl: Sized {
@@ -2398,7 +2398,7 @@ impl ITsSbServiceNotification_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITsSbServiceNotification as ::windows_core::ComInterface>::IID
+        iid == &<ITsSbServiceNotification as ::windows_core::Interface>::IID
     }
 }
 pub trait ITsSbSession_Impl: Sized {
@@ -2590,7 +2590,7 @@ impl ITsSbSession_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITsSbSession as ::windows_core::ComInterface>::IID
+        iid == &<ITsSbSession as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
@@ -2800,7 +2800,7 @@ impl ITsSbTarget_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITsSbTarget as ::windows_core::ComInterface>::IID
+        iid == &<ITsSbTarget as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -2814,7 +2814,7 @@ impl ITsSbTargetPropertySet_Vtbl {
         Self { base__: ITsSbPropertySet_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITsSbTargetPropertySet as ::windows_core::ComInterface>::IID || iid == &<super::Com::StructuredStorage::IPropertyBag as ::windows_core::ComInterface>::IID || iid == &<ITsSbPropertySet as ::windows_core::ComInterface>::IID
+        iid == &<ITsSbTargetPropertySet as ::windows_core::Interface>::IID || iid == &<super::Com::StructuredStorage::IPropertyBag as ::windows_core::Interface>::IID || iid == &<ITsSbPropertySet as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -2948,7 +2948,7 @@ impl ITsSbTaskInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITsSbTaskInfo as ::windows_core::ComInterface>::IID
+        iid == &<ITsSbTaskInfo as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
@@ -2979,7 +2979,7 @@ impl ITsSbTaskPlugin_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITsSbTaskPlugin as ::windows_core::ComInterface>::IID || iid == &<ITsSbPlugin as ::windows_core::ComInterface>::IID
+        iid == &<ITsSbTaskPlugin as ::windows_core::Interface>::IID || iid == &<ITsSbPlugin as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -3024,7 +3024,7 @@ impl ITsSbTaskPluginNotifySink_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITsSbTaskPluginNotifySink as ::windows_core::ComInterface>::IID || iid == &<ITsSbBaseNotifySink as ::windows_core::ComInterface>::IID
+        iid == &<ITsSbTaskPluginNotifySink as ::windows_core::Interface>::IID || iid == &<ITsSbBaseNotifySink as ::windows_core::Interface>::IID
     }
 }
 pub trait IWRdsEnhancedFastReconnectArbitrator_Impl: Sized {
@@ -3050,7 +3050,7 @@ impl IWRdsEnhancedFastReconnectArbitrator_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWRdsEnhancedFastReconnectArbitrator as ::windows_core::ComInterface>::IID
+        iid == &<IWRdsEnhancedFastReconnectArbitrator as ::windows_core::Interface>::IID
     }
 }
 pub trait IWRdsGraphicsChannel_Impl: Sized {
@@ -3084,7 +3084,7 @@ impl IWRdsGraphicsChannel_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWRdsGraphicsChannel as ::windows_core::ComInterface>::IID
+        iid == &<IWRdsGraphicsChannel as ::windows_core::Interface>::IID
     }
 }
 pub trait IWRdsGraphicsChannelEvents_Impl: Sized {
@@ -3132,7 +3132,7 @@ impl IWRdsGraphicsChannelEvents_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWRdsGraphicsChannelEvents as ::windows_core::ComInterface>::IID
+        iid == &<IWRdsGraphicsChannelEvents as ::windows_core::Interface>::IID
     }
 }
 pub trait IWRdsGraphicsChannelManager_Impl: Sized {
@@ -3155,7 +3155,7 @@ impl IWRdsGraphicsChannelManager_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateChannel: CreateChannel::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWRdsGraphicsChannelManager as ::windows_core::ComInterface>::IID
+        iid == &<IWRdsGraphicsChannelManager as ::windows_core::Interface>::IID
     }
 }
 pub trait IWRdsProtocolConnection_Impl: Sized {
@@ -3372,7 +3372,7 @@ impl IWRdsProtocolConnection_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWRdsProtocolConnection as ::windows_core::ComInterface>::IID
+        iid == &<IWRdsProtocolConnection as ::windows_core::Interface>::IID
     }
 }
 pub trait IWRdsProtocolConnectionCallback_Impl: Sized {
@@ -3426,7 +3426,7 @@ impl IWRdsProtocolConnectionCallback_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWRdsProtocolConnectionCallback as ::windows_core::ComInterface>::IID
+        iid == &<IWRdsProtocolConnectionCallback as ::windows_core::Interface>::IID
     }
 }
 pub trait IWRdsProtocolConnectionSettings_Impl: Sized {
@@ -3453,7 +3453,7 @@ impl IWRdsProtocolConnectionSettings_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWRdsProtocolConnectionSettings as ::windows_core::ComInterface>::IID
+        iid == &<IWRdsProtocolConnectionSettings as ::windows_core::Interface>::IID
     }
 }
 pub trait IWRdsProtocolLicenseConnection_Impl: Sized {
@@ -3494,7 +3494,7 @@ impl IWRdsProtocolLicenseConnection_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWRdsProtocolLicenseConnection as ::windows_core::ComInterface>::IID
+        iid == &<IWRdsProtocolLicenseConnection as ::windows_core::Interface>::IID
     }
 }
 pub trait IWRdsProtocolListener_Impl: Sized {
@@ -3534,7 +3534,7 @@ impl IWRdsProtocolListener_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWRdsProtocolListener as ::windows_core::ComInterface>::IID
+        iid == &<IWRdsProtocolListener as ::windows_core::Interface>::IID
     }
 }
 pub trait IWRdsProtocolListenerCallback_Impl: Sized {
@@ -3557,7 +3557,7 @@ impl IWRdsProtocolListenerCallback_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnConnected: OnConnected::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWRdsProtocolListenerCallback as ::windows_core::ComInterface>::IID
+        iid == &<IWRdsProtocolListenerCallback as ::windows_core::Interface>::IID
     }
 }
 pub trait IWRdsProtocolLogonErrorRedirector_Impl: Sized {
@@ -3616,7 +3616,7 @@ impl IWRdsProtocolLogonErrorRedirector_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWRdsProtocolLogonErrorRedirector as ::windows_core::ComInterface>::IID
+        iid == &<IWRdsProtocolLogonErrorRedirector as ::windows_core::Interface>::IID
     }
 }
 pub trait IWRdsProtocolManager_Impl: Sized {
@@ -3691,7 +3691,7 @@ impl IWRdsProtocolManager_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWRdsProtocolManager as ::windows_core::ComInterface>::IID
+        iid == &<IWRdsProtocolManager as ::windows_core::Interface>::IID
     }
 }
 pub trait IWRdsProtocolSettings_Impl: Sized {
@@ -3718,7 +3718,7 @@ impl IWRdsProtocolSettings_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWRdsProtocolSettings as ::windows_core::ComInterface>::IID
+        iid == &<IWRdsProtocolSettings as ::windows_core::Interface>::IID
     }
 }
 pub trait IWRdsProtocolShadowCallback_Impl: Sized {
@@ -3746,7 +3746,7 @@ impl IWRdsProtocolShadowCallback_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWRdsProtocolShadowCallback as ::windows_core::ComInterface>::IID
+        iid == &<IWRdsProtocolShadowCallback as ::windows_core::Interface>::IID
     }
 }
 pub trait IWRdsProtocolShadowConnection_Impl: Sized {
@@ -3780,7 +3780,7 @@ impl IWRdsProtocolShadowConnection_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWRdsProtocolShadowConnection as ::windows_core::ComInterface>::IID
+        iid == &<IWRdsProtocolShadowConnection as ::windows_core::Interface>::IID
     }
 }
 pub trait IWRdsWddmIddProps_Impl: Sized {
@@ -3821,7 +3821,7 @@ impl IWRdsWddmIddProps_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWRdsWddmIddProps as ::windows_core::ComInterface>::IID
+        iid == &<IWRdsWddmIddProps as ::windows_core::Interface>::IID
     }
 }
 pub trait IWTSBitmapRenderService_Impl: Sized {
@@ -3844,7 +3844,7 @@ impl IWTSBitmapRenderService_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetMappedRenderer: GetMappedRenderer::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWTSBitmapRenderService as ::windows_core::ComInterface>::IID
+        iid == &<IWTSBitmapRenderService as ::windows_core::Interface>::IID
     }
 }
 pub trait IWTSBitmapRenderer_Impl: Sized {
@@ -3884,7 +3884,7 @@ impl IWTSBitmapRenderer_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWTSBitmapRenderer as ::windows_core::ComInterface>::IID
+        iid == &<IWTSBitmapRenderer as ::windows_core::Interface>::IID
     }
 }
 pub trait IWTSBitmapRendererCallback_Impl: Sized {
@@ -3901,7 +3901,7 @@ impl IWTSBitmapRendererCallback_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnTargetSizeChanged: OnTargetSizeChanged::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWTSBitmapRendererCallback as ::windows_core::ComInterface>::IID
+        iid == &<IWTSBitmapRendererCallback as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
@@ -3928,7 +3928,7 @@ impl IWTSListener_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetConfiguration: GetConfiguration::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWTSListener as ::windows_core::ComInterface>::IID
+        iid == &<IWTSListener as ::windows_core::Interface>::IID
     }
 }
 pub trait IWTSListenerCallback_Impl: Sized {
@@ -3945,7 +3945,7 @@ impl IWTSListenerCallback_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnNewChannelConnection: OnNewChannelConnection::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWTSListenerCallback as ::windows_core::ComInterface>::IID
+        iid == &<IWTSListenerCallback as ::windows_core::Interface>::IID
     }
 }
 pub trait IWTSPlugin_Impl: Sized {
@@ -3986,7 +3986,7 @@ impl IWTSPlugin_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWTSPlugin as ::windows_core::ComInterface>::IID
+        iid == &<IWTSPlugin as ::windows_core::Interface>::IID
     }
 }
 pub trait IWTSPluginServiceProvider_Impl: Sized {
@@ -4009,7 +4009,7 @@ impl IWTSPluginServiceProvider_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetService: GetService::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWTSPluginServiceProvider as ::windows_core::ComInterface>::IID
+        iid == &<IWTSPluginServiceProvider as ::windows_core::Interface>::IID
     }
 }
 pub trait IWTSProtocolConnection_Impl: Sized {
@@ -4213,7 +4213,7 @@ impl IWTSProtocolConnection_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWTSProtocolConnection as ::windows_core::ComInterface>::IID
+        iid == &<IWTSProtocolConnection as ::windows_core::Interface>::IID
     }
 }
 pub trait IWTSProtocolConnectionCallback_Impl: Sized {
@@ -4261,7 +4261,7 @@ impl IWTSProtocolConnectionCallback_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWTSProtocolConnectionCallback as ::windows_core::ComInterface>::IID
+        iid == &<IWTSProtocolConnectionCallback as ::windows_core::Interface>::IID
     }
 }
 pub trait IWTSProtocolLicenseConnection_Impl: Sized {
@@ -4302,7 +4302,7 @@ impl IWTSProtocolLicenseConnection_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWTSProtocolLicenseConnection as ::windows_core::ComInterface>::IID
+        iid == &<IWTSProtocolLicenseConnection as ::windows_core::Interface>::IID
     }
 }
 pub trait IWTSProtocolListener_Impl: Sized {
@@ -4329,7 +4329,7 @@ impl IWTSProtocolListener_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWTSProtocolListener as ::windows_core::ComInterface>::IID
+        iid == &<IWTSProtocolListener as ::windows_core::Interface>::IID
     }
 }
 pub trait IWTSProtocolListenerCallback_Impl: Sized {
@@ -4352,7 +4352,7 @@ impl IWTSProtocolListenerCallback_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnConnected: OnConnected::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWTSProtocolListenerCallback as ::windows_core::ComInterface>::IID
+        iid == &<IWTSProtocolListenerCallback as ::windows_core::Interface>::IID
     }
 }
 pub trait IWTSProtocolLogonErrorRedirector_Impl: Sized {
@@ -4411,7 +4411,7 @@ impl IWTSProtocolLogonErrorRedirector_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWTSProtocolLogonErrorRedirector as ::windows_core::ComInterface>::IID
+        iid == &<IWTSProtocolLogonErrorRedirector as ::windows_core::Interface>::IID
     }
 }
 pub trait IWTSProtocolManager_Impl: Sized {
@@ -4465,7 +4465,7 @@ impl IWTSProtocolManager_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWTSProtocolManager as ::windows_core::ComInterface>::IID
+        iid == &<IWTSProtocolManager as ::windows_core::Interface>::IID
     }
 }
 pub trait IWTSProtocolShadowCallback_Impl: Sized {
@@ -4493,7 +4493,7 @@ impl IWTSProtocolShadowCallback_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWTSProtocolShadowCallback as ::windows_core::ComInterface>::IID
+        iid == &<IWTSProtocolShadowCallback as ::windows_core::Interface>::IID
     }
 }
 pub trait IWTSProtocolShadowConnection_Impl: Sized {
@@ -4527,7 +4527,7 @@ impl IWTSProtocolShadowConnection_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWTSProtocolShadowConnection as ::windows_core::ComInterface>::IID
+        iid == &<IWTSProtocolShadowConnection as ::windows_core::Interface>::IID
     }
 }
 pub trait IWTSSBPlugin_Impl: Sized {
@@ -4588,7 +4588,7 @@ impl IWTSSBPlugin_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWTSSBPlugin as ::windows_core::ComInterface>::IID
+        iid == &<IWTSSBPlugin as ::windows_core::Interface>::IID
     }
 }
 pub trait IWTSVirtualChannel_Impl: Sized {
@@ -4611,7 +4611,7 @@ impl IWTSVirtualChannel_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Write: Write::<Identity, Impl, OFFSET>, Close: Close::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWTSVirtualChannel as ::windows_core::ComInterface>::IID
+        iid == &<IWTSVirtualChannel as ::windows_core::Interface>::IID
     }
 }
 pub trait IWTSVirtualChannelCallback_Impl: Sized {
@@ -4638,7 +4638,7 @@ impl IWTSVirtualChannelCallback_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWTSVirtualChannelCallback as ::windows_core::ComInterface>::IID
+        iid == &<IWTSVirtualChannelCallback as ::windows_core::Interface>::IID
     }
 }
 pub trait IWTSVirtualChannelManager_Impl: Sized {
@@ -4661,7 +4661,7 @@ impl IWTSVirtualChannelManager_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateListener: CreateListener::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWTSVirtualChannelManager as ::windows_core::ComInterface>::IID
+        iid == &<IWTSVirtualChannelManager as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -4711,7 +4711,7 @@ impl IWorkspace_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWorkspace as ::windows_core::ComInterface>::IID
+        iid == &<IWorkspace as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -4732,7 +4732,7 @@ impl IWorkspace2_Vtbl {
         Self { base__: IWorkspace_Vtbl::new::<Identity, Impl, OFFSET>(), StartRemoteApplicationEx: StartRemoteApplicationEx::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWorkspace2 as ::windows_core::ComInterface>::IID || iid == &<IWorkspace as ::windows_core::ComInterface>::IID
+        iid == &<IWorkspace2 as ::windows_core::Interface>::IID || iid == &<IWorkspace as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -4769,7 +4769,7 @@ impl IWorkspace3_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWorkspace3 as ::windows_core::ComInterface>::IID || iid == &<IWorkspace as ::windows_core::ComInterface>::IID || iid == &<IWorkspace2 as ::windows_core::ComInterface>::IID
+        iid == &<IWorkspace3 as ::windows_core::Interface>::IID || iid == &<IWorkspace as ::windows_core::Interface>::IID || iid == &<IWorkspace2 as ::windows_core::Interface>::IID
     }
 }
 pub trait IWorkspaceClientExt_Impl: Sized {
@@ -4815,7 +4815,7 @@ impl IWorkspaceClientExt_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWorkspaceClientExt as ::windows_core::ComInterface>::IID
+        iid == &<IWorkspaceClientExt as ::windows_core::Interface>::IID
     }
 }
 pub trait IWorkspaceRegistration_Impl: Sized {
@@ -4848,7 +4848,7 @@ impl IWorkspaceRegistration_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWorkspaceRegistration as ::windows_core::ComInterface>::IID
+        iid == &<IWorkspaceRegistration as ::windows_core::Interface>::IID
     }
 }
 pub trait IWorkspaceRegistration2_Impl: Sized + IWorkspaceRegistration_Impl {
@@ -4875,7 +4875,7 @@ impl IWorkspaceRegistration2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWorkspaceRegistration2 as ::windows_core::ComInterface>::IID || iid == &<IWorkspaceRegistration as ::windows_core::ComInterface>::IID
+        iid == &<IWorkspaceRegistration2 as ::windows_core::Interface>::IID || iid == &<IWorkspaceRegistration as ::windows_core::Interface>::IID
     }
 }
 pub trait IWorkspaceReportMessage_Impl: Sized {
@@ -4915,7 +4915,7 @@ impl IWorkspaceReportMessage_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWorkspaceReportMessage as ::windows_core::ComInterface>::IID
+        iid == &<IWorkspaceReportMessage as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -4979,7 +4979,7 @@ impl IWorkspaceResTypeRegistry_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWorkspaceResTypeRegistry as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<IWorkspaceResTypeRegistry as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -5057,7 +5057,7 @@ impl IWorkspaceScriptable_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWorkspaceScriptable as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<IWorkspaceScriptable as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -5088,7 +5088,7 @@ impl IWorkspaceScriptable2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWorkspaceScriptable2 as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID || iid == &<IWorkspaceScriptable as ::windows_core::ComInterface>::IID
+        iid == &<IWorkspaceScriptable2 as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IWorkspaceScriptable as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -5123,7 +5123,7 @@ impl IWorkspaceScriptable3_Vtbl {
         Self { base__: IWorkspaceScriptable2_Vtbl::new::<Identity, Impl, OFFSET>(), StartWorkspaceEx2: StartWorkspaceEx2::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWorkspaceScriptable3 as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID || iid == &<IWorkspaceScriptable as ::windows_core::ComInterface>::IID || iid == &<IWorkspaceScriptable2 as ::windows_core::ComInterface>::IID
+        iid == &<IWorkspaceScriptable3 as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IWorkspaceScriptable as ::windows_core::Interface>::IID || iid == &<IWorkspaceScriptable2 as ::windows_core::Interface>::IID
     }
 }
 pub trait ItsPubPlugin_Impl: Sized {
@@ -5196,7 +5196,7 @@ impl ItsPubPlugin_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ItsPubPlugin as ::windows_core::ComInterface>::IID
+        iid == &<ItsPubPlugin as ::windows_core::Interface>::IID
     }
 }
 pub trait ItsPubPlugin2_Impl: Sized + ItsPubPlugin_Impl {
@@ -5237,7 +5237,7 @@ impl ItsPubPlugin2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ItsPubPlugin2 as ::windows_core::ComInterface>::IID || iid == &<ItsPubPlugin as ::windows_core::ComInterface>::IID
+        iid == &<ItsPubPlugin2 as ::windows_core::Interface>::IID || iid == &<ItsPubPlugin as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -5251,6 +5251,6 @@ impl _ITSWkspEvents_Vtbl {
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<_ITSWkspEvents as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<_ITSWkspEvents as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }

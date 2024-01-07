@@ -21,7 +21,7 @@ impl IInkPointFactory_Vtbl {
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, IInkPointFactory, OFFSET>(), CreateInkPoint: CreateInkPoint::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInkPointFactory as ::windows_core::ComInterface>::IID
+        iid == &<IInkPointFactory as ::windows_core::Interface>::IID
     }
 }
 pub trait IInkPresenterRulerFactory_Impl: Sized {
@@ -47,7 +47,7 @@ impl IInkPresenterRulerFactory_Vtbl {
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, IInkPresenterRulerFactory, OFFSET>(), Create: Create::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInkPresenterRulerFactory as ::windows_core::ComInterface>::IID
+        iid == &<IInkPresenterRulerFactory as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Foundation_Numerics\"`"]
@@ -159,7 +159,7 @@ impl IInkPresenterStencil_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInkPresenterStencil as ::windows_core::ComInterface>::IID
+        iid == &<IInkPresenterStencil as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Foundation_Collections\"`"]
@@ -213,7 +213,7 @@ impl IInkRecognizerContainer_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInkRecognizerContainer as ::windows_core::ComInterface>::IID
+        iid == &<IInkRecognizerContainer as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Foundation_Collections\"`, `\"Storage_Streams\"`"]
@@ -400,6 +400,6 @@ impl IInkStrokeContainer_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInkStrokeContainer as ::windows_core::ComInterface>::IID
+        iid == &<IInkStrokeContainer as ::windows_core::Interface>::IID
     }
 }

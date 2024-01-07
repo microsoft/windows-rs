@@ -1,6 +1,5 @@
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IItemEnumerator(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IItemEnumerator, IItemEnumerator_Vtbl, 0x9f7d7bb7_20b3_11da_81a5_0030f1642e3c);
+::windows_core::imp::interface_hierarchy!(IItemEnumerator, ::windows_core::IUnknown);
 impl IItemEnumerator {
     #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -16,13 +15,6 @@ impl IItemEnumerator {
         (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self)).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IItemEnumerator, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IItemEnumerator {
-    type Vtable = IItemEnumerator_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IItemEnumerator {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9f7d7bb7_20b3_11da_81a5_0030f1642e3c);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IItemEnumerator_Vtbl {
@@ -34,9 +26,8 @@ pub struct IItemEnumerator_Vtbl {
     pub MoveNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, itemvalid: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISettingsContext(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(ISettingsContext, ISettingsContext_Vtbl, 0x9f7d7bbd_20b3_11da_81a5_0030f1642e3c);
+::windows_core::imp::interface_hierarchy!(ISettingsContext, ::windows_core::IUnknown);
 impl ISettingsContext {
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -81,13 +72,6 @@ impl ISettingsContext {
         (::windows_core::Interface::vtable(self).RevertSetting)(::windows_core::Interface::as_raw(self), pidentity.into_param().abi(), pwzsetting.into_param().abi()).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(ISettingsContext, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISettingsContext {
-    type Vtable = ISettingsContext_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISettingsContext {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9f7d7bbd_20b3_11da_81a5_0030f1642e3c);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISettingsContext_Vtbl {
@@ -106,9 +90,8 @@ pub struct ISettingsContext_Vtbl {
     pub GetStoredSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pidentity: *mut ::core::ffi::c_void, ppaddedsettings: *mut *mut ::core::ffi::c_void, ppmodifiedsettings: *mut *mut ::core::ffi::c_void, ppdeletedsettings: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub RevertSetting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pidentity: *mut ::core::ffi::c_void, pwzsetting: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISettingsEngine(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(ISettingsEngine, ISettingsEngine_Vtbl, 0x9f7d7bb9_20b3_11da_81a5_0030f1642e3c);
+::windows_core::imp::interface_hierarchy!(ISettingsEngine, ::windows_core::IUnknown);
 impl ISettingsEngine {
     pub unsafe fn GetNamespaces(&self, flags: WcmNamespaceEnumerationFlags, reserved: *const ::core::ffi::c_void) -> ::windows_core::Result<IItemEnumerator> {
         let mut result__ = ::std::mem::zeroed();
@@ -192,13 +175,6 @@ impl ISettingsEngine {
         (::windows_core::Interface::vtable(self).GetSettingsContext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(ISettingsEngine, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISettingsEngine {
-    type Vtable = ISettingsEngine_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISettingsEngine {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9f7d7bb9_20b3_11da_81a5_0030f1642e3c);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISettingsEngine_Vtbl {
@@ -223,9 +199,8 @@ pub struct ISettingsEngine_Vtbl {
     pub ApplySettingsContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, settingscontext: *mut ::core::ffi::c_void, pppwzidentities: *mut *mut ::windows_core::PWSTR, pcidentities: *mut usize) -> ::windows_core::HRESULT,
     pub GetSettingsContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, settingscontext: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISettingsIdentity(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(ISettingsIdentity, ISettingsIdentity_Vtbl, 0x9f7d7bb6_20b3_11da_81a5_0030f1642e3c);
+::windows_core::imp::interface_hierarchy!(ISettingsIdentity, ::windows_core::IUnknown);
 impl ISettingsIdentity {
     pub unsafe fn GetAttribute<P0>(&self, reserved: *const ::core::ffi::c_void, name: P0) -> ::windows_core::Result<::windows_core::BSTR>
     where
@@ -249,13 +224,6 @@ impl ISettingsIdentity {
         (::windows_core::Interface::vtable(self).SetFlags)(::windows_core::Interface::as_raw(self), flags).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(ISettingsIdentity, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISettingsIdentity {
-    type Vtable = ISettingsIdentity_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISettingsIdentity {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9f7d7bb6_20b3_11da_81a5_0030f1642e3c);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISettingsIdentity_Vtbl {
@@ -265,9 +233,8 @@ pub struct ISettingsIdentity_Vtbl {
     pub GetFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: *mut u32) -> ::windows_core::HRESULT,
     pub SetFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISettingsItem(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(ISettingsItem, ISettingsItem_Vtbl, 0x9f7d7bbb_20b3_11da_81a5_0030f1642e3c);
+::windows_core::imp::interface_hierarchy!(ISettingsItem, ::windows_core::IUnknown);
 impl ISettingsItem {
     pub unsafe fn GetName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
@@ -382,13 +349,6 @@ impl ISettingsItem {
         (::windows_core::Interface::vtable(self).GetKeyValue)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(ISettingsItem, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISettingsItem {
-    type Vtable = ISettingsItem_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISettingsItem {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9f7d7bbb_20b3_11da_81a5_0030f1642e3c);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISettingsItem_Vtbl {
@@ -434,9 +394,8 @@ pub struct ISettingsItem_Vtbl {
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetKeyValue: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISettingsNamespace(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(ISettingsNamespace, ISettingsNamespace_Vtbl, 0x9f7d7bba_20b3_11da_81a5_0030f1642e3c);
+::windows_core::imp::interface_hierarchy!(ISettingsNamespace, ::windows_core::IUnknown);
 impl ISettingsNamespace {
     pub unsafe fn GetIdentity(&self) -> ::windows_core::Result<ISettingsIdentity> {
         let mut result__ = ::std::mem::zeroed();
@@ -483,13 +442,6 @@ impl ISettingsNamespace {
         (::windows_core::Interface::vtable(self).GetAttribute)(::windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(ISettingsNamespace, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISettingsNamespace {
-    type Vtable = ISettingsNamespace_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISettingsNamespace {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9f7d7bba_20b3_11da_81a5_0030f1642e3c);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISettingsNamespace_Vtbl {
@@ -505,9 +457,8 @@ pub struct ISettingsNamespace_Vtbl {
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetAttribute: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISettingsResult(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(ISettingsResult, ISettingsResult_Vtbl, 0x9f7d7bbc_20b3_11da_81a5_0030f1642e3c);
+::windows_core::imp::interface_hierarchy!(ISettingsResult, ::windows_core::IUnknown);
 impl ISettingsResult {
     pub unsafe fn GetDescription(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
@@ -534,13 +485,6 @@ impl ISettingsResult {
         (::windows_core::Interface::vtable(self).GetSource)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(ISettingsResult, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISettingsResult {
-    type Vtable = ISettingsResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISettingsResult {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9f7d7bbc_20b3_11da_81a5_0030f1642e3c);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISettingsResult_Vtbl {
@@ -552,9 +496,8 @@ pub struct ISettingsResult_Vtbl {
     pub GetColumn: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwcolumn: *mut u32) -> ::windows_core::HRESULT,
     pub GetSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, file: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ITargetInfo(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(ITargetInfo, ITargetInfo_Vtbl, 0x9f7d7bb8_20b3_11da_81a5_0030f1642e3c);
+::windows_core::imp::interface_hierarchy!(ITargetInfo, ::windows_core::IUnknown);
 impl ITargetInfo {
     pub unsafe fn GetTargetMode(&self) -> ::windows_core::Result<WcmTargetMode> {
         let mut result__ = ::std::mem::zeroed();
@@ -674,13 +617,6 @@ impl ITargetInfo {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSchemaHiveMountName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-}
-::windows_core::imp::interface_hierarchy!(ITargetInfo, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ITargetInfo {
-    type Vtable = ITargetInfo_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ITargetInfo {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9f7d7bb8_20b3_11da_81a5_0030f1642e3c);
 }
 #[repr(C)]
 #[doc(hidden)]

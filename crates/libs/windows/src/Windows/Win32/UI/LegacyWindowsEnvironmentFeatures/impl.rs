@@ -40,7 +40,7 @@ impl IADesktopP2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IADesktopP2 as ::windows_core::ComInterface>::IID
+        iid == &<IADesktopP2 as ::windows_core::Interface>::IID
     }
 }
 pub trait IActiveDesktopP_Impl: Sized {
@@ -81,7 +81,7 @@ impl IActiveDesktopP_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IActiveDesktopP as ::windows_core::ComInterface>::IID
+        iid == &<IActiveDesktopP as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -102,7 +102,7 @@ impl IBriefcaseInitiator_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), IsMonikerInBriefcase: IsMonikerInBriefcase::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IBriefcaseInitiator as ::windows_core::ComInterface>::IID
+        iid == &<IBriefcaseInitiator as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Registry\"`"]
@@ -160,7 +160,7 @@ impl IEmptyVolumeCache_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEmptyVolumeCache as ::windows_core::ComInterface>::IID
+        iid == &<IEmptyVolumeCache as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Registry\"`"]
@@ -181,7 +181,7 @@ impl IEmptyVolumeCache2_Vtbl {
         Self { base__: IEmptyVolumeCache_Vtbl::new::<Identity, Impl, OFFSET>(), InitializeEx: InitializeEx::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEmptyVolumeCache2 as ::windows_core::ComInterface>::IID || iid == &<IEmptyVolumeCache as ::windows_core::ComInterface>::IID
+        iid == &<IEmptyVolumeCache2 as ::windows_core::Interface>::IID || iid == &<IEmptyVolumeCache as ::windows_core::Interface>::IID
     }
 }
 pub trait IEmptyVolumeCacheCallBack_Impl: Sized {
@@ -208,7 +208,7 @@ impl IEmptyVolumeCacheCallBack_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEmptyVolumeCacheCallBack as ::windows_core::ComInterface>::IID
+        iid == &<IEmptyVolumeCacheCallBack as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
@@ -245,7 +245,7 @@ impl IReconcilableObject_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IReconcilableObject as ::windows_core::ComInterface>::IID
+        iid == &<IReconcilableObject as ::windows_core::Interface>::IID
     }
 }
 pub trait IReconcileInitiator_Impl: Sized {
@@ -272,6 +272,6 @@ impl IReconcileInitiator_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IReconcileInitiator as ::windows_core::ComInterface>::IID
+        iid == &<IReconcileInitiator as ::windows_core::Interface>::IID
     }
 }

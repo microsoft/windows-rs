@@ -1,16 +1,7 @@
 #[cfg(feature = "Devices_Spi_Provider")]
 #[doc = "Required features: `\"Devices_Spi_Provider\"`"]
 pub mod Provider;
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISpiBusInfo(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISpiBusInfo {
-    type Vtable = ISpiBusInfo_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISpiBusInfo {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9929444a_54f2_48c6_b952_9c32fc02c669);
-}
+::windows_core::imp::com_interface!(ISpiBusInfo, ISpiBusInfo_Vtbl, 0x9929444a_54f2_48c6_b952_9c32fc02c669);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpiBusInfo_Vtbl {
@@ -23,16 +14,7 @@ pub struct ISpiBusInfo_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     SupportedDataBitLengths: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISpiConnectionSettings(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISpiConnectionSettings {
-    type Vtable = ISpiConnectionSettings_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISpiConnectionSettings {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5283a37f_f935_4b9f_a7a7_3a7890afa5ce);
-}
+::windows_core::imp::com_interface!(ISpiConnectionSettings, ISpiConnectionSettings_Vtbl, 0x5283a37f_f935_4b9f_a7a7_3a7890afa5ce);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpiConnectionSettings_Vtbl {
@@ -48,48 +30,21 @@ pub struct ISpiConnectionSettings_Vtbl {
     pub SharingMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SpiSharingMode) -> ::windows_core::HRESULT,
     pub SetSharingMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: SpiSharingMode) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISpiConnectionSettingsFactory(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISpiConnectionSettingsFactory {
-    type Vtable = ISpiConnectionSettingsFactory_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISpiConnectionSettingsFactory {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xff99081e_10c4_44b7_9fea_a748b5a46f31);
-}
+::windows_core::imp::com_interface!(ISpiConnectionSettingsFactory, ISpiConnectionSettingsFactory_Vtbl, 0xff99081e_10c4_44b7_9fea_a748b5a46f31);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpiConnectionSettingsFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, chipselectline: i32, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISpiController(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISpiController {
-    type Vtable = ISpiController_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISpiController {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa8d3c829_9895_4159_a934_8741f1ee6d27);
-}
+::windows_core::imp::com_interface!(ISpiController, ISpiController_Vtbl, 0xa8d3c829_9895_4159_a934_8741f1ee6d27);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpiController_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, settings: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISpiControllerStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISpiControllerStatics {
-    type Vtable = ISpiControllerStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISpiControllerStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0d5229e2_138b_4e48_b964_4f2f79b9c5a2);
-}
+::windows_core::imp::com_interface!(ISpiControllerStatics, ISpiControllerStatics_Vtbl, 0x0d5229e2_138b_4e48_b964_4f2f79b9c5a2);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpiControllerStatics_Vtbl {
@@ -100,16 +55,7 @@ pub struct ISpiControllerStatics_Vtbl {
     #[cfg(not(all(feature = "Devices_Spi_Provider", feature = "Foundation_Collections")))]
     GetControllersAsync: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISpiDevice(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISpiDevice {
-    type Vtable = ISpiDevice_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISpiDevice {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x05d5356d_11b6_4d39_84d5_95dfb4c9f2ce);
-}
+::windows_core::imp::com_interface!(ISpiDevice, ISpiDevice_Vtbl, 0x05d5356d_11b6_4d39_84d5_95dfb4c9f2ce);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpiDevice_Vtbl {
@@ -121,9 +67,8 @@ pub struct ISpiDevice_Vtbl {
     pub TransferSequential: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, writeBuffer_array_size: u32, writebuffer: *const u8, readBuffer_array_size: u32, readbuffer: *mut u8) -> ::windows_core::HRESULT,
     pub TransferFullDuplex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, writeBuffer_array_size: u32, writebuffer: *const u8, readBuffer_array_size: u32, readbuffer: *mut u8) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISpiDeviceStatics(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(ISpiDeviceStatics, ISpiDeviceStatics_Vtbl, 0xa278e559_5720_4d3f_bd93_56f5ff5a5879);
+::windows_core::imp::interface_hierarchy!(ISpiDeviceStatics, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ISpiDeviceStatics {
     pub fn GetDeviceSelector(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -157,15 +102,8 @@ impl ISpiDeviceStatics {
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(ISpiDeviceStatics, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for ISpiDeviceStatics {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for ISpiDeviceStatics {
-    type Vtable = ISpiDeviceStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISpiDeviceStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa278e559_5720_4d3f_bd93_56f5ff5a5879);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -179,6 +117,7 @@ pub struct ISpiDeviceStatics_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SpiBusInfo(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(SpiBusInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl SpiBusInfo {
     pub fn ChipSelectLineCount(&self) -> ::windows_core::Result<i32> {
         let this = self;
@@ -216,19 +155,17 @@ impl ::windows_core::RuntimeType for SpiBusInfo {
 }
 unsafe impl ::windows_core::Interface for SpiBusInfo {
     type Vtable = ISpiBusInfo_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for SpiBusInfo {
-    const IID: ::windows_core::GUID = <ISpiBusInfo as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ISpiBusInfo as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for SpiBusInfo {
     const NAME: &'static str = "Windows.Devices.Spi.SpiBusInfo";
 }
-::windows_core::imp::interface_hierarchy!(SpiBusInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SpiBusInfo {}
 unsafe impl ::core::marker::Sync for SpiBusInfo {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SpiConnectionSettings(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(SpiConnectionSettings, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl SpiConnectionSettings {
     pub fn ChipSelectLine(&self) -> ::windows_core::Result<i32> {
         let this = self;
@@ -302,19 +239,17 @@ impl ::windows_core::RuntimeType for SpiConnectionSettings {
 }
 unsafe impl ::windows_core::Interface for SpiConnectionSettings {
     type Vtable = ISpiConnectionSettings_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for SpiConnectionSettings {
-    const IID: ::windows_core::GUID = <ISpiConnectionSettings as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ISpiConnectionSettings as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for SpiConnectionSettings {
     const NAME: &'static str = "Windows.Devices.Spi.SpiConnectionSettings";
 }
-::windows_core::imp::interface_hierarchy!(SpiConnectionSettings, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SpiConnectionSettings {}
 unsafe impl ::core::marker::Sync for SpiConnectionSettings {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SpiController(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(SpiController, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl SpiController {
     pub fn GetDevice<P0>(&self, settings: P0) -> ::windows_core::Result<SpiDevice>
     where
@@ -336,11 +271,11 @@ impl SpiController {
     #[cfg(all(feature = "Devices_Spi_Provider", feature = "Foundation_Collections"))]
     pub fn GetControllersAsync<P0>(provider: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SpiController>>>
     where
-        P0: ::windows_core::TryIntoParam<Provider::ISpiProvider>,
+        P0: ::windows_core::IntoParam<Provider::ISpiProvider>,
     {
         Self::ISpiControllerStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetControllersAsync)(::windows_core::Interface::as_raw(this), provider.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetControllersAsync)(::windows_core::Interface::as_raw(this), provider.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -354,22 +289,21 @@ impl ::windows_core::RuntimeType for SpiController {
 }
 unsafe impl ::windows_core::Interface for SpiController {
     type Vtable = ISpiController_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for SpiController {
-    const IID: ::windows_core::GUID = <ISpiController as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ISpiController as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for SpiController {
     const NAME: &'static str = "Windows.Devices.Spi.SpiController";
 }
-::windows_core::imp::interface_hierarchy!(SpiController, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SpiController {}
 unsafe impl ::core::marker::Sync for SpiController {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SpiDevice(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(SpiDevice, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(SpiDevice, super::super::Foundation::IClosable);
 impl SpiDevice {
     pub fn Close(&self) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
+        let this = &::windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn DeviceId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -440,15 +374,11 @@ impl ::windows_core::RuntimeType for SpiDevice {
 }
 unsafe impl ::windows_core::Interface for SpiDevice {
     type Vtable = ISpiDevice_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for SpiDevice {
-    const IID: ::windows_core::GUID = <ISpiDevice as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ISpiDevice as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for SpiDevice {
     const NAME: &'static str = "Windows.Devices.Spi.SpiDevice";
 }
-::windows_core::imp::interface_hierarchy!(SpiDevice, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for SpiDevice {}
 unsafe impl ::core::marker::Send for SpiDevice {}
 unsafe impl ::core::marker::Sync for SpiDevice {}
 #[repr(transparent)]

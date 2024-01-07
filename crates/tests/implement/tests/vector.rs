@@ -235,7 +235,7 @@ fn test() -> Result<()> {
     assert_eq!(30, v.GetAt(2)?);
     assert!(v.GetAt(20).is_err());
     assert_eq!(3, v.Size()?);
-    let c: &IInspectable = v.can_into();
+    let c: &IInspectable = unsafe { std::mem::transmute(&v) };
     assert_eq!(
         c.GetRuntimeClassName()?,
         "Windows.Foundation.Collections.IVector"
@@ -272,6 +272,21 @@ fn test() -> Result<()> {
     assert_eq!("http://two/", v.GetAt(1)?.ToString()?);
     assert_eq!("http://three/", v.GetAt(2)?.ToString()?);
     assert_eq!(3, v.Size()?);
+
+    Ok(())
+}
+
+// Test for https://github.com/microsoft/windows-rs/issues/2759
+#[test]
+fn test_2759() -> Result<()> {
+    let v: IVector<IStringable> = Vector::new(vec![]).into();
+    let uri = Uri::CreateUri(h!("https://github.com/"))?;
+    v.Append(&uri)?;
+    let uri = Uri::CreateUri(h!("https://microsoft.com/"))?;
+    v.Append(&uri)?;
+
+    assert_eq!(&v.GetAt(0)?.ToString()?, h!("https://github.com/"));
+    assert_eq!(&v.GetAt(1)?.ToString()?, h!("https://microsoft.com/"));
 
     Ok(())
 }

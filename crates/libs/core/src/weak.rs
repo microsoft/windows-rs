@@ -3,9 +3,9 @@ use std::marker::PhantomData;
 
 /// `Weak` holds a non-owning reference to an object.
 #[derive(Clone, PartialEq, Eq, Default)]
-pub struct Weak<I: ComInterface>(Option<crate::imp::IWeakReference>, PhantomData<I>);
+pub struct Weak<I: Interface>(Option<crate::imp::IWeakReference>, PhantomData<I>);
 
-impl<I: ComInterface> Weak<I> {
+impl<I: Interface> Weak<I> {
     /// Creates a new `Weak` object without any backing object.
     pub fn new() -> Self {
         Self(None, PhantomData)

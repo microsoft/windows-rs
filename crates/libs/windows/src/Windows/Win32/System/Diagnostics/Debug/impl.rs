@@ -32,7 +32,7 @@ impl IDebugExtendedProperty_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDebugExtendedProperty as ::windows_core::ComInterface>::IID || iid == &<IDebugProperty as ::windows_core::ComInterface>::IID
+        iid == &<IDebugExtendedProperty as ::windows_core::Interface>::IID || iid == &<IDebugProperty as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -96,7 +96,7 @@ impl IDebugProperty_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDebugProperty as ::windows_core::ComInterface>::IID
+        iid == &<IDebugProperty as ::windows_core::Interface>::IID
     }
 }
 pub trait IDebugPropertyEnumType_All_Impl: Sized {
@@ -119,7 +119,7 @@ impl IDebugPropertyEnumType_All_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetName: GetName::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDebugPropertyEnumType_All as ::windows_core::ComInterface>::IID
+        iid == &<IDebugPropertyEnumType_All as ::windows_core::Interface>::IID
     }
 }
 pub trait IDebugPropertyEnumType_Arguments_Impl: Sized + IDebugPropertyEnumType_All_Impl {}
@@ -129,7 +129,7 @@ impl IDebugPropertyEnumType_Arguments_Vtbl {
         Self { base__: IDebugPropertyEnumType_All_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDebugPropertyEnumType_Arguments as ::windows_core::ComInterface>::IID || iid == &<IDebugPropertyEnumType_All as ::windows_core::ComInterface>::IID
+        iid == &<IDebugPropertyEnumType_Arguments as ::windows_core::Interface>::IID || iid == &<IDebugPropertyEnumType_All as ::windows_core::Interface>::IID
     }
 }
 pub trait IDebugPropertyEnumType_Locals_Impl: Sized + IDebugPropertyEnumType_All_Impl {}
@@ -139,7 +139,7 @@ impl IDebugPropertyEnumType_Locals_Vtbl {
         Self { base__: IDebugPropertyEnumType_All_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDebugPropertyEnumType_Locals as ::windows_core::ComInterface>::IID || iid == &<IDebugPropertyEnumType_All as ::windows_core::ComInterface>::IID
+        iid == &<IDebugPropertyEnumType_Locals as ::windows_core::Interface>::IID || iid == &<IDebugPropertyEnumType_All as ::windows_core::Interface>::IID
     }
 }
 pub trait IDebugPropertyEnumType_LocalsPlusArgs_Impl: Sized + IDebugPropertyEnumType_All_Impl {}
@@ -149,7 +149,7 @@ impl IDebugPropertyEnumType_LocalsPlusArgs_Vtbl {
         Self { base__: IDebugPropertyEnumType_All_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDebugPropertyEnumType_LocalsPlusArgs as ::windows_core::ComInterface>::IID || iid == &<IDebugPropertyEnumType_All as ::windows_core::ComInterface>::IID
+        iid == &<IDebugPropertyEnumType_LocalsPlusArgs as ::windows_core::Interface>::IID || iid == &<IDebugPropertyEnumType_All as ::windows_core::Interface>::IID
     }
 }
 pub trait IDebugPropertyEnumType_Registers_Impl: Sized + IDebugPropertyEnumType_All_Impl {}
@@ -159,7 +159,7 @@ impl IDebugPropertyEnumType_Registers_Vtbl {
         Self { base__: IDebugPropertyEnumType_All_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDebugPropertyEnumType_Registers as ::windows_core::ComInterface>::IID || iid == &<IDebugPropertyEnumType_All as ::windows_core::ComInterface>::IID
+        iid == &<IDebugPropertyEnumType_Registers as ::windows_core::Interface>::IID || iid == &<IDebugPropertyEnumType_All as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -223,7 +223,7 @@ impl IEnumDebugExtendedPropertyInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumDebugExtendedPropertyInfo as ::windows_core::ComInterface>::IID
+        iid == &<IEnumDebugExtendedPropertyInfo as ::windows_core::Interface>::IID
     }
 }
 pub trait IEnumDebugPropertyInfo_Impl: Sized {
@@ -283,7 +283,7 @@ impl IEnumDebugPropertyInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumDebugPropertyInfo as ::windows_core::ComInterface>::IID
+        iid == &<IEnumDebugPropertyInfo as ::windows_core::Interface>::IID
     }
 }
 pub trait IObjectSafety_Impl: Sized {
@@ -310,7 +310,7 @@ impl IObjectSafety_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IObjectSafety as ::windows_core::ComInterface>::IID
+        iid == &<IObjectSafety as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Ole\"`"]
@@ -367,6 +367,6 @@ impl IPerPropertyBrowsing2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPerPropertyBrowsing2 as ::windows_core::ComInterface>::IID
+        iid == &<IPerPropertyBrowsing2 as ::windows_core::Interface>::IID
     }
 }

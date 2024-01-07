@@ -199,7 +199,7 @@ impl IWinHttpRequest_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWinHttpRequest as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<IWinHttpRequest as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -244,6 +244,6 @@ impl IWinHttpRequestEvents_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWinHttpRequestEvents as ::windows_core::ComInterface>::IID
+        iid == &<IWinHttpRequestEvents as ::windows_core::Interface>::IID
     }
 }

@@ -50,6 +50,6 @@ impl IPointerPointTransform_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPointerPointTransform as ::windows_core::ComInterface>::IID
+        iid == &<IPointerPointTransform as ::windows_core::Interface>::IID
     }
 }

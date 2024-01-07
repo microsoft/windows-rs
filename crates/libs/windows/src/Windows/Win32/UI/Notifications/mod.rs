@@ -1,6 +1,5 @@
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct INotificationActivationCallback(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(INotificationActivationCallback, INotificationActivationCallback_Vtbl, 0x53e31837_6600_4a81_9395_75cffe746f94);
+::windows_core::imp::interface_hierarchy!(INotificationActivationCallback, ::windows_core::IUnknown);
 impl INotificationActivationCallback {
     pub unsafe fn Activate<P0, P1>(&self, appusermodelid: P0, invokedargs: P1, data: &[NOTIFICATION_USER_INPUT_DATA]) -> ::windows_core::Result<()>
     where
@@ -9,13 +8,6 @@ impl INotificationActivationCallback {
     {
         (::windows_core::Interface::vtable(self).Activate)(::windows_core::Interface::as_raw(self), appusermodelid.into_param().abi(), invokedargs.into_param().abi(), ::core::mem::transmute(data.as_ptr()), data.len().try_into().unwrap()).ok()
     }
-}
-::windows_core::imp::interface_hierarchy!(INotificationActivationCallback, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for INotificationActivationCallback {
-    type Vtable = INotificationActivationCallback_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for INotificationActivationCallback {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x53e31837_6600_4a81_9395_75cffe746f94);
 }
 #[repr(C)]
 #[doc(hidden)]

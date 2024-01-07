@@ -7,6 +7,6 @@ impl IRemoteSystemFilter_Vtbl {
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, IRemoteSystemFilter, OFFSET>() }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRemoteSystemFilter as ::windows_core::ComInterface>::IID
+        iid == &<IRemoteSystemFilter as ::windows_core::Interface>::IID
     }
 }

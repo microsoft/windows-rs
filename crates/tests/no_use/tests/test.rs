@@ -23,7 +23,7 @@ fn test() -> windows::core::Result<()> {
     let a: windows::Foundation::IStringable = Test("test").into();
     assert!(a.ToString()? == "test");
 
-    let b: windows::Foundation::IClosable = windows::core::ComInterface::cast(&a)?;
+    let b: windows::Foundation::IClosable = windows::core::Interface::cast(&a)?;
     b.Close()?;
 
     Ok(())

@@ -18,7 +18,7 @@ impl IWPCGamesSettings_Vtbl {
         Self { base__: IWPCSettings_Vtbl::new::<Identity, Impl, OFFSET>(), IsBlocked: IsBlocked::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWPCGamesSettings as ::windows_core::ComInterface>::IID || iid == &<IWPCSettings as ::windows_core::ComInterface>::IID
+        iid == &<IWPCGamesSettings as ::windows_core::Interface>::IID || iid == &<IWPCSettings as ::windows_core::Interface>::IID
     }
 }
 pub trait IWPCProviderConfig_Impl: Sized {
@@ -58,7 +58,7 @@ impl IWPCProviderConfig_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWPCProviderConfig as ::windows_core::ComInterface>::IID
+        iid == &<IWPCProviderConfig as ::windows_core::Interface>::IID
     }
 }
 pub trait IWPCProviderState_Impl: Sized {
@@ -85,7 +85,7 @@ impl IWPCProviderState_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWPCProviderState as ::windows_core::ComInterface>::IID
+        iid == &<IWPCProviderState as ::windows_core::Interface>::IID
     }
 }
 pub trait IWPCProviderSupport_Impl: Sized {
@@ -108,7 +108,7 @@ impl IWPCProviderSupport_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetCurrent: GetCurrent::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWPCProviderSupport as ::windows_core::ComInterface>::IID
+        iid == &<IWPCProviderSupport as ::windows_core::Interface>::IID
     }
 }
 pub trait IWPCSettings_Impl: Sized {
@@ -160,7 +160,7 @@ impl IWPCSettings_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWPCSettings as ::windows_core::ComInterface>::IID
+        iid == &<IWPCSettings as ::windows_core::Interface>::IID
     }
 }
 pub trait IWPCWebSettings_Impl: Sized + IWPCSettings_Impl {
@@ -199,7 +199,7 @@ impl IWPCWebSettings_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWPCWebSettings as ::windows_core::ComInterface>::IID || iid == &<IWPCSettings as ::windows_core::ComInterface>::IID
+        iid == &<IWPCWebSettings as ::windows_core::Interface>::IID || iid == &<IWPCSettings as ::windows_core::Interface>::IID
     }
 }
 pub trait IWindowsParentalControls_Impl: Sized + IWindowsParentalControlsCore_Impl {
@@ -222,7 +222,7 @@ impl IWindowsParentalControls_Vtbl {
         Self { base__: IWindowsParentalControlsCore_Vtbl::new::<Identity, Impl, OFFSET>(), GetGamesSettings: GetGamesSettings::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWindowsParentalControls as ::windows_core::ComInterface>::IID || iid == &<IWindowsParentalControlsCore as ::windows_core::ComInterface>::IID
+        iid == &<IWindowsParentalControls as ::windows_core::Interface>::IID || iid == &<IWindowsParentalControlsCore as ::windows_core::Interface>::IID
     }
 }
 pub trait IWindowsParentalControlsCore_Impl: Sized {
@@ -281,6 +281,6 @@ impl IWindowsParentalControlsCore_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWindowsParentalControlsCore as ::windows_core::ComInterface>::IID
+        iid == &<IWindowsParentalControlsCore as ::windows_core::Interface>::IID
     }
 }

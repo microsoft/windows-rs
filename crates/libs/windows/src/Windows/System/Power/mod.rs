@@ -1,16 +1,10 @@
-#[doc(hidden)]
 #[cfg(feature = "deprecated")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IBackgroundEnergyManagerStatics(::windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows_core::Interface for IBackgroundEnergyManagerStatics {
-    type Vtable = IBackgroundEnergyManagerStatics_Vtbl;
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows_core::ComInterface for IBackgroundEnergyManagerStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb3161d95_1180_4376_96e1_4095568147ce);
-}
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"deprecated\"`"]
+    IBackgroundEnergyManagerStatics,
+    IBackgroundEnergyManagerStatics_Vtbl,
+    0xb3161d95_1180_4376_96e1_4095568147ce
+);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -65,19 +59,13 @@ pub struct IBackgroundEnergyManagerStatics_Vtbl {
     #[cfg(not(feature = "deprecated"))]
     RemoveRecentEnergyUsageReturnedToLow: usize,
 }
-#[doc(hidden)]
 #[cfg(feature = "deprecated")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IForegroundEnergyManagerStatics(::windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows_core::Interface for IForegroundEnergyManagerStatics {
-    type Vtable = IForegroundEnergyManagerStatics_Vtbl;
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows_core::ComInterface for IForegroundEnergyManagerStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9ff86872_e677_4814_9a20_5337ca732b98);
-}
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"deprecated\"`"]
+    IForegroundEnergyManagerStatics,
+    IForegroundEnergyManagerStatics_Vtbl,
+    0x9ff86872_e677_4814_9a20_5337ca732b98
+);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -124,16 +112,7 @@ pub struct IForegroundEnergyManagerStatics_Vtbl {
     #[cfg(not(feature = "deprecated"))]
     RemoveRecentEnergyUsageReturnedToLow: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPowerManagerStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPowerManagerStatics {
-    type Vtable = IPowerManagerStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPowerManagerStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1394825d_62ce_4364_98d5_aa28c7fbd15b);
-}
+::windows_core::imp::com_interface!(IPowerManagerStatics, IPowerManagerStatics_Vtbl, 0x1394825d_62ce_4364_98d5_aa28c7fbd15b);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPowerManagerStatics_Vtbl {

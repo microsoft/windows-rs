@@ -1,16 +1,7 @@
 #[cfg(feature = "Media_Protection_PlayReady")]
 #[doc = "Required features: `\"Media_Protection_PlayReady\"`"]
 pub mod PlayReady;
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IComponentLoadFailedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IComponentLoadFailedEventArgs {
-    type Vtable = IComponentLoadFailedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IComponentLoadFailedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x95972e93_7746_417e_8495_f031bbc5862c);
-}
+::windows_core::imp::com_interface!(IComponentLoadFailedEventArgs, IComponentLoadFailedEventArgs_Vtbl, 0x95972e93_7746_417e_8495_f031bbc5862c);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IComponentLoadFailedEventArgs_Vtbl {
@@ -18,32 +9,14 @@ pub struct IComponentLoadFailedEventArgs_Vtbl {
     pub Information: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Completion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IComponentRenewalStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IComponentRenewalStatics {
-    type Vtable = IComponentRenewalStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IComponentRenewalStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6ffbcd67_b795_48c5_8b7b_a7c4efe202e3);
-}
+::windows_core::imp::com_interface!(IComponentRenewalStatics, IComponentRenewalStatics_Vtbl, 0x6ffbcd67_b795_48c5_8b7b_a7c4efe202e3);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IComponentRenewalStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub RenewSystemComponentsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, information: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IHdcpSession(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IHdcpSession {
-    type Vtable = IHdcpSession_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IHdcpSession {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x718845e9_64d7_426d_809b_1be461941a2a);
-}
+::windows_core::imp::com_interface!(IHdcpSession, IHdcpSession_Vtbl, 0x718845e9_64d7_426d_809b_1be461941a2a);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHdcpSession_Vtbl {
@@ -54,16 +27,7 @@ pub struct IHdcpSession_Vtbl {
     pub ProtectionChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     pub RemoveProtectionChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMediaProtectionManager(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IMediaProtectionManager {
-    type Vtable = IMediaProtectionManager_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IMediaProtectionManager {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x45694947_c741_434b_a79e_474c12d93d2f);
-}
+::windows_core::imp::com_interface!(IMediaProtectionManager, IMediaProtectionManager_Vtbl, 0x45694947_c741_434b_a79e_474c12d93d2f);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaProtectionManager_Vtbl {
@@ -79,16 +43,7 @@ pub struct IMediaProtectionManager_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     Properties: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMediaProtectionPMPServer(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IMediaProtectionPMPServer {
-    type Vtable = IMediaProtectionPMPServer_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IMediaProtectionPMPServer {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c111226_7b26_4d31_95bb_9c1b08ef7fc0);
-}
+::windows_core::imp::com_interface!(IMediaProtectionPMPServer, IMediaProtectionPMPServer_Vtbl, 0x0c111226_7b26_4d31_95bb_9c1b08ef7fc0);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaProtectionPMPServer_Vtbl {
@@ -98,16 +53,7 @@ pub struct IMediaProtectionPMPServer_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     Properties: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMediaProtectionPMPServerFactory(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IMediaProtectionPMPServerFactory {
-    type Vtable = IMediaProtectionPMPServerFactory_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IMediaProtectionPMPServerFactory {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x602c8e5e_f7d2_487e_af91_dbc4252b2182);
-}
+::windows_core::imp::com_interface!(IMediaProtectionPMPServerFactory, IMediaProtectionPMPServerFactory_Vtbl, 0x602c8e5e_f7d2_487e_af91_dbc4252b2182);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaProtectionPMPServerFactory_Vtbl {
@@ -117,25 +63,15 @@ pub struct IMediaProtectionPMPServerFactory_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     CreatePMPServer: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMediaProtectionServiceCompletion(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IMediaProtectionServiceCompletion {
-    type Vtable = IMediaProtectionServiceCompletion_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IMediaProtectionServiceCompletion {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8b5cca18_cfd5_44ee_a2ed_df76010c14b5);
-}
+::windows_core::imp::com_interface!(IMediaProtectionServiceCompletion, IMediaProtectionServiceCompletion_Vtbl, 0x8b5cca18_cfd5_44ee_a2ed_df76010c14b5);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaProtectionServiceCompletion_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, success: bool) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMediaProtectionServiceRequest(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IMediaProtectionServiceRequest, IMediaProtectionServiceRequest_Vtbl, 0xb1de0ea6_2094_478d_87a4_8b95200f85c6);
+::windows_core::imp::interface_hierarchy!(IMediaProtectionServiceRequest, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl IMediaProtectionServiceRequest {
     pub fn ProtectionSystem(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let this = self;
@@ -152,15 +88,8 @@ impl IMediaProtectionServiceRequest {
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IMediaProtectionServiceRequest, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IMediaProtectionServiceRequest {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IMediaProtectionServiceRequest {
-    type Vtable = IMediaProtectionServiceRequest_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IMediaProtectionServiceRequest {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb1de0ea6_2094_478d_87a4_8b95200f85c6);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -169,32 +98,14 @@ pub struct IMediaProtectionServiceRequest_Vtbl {
     pub ProtectionSystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
     pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IProtectionCapabilities(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IProtectionCapabilities {
-    type Vtable = IProtectionCapabilities_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IProtectionCapabilities {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc7ac5d7e_7480_4d29_a464_7bcd913dd8e4);
-}
+::windows_core::imp::com_interface!(IProtectionCapabilities, IProtectionCapabilities_Vtbl, 0xc7ac5d7e_7480_4d29_a464_7bcd913dd8e4);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProtectionCapabilities_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsTypeSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: ::std::mem::MaybeUninit<::windows_core::HSTRING>, keysystem: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut ProtectionCapabilityResult) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRevocationAndRenewalInformation(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IRevocationAndRenewalInformation {
-    type Vtable = IRevocationAndRenewalInformation_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRevocationAndRenewalInformation {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf3a1937b_2501_439e_a6e7_6fc95e175fcf);
-}
+::windows_core::imp::com_interface!(IRevocationAndRenewalInformation, IRevocationAndRenewalInformation_Vtbl, 0xf3a1937b_2501_439e_a6e7_6fc95e175fcf);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRevocationAndRenewalInformation_Vtbl {
@@ -204,16 +115,7 @@ pub struct IRevocationAndRenewalInformation_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     Items: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRevocationAndRenewalItem(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IRevocationAndRenewalItem {
-    type Vtable = IRevocationAndRenewalItem_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRevocationAndRenewalItem {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3099c20c_3cf0_49ea_902d_caf32d2dde2c);
-}
+::windows_core::imp::com_interface!(IRevocationAndRenewalItem, IRevocationAndRenewalItem_Vtbl, 0x3099c20c_3cf0_49ea_902d_caf32d2dde2c);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRevocationAndRenewalItem_Vtbl {
@@ -224,16 +126,7 @@ pub struct IRevocationAndRenewalItem_Vtbl {
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub RenewalId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IServiceRequestedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IServiceRequestedEventArgs {
-    type Vtable = IServiceRequestedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IServiceRequestedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x34283baf_abb4_4fc1_bd89_93f106573a49);
-}
+::windows_core::imp::com_interface!(IServiceRequestedEventArgs, IServiceRequestedEventArgs_Vtbl, 0x34283baf_abb4_4fc1_bd89_93f106573a49);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IServiceRequestedEventArgs_Vtbl {
@@ -241,16 +134,7 @@ pub struct IServiceRequestedEventArgs_Vtbl {
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Completion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IServiceRequestedEventArgs2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IServiceRequestedEventArgs2 {
-    type Vtable = IServiceRequestedEventArgs2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IServiceRequestedEventArgs2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x553c69d6_fafe_4128_8dfa_130e398a13a7);
-}
+::windows_core::imp::com_interface!(IServiceRequestedEventArgs2, IServiceRequestedEventArgs2_Vtbl, 0x553c69d6_fafe_4128_8dfa_130e398a13a7);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IServiceRequestedEventArgs2_Vtbl {
@@ -263,6 +147,7 @@ pub struct IServiceRequestedEventArgs2_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ComponentLoadFailedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(ComponentLoadFailedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ComponentLoadFailedEventArgs {
     pub fn Information(&self) -> ::windows_core::Result<RevocationAndRenewalInformation> {
         let this = self;
@@ -284,14 +169,11 @@ impl ::windows_core::RuntimeType for ComponentLoadFailedEventArgs {
 }
 unsafe impl ::windows_core::Interface for ComponentLoadFailedEventArgs {
     type Vtable = IComponentLoadFailedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ComponentLoadFailedEventArgs {
-    const IID: ::windows_core::GUID = <IComponentLoadFailedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IComponentLoadFailedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for ComponentLoadFailedEventArgs {
     const NAME: &'static str = "Windows.Media.Protection.ComponentLoadFailedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(ComponentLoadFailedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for ComponentLoadFailedEventArgs {}
 unsafe impl ::core::marker::Sync for ComponentLoadFailedEventArgs {}
 pub struct ComponentRenewal;
@@ -317,6 +199,8 @@ impl ::windows_core::RuntimeName for ComponentRenewal {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HdcpSession(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(HdcpSession, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(HdcpSession, super::super::Foundation::IClosable);
 impl HdcpSession {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -326,7 +210,7 @@ impl HdcpSession {
         SHARED.call(callback)
     }
     pub fn Close(&self) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
+        let this = &::windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn IsEffectiveProtectionAtLeast(&self, protection: HdcpProtection) -> ::windows_core::Result<bool> {
@@ -370,20 +254,17 @@ impl ::windows_core::RuntimeType for HdcpSession {
 }
 unsafe impl ::windows_core::Interface for HdcpSession {
     type Vtable = IHdcpSession_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for HdcpSession {
-    const IID: ::windows_core::GUID = <IHdcpSession as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IHdcpSession as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for HdcpSession {
     const NAME: &'static str = "Windows.Media.Protection.HdcpSession";
 }
-::windows_core::imp::interface_hierarchy!(HdcpSession, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for HdcpSession {}
 unsafe impl ::core::marker::Send for HdcpSession {}
 unsafe impl ::core::marker::Sync for HdcpSession {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaProtectionManager(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(MediaProtectionManager, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl MediaProtectionManager {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -449,19 +330,17 @@ impl ::windows_core::RuntimeType for MediaProtectionManager {
 }
 unsafe impl ::windows_core::Interface for MediaProtectionManager {
     type Vtable = IMediaProtectionManager_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for MediaProtectionManager {
-    const IID: ::windows_core::GUID = <IMediaProtectionManager as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IMediaProtectionManager as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for MediaProtectionManager {
     const NAME: &'static str = "Windows.Media.Protection.MediaProtectionManager";
 }
-::windows_core::imp::interface_hierarchy!(MediaProtectionManager, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for MediaProtectionManager {}
 unsafe impl ::core::marker::Sync for MediaProtectionManager {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaProtectionPMPServer(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(MediaProtectionPMPServer, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl MediaProtectionPMPServer {
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
@@ -476,11 +355,11 @@ impl MediaProtectionPMPServer {
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreatePMPServer<P0>(pproperties: P0) -> ::windows_core::Result<MediaProtectionPMPServer>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IPropertySet>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::Collections::IPropertySet>,
     {
         Self::IMediaProtectionPMPServerFactory(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreatePMPServer)(::windows_core::Interface::as_raw(this), pproperties.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreatePMPServer)(::windows_core::Interface::as_raw(this), pproperties.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -494,19 +373,17 @@ impl ::windows_core::RuntimeType for MediaProtectionPMPServer {
 }
 unsafe impl ::windows_core::Interface for MediaProtectionPMPServer {
     type Vtable = IMediaProtectionPMPServer_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for MediaProtectionPMPServer {
-    const IID: ::windows_core::GUID = <IMediaProtectionPMPServer as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IMediaProtectionPMPServer as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for MediaProtectionPMPServer {
     const NAME: &'static str = "Windows.Media.Protection.MediaProtectionPMPServer";
 }
-::windows_core::imp::interface_hierarchy!(MediaProtectionPMPServer, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for MediaProtectionPMPServer {}
 unsafe impl ::core::marker::Sync for MediaProtectionPMPServer {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaProtectionServiceCompletion(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(MediaProtectionServiceCompletion, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl MediaProtectionServiceCompletion {
     pub fn Complete(&self, success: bool) -> ::windows_core::Result<()> {
         let this = self;
@@ -518,19 +395,17 @@ impl ::windows_core::RuntimeType for MediaProtectionServiceCompletion {
 }
 unsafe impl ::windows_core::Interface for MediaProtectionServiceCompletion {
     type Vtable = IMediaProtectionServiceCompletion_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for MediaProtectionServiceCompletion {
-    const IID: ::windows_core::GUID = <IMediaProtectionServiceCompletion as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IMediaProtectionServiceCompletion as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for MediaProtectionServiceCompletion {
     const NAME: &'static str = "Windows.Media.Protection.MediaProtectionServiceCompletion";
 }
-::windows_core::imp::interface_hierarchy!(MediaProtectionServiceCompletion, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for MediaProtectionServiceCompletion {}
 unsafe impl ::core::marker::Sync for MediaProtectionServiceCompletion {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ProtectionCapabilities(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(ProtectionCapabilities, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ProtectionCapabilities {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -552,19 +427,17 @@ impl ::windows_core::RuntimeType for ProtectionCapabilities {
 }
 unsafe impl ::windows_core::Interface for ProtectionCapabilities {
     type Vtable = IProtectionCapabilities_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ProtectionCapabilities {
-    const IID: ::windows_core::GUID = <IProtectionCapabilities as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IProtectionCapabilities as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for ProtectionCapabilities {
     const NAME: &'static str = "Windows.Media.Protection.ProtectionCapabilities";
 }
-::windows_core::imp::interface_hierarchy!(ProtectionCapabilities, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for ProtectionCapabilities {}
 unsafe impl ::core::marker::Sync for ProtectionCapabilities {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RevocationAndRenewalInformation(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(RevocationAndRenewalInformation, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl RevocationAndRenewalInformation {
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
@@ -581,19 +454,17 @@ impl ::windows_core::RuntimeType for RevocationAndRenewalInformation {
 }
 unsafe impl ::windows_core::Interface for RevocationAndRenewalInformation {
     type Vtable = IRevocationAndRenewalInformation_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for RevocationAndRenewalInformation {
-    const IID: ::windows_core::GUID = <IRevocationAndRenewalInformation as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IRevocationAndRenewalInformation as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for RevocationAndRenewalInformation {
     const NAME: &'static str = "Windows.Media.Protection.RevocationAndRenewalInformation";
 }
-::windows_core::imp::interface_hierarchy!(RevocationAndRenewalInformation, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for RevocationAndRenewalInformation {}
 unsafe impl ::core::marker::Sync for RevocationAndRenewalInformation {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RevocationAndRenewalItem(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(RevocationAndRenewalItem, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl RevocationAndRenewalItem {
     pub fn Reasons(&self) -> ::windows_core::Result<RevocationAndRenewalReasons> {
         let this = self;
@@ -636,19 +507,17 @@ impl ::windows_core::RuntimeType for RevocationAndRenewalItem {
 }
 unsafe impl ::windows_core::Interface for RevocationAndRenewalItem {
     type Vtable = IRevocationAndRenewalItem_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for RevocationAndRenewalItem {
-    const IID: ::windows_core::GUID = <IRevocationAndRenewalItem as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IRevocationAndRenewalItem as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for RevocationAndRenewalItem {
     const NAME: &'static str = "Windows.Media.Protection.RevocationAndRenewalItem";
 }
-::windows_core::imp::interface_hierarchy!(RevocationAndRenewalItem, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for RevocationAndRenewalItem {}
 unsafe impl ::core::marker::Sync for RevocationAndRenewalItem {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ServiceRequestedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(ServiceRequestedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ServiceRequestedEventArgs {
     pub fn Request(&self) -> ::windows_core::Result<IMediaProtectionServiceRequest> {
         let this = self;
@@ -667,7 +536,7 @@ impl ServiceRequestedEventArgs {
     #[doc = "Required features: `\"Media_Playback\"`"]
     #[cfg(feature = "Media_Playback")]
     pub fn MediaPlaybackItem(&self) -> ::windows_core::Result<super::Playback::MediaPlaybackItem> {
-        let this = &::windows_core::ComInterface::cast::<IServiceRequestedEventArgs2>(self)?;
+        let this = &::windows_core::Interface::cast::<IServiceRequestedEventArgs2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MediaPlaybackItem)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -679,14 +548,11 @@ impl ::windows_core::RuntimeType for ServiceRequestedEventArgs {
 }
 unsafe impl ::windows_core::Interface for ServiceRequestedEventArgs {
     type Vtable = IServiceRequestedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ServiceRequestedEventArgs {
-    const IID: ::windows_core::GUID = <IServiceRequestedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IServiceRequestedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for ServiceRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.Protection.ServiceRequestedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(ServiceRequestedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for ServiceRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for ServiceRequestedEventArgs {}
 #[repr(transparent)]
@@ -854,9 +720,7 @@ impl ::core::ops::Not for RevocationAndRenewalReasons {
 impl ::windows_core::RuntimeType for RevocationAndRenewalReasons {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.RevocationAndRenewalReasons;u4)");
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ComponentLoadFailedEventHandler(pub ::windows_core::IUnknown);
+::windows_core::imp::com_interface!(ComponentLoadFailedEventHandler, ComponentLoadFailedEventHandler_Vtbl, 0x95da643c_6db9_424b_86ca_091af432081c);
 impl ComponentLoadFailedEventHandler {
     pub fn new<F: FnMut(::core::option::Option<&MediaProtectionManager>, ::core::option::Option<&ComponentLoadFailedEventArgs>) -> ::windows_core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
         let com = ComponentLoadFailedEventHandlerBox::<F> { vtable: &ComponentLoadFailedEventHandlerBox::<F>::VTABLE, count: ::windows_core::imp::RefCount::new(1), invoke };
@@ -887,7 +751,7 @@ impl<F: FnMut(::core::option::Option<&MediaProtectionManager>, ::core::option::O
         if iid.is_null() || interface.is_null() {
             return ::windows_core::HRESULT(-2147467261);
         }
-        *interface = if *iid == <ComponentLoadFailedEventHandler as ::windows_core::ComInterface>::IID || *iid == <::windows_core::IUnknown as ::windows_core::ComInterface>::IID || *iid == <::windows_core::imp::IAgileObject as ::windows_core::ComInterface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        *interface = if *iid == <ComponentLoadFailedEventHandler as ::windows_core::Interface>::IID || *iid == <::windows_core::IUnknown as ::windows_core::Interface>::IID || *iid == <::windows_core::imp::IAgileObject as ::windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows_core::HRESULT(-2147467262)
         } else {
@@ -912,12 +776,6 @@ impl<F: FnMut(::core::option::Option<&MediaProtectionManager>, ::core::option::O
         ((*this).invoke)(::windows_core::from_raw_borrowed(&sender), ::windows_core::from_raw_borrowed(&e)).into()
     }
 }
-unsafe impl ::windows_core::Interface for ComponentLoadFailedEventHandler {
-    type Vtable = ComponentLoadFailedEventHandler_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ComponentLoadFailedEventHandler {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x95da643c_6db9_424b_86ca_091af432081c);
-}
 impl ::windows_core::RuntimeType for ComponentLoadFailedEventHandler {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -927,9 +785,7 @@ pub struct ComponentLoadFailedEventHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct RebootNeededEventHandler(pub ::windows_core::IUnknown);
+::windows_core::imp::com_interface!(RebootNeededEventHandler, RebootNeededEventHandler_Vtbl, 0x64e12a45_973b_4a3a_b260_91898a49a82c);
 impl RebootNeededEventHandler {
     pub fn new<F: FnMut(::core::option::Option<&MediaProtectionManager>) -> ::windows_core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
         let com = RebootNeededEventHandlerBox::<F> { vtable: &RebootNeededEventHandlerBox::<F>::VTABLE, count: ::windows_core::imp::RefCount::new(1), invoke };
@@ -959,7 +815,7 @@ impl<F: FnMut(::core::option::Option<&MediaProtectionManager>) -> ::windows_core
         if iid.is_null() || interface.is_null() {
             return ::windows_core::HRESULT(-2147467261);
         }
-        *interface = if *iid == <RebootNeededEventHandler as ::windows_core::ComInterface>::IID || *iid == <::windows_core::IUnknown as ::windows_core::ComInterface>::IID || *iid == <::windows_core::imp::IAgileObject as ::windows_core::ComInterface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        *interface = if *iid == <RebootNeededEventHandler as ::windows_core::Interface>::IID || *iid == <::windows_core::IUnknown as ::windows_core::Interface>::IID || *iid == <::windows_core::imp::IAgileObject as ::windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows_core::HRESULT(-2147467262)
         } else {
@@ -984,12 +840,6 @@ impl<F: FnMut(::core::option::Option<&MediaProtectionManager>) -> ::windows_core
         ((*this).invoke)(::windows_core::from_raw_borrowed(&sender)).into()
     }
 }
-unsafe impl ::windows_core::Interface for RebootNeededEventHandler {
-    type Vtable = RebootNeededEventHandler_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for RebootNeededEventHandler {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x64e12a45_973b_4a3a_b260_91898a49a82c);
-}
 impl ::windows_core::RuntimeType for RebootNeededEventHandler {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -999,9 +849,7 @@ pub struct RebootNeededEventHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ServiceRequestedEventHandler(pub ::windows_core::IUnknown);
+::windows_core::imp::com_interface!(ServiceRequestedEventHandler, ServiceRequestedEventHandler_Vtbl, 0xd2d690ba_cac9_48e1_95c0_d38495a84055);
 impl ServiceRequestedEventHandler {
     pub fn new<F: FnMut(::core::option::Option<&MediaProtectionManager>, ::core::option::Option<&ServiceRequestedEventArgs>) -> ::windows_core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
         let com = ServiceRequestedEventHandlerBox::<F> { vtable: &ServiceRequestedEventHandlerBox::<F>::VTABLE, count: ::windows_core::imp::RefCount::new(1), invoke };
@@ -1032,7 +880,7 @@ impl<F: FnMut(::core::option::Option<&MediaProtectionManager>, ::core::option::O
         if iid.is_null() || interface.is_null() {
             return ::windows_core::HRESULT(-2147467261);
         }
-        *interface = if *iid == <ServiceRequestedEventHandler as ::windows_core::ComInterface>::IID || *iid == <::windows_core::IUnknown as ::windows_core::ComInterface>::IID || *iid == <::windows_core::imp::IAgileObject as ::windows_core::ComInterface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        *interface = if *iid == <ServiceRequestedEventHandler as ::windows_core::Interface>::IID || *iid == <::windows_core::IUnknown as ::windows_core::Interface>::IID || *iid == <::windows_core::imp::IAgileObject as ::windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows_core::HRESULT(-2147467262)
         } else {
@@ -1056,12 +904,6 @@ impl<F: FnMut(::core::option::Option<&MediaProtectionManager>, ::core::option::O
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         ((*this).invoke)(::windows_core::from_raw_borrowed(&sender), ::windows_core::from_raw_borrowed(&e)).into()
     }
-}
-unsafe impl ::windows_core::Interface for ServiceRequestedEventHandler {
-    type Vtable = ServiceRequestedEventHandler_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ServiceRequestedEventHandler {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd2d690ba_cac9_48e1_95c0_d38495a84055);
 }
 impl ::windows_core::RuntimeType for ServiceRequestedEventHandler {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();

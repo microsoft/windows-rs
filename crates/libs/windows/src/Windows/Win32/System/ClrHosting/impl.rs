@@ -12,7 +12,7 @@ impl IActionOnCLREvent_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnEvent: OnEvent::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IActionOnCLREvent as ::windows_core::ComInterface>::IID
+        iid == &<IActionOnCLREvent as ::windows_core::Interface>::IID
     }
 }
 pub trait IApartmentCallback_Impl: Sized {
@@ -29,7 +29,7 @@ impl IApartmentCallback_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), DoCallback: DoCallback::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IApartmentCallback as ::windows_core::ComInterface>::IID
+        iid == &<IApartmentCallback as ::windows_core::Interface>::IID
     }
 }
 pub trait IAppDomainBinding_Impl: Sized {
@@ -46,7 +46,7 @@ impl IAppDomainBinding_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnAppDomain: OnAppDomain::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAppDomainBinding as ::windows_core::ComInterface>::IID
+        iid == &<IAppDomainBinding as ::windows_core::Interface>::IID
     }
 }
 pub trait ICLRAppDomainResourceMonitor_Impl: Sized {
@@ -80,7 +80,7 @@ impl ICLRAppDomainResourceMonitor_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICLRAppDomainResourceMonitor as ::windows_core::ComInterface>::IID
+        iid == &<ICLRAppDomainResourceMonitor as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -176,7 +176,7 @@ impl ICLRAssemblyIdentityManager_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICLRAssemblyIdentityManager as ::windows_core::ComInterface>::IID
+        iid == &<ICLRAssemblyIdentityManager as ::windows_core::Interface>::IID
     }
 }
 pub trait ICLRAssemblyReferenceList_Impl: Sized {
@@ -203,7 +203,7 @@ impl ICLRAssemblyReferenceList_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICLRAssemblyReferenceList as ::windows_core::ComInterface>::IID
+        iid == &<ICLRAssemblyReferenceList as ::windows_core::Interface>::IID
     }
 }
 pub trait ICLRControl_Impl: Sized {
@@ -230,7 +230,7 @@ impl ICLRControl_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICLRControl as ::windows_core::ComInterface>::IID
+        iid == &<ICLRControl as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Security\"`"]
@@ -308,7 +308,7 @@ impl ICLRDebugManager_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICLRDebugManager as ::windows_core::ComInterface>::IID
+        iid == &<ICLRDebugManager as ::windows_core::Interface>::IID
     }
 }
 pub trait ICLRDebugging_Impl: Sized {
@@ -335,7 +335,7 @@ impl ICLRDebugging_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICLRDebugging as ::windows_core::ComInterface>::IID
+        iid == &<ICLRDebugging as ::windows_core::Interface>::IID
     }
 }
 pub trait ICLRDebuggingLibraryProvider_Impl: Sized {
@@ -358,7 +358,7 @@ impl ICLRDebuggingLibraryProvider_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ProvideLibrary: ProvideLibrary::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICLRDebuggingLibraryProvider as ::windows_core::ComInterface>::IID
+        iid == &<ICLRDebuggingLibraryProvider as ::windows_core::Interface>::IID
     }
 }
 pub trait ICLRDomainManager_Impl: Sized {
@@ -385,7 +385,7 @@ impl ICLRDomainManager_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICLRDomainManager as ::windows_core::ComInterface>::IID
+        iid == &<ICLRDomainManager as ::windows_core::Interface>::IID
     }
 }
 pub trait ICLRErrorReportingManager_Impl: Sized {
@@ -419,7 +419,7 @@ impl ICLRErrorReportingManager_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICLRErrorReportingManager as ::windows_core::ComInterface>::IID
+        iid == &<ICLRErrorReportingManager as ::windows_core::Interface>::IID
     }
 }
 pub trait ICLRGCManager_Impl: Sized {
@@ -453,7 +453,7 @@ impl ICLRGCManager_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICLRGCManager as ::windows_core::ComInterface>::IID
+        iid == &<ICLRGCManager as ::windows_core::Interface>::IID
     }
 }
 pub trait ICLRGCManager2_Impl: Sized + ICLRGCManager_Impl {
@@ -470,7 +470,7 @@ impl ICLRGCManager2_Vtbl {
         Self { base__: ICLRGCManager_Vtbl::new::<Identity, Impl, OFFSET>(), SetGCStartupLimitsEx: SetGCStartupLimitsEx::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICLRGCManager2 as ::windows_core::ComInterface>::IID || iid == &<ICLRGCManager as ::windows_core::ComInterface>::IID
+        iid == &<ICLRGCManager2 as ::windows_core::Interface>::IID || iid == &<ICLRGCManager as ::windows_core::Interface>::IID
     }
 }
 pub trait ICLRHostBindingPolicyManager_Impl: Sized {
@@ -497,7 +497,7 @@ impl ICLRHostBindingPolicyManager_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICLRHostBindingPolicyManager as ::windows_core::ComInterface>::IID
+        iid == &<ICLRHostBindingPolicyManager as ::windows_core::Interface>::IID
     }
 }
 pub trait ICLRHostProtectionManager_Impl: Sized {
@@ -524,7 +524,7 @@ impl ICLRHostProtectionManager_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICLRHostProtectionManager as ::windows_core::ComInterface>::IID
+        iid == &<ICLRHostProtectionManager as ::windows_core::Interface>::IID
     }
 }
 pub trait ICLRIoCompletionManager_Impl: Sized {
@@ -541,7 +541,7 @@ impl ICLRIoCompletionManager_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnComplete: OnComplete::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICLRIoCompletionManager as ::windows_core::ComInterface>::IID
+        iid == &<ICLRIoCompletionManager as ::windows_core::Interface>::IID
     }
 }
 pub trait ICLRMemoryNotificationCallback_Impl: Sized {
@@ -558,7 +558,7 @@ impl ICLRMemoryNotificationCallback_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnMemoryNotification: OnMemoryNotification::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICLRMemoryNotificationCallback as ::windows_core::ComInterface>::IID
+        iid == &<ICLRMemoryNotificationCallback as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -636,7 +636,7 @@ impl ICLRMetaHost_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICLRMetaHost as ::windows_core::ComInterface>::IID
+        iid == &<ICLRMetaHost as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -657,7 +657,7 @@ impl ICLRMetaHostPolicy_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetRequestedRuntime: GetRequestedRuntime::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICLRMetaHostPolicy as ::windows_core::ComInterface>::IID
+        iid == &<ICLRMetaHostPolicy as ::windows_core::Interface>::IID
     }
 }
 pub trait ICLROnEventManager_Impl: Sized {
@@ -684,7 +684,7 @@ impl ICLROnEventManager_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICLROnEventManager as ::windows_core::ComInterface>::IID
+        iid == &<ICLROnEventManager as ::windows_core::Interface>::IID
     }
 }
 pub trait ICLRPolicyManager_Impl: Sized {
@@ -739,7 +739,7 @@ impl ICLRPolicyManager_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICLRPolicyManager as ::windows_core::ComInterface>::IID
+        iid == &<ICLRPolicyManager as ::windows_core::Interface>::IID
     }
 }
 pub trait ICLRProbingAssemblyEnum_Impl: Sized {
@@ -756,7 +756,7 @@ impl ICLRProbingAssemblyEnum_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Get: Get::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICLRProbingAssemblyEnum as ::windows_core::ComInterface>::IID
+        iid == &<ICLRProbingAssemblyEnum as ::windows_core::Interface>::IID
     }
 }
 pub trait ICLRProfiling_Impl: Sized {
@@ -773,7 +773,7 @@ impl ICLRProfiling_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), AttachProfiler: AttachProfiler::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICLRProfiling as ::windows_core::ComInterface>::IID
+        iid == &<ICLRProfiling as ::windows_core::Interface>::IID
     }
 }
 pub trait ICLRReferenceAssemblyEnum_Impl: Sized {
@@ -790,7 +790,7 @@ impl ICLRReferenceAssemblyEnum_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Get: Get::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICLRReferenceAssemblyEnum as ::windows_core::ComInterface>::IID
+        iid == &<ICLRReferenceAssemblyEnum as ::windows_core::Interface>::IID
     }
 }
 pub trait ICLRRuntimeHost_Impl: Sized {
@@ -890,7 +890,7 @@ impl ICLRRuntimeHost_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICLRRuntimeHost as ::windows_core::ComInterface>::IID
+        iid == &<ICLRRuntimeHost as ::windows_core::Interface>::IID
     }
 }
 pub trait ICLRRuntimeInfo_Impl: Sized {
@@ -1011,7 +1011,7 @@ impl ICLRRuntimeInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICLRRuntimeInfo as ::windows_core::ComInterface>::IID
+        iid == &<ICLRRuntimeInfo as ::windows_core::Interface>::IID
     }
 }
 pub trait ICLRStrongName_Impl: Sized {
@@ -1229,7 +1229,7 @@ impl ICLRStrongName_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICLRStrongName as ::windows_core::ComInterface>::IID
+        iid == &<ICLRStrongName as ::windows_core::Interface>::IID
     }
 }
 pub trait ICLRStrongName2_Impl: Sized {
@@ -1262,7 +1262,7 @@ impl ICLRStrongName2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICLRStrongName2 as ::windows_core::ComInterface>::IID
+        iid == &<ICLRStrongName2 as ::windows_core::Interface>::IID
     }
 }
 pub trait ICLRStrongName3_Impl: Sized {
@@ -1296,7 +1296,7 @@ impl ICLRStrongName3_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICLRStrongName3 as ::windows_core::ComInterface>::IID
+        iid == &<ICLRStrongName3 as ::windows_core::Interface>::IID
     }
 }
 pub trait ICLRSyncManager_Impl: Sized {
@@ -1355,7 +1355,7 @@ impl ICLRSyncManager_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICLRSyncManager as ::windows_core::ComInterface>::IID
+        iid == &<ICLRSyncManager as ::windows_core::Interface>::IID
     }
 }
 pub trait ICLRTask_Impl: Sized {
@@ -1463,7 +1463,7 @@ impl ICLRTask_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICLRTask as ::windows_core::ComInterface>::IID
+        iid == &<ICLRTask as ::windows_core::Interface>::IID
     }
 }
 pub trait ICLRTask2_Impl: Sized + ICLRTask_Impl {
@@ -1490,7 +1490,7 @@ impl ICLRTask2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICLRTask2 as ::windows_core::ComInterface>::IID || iid == &<ICLRTask as ::windows_core::ComInterface>::IID
+        iid == &<ICLRTask2 as ::windows_core::Interface>::IID || iid == &<ICLRTask as ::windows_core::Interface>::IID
     }
 }
 pub trait ICLRTaskManager_Impl: Sized {
@@ -1556,7 +1556,7 @@ impl ICLRTaskManager_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICLRTaskManager as ::windows_core::ComInterface>::IID
+        iid == &<ICLRTaskManager as ::windows_core::Interface>::IID
     }
 }
 pub trait ICatalogServices_Impl: Sized {
@@ -1583,7 +1583,7 @@ impl ICatalogServices_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICatalogServices as ::windows_core::ComInterface>::IID
+        iid == &<ICatalogServices as ::windows_core::Interface>::IID
     }
 }
 pub trait ICorConfiguration_Impl: Sized {
@@ -1624,7 +1624,7 @@ impl ICorConfiguration_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICorConfiguration as ::windows_core::ComInterface>::IID
+        iid == &<ICorConfiguration as ::windows_core::Interface>::IID
     }
 }
 pub trait ICorRuntimeHost_Impl: Sized {
@@ -1836,7 +1836,7 @@ impl ICorRuntimeHost_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICorRuntimeHost as ::windows_core::ComInterface>::IID
+        iid == &<ICorRuntimeHost as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_IO\"`, `\"Win32_System_Threading\"`"]
@@ -1972,7 +1972,7 @@ impl ICorThreadpool_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICorThreadpool as ::windows_core::ComInterface>::IID
+        iid == &<ICorThreadpool as ::windows_core::Interface>::IID
     }
 }
 pub trait IDebuggerInfo_Impl: Sized {
@@ -1995,7 +1995,7 @@ impl IDebuggerInfo_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), IsDebuggerAttached: IsDebuggerAttached::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDebuggerInfo as ::windows_core::ComInterface>::IID
+        iid == &<IDebuggerInfo as ::windows_core::Interface>::IID
     }
 }
 pub trait IDebuggerThreadControl_Impl: Sized {
@@ -2029,7 +2029,7 @@ impl IDebuggerThreadControl_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDebuggerThreadControl as ::windows_core::ComInterface>::IID
+        iid == &<IDebuggerThreadControl as ::windows_core::Interface>::IID
     }
 }
 pub trait IGCHost_Impl: Sized {
@@ -2077,7 +2077,7 @@ impl IGCHost_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IGCHost as ::windows_core::ComInterface>::IID
+        iid == &<IGCHost as ::windows_core::Interface>::IID
     }
 }
 pub trait IGCHost2_Impl: Sized + IGCHost_Impl {
@@ -2094,7 +2094,7 @@ impl IGCHost2_Vtbl {
         Self { base__: IGCHost_Vtbl::new::<Identity, Impl, OFFSET>(), SetGCStartupLimitsEx: SetGCStartupLimitsEx::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IGCHost2 as ::windows_core::ComInterface>::IID || iid == &<IGCHost as ::windows_core::ComInterface>::IID
+        iid == &<IGCHost2 as ::windows_core::Interface>::IID || iid == &<IGCHost as ::windows_core::Interface>::IID
     }
 }
 pub trait IGCHostControl_Impl: Sized {
@@ -2111,7 +2111,7 @@ impl IGCHostControl_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), RequestVirtualMemLimit: RequestVirtualMemLimit::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IGCHostControl as ::windows_core::ComInterface>::IID
+        iid == &<IGCHostControl as ::windows_core::Interface>::IID
     }
 }
 pub trait IGCThreadControl_Impl: Sized {
@@ -2145,7 +2145,7 @@ impl IGCThreadControl_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IGCThreadControl as ::windows_core::ComInterface>::IID
+        iid == &<IGCThreadControl as ::windows_core::Interface>::IID
     }
 }
 pub trait IHostAssemblyManager_Impl: Sized {
@@ -2184,7 +2184,7 @@ impl IHostAssemblyManager_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IHostAssemblyManager as ::windows_core::ComInterface>::IID
+        iid == &<IHostAssemblyManager as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -2215,7 +2215,7 @@ impl IHostAssemblyStore_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IHostAssemblyStore as ::windows_core::ComInterface>::IID
+        iid == &<IHostAssemblyStore as ::windows_core::Interface>::IID
     }
 }
 pub trait IHostAutoEvent_Impl: Sized {
@@ -2238,7 +2238,7 @@ impl IHostAutoEvent_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Wait: Wait::<Identity, Impl, OFFSET>, Set: Set::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IHostAutoEvent as ::windows_core::ComInterface>::IID
+        iid == &<IHostAutoEvent as ::windows_core::Interface>::IID
     }
 }
 pub trait IHostControl_Impl: Sized {
@@ -2265,7 +2265,7 @@ impl IHostControl_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IHostControl as ::windows_core::ComInterface>::IID
+        iid == &<IHostControl as ::windows_core::Interface>::IID
     }
 }
 pub trait IHostCrst_Impl: Sized {
@@ -2312,7 +2312,7 @@ impl IHostCrst_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IHostCrst as ::windows_core::ComInterface>::IID
+        iid == &<IHostCrst as ::windows_core::Interface>::IID
     }
 }
 pub trait IHostGCManager_Impl: Sized {
@@ -2346,7 +2346,7 @@ impl IHostGCManager_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IHostGCManager as ::windows_core::ComInterface>::IID
+        iid == &<IHostGCManager as ::windows_core::Interface>::IID
     }
 }
 pub trait IHostIoCompletionManager_Impl: Sized {
@@ -2466,7 +2466,7 @@ impl IHostIoCompletionManager_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IHostIoCompletionManager as ::windows_core::ComInterface>::IID
+        iid == &<IHostIoCompletionManager as ::windows_core::Interface>::IID
     }
 }
 pub trait IHostMalloc_Impl: Sized {
@@ -2500,7 +2500,7 @@ impl IHostMalloc_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IHostMalloc as ::windows_core::ComInterface>::IID
+        iid == &<IHostMalloc as ::windows_core::Interface>::IID
     }
 }
 pub trait IHostManualEvent_Impl: Sized {
@@ -2534,7 +2534,7 @@ impl IHostManualEvent_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IHostManualEvent as ::windows_core::ComInterface>::IID
+        iid == &<IHostManualEvent as ::windows_core::Interface>::IID
     }
 }
 pub trait IHostMemoryManager_Impl: Sized {
@@ -2629,7 +2629,7 @@ impl IHostMemoryManager_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IHostMemoryManager as ::windows_core::ComInterface>::IID
+        iid == &<IHostMemoryManager as ::windows_core::Interface>::IID
     }
 }
 pub trait IHostPolicyManager_Impl: Sized {
@@ -2663,7 +2663,7 @@ impl IHostPolicyManager_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IHostPolicyManager as ::windows_core::ComInterface>::IID
+        iid == &<IHostPolicyManager as ::windows_core::Interface>::IID
     }
 }
 pub trait IHostSecurityContext_Impl: Sized {
@@ -2686,7 +2686,7 @@ impl IHostSecurityContext_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Capture: Capture::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IHostSecurityContext as ::windows_core::ComInterface>::IID
+        iid == &<IHostSecurityContext as ::windows_core::Interface>::IID
     }
 }
 pub trait IHostSecurityManager_Impl: Sized {
@@ -2753,7 +2753,7 @@ impl IHostSecurityManager_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IHostSecurityManager as ::windows_core::ComInterface>::IID
+        iid == &<IHostSecurityManager as ::windows_core::Interface>::IID
     }
 }
 pub trait IHostSemaphore_Impl: Sized {
@@ -2786,7 +2786,7 @@ impl IHostSemaphore_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IHostSemaphore as ::windows_core::ComInterface>::IID
+        iid == &<IHostSemaphore as ::windows_core::Interface>::IID
     }
 }
 pub trait IHostSyncManager_Impl: Sized {
@@ -2910,7 +2910,7 @@ impl IHostSyncManager_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IHostSyncManager as ::windows_core::ComInterface>::IID
+        iid == &<IHostSyncManager as ::windows_core::Interface>::IID
     }
 }
 pub trait IHostTask_Impl: Sized {
@@ -2971,7 +2971,7 @@ impl IHostTask_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IHostTask as ::windows_core::ComInterface>::IID
+        iid == &<IHostTask as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Threading\"`"]
@@ -3138,7 +3138,7 @@ impl IHostTaskManager_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IHostTaskManager as ::windows_core::ComInterface>::IID
+        iid == &<IHostTaskManager as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Threading\"`"]
@@ -3215,7 +3215,7 @@ impl IHostThreadpoolManager_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IHostThreadpoolManager as ::windows_core::ComInterface>::IID
+        iid == &<IHostThreadpoolManager as ::windows_core::Interface>::IID
     }
 }
 pub trait IManagedObject_Impl: Sized {
@@ -3248,7 +3248,7 @@ impl IManagedObject_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IManagedObject as ::windows_core::ComInterface>::IID
+        iid == &<IManagedObject as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -3275,7 +3275,7 @@ impl IObjectHandle_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Unwrap: Unwrap::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IObjectHandle as ::windows_core::ComInterface>::IID
+        iid == &<IObjectHandle as ::windows_core::Interface>::IID
     }
 }
 pub trait ITypeName_Impl: Sized {
@@ -3361,7 +3361,7 @@ impl ITypeName_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITypeName as ::windows_core::ComInterface>::IID
+        iid == &<ITypeName as ::windows_core::Interface>::IID
     }
 }
 pub trait ITypeNameBuilder_Impl: Sized {
@@ -3464,7 +3464,7 @@ impl ITypeNameBuilder_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITypeNameBuilder as ::windows_core::ComInterface>::IID
+        iid == &<ITypeNameBuilder as ::windows_core::Interface>::IID
     }
 }
 pub trait ITypeNameFactory_Impl: Sized {
@@ -3497,6 +3497,6 @@ impl ITypeNameFactory_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITypeNameFactory as ::windows_core::ComInterface>::IID
+        iid == &<ITypeNameFactory as ::windows_core::Interface>::IID
     }
 }

@@ -174,7 +174,7 @@ impl IBitmapFrame_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IBitmapFrame as ::windows_core::ComInterface>::IID
+        iid == &<IBitmapFrame as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Storage_Streams\"`"]
@@ -235,7 +235,7 @@ impl IBitmapFrameWithSoftwareBitmap_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IBitmapFrameWithSoftwareBitmap as ::windows_core::ComInterface>::IID
+        iid == &<IBitmapFrameWithSoftwareBitmap as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Foundation_Collections\"`"]
@@ -268,6 +268,6 @@ impl IBitmapPropertiesView_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IBitmapPropertiesView as ::windows_core::ComInterface>::IID
+        iid == &<IBitmapPropertiesView as ::windows_core::Interface>::IID
     }
 }

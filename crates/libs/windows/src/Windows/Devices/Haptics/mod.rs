@@ -1,13 +1,4 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IKnownSimpleHapticsControllerWaveformsStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IKnownSimpleHapticsControllerWaveformsStatics {
-    type Vtable = IKnownSimpleHapticsControllerWaveformsStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IKnownSimpleHapticsControllerWaveformsStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3d577ef7_4cee_11e6_b535_001bdc06ab3b);
-}
+::windows_core::imp::com_interface!(IKnownSimpleHapticsControllerWaveformsStatics, IKnownSimpleHapticsControllerWaveformsStatics_Vtbl, 0x3d577ef7_4cee_11e6_b535_001bdc06ab3b);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKnownSimpleHapticsControllerWaveformsStatics_Vtbl {
@@ -18,16 +9,7 @@ pub struct IKnownSimpleHapticsControllerWaveformsStatics_Vtbl {
     pub Press: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows_core::HRESULT,
     pub Release: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IKnownSimpleHapticsControllerWaveformsStatics2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IKnownSimpleHapticsControllerWaveformsStatics2 {
-    type Vtable = IKnownSimpleHapticsControllerWaveformsStatics2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IKnownSimpleHapticsControllerWaveformsStatics2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa7d24c27_b79d_510a_bf79_ff6d49173e1d);
-}
+::windows_core::imp::com_interface!(IKnownSimpleHapticsControllerWaveformsStatics2, IKnownSimpleHapticsControllerWaveformsStatics2_Vtbl, 0xa7d24c27_b79d_510a_bf79_ff6d49173e1d);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKnownSimpleHapticsControllerWaveformsStatics2_Vtbl {
@@ -43,16 +25,7 @@ pub struct IKnownSimpleHapticsControllerWaveformsStatics2_Vtbl {
     pub PencilContinuous: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows_core::HRESULT,
     pub Success: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISimpleHapticsController(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISimpleHapticsController {
-    type Vtable = ISimpleHapticsController_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISimpleHapticsController {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3d577ef9_4cee_11e6_b535_001bdc06ab3b);
-}
+::windows_core::imp::com_interface!(ISimpleHapticsController, ISimpleHapticsController_Vtbl, 0x3d577ef9_4cee_11e6_b535_001bdc06ab3b);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISimpleHapticsController_Vtbl {
@@ -72,16 +45,7 @@ pub struct ISimpleHapticsController_Vtbl {
     pub SendHapticFeedbackForDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, feedback: *mut ::core::ffi::c_void, intensity: f64, playduration: super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
     pub SendHapticFeedbackForPlayCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, feedback: *mut ::core::ffi::c_void, intensity: f64, playcount: i32, replaypauseinterval: super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISimpleHapticsControllerFeedback(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISimpleHapticsControllerFeedback {
-    type Vtable = ISimpleHapticsControllerFeedback_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISimpleHapticsControllerFeedback {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3d577ef8_4cee_11e6_b535_001bdc06ab3b);
-}
+::windows_core::imp::com_interface!(ISimpleHapticsControllerFeedback, ISimpleHapticsControllerFeedback_Vtbl, 0x3d577ef8_4cee_11e6_b535_001bdc06ab3b);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISimpleHapticsControllerFeedback_Vtbl {
@@ -89,16 +53,7 @@ pub struct ISimpleHapticsControllerFeedback_Vtbl {
     pub Waveform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows_core::HRESULT,
     pub Duration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IVibrationDevice(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IVibrationDevice {
-    type Vtable = IVibrationDevice_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IVibrationDevice {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x40f21a3e_8844_47ff_b312_06185a3844da);
-}
+::windows_core::imp::com_interface!(IVibrationDevice, IVibrationDevice_Vtbl, 0x40f21a3e_8844_47ff_b312_06185a3844da);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVibrationDevice_Vtbl {
@@ -106,16 +61,7 @@ pub struct IVibrationDevice_Vtbl {
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub SimpleHapticsController: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IVibrationDeviceStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IVibrationDeviceStatics {
-    type Vtable = IVibrationDeviceStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IVibrationDeviceStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x53e2eded_2290_4ac9_8eb3_1a84122eb71c);
-}
+::windows_core::imp::com_interface!(IVibrationDeviceStatics, IVibrationDeviceStatics_Vtbl, 0x53e2eded_2290_4ac9_8eb3_1a84122eb71c);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVibrationDeviceStatics_Vtbl {
@@ -238,6 +184,7 @@ impl ::windows_core::RuntimeName for KnownSimpleHapticsControllerWaveforms {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SimpleHapticsController(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(SimpleHapticsController, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl SimpleHapticsController {
     pub fn Id(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -321,19 +268,17 @@ impl ::windows_core::RuntimeType for SimpleHapticsController {
 }
 unsafe impl ::windows_core::Interface for SimpleHapticsController {
     type Vtable = ISimpleHapticsController_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for SimpleHapticsController {
-    const IID: ::windows_core::GUID = <ISimpleHapticsController as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ISimpleHapticsController as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for SimpleHapticsController {
     const NAME: &'static str = "Windows.Devices.Haptics.SimpleHapticsController";
 }
-::windows_core::imp::interface_hierarchy!(SimpleHapticsController, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SimpleHapticsController {}
 unsafe impl ::core::marker::Sync for SimpleHapticsController {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SimpleHapticsControllerFeedback(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(SimpleHapticsControllerFeedback, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl SimpleHapticsControllerFeedback {
     pub fn Waveform(&self) -> ::windows_core::Result<u16> {
         let this = self;
@@ -355,19 +300,17 @@ impl ::windows_core::RuntimeType for SimpleHapticsControllerFeedback {
 }
 unsafe impl ::windows_core::Interface for SimpleHapticsControllerFeedback {
     type Vtable = ISimpleHapticsControllerFeedback_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for SimpleHapticsControllerFeedback {
-    const IID: ::windows_core::GUID = <ISimpleHapticsControllerFeedback as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ISimpleHapticsControllerFeedback as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for SimpleHapticsControllerFeedback {
     const NAME: &'static str = "Windows.Devices.Haptics.SimpleHapticsControllerFeedback";
 }
-::windows_core::imp::interface_hierarchy!(SimpleHapticsControllerFeedback, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SimpleHapticsControllerFeedback {}
 unsafe impl ::core::marker::Sync for SimpleHapticsControllerFeedback {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VibrationDevice(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(VibrationDevice, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl VibrationDevice {
     pub fn Id(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -426,14 +369,11 @@ impl ::windows_core::RuntimeType for VibrationDevice {
 }
 unsafe impl ::windows_core::Interface for VibrationDevice {
     type Vtable = IVibrationDevice_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for VibrationDevice {
-    const IID: ::windows_core::GUID = <IVibrationDevice as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IVibrationDevice as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for VibrationDevice {
     const NAME: &'static str = "Windows.Devices.Haptics.VibrationDevice";
 }
-::windows_core::imp::interface_hierarchy!(VibrationDevice, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for VibrationDevice {}
 unsafe impl ::core::marker::Sync for VibrationDevice {}
 #[repr(transparent)]

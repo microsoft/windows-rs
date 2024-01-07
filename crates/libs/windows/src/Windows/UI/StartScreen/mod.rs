@@ -1,13 +1,4 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IJumpList(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IJumpList {
-    type Vtable = IJumpList_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IJumpList {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb0234c3e_cd6f_4cb6_a611_61fd505f3ed1);
-}
+::windows_core::imp::com_interface!(IJumpList, IJumpList_Vtbl, 0xb0234c3e_cd6f_4cb6_a611_61fd505f3ed1);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IJumpList_Vtbl {
@@ -20,16 +11,7 @@ pub struct IJumpList_Vtbl {
     pub SetSystemGroupKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: JumpListSystemGroupKind) -> ::windows_core::HRESULT,
     pub SaveAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IJumpListItem(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IJumpListItem {
-    type Vtable = IJumpListItem_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IJumpListItem {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7adb6717_8b5d_4820_995b_9b418dbe48b0);
-}
+::windows_core::imp::com_interface!(IJumpListItem, IJumpListItem_Vtbl, 0x7adb6717_8b5d_4820_995b_9b418dbe48b0);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IJumpListItem_Vtbl {
@@ -46,16 +28,7 @@ pub struct IJumpListItem_Vtbl {
     pub Logo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub SetLogo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IJumpListItemStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IJumpListItemStatics {
-    type Vtable = IJumpListItemStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IJumpListItemStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf1bfc4e8_c7aa_49cb_8dde_ecfccd7ad7e4);
-}
+::windows_core::imp::com_interface!(IJumpListItemStatics, IJumpListItemStatics_Vtbl, 0xf1bfc4e8_c7aa_49cb_8dde_ecfccd7ad7e4);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IJumpListItemStatics_Vtbl {
@@ -63,16 +36,7 @@ pub struct IJumpListItemStatics_Vtbl {
     pub CreateWithArguments: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, arguments: ::std::mem::MaybeUninit<::windows_core::HSTRING>, displayname: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub CreateSeparator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IJumpListStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IJumpListStatics {
-    type Vtable = IJumpListStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IJumpListStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa7e0c681_e67e_4b74_8250_3f322c4d92c3);
-}
+::windows_core::imp::com_interface!(IJumpListStatics, IJumpListStatics_Vtbl, 0xa7e0c681_e67e_4b74_8250_3f322c4d92c3);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IJumpListStatics_Vtbl {
@@ -80,16 +44,7 @@ pub struct IJumpListStatics_Vtbl {
     pub LoadCurrentAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub IsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISecondaryTile(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISecondaryTile {
-    type Vtable = ISecondaryTile_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISecondaryTile {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9e9e51e0_2bb5_4bc0_bb8d_42b23abcc88d);
-}
+::windows_core::imp::com_interface!(ISecondaryTile, ISecondaryTile_Vtbl, 0x9e9e51e0_2bb5_4bc0_bb8d_42b23abcc88d);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISecondaryTile_Vtbl {
@@ -176,16 +131,7 @@ pub struct ISecondaryTile_Vtbl {
     RequestDeleteAsyncWithRectAndPlacement: usize,
     pub UpdateAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISecondaryTile2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISecondaryTile2 {
-    type Vtable = ISecondaryTile2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISecondaryTile2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb2f6cc35_3250_4990_923c_294ab4b694dd);
-}
+::windows_core::imp::com_interface!(ISecondaryTile2, ISecondaryTile2_Vtbl, 0xb2f6cc35_3250_4990_923c_294ab4b694dd);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISecondaryTile2_Vtbl {
@@ -198,16 +144,7 @@ pub struct ISecondaryTile2_Vtbl {
     pub VisualElementsRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     pub RemoveVisualElementsRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISecondaryTileFactory(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISecondaryTileFactory {
-    type Vtable = ISecondaryTileFactory_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISecondaryTileFactory {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x57f52ca0_51bc_4abf_8ebf_627a0398b05a);
-}
+::windows_core::imp::com_interface!(ISecondaryTileFactory, ISecondaryTileFactory_Vtbl, 0x57f52ca0_51bc_4abf_8ebf_627a0398b05a);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISecondaryTileFactory_Vtbl {
@@ -222,32 +159,14 @@ pub struct ISecondaryTileFactory_Vtbl {
     CreateWideTile: usize,
     pub CreateWithId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tileid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISecondaryTileFactory2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISecondaryTileFactory2 {
-    type Vtable = ISecondaryTileFactory2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISecondaryTileFactory2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x274b8a3b_522d_448e_9eb2_d0672ab345c8);
-}
+::windows_core::imp::com_interface!(ISecondaryTileFactory2, ISecondaryTileFactory2_Vtbl, 0x274b8a3b_522d_448e_9eb2_d0672ab345c8);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISecondaryTileFactory2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateMinimalTile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tileid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, displayname: ::std::mem::MaybeUninit<::windows_core::HSTRING>, arguments: ::std::mem::MaybeUninit<::windows_core::HSTRING>, square150x150logo: *mut ::core::ffi::c_void, desiredsize: TileSize, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISecondaryTileStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISecondaryTileStatics {
-    type Vtable = ISecondaryTileStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISecondaryTileStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x99908dae_d051_4676_87fe_9ec242d83c74);
-}
+::windows_core::imp::com_interface!(ISecondaryTileStatics, ISecondaryTileStatics_Vtbl, 0x99908dae_d051_4676_87fe_9ec242d83c74);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISecondaryTileStatics_Vtbl {
@@ -266,16 +185,7 @@ pub struct ISecondaryTileStatics_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     FindAllForPackageAsync: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISecondaryTileVisualElements(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISecondaryTileVisualElements {
-    type Vtable = ISecondaryTileVisualElements_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISecondaryTileVisualElements {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1d8df333_815e_413f_9f50_a81da70a96b2);
-}
+::windows_core::imp::com_interface!(ISecondaryTileVisualElements, ISecondaryTileVisualElements_Vtbl, 0x1d8df333_815e_413f_9f50_a81da70a96b2);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISecondaryTileVisualElements_Vtbl {
@@ -313,16 +223,7 @@ pub struct ISecondaryTileVisualElements_Vtbl {
     pub SetShowNameOnSquare310x310Logo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
     pub ShowNameOnSquare310x310Logo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISecondaryTileVisualElements2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISecondaryTileVisualElements2 {
-    type Vtable = ISecondaryTileVisualElements2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISecondaryTileVisualElements2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfd2e31d0_57dc_4794_8ecf_5682f5f3e6ef);
-}
+::windows_core::imp::com_interface!(ISecondaryTileVisualElements2, ISecondaryTileVisualElements2_Vtbl, 0xfd2e31d0_57dc_4794_8ecf_5682f5f3e6ef);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISecondaryTileVisualElements2_Vtbl {
@@ -330,16 +231,7 @@ pub struct ISecondaryTileVisualElements2_Vtbl {
     pub SetSquare71x71Logo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Square71x71Logo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISecondaryTileVisualElements3(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISecondaryTileVisualElements3 {
-    type Vtable = ISecondaryTileVisualElements3_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISecondaryTileVisualElements3 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x56b55ad6_d15c_40f4_81e7_57ffd8f8a4e9);
-}
+::windows_core::imp::com_interface!(ISecondaryTileVisualElements3, ISecondaryTileVisualElements3_Vtbl, 0x56b55ad6_d15c_40f4_81e7_57ffd8f8a4e9);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISecondaryTileVisualElements3_Vtbl {
@@ -347,32 +239,14 @@ pub struct ISecondaryTileVisualElements3_Vtbl {
     pub SetSquare44x44Logo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Square44x44Logo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISecondaryTileVisualElements4(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISecondaryTileVisualElements4 {
-    type Vtable = ISecondaryTileVisualElements4_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISecondaryTileVisualElements4 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x66566117_b544_40d2_8d12_74d4ec24d04c);
-}
+::windows_core::imp::com_interface!(ISecondaryTileVisualElements4, ISecondaryTileVisualElements4_Vtbl, 0x66566117_b544_40d2_8d12_74d4ec24d04c);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISecondaryTileVisualElements4_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub MixedRealityModel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IStartScreenManager(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IStartScreenManager {
-    type Vtable = IStartScreenManager_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IStartScreenManager {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4a1dcbcb_26e9_4eb4_8933_859eb6ecdb29);
-}
+::windows_core::imp::com_interface!(IStartScreenManager, IStartScreenManager_Vtbl, 0x4a1dcbcb_26e9_4eb4_8933_859eb6ecdb29);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStartScreenManager_Vtbl {
@@ -394,16 +268,7 @@ pub struct IStartScreenManager_Vtbl {
     #[cfg(not(feature = "ApplicationModel_Core"))]
     RequestAddAppListEntryAsync: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IStartScreenManager2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IStartScreenManager2 {
-    type Vtable = IStartScreenManager2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IStartScreenManager2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x08a716b6_316b_4ad9_acb8_fe9cf00bd608);
-}
+::windows_core::imp::com_interface!(IStartScreenManager2, IStartScreenManager2_Vtbl, 0x08a716b6_316b_4ad9_acb8_fe9cf00bd608);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStartScreenManager2_Vtbl {
@@ -411,16 +276,7 @@ pub struct IStartScreenManager2_Vtbl {
     pub ContainsSecondaryTileAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tileid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub TryRemoveSecondaryTileAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tileid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IStartScreenManagerStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IStartScreenManagerStatics {
-    type Vtable = IStartScreenManagerStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IStartScreenManagerStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7865ef0f_b585_464e_8993_34e8f8738d48);
-}
+::windows_core::imp::com_interface!(IStartScreenManagerStatics, IStartScreenManagerStatics_Vtbl, 0x7865ef0f_b585_464e_8993_34e8f8738d48);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStartScreenManagerStatics_Vtbl {
@@ -431,16 +287,7 @@ pub struct IStartScreenManagerStatics_Vtbl {
     #[cfg(not(feature = "System"))]
     GetForUser: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ITileMixedRealityModel(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ITileMixedRealityModel {
-    type Vtable = ITileMixedRealityModel_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ITileMixedRealityModel {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb0764e5b_887d_4242_9a19_3d0a4ea78031);
-}
+::windows_core::imp::com_interface!(ITileMixedRealityModel, ITileMixedRealityModel_Vtbl, 0xb0764e5b_887d_4242_9a19_3d0a4ea78031);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITileMixedRealityModel_Vtbl {
@@ -456,16 +303,7 @@ pub struct ITileMixedRealityModel_Vtbl {
     #[cfg(not(all(feature = "Foundation_Numerics", feature = "Perception_Spatial")))]
     BoundingBox: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ITileMixedRealityModel2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ITileMixedRealityModel2 {
-    type Vtable = ITileMixedRealityModel2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ITileMixedRealityModel2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x439470b2_d7c5_410b_8319_9486a27b6c67);
-}
+::windows_core::imp::com_interface!(ITileMixedRealityModel2, ITileMixedRealityModel2_Vtbl, 0x439470b2_d7c5_410b_8319_9486a27b6c67);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITileMixedRealityModel2_Vtbl {
@@ -473,16 +311,7 @@ pub struct ITileMixedRealityModel2_Vtbl {
     pub SetActivationBehavior: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: TileMixedRealityModelActivationBehavior) -> ::windows_core::HRESULT,
     pub ActivationBehavior: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut TileMixedRealityModelActivationBehavior) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IVisualElementsRequest(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IVisualElementsRequest {
-    type Vtable = IVisualElementsRequest_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IVisualElementsRequest {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc138333a_9308_4072_88cc_d068db347c68);
-}
+::windows_core::imp::com_interface!(IVisualElementsRequest, IVisualElementsRequest_Vtbl, 0xc138333a_9308_4072_88cc_d068db347c68);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVisualElementsRequest_Vtbl {
@@ -495,32 +324,14 @@ pub struct IVisualElementsRequest_Vtbl {
     pub Deadline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IVisualElementsRequestDeferral(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IVisualElementsRequestDeferral {
-    type Vtable = IVisualElementsRequestDeferral_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IVisualElementsRequestDeferral {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa1656eb0_0126_4357_8204_bd82bb2a046d);
-}
+::windows_core::imp::com_interface!(IVisualElementsRequestDeferral, IVisualElementsRequestDeferral_Vtbl, 0xa1656eb0_0126_4357_8204_bd82bb2a046d);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVisualElementsRequestDeferral_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IVisualElementsRequestedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IVisualElementsRequestedEventArgs {
-    type Vtable = IVisualElementsRequestedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IVisualElementsRequestedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7b6fc982_3a0d_4ece_af96_cd17e1b00b2d);
-}
+::windows_core::imp::com_interface!(IVisualElementsRequestedEventArgs, IVisualElementsRequestedEventArgs_Vtbl, 0x7b6fc982_3a0d_4ece_af96_cd17e1b00b2d);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVisualElementsRequestedEventArgs_Vtbl {
@@ -530,6 +341,7 @@ pub struct IVisualElementsRequestedEventArgs_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct JumpList(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(JumpList, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl JumpList {
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
@@ -581,19 +393,17 @@ impl ::windows_core::RuntimeType for JumpList {
 }
 unsafe impl ::windows_core::Interface for JumpList {
     type Vtable = IJumpList_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for JumpList {
-    const IID: ::windows_core::GUID = <IJumpList as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IJumpList as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for JumpList {
     const NAME: &'static str = "Windows.UI.StartScreen.JumpList";
 }
-::windows_core::imp::interface_hierarchy!(JumpList, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for JumpList {}
 unsafe impl ::core::marker::Sync for JumpList {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct JumpListItem(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(JumpListItem, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl JumpListItem {
     pub fn Kind(&self) -> ::windows_core::Result<JumpListItemKind> {
         let this = self;
@@ -686,19 +496,17 @@ impl ::windows_core::RuntimeType for JumpListItem {
 }
 unsafe impl ::windows_core::Interface for JumpListItem {
     type Vtable = IJumpListItem_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for JumpListItem {
-    const IID: ::windows_core::GUID = <IJumpListItem as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IJumpListItem as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for JumpListItem {
     const NAME: &'static str = "Windows.UI.StartScreen.JumpListItem";
 }
-::windows_core::imp::interface_hierarchy!(JumpListItem, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for JumpListItem {}
 unsafe impl ::core::marker::Sync for JumpListItem {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SecondaryTile(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(SecondaryTile, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl SecondaryTile {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -947,29 +755,29 @@ impl SecondaryTile {
         }
     }
     pub fn SetPhoneticName(&self, value: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<ISecondaryTile2>(self)?;
+        let this = &::windows_core::Interface::cast::<ISecondaryTile2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetPhoneticName)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn PhoneticName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<ISecondaryTile2>(self)?;
+        let this = &::windows_core::Interface::cast::<ISecondaryTile2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PhoneticName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn VisualElements(&self) -> ::windows_core::Result<SecondaryTileVisualElements> {
-        let this = &::windows_core::ComInterface::cast::<ISecondaryTile2>(self)?;
+        let this = &::windows_core::Interface::cast::<ISecondaryTile2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).VisualElements)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetRoamingEnabled(&self, value: bool) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<ISecondaryTile2>(self)?;
+        let this = &::windows_core::Interface::cast::<ISecondaryTile2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetRoamingEnabled)(::windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn RoamingEnabled(&self) -> ::windows_core::Result<bool> {
-        let this = &::windows_core::ComInterface::cast::<ISecondaryTile2>(self)?;
+        let this = &::windows_core::Interface::cast::<ISecondaryTile2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RoamingEnabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -979,14 +787,14 @@ impl SecondaryTile {
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<SecondaryTile, VisualElementsRequestedEventArgs>>,
     {
-        let this = &::windows_core::ComInterface::cast::<ISecondaryTile2>(self)?;
+        let this = &::windows_core::Interface::cast::<ISecondaryTile2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).VisualElementsRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn RemoveVisualElementsRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<ISecondaryTile2>(self)?;
+        let this = &::windows_core::Interface::cast::<ISecondaryTile2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveVisualElementsRequested)(::windows_core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "Required features: `\"deprecated\"`"]
@@ -1078,19 +886,17 @@ impl ::windows_core::RuntimeType for SecondaryTile {
 }
 unsafe impl ::windows_core::Interface for SecondaryTile {
     type Vtable = ISecondaryTile_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for SecondaryTile {
-    const IID: ::windows_core::GUID = <ISecondaryTile as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ISecondaryTile as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for SecondaryTile {
     const NAME: &'static str = "Windows.UI.StartScreen.SecondaryTile";
 }
-::windows_core::imp::interface_hierarchy!(SecondaryTile, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SecondaryTile {}
 unsafe impl ::core::marker::Sync for SecondaryTile {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SecondaryTileVisualElements(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(SecondaryTileVisualElements, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl SecondaryTileVisualElements {
     #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
@@ -1229,11 +1035,11 @@ impl SecondaryTileVisualElements {
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::Uri>,
     {
-        let this = &::windows_core::ComInterface::cast::<ISecondaryTileVisualElements2>(self)?;
+        let this = &::windows_core::Interface::cast::<ISecondaryTileVisualElements2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetSquare71x71Logo)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn Square71x71Logo(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
-        let this = &::windows_core::ComInterface::cast::<ISecondaryTileVisualElements2>(self)?;
+        let this = &::windows_core::Interface::cast::<ISecondaryTileVisualElements2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Square71x71Logo)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -1243,18 +1049,18 @@ impl SecondaryTileVisualElements {
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::Uri>,
     {
-        let this = &::windows_core::ComInterface::cast::<ISecondaryTileVisualElements3>(self)?;
+        let this = &::windows_core::Interface::cast::<ISecondaryTileVisualElements3>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetSquare44x44Logo)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn Square44x44Logo(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
-        let this = &::windows_core::ComInterface::cast::<ISecondaryTileVisualElements3>(self)?;
+        let this = &::windows_core::Interface::cast::<ISecondaryTileVisualElements3>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Square44x44Logo)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn MixedRealityModel(&self) -> ::windows_core::Result<TileMixedRealityModel> {
-        let this = &::windows_core::ComInterface::cast::<ISecondaryTileVisualElements4>(self)?;
+        let this = &::windows_core::Interface::cast::<ISecondaryTileVisualElements4>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MixedRealityModel)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -1266,19 +1072,17 @@ impl ::windows_core::RuntimeType for SecondaryTileVisualElements {
 }
 unsafe impl ::windows_core::Interface for SecondaryTileVisualElements {
     type Vtable = ISecondaryTileVisualElements_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for SecondaryTileVisualElements {
-    const IID: ::windows_core::GUID = <ISecondaryTileVisualElements as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ISecondaryTileVisualElements as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for SecondaryTileVisualElements {
     const NAME: &'static str = "Windows.UI.StartScreen.SecondaryTileVisualElements";
 }
-::windows_core::imp::interface_hierarchy!(SecondaryTileVisualElements, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SecondaryTileVisualElements {}
 unsafe impl ::core::marker::Sync for SecondaryTileVisualElements {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StartScreenManager(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(StartScreenManager, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl StartScreenManager {
     #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
@@ -1326,14 +1130,14 @@ impl StartScreenManager {
         }
     }
     pub fn ContainsSecondaryTileAsync(&self, tileid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
-        let this = &::windows_core::ComInterface::cast::<IStartScreenManager2>(self)?;
+        let this = &::windows_core::Interface::cast::<IStartScreenManager2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ContainsSecondaryTileAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(tileid), &mut result__).from_abi(result__)
         }
     }
     pub fn TryRemoveSecondaryTileAsync(&self, tileid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
-        let this = &::windows_core::ComInterface::cast::<IStartScreenManager2>(self)?;
+        let this = &::windows_core::Interface::cast::<IStartScreenManager2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TryRemoveSecondaryTileAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(tileid), &mut result__).from_abi(result__)
@@ -1367,19 +1171,17 @@ impl ::windows_core::RuntimeType for StartScreenManager {
 }
 unsafe impl ::windows_core::Interface for StartScreenManager {
     type Vtable = IStartScreenManager_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for StartScreenManager {
-    const IID: ::windows_core::GUID = <IStartScreenManager as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IStartScreenManager as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for StartScreenManager {
     const NAME: &'static str = "Windows.UI.StartScreen.StartScreenManager";
 }
-::windows_core::imp::interface_hierarchy!(StartScreenManager, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for StartScreenManager {}
 unsafe impl ::core::marker::Sync for StartScreenManager {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TileMixedRealityModel(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(TileMixedRealityModel, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl TileMixedRealityModel {
     pub fn SetUri<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1399,10 +1201,10 @@ impl TileMixedRealityModel {
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
     pub fn SetBoundingBox<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::IReference<super::super::Perception::Spatial::SpatialBoundingBox>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::IReference<super::super::Perception::Spatial::SpatialBoundingBox>>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetBoundingBox)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetBoundingBox)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "Required features: `\"Foundation_Numerics\"`, `\"Perception_Spatial\"`"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
@@ -1414,11 +1216,11 @@ impl TileMixedRealityModel {
         }
     }
     pub fn SetActivationBehavior(&self, value: TileMixedRealityModelActivationBehavior) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<ITileMixedRealityModel2>(self)?;
+        let this = &::windows_core::Interface::cast::<ITileMixedRealityModel2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetActivationBehavior)(::windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn ActivationBehavior(&self) -> ::windows_core::Result<TileMixedRealityModelActivationBehavior> {
-        let this = &::windows_core::ComInterface::cast::<ITileMixedRealityModel2>(self)?;
+        let this = &::windows_core::Interface::cast::<ITileMixedRealityModel2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ActivationBehavior)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -1430,19 +1232,17 @@ impl ::windows_core::RuntimeType for TileMixedRealityModel {
 }
 unsafe impl ::windows_core::Interface for TileMixedRealityModel {
     type Vtable = ITileMixedRealityModel_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for TileMixedRealityModel {
-    const IID: ::windows_core::GUID = <ITileMixedRealityModel as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ITileMixedRealityModel as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for TileMixedRealityModel {
     const NAME: &'static str = "Windows.UI.StartScreen.TileMixedRealityModel";
 }
-::windows_core::imp::interface_hierarchy!(TileMixedRealityModel, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for TileMixedRealityModel {}
 unsafe impl ::core::marker::Sync for TileMixedRealityModel {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VisualElementsRequest(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(VisualElementsRequest, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl VisualElementsRequest {
     pub fn VisualElements(&self) -> ::windows_core::Result<SecondaryTileVisualElements> {
         let this = self;
@@ -1480,19 +1280,17 @@ impl ::windows_core::RuntimeType for VisualElementsRequest {
 }
 unsafe impl ::windows_core::Interface for VisualElementsRequest {
     type Vtable = IVisualElementsRequest_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for VisualElementsRequest {
-    const IID: ::windows_core::GUID = <IVisualElementsRequest as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IVisualElementsRequest as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for VisualElementsRequest {
     const NAME: &'static str = "Windows.UI.StartScreen.VisualElementsRequest";
 }
-::windows_core::imp::interface_hierarchy!(VisualElementsRequest, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for VisualElementsRequest {}
 unsafe impl ::core::marker::Sync for VisualElementsRequest {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VisualElementsRequestDeferral(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(VisualElementsRequestDeferral, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl VisualElementsRequestDeferral {
     pub fn Complete(&self) -> ::windows_core::Result<()> {
         let this = self;
@@ -1504,19 +1302,17 @@ impl ::windows_core::RuntimeType for VisualElementsRequestDeferral {
 }
 unsafe impl ::windows_core::Interface for VisualElementsRequestDeferral {
     type Vtable = IVisualElementsRequestDeferral_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for VisualElementsRequestDeferral {
-    const IID: ::windows_core::GUID = <IVisualElementsRequestDeferral as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IVisualElementsRequestDeferral as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for VisualElementsRequestDeferral {
     const NAME: &'static str = "Windows.UI.StartScreen.VisualElementsRequestDeferral";
 }
-::windows_core::imp::interface_hierarchy!(VisualElementsRequestDeferral, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for VisualElementsRequestDeferral {}
 unsafe impl ::core::marker::Sync for VisualElementsRequestDeferral {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VisualElementsRequestedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(VisualElementsRequestedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl VisualElementsRequestedEventArgs {
     pub fn Request(&self) -> ::windows_core::Result<VisualElementsRequest> {
         let this = self;
@@ -1531,14 +1327,11 @@ impl ::windows_core::RuntimeType for VisualElementsRequestedEventArgs {
 }
 unsafe impl ::windows_core::Interface for VisualElementsRequestedEventArgs {
     type Vtable = IVisualElementsRequestedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for VisualElementsRequestedEventArgs {
-    const IID: ::windows_core::GUID = <IVisualElementsRequestedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IVisualElementsRequestedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for VisualElementsRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.StartScreen.VisualElementsRequestedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(VisualElementsRequestedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for VisualElementsRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for VisualElementsRequestedEventArgs {}
 #[repr(transparent)]

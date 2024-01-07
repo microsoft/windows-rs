@@ -22,7 +22,7 @@ impl ID3DBlob_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ID3DBlob as ::windows_core::ComInterface>::IID
+        iid == &<ID3DBlob as ::windows_core::Interface>::IID
     }
 }
 pub trait ID3DDestructionNotifier_Impl: Sized {
@@ -55,7 +55,7 @@ impl ID3DDestructionNotifier_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ID3DDestructionNotifier as ::windows_core::ComInterface>::IID
+        iid == &<ID3DDestructionNotifier as ::windows_core::Interface>::IID
     }
 }
 pub trait ID3DInclude_Impl: Sized {

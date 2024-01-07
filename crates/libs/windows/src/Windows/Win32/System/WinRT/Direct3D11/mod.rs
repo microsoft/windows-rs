@@ -20,24 +20,16 @@ where
     let mut result__ = ::std::mem::zeroed();
     CreateDirect3D11SurfaceFromDXGISurface(dgxisurface.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDirect3DDxgiInterfaceAccess(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDirect3DDxgiInterfaceAccess, IDirect3DDxgiInterfaceAccess_Vtbl, 0xa9b3d012_3df2_4ee3_b8d1_8695f457d3c1);
+::windows_core::imp::interface_hierarchy!(IDirect3DDxgiInterfaceAccess, ::windows_core::IUnknown);
 impl IDirect3DDxgiInterfaceAccess {
     pub unsafe fn GetInterface<T>(&self) -> ::windows_core::Result<T>
     where
-        T: ::windows_core::ComInterface,
+        T: ::windows_core::Interface,
     {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).GetInterface)(::windows_core::Interface::as_raw(self), &T::IID, &mut result__).from_abi(result__)
     }
-}
-::windows_core::imp::interface_hierarchy!(IDirect3DDxgiInterfaceAccess, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDirect3DDxgiInterfaceAccess {
-    type Vtable = IDirect3DDxgiInterfaceAccess_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDirect3DDxgiInterfaceAccess {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa9b3d012_3df2_4ee3_b8d1_8695f457d3c1);
 }
 #[repr(C)]
 #[doc(hidden)]

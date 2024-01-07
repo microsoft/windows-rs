@@ -1,6 +1,5 @@
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IChannelCredentials(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IChannelCredentials, IChannelCredentials_Vtbl, 0x181b448c_c17c_4b17_ac6d_06699b93198f);
+::windows_core::imp::interface_hierarchy!(IChannelCredentials, ::windows_core::IUnknown, super::IDispatch);
 impl IChannelCredentials {
     pub unsafe fn SetWindowsCredential<P0, P1, P2, P3>(&self, domain: P0, username: P1, password: P2, impersonationlevel: i32, allowntlm: P3) -> ::windows_core::Result<()>
     where
@@ -86,13 +85,6 @@ impl IChannelCredentials {
     {
         (::windows_core::Interface::vtable(self).SetIssuedToken)(::windows_core::Interface::as_raw(self), localissueraddres.into_param().abi(), localissuerbindingtype.into_param().abi(), localissuerbinding.into_param().abi()).ok()
     }
-}
-::windows_core::imp::interface_hierarchy!(IChannelCredentials, ::windows_core::IUnknown, super::IDispatch);
-unsafe impl ::windows_core::Interface for IChannelCredentials {
-    type Vtable = IChannelCredentials_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IChannelCredentials {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x181b448c_c17c_4b17_ac6d_06699b93198f);
 }
 #[repr(C)]
 #[doc(hidden)]

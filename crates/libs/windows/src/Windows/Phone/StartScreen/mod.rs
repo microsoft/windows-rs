@@ -1,13 +1,4 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDualSimTile(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDualSimTile {
-    type Vtable = IDualSimTile_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDualSimTile {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x143ab213_d05f_4041_a18c_3e3fcb75b41e);
-}
+::windows_core::imp::com_interface!(IDualSimTile, IDualSimTile_Vtbl, 0x143ab213_d05f_4041_a18c_3e3fcb75b41e);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDualSimTile_Vtbl {
@@ -19,16 +10,7 @@ pub struct IDualSimTile_Vtbl {
     pub UpdateAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub DeleteAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDualSimTileStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDualSimTileStatics {
-    type Vtable = IDualSimTileStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDualSimTileStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x50567c9e_c58f_4dc9_b6e8_fa6777eeeb37);
-}
+::windows_core::imp::com_interface!(IDualSimTileStatics, IDualSimTileStatics_Vtbl, 0x50567c9e_c58f_4dc9_b6e8_fa6777eeeb37);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDualSimTileStatics_Vtbl {
@@ -60,9 +42,8 @@ pub struct IDualSimTileStatics_Vtbl {
     #[cfg(not(feature = "UI_Notifications"))]
     CreateToastNotifierForSim2: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IToastNotificationManagerStatics3(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IToastNotificationManagerStatics3, IToastNotificationManagerStatics3_Vtbl, 0x2717f54b_50df_4455_8e6e_41e0fc8e13ce);
+::windows_core::imp::interface_hierarchy!(IToastNotificationManagerStatics3, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl IToastNotificationManagerStatics3 {
     #[doc = "Required features: `\"UI_Notifications\"`"]
     #[cfg(feature = "UI_Notifications")]
@@ -74,15 +55,8 @@ impl IToastNotificationManagerStatics3 {
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IToastNotificationManagerStatics3, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IToastNotificationManagerStatics3 {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IToastNotificationManagerStatics3 {
-    type Vtable = IToastNotificationManagerStatics3_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IToastNotificationManagerStatics3 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2717f54b_50df_4455_8e6e_41e0fc8e13ce);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -96,6 +70,7 @@ pub struct IToastNotificationManagerStatics3_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DualSimTile(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(DualSimTile, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl DualSimTile {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -214,13 +189,10 @@ impl ::windows_core::RuntimeType for DualSimTile {
 }
 unsafe impl ::windows_core::Interface for DualSimTile {
     type Vtable = IDualSimTile_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for DualSimTile {
-    const IID: ::windows_core::GUID = <IDualSimTile as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IDualSimTile as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for DualSimTile {
     const NAME: &'static str = "Windows.Phone.StartScreen.DualSimTile";
 }
-::windows_core::imp::interface_hierarchy!(DualSimTile, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -5,7 +5,7 @@ impl IApoAcousticEchoCancellation_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IApoAcousticEchoCancellation as ::windows_core::ComInterface>::IID
+        iid == &<IApoAcousticEchoCancellation as ::windows_core::Interface>::IID
     }
 }
 pub trait IApoAuxiliaryInputConfiguration_Impl: Sized {
@@ -45,7 +45,7 @@ impl IApoAuxiliaryInputConfiguration_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IApoAuxiliaryInputConfiguration as ::windows_core::ComInterface>::IID
+        iid == &<IApoAuxiliaryInputConfiguration as ::windows_core::Interface>::IID
     }
 }
 pub trait IApoAuxiliaryInputRT_Impl: Sized {
@@ -62,7 +62,7 @@ impl IApoAuxiliaryInputRT_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), AcceptInput: AcceptInput::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IApoAuxiliaryInputRT as ::windows_core::ComInterface>::IID
+        iid == &<IApoAuxiliaryInputRT as ::windows_core::Interface>::IID
     }
 }
 pub trait IAudioDeviceModulesClient_Impl: Sized {
@@ -82,7 +82,7 @@ impl IAudioDeviceModulesClient_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAudioDeviceModulesClient as ::windows_core::ComInterface>::IID
+        iid == &<IAudioDeviceModulesClient as ::windows_core::Interface>::IID
     }
 }
 pub trait IAudioMediaType_Impl: Sized {
@@ -135,7 +135,7 @@ impl IAudioMediaType_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAudioMediaType as ::windows_core::ComInterface>::IID
+        iid == &<IAudioMediaType as ::windows_core::Interface>::IID
     }
 }
 pub trait IAudioProcessingObject_Impl: Sized {
@@ -227,7 +227,7 @@ impl IAudioProcessingObject_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAudioProcessingObject as ::windows_core::ComInterface>::IID
+        iid == &<IAudioProcessingObject as ::windows_core::Interface>::IID
     }
 }
 pub trait IAudioProcessingObjectConfiguration_Impl: Sized {
@@ -254,7 +254,7 @@ impl IAudioProcessingObjectConfiguration_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAudioProcessingObjectConfiguration as ::windows_core::ComInterface>::IID
+        iid == &<IAudioProcessingObjectConfiguration as ::windows_core::Interface>::IID
     }
 }
 pub trait IAudioProcessingObjectLoggingService_Impl: Sized {
@@ -271,7 +271,7 @@ impl IAudioProcessingObjectLoggingService_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ApoLog: ApoLog::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAudioProcessingObjectLoggingService as ::windows_core::ComInterface>::IID
+        iid == &<IAudioProcessingObjectLoggingService as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
@@ -302,7 +302,7 @@ impl IAudioProcessingObjectNotifications_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAudioProcessingObjectNotifications as ::windows_core::ComInterface>::IID
+        iid == &<IAudioProcessingObjectNotifications as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
@@ -326,7 +326,7 @@ impl IAudioProcessingObjectNotifications2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAudioProcessingObjectNotifications2 as ::windows_core::ComInterface>::IID || iid == &<IAudioProcessingObjectNotifications as ::windows_core::ComInterface>::IID
+        iid == &<IAudioProcessingObjectNotifications2 as ::windows_core::Interface>::IID || iid == &<IAudioProcessingObjectNotifications as ::windows_core::Interface>::IID
     }
 }
 pub trait IAudioProcessingObjectRT_Impl: Sized {
@@ -360,7 +360,7 @@ impl IAudioProcessingObjectRT_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAudioProcessingObjectRT as ::windows_core::ComInterface>::IID
+        iid == &<IAudioProcessingObjectRT as ::windows_core::Interface>::IID
     }
 }
 pub trait IAudioProcessingObjectRTQueueService_Impl: Sized {
@@ -383,7 +383,7 @@ impl IAudioProcessingObjectRTQueueService_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetRealTimeWorkQueue: GetRealTimeWorkQueue::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAudioProcessingObjectRTQueueService as ::windows_core::ComInterface>::IID
+        iid == &<IAudioProcessingObjectRTQueueService as ::windows_core::Interface>::IID
     }
 }
 pub trait IAudioProcessingObjectVBR_Impl: Sized {
@@ -422,7 +422,7 @@ impl IAudioProcessingObjectVBR_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAudioProcessingObjectVBR as ::windows_core::ComInterface>::IID
+        iid == &<IAudioProcessingObjectVBR as ::windows_core::Interface>::IID
     }
 }
 pub trait IAudioSystemEffects_Impl: Sized {}
@@ -432,7 +432,7 @@ impl IAudioSystemEffects_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAudioSystemEffects as ::windows_core::ComInterface>::IID
+        iid == &<IAudioSystemEffects as ::windows_core::Interface>::IID
     }
 }
 pub trait IAudioSystemEffects2_Impl: Sized + IAudioSystemEffects_Impl {
@@ -449,7 +449,7 @@ impl IAudioSystemEffects2_Vtbl {
         Self { base__: IAudioSystemEffects_Vtbl::new::<Identity, Impl, OFFSET>(), GetEffectsList: GetEffectsList::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAudioSystemEffects2 as ::windows_core::ComInterface>::IID || iid == &<IAudioSystemEffects as ::windows_core::ComInterface>::IID
+        iid == &<IAudioSystemEffects2 as ::windows_core::Interface>::IID || iid == &<IAudioSystemEffects as ::windows_core::Interface>::IID
     }
 }
 pub trait IAudioSystemEffects3_Impl: Sized + IAudioSystemEffects2_Impl {
@@ -476,7 +476,7 @@ impl IAudioSystemEffects3_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAudioSystemEffects3 as ::windows_core::ComInterface>::IID || iid == &<IAudioSystemEffects as ::windows_core::ComInterface>::IID || iid == &<IAudioSystemEffects2 as ::windows_core::ComInterface>::IID
+        iid == &<IAudioSystemEffects3 as ::windows_core::Interface>::IID || iid == &<IAudioSystemEffects as ::windows_core::Interface>::IID || iid == &<IAudioSystemEffects2 as ::windows_core::Interface>::IID
     }
 }
 pub trait IAudioSystemEffectsCustomFormats_Impl: Sized {
@@ -528,6 +528,6 @@ impl IAudioSystemEffectsCustomFormats_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAudioSystemEffectsCustomFormats as ::windows_core::ComInterface>::IID
+        iid == &<IAudioSystemEffectsCustomFormats as ::windows_core::Interface>::IID
     }
 }

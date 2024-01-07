@@ -16,11 +16,11 @@ pub struct ConstBuffer {
 }
 
 impl ConstBuffer {
-    pub const fn for_class<T: crate::RuntimeName + crate::ComInterface>() -> Self {
+    pub const fn for_class<T: crate::RuntimeName + crate::Interface>() -> Self {
         Self::new().push_slice(b"rc(").push_slice(T::NAME.as_bytes()).push(b';').push_guid(&T::IID).push(b')')
     }
 
-    pub const fn for_interface<T: crate::ComInterface>() -> Self {
+    pub const fn for_interface<T: crate::Interface>() -> Self {
         Self::new().push_guid(&T::IID)
     }
 

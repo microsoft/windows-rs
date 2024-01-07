@@ -1,6 +1,5 @@
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IEnhancedStorageACT(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IEnhancedStorageACT, IEnhancedStorageACT_Vtbl, 0x6e7781f4_e0f2_4239_b976_a01abab52930);
+::windows_core::imp::interface_hierarchy!(IEnhancedStorageACT, ::windows_core::IUnknown);
 impl IEnhancedStorageACT {
     pub unsafe fn Authorize(&self, hwndparent: u32, dwflags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Authorize)(::windows_core::Interface::as_raw(self), hwndparent, dwflags).ok()
@@ -24,13 +23,6 @@ impl IEnhancedStorageACT {
         (::windows_core::Interface::vtable(self).GetSilos)(::windows_core::Interface::as_raw(self), pppienhancedstoragesilos, pcenhancedstoragesilos).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IEnhancedStorageACT, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IEnhancedStorageACT {
-    type Vtable = IEnhancedStorageACT_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IEnhancedStorageACT {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6e7781f4_e0f2_4239_b976_a01abab52930);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnhancedStorageACT_Vtbl {
@@ -42,9 +34,8 @@ pub struct IEnhancedStorageACT_Vtbl {
     pub GetUniqueIdentity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwszidentity: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
     pub GetSilos: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppienhancedstoragesilos: *mut *mut ::core::option::Option<IEnhancedStorageSilo>, pcenhancedstoragesilos: *mut u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IEnhancedStorageACT2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IEnhancedStorageACT2, IEnhancedStorageACT2_Vtbl, 0x4da57d2e_8eb3_41f6_a07e_98b52b88242b);
+::windows_core::imp::interface_hierarchy!(IEnhancedStorageACT2, ::windows_core::IUnknown, IEnhancedStorageACT);
 impl IEnhancedStorageACT2 {
     pub unsafe fn Authorize(&self, hwndparent: u32, dwflags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Authorize)(::windows_core::Interface::as_raw(self), hwndparent, dwflags).ok()
@@ -76,13 +67,6 @@ impl IEnhancedStorageACT2 {
         (::windows_core::Interface::vtable(self).IsDeviceRemovable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IEnhancedStorageACT2, ::windows_core::IUnknown, IEnhancedStorageACT);
-unsafe impl ::windows_core::Interface for IEnhancedStorageACT2 {
-    type Vtable = IEnhancedStorageACT2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IEnhancedStorageACT2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4da57d2e_8eb3_41f6_a07e_98b52b88242b);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnhancedStorageACT2_Vtbl {
@@ -90,9 +74,8 @@ pub struct IEnhancedStorageACT2_Vtbl {
     pub GetDeviceName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwszdevicename: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
     pub IsDeviceRemovable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisdeviceremovable: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IEnhancedStorageACT3(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IEnhancedStorageACT3, IEnhancedStorageACT3_Vtbl, 0x022150a1_113d_11df_bb61_001aa01bbc58);
+::windows_core::imp::interface_hierarchy!(IEnhancedStorageACT3, ::windows_core::IUnknown, IEnhancedStorageACT, IEnhancedStorageACT2);
 impl IEnhancedStorageACT3 {
     pub unsafe fn Authorize(&self, hwndparent: u32, dwflags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.Authorize)(::windows_core::Interface::as_raw(self), hwndparent, dwflags).ok()
@@ -135,13 +118,6 @@ impl IEnhancedStorageACT3 {
         (::windows_core::Interface::vtable(self).GetShellExtSupport)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IEnhancedStorageACT3, ::windows_core::IUnknown, IEnhancedStorageACT, IEnhancedStorageACT2);
-unsafe impl ::windows_core::Interface for IEnhancedStorageACT3 {
-    type Vtable = IEnhancedStorageACT3_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IEnhancedStorageACT3 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x022150a1_113d_11df_bb61_001aa01bbc58);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnhancedStorageACT3_Vtbl {
@@ -150,9 +126,8 @@ pub struct IEnhancedStorageACT3_Vtbl {
     pub IsQueueFrozen: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisqueuefrozen: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
     pub GetShellExtSupport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pshellextsupport: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IEnhancedStorageSilo(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IEnhancedStorageSilo, IEnhancedStorageSilo_Vtbl, 0x5aef78c6_2242_4703_bf49_44b29357a359);
+::windows_core::imp::interface_hierarchy!(IEnhancedStorageSilo, ::windows_core::IUnknown);
 impl IEnhancedStorageSilo {
     pub unsafe fn GetInfo(&self) -> ::windows_core::Result<SILO_INFO> {
         let mut result__ = ::std::mem::zeroed();
@@ -175,13 +150,6 @@ impl IEnhancedStorageSilo {
         (::windows_core::Interface::vtable(self).GetDevicePath)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IEnhancedStorageSilo, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IEnhancedStorageSilo {
-    type Vtable = IEnhancedStorageSilo_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IEnhancedStorageSilo {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5aef78c6_2242_4703_bf49_44b29357a359);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnhancedStorageSilo_Vtbl {
@@ -195,9 +163,8 @@ pub struct IEnhancedStorageSilo_Vtbl {
     GetPortableDevice: usize,
     pub GetDevicePath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwszsilodevicepath: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IEnhancedStorageSiloAction(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IEnhancedStorageSiloAction, IEnhancedStorageSiloAction_Vtbl, 0xb6f7f311_206f_4ff8_9c4b_27efee77a86f);
+::windows_core::imp::interface_hierarchy!(IEnhancedStorageSiloAction, ::windows_core::IUnknown);
 impl IEnhancedStorageSiloAction {
     pub unsafe fn GetName(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
         let mut result__ = ::std::mem::zeroed();
@@ -211,13 +178,6 @@ impl IEnhancedStorageSiloAction {
         (::windows_core::Interface::vtable(self).Invoke)(::windows_core::Interface::as_raw(self)).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IEnhancedStorageSiloAction, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IEnhancedStorageSiloAction {
-    type Vtable = IEnhancedStorageSiloAction_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IEnhancedStorageSiloAction {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb6f7f311_206f_4ff8_9c4b_27efee77a86f);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnhancedStorageSiloAction_Vtbl {
@@ -226,9 +186,8 @@ pub struct IEnhancedStorageSiloAction_Vtbl {
     pub GetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwszactiondescription: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IEnumEnhancedStorageACT(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IEnumEnhancedStorageACT, IEnumEnhancedStorageACT_Vtbl, 0x09b224bd_1335_4631_a7ff_cfd3a92646d7);
+::windows_core::imp::interface_hierarchy!(IEnumEnhancedStorageACT, ::windows_core::IUnknown);
 impl IEnumEnhancedStorageACT {
     pub unsafe fn GetACTs(&self, pppienhancedstorageacts: *mut *mut ::core::option::Option<IEnhancedStorageACT>, pcenhancedstorageacts: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetACTs)(::windows_core::Interface::as_raw(self), pppienhancedstorageacts, pcenhancedstorageacts).ok()
@@ -240,13 +199,6 @@ impl IEnumEnhancedStorageACT {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetMatchingACT)(::windows_core::Interface::as_raw(self), szvolume.into_param().abi(), &mut result__).from_abi(result__)
     }
-}
-::windows_core::imp::interface_hierarchy!(IEnumEnhancedStorageACT, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IEnumEnhancedStorageACT {
-    type Vtable = IEnumEnhancedStorageACT_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IEnumEnhancedStorageACT {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x09b224bd_1335_4631_a7ff_cfd3a92646d7);
 }
 #[repr(C)]
 #[doc(hidden)]

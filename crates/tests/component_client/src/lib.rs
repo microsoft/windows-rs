@@ -49,7 +49,7 @@ fn test() -> Result<()> {
     assert_eq!(inspectable.GetRuntimeClassName()?, "test_component.Class");
 
     // This just casts down to IInspectable since the vtable already includes IInspectable.
-    let inspectable: &IInspectable = class.can_into();
+    let inspectable: &IInspectable = unsafe { std::mem::transmute(&class) };
     // Notice GetRuntimeClassName returns the specific interface name.
     assert_eq!(inspectable.GetRuntimeClassName()?, "test_component.IClass");
 

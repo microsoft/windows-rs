@@ -36,7 +36,7 @@ impl ISceSvcAttachmentData_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISceSvcAttachmentData as ::windows_core::ComInterface>::IID
+        iid == &<ISceSvcAttachmentData as ::windows_core::Interface>::IID
     }
 }
 pub trait ISceSvcAttachmentPersistInfo_Impl: Sized {
@@ -70,6 +70,6 @@ impl ISceSvcAttachmentPersistInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISceSvcAttachmentPersistInfo as ::windows_core::ComInterface>::IID
+        iid == &<ISceSvcAttachmentPersistInfo as ::windows_core::Interface>::IID
     }
 }

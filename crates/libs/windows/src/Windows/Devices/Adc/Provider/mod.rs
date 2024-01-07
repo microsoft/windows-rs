@@ -1,6 +1,5 @@
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAdcControllerProvider(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IAdcControllerProvider, IAdcControllerProvider_Vtbl, 0xbe545828_816d_4de5_a048_aba06958aaa8);
+::windows_core::imp::interface_hierarchy!(IAdcControllerProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl IAdcControllerProvider {
     pub fn ChannelCount(&self) -> ::windows_core::Result<i32> {
         let this = self;
@@ -64,15 +63,8 @@ impl IAdcControllerProvider {
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IAdcControllerProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IAdcControllerProvider {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IAdcControllerProvider {
-    type Vtable = IAdcControllerProvider_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAdcControllerProvider {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbe545828_816d_4de5_a048_aba06958aaa8);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -89,9 +81,8 @@ pub struct IAdcControllerProvider_Vtbl {
     pub ReleaseChannel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, channel: i32) -> ::windows_core::HRESULT,
     pub ReadValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, channelnumber: i32, result__: *mut i32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAdcProvider(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IAdcProvider, IAdcProvider_Vtbl, 0x28953668_9359_4c57_bc88_e275e81638c9);
+::windows_core::imp::interface_hierarchy!(IAdcProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl IAdcProvider {
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
@@ -103,15 +94,8 @@ impl IAdcProvider {
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IAdcProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IAdcProvider {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IAdcProvider {
-    type Vtable = IAdcProvider_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAdcProvider {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x28953668_9359_4c57_bc88_e275e81638c9);
 }
 #[repr(C)]
 #[doc(hidden)]

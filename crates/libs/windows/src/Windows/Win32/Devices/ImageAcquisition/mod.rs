@@ -1,6 +1,5 @@
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IEnumWIA_DEV_CAPS(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IEnumWIA_DEV_CAPS, IEnumWIA_DEV_CAPS_Vtbl, 0x1fcc4287_aca6_11d2_a093_00c04f72dc3c);
+::windows_core::imp::interface_hierarchy!(IEnumWIA_DEV_CAPS, ::windows_core::IUnknown);
 impl IEnumWIA_DEV_CAPS {
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut WIA_DEV_CAP, pceltfetched: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), celt, rgelt, pceltfetched).ok()
@@ -20,13 +19,6 @@ impl IEnumWIA_DEV_CAPS {
         (::windows_core::Interface::vtable(self).GetCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IEnumWIA_DEV_CAPS, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IEnumWIA_DEV_CAPS {
-    type Vtable = IEnumWIA_DEV_CAPS_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IEnumWIA_DEV_CAPS {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1fcc4287_aca6_11d2_a093_00c04f72dc3c);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumWIA_DEV_CAPS_Vtbl {
@@ -37,9 +29,8 @@ pub struct IEnumWIA_DEV_CAPS_Vtbl {
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppienum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcelt: *mut u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IEnumWIA_DEV_INFO(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IEnumWIA_DEV_INFO, IEnumWIA_DEV_INFO_Vtbl, 0x5e38b83c_8cf1_11d1_bf92_0060081ed811);
+::windows_core::imp::interface_hierarchy!(IEnumWIA_DEV_INFO, ::windows_core::IUnknown);
 impl IEnumWIA_DEV_INFO {
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<IWiaPropertyStorage>, pceltfetched: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), celt, ::core::mem::transmute(rgelt), pceltfetched).ok()
@@ -59,13 +50,6 @@ impl IEnumWIA_DEV_INFO {
         (::windows_core::Interface::vtable(self).GetCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IEnumWIA_DEV_INFO, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IEnumWIA_DEV_INFO {
-    type Vtable = IEnumWIA_DEV_INFO_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IEnumWIA_DEV_INFO {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5e38b83c_8cf1_11d1_bf92_0060081ed811);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumWIA_DEV_INFO_Vtbl {
@@ -76,9 +60,8 @@ pub struct IEnumWIA_DEV_INFO_Vtbl {
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppienum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: *mut u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IEnumWIA_FORMAT_INFO(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IEnumWIA_FORMAT_INFO, IEnumWIA_FORMAT_INFO_Vtbl, 0x81befc5b_656d_44f1_b24c_d41d51b4dc81);
+::windows_core::imp::interface_hierarchy!(IEnumWIA_FORMAT_INFO, ::windows_core::IUnknown);
 impl IEnumWIA_FORMAT_INFO {
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut WIA_FORMAT_INFO, pceltfetched: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), celt, rgelt, pceltfetched).ok()
@@ -98,13 +81,6 @@ impl IEnumWIA_FORMAT_INFO {
         (::windows_core::Interface::vtable(self).GetCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IEnumWIA_FORMAT_INFO, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IEnumWIA_FORMAT_INFO {
-    type Vtable = IEnumWIA_FORMAT_INFO_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IEnumWIA_FORMAT_INFO {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x81befc5b_656d_44f1_b24c_d41d51b4dc81);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumWIA_FORMAT_INFO_Vtbl {
@@ -115,9 +91,8 @@ pub struct IEnumWIA_FORMAT_INFO_Vtbl {
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppienum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcelt: *mut u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IEnumWiaItem(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IEnumWiaItem, IEnumWiaItem_Vtbl, 0x5e8383fc_3391_11d2_9a33_00c04fa36145);
+::windows_core::imp::interface_hierarchy!(IEnumWiaItem, ::windows_core::IUnknown);
 impl IEnumWiaItem {
     pub unsafe fn Next(&self, celt: u32, ppiwiaitem: *mut ::core::option::Option<IWiaItem>, pceltfetched: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), celt, ::core::mem::transmute(ppiwiaitem), pceltfetched).ok()
@@ -137,13 +112,6 @@ impl IEnumWiaItem {
         (::windows_core::Interface::vtable(self).GetCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IEnumWiaItem, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IEnumWiaItem {
-    type Vtable = IEnumWiaItem_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IEnumWiaItem {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5e8383fc_3391_11d2_9a33_00c04fa36145);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumWiaItem_Vtbl {
@@ -154,9 +122,8 @@ pub struct IEnumWiaItem_Vtbl {
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppienum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: *mut u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IEnumWiaItem2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IEnumWiaItem2, IEnumWiaItem2_Vtbl, 0x59970af4_cd0d_44d9_ab24_52295630e582);
+::windows_core::imp::interface_hierarchy!(IEnumWiaItem2, ::windows_core::IUnknown);
 impl IEnumWiaItem2 {
     pub unsafe fn Next(&self, celt: u32, ppiwiaitem2: *mut ::core::option::Option<IWiaItem2>, pceltfetched: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), celt, ::core::mem::transmute(ppiwiaitem2), pceltfetched).ok()
@@ -176,13 +143,6 @@ impl IEnumWiaItem2 {
         (::windows_core::Interface::vtable(self).GetCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IEnumWiaItem2, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IEnumWiaItem2 {
-    type Vtable = IEnumWiaItem2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IEnumWiaItem2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x59970af4_cd0d_44d9_ab24_52295630e582);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumWiaItem2_Vtbl {
@@ -193,9 +153,8 @@ pub struct IEnumWiaItem2_Vtbl {
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppienum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: *mut u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWiaAppErrorHandler(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWiaAppErrorHandler, IWiaAppErrorHandler_Vtbl, 0x6c16186c_d0a6_400c_80f4_d26986a0e734);
+::windows_core::imp::interface_hierarchy!(IWiaAppErrorHandler, ::windows_core::IUnknown);
 impl IWiaAppErrorHandler {
     pub unsafe fn GetWindow(&self) -> ::windows_core::Result<super::super::Foundation::HWND> {
         let mut result__ = ::std::mem::zeroed();
@@ -208,13 +167,6 @@ impl IWiaAppErrorHandler {
         (::windows_core::Interface::vtable(self).ReportStatus)(::windows_core::Interface::as_raw(self), lflags, pwiaitem2.into_param().abi(), hrstatus, lpercentcomplete).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IWiaAppErrorHandler, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWiaAppErrorHandler {
-    type Vtable = IWiaAppErrorHandler_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWiaAppErrorHandler {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6c16186c_d0a6_400c_80f4_d26986a0e734);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiaAppErrorHandler_Vtbl {
@@ -222,20 +174,12 @@ pub struct IWiaAppErrorHandler_Vtbl {
     pub GetWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phwnd: *mut super::super::Foundation::HWND) -> ::windows_core::HRESULT,
     pub ReportStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, pwiaitem2: *mut ::core::ffi::c_void, hrstatus: ::windows_core::HRESULT, lpercentcomplete: i32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWiaDataCallback(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWiaDataCallback, IWiaDataCallback_Vtbl, 0xa558a866_a5b0_11d2_a08f_00c04f72dc3c);
+::windows_core::imp::interface_hierarchy!(IWiaDataCallback, ::windows_core::IUnknown);
 impl IWiaDataCallback {
     pub unsafe fn BandedDataCallback(&self, lmessage: i32, lstatus: i32, lpercentcomplete: i32, loffset: i32, llength: i32, lreserved: i32, lreslength: i32, pbbuffer: *mut u8) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).BandedDataCallback)(::windows_core::Interface::as_raw(self), lmessage, lstatus, lpercentcomplete, loffset, llength, lreserved, lreslength, pbbuffer).ok()
     }
-}
-::windows_core::imp::interface_hierarchy!(IWiaDataCallback, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWiaDataCallback {
-    type Vtable = IWiaDataCallback_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWiaDataCallback {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa558a866_a5b0_11d2_a08f_00c04f72dc3c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -243,9 +187,8 @@ pub struct IWiaDataCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub BandedDataCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lmessage: i32, lstatus: i32, lpercentcomplete: i32, loffset: i32, llength: i32, lreserved: i32, lreslength: i32, pbbuffer: *mut u8) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWiaDataTransfer(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWiaDataTransfer, IWiaDataTransfer_Vtbl, 0xa6cef998_a5b0_11d2_a08f_00c04f72dc3c);
+::windows_core::imp::interface_hierarchy!(IWiaDataTransfer, ::windows_core::IUnknown);
 impl IWiaDataTransfer {
     #[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`"]
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
@@ -272,13 +215,6 @@ impl IWiaDataTransfer {
         (::windows_core::Interface::vtable(self).idtGetExtendedTransferInfo)(::windows_core::Interface::as_raw(self), pextendedtransferinfo).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IWiaDataTransfer, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWiaDataTransfer {
-    type Vtable = IWiaDataTransfer_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWiaDataTransfer {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa6cef998_a5b0_11d2_a08f_00c04f72dc3c);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiaDataTransfer_Vtbl {
@@ -292,9 +228,8 @@ pub struct IWiaDataTransfer_Vtbl {
     pub idtEnumWIA_FORMAT_INFO: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub idtGetExtendedTransferInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pextendedtransferinfo: *mut WIA_EXTENDED_TRANSFER_INFO) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWiaDevMgr(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWiaDevMgr, IWiaDevMgr_Vtbl, 0x5eb2502a_8cf1_11d1_bf92_0060081ed811);
+::windows_core::imp::interface_hierarchy!(IWiaDevMgr, ::windows_core::IUnknown);
 impl IWiaDevMgr {
     pub unsafe fn EnumDeviceInfo(&self, lflag: i32) -> ::windows_core::Result<IEnumWIA_DEV_INFO> {
         let mut result__ = ::std::mem::zeroed();
@@ -361,13 +296,6 @@ impl IWiaDevMgr {
         (::windows_core::Interface::vtable(self).AddDeviceDlg)(::windows_core::Interface::as_raw(self), hwndparent.into_param().abi(), lflags).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IWiaDevMgr, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWiaDevMgr {
-    type Vtable = IWiaDevMgr_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWiaDevMgr {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5eb2502a_8cf1_11d1_bf92_0060081ed811);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiaDevMgr_Vtbl {
@@ -382,9 +310,8 @@ pub struct IWiaDevMgr_Vtbl {
     pub RegisterEventCallbackCLSID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, bstrdeviceid: ::std::mem::MaybeUninit<::windows_core::BSTR>, peventguid: *const ::windows_core::GUID, pclsid: *const ::windows_core::GUID, bstrname: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrdescription: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstricon: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub AddDeviceDlg: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, lflags: i32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWiaDevMgr2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWiaDevMgr2, IWiaDevMgr2_Vtbl, 0x79c07cf1_cbdd_41ee_8ec3_f00080cada7a);
+::windows_core::imp::interface_hierarchy!(IWiaDevMgr2, ::windows_core::IUnknown);
 impl IWiaDevMgr2 {
     pub unsafe fn EnumDeviceInfo(&self, lflags: i32) -> ::windows_core::Result<IEnumWIA_DEV_INFO> {
         let mut result__ = ::std::mem::zeroed();
@@ -447,13 +374,6 @@ impl IWiaDevMgr2 {
         (::windows_core::Interface::vtable(self).GetImageDlg)(::windows_core::Interface::as_raw(self), lflags, bstrdeviceid.into_param().abi(), hwndparent.into_param().abi(), bstrfoldername.into_param().abi(), bstrfilename.into_param().abi(), plnumfiles, ppbstrfilepaths, ::core::mem::transmute(ppitem)).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IWiaDevMgr2, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWiaDevMgr2 {
-    type Vtable = IWiaDevMgr2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWiaDevMgr2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x79c07cf1_cbdd_41ee_8ec3_f00080cada7a);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiaDevMgr2_Vtbl {
@@ -467,9 +387,8 @@ pub struct IWiaDevMgr2_Vtbl {
     pub RegisterEventCallbackCLSID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, bstrdeviceid: ::std::mem::MaybeUninit<::windows_core::BSTR>, peventguid: *const ::windows_core::GUID, pclsid: *const ::windows_core::GUID, bstrname: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrdescription: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstricon: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub GetImageDlg: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, bstrdeviceid: ::std::mem::MaybeUninit<::windows_core::BSTR>, hwndparent: super::super::Foundation::HWND, bstrfoldername: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrfilename: ::std::mem::MaybeUninit<::windows_core::BSTR>, plnumfiles: *mut i32, ppbstrfilepaths: *mut *mut ::windows_core::BSTR, ppitem: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWiaDrvItem(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWiaDrvItem, IWiaDrvItem_Vtbl, 0x1f02b5c5_b00c_11d2_a094_00c04f72dc3c);
+::windows_core::imp::interface_hierarchy!(IWiaDrvItem, ::windows_core::IUnknown);
 impl IWiaDrvItem {
     pub unsafe fn GetItemFlags(&self) -> ::windows_core::Result<i32> {
         let mut result__ = ::std::mem::zeroed();
@@ -530,13 +449,6 @@ impl IWiaDrvItem {
         (::windows_core::Interface::vtable(self).DumpItemData)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IWiaDrvItem, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWiaDrvItem {
-    type Vtable = IWiaDrvItem_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWiaDrvItem {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1f02b5c5_b00c_11d2_a094_00c04f72dc3c);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiaDrvItem_Vtbl {
@@ -555,9 +467,8 @@ pub struct IWiaDrvItem_Vtbl {
     pub GetNextSiblingItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iwiadrvitem0014: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub DumpItemData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iwiadrvitem0015: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWiaErrorHandler(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWiaErrorHandler, IWiaErrorHandler_Vtbl, 0x0e4a51b1_bc1f_443d_a835_72e890759ef3);
+::windows_core::imp::interface_hierarchy!(IWiaErrorHandler, ::windows_core::IUnknown);
 impl IWiaErrorHandler {
     pub unsafe fn ReportStatus<P0, P1>(&self, lflags: i32, hwndparent: P0, pwiaitem2: P1, hrstatus: ::windows_core::HRESULT, lpercentcomplete: i32) -> ::windows_core::Result<()>
     where
@@ -574,13 +485,6 @@ impl IWiaErrorHandler {
         (::windows_core::Interface::vtable(self).GetStatusDescription)(::windows_core::Interface::as_raw(self), lflags, pwiaitem2.into_param().abi(), hrstatus, &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IWiaErrorHandler, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWiaErrorHandler {
-    type Vtable = IWiaErrorHandler_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWiaErrorHandler {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0e4a51b1_bc1f_443d_a835_72e890759ef3);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiaErrorHandler_Vtbl {
@@ -588,9 +492,8 @@ pub struct IWiaErrorHandler_Vtbl {
     pub ReportStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, hwndparent: super::super::Foundation::HWND, pwiaitem2: *mut ::core::ffi::c_void, hrstatus: ::windows_core::HRESULT, lpercentcomplete: i32) -> ::windows_core::HRESULT,
     pub GetStatusDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, pwiaitem2: *mut ::core::ffi::c_void, hrstatus: ::windows_core::HRESULT, pbstrdescription: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWiaEventCallback(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWiaEventCallback, IWiaEventCallback_Vtbl, 0xae6287b0_0084_11d2_973b_00a0c9068f2e);
+::windows_core::imp::interface_hierarchy!(IWiaEventCallback, ::windows_core::IUnknown);
 impl IWiaEventCallback {
     pub unsafe fn ImageEventCallback<P0, P1, P2, P3>(&self, peventguid: *const ::windows_core::GUID, bstreventdescription: P0, bstrdeviceid: P1, bstrdevicedescription: P2, dwdevicetype: u32, bstrfullitemname: P3, puleventtype: *mut u32, ulreserved: u32) -> ::windows_core::Result<()>
     where
@@ -602,22 +505,14 @@ impl IWiaEventCallback {
         (::windows_core::Interface::vtable(self).ImageEventCallback)(::windows_core::Interface::as_raw(self), peventguid, bstreventdescription.into_param().abi(), bstrdeviceid.into_param().abi(), bstrdevicedescription.into_param().abi(), dwdevicetype, bstrfullitemname.into_param().abi(), puleventtype, ulreserved).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IWiaEventCallback, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWiaEventCallback {
-    type Vtable = IWiaEventCallback_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWiaEventCallback {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xae6287b0_0084_11d2_973b_00a0c9068f2e);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiaEventCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub ImageEventCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peventguid: *const ::windows_core::GUID, bstreventdescription: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrdeviceid: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrdevicedescription: ::std::mem::MaybeUninit<::windows_core::BSTR>, dwdevicetype: u32, bstrfullitemname: ::std::mem::MaybeUninit<::windows_core::BSTR>, puleventtype: *mut u32, ulreserved: u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWiaImageFilter(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWiaImageFilter, IWiaImageFilter_Vtbl, 0xa8a79ffa_450b_41f1_8f87_849ccd94ebf6);
+::windows_core::imp::interface_hierarchy!(IWiaImageFilter, ::windows_core::IUnknown);
 impl IWiaImageFilter {
     pub unsafe fn InitializeFilter<P0, P1>(&self, pwiaitem2: P0, pwiatransfercallback: P1) -> ::windows_core::Result<()>
     where
@@ -648,13 +543,6 @@ impl IWiaImageFilter {
         (::windows_core::Interface::vtable(self).ApplyProperties)(::windows_core::Interface::as_raw(self), pwiapropertystorage.into_param().abi()).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IWiaImageFilter, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWiaImageFilter {
-    type Vtable = IWiaImageFilter_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWiaImageFilter {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa8a79ffa_450b_41f1_8f87_849ccd94ebf6);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiaImageFilter_Vtbl {
@@ -667,9 +555,8 @@ pub struct IWiaImageFilter_Vtbl {
     FilterPreviewImage: usize,
     pub ApplyProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwiapropertystorage: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWiaItem(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWiaItem, IWiaItem_Vtbl, 0x4db1ad10_3391_11d2_9a33_00c04fa36145);
+::windows_core::imp::interface_hierarchy!(IWiaItem, ::windows_core::IUnknown);
 impl IWiaItem {
     pub unsafe fn GetItemType(&self) -> ::windows_core::Result<i32> {
         let mut result__ = ::std::mem::zeroed();
@@ -737,13 +624,6 @@ impl IWiaItem {
         (::windows_core::Interface::vtable(self).Diagnostic)(::windows_core::Interface::as_raw(self), pbuffer.len().try_into().unwrap(), ::core::mem::transmute(pbuffer.as_ptr())).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IWiaItem, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWiaItem {
-    type Vtable = IWiaItem_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWiaItem {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4db1ad10_3391_11d2_9a33_00c04fa36145);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiaItem_Vtbl {
@@ -764,9 +644,8 @@ pub struct IWiaItem_Vtbl {
     pub DumpTreeItemData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdata: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub Diagnostic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulsize: u32, pbuffer: *const u8) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWiaItem2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWiaItem2, IWiaItem2_Vtbl, 0x6cba0075_1287_407d_9b77_cf0e030435cc);
+::windows_core::imp::interface_hierarchy!(IWiaItem2, ::windows_core::IUnknown);
 impl IWiaItem2 {
     pub unsafe fn CreateChildItem<P0>(&self, litemflags: i32, lcreationflags: i32, bstritemname: P0) -> ::windows_core::Result<IWiaItem2>
     where
@@ -844,13 +723,6 @@ impl IWiaItem2 {
         (::windows_core::Interface::vtable(self).Diagnostic)(::windows_core::Interface::as_raw(self), pbuffer.len().try_into().unwrap(), ::core::mem::transmute(pbuffer.as_ptr())).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IWiaItem2, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWiaItem2 {
-    type Vtable = IWiaItem2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWiaItem2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6cba0075_1287_407d_9b77_cf0e030435cc);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiaItem2_Vtbl {
@@ -872,9 +744,8 @@ pub struct IWiaItem2_Vtbl {
     pub EnumRegisterEventInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, peventguid: *const ::windows_core::GUID, ppienum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Diagnostic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulsize: u32, pbuffer: *const u8) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWiaItemExtras(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWiaItemExtras, IWiaItemExtras_Vtbl, 0x6291ef2c_36ef_4532_876a_8e132593778d);
+::windows_core::imp::interface_hierarchy!(IWiaItemExtras, ::windows_core::IUnknown);
 impl IWiaItemExtras {
     pub unsafe fn GetExtendedErrorInfo(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
@@ -887,13 +758,6 @@ impl IWiaItemExtras {
         (::windows_core::Interface::vtable(self).CancelPendingIO)(::windows_core::Interface::as_raw(self)).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IWiaItemExtras, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWiaItemExtras {
-    type Vtable = IWiaItemExtras_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWiaItemExtras {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6291ef2c_36ef_4532_876a_8e132593778d);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiaItemExtras_Vtbl {
@@ -902,9 +766,8 @@ pub struct IWiaItemExtras_Vtbl {
     pub Escape: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwescapecode: u32, lpindata: *const u8, cbindatasize: u32, poutdata: *mut u8, dwoutdatasize: u32, pdwactualdatasize: *mut u32) -> ::windows_core::HRESULT,
     pub CancelPendingIO: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWiaLog(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWiaLog, IWiaLog_Vtbl, 0xa00c10b6_82a1_452f_8b6c_86062aad6890);
+::windows_core::imp::interface_hierarchy!(IWiaLog, ::windows_core::IUnknown);
 impl IWiaLog {
     pub unsafe fn InitializeLog(&self, hinstance: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).InitializeLog)(::windows_core::Interface::as_raw(self), hinstance).ok()
@@ -919,13 +782,6 @@ impl IWiaLog {
         (::windows_core::Interface::vtable(self).Log)(::windows_core::Interface::as_raw(self), lflags, lresid, ldetail, bstrtext.into_param().abi()).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IWiaLog, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWiaLog {
-    type Vtable = IWiaLog_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWiaLog {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa00c10b6_82a1_452f_8b6c_86062aad6890);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiaLog_Vtbl {
@@ -934,9 +790,8 @@ pub struct IWiaLog_Vtbl {
     pub hResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hresult: ::windows_core::HRESULT) -> ::windows_core::HRESULT,
     pub Log: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, lresid: i32, ldetail: i32, bstrtext: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWiaLogEx(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWiaLogEx, IWiaLogEx_Vtbl, 0xaf1f22ac_7a40_4787_b421_aeb47a1fbd0b);
+::windows_core::imp::interface_hierarchy!(IWiaLogEx, ::windows_core::IUnknown);
 impl IWiaLogEx {
     pub unsafe fn InitializeLogEx(&self, hinstance: *const u8) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).InitializeLogEx)(::windows_core::Interface::as_raw(self), hinstance).ok()
@@ -960,13 +815,6 @@ impl IWiaLogEx {
         (::windows_core::Interface::vtable(self).LogEx)(::windows_core::Interface::as_raw(self), lmethodid, lflags, lresid, ldetail, bstrtext.into_param().abi()).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IWiaLogEx, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWiaLogEx {
-    type Vtable = IWiaLogEx_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWiaLogEx {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaf1f22ac_7a40_4787_b421_aeb47a1fbd0b);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiaLogEx_Vtbl {
@@ -977,9 +825,8 @@ pub struct IWiaLogEx_Vtbl {
     pub hResultEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lmethodid: i32, hresult: ::windows_core::HRESULT) -> ::windows_core::HRESULT,
     pub LogEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lmethodid: i32, lflags: i32, lresid: i32, ldetail: i32, bstrtext: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWiaMiniDrv(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWiaMiniDrv, IWiaMiniDrv_Vtbl, 0xd8cdee14_3c6c_11d2_9a35_00c04fa36145);
+::windows_core::imp::interface_hierarchy!(IWiaMiniDrv, ::windows_core::IUnknown);
 impl IWiaMiniDrv {
     pub unsafe fn drvInitializeWia<P0, P1, P2, P3>(&self, __midl__iwiaminidrv0000: *const u8, __midl__iwiaminidrv0001: i32, __midl__iwiaminidrv0002: P0, __midl__iwiaminidrv0003: P1, __midl__iwiaminidrv0004: P2, __midl__iwiaminidrv0005: P3, __midl__iwiaminidrv0006: *mut ::core::option::Option<IWiaDrvItem>, __midl__iwiaminidrv0007: *mut ::core::option::Option<::windows_core::IUnknown>, __midl__iwiaminidrv0008: *mut i32) -> ::windows_core::Result<()>
     where
@@ -1054,13 +901,6 @@ impl IWiaMiniDrv {
         (::windows_core::Interface::vtable(self).drvUnInitializeWia)(::windows_core::Interface::as_raw(self), __midl__iwiaminidrv0064).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IWiaMiniDrv, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWiaMiniDrv {
-    type Vtable = IWiaMiniDrv_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWiaMiniDrv {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd8cdee14_3c6c_11d2_9a35_00c04fa36145);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiaMiniDrv_Vtbl {
@@ -1089,20 +929,12 @@ pub struct IWiaMiniDrv_Vtbl {
     pub drvNotifyPnpEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peventguid: *const ::windows_core::GUID, bstrdeviceid: ::std::mem::MaybeUninit<::windows_core::BSTR>, ulreserved: u32) -> ::windows_core::HRESULT,
     pub drvUnInitializeWia: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iwiaminidrv0064: *const u8) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWiaMiniDrvCallBack(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWiaMiniDrvCallBack, IWiaMiniDrvCallBack_Vtbl, 0x33a57d5a_3de8_11d2_9a36_00c04fa36145);
+::windows_core::imp::interface_hierarchy!(IWiaMiniDrvCallBack, ::windows_core::IUnknown);
 impl IWiaMiniDrvCallBack {
     pub unsafe fn MiniDrvCallback(&self, lreason: i32, lstatus: i32, lpercentcomplete: i32, loffset: i32, llength: i32, ptranctx: *const MINIDRV_TRANSFER_CONTEXT, lreserved: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).MiniDrvCallback)(::windows_core::Interface::as_raw(self), lreason, lstatus, lpercentcomplete, loffset, llength, ptranctx, lreserved).ok()
     }
-}
-::windows_core::imp::interface_hierarchy!(IWiaMiniDrvCallBack, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWiaMiniDrvCallBack {
-    type Vtable = IWiaMiniDrvCallBack_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWiaMiniDrvCallBack {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x33a57d5a_3de8_11d2_9a36_00c04fa36145);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1110,9 +942,8 @@ pub struct IWiaMiniDrvCallBack_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub MiniDrvCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lreason: i32, lstatus: i32, lpercentcomplete: i32, loffset: i32, llength: i32, ptranctx: *const MINIDRV_TRANSFER_CONTEXT, lreserved: i32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWiaMiniDrvTransferCallback(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWiaMiniDrvTransferCallback, IWiaMiniDrvTransferCallback_Vtbl, 0xa9d2ee89_2ce5_4ff0_8adb_c961d1d774ca);
+::windows_core::imp::interface_hierarchy!(IWiaMiniDrvTransferCallback, ::windows_core::IUnknown);
 impl IWiaMiniDrvTransferCallback {
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1128,13 +959,6 @@ impl IWiaMiniDrvTransferCallback {
         (::windows_core::Interface::vtable(self).SendMessage)(::windows_core::Interface::as_raw(self), lflags, pwiatransferparams).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IWiaMiniDrvTransferCallback, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWiaMiniDrvTransferCallback {
-    type Vtable = IWiaMiniDrvTransferCallback_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWiaMiniDrvTransferCallback {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa9d2ee89_2ce5_4ff0_8adb_c961d1d774ca);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiaMiniDrvTransferCallback_Vtbl {
@@ -1145,20 +969,12 @@ pub struct IWiaMiniDrvTransferCallback_Vtbl {
     GetNextStream: usize,
     pub SendMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, pwiatransferparams: *const WiaTransferParams) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWiaNotifyDevMgr(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWiaNotifyDevMgr, IWiaNotifyDevMgr_Vtbl, 0x70681ea0_e7bf_4291_9fb1_4e8813a3f78e);
+::windows_core::imp::interface_hierarchy!(IWiaNotifyDevMgr, ::windows_core::IUnknown);
 impl IWiaNotifyDevMgr {
     pub unsafe fn NewDeviceArrival(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).NewDeviceArrival)(::windows_core::Interface::as_raw(self)).ok()
     }
-}
-::windows_core::imp::interface_hierarchy!(IWiaNotifyDevMgr, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWiaNotifyDevMgr {
-    type Vtable = IWiaNotifyDevMgr_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWiaNotifyDevMgr {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x70681ea0_e7bf_4291_9fb1_4e8813a3f78e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1166,9 +982,8 @@ pub struct IWiaNotifyDevMgr_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub NewDeviceArrival: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWiaPreview(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWiaPreview, IWiaPreview_Vtbl, 0x95c2b4fd_33f2_4d86_ad40_9431f0df08f7);
+::windows_core::imp::interface_hierarchy!(IWiaPreview, ::windows_core::IUnknown);
 impl IWiaPreview {
     pub unsafe fn GetNewPreview<P0, P1>(&self, lflags: i32, pwiaitem2: P0, pwiatransfercallback: P1) -> ::windows_core::Result<()>
     where
@@ -1191,13 +1006,6 @@ impl IWiaPreview {
         (::windows_core::Interface::vtable(self).Clear)(::windows_core::Interface::as_raw(self)).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IWiaPreview, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWiaPreview {
-    type Vtable = IWiaPreview_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWiaPreview {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x95c2b4fd_33f2_4d86_ad40_9431f0df08f7);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiaPreview_Vtbl {
@@ -1207,9 +1015,8 @@ pub struct IWiaPreview_Vtbl {
     pub DetectRegions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32) -> ::windows_core::HRESULT,
     pub Clear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWiaPropertyStorage(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWiaPropertyStorage, IWiaPropertyStorage_Vtbl, 0x98b5e8a0_29cc_491a_aac0_e6db4fdcceb6);
+::windows_core::imp::interface_hierarchy!(IWiaPropertyStorage, ::windows_core::IUnknown);
 impl IWiaPropertyStorage {
     #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
@@ -1281,13 +1088,6 @@ impl IWiaPropertyStorage {
         (::windows_core::Interface::vtable(self).SetPropertyStream)(::windows_core::Interface::as_raw(self), pcompatibilityid, pistream.into_param().abi()).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IWiaPropertyStorage, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWiaPropertyStorage {
-    type Vtable = IWiaPropertyStorage_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWiaPropertyStorage {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x98b5e8a0_29cc_491a_aac0_e6db4fdcceb6);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiaPropertyStorage_Vtbl {
@@ -1333,9 +1133,8 @@ pub struct IWiaPropertyStorage_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     SetPropertyStream: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWiaSegmentationFilter(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWiaSegmentationFilter, IWiaSegmentationFilter_Vtbl, 0xec46a697_ac04_4447_8f65_ff63d5154b21);
+::windows_core::imp::interface_hierarchy!(IWiaSegmentationFilter, ::windows_core::IUnknown);
 impl IWiaSegmentationFilter {
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1347,13 +1146,6 @@ impl IWiaSegmentationFilter {
         (::windows_core::Interface::vtable(self).DetectRegions)(::windows_core::Interface::as_raw(self), lflags, pinputstream.into_param().abi(), pwiaitem2.into_param().abi()).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IWiaSegmentationFilter, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWiaSegmentationFilter {
-    type Vtable = IWiaSegmentationFilter_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWiaSegmentationFilter {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xec46a697_ac04_4447_8f65_ff63d5154b21);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiaSegmentationFilter_Vtbl {
@@ -1363,9 +1155,8 @@ pub struct IWiaSegmentationFilter_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     DetectRegions: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWiaTransfer(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWiaTransfer, IWiaTransfer_Vtbl, 0xc39d6942_2f4e_4d04_92fe_4ef4d3a1de5a);
+::windows_core::imp::interface_hierarchy!(IWiaTransfer, ::windows_core::IUnknown);
 impl IWiaTransfer {
     pub unsafe fn Download<P0>(&self, lflags: i32, piwiatransfercallback: P0) -> ::windows_core::Result<()>
     where
@@ -1390,13 +1181,6 @@ impl IWiaTransfer {
         (::windows_core::Interface::vtable(self).EnumWIA_FORMAT_INFO)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IWiaTransfer, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWiaTransfer {
-    type Vtable = IWiaTransfer_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWiaTransfer {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc39d6942_2f4e_4d04_92fe_4ef4d3a1de5a);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiaTransfer_Vtbl {
@@ -1409,9 +1193,8 @@ pub struct IWiaTransfer_Vtbl {
     pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub EnumWIA_FORMAT_INFO: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWiaTransferCallback(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWiaTransferCallback, IWiaTransferCallback_Vtbl, 0x27d4eaaf_28a6_4ca5_9aab_e678168b9527);
+::windows_core::imp::interface_hierarchy!(IWiaTransferCallback, ::windows_core::IUnknown);
 impl IWiaTransferCallback {
     pub unsafe fn TransferCallback(&self, lflags: i32, pwiatransferparams: *const WiaTransferParams) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).TransferCallback)(::windows_core::Interface::as_raw(self), lflags, pwiatransferparams).ok()
@@ -1427,13 +1210,6 @@ impl IWiaTransferCallback {
         (::windows_core::Interface::vtable(self).GetNextStream)(::windows_core::Interface::as_raw(self), lflags, bstritemname.into_param().abi(), bstrfullitemname.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IWiaTransferCallback, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWiaTransferCallback {
-    type Vtable = IWiaTransferCallback_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWiaTransferCallback {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x27d4eaaf_28a6_4ca5_9aab_e678168b9527);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiaTransferCallback_Vtbl {
@@ -1444,9 +1220,8 @@ pub struct IWiaTransferCallback_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetNextStream: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWiaUIExtension(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWiaUIExtension, IWiaUIExtension_Vtbl, 0xda319113_50ee_4c80_b460_57d005d44a2c);
+::windows_core::imp::interface_hierarchy!(IWiaUIExtension, ::windows_core::IUnknown);
 impl IWiaUIExtension {
     pub unsafe fn DeviceDialog(&self, pdevicedialogdata: *const DEVICEDIALOGDATA) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).DeviceDialog)(::windows_core::Interface::as_raw(self), pdevicedialogdata).ok()
@@ -1468,13 +1243,6 @@ impl IWiaUIExtension {
         (::windows_core::Interface::vtable(self).GetDeviceBitmapLogo)(::windows_core::Interface::as_raw(self), bstrdeviceid.into_param().abi(), phbitmap, nmaxwidth, nmaxheight).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IWiaUIExtension, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWiaUIExtension {
-    type Vtable = IWiaUIExtension_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWiaUIExtension {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xda319113_50ee_4c80_b460_57d005d44a2c);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiaUIExtension_Vtbl {
@@ -1489,9 +1257,8 @@ pub struct IWiaUIExtension_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     GetDeviceBitmapLogo: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWiaUIExtension2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWiaUIExtension2, IWiaUIExtension2_Vtbl, 0x305600d7_5088_46d7_9a15_b77b09cdba7a);
+::windows_core::imp::interface_hierarchy!(IWiaUIExtension2, ::windows_core::IUnknown);
 impl IWiaUIExtension2 {
     pub unsafe fn DeviceDialog(&self, pdevicedialogdata: *const DEVICEDIALOGDATA2) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).DeviceDialog)(::windows_core::Interface::as_raw(self), pdevicedialogdata).ok()
@@ -1505,13 +1272,6 @@ impl IWiaUIExtension2 {
         (::windows_core::Interface::vtable(self).GetDeviceIcon)(::windows_core::Interface::as_raw(self), bstrdeviceid.into_param().abi(), phicon, nsize).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IWiaUIExtension2, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWiaUIExtension2 {
-    type Vtable = IWiaUIExtension2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWiaUIExtension2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x305600d7_5088_46d7_9a15_b77b09cdba7a);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWiaUIExtension2_Vtbl {
@@ -1522,9 +1282,8 @@ pub struct IWiaUIExtension2_Vtbl {
     #[cfg(not(feature = "Win32_UI_WindowsAndMessaging"))]
     GetDeviceIcon: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWiaVideo(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWiaVideo, IWiaVideo_Vtbl, 0xd52920aa_db88_41f0_946c_e00dc0a19cfa);
+::windows_core::imp::interface_hierarchy!(IWiaVideo, ::windows_core::IUnknown);
 impl IWiaVideo {
     pub unsafe fn PreviewVisible(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -1595,13 +1354,6 @@ impl IWiaVideo {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentState)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-}
-::windows_core::imp::interface_hierarchy!(IWiaVideo, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWiaVideo {
-    type Vtable = IWiaVideo_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWiaVideo {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd52920aa_db88_41f0_946c_e00dc0a19cfa);
 }
 #[repr(C)]
 #[doc(hidden)]

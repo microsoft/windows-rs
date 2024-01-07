@@ -1,6 +1,5 @@
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRichEditOle(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IRichEditOle, IRichEditOle_Vtbl, 0x00020d00_0000_0000_c000_000000000046);
+::windows_core::imp::interface_hierarchy!(IRichEditOle, ::windows_core::IUnknown);
 impl IRichEditOle {
     #[doc = "Required features: `\"Win32_System_Ole\"`"]
     #[cfg(feature = "Win32_System_Ole")]
@@ -84,13 +83,6 @@ impl IRichEditOle {
         (::windows_core::Interface::vtable(self).ImportDataObject)(::windows_core::Interface::as_raw(self), lpdataobj.into_param().abi(), cf, hmetapict.into_param().abi()).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IRichEditOle, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IRichEditOle {
-    type Vtable = IRichEditOle_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRichEditOle {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00020d00_0000_0000_c000_000000000046);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRichEditOle_Vtbl {
@@ -130,9 +122,8 @@ pub struct IRichEditOle_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     ImportDataObject: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRichEditOleCallback(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IRichEditOleCallback, IRichEditOleCallback_Vtbl, 0x00020d03_0000_0000_c000_000000000046);
+::windows_core::imp::interface_hierarchy!(IRichEditOleCallback, ::windows_core::IUnknown);
 impl IRichEditOleCallback {
     #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -205,13 +196,6 @@ impl IRichEditOleCallback {
         (::windows_core::Interface::vtable(self).GetContextMenu)(::windows_core::Interface::as_raw(self), seltype, lpoleobj.into_param().abi(), lpchrg, lphmenu).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IRichEditOleCallback, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IRichEditOleCallback {
-    type Vtable = IRichEditOleCallback_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRichEditOleCallback {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00020d03_0000_0000_c000_000000000046);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRichEditOleCallback_Vtbl {
@@ -251,22 +235,14 @@ pub struct IRichEditOleCallback_Vtbl {
     #[cfg(not(all(feature = "Win32_System_Ole", feature = "Win32_UI_WindowsAndMessaging")))]
     GetContextMenu: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRicheditUiaOverrides(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IRicheditUiaOverrides, IRicheditUiaOverrides_Vtbl, 0);
+::windows_core::imp::interface_hierarchy!(IRicheditUiaOverrides, ::windows_core::IUnknown);
 impl IRicheditUiaOverrides {
     #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetPropertyOverrideValue(&self, propertyid: i32, pretvalue: *mut super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetPropertyOverrideValue)(::windows_core::Interface::as_raw(self), propertyid, pretvalue).ok()
     }
-}
-::windows_core::imp::interface_hierarchy!(IRicheditUiaOverrides, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IRicheditUiaOverrides {
-    type Vtable = IRicheditUiaOverrides_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRicheditUiaOverrides {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -277,34 +253,32 @@ pub struct IRicheditUiaOverrides_Vtbl {
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetPropertyOverrideValue: usize,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ITextDisplays(::windows_core::IUnknown);
-#[cfg(feature = "Win32_System_Com")]
-impl ITextDisplays {}
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    ITextDisplays,
+    ITextDisplays_Vtbl,
+    0xc241f5f2_7206_11d8_a2c7_00a0d1d6c6b3
+);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ITextDisplays, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for ITextDisplays {
-    type Vtable = ITextDisplays_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for ITextDisplays {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc241f5f2_7206_11d8_a2c7_00a0d1d6c6b3);
-}
+impl ITextDisplays {}
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextDisplays_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ITextDocument(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    ITextDocument,
+    ITextDocument_Vtbl,
+    0x8cc497c0_a1df_11ce_8098_00aa0047be5d
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(ITextDocument, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ITextDocument {
     pub unsafe fn GetName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -390,16 +364,6 @@ impl ITextDocument {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(ITextDocument, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for ITextDocument {
-    type Vtable = ITextDocument_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for ITextDocument {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8cc497c0_a1df_11ce_8098_00aa0047be5d);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextDocument_Vtbl {
@@ -442,11 +406,15 @@ pub struct ITextDocument_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     RangeFromPoint: usize,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ITextDocument2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    ITextDocument2,
+    ITextDocument2_Vtbl,
+    0xc241f5e0_7206_11d8_a2c7_00a0d1d6c6b3
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(ITextDocument2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ITextDocument);
 #[cfg(feature = "Win32_System_Com")]
 impl ITextDocument2 {
     pub unsafe fn GetName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -723,16 +691,6 @@ impl ITextDocument2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(ITextDocument2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ITextDocument);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for ITextDocument2 {
-    type Vtable = ITextDocument2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for ITextDocument2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc241f5e0_7206_11d8_a2c7_00a0d1d6c6b3);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextDocument2_Vtbl {
@@ -812,11 +770,15 @@ pub struct ITextDocument2_Vtbl {
     pub GetNewStory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppstory: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetStory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, ppstory: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ITextDocument2Old(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    ITextDocument2Old,
+    ITextDocument2Old_Vtbl,
+    0x01c25500_4268_11d1_883a_3c8b00c10000
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(ITextDocument2Old, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ITextDocument);
 #[cfg(feature = "Win32_System_Com")]
 impl ITextDocument2Old {
     pub unsafe fn GetName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -999,16 +961,6 @@ impl ITextDocument2Old {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(ITextDocument2Old, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ITextDocument);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for ITextDocument2Old {
-    type Vtable = ITextDocument2Old_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for ITextDocument2Old {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x01c25500_4268_11d1_883a_3c8b00c10000);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextDocument2Old_Vtbl {
@@ -1047,11 +999,15 @@ pub struct ITextDocument2Old_Vtbl {
     pub GetCallManager: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppvoid: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub ReleaseCallManager: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvoid: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ITextFont(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    ITextFont,
+    ITextFont_Vtbl,
+    0x8cc497c3_a1df_11ce_8098_00aa0047be5d
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(ITextFont, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ITextFont {
     #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1264,16 +1220,6 @@ impl ITextFont {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(ITextFont, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for ITextFont {
-    type Vtable = ITextFont_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for ITextFont {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8cc497c3_a1df_11ce_8098_00aa0047be5d);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextFont_Vtbl {
@@ -1343,11 +1289,15 @@ pub struct ITextFont_Vtbl {
     pub GetWeight: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut i32) -> ::windows_core::HRESULT,
     pub SetWeight: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ITextFont2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    ITextFont2,
+    ITextFont2_Vtbl,
+    0xc241f5e3_7206_11d8_a2c7_00a0d1d6c6b3
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(ITextFont2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ITextFont);
 #[cfg(feature = "Win32_System_Com")]
 impl ITextFont2 {
     #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1732,16 +1682,6 @@ impl ITextFont2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(ITextFont2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ITextFont);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for ITextFont2 {
-    type Vtable = ITextFont2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for ITextFont2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc241f5e3_7206_11d8_a2c7_00a0d1d6c6b3);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextFont2_Vtbl {
@@ -1802,9 +1742,8 @@ pub struct ITextFont2_Vtbl {
     pub SetEffects2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32, mask: i32) -> ::windows_core::HRESULT,
     pub SetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: i32, value: i32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ITextHost(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(ITextHost, ITextHost_Vtbl, 0);
+::windows_core::imp::interface_hierarchy!(ITextHost, ::windows_core::IUnknown);
 impl ITextHost {
     #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -1984,13 +1923,6 @@ impl ITextHost {
         (::windows_core::Interface::vtable(self).TxGetSelectionBarWidth)(::windows_core::Interface::as_raw(self), lselbarwidth).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(ITextHost, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ITextHost {
-    type Vtable = ITextHost_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ITextHost {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextHost_Vtbl {
@@ -2068,9 +2000,8 @@ pub struct ITextHost_Vtbl {
     TxImmReleaseContext: usize,
     pub TxGetSelectionBarWidth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lselbarwidth: *mut i32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ITextHost2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(ITextHost2, ITextHost2_Vtbl, 0);
+::windows_core::imp::interface_hierarchy!(ITextHost2, ::windows_core::IUnknown, ITextHost);
 impl ITextHost2 {
     #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -2300,13 +2231,6 @@ impl ITextHost2 {
         (::windows_core::Interface::vtable(self).TxGetHorzExtent)(::windows_core::Interface::as_raw(self), plhorzextent).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(ITextHost2, ::windows_core::IUnknown, ITextHost);
-unsafe impl ::windows_core::Interface for ITextHost2 {
-    type Vtable = ITextHost2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ITextHost2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextHost2_Vtbl {
@@ -2333,11 +2257,15 @@ pub struct ITextHost2_Vtbl {
     pub TxDestroyCaret: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub TxGetHorzExtent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plhorzextent: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ITextPara(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    ITextPara,
+    ITextPara_Vtbl,
+    0x8cc497c4_a1df_11ce_8098_00aa0047be5d
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(ITextPara, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ITextPara {
     #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -2522,16 +2450,6 @@ impl ITextPara {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(ITextPara, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for ITextPara {
-    type Vtable = ITextPara_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for ITextPara {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8cc497c4_a1df_11ce_8098_00aa0047be5d);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextPara_Vtbl {
@@ -2594,11 +2512,15 @@ pub struct ITextPara_Vtbl {
     pub DeleteTab: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tbpos: f32) -> ::windows_core::HRESULT,
     pub GetTab: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, itab: i32, ptbpos: *mut f32, ptbalign: *mut i32, ptbleader: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ITextPara2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    ITextPara2,
+    ITextPara2_Vtbl,
+    0xc241f5e4_7206_11d8_a2c7_00a0d1d6c6b3
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(ITextPara2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ITextPara);
 #[cfg(feature = "Win32_System_Com")]
 impl ITextPara2 {
     #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -2851,16 +2773,6 @@ impl ITextPara2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(ITextPara2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ITextPara);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for ITextPara2 {
-    type Vtable = ITextPara2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for ITextPara2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc241f5e4_7206_11d8_a2c7_00a0d1d6c6b3);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextPara2_Vtbl {
@@ -2891,11 +2803,15 @@ pub struct ITextPara2_Vtbl {
     pub SetEffects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32, mask: i32) -> ::windows_core::HRESULT,
     pub SetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: i32, value: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ITextRange(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    ITextRange,
+    ITextRange_Vtbl,
+    0x8cc497c2_a1df_11ce_8098_00aa0047be5d
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(ITextRange, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ITextRange {
     pub unsafe fn GetText(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -3158,16 +3074,6 @@ impl ITextRange {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(ITextRange, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for ITextRange {
-    type Vtable = ITextRange_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for ITextRange {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8cc497c2_a1df_11ce_8098_00aa0047be5d);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextRange_Vtbl {
@@ -3284,11 +3190,15 @@ pub struct ITextRange_Vtbl {
     pub ScrollIntoView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows_core::HRESULT,
     pub GetEmbeddedObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ITextRange2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    ITextRange2,
+    ITextRange2_Vtbl,
+    0xc241f5e2_7206_11d8_a2c7_00a0d1d6c6b3
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(ITextRange2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ITextRange, ITextSelection);
 #[cfg(feature = "Win32_System_Com")]
 impl ITextRange2 {
     pub unsafe fn GetText(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -3774,16 +3684,6 @@ impl ITextRange2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(ITextRange2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ITextRange, ITextSelection);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for ITextRange2 {
-    type Vtable = ITextRange2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for ITextRange2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc241f5e2_7206_11d8_a2c7_00a0d1d6c6b3);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextRange2_Vtbl {
@@ -3859,11 +3759,15 @@ pub struct ITextRange2_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     InsertImage: usize,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ITextRow(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    ITextRow,
+    ITextRow_Vtbl,
+    0xc241f5ef_7206_11d8_a2c7_00a0d1d6c6b3
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(ITextRow, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ITextRow {
     pub unsafe fn GetAlignment(&self) -> ::windows_core::Result<i32> {
@@ -4032,16 +3936,6 @@ impl ITextRow {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(ITextRow, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for ITextRow {
-    type Vtable = ITextRow_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for ITextRow {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc241f5ef_7206_11d8_a2c7_00a0d1d6c6b3);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextRow_Vtbl {
@@ -4096,11 +3990,15 @@ pub struct ITextRow_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows_core::HRESULT,
     pub SetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: i32, value: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ITextSelection(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    ITextSelection,
+    ITextSelection_Vtbl,
+    0x8cc497c1_a1df_11ce_8098_00aa0047be5d
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(ITextSelection, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ITextRange);
 #[cfg(feature = "Win32_System_Com")]
 impl ITextSelection {
     pub unsafe fn GetText(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -4404,16 +4302,6 @@ impl ITextSelection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(ITextSelection, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ITextRange);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for ITextSelection {
-    type Vtable = ITextSelection_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for ITextSelection {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8cc497c1_a1df_11ce_8098_00aa0047be5d);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextSelection_Vtbl {
@@ -4429,11 +4317,15 @@ pub struct ITextSelection_Vtbl {
     pub EndKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unit: i32, extend: i32, pdelta: *mut i32) -> ::windows_core::HRESULT,
     pub TypeText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstr: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ITextSelection2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    ITextSelection2,
+    ITextSelection2_Vtbl,
+    0xc241f5e1_7206_11d8_a2c7_00a0d1d6c6b3
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(ITextSelection2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ITextRange, ITextSelection, ITextRange2);
 #[cfg(feature = "Win32_System_Com")]
 impl ITextSelection2 {
     pub unsafe fn GetText(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -4919,24 +4811,13 @@ impl ITextSelection2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(ITextSelection2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ITextRange, ITextSelection, ITextRange2);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for ITextSelection2 {
-    type Vtable = ITextSelection2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for ITextSelection2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc241f5e1_7206_11d8_a2c7_00a0d1d6c6b3);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextSelection2_Vtbl {
     pub base__: ITextRange2_Vtbl,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ITextServices(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(ITextServices, ITextServices_Vtbl, 0);
+::windows_core::imp::interface_hierarchy!(ITextServices, ::windows_core::IUnknown);
 impl ITextServices {
     pub unsafe fn TxSendMessage<P0, P1>(&self, msg: u32, wparam: P0, lparam: P1, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows_core::Result<()>
     where
@@ -5027,13 +4908,6 @@ impl ITextServices {
         (::windows_core::Interface::vtable(self).TxGetCachedSize)(::windows_core::Interface::as_raw(self), pdwwidth, pdwheight).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(ITextServices, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ITextServices {
-    type Vtable = ITextServices_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ITextServices {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextServices_Vtbl {
@@ -5072,9 +4946,8 @@ pub struct ITextServices_Vtbl {
     pub OnTxPropertyBitsChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwmask: u32, dwbits: u32) -> ::windows_core::HRESULT,
     pub TxGetCachedSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwwidth: *mut u32, pdwheight: *mut u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ITextServices2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(ITextServices2, ITextServices2_Vtbl, 0);
+::windows_core::imp::interface_hierarchy!(ITextServices2, ::windows_core::IUnknown, ITextServices);
 impl ITextServices2 {
     pub unsafe fn TxSendMessage<P0, P1>(&self, msg: u32, wparam: P0, lparam: P1, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows_core::Result<()>
     where
@@ -5182,13 +5055,6 @@ impl ITextServices2 {
         (::windows_core::Interface::vtable(self).TxDrawD2D)(::windows_core::Interface::as_raw(self), prendertarget.into_param().abi(), lprcbounds, lprcupdate, lviewid).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(ITextServices2, ::windows_core::IUnknown, ITextServices);
-unsafe impl ::windows_core::Interface for ITextServices2 {
-    type Vtable = ITextServices2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ITextServices2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextServices2_Vtbl {
@@ -5202,9 +5068,8 @@ pub struct ITextServices2_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Direct2D"))]
     TxDrawD2D: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ITextStory(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(ITextStory, ITextStory_Vtbl, 0xc241f5f3_7206_11d8_a2c7_00a0d1d6c6b3);
+::windows_core::imp::interface_hierarchy!(ITextStory, ::windows_core::IUnknown);
 impl ITextStory {
     pub unsafe fn GetActive(&self) -> ::windows_core::Result<i32> {
         let mut result__ = ::std::mem::zeroed();
@@ -5258,13 +5123,6 @@ impl ITextStory {
         (::windows_core::Interface::vtable(self).SetText)(::windows_core::Interface::as_raw(self), flags, bstr.into_param().abi()).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(ITextStory, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ITextStory {
-    type Vtable = ITextStory_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ITextStory {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc241f5f3_7206_11d8_a2c7_00a0d1d6c6b3);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextStory_Vtbl {
@@ -5285,11 +5143,15 @@ pub struct ITextStory_Vtbl {
     pub SetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: i32, value: i32) -> ::windows_core::HRESULT,
     pub SetText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: i32, bstr: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ITextStoryRanges(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    ITextStoryRanges,
+    ITextStoryRanges_Vtbl,
+    0x8cc497c5_a1df_11ce_8098_00aa0047be5d
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(ITextStoryRanges, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ITextStoryRanges {
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
@@ -5308,16 +5170,6 @@ impl ITextStoryRanges {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(ITextStoryRanges, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for ITextStoryRanges {
-    type Vtable = ITextStoryRanges_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for ITextStoryRanges {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8cc497c5_a1df_11ce_8098_00aa0047be5d);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextStoryRanges_Vtbl {
@@ -5329,11 +5181,15 @@ pub struct ITextStoryRanges_Vtbl {
     Item: usize,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ITextStoryRanges2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    ITextStoryRanges2,
+    ITextStoryRanges2_Vtbl,
+    0xc241f5e5_7206_11d8_a2c7_00a0d1d6c6b3
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(ITextStoryRanges2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ITextStoryRanges);
 #[cfg(feature = "Win32_System_Com")]
 impl ITextStoryRanges2 {
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
@@ -5358,16 +5214,6 @@ impl ITextStoryRanges2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(ITextStoryRanges2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ITextStoryRanges);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for ITextStoryRanges2 {
-    type Vtable = ITextStoryRanges2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for ITextStoryRanges2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc241f5e5_7206_11d8_a2c7_00a0d1d6c6b3);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITextStoryRanges2_Vtbl {
@@ -5377,11 +5223,15 @@ pub struct ITextStoryRanges2_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Item2: usize,
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ITextStrings(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    ITextStrings,
+    ITextStrings_Vtbl,
+    0xc241f5e7_7206_11d8_a2c7_00a0d1d6c6b3
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(ITextStrings, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ITextStrings {
     #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -5476,16 +5326,6 @@ impl ITextStrings {
     pub unsafe fn Swap(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Swap)(::windows_core::Interface::as_raw(self)).ok()
     }
-}
-#[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(ITextStrings, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for ITextStrings {
-    type Vtable = ITextStrings_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for ITextStrings {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc241f5e7_7206_11d8_a2c7_00a0d1d6c6b3);
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]

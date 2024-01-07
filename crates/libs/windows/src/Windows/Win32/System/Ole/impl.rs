@@ -16,7 +16,7 @@ impl IAdviseSinkEx_Vtbl {
         Self { base__: super::Com::IAdviseSink_Vtbl::new::<Identity, Impl, OFFSET>(), OnViewStatusChange: OnViewStatusChange::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAdviseSinkEx as ::windows_core::ComInterface>::IID || iid == &<super::Com::IAdviseSink as ::windows_core::ComInterface>::IID
+        iid == &<IAdviseSinkEx as ::windows_core::Interface>::IID || iid == &<super::Com::IAdviseSink as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`"]
@@ -37,7 +37,7 @@ impl ICanHandleException_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CanHandleException: CanHandleException::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICanHandleException as ::windows_core::ComInterface>::IID
+        iid == &<ICanHandleException as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -81,7 +81,7 @@ impl IClassFactory2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IClassFactory2 as ::windows_core::ComInterface>::IID || iid == &<super::Com::IClassFactory as ::windows_core::ComInterface>::IID
+        iid == &<IClassFactory2 as ::windows_core::Interface>::IID || iid == &<super::Com::IClassFactory as ::windows_core::Interface>::IID
     }
 }
 pub trait IContinue_Impl: Sized {
@@ -98,7 +98,7 @@ impl IContinue_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), FContinue: FContinue::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IContinue as ::windows_core::ComInterface>::IID
+        iid == &<IContinue as ::windows_core::Interface>::IID
     }
 }
 pub trait IContinueCallback_Impl: Sized {
@@ -125,7 +125,7 @@ impl IContinueCallback_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IContinueCallback as ::windows_core::ComInterface>::IID
+        iid == &<IContinueCallback as ::windows_core::Interface>::IID
     }
 }
 pub trait ICreateErrorInfo_Impl: Sized {
@@ -173,7 +173,7 @@ impl ICreateErrorInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICreateErrorInfo as ::windows_core::ComInterface>::IID
+        iid == &<ICreateErrorInfo as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`"]
@@ -351,7 +351,7 @@ impl ICreateTypeInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICreateTypeInfo as ::windows_core::ComInterface>::IID
+        iid == &<ICreateTypeInfo as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`"]
@@ -473,7 +473,7 @@ impl ICreateTypeInfo2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICreateTypeInfo2 as ::windows_core::ComInterface>::IID || iid == &<ICreateTypeInfo as ::windows_core::ComInterface>::IID
+        iid == &<ICreateTypeInfo2 as ::windows_core::Interface>::IID || iid == &<ICreateTypeInfo as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -566,7 +566,7 @@ impl ICreateTypeLib_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICreateTypeLib as ::windows_core::ComInterface>::IID
+        iid == &<ICreateTypeLib as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`"]
@@ -611,7 +611,7 @@ impl ICreateTypeLib2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICreateTypeLib2 as ::windows_core::ComInterface>::IID || iid == &<ICreateTypeLib as ::windows_core::ComInterface>::IID
+        iid == &<ICreateTypeLib2 as ::windows_core::Interface>::IID || iid == &<ICreateTypeLib as ::windows_core::Interface>::IID
     }
 }
 pub trait IDispError_Impl: Sized {
@@ -696,7 +696,7 @@ impl IDispError_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDispError as ::windows_core::ComInterface>::IID
+        iid == &<IDispError as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`"]
@@ -799,7 +799,7 @@ impl IDispatchEx_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDispatchEx as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<IDispatchEx as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_SystemServices\"`"]
@@ -830,7 +830,7 @@ impl IDropSource_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDropSource as ::windows_core::ComInterface>::IID
+        iid == &<IDropSource as ::windows_core::Interface>::IID
     }
 }
 pub trait IDropSourceNotify_Impl: Sized {
@@ -857,7 +857,7 @@ impl IDropSourceNotify_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDropSourceNotify as ::windows_core::ComInterface>::IID
+        iid == &<IDropSourceNotify as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_SystemServices\"`"]
@@ -902,7 +902,7 @@ impl IDropTarget_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDropTarget as ::windows_core::ComInterface>::IID
+        iid == &<IDropTarget as ::windows_core::Interface>::IID
     }
 }
 pub trait IEnterpriseDropTarget_Impl: Sized {
@@ -935,7 +935,7 @@ impl IEnterpriseDropTarget_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnterpriseDropTarget as ::windows_core::ComInterface>::IID
+        iid == &<IEnterpriseDropTarget as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
@@ -986,7 +986,7 @@ impl IEnumOLEVERB_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumOLEVERB as ::windows_core::ComInterface>::IID
+        iid == &<IEnumOLEVERB as ::windows_core::Interface>::IID
     }
 }
 pub trait IEnumOleDocumentViews_Impl: Sized {
@@ -1033,7 +1033,7 @@ impl IEnumOleDocumentViews_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumOleDocumentViews as ::windows_core::ComInterface>::IID
+        iid == &<IEnumOleDocumentViews as ::windows_core::Interface>::IID
     }
 }
 pub trait IEnumOleUndoUnits_Impl: Sized {
@@ -1080,7 +1080,7 @@ impl IEnumOleUndoUnits_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumOleUndoUnits as ::windows_core::ComInterface>::IID
+        iid == &<IEnumOleUndoUnits as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`"]
@@ -1131,7 +1131,7 @@ impl IEnumVARIANT_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumVARIANT as ::windows_core::ComInterface>::IID
+        iid == &<IEnumVARIANT as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`"]
@@ -1376,7 +1376,7 @@ impl IFont_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IFont as ::windows_core::ComInterface>::IID
+        iid == &<IFont as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`"]
@@ -1390,7 +1390,7 @@ impl IFontDisp_Vtbl {
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IFontDisp as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<IFontDisp as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`"]
@@ -1404,7 +1404,7 @@ impl IFontEventsDisp_Vtbl {
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IFontEventsDisp as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<IFontEventsDisp as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 pub trait IGetOleObject_Impl: Sized {
@@ -1421,7 +1421,7 @@ impl IGetOleObject_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetOleObject: GetOleObject::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IGetOleObject as ::windows_core::ComInterface>::IID
+        iid == &<IGetOleObject as ::windows_core::Interface>::IID
     }
 }
 pub trait IGetVBAObject_Impl: Sized {
@@ -1438,7 +1438,7 @@ impl IGetVBAObject_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetObject: GetObject::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IGetVBAObject as ::windows_core::ComInterface>::IID
+        iid == &<IGetVBAObject as ::windows_core::Interface>::IID
     }
 }
 pub trait IObjectIdentity_Impl: Sized {
@@ -1455,7 +1455,7 @@ impl IObjectIdentity_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), IsEqualObject: IsEqualObject::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IObjectIdentity as ::windows_core::ComInterface>::IID
+        iid == &<IObjectIdentity as ::windows_core::Interface>::IID
     }
 }
 pub trait IObjectWithSite_Impl: Sized {
@@ -1482,7 +1482,7 @@ impl IObjectWithSite_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IObjectWithSite as ::windows_core::ComInterface>::IID
+        iid == &<IObjectWithSite as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1553,7 +1553,7 @@ impl IOleAdviseHolder_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOleAdviseHolder as ::windows_core::ComInterface>::IID
+        iid == &<IOleAdviseHolder as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`"]
@@ -1617,7 +1617,7 @@ impl IOleCache_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOleCache as ::windows_core::ComInterface>::IID
+        iid == &<IOleCache as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`"]
@@ -1648,7 +1648,7 @@ impl IOleCache2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOleCache2 as ::windows_core::ComInterface>::IID || iid == &<IOleCache as ::windows_core::ComInterface>::IID
+        iid == &<IOleCache2 as ::windows_core::Interface>::IID || iid == &<IOleCache as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1679,7 +1679,7 @@ impl IOleCacheControl_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOleCacheControl as ::windows_core::ComInterface>::IID
+        iid == &<IOleCacheControl as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1750,7 +1750,7 @@ impl IOleClientSite_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOleClientSite as ::windows_core::ComInterface>::IID
+        iid == &<IOleClientSite as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`"]
@@ -1781,7 +1781,7 @@ impl IOleCommandTarget_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOleCommandTarget as ::windows_core::ComInterface>::IID
+        iid == &<IOleCommandTarget as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1818,7 +1818,7 @@ impl IOleContainer_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOleContainer as ::windows_core::ComInterface>::IID || iid == &<IParseDisplayName as ::windows_core::ComInterface>::IID
+        iid == &<IOleContainer as ::windows_core::Interface>::IID || iid == &<IParseDisplayName as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
@@ -1863,7 +1863,7 @@ impl IOleControl_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOleControl as ::windows_core::ComInterface>::IID
+        iid == &<IOleControl as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
@@ -1935,7 +1935,7 @@ impl IOleControlSite_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOleControlSite as ::windows_core::ComInterface>::IID
+        iid == &<IOleControlSite as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1985,7 +1985,7 @@ impl IOleDocument_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOleDocument as ::windows_core::ComInterface>::IID
+        iid == &<IOleDocument as ::windows_core::Interface>::IID
     }
 }
 pub trait IOleDocumentSite_Impl: Sized {
@@ -2002,7 +2002,7 @@ impl IOleDocumentSite_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ActivateMe: ActivateMe::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOleDocumentSite as ::windows_core::ComInterface>::IID
+        iid == &<IOleDocumentSite as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -2134,7 +2134,7 @@ impl IOleDocumentView_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOleDocumentView as ::windows_core::ComInterface>::IID
+        iid == &<IOleDocumentView as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
@@ -2186,7 +2186,7 @@ impl IOleInPlaceActiveObject_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOleInPlaceActiveObject as ::windows_core::ComInterface>::IID || iid == &<IOleWindow as ::windows_core::ComInterface>::IID
+        iid == &<IOleInPlaceActiveObject as ::windows_core::Interface>::IID || iid == &<IOleWindow as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
@@ -2245,7 +2245,7 @@ impl IOleInPlaceFrame_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOleInPlaceFrame as ::windows_core::ComInterface>::IID || iid == &<IOleWindow as ::windows_core::ComInterface>::IID || iid == &<IOleInPlaceUIWindow as ::windows_core::ComInterface>::IID
+        iid == &<IOleInPlaceFrame as ::windows_core::Interface>::IID || iid == &<IOleWindow as ::windows_core::Interface>::IID || iid == &<IOleInPlaceUIWindow as ::windows_core::Interface>::IID
     }
 }
 pub trait IOleInPlaceObject_Impl: Sized + IOleWindow_Impl {
@@ -2286,7 +2286,7 @@ impl IOleInPlaceObject_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOleInPlaceObject as ::windows_core::ComInterface>::IID || iid == &<IOleWindow as ::windows_core::ComInterface>::IID
+        iid == &<IOleInPlaceObject as ::windows_core::Interface>::IID || iid == &<IOleWindow as ::windows_core::Interface>::IID
     }
 }
 pub trait IOleInPlaceObjectWindowless_Impl: Sized + IOleInPlaceObject_Impl {
@@ -2325,7 +2325,7 @@ impl IOleInPlaceObjectWindowless_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOleInPlaceObjectWindowless as ::windows_core::ComInterface>::IID || iid == &<IOleWindow as ::windows_core::ComInterface>::IID || iid == &<IOleInPlaceObject as ::windows_core::ComInterface>::IID
+        iid == &<IOleInPlaceObjectWindowless as ::windows_core::Interface>::IID || iid == &<IOleWindow as ::windows_core::Interface>::IID || iid == &<IOleInPlaceObject as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
@@ -2412,7 +2412,7 @@ impl IOleInPlaceSite_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOleInPlaceSite as ::windows_core::ComInterface>::IID || iid == &<IOleWindow as ::windows_core::ComInterface>::IID
+        iid == &<IOleInPlaceSite as ::windows_core::Interface>::IID || iid == &<IOleWindow as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
@@ -2450,7 +2450,7 @@ impl IOleInPlaceSiteEx_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOleInPlaceSiteEx as ::windows_core::ComInterface>::IID || iid == &<IOleWindow as ::windows_core::ComInterface>::IID || iid == &<IOleInPlaceSite as ::windows_core::ComInterface>::IID
+        iid == &<IOleInPlaceSiteEx as ::windows_core::Interface>::IID || iid == &<IOleWindow as ::windows_core::Interface>::IID || iid == &<IOleInPlaceSite as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
@@ -2563,7 +2563,7 @@ impl IOleInPlaceSiteWindowless_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOleInPlaceSiteWindowless as ::windows_core::ComInterface>::IID || iid == &<IOleWindow as ::windows_core::ComInterface>::IID || iid == &<IOleInPlaceSite as ::windows_core::ComInterface>::IID || iid == &<IOleInPlaceSiteEx as ::windows_core::ComInterface>::IID
+        iid == &<IOleInPlaceSiteWindowless as ::windows_core::Interface>::IID || iid == &<IOleWindow as ::windows_core::Interface>::IID || iid == &<IOleInPlaceSite as ::windows_core::Interface>::IID || iid == &<IOleInPlaceSiteEx as ::windows_core::Interface>::IID
     }
 }
 pub trait IOleInPlaceUIWindow_Impl: Sized + IOleWindow_Impl {
@@ -2610,7 +2610,7 @@ impl IOleInPlaceUIWindow_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOleInPlaceUIWindow as ::windows_core::ComInterface>::IID || iid == &<IOleWindow as ::windows_core::ComInterface>::IID
+        iid == &<IOleInPlaceUIWindow as ::windows_core::Interface>::IID || iid == &<IOleWindow as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -2648,7 +2648,7 @@ impl IOleItemContainer_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOleItemContainer as ::windows_core::ComInterface>::IID || iid == &<IParseDisplayName as ::windows_core::ComInterface>::IID || iid == &<IOleContainer as ::windows_core::ComInterface>::IID
+        iid == &<IOleItemContainer as ::windows_core::Interface>::IID || iid == &<IParseDisplayName as ::windows_core::Interface>::IID || iid == &<IOleContainer as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -2766,7 +2766,7 @@ impl IOleLink_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOleLink as ::windows_core::ComInterface>::IID
+        iid == &<IOleLink as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
@@ -2990,7 +2990,7 @@ impl IOleObject_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOleObject as ::windows_core::ComInterface>::IID
+        iid == &<IOleObject as ::windows_core::Interface>::IID
     }
 }
 pub trait IOleParentUndoUnit_Impl: Sized + IOleUndoUnit_Impl {
@@ -3044,7 +3044,7 @@ impl IOleParentUndoUnit_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOleParentUndoUnit as ::windows_core::ComInterface>::IID || iid == &<IOleUndoUnit as ::windows_core::ComInterface>::IID
+        iid == &<IOleParentUndoUnit as ::windows_core::Interface>::IID || iid == &<IOleUndoUnit as ::windows_core::Interface>::IID
     }
 }
 pub trait IOleUILinkContainerA_Impl: Sized {
@@ -3119,7 +3119,7 @@ impl IOleUILinkContainerA_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOleUILinkContainerA as ::windows_core::ComInterface>::IID
+        iid == &<IOleUILinkContainerA as ::windows_core::Interface>::IID
     }
 }
 pub trait IOleUILinkContainerW_Impl: Sized {
@@ -3194,7 +3194,7 @@ impl IOleUILinkContainerW_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOleUILinkContainerW as ::windows_core::ComInterface>::IID
+        iid == &<IOleUILinkContainerW as ::windows_core::Interface>::IID
     }
 }
 pub trait IOleUILinkInfoA_Impl: Sized + IOleUILinkContainerA_Impl {
@@ -3217,7 +3217,7 @@ impl IOleUILinkInfoA_Vtbl {
         Self { base__: IOleUILinkContainerA_Vtbl::new::<Identity, Impl, OFFSET>(), GetLastUpdate: GetLastUpdate::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOleUILinkInfoA as ::windows_core::ComInterface>::IID || iid == &<IOleUILinkContainerA as ::windows_core::ComInterface>::IID
+        iid == &<IOleUILinkInfoA as ::windows_core::Interface>::IID || iid == &<IOleUILinkContainerA as ::windows_core::Interface>::IID
     }
 }
 pub trait IOleUILinkInfoW_Impl: Sized + IOleUILinkContainerW_Impl {
@@ -3240,7 +3240,7 @@ impl IOleUILinkInfoW_Vtbl {
         Self { base__: IOleUILinkContainerW_Vtbl::new::<Identity, Impl, OFFSET>(), GetLastUpdate: GetLastUpdate::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOleUILinkInfoW as ::windows_core::ComInterface>::IID || iid == &<IOleUILinkContainerW as ::windows_core::ComInterface>::IID
+        iid == &<IOleUILinkInfoW as ::windows_core::Interface>::IID || iid == &<IOleUILinkContainerW as ::windows_core::Interface>::IID
     }
 }
 pub trait IOleUIObjInfoA_Impl: Sized {
@@ -3288,7 +3288,7 @@ impl IOleUIObjInfoA_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOleUIObjInfoA as ::windows_core::ComInterface>::IID
+        iid == &<IOleUIObjInfoA as ::windows_core::Interface>::IID
     }
 }
 pub trait IOleUIObjInfoW_Impl: Sized {
@@ -3336,7 +3336,7 @@ impl IOleUIObjInfoW_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOleUIObjInfoW as ::windows_core::ComInterface>::IID
+        iid == &<IOleUIObjInfoW as ::windows_core::Interface>::IID
     }
 }
 pub trait IOleUndoManager_Impl: Sized {
@@ -3463,7 +3463,7 @@ impl IOleUndoManager_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOleUndoManager as ::windows_core::ComInterface>::IID
+        iid == &<IOleUndoManager as ::windows_core::Interface>::IID
     }
 }
 pub trait IOleUndoUnit_Impl: Sized {
@@ -3510,7 +3510,7 @@ impl IOleUndoUnit_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOleUndoUnit as ::windows_core::ComInterface>::IID
+        iid == &<IOleUndoUnit as ::windows_core::Interface>::IID
     }
 }
 pub trait IOleWindow_Impl: Sized {
@@ -3543,7 +3543,7 @@ impl IOleWindow_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOleWindow as ::windows_core::ComInterface>::IID
+        iid == &<IOleWindow as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -3564,7 +3564,7 @@ impl IParseDisplayName_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ParseDisplayName: ParseDisplayName::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IParseDisplayName as ::windows_core::ComInterface>::IID
+        iid == &<IParseDisplayName as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`"]
@@ -3627,7 +3627,7 @@ impl IPerPropertyBrowsing_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPerPropertyBrowsing as ::windows_core::ComInterface>::IID
+        iid == &<IPerPropertyBrowsing as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
@@ -3665,7 +3665,7 @@ impl IPersistPropertyBag_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPersistPropertyBag as ::windows_core::ComInterface>::IID || iid == &<super::Com::IPersist as ::windows_core::ComInterface>::IID
+        iid == &<IPersistPropertyBag as ::windows_core::Interface>::IID || iid == &<super::Com::IPersist as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
@@ -3710,7 +3710,7 @@ impl IPersistPropertyBag2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPersistPropertyBag2 as ::windows_core::ComInterface>::IID || iid == &<super::Com::IPersist as ::windows_core::ComInterface>::IID
+        iid == &<IPersistPropertyBag2 as ::windows_core::Interface>::IID || iid == &<super::Com::IPersist as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`"]
@@ -3879,7 +3879,7 @@ impl IPicture_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPicture as ::windows_core::ComInterface>::IID
+        iid == &<IPicture as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`"]
@@ -4048,7 +4048,7 @@ impl IPicture2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPicture2 as ::windows_core::ComInterface>::IID
+        iid == &<IPicture2 as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`"]
@@ -4062,7 +4062,7 @@ impl IPictureDisp_Vtbl {
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPictureDisp as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<IPictureDisp as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 pub trait IPointerInactive_Impl: Sized {
@@ -4102,7 +4102,7 @@ impl IPointerInactive_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPointerInactive as ::windows_core::ComInterface>::IID
+        iid == &<IPointerInactive as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`"]
@@ -4140,7 +4140,7 @@ impl IPrint_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPrint as ::windows_core::ComInterface>::IID
+        iid == &<IPrint as ::windows_core::Interface>::IID
     }
 }
 pub trait IPropertyNotifySink_Impl: Sized {
@@ -4167,7 +4167,7 @@ impl IPropertyNotifySink_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPropertyNotifySink as ::windows_core::ComInterface>::IID
+        iid == &<IPropertyNotifySink as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
@@ -4261,7 +4261,7 @@ impl IPropertyPage_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPropertyPage as ::windows_core::ComInterface>::IID
+        iid == &<IPropertyPage as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
@@ -4282,7 +4282,7 @@ impl IPropertyPage2_Vtbl {
         Self { base__: IPropertyPage_Vtbl::new::<Identity, Impl, OFFSET>(), EditProperty: EditProperty::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPropertyPage2 as ::windows_core::ComInterface>::IID || iid == &<IPropertyPage as ::windows_core::ComInterface>::IID
+        iid == &<IPropertyPage2 as ::windows_core::Interface>::IID || iid == &<IPropertyPage as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
@@ -4339,7 +4339,7 @@ impl IPropertyPageSite_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPropertyPageSite as ::windows_core::ComInterface>::IID
+        iid == &<IPropertyPageSite as ::windows_core::Interface>::IID
     }
 }
 pub trait IProtectFocus_Impl: Sized {
@@ -4362,7 +4362,7 @@ impl IProtectFocus_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), AllowFocusChange: AllowFocusChange::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IProtectFocus as ::windows_core::ComInterface>::IID
+        iid == &<IProtectFocus as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
@@ -4418,7 +4418,7 @@ impl IProtectedModeMenuServices_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IProtectedModeMenuServices as ::windows_core::ComInterface>::IID
+        iid == &<IProtectedModeMenuServices as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -4445,7 +4445,7 @@ impl IProvideClassInfo_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetClassInfo: GetClassInfo::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IProvideClassInfo as ::windows_core::ComInterface>::IID
+        iid == &<IProvideClassInfo as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -4472,7 +4472,7 @@ impl IProvideClassInfo2_Vtbl {
         Self { base__: IProvideClassInfo_Vtbl::new::<Identity, Impl, OFFSET>(), GetGUID: GetGUID::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IProvideClassInfo2 as ::windows_core::ComInterface>::IID || iid == &<IProvideClassInfo as ::windows_core::ComInterface>::IID
+        iid == &<IProvideClassInfo2 as ::windows_core::Interface>::IID || iid == &<IProvideClassInfo as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -4509,7 +4509,7 @@ impl IProvideMultipleClassInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IProvideMultipleClassInfo as ::windows_core::ComInterface>::IID || iid == &<IProvideClassInfo as ::windows_core::ComInterface>::IID || iid == &<IProvideClassInfo2 as ::windows_core::ComInterface>::IID
+        iid == &<IProvideMultipleClassInfo as ::windows_core::Interface>::IID || iid == &<IProvideClassInfo as ::windows_core::Interface>::IID || iid == &<IProvideClassInfo2 as ::windows_core::Interface>::IID
     }
 }
 pub trait IProvideRuntimeContext_Impl: Sized {
@@ -4526,7 +4526,7 @@ impl IProvideRuntimeContext_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetCurrentSourceContext: GetCurrentSourceContext::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IProvideRuntimeContext as ::windows_core::ComInterface>::IID
+        iid == &<IProvideRuntimeContext as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`"]
@@ -4570,7 +4570,7 @@ impl IQuickActivate_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IQuickActivate as ::windows_core::ComInterface>::IID
+        iid == &<IQuickActivate as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`"]
@@ -4729,7 +4729,7 @@ impl IRecordInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRecordInfo as ::windows_core::ComInterface>::IID
+        iid == &<IRecordInfo as ::windows_core::Interface>::IID
     }
 }
 pub trait ISimpleFrameSite_Impl: Sized {
@@ -4756,7 +4756,7 @@ impl ISimpleFrameSite_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISimpleFrameSite as ::windows_core::ComInterface>::IID
+        iid == &<ISimpleFrameSite as ::windows_core::Interface>::IID
     }
 }
 pub trait ISpecifyPropertyPages_Impl: Sized {
@@ -4779,7 +4779,7 @@ impl ISpecifyPropertyPages_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetPages: GetPages::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISpecifyPropertyPages as ::windows_core::ComInterface>::IID
+        iid == &<ISpecifyPropertyPages as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -4816,7 +4816,7 @@ impl ITypeChangeEvents_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITypeChangeEvents as ::windows_core::ComInterface>::IID
+        iid == &<ITypeChangeEvents as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -4843,7 +4843,7 @@ impl ITypeFactory_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateFromTypeInfo: CreateFromTypeInfo::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITypeFactory as ::windows_core::ComInterface>::IID
+        iid == &<ITypeFactory as ::windows_core::Interface>::IID
     }
 }
 pub trait ITypeMarshal_Impl: Sized {
@@ -4890,7 +4890,7 @@ impl ITypeMarshal_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITypeMarshal as ::windows_core::ComInterface>::IID
+        iid == &<ITypeMarshal as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`"]
@@ -4911,7 +4911,7 @@ impl IVBFormat_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Format: Format::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IVBFormat as ::windows_core::ComInterface>::IID
+        iid == &<IVBFormat as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -4938,7 +4938,7 @@ impl IVBGetControl_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), EnumControls: EnumControls::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IVBGetControl as ::windows_core::ComInterface>::IID
+        iid == &<IVBGetControl as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`"]
@@ -4959,7 +4959,7 @@ impl IVariantChangeType_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ChangeType: ChangeType::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IVariantChangeType as ::windows_core::ComInterface>::IID
+        iid == &<IVariantChangeType as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`"]
@@ -5018,7 +5018,7 @@ impl IViewObject_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IViewObject as ::windows_core::ComInterface>::IID
+        iid == &<IViewObject as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`"]
@@ -5045,7 +5045,7 @@ impl IViewObject2_Vtbl {
         Self { base__: IViewObject_Vtbl::new::<Identity, Impl, OFFSET>(), GetExtent: GetExtent::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IViewObject2 as ::windows_core::ComInterface>::IID || iid == &<IViewObject as ::windows_core::ComInterface>::IID
+        iid == &<IViewObject2 as ::windows_core::Interface>::IID || iid == &<IViewObject as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`"]
@@ -5127,7 +5127,7 @@ impl IViewObjectEx_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IViewObjectEx as ::windows_core::ComInterface>::IID || iid == &<IViewObject as ::windows_core::ComInterface>::IID || iid == &<IViewObject2 as ::windows_core::ComInterface>::IID
+        iid == &<IViewObjectEx as ::windows_core::Interface>::IID || iid == &<IViewObject as ::windows_core::Interface>::IID || iid == &<IViewObject2 as ::windows_core::Interface>::IID
     }
 }
 pub trait IZoomEvents_Impl: Sized {
@@ -5144,6 +5144,6 @@ impl IZoomEvents_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnZoomPercentChanged: OnZoomPercentChanged::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IZoomEvents as ::windows_core::ComInterface>::IID
+        iid == &<IZoomEvents as ::windows_core::Interface>::IID
     }
 }

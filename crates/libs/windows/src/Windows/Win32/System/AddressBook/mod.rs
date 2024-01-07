@@ -379,9 +379,8 @@ pub unsafe fn WrapStoreEntryID(ulflags: u32, lpszdllname: *const i8, cborigentry
     ::windows_targets::link!("mapi32.dll" "system" fn WrapStoreEntryID(ulflags : u32, lpszdllname : *const i8, cborigentry : u32, lporigentry : *const ENTRYID, lpcbwrappedentry : *mut u32, lppwrappedentry : *mut *mut ENTRYID) -> ::windows_core::HRESULT);
     WrapStoreEntryID(ulflags, lpszdllname, cborigentry, lporigentry, lpcbwrappedentry, lppwrappedentry).ok()
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IABContainer(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IABContainer, IABContainer_Vtbl, 0);
+::windows_core::imp::interface_hierarchy!(IABContainer, ::windows_core::IUnknown, IMAPIProp, IMAPIContainer);
 impl IABContainer {
     pub unsafe fn GetLastError(&self, hresult: ::windows_core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.GetLastError)(::windows_core::Interface::as_raw(self), hresult, ulflags, lppmapierror).ok()
@@ -467,13 +466,6 @@ impl IABContainer {
         (::windows_core::Interface::vtable(self).ResolveNames)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(lpproptagarray.unwrap_or(::std::ptr::null())), ulflags, lpadrlist, &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IABContainer, ::windows_core::IUnknown, IMAPIProp, IMAPIContainer);
-unsafe impl ::windows_core::Interface for IABContainer {
-    type Vtable = IABContainer_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IABContainer {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IABContainer_Vtbl {
@@ -486,9 +478,8 @@ pub struct IABContainer_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     ResolveNames: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAddrBook(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IAddrBook, IAddrBook_Vtbl, 0);
+::windows_core::imp::interface_hierarchy!(IAddrBook, ::windows_core::IUnknown, IMAPIProp);
 impl IAddrBook {
     pub unsafe fn GetLastError(&self, hresult: ::windows_core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetLastError)(::windows_core::Interface::as_raw(self), hresult, ulflags, lppmapierror).ok()
@@ -605,13 +596,6 @@ impl IAddrBook {
         (::windows_core::Interface::vtable(self).PrepareRecips)(::windows_core::Interface::as_raw(self), ulflags, lpproptagarray, lpreciplist).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IAddrBook, ::windows_core::IUnknown, IMAPIProp);
-unsafe impl ::windows_core::Interface for IAddrBook {
-    type Vtable = IAddrBook_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAddrBook {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAddrBook_Vtbl {
@@ -656,9 +640,8 @@ pub struct IAddrBook_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     PrepareRecips: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAttach(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IAttach, IAttach_Vtbl, 0);
+::windows_core::imp::interface_hierarchy!(IAttach, ::windows_core::IUnknown, IMAPIProp);
 impl IAttach {
     pub unsafe fn GetLastError(&self, hresult: ::windows_core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetLastError)(::windows_core::Interface::as_raw(self), hresult, ulflags, lppmapierror).ok()
@@ -704,21 +687,13 @@ impl IAttach {
         (::windows_core::Interface::vtable(self).base__.GetIDsFromNames)(::windows_core::Interface::as_raw(self), cpropnames, lpppropnames, ulflags, lppproptags).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IAttach, ::windows_core::IUnknown, IMAPIProp);
-unsafe impl ::windows_core::Interface for IAttach {
-    type Vtable = IAttach_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAttach {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAttach_Vtbl {
     pub base__: IMAPIProp_Vtbl,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDistList(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDistList, IDistList_Vtbl, 0);
+::windows_core::imp::interface_hierarchy!(IDistList, ::windows_core::IUnknown, IMAPIProp, IMAPIContainer);
 impl IDistList {
     pub unsafe fn GetLastError(&self, hresult: ::windows_core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.GetLastError)(::windows_core::Interface::as_raw(self), hresult, ulflags, lppmapierror).ok()
@@ -804,13 +779,6 @@ impl IDistList {
         (::windows_core::Interface::vtable(self).ResolveNames)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(lpproptagarray.unwrap_or(::std::ptr::null())), ulflags, lpadrlist, &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IDistList, ::windows_core::IUnknown, IMAPIProp, IMAPIContainer);
-unsafe impl ::windows_core::Interface for IDistList {
-    type Vtable = IDistList_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDistList {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDistList_Vtbl {
@@ -823,22 +791,14 @@ pub struct IDistList_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     ResolveNames: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMAPIAdviseSink(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IMAPIAdviseSink, IMAPIAdviseSink_Vtbl, 0);
+::windows_core::imp::interface_hierarchy!(IMAPIAdviseSink, ::windows_core::IUnknown);
 impl IMAPIAdviseSink {
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnNotify(&self, cnotif: u32, lpnotifications: *mut NOTIFICATION) -> u32 {
         (::windows_core::Interface::vtable(self).OnNotify)(::windows_core::Interface::as_raw(self), cnotif, lpnotifications)
     }
-}
-::windows_core::imp::interface_hierarchy!(IMAPIAdviseSink, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IMAPIAdviseSink {
-    type Vtable = IMAPIAdviseSink_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IMAPIAdviseSink {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -849,9 +809,8 @@ pub struct IMAPIAdviseSink_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     OnNotify: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMAPIContainer(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IMAPIContainer, IMAPIContainer_Vtbl, 0);
+::windows_core::imp::interface_hierarchy!(IMAPIContainer, ::windows_core::IUnknown, IMAPIProp);
 impl IMAPIContainer {
     pub unsafe fn GetLastError(&self, hresult: ::windows_core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetLastError)(::windows_core::Interface::as_raw(self), hresult, ulflags, lppmapierror).ok()
@@ -918,13 +877,6 @@ impl IMAPIContainer {
         (::windows_core::Interface::vtable(self).GetSearchCriteria)(::windows_core::Interface::as_raw(self), ulflags, lpprestriction, lppcontainerlist, ::core::mem::transmute(lpulsearchstate.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IMAPIContainer, ::windows_core::IUnknown, IMAPIProp);
-unsafe impl ::windows_core::Interface for IMAPIContainer {
-    type Vtable = IMAPIContainer_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IMAPIContainer {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMAPIContainer_Vtbl {
@@ -941,9 +893,8 @@ pub struct IMAPIContainer_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetSearchCriteria: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMAPIControl(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IMAPIControl, IMAPIControl_Vtbl, 0);
+::windows_core::imp::interface_hierarchy!(IMAPIControl, ::windows_core::IUnknown);
 impl IMAPIControl {
     pub unsafe fn GetLastError(&self, hresult: ::windows_core::HRESULT, ulflags: u32) -> ::windows_core::Result<*mut MAPIERROR> {
         let mut result__ = ::std::mem::zeroed();
@@ -956,13 +907,6 @@ impl IMAPIControl {
         (::windows_core::Interface::vtable(self).GetState)(::windows_core::Interface::as_raw(self), ulflags, lpulstate).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IMAPIControl, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IMAPIControl {
-    type Vtable = IMAPIControl_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IMAPIControl {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMAPIControl_Vtbl {
@@ -971,9 +915,8 @@ pub struct IMAPIControl_Vtbl {
     pub Activate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulflags: u32, uluiparam: usize) -> ::windows_core::HRESULT,
     pub GetState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulflags: u32, lpulstate: *mut u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMAPIFolder(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IMAPIFolder, IMAPIFolder_Vtbl, 0);
+::windows_core::imp::interface_hierarchy!(IMAPIFolder, ::windows_core::IUnknown, IMAPIProp, IMAPIContainer);
 impl IMAPIFolder {
     pub unsafe fn GetLastError(&self, hresult: ::windows_core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.GetLastError)(::windows_core::Interface::as_raw(self), hresult, ulflags, lppmapierror).ok()
@@ -1094,13 +1037,6 @@ impl IMAPIFolder {
         (::windows_core::Interface::vtable(self).EmptyFolder)(::windows_core::Interface::as_raw(self), uluiparam, lpprogress.into_param().abi(), ulflags).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IMAPIFolder, ::windows_core::IUnknown, IMAPIProp, IMAPIContainer);
-unsafe impl ::windows_core::Interface for IMAPIFolder {
-    type Vtable = IMAPIFolder_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IMAPIFolder {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMAPIFolder_Vtbl {
@@ -1117,9 +1053,8 @@ pub struct IMAPIFolder_Vtbl {
     pub SaveContentsSort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpsortcriteria: *const SSortOrderSet, ulflags: u32) -> ::windows_core::HRESULT,
     pub EmptyFolder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uluiparam: usize, lpprogress: *mut ::core::ffi::c_void, ulflags: u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMAPIProgress(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IMAPIProgress, IMAPIProgress_Vtbl, 0);
+::windows_core::imp::interface_hierarchy!(IMAPIProgress, ::windows_core::IUnknown);
 impl IMAPIProgress {
     pub unsafe fn Progress(&self, ulvalue: u32, ulcount: u32, ultotal: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Progress)(::windows_core::Interface::as_raw(self), ulvalue, ulcount, ultotal).ok()
@@ -1137,13 +1072,6 @@ impl IMAPIProgress {
         (::windows_core::Interface::vtable(self).SetLimits)(::windows_core::Interface::as_raw(self), lpulmin, lpulmax, lpulflags).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IMAPIProgress, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IMAPIProgress {
-    type Vtable = IMAPIProgress_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IMAPIProgress {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMAPIProgress_Vtbl {
@@ -1154,9 +1082,8 @@ pub struct IMAPIProgress_Vtbl {
     pub GetMin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpulmin: *mut u32) -> ::windows_core::HRESULT,
     pub SetLimits: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpulmin: *mut u32, lpulmax: *mut u32, lpulflags: *mut u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMAPIProp(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IMAPIProp, IMAPIProp_Vtbl, 0);
+::windows_core::imp::interface_hierarchy!(IMAPIProp, ::windows_core::IUnknown);
 impl IMAPIProp {
     pub unsafe fn GetLastError(&self, hresult: ::windows_core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetLastError)(::windows_core::Interface::as_raw(self), hresult, ulflags, lppmapierror).ok()
@@ -1202,13 +1129,6 @@ impl IMAPIProp {
         (::windows_core::Interface::vtable(self).GetIDsFromNames)(::windows_core::Interface::as_raw(self), cpropnames, lpppropnames, ulflags, lppproptags).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IMAPIProp, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IMAPIProp {
-    type Vtable = IMAPIProp_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IMAPIProp {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMAPIProp_Vtbl {
@@ -1231,9 +1151,8 @@ pub struct IMAPIProp_Vtbl {
     pub GetNamesFromIDs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lppproptags: *mut *mut SPropTagArray, lppropsetguid: *mut ::windows_core::GUID, ulflags: u32, lpcpropnames: *mut u32, lppppropnames: *mut *mut *mut MAPINAMEID) -> ::windows_core::HRESULT,
     pub GetIDsFromNames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cpropnames: u32, lpppropnames: *mut *mut MAPINAMEID, ulflags: u32, lppproptags: *mut *mut SPropTagArray) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMAPIStatus(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IMAPIStatus, IMAPIStatus_Vtbl, 0);
+::windows_core::imp::interface_hierarchy!(IMAPIStatus, ::windows_core::IUnknown, IMAPIProp);
 impl IMAPIStatus {
     pub unsafe fn GetLastError(&self, hresult: ::windows_core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetLastError)(::windows_core::Interface::as_raw(self), hresult, ulflags, lppmapierror).ok()
@@ -1291,13 +1210,6 @@ impl IMAPIStatus {
         (::windows_core::Interface::vtable(self).FlushQueues)(::windows_core::Interface::as_raw(self), uluiparam, lptargettransport.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(lptargettransport.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ulflags).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IMAPIStatus, ::windows_core::IUnknown, IMAPIProp);
-unsafe impl ::windows_core::Interface for IMAPIStatus {
-    type Vtable = IMAPIStatus_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IMAPIStatus {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMAPIStatus_Vtbl {
@@ -1307,9 +1219,8 @@ pub struct IMAPIStatus_Vtbl {
     pub ChangePassword: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpoldpass: *const i8, lpnewpass: *const i8, ulflags: u32) -> ::windows_core::HRESULT,
     pub FlushQueues: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uluiparam: usize, cbtargettransport: u32, lptargettransport: *const ENTRYID, ulflags: u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMAPITable(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IMAPITable, IMAPITable_Vtbl, 0);
+::windows_core::imp::interface_hierarchy!(IMAPITable, ::windows_core::IUnknown);
 impl IMAPITable {
     pub unsafe fn GetLastError(&self, hresult: ::windows_core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetLastError)(::windows_core::Interface::as_raw(self), hresult, ulflags, lppmapierror).ok()
@@ -1392,13 +1303,6 @@ impl IMAPITable {
         (::windows_core::Interface::vtable(self).SetCollapseState)(::windows_core::Interface::as_raw(self), ulflags, cbcollapsestate, pbcollapsestate, lpbklocation).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IMAPITable, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IMAPITable {
-    type Vtable = IMAPITable_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IMAPITable {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMAPITable_Vtbl {
@@ -1439,9 +1343,8 @@ pub struct IMAPITable_Vtbl {
     pub GetCollapseState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulflags: u32, cbinstancekey: u32, lpbinstancekey: *mut u8, lpcbcollapsestate: *mut u32, lppbcollapsestate: *mut *mut u8) -> ::windows_core::HRESULT,
     pub SetCollapseState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulflags: u32, cbcollapsestate: u32, pbcollapsestate: *mut u8, lpbklocation: *mut u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMailUser(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IMailUser, IMailUser_Vtbl, 0);
+::windows_core::imp::interface_hierarchy!(IMailUser, ::windows_core::IUnknown, IMAPIProp);
 impl IMailUser {
     pub unsafe fn GetLastError(&self, hresult: ::windows_core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetLastError)(::windows_core::Interface::as_raw(self), hresult, ulflags, lppmapierror).ok()
@@ -1487,21 +1390,13 @@ impl IMailUser {
         (::windows_core::Interface::vtable(self).base__.GetIDsFromNames)(::windows_core::Interface::as_raw(self), cpropnames, lpppropnames, ulflags, lppproptags).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IMailUser, ::windows_core::IUnknown, IMAPIProp);
-unsafe impl ::windows_core::Interface for IMailUser {
-    type Vtable = IMailUser_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IMailUser {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMailUser_Vtbl {
     pub base__: IMAPIProp_Vtbl,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMessage(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IMessage, IMessage_Vtbl, 0);
+::windows_core::imp::interface_hierarchy!(IMessage, ::windows_core::IUnknown, IMAPIProp);
 impl IMessage {
     pub unsafe fn GetLastError(&self, hresult: ::windows_core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetLastError)(::windows_core::Interface::as_raw(self), hresult, ulflags, lppmapierror).ok()
@@ -1579,13 +1474,6 @@ impl IMessage {
         (::windows_core::Interface::vtable(self).SetReadFlag)(::windows_core::Interface::as_raw(self), ulflags).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IMessage, ::windows_core::IUnknown, IMAPIProp);
-unsafe impl ::windows_core::Interface for IMessage {
-    type Vtable = IMessage_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IMessage {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMessage_Vtbl {
@@ -1602,9 +1490,8 @@ pub struct IMessage_Vtbl {
     pub SubmitMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulflags: u32) -> ::windows_core::HRESULT,
     pub SetReadFlag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulflags: u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMsgStore(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IMsgStore, IMsgStore_Vtbl, 0);
+::windows_core::imp::interface_hierarchy!(IMsgStore, ::windows_core::IUnknown, IMAPIProp);
 impl IMsgStore {
     pub unsafe fn GetLastError(&self, hresult: ::windows_core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetLastError)(::windows_core::Interface::as_raw(self), hresult, ulflags, lppmapierror).ok()
@@ -1701,13 +1588,6 @@ impl IMsgStore {
         (::windows_core::Interface::vtable(self).NotifyNewMail)(::windows_core::Interface::as_raw(self), lpnotification).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IMsgStore, ::windows_core::IUnknown, IMAPIProp);
-unsafe impl ::windows_core::Interface for IMsgStore {
-    type Vtable = IMsgStore_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IMsgStore {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMsgStore_Vtbl {
@@ -1729,9 +1609,8 @@ pub struct IMsgStore_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     NotifyNewMail: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IProfSect(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IProfSect, IProfSect_Vtbl, 0);
+::windows_core::imp::interface_hierarchy!(IProfSect, ::windows_core::IUnknown, IMAPIProp);
 impl IProfSect {
     pub unsafe fn GetLastError(&self, hresult: ::windows_core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetLastError)(::windows_core::Interface::as_raw(self), hresult, ulflags, lppmapierror).ok()
@@ -1777,21 +1656,13 @@ impl IProfSect {
         (::windows_core::Interface::vtable(self).base__.GetIDsFromNames)(::windows_core::Interface::as_raw(self), cpropnames, lpppropnames, ulflags, lppproptags).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IProfSect, ::windows_core::IUnknown, IMAPIProp);
-unsafe impl ::windows_core::Interface for IProfSect {
-    type Vtable = IProfSect_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IProfSect {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProfSect_Vtbl {
     pub base__: IMAPIProp_Vtbl,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPropData(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IPropData, IPropData_Vtbl, 0);
+::windows_core::imp::interface_hierarchy!(IPropData, ::windows_core::IUnknown, IMAPIProp);
 impl IPropData {
     pub unsafe fn GetLastError(&self, hresult: ::windows_core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetLastError)(::windows_core::Interface::as_raw(self), hresult, ulflags, lppmapierror).ok()
@@ -1849,13 +1720,6 @@ impl IPropData {
         (::windows_core::Interface::vtable(self).HrAddObjProps)(::windows_core::Interface::as_raw(self), lppproptagarray, lprgulaccess).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IPropData, ::windows_core::IUnknown, IMAPIProp);
-unsafe impl ::windows_core::Interface for IPropData {
-    type Vtable = IPropData_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPropData {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPropData_Vtbl {
@@ -1865,9 +1729,8 @@ pub struct IPropData_Vtbl {
     pub HrGetPropAccess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lppproptagarray: *mut *mut SPropTagArray, lprgulaccess: *mut *mut u32) -> ::windows_core::HRESULT,
     pub HrAddObjProps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lppproptagarray: *mut SPropTagArray, lprgulaccess: *mut *mut SPropProblemArray) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IProviderAdmin(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IProviderAdmin, IProviderAdmin_Vtbl, 0);
+::windows_core::imp::interface_hierarchy!(IProviderAdmin, ::windows_core::IUnknown);
 impl IProviderAdmin {
     pub unsafe fn GetLastError(&self, hresult: ::windows_core::HRESULT, ulflags: u32) -> ::windows_core::Result<*mut MAPIERROR> {
         let mut result__ = ::std::mem::zeroed();
@@ -1891,13 +1754,6 @@ impl IProviderAdmin {
         (::windows_core::Interface::vtable(self).OpenProfileSection)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(lpuid.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpinterface.unwrap_or(::std::ptr::null())), ulflags, &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IProviderAdmin, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IProviderAdmin {
-    type Vtable = IProviderAdmin_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IProviderAdmin {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProviderAdmin_Vtbl {
@@ -1911,9 +1767,8 @@ pub struct IProviderAdmin_Vtbl {
     pub DeleteProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpuid: *const MAPIUID) -> ::windows_core::HRESULT,
     pub OpenProfileSection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpuid: *const MAPIUID, lpinterface: *const ::windows_core::GUID, ulflags: u32, lppprofsect: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ITableData(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(ITableData, ITableData_Vtbl, 0);
+::windows_core::imp::interface_hierarchy!(ITableData, ::windows_core::IUnknown);
 impl ITableData {
     pub unsafe fn HrGetView(&self, lpssortorderset: *mut SSortOrderSet, lpfcallerrelease: *mut CALLERRELEASE, ulcallerdata: u32, lppmapitable: *mut ::core::option::Option<IMAPITable>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).HrGetView)(::windows_core::Interface::as_raw(self), lpssortorderset, lpfcallerrelease, ulcallerdata, ::core::mem::transmute(lppmapitable)).ok()
@@ -1959,13 +1814,6 @@ impl ITableData {
         (::windows_core::Interface::vtable(self).HrDeleteRows)(::windows_core::Interface::as_raw(self), ulflags, lprowsettodelete, crowsdeleted).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(ITableData, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ITableData {
-    type Vtable = ITableData_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ITableData {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITableData_Vtbl {
@@ -2004,20 +1852,12 @@ pub struct ITableData_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     HrDeleteRows: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWABExtInit(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWABExtInit, IWABExtInit_Vtbl, 0xea22ebf0_87a4_11d1_9acf_00a0c91f9c8b);
+::windows_core::imp::interface_hierarchy!(IWABExtInit, ::windows_core::IUnknown);
 impl IWABExtInit {
     pub unsafe fn Initialize(&self, lpwabextdisplay: *mut WABEXTDISPLAY) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), lpwabextdisplay).ok()
     }
-}
-::windows_core::imp::interface_hierarchy!(IWABExtInit, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWABExtInit {
-    type Vtable = IWABExtInit_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWABExtInit {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xea22ebf0_87a4_11d1_9acf_00a0c91f9c8b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2025,9 +1865,8 @@ pub struct IWABExtInit_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpwabextdisplay: *mut WABEXTDISPLAY) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWABObject(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWABObject, IWABObject_Vtbl, 0);
+::windows_core::imp::interface_hierarchy!(IWABObject, ::windows_core::IUnknown);
 impl IWABObject {
     pub unsafe fn GetLastError(&self, hresult: ::windows_core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetLastError)(::windows_core::Interface::as_raw(self), hresult, ulflags, lppmapierror).ok()
@@ -2107,13 +1946,6 @@ impl IWABObject {
     {
         (::windows_core::Interface::vtable(self).SetMe)(::windows_core::Interface::as_raw(self), lpiab.into_param().abi(), ulflags, ::core::mem::transmute(sbeid), hwnd.into_param().abi()).ok()
     }
-}
-::windows_core::imp::interface_hierarchy!(IWABObject, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWABObject {
-    type Vtable = IWABObject_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWABObject {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
 }
 #[repr(C)]
 #[doc(hidden)]

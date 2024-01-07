@@ -10,9 +10,8 @@ pub mod Syndication;
 #[cfg(feature = "Web_UI")]
 #[doc = "Required features: `\"Web_UI\"`"]
 pub mod UI;
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IUriToStreamResolver(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IUriToStreamResolver, IUriToStreamResolver_Vtbl, 0xb0aba86a_9aeb_4d3a_9590_003e3ca7e290);
+::windows_core::imp::interface_hierarchy!(IUriToStreamResolver, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl IUriToStreamResolver {
     #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
@@ -27,15 +26,8 @@ impl IUriToStreamResolver {
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IUriToStreamResolver, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IUriToStreamResolver {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IUriToStreamResolver {
-    type Vtable = IUriToStreamResolver_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IUriToStreamResolver {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb0aba86a_9aeb_4d3a_9590_003e3ca7e290);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -46,16 +38,7 @@ pub struct IUriToStreamResolver_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     UriToStreamAsync: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWebErrorStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWebErrorStatics {
-    type Vtable = IWebErrorStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWebErrorStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfe616766_bf27_4064_87b7_6563bb11ce2e);
-}
+::windows_core::imp::com_interface!(IWebErrorStatics, IWebErrorStatics_Vtbl, 0xfe616766_bf27_4064_87b7_6563bb11ce2e);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebErrorStatics_Vtbl {

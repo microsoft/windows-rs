@@ -28,6 +28,6 @@ impl IContentPrefetcherTaskTrigger_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IContentPrefetcherTaskTrigger as ::windows_core::ComInterface>::IID
+        iid == &<IContentPrefetcherTaskTrigger as ::windows_core::Interface>::IID
     }
 }

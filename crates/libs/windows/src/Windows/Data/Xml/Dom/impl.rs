@@ -86,7 +86,7 @@ impl IXmlCharacterData_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXmlCharacterData as ::windows_core::ComInterface>::IID
+        iid == &<IXmlCharacterData as ::windows_core::Interface>::IID
     }
 }
 pub trait IXmlNode_Impl: Sized + IXmlNodeSelector_Impl + IXmlNodeSerializer_Impl {
@@ -400,7 +400,7 @@ impl IXmlNode_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXmlNode as ::windows_core::ComInterface>::IID
+        iid == &<IXmlNode as ::windows_core::Interface>::IID
     }
 }
 pub trait IXmlNodeSelector_Impl: Sized {
@@ -471,7 +471,7 @@ impl IXmlNodeSelector_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXmlNodeSelector as ::windows_core::ComInterface>::IID
+        iid == &<IXmlNodeSelector as ::windows_core::Interface>::IID
     }
 }
 pub trait IXmlNodeSerializer_Impl: Sized {
@@ -521,7 +521,7 @@ impl IXmlNodeSerializer_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXmlNodeSerializer as ::windows_core::ComInterface>::IID
+        iid == &<IXmlNodeSerializer as ::windows_core::Interface>::IID
     }
 }
 pub trait IXmlText_Impl: Sized + IXmlCharacterData_Impl + IXmlNode_Impl + IXmlNodeSelector_Impl + IXmlNodeSerializer_Impl {
@@ -547,6 +547,6 @@ impl IXmlText_Vtbl {
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, IXmlText, OFFSET>(), SplitText: SplitText::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXmlText as ::windows_core::ComInterface>::IID
+        iid == &<IXmlText as ::windows_core::Interface>::IID
     }
 }

@@ -30,7 +30,7 @@ impl ICoreApplicationUnhandledError_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICoreApplicationUnhandledError as ::windows_core::ComInterface>::IID
+        iid == &<ICoreApplicationUnhandledError as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"UI_Core\"`"]
@@ -84,7 +84,7 @@ impl IFrameworkView_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IFrameworkView as ::windows_core::ComInterface>::IID
+        iid == &<IFrameworkView as ::windows_core::Interface>::IID
     }
 }
 pub trait IFrameworkViewSource_Impl: Sized {
@@ -110,6 +110,6 @@ impl IFrameworkViewSource_Vtbl {
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, IFrameworkViewSource, OFFSET>(), CreateView: CreateView::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IFrameworkViewSource as ::windows_core::ComInterface>::IID
+        iid == &<IFrameworkViewSource as ::windows_core::Interface>::IID
     }
 }

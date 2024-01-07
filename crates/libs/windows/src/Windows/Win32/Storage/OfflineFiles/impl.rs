@@ -42,7 +42,7 @@ impl IEnumOfflineFilesItems_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumOfflineFilesItems as ::windows_core::ComInterface>::IID
+        iid == &<IEnumOfflineFilesItems as ::windows_core::Interface>::IID
     }
 }
 pub trait IEnumOfflineFilesSettings_Impl: Sized {
@@ -89,7 +89,7 @@ impl IEnumOfflineFilesSettings_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumOfflineFilesSettings as ::windows_core::ComInterface>::IID
+        iid == &<IEnumOfflineFilesSettings as ::windows_core::Interface>::IID
     }
 }
 pub trait IOfflineFilesCache_Impl: Sized {
@@ -251,7 +251,7 @@ impl IOfflineFilesCache_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOfflineFilesCache as ::windows_core::ComInterface>::IID
+        iid == &<IOfflineFilesCache as ::windows_core::Interface>::IID
     }
 }
 pub trait IOfflineFilesCache2_Impl: Sized + IOfflineFilesCache_Impl {
@@ -268,7 +268,7 @@ impl IOfflineFilesCache2_Vtbl {
         Self { base__: IOfflineFilesCache_Vtbl::new::<Identity, Impl, OFFSET>(), RenameItemEx: RenameItemEx::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOfflineFilesCache2 as ::windows_core::ComInterface>::IID || iid == &<IOfflineFilesCache as ::windows_core::ComInterface>::IID
+        iid == &<IOfflineFilesCache2 as ::windows_core::Interface>::IID || iid == &<IOfflineFilesCache as ::windows_core::Interface>::IID
     }
 }
 pub trait IOfflineFilesChangeInfo_Impl: Sized {
@@ -353,7 +353,7 @@ impl IOfflineFilesChangeInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOfflineFilesChangeInfo as ::windows_core::ComInterface>::IID
+        iid == &<IOfflineFilesChangeInfo as ::windows_core::Interface>::IID
     }
 }
 pub trait IOfflineFilesConnectionInfo_Impl: Sized {
@@ -400,7 +400,7 @@ impl IOfflineFilesConnectionInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOfflineFilesConnectionInfo as ::windows_core::ComInterface>::IID
+        iid == &<IOfflineFilesConnectionInfo as ::windows_core::Interface>::IID
     }
 }
 pub trait IOfflineFilesDirectoryItem_Impl: Sized + IOfflineFilesItem_Impl {}
@@ -410,7 +410,7 @@ impl IOfflineFilesDirectoryItem_Vtbl {
         Self { base__: IOfflineFilesItem_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOfflineFilesDirectoryItem as ::windows_core::ComInterface>::IID || iid == &<IOfflineFilesItem as ::windows_core::ComInterface>::IID
+        iid == &<IOfflineFilesDirectoryItem as ::windows_core::Interface>::IID || iid == &<IOfflineFilesItem as ::windows_core::Interface>::IID
     }
 }
 pub trait IOfflineFilesDirtyInfo_Impl: Sized {
@@ -449,7 +449,7 @@ impl IOfflineFilesDirtyInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOfflineFilesDirtyInfo as ::windows_core::ComInterface>::IID
+        iid == &<IOfflineFilesDirtyInfo as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -492,7 +492,7 @@ impl IOfflineFilesErrorInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOfflineFilesErrorInfo as ::windows_core::ComInterface>::IID
+        iid == &<IOfflineFilesErrorInfo as ::windows_core::Interface>::IID
     }
 }
 pub trait IOfflineFilesEvents_Impl: Sized {
@@ -680,7 +680,7 @@ impl IOfflineFilesEvents_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOfflineFilesEvents as ::windows_core::ComInterface>::IID
+        iid == &<IOfflineFilesEvents as ::windows_core::Interface>::IID
     }
 }
 pub trait IOfflineFilesEvents2_Impl: Sized + IOfflineFilesEvents_Impl {
@@ -756,7 +756,7 @@ impl IOfflineFilesEvents2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOfflineFilesEvents2 as ::windows_core::ComInterface>::IID || iid == &<IOfflineFilesEvents as ::windows_core::ComInterface>::IID
+        iid == &<IOfflineFilesEvents2 as ::windows_core::Interface>::IID || iid == &<IOfflineFilesEvents as ::windows_core::Interface>::IID
     }
 }
 pub trait IOfflineFilesEvents3_Impl: Sized + IOfflineFilesEvents2_Impl {
@@ -790,7 +790,7 @@ impl IOfflineFilesEvents3_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOfflineFilesEvents3 as ::windows_core::ComInterface>::IID || iid == &<IOfflineFilesEvents as ::windows_core::ComInterface>::IID || iid == &<IOfflineFilesEvents2 as ::windows_core::ComInterface>::IID
+        iid == &<IOfflineFilesEvents3 as ::windows_core::Interface>::IID || iid == &<IOfflineFilesEvents as ::windows_core::Interface>::IID || iid == &<IOfflineFilesEvents2 as ::windows_core::Interface>::IID
     }
 }
 pub trait IOfflineFilesEvents4_Impl: Sized + IOfflineFilesEvents3_Impl {
@@ -817,7 +817,7 @@ impl IOfflineFilesEvents4_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOfflineFilesEvents4 as ::windows_core::ComInterface>::IID || iid == &<IOfflineFilesEvents as ::windows_core::ComInterface>::IID || iid == &<IOfflineFilesEvents2 as ::windows_core::ComInterface>::IID || iid == &<IOfflineFilesEvents3 as ::windows_core::ComInterface>::IID
+        iid == &<IOfflineFilesEvents4 as ::windows_core::Interface>::IID || iid == &<IOfflineFilesEvents as ::windows_core::Interface>::IID || iid == &<IOfflineFilesEvents2 as ::windows_core::Interface>::IID || iid == &<IOfflineFilesEvents3 as ::windows_core::Interface>::IID
     }
 }
 pub trait IOfflineFilesEventsFilter_Impl: Sized {
@@ -851,7 +851,7 @@ impl IOfflineFilesEventsFilter_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOfflineFilesEventsFilter as ::windows_core::ComInterface>::IID
+        iid == &<IOfflineFilesEventsFilter as ::windows_core::Interface>::IID
     }
 }
 pub trait IOfflineFilesFileItem_Impl: Sized + IOfflineFilesItem_Impl {
@@ -890,7 +890,7 @@ impl IOfflineFilesFileItem_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOfflineFilesFileItem as ::windows_core::ComInterface>::IID || iid == &<IOfflineFilesItem as ::windows_core::ComInterface>::IID
+        iid == &<IOfflineFilesFileItem as ::windows_core::Interface>::IID || iid == &<IOfflineFilesItem as ::windows_core::Interface>::IID
     }
 }
 pub trait IOfflineFilesFileSysInfo_Impl: Sized {
@@ -936,7 +936,7 @@ impl IOfflineFilesFileSysInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOfflineFilesFileSysInfo as ::windows_core::ComInterface>::IID
+        iid == &<IOfflineFilesFileSysInfo as ::windows_core::Interface>::IID
     }
 }
 pub trait IOfflineFilesGhostInfo_Impl: Sized {
@@ -959,7 +959,7 @@ impl IOfflineFilesGhostInfo_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), IsGhosted: IsGhosted::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOfflineFilesGhostInfo as ::windows_core::ComInterface>::IID
+        iid == &<IOfflineFilesGhostInfo as ::windows_core::Interface>::IID
     }
 }
 pub trait IOfflineFilesItem_Impl: Sized {
@@ -1031,7 +1031,7 @@ impl IOfflineFilesItem_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOfflineFilesItem as ::windows_core::ComInterface>::IID
+        iid == &<IOfflineFilesItem as ::windows_core::Interface>::IID
     }
 }
 pub trait IOfflineFilesItemContainer_Impl: Sized {
@@ -1070,7 +1070,7 @@ impl IOfflineFilesItemContainer_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOfflineFilesItemContainer as ::windows_core::ComInterface>::IID
+        iid == &<IOfflineFilesItemContainer as ::windows_core::Interface>::IID
     }
 }
 pub trait IOfflineFilesItemFilter_Impl: Sized {
@@ -1104,7 +1104,7 @@ impl IOfflineFilesItemFilter_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOfflineFilesItemFilter as ::windows_core::ComInterface>::IID
+        iid == &<IOfflineFilesItemFilter as ::windows_core::Interface>::IID
     }
 }
 pub trait IOfflineFilesPinInfo_Impl: Sized {
@@ -1158,7 +1158,7 @@ impl IOfflineFilesPinInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOfflineFilesPinInfo as ::windows_core::ComInterface>::IID
+        iid == &<IOfflineFilesPinInfo as ::windows_core::Interface>::IID
     }
 }
 pub trait IOfflineFilesPinInfo2_Impl: Sized + IOfflineFilesPinInfo_Impl {
@@ -1181,7 +1181,7 @@ impl IOfflineFilesPinInfo2_Vtbl {
         Self { base__: IOfflineFilesPinInfo_Vtbl::new::<Identity, Impl, OFFSET>(), IsPartlyPinned: IsPartlyPinned::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOfflineFilesPinInfo2 as ::windows_core::ComInterface>::IID || iid == &<IOfflineFilesPinInfo as ::windows_core::ComInterface>::IID
+        iid == &<IOfflineFilesPinInfo2 as ::windows_core::Interface>::IID || iid == &<IOfflineFilesPinInfo as ::windows_core::Interface>::IID
     }
 }
 pub trait IOfflineFilesProgress_Impl: Sized {
@@ -1227,7 +1227,7 @@ impl IOfflineFilesProgress_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOfflineFilesProgress as ::windows_core::ComInterface>::IID
+        iid == &<IOfflineFilesProgress as ::windows_core::Interface>::IID
     }
 }
 pub trait IOfflineFilesServerItem_Impl: Sized + IOfflineFilesItem_Impl {}
@@ -1237,7 +1237,7 @@ impl IOfflineFilesServerItem_Vtbl {
         Self { base__: IOfflineFilesItem_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOfflineFilesServerItem as ::windows_core::ComInterface>::IID || iid == &<IOfflineFilesItem as ::windows_core::ComInterface>::IID
+        iid == &<IOfflineFilesServerItem as ::windows_core::Interface>::IID || iid == &<IOfflineFilesItem as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -1341,7 +1341,7 @@ impl IOfflineFilesSetting_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOfflineFilesSetting as ::windows_core::ComInterface>::IID
+        iid == &<IOfflineFilesSetting as ::windows_core::Interface>::IID
     }
 }
 pub trait IOfflineFilesShareInfo_Impl: Sized {
@@ -1393,7 +1393,7 @@ impl IOfflineFilesShareInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOfflineFilesShareInfo as ::windows_core::ComInterface>::IID
+        iid == &<IOfflineFilesShareInfo as ::windows_core::Interface>::IID
     }
 }
 pub trait IOfflineFilesShareItem_Impl: Sized + IOfflineFilesItem_Impl {}
@@ -1403,7 +1403,7 @@ impl IOfflineFilesShareItem_Vtbl {
         Self { base__: IOfflineFilesItem_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOfflineFilesShareItem as ::windows_core::ComInterface>::IID || iid == &<IOfflineFilesItem as ::windows_core::ComInterface>::IID
+        iid == &<IOfflineFilesShareItem as ::windows_core::Interface>::IID || iid == &<IOfflineFilesItem as ::windows_core::Interface>::IID
     }
 }
 pub trait IOfflineFilesSimpleProgress_Impl: Sized + IOfflineFilesProgress_Impl {
@@ -1442,7 +1442,7 @@ impl IOfflineFilesSimpleProgress_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOfflineFilesSimpleProgress as ::windows_core::ComInterface>::IID || iid == &<IOfflineFilesProgress as ::windows_core::ComInterface>::IID
+        iid == &<IOfflineFilesSimpleProgress as ::windows_core::Interface>::IID || iid == &<IOfflineFilesProgress as ::windows_core::Interface>::IID
     }
 }
 pub trait IOfflineFilesSuspend_Impl: Sized {
@@ -1459,7 +1459,7 @@ impl IOfflineFilesSuspend_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SuspendRoot: SuspendRoot::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOfflineFilesSuspend as ::windows_core::ComInterface>::IID
+        iid == &<IOfflineFilesSuspend as ::windows_core::Interface>::IID
     }
 }
 pub trait IOfflineFilesSuspendInfo_Impl: Sized {
@@ -1476,7 +1476,7 @@ impl IOfflineFilesSuspendInfo_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), IsSuspended: IsSuspended::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOfflineFilesSuspendInfo as ::windows_core::ComInterface>::IID
+        iid == &<IOfflineFilesSuspendInfo as ::windows_core::Interface>::IID
     }
 }
 pub trait IOfflineFilesSyncConflictHandler_Impl: Sized {
@@ -1493,7 +1493,7 @@ impl IOfflineFilesSyncConflictHandler_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ResolveConflict: ResolveConflict::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOfflineFilesSyncConflictHandler as ::windows_core::ComInterface>::IID
+        iid == &<IOfflineFilesSyncConflictHandler as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1589,7 +1589,7 @@ impl IOfflineFilesSyncErrorInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOfflineFilesSyncErrorInfo as ::windows_core::ComInterface>::IID || iid == &<IOfflineFilesErrorInfo as ::windows_core::ComInterface>::IID
+        iid == &<IOfflineFilesSyncErrorInfo as ::windows_core::Interface>::IID || iid == &<IOfflineFilesErrorInfo as ::windows_core::Interface>::IID
     }
 }
 pub trait IOfflineFilesSyncErrorItemInfo_Impl: Sized {
@@ -1635,7 +1635,7 @@ impl IOfflineFilesSyncErrorItemInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOfflineFilesSyncErrorItemInfo as ::windows_core::ComInterface>::IID
+        iid == &<IOfflineFilesSyncErrorItemInfo as ::windows_core::Interface>::IID
     }
 }
 pub trait IOfflineFilesSyncProgress_Impl: Sized + IOfflineFilesProgress_Impl {
@@ -1674,7 +1674,7 @@ impl IOfflineFilesSyncProgress_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOfflineFilesSyncProgress as ::windows_core::ComInterface>::IID || iid == &<IOfflineFilesProgress as ::windows_core::ComInterface>::IID
+        iid == &<IOfflineFilesSyncProgress as ::windows_core::Interface>::IID || iid == &<IOfflineFilesProgress as ::windows_core::Interface>::IID
     }
 }
 pub trait IOfflineFilesTransparentCacheInfo_Impl: Sized {
@@ -1697,6 +1697,6 @@ impl IOfflineFilesTransparentCacheInfo_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), IsTransparentlyCached: IsTransparentlyCached::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOfflineFilesTransparentCacheInfo as ::windows_core::ComInterface>::IID
+        iid == &<IOfflineFilesTransparentCacheInfo as ::windows_core::Interface>::IID
     }
 }

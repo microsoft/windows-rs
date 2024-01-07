@@ -1,13 +1,4 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ICoreUserActivityManagerStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ICoreUserActivityManagerStatics {
-    type Vtable = ICoreUserActivityManagerStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ICoreUserActivityManagerStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xca3adb02_a4be_4d4d_bfa8_6795f4264efb);
-}
+::windows_core::imp::com_interface!(ICoreUserActivityManagerStatics, ICoreUserActivityManagerStatics_Vtbl, 0xca3adb02_a4be_4d4d_bfa8_6795f4264efb);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreUserActivityManagerStatics_Vtbl {

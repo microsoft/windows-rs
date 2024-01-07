@@ -12,7 +12,7 @@ impl ICreateObject_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateObject: CreateObject::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICreateObject as ::windows_core::ComInterface>::IID
+        iid == &<ICreateObject as ::windows_core::Interface>::IID
     }
 }
 pub trait IDelayedPropertyStoreFactory_Impl: Sized + IPropertyStoreFactory_Impl {
@@ -29,7 +29,7 @@ impl IDelayedPropertyStoreFactory_Vtbl {
         Self { base__: IPropertyStoreFactory_Vtbl::new::<Identity, Impl, OFFSET>(), GetDelayedPropertyStore: GetDelayedPropertyStore::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDelayedPropertyStoreFactory as ::windows_core::ComInterface>::IID || iid == &<IPropertyStoreFactory as ::windows_core::ComInterface>::IID
+        iid == &<IDelayedPropertyStoreFactory as ::windows_core::Interface>::IID || iid == &<IPropertyStoreFactory as ::windows_core::Interface>::IID
     }
 }
 pub trait IInitializeWithFile_Impl: Sized {
@@ -46,7 +46,7 @@ impl IInitializeWithFile_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInitializeWithFile as ::windows_core::ComInterface>::IID
+        iid == &<IInitializeWithFile as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -67,7 +67,7 @@ impl IInitializeWithStream_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInitializeWithStream as ::windows_core::ComInterface>::IID
+        iid == &<IInitializeWithStream as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
@@ -130,7 +130,7 @@ impl INamedPropertyStore_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<INamedPropertyStore as ::windows_core::ComInterface>::IID
+        iid == &<INamedPropertyStore as ::windows_core::Interface>::IID
     }
 }
 pub trait IObjectWithPropertyKey_Impl: Sized {
@@ -157,7 +157,7 @@ impl IObjectWithPropertyKey_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IObjectWithPropertyKey as ::windows_core::ComInterface>::IID
+        iid == &<IObjectWithPropertyKey as ::windows_core::Interface>::IID
     }
 }
 pub trait IPersistSerializedPropStorage_Impl: Sized {
@@ -191,7 +191,7 @@ impl IPersistSerializedPropStorage_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPersistSerializedPropStorage as ::windows_core::ComInterface>::IID
+        iid == &<IPersistSerializedPropStorage as ::windows_core::Interface>::IID
     }
 }
 pub trait IPersistSerializedPropStorage2_Impl: Sized + IPersistSerializedPropStorage_Impl {
@@ -224,7 +224,7 @@ impl IPersistSerializedPropStorage2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPersistSerializedPropStorage2 as ::windows_core::ComInterface>::IID || iid == &<IPersistSerializedPropStorage as ::windows_core::ComInterface>::IID
+        iid == &<IPersistSerializedPropStorage2 as ::windows_core::Interface>::IID || iid == &<IPersistSerializedPropStorage as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
@@ -251,7 +251,7 @@ impl IPropertyChange_Vtbl {
         Self { base__: IObjectWithPropertyKey_Vtbl::new::<Identity, Impl, OFFSET>(), ApplyToPropVariant: ApplyToPropVariant::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPropertyChange as ::windows_core::ComInterface>::IID || iid == &<IObjectWithPropertyKey as ::windows_core::ComInterface>::IID
+        iid == &<IPropertyChange as ::windows_core::Interface>::IID || iid == &<IObjectWithPropertyKey as ::windows_core::Interface>::IID
     }
 }
 pub trait IPropertyChangeArray_Impl: Sized {
@@ -319,7 +319,7 @@ impl IPropertyChangeArray_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPropertyChangeArray as ::windows_core::ComInterface>::IID
+        iid == &<IPropertyChangeArray as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Search_Common\"`, `\"Win32_System_Variant\"`"]
@@ -573,7 +573,7 @@ impl IPropertyDescription_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPropertyDescription as ::windows_core::ComInterface>::IID
+        iid == &<IPropertyDescription as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Search_Common\"`, `\"Win32_System_Variant\"`"]
@@ -603,7 +603,7 @@ impl IPropertyDescription2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPropertyDescription2 as ::windows_core::ComInterface>::IID || iid == &<IPropertyDescription as ::windows_core::ComInterface>::IID
+        iid == &<IPropertyDescription2 as ::windows_core::Interface>::IID || iid == &<IPropertyDescription as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Search_Common\"`, `\"Win32_System_Variant\"`"]
@@ -634,7 +634,7 @@ impl IPropertyDescriptionAliasInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPropertyDescriptionAliasInfo as ::windows_core::ComInterface>::IID || iid == &<IPropertyDescription as ::windows_core::ComInterface>::IID
+        iid == &<IPropertyDescriptionAliasInfo as ::windows_core::Interface>::IID || iid == &<IPropertyDescription as ::windows_core::Interface>::IID
     }
 }
 pub trait IPropertyDescriptionList_Impl: Sized {
@@ -667,7 +667,7 @@ impl IPropertyDescriptionList_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPropertyDescriptionList as ::windows_core::ComInterface>::IID
+        iid == &<IPropertyDescriptionList as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Search_Common\"`, `\"Win32_System_Variant\"`"]
@@ -688,7 +688,7 @@ impl IPropertyDescriptionRelatedPropertyInfo_Vtbl {
         Self { base__: IPropertyDescription_Vtbl::new::<Identity, Impl, OFFSET>(), GetRelatedProperty: GetRelatedProperty::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPropertyDescriptionRelatedPropertyInfo as ::windows_core::ComInterface>::IID || iid == &<IPropertyDescription as ::windows_core::ComInterface>::IID
+        iid == &<IPropertyDescriptionRelatedPropertyInfo as ::windows_core::Interface>::IID || iid == &<IPropertyDescription as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Search_Common\"`, `\"Win32_System_Variant\"`"]
@@ -757,7 +757,7 @@ impl IPropertyDescriptionSearchInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPropertyDescriptionSearchInfo as ::windows_core::ComInterface>::IID || iid == &<IPropertyDescription as ::windows_core::ComInterface>::IID
+        iid == &<IPropertyDescriptionSearchInfo as ::windows_core::Interface>::IID || iid == &<IPropertyDescription as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
@@ -839,7 +839,7 @@ impl IPropertyEnumType_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPropertyEnumType as ::windows_core::ComInterface>::IID
+        iid == &<IPropertyEnumType as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
@@ -866,7 +866,7 @@ impl IPropertyEnumType2_Vtbl {
         Self { base__: IPropertyEnumType_Vtbl::new::<Identity, Impl, OFFSET>(), GetImageReference: GetImageReference::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPropertyEnumType2 as ::windows_core::ComInterface>::IID || iid == &<IPropertyEnumType as ::windows_core::ComInterface>::IID
+        iid == &<IPropertyEnumType2 as ::windows_core::Interface>::IID || iid == &<IPropertyEnumType as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
@@ -923,7 +923,7 @@ impl IPropertyEnumTypeList_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPropertyEnumTypeList as ::windows_core::ComInterface>::IID
+        iid == &<IPropertyEnumTypeList as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
@@ -987,7 +987,7 @@ impl IPropertyStore_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPropertyStore as ::windows_core::ComInterface>::IID
+        iid == &<IPropertyStore as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
@@ -1038,7 +1038,7 @@ impl IPropertyStoreCache_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPropertyStoreCache as ::windows_core::ComInterface>::IID || iid == &<IPropertyStore as ::windows_core::ComInterface>::IID
+        iid == &<IPropertyStoreCache as ::windows_core::Interface>::IID || iid == &<IPropertyStore as ::windows_core::Interface>::IID
     }
 }
 pub trait IPropertyStoreCapabilities_Impl: Sized {
@@ -1055,7 +1055,7 @@ impl IPropertyStoreCapabilities_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), IsPropertyWritable: IsPropertyWritable::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPropertyStoreCapabilities as ::windows_core::ComInterface>::IID
+        iid == &<IPropertyStoreCapabilities as ::windows_core::Interface>::IID
     }
 }
 pub trait IPropertyStoreFactory_Impl: Sized {
@@ -1082,7 +1082,7 @@ impl IPropertyStoreFactory_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPropertyStoreFactory as ::windows_core::ComInterface>::IID
+        iid == &<IPropertyStoreFactory as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
@@ -1168,7 +1168,7 @@ impl IPropertySystem_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPropertySystem as ::windows_core::ComInterface>::IID
+        iid == &<IPropertySystem as ::windows_core::Interface>::IID
     }
 }
 pub trait IPropertySystemChangeNotify_Impl: Sized {
@@ -1185,7 +1185,7 @@ impl IPropertySystemChangeNotify_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SchemaRefreshed: SchemaRefreshed::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPropertySystemChangeNotify as ::windows_core::ComInterface>::IID
+        iid == &<IPropertySystemChangeNotify as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
@@ -1270,6 +1270,6 @@ impl IPropertyUI_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPropertyUI as ::windows_core::ComInterface>::IID
+        iid == &<IPropertyUI as ::windows_core::Interface>::IID
     }
 }

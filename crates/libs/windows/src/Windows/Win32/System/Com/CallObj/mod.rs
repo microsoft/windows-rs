@@ -15,9 +15,8 @@ where
     ::windows_targets::link!("ole32.dll" "system" fn CoGetInterceptorFromTypeInfo(iidintercepted : *const ::windows_core::GUID, punkouter : * mut::core::ffi::c_void, typeinfo : * mut::core::ffi::c_void, iid : *const ::windows_core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     CoGetInterceptorFromTypeInfo(iidintercepted, punkouter.into_param().abi(), typeinfo.into_param().abi(), iid, ppv).ok()
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ICallFrame(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(ICallFrame, ICallFrame_Vtbl, 0xd573b4b0_894e_11d2_b8b6_00c04fb9618a);
+::windows_core::imp::interface_hierarchy!(ICallFrame, ::windows_core::IUnknown);
 impl ICallFrame {
     pub unsafe fn GetInfo(&self, pinfo: *mut CALLFRAMEINFO) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetInfo)(::windows_core::Interface::as_raw(self), pinfo).ok()
@@ -101,13 +100,6 @@ impl ICallFrame {
         (::windows_core::Interface::vtable(self).Invoke)(::windows_core::Interface::as_raw(self), pvreceiver).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(ICallFrame, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ICallFrame {
-    type Vtable = ICallFrame_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ICallFrame {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd573b4b0_894e_11d2_b8b6_00c04fb9618a);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICallFrame_Vtbl {
@@ -138,9 +130,8 @@ pub struct ICallFrame_Vtbl {
     pub ReleaseMarshalData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32, ibfirstrelease: u32, datarep: u32, pcontext: *const CALLFRAME_MARSHALCONTEXT) -> ::windows_core::HRESULT,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvreceiver: *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ICallFrameEvents(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(ICallFrameEvents, ICallFrameEvents_Vtbl, 0xfd5e0843_fc91_11d0_97d7_00c04fb9618a);
+::windows_core::imp::interface_hierarchy!(ICallFrameEvents, ::windows_core::IUnknown);
 impl ICallFrameEvents {
     pub unsafe fn OnCall<P0>(&self, pframe: P0) -> ::windows_core::Result<()>
     where
@@ -149,22 +140,14 @@ impl ICallFrameEvents {
         (::windows_core::Interface::vtable(self).OnCall)(::windows_core::Interface::as_raw(self), pframe.into_param().abi()).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(ICallFrameEvents, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ICallFrameEvents {
-    type Vtable = ICallFrameEvents_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ICallFrameEvents {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfd5e0843_fc91_11d0_97d7_00c04fb9618a);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICallFrameEvents_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub OnCall: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pframe: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ICallFrameWalker(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(ICallFrameWalker, ICallFrameWalker_Vtbl, 0x08b23919_392d_11d2_b8a4_00c04fb9618a);
+::windows_core::imp::interface_hierarchy!(ICallFrameWalker, ::windows_core::IUnknown);
 impl ICallFrameWalker {
     pub unsafe fn OnWalkInterface<P0, P1>(&self, iid: *const ::windows_core::GUID, ppvinterface: *const *const ::core::ffi::c_void, fin: P0, fout: P1) -> ::windows_core::Result<()>
     where
@@ -174,22 +157,14 @@ impl ICallFrameWalker {
         (::windows_core::Interface::vtable(self).OnWalkInterface)(::windows_core::Interface::as_raw(self), iid, ppvinterface, fin.into_param().abi(), fout.into_param().abi()).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(ICallFrameWalker, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ICallFrameWalker {
-    type Vtable = ICallFrameWalker_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ICallFrameWalker {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x08b23919_392d_11d2_b8a4_00c04fb9618a);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICallFrameWalker_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub OnWalkInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: *const ::windows_core::GUID, ppvinterface: *const *const ::core::ffi::c_void, fin: super::super::super::Foundation::BOOL, fout: super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ICallIndirect(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(ICallIndirect, ICallIndirect_Vtbl, 0xd573b4b1_894e_11d2_b8b6_00c04fb9618a);
+::windows_core::imp::interface_hierarchy!(ICallIndirect, ::windows_core::IUnknown);
 impl ICallIndirect {
     pub unsafe fn CallIndirect(&self, phrreturn: *mut ::windows_core::HRESULT, imethod: u32, pvargs: *const ::core::ffi::c_void, cbargs: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CallIndirect)(::windows_core::Interface::as_raw(self), phrreturn, imethod, pvargs, cbargs).ok()
@@ -205,13 +180,6 @@ impl ICallIndirect {
         (::windows_core::Interface::vtable(self).GetIID)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(piid.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pfderivesfromidispatch.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcmethod.unwrap_or(::std::ptr::null_mut())), pwszinterface).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(ICallIndirect, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ICallIndirect {
-    type Vtable = ICallIndirect_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ICallIndirect {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd573b4b1_894e_11d2_b8b6_00c04fb9618a);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICallIndirect_Vtbl {
@@ -221,9 +189,8 @@ pub struct ICallIndirect_Vtbl {
     pub GetStackSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, imethod: u32, cbargs: *mut u32) -> ::windows_core::HRESULT,
     pub GetIID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piid: *mut ::windows_core::GUID, pfderivesfromidispatch: *mut super::super::super::Foundation::BOOL, pcmethod: *mut u32, pwszinterface: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ICallInterceptor(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(ICallInterceptor, ICallInterceptor_Vtbl, 0x60c7ca75_896d_11d2_b8b6_00c04fb9618a);
+::windows_core::imp::interface_hierarchy!(ICallInterceptor, ::windows_core::IUnknown, ICallIndirect);
 impl ICallInterceptor {
     pub unsafe fn CallIndirect(&self, phrreturn: *mut ::windows_core::HRESULT, imethod: u32, pvargs: *const ::core::ffi::c_void, cbargs: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.CallIndirect)(::windows_core::Interface::as_raw(self), phrreturn, imethod, pvargs, cbargs).ok()
@@ -249,13 +216,6 @@ impl ICallInterceptor {
         (::windows_core::Interface::vtable(self).GetRegisteredSink)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(ICallInterceptor, ::windows_core::IUnknown, ICallIndirect);
-unsafe impl ::windows_core::Interface for ICallInterceptor {
-    type Vtable = ICallInterceptor_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ICallInterceptor {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x60c7ca75_896d_11d2_b8b6_00c04fb9618a);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICallInterceptor_Vtbl {
@@ -263,9 +223,8 @@ pub struct ICallInterceptor_Vtbl {
     pub RegisterSink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psink: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetRegisteredSink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsink: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ICallUnmarshal(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(ICallUnmarshal, ICallUnmarshal_Vtbl, 0x5333b003_2e42_11d2_b89d_00c04fb9618a);
+::windows_core::imp::interface_hierarchy!(ICallUnmarshal, ::windows_core::IUnknown);
 impl ICallUnmarshal {
     pub unsafe fn Unmarshal<P0>(&self, imethod: u32, pbuffer: &[u8], fforcebuffercopy: P0, datarep: u32, pcontext: *const CALLFRAME_MARSHALCONTEXT, pcbunmarshalled: *mut u32, ppframe: *mut ::core::option::Option<ICallFrame>) -> ::windows_core::Result<()>
     where
@@ -277,13 +236,6 @@ impl ICallUnmarshal {
         (::windows_core::Interface::vtable(self).ReleaseMarshalData)(::windows_core::Interface::as_raw(self), imethod, ::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len().try_into().unwrap(), ibfirstrelease, datarep, pcontext).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(ICallUnmarshal, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ICallUnmarshal {
-    type Vtable = ICallUnmarshal_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ICallUnmarshal {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5333b003_2e42_11d2_b89d_00c04fb9618a);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICallUnmarshal_Vtbl {
@@ -291,9 +243,8 @@ pub struct ICallUnmarshal_Vtbl {
     pub Unmarshal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, imethod: u32, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32, fforcebuffercopy: super::super::super::Foundation::BOOL, datarep: u32, pcontext: *const CALLFRAME_MARSHALCONTEXT, pcbunmarshalled: *mut u32, ppframe: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub ReleaseMarshalData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, imethod: u32, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32, ibfirstrelease: u32, datarep: u32, pcontext: *const CALLFRAME_MARSHALCONTEXT) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IInterfaceRelated(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IInterfaceRelated, IInterfaceRelated_Vtbl, 0xd1fb5a79_7706_11d1_adba_00c04fc2adc0);
+::windows_core::imp::interface_hierarchy!(IInterfaceRelated, ::windows_core::IUnknown);
 impl IInterfaceRelated {
     pub unsafe fn SetIID(&self, iid: *const ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetIID)(::windows_core::Interface::as_raw(self), iid).ok()
@@ -302,13 +253,6 @@ impl IInterfaceRelated {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetIID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-}
-::windows_core::imp::interface_hierarchy!(IInterfaceRelated, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IInterfaceRelated {
-    type Vtable = IInterfaceRelated_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IInterfaceRelated {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd1fb5a79_7706_11d1_adba_00c04fc2adc0);
 }
 #[repr(C)]
 #[doc(hidden)]

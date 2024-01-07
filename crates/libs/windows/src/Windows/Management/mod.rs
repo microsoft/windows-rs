@@ -13,16 +13,7 @@ pub mod Update;
 #[cfg(feature = "Management_Workplace")]
 #[doc = "Required features: `\"Management_Workplace\"`"]
 pub mod Workplace;
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMdmAlert(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IMdmAlert {
-    type Vtable = IMdmAlert_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IMdmAlert {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb0fbc327_28c1_4b52_a548_c5807caf70b6);
-}
+::windows_core::imp::com_interface!(IMdmAlert, IMdmAlert_Vtbl, 0xb0fbc327_28c1_4b52_a548_c5807caf70b6);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMdmAlert_Vtbl {
@@ -41,16 +32,7 @@ pub struct IMdmAlert_Vtbl {
     pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub SetType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMdmSession(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IMdmSession {
-    type Vtable = IMdmSession_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IMdmSession {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfe89314c_8f64_4797_a9d7_9d88f86ae166);
-}
+::windows_core::imp::com_interface!(IMdmSession, IMdmSession_Vtbl, 0xfe89314c_8f64_4797_a9d7_9d88f86ae166);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMdmSession_Vtbl {
@@ -70,16 +52,7 @@ pub struct IMdmSession_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     StartWithAlertsAsync: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMdmSessionManagerStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IMdmSessionManagerStatics {
-    type Vtable = IMdmSessionManagerStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IMdmSessionManagerStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcf4ad959_f745_4b79_9b5c_de0bf8efe44b);
-}
+::windows_core::imp::com_interface!(IMdmSessionManagerStatics, IMdmSessionManagerStatics_Vtbl, 0xcf4ad959_f745_4b79_9b5c_de0bf8efe44b);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMdmSessionManagerStatics_Vtbl {
@@ -95,6 +68,7 @@ pub struct IMdmSessionManagerStatics_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MdmAlert(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(MdmAlert, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl MdmAlert {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -182,17 +156,15 @@ impl ::windows_core::RuntimeType for MdmAlert {
 }
 unsafe impl ::windows_core::Interface for MdmAlert {
     type Vtable = IMdmAlert_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for MdmAlert {
-    const IID: ::windows_core::GUID = <IMdmAlert as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IMdmAlert as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for MdmAlert {
     const NAME: &'static str = "Windows.Management.MdmAlert";
 }
-::windows_core::imp::interface_hierarchy!(MdmAlert, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MdmSession(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(MdmSession, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl MdmSession {
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
@@ -246,12 +218,12 @@ impl MdmSession {
     #[cfg(feature = "Foundation_Collections")]
     pub fn StartWithAlertsAsync<P0>(&self, alerts: P0) -> ::windows_core::Result<super::Foundation::IAsyncAction>
     where
-        P0: ::windows_core::TryIntoParam<super::Foundation::Collections::IIterable<MdmAlert>>,
+        P0: ::windows_core::IntoParam<super::Foundation::Collections::IIterable<MdmAlert>>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).StartWithAlertsAsync)(::windows_core::Interface::as_raw(this), alerts.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).StartWithAlertsAsync)(::windows_core::Interface::as_raw(this), alerts.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
 }
@@ -260,14 +232,11 @@ impl ::windows_core::RuntimeType for MdmSession {
 }
 unsafe impl ::windows_core::Interface for MdmSession {
     type Vtable = IMdmSession_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for MdmSession {
-    const IID: ::windows_core::GUID = <IMdmSession as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IMdmSession as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for MdmSession {
     const NAME: &'static str = "Windows.Management.MdmSession";
 }
-::windows_core::imp::interface_hierarchy!(MdmSession, ::windows_core::IUnknown, ::windows_core::IInspectable);
 pub struct MdmSessionManager;
 impl MdmSessionManager {
     #[doc = "Required features: `\"Foundation_Collections\"`"]

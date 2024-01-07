@@ -1,13 +1,4 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAnimationDescription(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAnimationDescription {
-    type Vtable = IAnimationDescription_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAnimationDescription {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7d11a549_be3d_41de_b081_05c149962f9b);
-}
+::windows_core::imp::com_interface!(IAnimationDescription, IAnimationDescription_Vtbl, 0x7d11a549_be3d_41de_b081_05c149962f9b);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAnimationDescription_Vtbl {
@@ -21,32 +12,14 @@ pub struct IAnimationDescription_Vtbl {
     pub DelayLimit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
     pub ZOrder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAnimationDescriptionFactory(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAnimationDescriptionFactory {
-    type Vtable = IAnimationDescriptionFactory_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAnimationDescriptionFactory {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc6e27abe_c1fb_48b5_9271_ecc70ac86ef0);
-}
+::windows_core::imp::com_interface!(IAnimationDescriptionFactory, IAnimationDescriptionFactory_Vtbl, 0xc6e27abe_c1fb_48b5_9271_ecc70ac86ef0);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAnimationDescriptionFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, effect: AnimationEffect, target: AnimationEffectTarget, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IOpacityAnimation(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IOpacityAnimation {
-    type Vtable = IOpacityAnimation_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IOpacityAnimation {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x803aabe5_ee7e_455f_84e9_2506afb8d2b4);
-}
+::windows_core::imp::com_interface!(IOpacityAnimation, IOpacityAnimation_Vtbl, 0x803aabe5_ee7e_455f_84e9_2506afb8d2b4);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpacityAnimation_Vtbl {
@@ -54,9 +27,8 @@ pub struct IOpacityAnimation_Vtbl {
     pub InitialOpacity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub FinalOpacity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPropertyAnimation(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IPropertyAnimation, IPropertyAnimation_Vtbl, 0x3a01b4da_4d8c_411e_b615_1ade683a9903);
+::windows_core::imp::interface_hierarchy!(IPropertyAnimation, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl IPropertyAnimation {
     pub fn Type(&self) -> ::windows_core::Result<PropertyAnimationType> {
         let this = self;
@@ -94,15 +66,8 @@ impl IPropertyAnimation {
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IPropertyAnimation, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IPropertyAnimation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IPropertyAnimation {
-    type Vtable = IPropertyAnimation_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPropertyAnimation {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3a01b4da_4d8c_411e_b615_1ade683a9903);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -114,16 +79,7 @@ pub struct IPropertyAnimation_Vtbl {
     pub Control1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Point) -> ::windows_core::HRESULT,
     pub Control2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Point) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IScaleAnimation(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IScaleAnimation {
-    type Vtable = IScaleAnimation_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IScaleAnimation {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x023552c7_71ab_428c_9c9f_d31780964995);
-}
+::windows_core::imp::com_interface!(IScaleAnimation, IScaleAnimation_Vtbl, 0x023552c7_71ab_428c_9c9f_d31780964995);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IScaleAnimation_Vtbl {
@@ -137,6 +93,7 @@ pub struct IScaleAnimation_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AnimationDescription(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(AnimationDescription, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl AnimationDescription {
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
@@ -192,19 +149,18 @@ impl ::windows_core::RuntimeType for AnimationDescription {
 }
 unsafe impl ::windows_core::Interface for AnimationDescription {
     type Vtable = IAnimationDescription_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for AnimationDescription {
-    const IID: ::windows_core::GUID = <IAnimationDescription as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IAnimationDescription as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for AnimationDescription {
     const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.AnimationDescription";
 }
-::windows_core::imp::interface_hierarchy!(AnimationDescription, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AnimationDescription {}
 unsafe impl ::core::marker::Sync for AnimationDescription {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct OpacityAnimation(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(OpacityAnimation, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(OpacityAnimation, IPropertyAnimation);
 impl OpacityAnimation {
     pub fn InitialOpacity(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<f32>> {
         let this = self;
@@ -221,35 +177,35 @@ impl OpacityAnimation {
         }
     }
     pub fn Type(&self) -> ::windows_core::Result<PropertyAnimationType> {
-        let this = &::windows_core::ComInterface::cast::<IPropertyAnimation>(self)?;
+        let this = &::windows_core::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Type)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Delay(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
-        let this = &::windows_core::ComInterface::cast::<IPropertyAnimation>(self)?;
+        let this = &::windows_core::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Delay)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Duration(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
-        let this = &::windows_core::ComInterface::cast::<IPropertyAnimation>(self)?;
+        let this = &::windows_core::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Duration)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Control1(&self) -> ::windows_core::Result<super::super::super::Foundation::Point> {
-        let this = &::windows_core::ComInterface::cast::<IPropertyAnimation>(self)?;
+        let this = &::windows_core::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Control1)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Control2(&self) -> ::windows_core::Result<super::super::super::Foundation::Point> {
-        let this = &::windows_core::ComInterface::cast::<IPropertyAnimation>(self)?;
+        let this = &::windows_core::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Control2)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -261,20 +217,18 @@ impl ::windows_core::RuntimeType for OpacityAnimation {
 }
 unsafe impl ::windows_core::Interface for OpacityAnimation {
     type Vtable = IOpacityAnimation_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for OpacityAnimation {
-    const IID: ::windows_core::GUID = <IOpacityAnimation as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IOpacityAnimation as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for OpacityAnimation {
     const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.OpacityAnimation";
 }
-::windows_core::imp::interface_hierarchy!(OpacityAnimation, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IPropertyAnimation> for OpacityAnimation {}
 unsafe impl ::core::marker::Send for OpacityAnimation {}
 unsafe impl ::core::marker::Sync for OpacityAnimation {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PropertyAnimation(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(PropertyAnimation, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(PropertyAnimation, IPropertyAnimation);
 impl PropertyAnimation {
     pub fn Type(&self) -> ::windows_core::Result<PropertyAnimationType> {
         let this = self;
@@ -317,51 +271,49 @@ impl ::windows_core::RuntimeType for PropertyAnimation {
 }
 unsafe impl ::windows_core::Interface for PropertyAnimation {
     type Vtable = IPropertyAnimation_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for PropertyAnimation {
-    const IID: ::windows_core::GUID = <IPropertyAnimation as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPropertyAnimation as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for PropertyAnimation {
     const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.PropertyAnimation";
 }
-::windows_core::imp::interface_hierarchy!(PropertyAnimation, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IPropertyAnimation> for PropertyAnimation {}
 unsafe impl ::core::marker::Send for PropertyAnimation {}
 unsafe impl ::core::marker::Sync for PropertyAnimation {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ScaleAnimation(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(ScaleAnimation, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(ScaleAnimation, IPropertyAnimation);
 impl ScaleAnimation {
     pub fn Type(&self) -> ::windows_core::Result<PropertyAnimationType> {
-        let this = &::windows_core::ComInterface::cast::<IPropertyAnimation>(self)?;
+        let this = &::windows_core::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Type)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Delay(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
-        let this = &::windows_core::ComInterface::cast::<IPropertyAnimation>(self)?;
+        let this = &::windows_core::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Delay)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Duration(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
-        let this = &::windows_core::ComInterface::cast::<IPropertyAnimation>(self)?;
+        let this = &::windows_core::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Duration)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Control1(&self) -> ::windows_core::Result<super::super::super::Foundation::Point> {
-        let this = &::windows_core::ComInterface::cast::<IPropertyAnimation>(self)?;
+        let this = &::windows_core::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Control1)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Control2(&self) -> ::windows_core::Result<super::super::super::Foundation::Point> {
-        let this = &::windows_core::ComInterface::cast::<IPropertyAnimation>(self)?;
+        let this = &::windows_core::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Control2)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -408,20 +360,18 @@ impl ::windows_core::RuntimeType for ScaleAnimation {
 }
 unsafe impl ::windows_core::Interface for ScaleAnimation {
     type Vtable = IScaleAnimation_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ScaleAnimation {
-    const IID: ::windows_core::GUID = <IScaleAnimation as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IScaleAnimation as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for ScaleAnimation {
     const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.ScaleAnimation";
 }
-::windows_core::imp::interface_hierarchy!(ScaleAnimation, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IPropertyAnimation> for ScaleAnimation {}
 unsafe impl ::core::marker::Send for ScaleAnimation {}
 unsafe impl ::core::marker::Sync for ScaleAnimation {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TranslationAnimation(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(TranslationAnimation, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(TranslationAnimation, IPropertyAnimation);
 impl TranslationAnimation {
     pub fn Type(&self) -> ::windows_core::Result<PropertyAnimationType> {
         let this = self;
@@ -464,15 +414,11 @@ impl ::windows_core::RuntimeType for TranslationAnimation {
 }
 unsafe impl ::windows_core::Interface for TranslationAnimation {
     type Vtable = IPropertyAnimation_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for TranslationAnimation {
-    const IID: ::windows_core::GUID = <IPropertyAnimation as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPropertyAnimation as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for TranslationAnimation {
     const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.TranslationAnimation";
 }
-::windows_core::imp::interface_hierarchy!(TranslationAnimation, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IPropertyAnimation> for TranslationAnimation {}
 unsafe impl ::core::marker::Send for TranslationAnimation {}
 unsafe impl ::core::marker::Sync for TranslationAnimation {}
 #[repr(transparent)]

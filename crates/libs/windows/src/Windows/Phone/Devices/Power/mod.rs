@@ -1,13 +1,4 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IBattery(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IBattery {
-    type Vtable = IBattery_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IBattery {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x972adbdd_6720_4702_a476_b9d38a0070e3);
-}
+::windows_core::imp::com_interface!(IBattery, IBattery_Vtbl, 0x972adbdd_6720_4702_a476_b9d38a0070e3);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBattery_Vtbl {
@@ -17,16 +8,7 @@ pub struct IBattery_Vtbl {
     pub RemainingChargePercentChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, changehandler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     pub RemoveRemainingChargePercentChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IBatteryStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IBatteryStatics {
-    type Vtable = IBatteryStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IBatteryStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfaf5bc70_6369_11e1_b86c_0800200c9a66);
-}
+::windows_core::imp::com_interface!(IBatteryStatics, IBatteryStatics_Vtbl, 0xfaf5bc70_6369_11e1_b86c_0800200c9a66);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBatteryStatics_Vtbl {
@@ -36,6 +18,7 @@ pub struct IBatteryStatics_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Battery(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(Battery, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl Battery {
     pub fn RemainingChargePercent(&self) -> ::windows_core::Result<i32> {
         let this = self;
@@ -82,13 +65,10 @@ impl ::windows_core::RuntimeType for Battery {
 }
 unsafe impl ::windows_core::Interface for Battery {
     type Vtable = IBattery_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for Battery {
-    const IID: ::windows_core::GUID = <IBattery as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IBattery as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for Battery {
     const NAME: &'static str = "Windows.Phone.Devices.Power.Battery";
 }
-::windows_core::imp::interface_hierarchy!(Battery, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Battery {}
 unsafe impl ::core::marker::Sync for Battery {}

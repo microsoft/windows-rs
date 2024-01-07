@@ -84,6 +84,6 @@ impl IAccessoryNotificationTriggerDetails_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAccessoryNotificationTriggerDetails as ::windows_core::ComInterface>::IID
+        iid == &<IAccessoryNotificationTriggerDetails as ::windows_core::Interface>::IID
     }
 }

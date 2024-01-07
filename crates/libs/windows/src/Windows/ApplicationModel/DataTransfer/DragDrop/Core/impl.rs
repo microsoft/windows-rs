@@ -66,6 +66,6 @@ impl ICoreDropOperationTarget_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICoreDropOperationTarget as ::windows_core::ComInterface>::IID
+        iid == &<ICoreDropOperationTarget as ::windows_core::Interface>::IID
     }
 }

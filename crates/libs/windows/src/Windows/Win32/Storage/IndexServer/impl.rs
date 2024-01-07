@@ -47,7 +47,7 @@ impl IFilter_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IFilter as ::windows_core::ComInterface>::IID
+        iid == &<IFilter as ::windows_core::Interface>::IID
     }
 }
 pub trait IPhraseSink_Impl: Sized {
@@ -74,6 +74,6 @@ impl IPhraseSink_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPhraseSink as ::windows_core::ComInterface>::IID
+        iid == &<IPhraseSink as ::windows_core::Interface>::IID
     }
 }

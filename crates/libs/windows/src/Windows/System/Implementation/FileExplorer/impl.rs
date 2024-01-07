@@ -30,7 +30,7 @@ impl ISysStorageProviderEventSource_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISysStorageProviderEventSource as ::windows_core::ComInterface>::IID
+        iid == &<ISysStorageProviderEventSource as ::windows_core::Interface>::IID
     }
 }
 pub trait ISysStorageProviderHandlerFactory_Impl: Sized {
@@ -73,7 +73,7 @@ impl ISysStorageProviderHandlerFactory_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISysStorageProviderHandlerFactory as ::windows_core::ComInterface>::IID
+        iid == &<ISysStorageProviderHandlerFactory as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Web_Http\"`"]
@@ -106,6 +106,6 @@ impl ISysStorageProviderHttpRequestProvider_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISysStorageProviderHttpRequestProvider as ::windows_core::ComInterface>::IID
+        iid == &<ISysStorageProviderHttpRequestProvider as ::windows_core::Interface>::IID
     }
 }

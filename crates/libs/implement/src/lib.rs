@@ -135,9 +135,9 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
 
                 let iid = &*iid;
 
-                *interface = if iid == &<::windows::core::IUnknown as ::windows::core::ComInterface>::IID
-                    || iid == &<::windows::core::IInspectable as ::windows::core::ComInterface>::IID
-                    || iid == &<::windows::core::imp::IAgileObject as ::windows::core::ComInterface>::IID {
+                *interface = if iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID
+                    || iid == &<::windows::core::IInspectable as ::windows::core::Interface>::IID
+                    || iid == &<::windows::core::imp::IAgileObject as ::windows::core::Interface>::IID {
                         &self.identity as *const _ as *mut _
                 } #(#queries)* else {
                     ::core::ptr::null_mut()
@@ -181,7 +181,7 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
             ///
             /// This function can only be safely called if `self` has been heap allocated and pinned using
             /// the mechanisms provided by `implement` macro.
-            unsafe fn cast<I: ::windows::core::ComInterface>(&self) -> ::windows::core::Result<I> {
+            unsafe fn cast<I: ::windows::core::Interface>(&self) -> ::windows::core::Result<I> {
                 let boxed = (self as *const _ as *const *mut ::core::ffi::c_void).sub(1 + #interfaces_len) as *mut #impl_ident::#generics;
                 let mut result = None;
                 <#impl_ident::#generics as ::windows::core::IUnknownImpl>::QueryInterface(&*boxed, &I::IID, &mut result as *mut _ as _).and_some(result)

@@ -2,7 +2,7 @@ use core::convert::*;
 use core::iter::FromIterator;
 
 use windows::{
-    core::ComInterface,
+    core::Interface,
     Foundation::Collections::{IIterable, IVectorView, PropertySet},
     Foundation::{IWwwFormUrlDecoderEntry, Uri},
 };

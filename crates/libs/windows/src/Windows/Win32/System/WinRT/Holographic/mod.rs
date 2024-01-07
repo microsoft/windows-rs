@@ -1,6 +1,5 @@
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IHolographicCameraInterop(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IHolographicCameraInterop, IHolographicCameraInterop_Vtbl, 0x7cc1f9c5_6d02_41fa_9500_e1809eb48eec);
+::windows_core::imp::interface_hierarchy!(IHolographicCameraInterop, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl IHolographicCameraInterop {
     #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -48,13 +47,6 @@ impl IHolographicCameraInterop {
         (::windows_core::Interface::vtable(self).UnacquireDirect3D12BufferResource)(::windows_core::Interface::as_raw(self), presourcetounacquire.into_param().abi()).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IHolographicCameraInterop, ::windows_core::IUnknown, ::windows_core::IInspectable);
-unsafe impl ::windows_core::Interface for IHolographicCameraInterop {
-    type Vtable = IHolographicCameraInterop_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IHolographicCameraInterop {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7cc1f9c5_6d02_41fa_9500_e1809eb48eec);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicCameraInterop_Vtbl {
@@ -80,9 +72,8 @@ pub struct IHolographicCameraInterop_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
     UnacquireDirect3D12BufferResource: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IHolographicCameraRenderingParametersInterop(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IHolographicCameraRenderingParametersInterop, IHolographicCameraRenderingParametersInterop_Vtbl, 0xf75b68d6_d1fd_4707_aafd_fa6f4c0e3bf4);
+::windows_core::imp::interface_hierarchy!(IHolographicCameraRenderingParametersInterop, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl IHolographicCameraRenderingParametersInterop {
     #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -105,13 +96,6 @@ impl IHolographicCameraRenderingParametersInterop {
         (::windows_core::Interface::vtable(self).CommitDirect3D12ResourceWithDepthData)(::windows_core::Interface::as_raw(self), pcolorresourcetocommit.into_param().abi(), pcolorresourcefence.into_param().abi(), colorresourcefencesignalvalue, pdepthresourcetocommit.into_param().abi(), pdepthresourcefence.into_param().abi(), depthresourcefencesignalvalue).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IHolographicCameraRenderingParametersInterop, ::windows_core::IUnknown, ::windows_core::IInspectable);
-unsafe impl ::windows_core::Interface for IHolographicCameraRenderingParametersInterop {
-    type Vtable = IHolographicCameraRenderingParametersInterop_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IHolographicCameraRenderingParametersInterop {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf75b68d6_d1fd_4707_aafd_fa6f4c0e3bf4);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicCameraRenderingParametersInterop_Vtbl {
@@ -125,9 +109,8 @@ pub struct IHolographicCameraRenderingParametersInterop_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
     CommitDirect3D12ResourceWithDepthData: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IHolographicQuadLayerInterop(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IHolographicQuadLayerInterop, IHolographicQuadLayerInterop_Vtbl, 0xcfa688f0_639e_4a47_83d7_6b7f5ebf7fed);
+::windows_core::imp::interface_hierarchy!(IHolographicQuadLayerInterop, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl IHolographicQuadLayerInterop {
     #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -175,13 +158,6 @@ impl IHolographicQuadLayerInterop {
         (::windows_core::Interface::vtable(self).UnacquireDirect3D12BufferResource)(::windows_core::Interface::as_raw(self), presourcetounacquire.into_param().abi()).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IHolographicQuadLayerInterop, ::windows_core::IUnknown, ::windows_core::IInspectable);
-unsafe impl ::windows_core::Interface for IHolographicQuadLayerInterop {
-    type Vtable = IHolographicQuadLayerInterop_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IHolographicQuadLayerInterop {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcfa688f0_639e_4a47_83d7_6b7f5ebf7fed);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicQuadLayerInterop_Vtbl {
@@ -207,9 +183,8 @@ pub struct IHolographicQuadLayerInterop_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
     UnacquireDirect3D12BufferResource: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IHolographicQuadLayerUpdateParametersInterop(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IHolographicQuadLayerUpdateParametersInterop, IHolographicQuadLayerUpdateParametersInterop_Vtbl, 0xe5f549cd_c909_444f_8809_7cc18a9c8920);
+::windows_core::imp::interface_hierarchy!(IHolographicQuadLayerUpdateParametersInterop, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl IHolographicQuadLayerUpdateParametersInterop {
     #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -220,13 +195,6 @@ impl IHolographicQuadLayerUpdateParametersInterop {
     {
         (::windows_core::Interface::vtable(self).CommitDirect3D12Resource)(::windows_core::Interface::as_raw(self), pcolorresourcetocommit.into_param().abi(), pcolorresourcefence.into_param().abi(), colorresourcefencesignalvalue).ok()
     }
-}
-::windows_core::imp::interface_hierarchy!(IHolographicQuadLayerUpdateParametersInterop, ::windows_core::IUnknown, ::windows_core::IInspectable);
-unsafe impl ::windows_core::Interface for IHolographicQuadLayerUpdateParametersInterop {
-    type Vtable = IHolographicQuadLayerUpdateParametersInterop_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IHolographicQuadLayerUpdateParametersInterop {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe5f549cd_c909_444f_8809_7cc18a9c8920);
 }
 #[repr(C)]
 #[doc(hidden)]

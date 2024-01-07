@@ -60,7 +60,7 @@ impl AsyncIAssociatedIdentityProvider_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<AsyncIAssociatedIdentityProvider as ::windows_core::ComInterface>::IID
+        iid == &<AsyncIAssociatedIdentityProvider as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -159,7 +159,7 @@ impl AsyncIConnectedIdentityProvider_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<AsyncIConnectedIdentityProvider as ::windows_core::ComInterface>::IID
+        iid == &<AsyncIConnectedIdentityProvider as ::windows_core::Interface>::IID
     }
 }
 pub trait AsyncIIdentityAdvise_Impl: Sized {
@@ -186,7 +186,7 @@ impl AsyncIIdentityAdvise_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<AsyncIIdentityAdvise as ::windows_core::ComInterface>::IID
+        iid == &<AsyncIIdentityAdvise as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
@@ -231,7 +231,7 @@ impl AsyncIIdentityAuthentication_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<AsyncIIdentityAuthentication as ::windows_core::ComInterface>::IID
+        iid == &<AsyncIIdentityAuthentication as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`"]
@@ -390,7 +390,7 @@ impl AsyncIIdentityProvider_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<AsyncIIdentityProvider as ::windows_core::ComInterface>::IID
+        iid == &<AsyncIIdentityProvider as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`"]
@@ -503,7 +503,7 @@ impl AsyncIIdentityStore_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<AsyncIIdentityStore as ::windows_core::ComInterface>::IID
+        iid == &<AsyncIIdentityStore as ::windows_core::Interface>::IID
     }
 }
 pub trait AsyncIIdentityStoreEx_Impl: Sized {
@@ -544,7 +544,7 @@ impl AsyncIIdentityStoreEx_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<AsyncIIdentityStoreEx as ::windows_core::ComInterface>::IID
+        iid == &<AsyncIIdentityStoreEx as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
@@ -588,7 +588,7 @@ impl IAssociatedIdentityProvider_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAssociatedIdentityProvider as ::windows_core::ComInterface>::IID
+        iid == &<IAssociatedIdentityProvider as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -652,7 +652,7 @@ impl IConnectedIdentityProvider_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IConnectedIdentityProvider as ::windows_core::ComInterface>::IID
+        iid == &<IConnectedIdentityProvider as ::windows_core::Interface>::IID
     }
 }
 pub trait IIdentityAdvise_Impl: Sized {
@@ -669,7 +669,7 @@ impl IIdentityAdvise_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), IdentityUpdated: IdentityUpdated::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IIdentityAdvise as ::windows_core::ComInterface>::IID
+        iid == &<IIdentityAdvise as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
@@ -700,7 +700,7 @@ impl IIdentityAuthentication_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IIdentityAuthentication as ::windows_core::ComInterface>::IID
+        iid == &<IIdentityAuthentication as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`"]
@@ -797,7 +797,7 @@ impl IIdentityProvider_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IIdentityProvider as ::windows_core::ComInterface>::IID
+        iid == &<IIdentityProvider as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`"]
@@ -868,7 +868,7 @@ impl IIdentityStore_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IIdentityStore as ::windows_core::ComInterface>::IID
+        iid == &<IIdentityStore as ::windows_core::Interface>::IID
     }
 }
 pub trait IIdentityStoreEx_Impl: Sized {
@@ -895,6 +895,6 @@ impl IIdentityStoreEx_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IIdentityStoreEx as ::windows_core::ComInterface>::IID
+        iid == &<IIdentityStoreEx as ::windows_core::Interface>::IID
     }
 }

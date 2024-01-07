@@ -365,9 +365,8 @@ pub unsafe fn joyConfigChanged(dwflags: u32) -> u32 {
     ::windows_targets::link!("winmm.dll" "system" fn joyConfigChanged(dwflags : u32) -> u32);
     joyConfigChanged(dwflags)
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDirectInput2A(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDirectInput2A, IDirectInput2A_Vtbl, 0x5944e662_aa8a_11cf_bfc7_444553540000);
+::windows_core::imp::interface_hierarchy!(IDirectInput2A, ::windows_core::IUnknown, IDirectInputA);
 impl IDirectInput2A {
     pub unsafe fn CreateDevice<P0>(&self, param0: *const ::windows_core::GUID, param1: *mut ::core::option::Option<IDirectInputDeviceA>, param2: P0) -> ::windows_core::Result<()>
     where
@@ -400,22 +399,14 @@ impl IDirectInput2A {
         (::windows_core::Interface::vtable(self).FindDevice)(::windows_core::Interface::as_raw(self), param0, param1.into_param().abi(), param2).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDirectInput2A, ::windows_core::IUnknown, IDirectInputA);
-unsafe impl ::windows_core::Interface for IDirectInput2A {
-    type Vtable = IDirectInput2A_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDirectInput2A {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5944e662_aa8a_11cf_bfc7_444553540000);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectInput2A_Vtbl {
     pub base__: IDirectInputA_Vtbl,
     pub FindDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows_core::GUID, param1: ::windows_core::PCSTR, param2: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDirectInput2W(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDirectInput2W, IDirectInput2W_Vtbl, 0x5944e663_aa8a_11cf_bfc7_444553540000);
+::windows_core::imp::interface_hierarchy!(IDirectInput2W, ::windows_core::IUnknown, IDirectInputW);
 impl IDirectInput2W {
     pub unsafe fn CreateDevice<P0>(&self, param0: *const ::windows_core::GUID, param1: *mut ::core::option::Option<IDirectInputDeviceW>, param2: P0) -> ::windows_core::Result<()>
     where
@@ -448,22 +439,14 @@ impl IDirectInput2W {
         (::windows_core::Interface::vtable(self).FindDevice)(::windows_core::Interface::as_raw(self), param0, param1.into_param().abi(), param2).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDirectInput2W, ::windows_core::IUnknown, IDirectInputW);
-unsafe impl ::windows_core::Interface for IDirectInput2W {
-    type Vtable = IDirectInput2W_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDirectInput2W {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5944e663_aa8a_11cf_bfc7_444553540000);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectInput2W_Vtbl {
     pub base__: IDirectInputW_Vtbl,
     pub FindDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows_core::GUID, param1: ::windows_core::PCWSTR, param2: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDirectInput7A(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDirectInput7A, IDirectInput7A_Vtbl, 0x9a4cb684_236d_11d3_8e9d_00c04f6844ae);
+::windows_core::imp::interface_hierarchy!(IDirectInput7A, ::windows_core::IUnknown, IDirectInputA, IDirectInput2A);
 impl IDirectInput7A {
     pub unsafe fn CreateDevice<P0>(&self, param0: *const ::windows_core::GUID, param1: *mut ::core::option::Option<IDirectInputDeviceA>, param2: P0) -> ::windows_core::Result<()>
     where
@@ -502,22 +485,14 @@ impl IDirectInput7A {
         (::windows_core::Interface::vtable(self).CreateDeviceEx)(::windows_core::Interface::as_raw(self), param0, param1, param2, param3.into_param().abi()).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDirectInput7A, ::windows_core::IUnknown, IDirectInputA, IDirectInput2A);
-unsafe impl ::windows_core::Interface for IDirectInput7A {
-    type Vtable = IDirectInput7A_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDirectInput7A {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9a4cb684_236d_11d3_8e9d_00c04f6844ae);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectInput7A_Vtbl {
     pub base__: IDirectInput2A_Vtbl,
     pub CreateDeviceEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows_core::GUID, param1: *const ::windows_core::GUID, param2: *mut *mut ::core::ffi::c_void, param3: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDirectInput7W(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDirectInput7W, IDirectInput7W_Vtbl, 0x9a4cb685_236d_11d3_8e9d_00c04f6844ae);
+::windows_core::imp::interface_hierarchy!(IDirectInput7W, ::windows_core::IUnknown, IDirectInputW, IDirectInput2W);
 impl IDirectInput7W {
     pub unsafe fn CreateDevice<P0>(&self, param0: *const ::windows_core::GUID, param1: *mut ::core::option::Option<IDirectInputDeviceW>, param2: P0) -> ::windows_core::Result<()>
     where
@@ -556,22 +531,14 @@ impl IDirectInput7W {
         (::windows_core::Interface::vtable(self).CreateDeviceEx)(::windows_core::Interface::as_raw(self), param0, param1, param2, param3.into_param().abi()).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDirectInput7W, ::windows_core::IUnknown, IDirectInputW, IDirectInput2W);
-unsafe impl ::windows_core::Interface for IDirectInput7W {
-    type Vtable = IDirectInput7W_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDirectInput7W {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9a4cb685_236d_11d3_8e9d_00c04f6844ae);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectInput7W_Vtbl {
     pub base__: IDirectInput2W_Vtbl,
     pub CreateDeviceEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows_core::GUID, param1: *const ::windows_core::GUID, param2: *mut *mut ::core::ffi::c_void, param3: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDirectInput8A(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDirectInput8A, IDirectInput8A_Vtbl, 0xbf798030_483a_4da2_aa99_5d64ed369700);
+::windows_core::imp::interface_hierarchy!(IDirectInput8A, ::windows_core::IUnknown);
 impl IDirectInput8A {
     pub unsafe fn CreateDevice<P0>(&self, param0: *const ::windows_core::GUID, param1: *mut ::core::option::Option<IDirectInputDevice8A>, param2: P0) -> ::windows_core::Result<()>
     where
@@ -613,13 +580,6 @@ impl IDirectInput8A {
         (::windows_core::Interface::vtable(self).ConfigureDevices)(::windows_core::Interface::as_raw(self), param0, param1, param2, param3).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDirectInput8A, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDirectInput8A {
-    type Vtable = IDirectInput8A_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDirectInput8A {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbf798030_483a_4da2_aa99_5d64ed369700);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectInput8A_Vtbl {
@@ -633,9 +593,8 @@ pub struct IDirectInput8A_Vtbl {
     pub EnumDevicesBySemantics: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows_core::PCSTR, param1: *mut DIACTIONFORMATA, param2: LPDIENUMDEVICESBYSEMANTICSCBA, param3: *mut ::core::ffi::c_void, param4: u32) -> ::windows_core::HRESULT,
     pub ConfigureDevices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: LPDICONFIGUREDEVICESCALLBACK, param1: *mut DICONFIGUREDEVICESPARAMSA, param2: u32, param3: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDirectInput8W(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDirectInput8W, IDirectInput8W_Vtbl, 0xbf798031_483a_4da2_aa99_5d64ed369700);
+::windows_core::imp::interface_hierarchy!(IDirectInput8W, ::windows_core::IUnknown);
 impl IDirectInput8W {
     pub unsafe fn CreateDevice<P0>(&self, param0: *const ::windows_core::GUID, param1: *mut ::core::option::Option<IDirectInputDevice8W>, param2: P0) -> ::windows_core::Result<()>
     where
@@ -677,13 +636,6 @@ impl IDirectInput8W {
         (::windows_core::Interface::vtable(self).ConfigureDevices)(::windows_core::Interface::as_raw(self), param0, param1, param2, param3).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDirectInput8W, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDirectInput8W {
-    type Vtable = IDirectInput8W_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDirectInput8W {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbf798031_483a_4da2_aa99_5d64ed369700);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectInput8W_Vtbl {
@@ -697,9 +649,8 @@ pub struct IDirectInput8W_Vtbl {
     pub EnumDevicesBySemantics: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows_core::PCWSTR, param1: *mut DIACTIONFORMATW, param2: LPDIENUMDEVICESBYSEMANTICSCBW, param3: *mut ::core::ffi::c_void, param4: u32) -> ::windows_core::HRESULT,
     pub ConfigureDevices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: LPDICONFIGUREDEVICESCALLBACK, param1: *mut DICONFIGUREDEVICESPARAMSW, param2: u32, param3: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDirectInputA(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDirectInputA, IDirectInputA_Vtbl, 0x89521360_aa8a_11cf_bfc7_444553540000);
+::windows_core::imp::interface_hierarchy!(IDirectInputA, ::windows_core::IUnknown);
 impl IDirectInputA {
     pub unsafe fn CreateDevice<P0>(&self, param0: *const ::windows_core::GUID, param1: *mut ::core::option::Option<IDirectInputDeviceA>, param2: P0) -> ::windows_core::Result<()>
     where
@@ -726,13 +677,6 @@ impl IDirectInputA {
         (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), param0.into_param().abi(), param1).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDirectInputA, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDirectInputA {
-    type Vtable = IDirectInputA_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDirectInputA {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x89521360_aa8a_11cf_bfc7_444553540000);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectInputA_Vtbl {
@@ -743,9 +687,8 @@ pub struct IDirectInputA_Vtbl {
     pub RunControlPanel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> ::windows_core::HRESULT,
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HINSTANCE, param1: u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDirectInputDevice2A(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDirectInputDevice2A, IDirectInputDevice2A_Vtbl, 0x5944e682_c92e_11cf_bfc7_444553540000);
+::windows_core::imp::interface_hierarchy!(IDirectInputDevice2A, ::windows_core::IUnknown, IDirectInputDeviceA);
 impl IDirectInputDevice2A {
     pub unsafe fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetCapabilities)(::windows_core::Interface::as_raw(self), param0).ok()
@@ -835,13 +778,6 @@ impl IDirectInputDevice2A {
         (::windows_core::Interface::vtable(self).SendDeviceData)(::windows_core::Interface::as_raw(self), param0, param1, param2, param3).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDirectInputDevice2A, ::windows_core::IUnknown, IDirectInputDeviceA);
-unsafe impl ::windows_core::Interface for IDirectInputDevice2A {
-    type Vtable = IDirectInputDevice2A_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDirectInputDevice2A {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5944e682_c92e_11cf_bfc7_444553540000);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectInputDevice2A_Vtbl {
@@ -856,9 +792,8 @@ pub struct IDirectInputDevice2A_Vtbl {
     pub Poll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub SendDeviceData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDirectInputDevice2W(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDirectInputDevice2W, IDirectInputDevice2W_Vtbl, 0x5944e683_c92e_11cf_bfc7_444553540000);
+::windows_core::imp::interface_hierarchy!(IDirectInputDevice2W, ::windows_core::IUnknown, IDirectInputDeviceW);
 impl IDirectInputDevice2W {
     pub unsafe fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetCapabilities)(::windows_core::Interface::as_raw(self), param0).ok()
@@ -948,13 +883,6 @@ impl IDirectInputDevice2W {
         (::windows_core::Interface::vtable(self).SendDeviceData)(::windows_core::Interface::as_raw(self), param0, param1, param2, param3).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDirectInputDevice2W, ::windows_core::IUnknown, IDirectInputDeviceW);
-unsafe impl ::windows_core::Interface for IDirectInputDevice2W {
-    type Vtable = IDirectInputDevice2W_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDirectInputDevice2W {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5944e683_c92e_11cf_bfc7_444553540000);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectInputDevice2W_Vtbl {
@@ -969,9 +897,8 @@ pub struct IDirectInputDevice2W_Vtbl {
     pub Poll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub SendDeviceData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDirectInputDevice7A(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDirectInputDevice7A, IDirectInputDevice7A_Vtbl, 0x57d7c6bc_2356_11d3_8e9d_00c04f6844ae);
+::windows_core::imp::interface_hierarchy!(IDirectInputDevice7A, ::windows_core::IUnknown, IDirectInputDeviceA, IDirectInputDevice2A);
 impl IDirectInputDevice7A {
     pub unsafe fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.GetCapabilities)(::windows_core::Interface::as_raw(self), param0).ok()
@@ -1073,13 +1000,6 @@ impl IDirectInputDevice7A {
         (::windows_core::Interface::vtable(self).WriteEffectToFile)(::windows_core::Interface::as_raw(self), param0.into_param().abi(), param1, param2, param3).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDirectInputDevice7A, ::windows_core::IUnknown, IDirectInputDeviceA, IDirectInputDevice2A);
-unsafe impl ::windows_core::Interface for IDirectInputDevice7A {
-    type Vtable = IDirectInputDevice7A_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDirectInputDevice7A {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x57d7c6bc_2356_11d3_8e9d_00c04f6844ae);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectInputDevice7A_Vtbl {
@@ -1087,9 +1007,8 @@ pub struct IDirectInputDevice7A_Vtbl {
     pub EnumEffectsInFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows_core::PCSTR, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows_core::HRESULT,
     pub WriteEffectToFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows_core::PCSTR, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDirectInputDevice7W(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDirectInputDevice7W, IDirectInputDevice7W_Vtbl, 0x57d7c6bd_2356_11d3_8e9d_00c04f6844ae);
+::windows_core::imp::interface_hierarchy!(IDirectInputDevice7W, ::windows_core::IUnknown, IDirectInputDeviceW, IDirectInputDevice2W);
 impl IDirectInputDevice7W {
     pub unsafe fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.GetCapabilities)(::windows_core::Interface::as_raw(self), param0).ok()
@@ -1191,13 +1110,6 @@ impl IDirectInputDevice7W {
         (::windows_core::Interface::vtable(self).WriteEffectToFile)(::windows_core::Interface::as_raw(self), param0.into_param().abi(), param1, param2, param3).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDirectInputDevice7W, ::windows_core::IUnknown, IDirectInputDeviceW, IDirectInputDevice2W);
-unsafe impl ::windows_core::Interface for IDirectInputDevice7W {
-    type Vtable = IDirectInputDevice7W_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDirectInputDevice7W {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x57d7c6bd_2356_11d3_8e9d_00c04f6844ae);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectInputDevice7W_Vtbl {
@@ -1205,9 +1117,8 @@ pub struct IDirectInputDevice7W_Vtbl {
     pub EnumEffectsInFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows_core::PCWSTR, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows_core::HRESULT,
     pub WriteEffectToFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows_core::PCWSTR, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDirectInputDevice8A(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDirectInputDevice8A, IDirectInputDevice8A_Vtbl, 0x54d41080_dc15_4833_a41b_748f73a38179);
+::windows_core::imp::interface_hierarchy!(IDirectInputDevice8A, ::windows_core::IUnknown);
 impl IDirectInputDevice8A {
     pub unsafe fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetCapabilities)(::windows_core::Interface::as_raw(self), param0).ok()
@@ -1324,13 +1235,6 @@ impl IDirectInputDevice8A {
         (::windows_core::Interface::vtable(self).GetImageInfo)(::windows_core::Interface::as_raw(self), param0).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDirectInputDevice8A, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDirectInputDevice8A {
-    type Vtable = IDirectInputDevice8A_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDirectInputDevice8A {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x54d41080_dc15_4833_a41b_748f73a38179);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectInputDevice8A_Vtbl {
@@ -1365,9 +1269,8 @@ pub struct IDirectInputDevice8A_Vtbl {
     pub SetActionMap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIACTIONFORMATA, param1: ::windows_core::PCSTR, param2: u32) -> ::windows_core::HRESULT,
     pub GetImageInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDEVICEIMAGEINFOHEADERA) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDirectInputDevice8W(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDirectInputDevice8W, IDirectInputDevice8W_Vtbl, 0x54d41081_dc15_4833_a41b_748f73a38179);
+::windows_core::imp::interface_hierarchy!(IDirectInputDevice8W, ::windows_core::IUnknown);
 impl IDirectInputDevice8W {
     pub unsafe fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetCapabilities)(::windows_core::Interface::as_raw(self), param0).ok()
@@ -1484,13 +1387,6 @@ impl IDirectInputDevice8W {
         (::windows_core::Interface::vtable(self).GetImageInfo)(::windows_core::Interface::as_raw(self), param0).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDirectInputDevice8W, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDirectInputDevice8W {
-    type Vtable = IDirectInputDevice8W_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDirectInputDevice8W {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x54d41081_dc15_4833_a41b_748f73a38179);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectInputDevice8W_Vtbl {
@@ -1525,9 +1421,8 @@ pub struct IDirectInputDevice8W_Vtbl {
     pub SetActionMap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIACTIONFORMATW, param1: ::windows_core::PCWSTR, param2: u32) -> ::windows_core::HRESULT,
     pub GetImageInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDEVICEIMAGEINFOHEADERW) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDirectInputDeviceA(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDirectInputDeviceA, IDirectInputDeviceA_Vtbl, 0x5944e680_c92e_11cf_bfc7_444553540000);
+::windows_core::imp::interface_hierarchy!(IDirectInputDeviceA, ::windows_core::IUnknown);
 impl IDirectInputDeviceA {
     pub unsafe fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetCapabilities)(::windows_core::Interface::as_raw(self), param0).ok()
@@ -1587,13 +1482,6 @@ impl IDirectInputDeviceA {
         (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), param0.into_param().abi(), param1, param2).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDirectInputDeviceA, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDirectInputDeviceA {
-    type Vtable = IDirectInputDeviceA_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDirectInputDeviceA {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5944e680_c92e_11cf_bfc7_444553540000);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectInputDeviceA_Vtbl {
@@ -1614,9 +1502,8 @@ pub struct IDirectInputDeviceA_Vtbl {
     pub RunControlPanel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> ::windows_core::HRESULT,
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDirectInputDeviceW(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDirectInputDeviceW, IDirectInputDeviceW_Vtbl, 0x5944e681_c92e_11cf_bfc7_444553540000);
+::windows_core::imp::interface_hierarchy!(IDirectInputDeviceW, ::windows_core::IUnknown);
 impl IDirectInputDeviceW {
     pub unsafe fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetCapabilities)(::windows_core::Interface::as_raw(self), param0).ok()
@@ -1676,13 +1563,6 @@ impl IDirectInputDeviceW {
         (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), param0.into_param().abi(), param1, param2).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDirectInputDeviceW, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDirectInputDeviceW {
-    type Vtable = IDirectInputDeviceW_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDirectInputDeviceW {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5944e681_c92e_11cf_bfc7_444553540000);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectInputDeviceW_Vtbl {
@@ -1703,9 +1583,8 @@ pub struct IDirectInputDeviceW_Vtbl {
     pub RunControlPanel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> ::windows_core::HRESULT,
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDirectInputEffect(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDirectInputEffect, IDirectInputEffect_Vtbl, 0xe7e1f7c0_88d2_11d0_9ad0_00a0c9a06e35);
+::windows_core::imp::interface_hierarchy!(IDirectInputEffect, ::windows_core::IUnknown);
 impl IDirectInputEffect {
     pub unsafe fn Initialize<P0>(&self, param0: P0, param1: u32, param2: *const ::windows_core::GUID) -> ::windows_core::Result<()>
     where
@@ -1741,13 +1620,6 @@ impl IDirectInputEffect {
         (::windows_core::Interface::vtable(self).Escape)(::windows_core::Interface::as_raw(self), param0).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDirectInputEffect, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDirectInputEffect {
-    type Vtable = IDirectInputEffect_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDirectInputEffect {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe7e1f7c0_88d2_11d0_9ad0_00a0c9a06e35);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectInputEffect_Vtbl {
@@ -1763,9 +1635,8 @@ pub struct IDirectInputEffect_Vtbl {
     pub Unload: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Escape: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIEFFESCAPE) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDirectInputEffectDriver(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDirectInputEffectDriver, IDirectInputEffectDriver_Vtbl, 0x02538130_898f_11d0_9ad0_00a0c9a06e35);
+::windows_core::imp::interface_hierarchy!(IDirectInputEffectDriver, ::windows_core::IUnknown);
 impl IDirectInputEffectDriver {
     pub unsafe fn DeviceID(&self, param0: u32, param1: u32, param2: u32, param3: u32, param4: *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).DeviceID)(::windows_core::Interface::as_raw(self), param0, param1, param2, param3, param4).ok()
@@ -1801,13 +1672,6 @@ impl IDirectInputEffectDriver {
         (::windows_core::Interface::vtable(self).GetEffectStatus)(::windows_core::Interface::as_raw(self), param0, param1, param2).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDirectInputEffectDriver, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDirectInputEffectDriver {
-    type Vtable = IDirectInputEffectDriver_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDirectInputEffectDriver {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x02538130_898f_11d0_9ad0_00a0c9a06e35);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectInputEffectDriver_Vtbl {
@@ -1824,9 +1688,8 @@ pub struct IDirectInputEffectDriver_Vtbl {
     pub StopEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: u32) -> ::windows_core::HRESULT,
     pub GetEffectStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: u32, param2: *mut u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDirectInputJoyConfig(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDirectInputJoyConfig, IDirectInputJoyConfig_Vtbl, 0x1de12ab1_c9f5_11cf_bfc7_444553540000);
+::windows_core::imp::interface_hierarchy!(IDirectInputJoyConfig, ::windows_core::IUnknown);
 impl IDirectInputJoyConfig {
     pub unsafe fn Acquire(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Acquire)(::windows_core::Interface::as_raw(self)).ok()
@@ -1899,13 +1762,6 @@ impl IDirectInputJoyConfig {
         (::windows_core::Interface::vtable(self).OpenConfigKey)(::windows_core::Interface::as_raw(self), param0, param1, param2).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDirectInputJoyConfig, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDirectInputJoyConfig {
-    type Vtable = IDirectInputJoyConfig_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDirectInputJoyConfig {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1de12ab1_c9f5_11cf_bfc7_444553540000);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectInputJoyConfig_Vtbl {
@@ -1933,9 +1789,8 @@ pub struct IDirectInputJoyConfig_Vtbl {
     #[cfg(not(feature = "Win32_System_Registry"))]
     OpenConfigKey: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDirectInputJoyConfig8(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDirectInputJoyConfig8, IDirectInputJoyConfig8_Vtbl, 0xeb0d7dfa_1990_4f27_b4d6_edf2eec4a44c);
+::windows_core::imp::interface_hierarchy!(IDirectInputJoyConfig8, ::windows_core::IUnknown);
 impl IDirectInputJoyConfig8 {
     pub unsafe fn Acquire(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Acquire)(::windows_core::Interface::as_raw(self)).ok()
@@ -2009,13 +1864,6 @@ impl IDirectInputJoyConfig8 {
         (::windows_core::Interface::vtable(self).OpenAppStatusKey)(::windows_core::Interface::as_raw(self), param0).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDirectInputJoyConfig8, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDirectInputJoyConfig8 {
-    type Vtable = IDirectInputJoyConfig8_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDirectInputJoyConfig8 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeb0d7dfa_1990_4f27_b4d6_edf2eec4a44c);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectInputJoyConfig8_Vtbl {
@@ -2043,9 +1891,8 @@ pub struct IDirectInputJoyConfig8_Vtbl {
     #[cfg(not(feature = "Win32_System_Registry"))]
     OpenAppStatusKey: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDirectInputW(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDirectInputW, IDirectInputW_Vtbl, 0x89521361_aa8a_11cf_bfc7_444553540000);
+::windows_core::imp::interface_hierarchy!(IDirectInputW, ::windows_core::IUnknown);
 impl IDirectInputW {
     pub unsafe fn CreateDevice<P0>(&self, param0: *const ::windows_core::GUID, param1: *mut ::core::option::Option<IDirectInputDeviceW>, param2: P0) -> ::windows_core::Result<()>
     where
@@ -2071,13 +1918,6 @@ impl IDirectInputW {
     {
         (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), param0.into_param().abi(), param1).ok()
     }
-}
-::windows_core::imp::interface_hierarchy!(IDirectInputW, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDirectInputW {
-    type Vtable = IDirectInputW_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDirectInputW {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x89521361_aa8a_11cf_bfc7_444553540000);
 }
 #[repr(C)]
 #[doc(hidden)]

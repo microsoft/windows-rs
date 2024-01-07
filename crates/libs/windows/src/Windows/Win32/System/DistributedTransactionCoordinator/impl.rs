@@ -18,7 +18,7 @@ impl IDtcLuConfigure_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Add: Add::<Identity, Impl, OFFSET>, Delete: Delete::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDtcLuConfigure as ::windows_core::ComInterface>::IID
+        iid == &<IDtcLuConfigure as ::windows_core::Interface>::IID
     }
 }
 pub trait IDtcLuRecovery_Impl: Sized {}
@@ -28,7 +28,7 @@ impl IDtcLuRecovery_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDtcLuRecovery as ::windows_core::ComInterface>::IID
+        iid == &<IDtcLuRecovery as ::windows_core::Interface>::IID
     }
 }
 pub trait IDtcLuRecoveryFactory_Impl: Sized {
@@ -51,7 +51,7 @@ impl IDtcLuRecoveryFactory_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Create: Create::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDtcLuRecoveryFactory as ::windows_core::ComInterface>::IID
+        iid == &<IDtcLuRecoveryFactory as ::windows_core::Interface>::IID
     }
 }
 pub trait IDtcLuRecoveryInitiatedByDtc_Impl: Sized {
@@ -68,7 +68,7 @@ impl IDtcLuRecoveryInitiatedByDtc_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetWork: GetWork::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDtcLuRecoveryInitiatedByDtc as ::windows_core::ComInterface>::IID
+        iid == &<IDtcLuRecoveryInitiatedByDtc as ::windows_core::Interface>::IID
     }
 }
 pub trait IDtcLuRecoveryInitiatedByDtcStatusWork_Impl: Sized {
@@ -85,7 +85,7 @@ impl IDtcLuRecoveryInitiatedByDtcStatusWork_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), HandleCheckLuStatus: HandleCheckLuStatus::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDtcLuRecoveryInitiatedByDtcStatusWork as ::windows_core::ComInterface>::IID
+        iid == &<IDtcLuRecoveryInitiatedByDtcStatusWork as ::windows_core::Interface>::IID
     }
 }
 pub trait IDtcLuRecoveryInitiatedByDtcTransWork_Impl: Sized {
@@ -189,7 +189,7 @@ impl IDtcLuRecoveryInitiatedByDtcTransWork_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDtcLuRecoveryInitiatedByDtcTransWork as ::windows_core::ComInterface>::IID
+        iid == &<IDtcLuRecoveryInitiatedByDtcTransWork as ::windows_core::Interface>::IID
     }
 }
 pub trait IDtcLuRecoveryInitiatedByLu_Impl: Sized {
@@ -215,7 +215,7 @@ impl IDtcLuRecoveryInitiatedByLu_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDtcLuRecoveryInitiatedByLu as ::windows_core::ComInterface>::IID
+        iid == &<IDtcLuRecoveryInitiatedByLu as ::windows_core::Interface>::IID
     }
 }
 pub trait IDtcLuRecoveryInitiatedByLuWork_Impl: Sized {
@@ -284,7 +284,7 @@ impl IDtcLuRecoveryInitiatedByLuWork_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDtcLuRecoveryInitiatedByLuWork as ::windows_core::ComInterface>::IID
+        iid == &<IDtcLuRecoveryInitiatedByLuWork as ::windows_core::Interface>::IID
     }
 }
 pub trait IDtcLuRmEnlistment_Impl: Sized {
@@ -339,7 +339,7 @@ impl IDtcLuRmEnlistment_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDtcLuRmEnlistment as ::windows_core::ComInterface>::IID
+        iid == &<IDtcLuRmEnlistment as ::windows_core::Interface>::IID
     }
 }
 pub trait IDtcLuRmEnlistmentFactory_Impl: Sized {
@@ -356,7 +356,7 @@ impl IDtcLuRmEnlistmentFactory_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Create: Create::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDtcLuRmEnlistmentFactory as ::windows_core::ComInterface>::IID
+        iid == &<IDtcLuRmEnlistmentFactory as ::windows_core::Interface>::IID
     }
 }
 pub trait IDtcLuRmEnlistmentSink_Impl: Sized {
@@ -432,7 +432,7 @@ impl IDtcLuRmEnlistmentSink_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDtcLuRmEnlistmentSink as ::windows_core::ComInterface>::IID
+        iid == &<IDtcLuRmEnlistmentSink as ::windows_core::Interface>::IID
     }
 }
 pub trait IDtcLuSubordinateDtc_Impl: Sized {
@@ -494,7 +494,7 @@ impl IDtcLuSubordinateDtc_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDtcLuSubordinateDtc as ::windows_core::ComInterface>::IID
+        iid == &<IDtcLuSubordinateDtc as ::windows_core::Interface>::IID
     }
 }
 pub trait IDtcLuSubordinateDtcFactory_Impl: Sized {
@@ -524,7 +524,7 @@ impl IDtcLuSubordinateDtcFactory_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Create: Create::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDtcLuSubordinateDtcFactory as ::windows_core::ComInterface>::IID
+        iid == &<IDtcLuSubordinateDtcFactory as ::windows_core::Interface>::IID
     }
 }
 pub trait IDtcLuSubordinateDtcSink_Impl: Sized {
@@ -593,7 +593,7 @@ impl IDtcLuSubordinateDtcSink_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDtcLuSubordinateDtcSink as ::windows_core::ComInterface>::IID
+        iid == &<IDtcLuSubordinateDtcSink as ::windows_core::Interface>::IID
     }
 }
 pub trait IDtcNetworkAccessConfig_Impl: Sized {
@@ -733,7 +733,7 @@ impl IDtcNetworkAccessConfig_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDtcNetworkAccessConfig as ::windows_core::ComInterface>::IID
+        iid == &<IDtcNetworkAccessConfig as ::windows_core::Interface>::IID
     }
 }
 pub trait IDtcNetworkAccessConfig2_Impl: Sized + IDtcNetworkAccessConfig_Impl {
@@ -806,7 +806,7 @@ impl IDtcNetworkAccessConfig2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDtcNetworkAccessConfig2 as ::windows_core::ComInterface>::IID || iid == &<IDtcNetworkAccessConfig as ::windows_core::ComInterface>::IID
+        iid == &<IDtcNetworkAccessConfig2 as ::windows_core::Interface>::IID || iid == &<IDtcNetworkAccessConfig as ::windows_core::Interface>::IID
     }
 }
 pub trait IDtcNetworkAccessConfig3_Impl: Sized + IDtcNetworkAccessConfig2_Impl {
@@ -839,7 +839,7 @@ impl IDtcNetworkAccessConfig3_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDtcNetworkAccessConfig3 as ::windows_core::ComInterface>::IID || iid == &<IDtcNetworkAccessConfig as ::windows_core::ComInterface>::IID || iid == &<IDtcNetworkAccessConfig2 as ::windows_core::ComInterface>::IID
+        iid == &<IDtcNetworkAccessConfig3 as ::windows_core::Interface>::IID || iid == &<IDtcNetworkAccessConfig as ::windows_core::Interface>::IID || iid == &<IDtcNetworkAccessConfig2 as ::windows_core::Interface>::IID
     }
 }
 pub trait IDtcToXaHelper_Impl: Sized {
@@ -866,7 +866,7 @@ impl IDtcToXaHelper_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDtcToXaHelper as ::windows_core::ComInterface>::IID
+        iid == &<IDtcToXaHelper as ::windows_core::Interface>::IID
     }
 }
 pub trait IDtcToXaHelperFactory_Impl: Sized {
@@ -883,7 +883,7 @@ impl IDtcToXaHelperFactory_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Create: Create::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDtcToXaHelperFactory as ::windows_core::ComInterface>::IID
+        iid == &<IDtcToXaHelperFactory as ::windows_core::Interface>::IID
     }
 }
 pub trait IDtcToXaHelperSinglePipe_Impl: Sized {
@@ -930,7 +930,7 @@ impl IDtcToXaHelperSinglePipe_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDtcToXaHelperSinglePipe as ::windows_core::ComInterface>::IID
+        iid == &<IDtcToXaHelperSinglePipe as ::windows_core::Interface>::IID
     }
 }
 pub trait IDtcToXaMapper_Impl: Sized {
@@ -971,7 +971,7 @@ impl IDtcToXaMapper_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDtcToXaMapper as ::windows_core::ComInterface>::IID
+        iid == &<IDtcToXaMapper as ::windows_core::Interface>::IID
     }
 }
 pub trait IGetDispenser_Impl: Sized {
@@ -988,7 +988,7 @@ impl IGetDispenser_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetDispenser: GetDispenser::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IGetDispenser as ::windows_core::ComInterface>::IID
+        iid == &<IGetDispenser as ::windows_core::Interface>::IID
     }
 }
 pub trait IKernelTransaction_Impl: Sized {
@@ -1011,7 +1011,7 @@ impl IKernelTransaction_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetHandle: GetHandle::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IKernelTransaction as ::windows_core::ComInterface>::IID
+        iid == &<IKernelTransaction as ::windows_core::Interface>::IID
     }
 }
 pub trait ILastResourceManager_Impl: Sized {
@@ -1038,7 +1038,7 @@ impl ILastResourceManager_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ILastResourceManager as ::windows_core::ComInterface>::IID
+        iid == &<ILastResourceManager as ::windows_core::Interface>::IID
     }
 }
 pub trait IPrepareInfo_Impl: Sized {
@@ -1065,7 +1065,7 @@ impl IPrepareInfo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPrepareInfo as ::windows_core::ComInterface>::IID
+        iid == &<IPrepareInfo as ::windows_core::Interface>::IID
     }
 }
 pub trait IPrepareInfo2_Impl: Sized {
@@ -1098,7 +1098,7 @@ impl IPrepareInfo2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPrepareInfo2 as ::windows_core::ComInterface>::IID
+        iid == &<IPrepareInfo2 as ::windows_core::Interface>::IID
     }
 }
 pub trait IRMHelper_Impl: Sized {
@@ -1125,7 +1125,7 @@ impl IRMHelper_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRMHelper as ::windows_core::ComInterface>::IID
+        iid == &<IRMHelper as ::windows_core::Interface>::IID
     }
 }
 pub trait IResourceManager_Impl: Sized {
@@ -1172,7 +1172,7 @@ impl IResourceManager_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IResourceManager as ::windows_core::ComInterface>::IID
+        iid == &<IResourceManager as ::windows_core::Interface>::IID
     }
 }
 pub trait IResourceManager2_Impl: Sized + IResourceManager_Impl {
@@ -1205,7 +1205,7 @@ impl IResourceManager2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IResourceManager2 as ::windows_core::ComInterface>::IID || iid == &<IResourceManager as ::windows_core::ComInterface>::IID
+        iid == &<IResourceManager2 as ::windows_core::Interface>::IID || iid == &<IResourceManager as ::windows_core::Interface>::IID
     }
 }
 pub trait IResourceManagerFactory_Impl: Sized {
@@ -1228,7 +1228,7 @@ impl IResourceManagerFactory_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Create: Create::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IResourceManagerFactory as ::windows_core::ComInterface>::IID
+        iid == &<IResourceManagerFactory as ::windows_core::Interface>::IID
     }
 }
 pub trait IResourceManagerFactory2_Impl: Sized + IResourceManagerFactory_Impl {
@@ -1245,7 +1245,7 @@ impl IResourceManagerFactory2_Vtbl {
         Self { base__: IResourceManagerFactory_Vtbl::new::<Identity, Impl, OFFSET>(), CreateEx: CreateEx::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IResourceManagerFactory2 as ::windows_core::ComInterface>::IID || iid == &<IResourceManagerFactory as ::windows_core::ComInterface>::IID
+        iid == &<IResourceManagerFactory2 as ::windows_core::Interface>::IID || iid == &<IResourceManagerFactory as ::windows_core::Interface>::IID
     }
 }
 pub trait IResourceManagerRejoinable_Impl: Sized + IResourceManager2_Impl {
@@ -1268,7 +1268,7 @@ impl IResourceManagerRejoinable_Vtbl {
         Self { base__: IResourceManager2_Vtbl::new::<Identity, Impl, OFFSET>(), Rejoin: Rejoin::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IResourceManagerRejoinable as ::windows_core::ComInterface>::IID || iid == &<IResourceManager as ::windows_core::ComInterface>::IID || iid == &<IResourceManager2 as ::windows_core::ComInterface>::IID
+        iid == &<IResourceManagerRejoinable as ::windows_core::Interface>::IID || iid == &<IResourceManager as ::windows_core::Interface>::IID || iid == &<IResourceManager2 as ::windows_core::Interface>::IID
     }
 }
 pub trait IResourceManagerSink_Impl: Sized {
@@ -1285,7 +1285,7 @@ impl IResourceManagerSink_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), TMDown: TMDown::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IResourceManagerSink as ::windows_core::ComInterface>::IID
+        iid == &<IResourceManagerSink as ::windows_core::Interface>::IID
     }
 }
 pub trait ITipHelper_Impl: Sized {
@@ -1337,7 +1337,7 @@ impl ITipHelper_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITipHelper as ::windows_core::ComInterface>::IID
+        iid == &<ITipHelper as ::windows_core::Interface>::IID
     }
 }
 pub trait ITipPullSink_Impl: Sized {
@@ -1354,7 +1354,7 @@ impl ITipPullSink_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), PullComplete: PullComplete::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITipPullSink as ::windows_core::ComInterface>::IID
+        iid == &<ITipPullSink as ::windows_core::Interface>::IID
     }
 }
 pub trait ITipTransaction_Impl: Sized {
@@ -1393,7 +1393,7 @@ impl ITipTransaction_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITipTransaction as ::windows_core::ComInterface>::IID
+        iid == &<ITipTransaction as ::windows_core::Interface>::IID
     }
 }
 pub trait ITmNodeName_Impl: Sized {
@@ -1426,7 +1426,7 @@ impl ITmNodeName_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITmNodeName as ::windows_core::ComInterface>::IID
+        iid == &<ITmNodeName as ::windows_core::Interface>::IID
     }
 }
 pub trait ITransaction_Impl: Sized {
@@ -1460,7 +1460,7 @@ impl ITransaction_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITransaction as ::windows_core::ComInterface>::IID
+        iid == &<ITransaction as ::windows_core::Interface>::IID
     }
 }
 pub trait ITransaction2_Impl: Sized + ITransactionCloner_Impl {
@@ -1477,7 +1477,7 @@ impl ITransaction2_Vtbl {
         Self { base__: ITransactionCloner_Vtbl::new::<Identity, Impl, OFFSET>(), GetTransactionInfo2: GetTransactionInfo2::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITransaction2 as ::windows_core::ComInterface>::IID || iid == &<ITransaction as ::windows_core::ComInterface>::IID || iid == &<ITransactionCloner as ::windows_core::ComInterface>::IID
+        iid == &<ITransaction2 as ::windows_core::Interface>::IID || iid == &<ITransaction as ::windows_core::Interface>::IID || iid == &<ITransactionCloner as ::windows_core::Interface>::IID
     }
 }
 pub trait ITransactionCloner_Impl: Sized + ITransaction_Impl {
@@ -1500,7 +1500,7 @@ impl ITransactionCloner_Vtbl {
         Self { base__: ITransaction_Vtbl::new::<Identity, Impl, OFFSET>(), CloneWithCommitDisabled: CloneWithCommitDisabled::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITransactionCloner as ::windows_core::ComInterface>::IID || iid == &<ITransaction as ::windows_core::ComInterface>::IID
+        iid == &<ITransactionCloner as ::windows_core::Interface>::IID || iid == &<ITransaction as ::windows_core::Interface>::IID
     }
 }
 pub trait ITransactionDispenser_Impl: Sized {
@@ -1539,7 +1539,7 @@ impl ITransactionDispenser_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITransactionDispenser as ::windows_core::ComInterface>::IID
+        iid == &<ITransactionDispenser as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1577,7 +1577,7 @@ impl ITransactionEnlistmentAsync_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITransactionEnlistmentAsync as ::windows_core::ComInterface>::IID
+        iid == &<ITransactionEnlistmentAsync as ::windows_core::Interface>::IID
     }
 }
 pub trait ITransactionExport_Impl: Sized {
@@ -1610,7 +1610,7 @@ impl ITransactionExport_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITransactionExport as ::windows_core::ComInterface>::IID
+        iid == &<ITransactionExport as ::windows_core::Interface>::IID
     }
 }
 pub trait ITransactionExportFactory_Impl: Sized {
@@ -1649,7 +1649,7 @@ impl ITransactionExportFactory_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITransactionExportFactory as ::windows_core::ComInterface>::IID
+        iid == &<ITransactionExportFactory as ::windows_core::Interface>::IID
     }
 }
 pub trait ITransactionImport_Impl: Sized {
@@ -1666,7 +1666,7 @@ impl ITransactionImport_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Import: Import::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITransactionImport as ::windows_core::ComInterface>::IID
+        iid == &<ITransactionImport as ::windows_core::Interface>::IID
     }
 }
 pub trait ITransactionImportWhereabouts_Impl: Sized {
@@ -1699,7 +1699,7 @@ impl ITransactionImportWhereabouts_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITransactionImportWhereabouts as ::windows_core::ComInterface>::IID
+        iid == &<ITransactionImportWhereabouts as ::windows_core::Interface>::IID
     }
 }
 pub trait ITransactionLastEnlistmentAsync_Impl: Sized {
@@ -1716,7 +1716,7 @@ impl ITransactionLastEnlistmentAsync_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), TransactionOutcome: TransactionOutcome::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITransactionLastEnlistmentAsync as ::windows_core::ComInterface>::IID
+        iid == &<ITransactionLastEnlistmentAsync as ::windows_core::Interface>::IID
     }
 }
 pub trait ITransactionLastResourceAsync_Impl: Sized {
@@ -1743,7 +1743,7 @@ impl ITransactionLastResourceAsync_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITransactionLastResourceAsync as ::windows_core::ComInterface>::IID
+        iid == &<ITransactionLastResourceAsync as ::windows_core::Interface>::IID
     }
 }
 pub trait ITransactionOptions_Impl: Sized {
@@ -1770,7 +1770,7 @@ impl ITransactionOptions_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITransactionOptions as ::windows_core::ComInterface>::IID
+        iid == &<ITransactionOptions as ::windows_core::Interface>::IID
     }
 }
 pub trait ITransactionOutcomeEvents_Impl: Sized {
@@ -1811,7 +1811,7 @@ impl ITransactionOutcomeEvents_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITransactionOutcomeEvents as ::windows_core::ComInterface>::IID
+        iid == &<ITransactionOutcomeEvents as ::windows_core::Interface>::IID
     }
 }
 pub trait ITransactionPhase0EnlistmentAsync_Impl: Sized {
@@ -1865,7 +1865,7 @@ impl ITransactionPhase0EnlistmentAsync_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITransactionPhase0EnlistmentAsync as ::windows_core::ComInterface>::IID
+        iid == &<ITransactionPhase0EnlistmentAsync as ::windows_core::Interface>::IID
     }
 }
 pub trait ITransactionPhase0Factory_Impl: Sized {
@@ -1888,7 +1888,7 @@ impl ITransactionPhase0Factory_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Create: Create::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITransactionPhase0Factory as ::windows_core::ComInterface>::IID
+        iid == &<ITransactionPhase0Factory as ::windows_core::Interface>::IID
     }
 }
 pub trait ITransactionPhase0NotifyAsync_Impl: Sized {
@@ -1915,7 +1915,7 @@ impl ITransactionPhase0NotifyAsync_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITransactionPhase0NotifyAsync as ::windows_core::ComInterface>::IID
+        iid == &<ITransactionPhase0NotifyAsync as ::windows_core::Interface>::IID
     }
 }
 pub trait ITransactionReceiver_Impl: Sized {
@@ -1968,7 +1968,7 @@ impl ITransactionReceiver_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITransactionReceiver as ::windows_core::ComInterface>::IID
+        iid == &<ITransactionReceiver as ::windows_core::Interface>::IID
     }
 }
 pub trait ITransactionReceiverFactory_Impl: Sized {
@@ -1991,7 +1991,7 @@ impl ITransactionReceiverFactory_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Create: Create::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITransactionReceiverFactory as ::windows_core::ComInterface>::IID
+        iid == &<ITransactionReceiverFactory as ::windows_core::Interface>::IID
     }
 }
 pub trait ITransactionResource_Impl: Sized {
@@ -2032,7 +2032,7 @@ impl ITransactionResource_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITransactionResource as ::windows_core::ComInterface>::IID
+        iid == &<ITransactionResource as ::windows_core::Interface>::IID
     }
 }
 pub trait ITransactionResourceAsync_Impl: Sized {
@@ -2073,7 +2073,7 @@ impl ITransactionResourceAsync_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITransactionResourceAsync as ::windows_core::ComInterface>::IID
+        iid == &<ITransactionResourceAsync as ::windows_core::Interface>::IID
     }
 }
 pub trait ITransactionTransmitter_Impl: Sized {
@@ -2127,7 +2127,7 @@ impl ITransactionTransmitter_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITransactionTransmitter as ::windows_core::ComInterface>::IID
+        iid == &<ITransactionTransmitter as ::windows_core::Interface>::IID
     }
 }
 pub trait ITransactionTransmitterFactory_Impl: Sized {
@@ -2150,7 +2150,7 @@ impl ITransactionTransmitterFactory_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Create: Create::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITransactionTransmitterFactory as ::windows_core::ComInterface>::IID
+        iid == &<ITransactionTransmitterFactory as ::windows_core::Interface>::IID
     }
 }
 pub trait ITransactionVoterBallotAsync2_Impl: Sized {
@@ -2167,7 +2167,7 @@ impl ITransactionVoterBallotAsync2_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), VoteRequestDone: VoteRequestDone::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITransactionVoterBallotAsync2 as ::windows_core::ComInterface>::IID
+        iid == &<ITransactionVoterBallotAsync2 as ::windows_core::Interface>::IID
     }
 }
 pub trait ITransactionVoterFactory2_Impl: Sized {
@@ -2190,7 +2190,7 @@ impl ITransactionVoterFactory2_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Create: Create::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITransactionVoterFactory2 as ::windows_core::ComInterface>::IID
+        iid == &<ITransactionVoterFactory2 as ::windows_core::Interface>::IID
     }
 }
 pub trait ITransactionVoterNotifyAsync2_Impl: Sized + ITransactionOutcomeEvents_Impl {
@@ -2207,7 +2207,7 @@ impl ITransactionVoterNotifyAsync2_Vtbl {
         Self { base__: ITransactionOutcomeEvents_Vtbl::new::<Identity, Impl, OFFSET>(), VoteRequest: VoteRequest::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITransactionVoterNotifyAsync2 as ::windows_core::ComInterface>::IID || iid == &<ITransactionOutcomeEvents as ::windows_core::ComInterface>::IID
+        iid == &<ITransactionVoterNotifyAsync2 as ::windows_core::Interface>::IID || iid == &<ITransactionOutcomeEvents as ::windows_core::Interface>::IID
     }
 }
 pub trait IXAConfig_Impl: Sized {
@@ -2234,7 +2234,7 @@ impl IXAConfig_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXAConfig as ::windows_core::ComInterface>::IID
+        iid == &<IXAConfig as ::windows_core::Interface>::IID
     }
 }
 pub trait IXAObtainRMInfo_Impl: Sized {
@@ -2251,7 +2251,7 @@ impl IXAObtainRMInfo_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ObtainRMInfo: ObtainRMInfo::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXAObtainRMInfo as ::windows_core::ComInterface>::IID
+        iid == &<IXAObtainRMInfo as ::windows_core::Interface>::IID
     }
 }
 pub trait IXATransLookup_Impl: Sized {
@@ -2274,7 +2274,7 @@ impl IXATransLookup_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Lookup: Lookup::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXATransLookup as ::windows_core::ComInterface>::IID
+        iid == &<IXATransLookup as ::windows_core::Interface>::IID
     }
 }
 pub trait IXATransLookup2_Impl: Sized {
@@ -2297,6 +2297,6 @@ impl IXATransLookup2_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Lookup: Lookup::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXATransLookup2 as ::windows_core::ComInterface>::IID
+        iid == &<IXATransLookup2 as ::windows_core::Interface>::IID
     }
 }

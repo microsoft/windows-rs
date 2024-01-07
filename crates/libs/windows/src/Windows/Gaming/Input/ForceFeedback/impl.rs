@@ -57,6 +57,6 @@ impl IForceFeedbackEffect_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IForceFeedbackEffect as ::windows_core::ComInterface>::IID
+        iid == &<IForceFeedbackEffect as ::windows_core::Interface>::IID
     }
 }

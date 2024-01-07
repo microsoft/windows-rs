@@ -1,29 +1,11 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPerformLocalActionRequestedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPerformLocalActionRequestedEventArgs {
-    type Vtable = IPerformLocalActionRequestedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPerformLocalActionRequestedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x59359f4f_0862_53a3_a3b3_c932fb718cdc);
-}
+::windows_core::imp::com_interface!(IPerformLocalActionRequestedEventArgs, IPerformLocalActionRequestedEventArgs_Vtbl, 0x59359f4f_0862_53a3_a3b3_c932fb718cdc);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPerformLocalActionRequestedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Action: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut RemoteDesktopLocalAction) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRemoteDesktopConnectionInfo(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IRemoteDesktopConnectionInfo {
-    type Vtable = IRemoteDesktopConnectionInfo_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRemoteDesktopConnectionInfo {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x68bd69d6_6dea_543b_b737_f347919f5093);
-}
+::windows_core::imp::com_interface!(IRemoteDesktopConnectionInfo, IRemoteDesktopConnectionInfo_Vtbl, 0x68bd69d6_6dea_543b_b737_f347919f5093);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteDesktopConnectionInfo_Vtbl {
@@ -31,16 +13,7 @@ pub struct IRemoteDesktopConnectionInfo_Vtbl {
     pub SetConnectionStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: RemoteDesktopConnectionStatus) -> ::windows_core::HRESULT,
     pub SwitchToLocalSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRemoteDesktopConnectionInfoStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IRemoteDesktopConnectionInfoStatics {
-    type Vtable = IRemoteDesktopConnectionInfoStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRemoteDesktopConnectionInfoStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4a7dc5a1_3368_5a75_bb78_807df7ebc439);
-}
+::windows_core::imp::com_interface!(IRemoteDesktopConnectionInfoStatics, IRemoteDesktopConnectionInfoStatics_Vtbl, 0x4a7dc5a1_3368_5a75_bb78_807df7ebc439);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteDesktopConnectionInfoStatics_Vtbl {
@@ -50,16 +23,7 @@ pub struct IRemoteDesktopConnectionInfoStatics_Vtbl {
     #[cfg(not(feature = "UI"))]
     GetForLaunchUri: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRemoteDesktopConnectionRemoteInfo(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IRemoteDesktopConnectionRemoteInfo {
-    type Vtable = IRemoteDesktopConnectionRemoteInfo_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRemoteDesktopConnectionRemoteInfo {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2a3dfa7e_a7ab_547e_9a6a_4c565bbb8d71);
-}
+::windows_core::imp::com_interface!(IRemoteDesktopConnectionRemoteInfo, IRemoteDesktopConnectionRemoteInfo_Vtbl, 0x2a3dfa7e_a7ab_547e_9a6a_4c565bbb8d71);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteDesktopConnectionRemoteInfo_Vtbl {
@@ -70,16 +34,7 @@ pub struct IRemoteDesktopConnectionRemoteInfo_Vtbl {
     pub PerformLocalActionRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     pub RemovePerformLocalActionRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRemoteDesktopConnectionRemoteInfoStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IRemoteDesktopConnectionRemoteInfoStatics {
-    type Vtable = IRemoteDesktopConnectionRemoteInfoStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRemoteDesktopConnectionRemoteInfoStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb590e64a_e4c9_53e8_b83d_a0db3676246a);
-}
+::windows_core::imp::com_interface!(IRemoteDesktopConnectionRemoteInfoStatics, IRemoteDesktopConnectionRemoteInfoStatics_Vtbl, 0xb590e64a_e4c9_53e8_b83d_a0db3676246a);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteDesktopConnectionRemoteInfoStatics_Vtbl {
@@ -87,16 +42,7 @@ pub struct IRemoteDesktopConnectionRemoteInfoStatics_Vtbl {
     pub IsSwitchSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub GetForLaunchUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, launchuri: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRemoteDesktopInfo(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IRemoteDesktopInfo {
-    type Vtable = IRemoteDesktopInfo_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRemoteDesktopInfo {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd185bb25_2f1e_5098_b9e0_f46d6358c5c4);
-}
+::windows_core::imp::com_interface!(IRemoteDesktopInfo, IRemoteDesktopInfo_Vtbl, 0xd185bb25_2f1e_5098_b9e0_f46d6358c5c4);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteDesktopInfo_Vtbl {
@@ -104,32 +50,14 @@ pub struct IRemoteDesktopInfo_Vtbl {
     pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRemoteDesktopInfoFactory(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IRemoteDesktopInfoFactory {
-    type Vtable = IRemoteDesktopInfoFactory_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRemoteDesktopInfoFactory {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xad0e8d58_b56f_5a8b_b419_8002ee0c5ee9);
-}
+::windows_core::imp::com_interface!(IRemoteDesktopInfoFactory, IRemoteDesktopInfoFactory_Vtbl, 0xad0e8d58_b56f_5a8b_b419_8002ee0c5ee9);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteDesktopInfoFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ::std::mem::MaybeUninit<::windows_core::HSTRING>, displayname: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRemoteDesktopRegistrarStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IRemoteDesktopRegistrarStatics {
-    type Vtable = IRemoteDesktopRegistrarStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRemoteDesktopRegistrarStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x687c2750_46d9_5de3_8dc3_84a9202cecfb);
-}
+::windows_core::imp::com_interface!(IRemoteDesktopRegistrarStatics, IRemoteDesktopRegistrarStatics_Vtbl, 0x687c2750_46d9_5de3_8dc3_84a9202cecfb);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteDesktopRegistrarStatics_Vtbl {
@@ -143,6 +71,7 @@ pub struct IRemoteDesktopRegistrarStatics_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PerformLocalActionRequestedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(PerformLocalActionRequestedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl PerformLocalActionRequestedEventArgs {
     pub fn Action(&self) -> ::windows_core::Result<RemoteDesktopLocalAction> {
         let this = self;
@@ -157,19 +86,17 @@ impl ::windows_core::RuntimeType for PerformLocalActionRequestedEventArgs {
 }
 unsafe impl ::windows_core::Interface for PerformLocalActionRequestedEventArgs {
     type Vtable = IPerformLocalActionRequestedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for PerformLocalActionRequestedEventArgs {
-    const IID: ::windows_core::GUID = <IPerformLocalActionRequestedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPerformLocalActionRequestedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for PerformLocalActionRequestedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteDesktop.Provider.PerformLocalActionRequestedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(PerformLocalActionRequestedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PerformLocalActionRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for PerformLocalActionRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RemoteDesktopConnectionInfo(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(RemoteDesktopConnectionInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl RemoteDesktopConnectionInfo {
     pub fn SetConnectionStatus(&self, value: RemoteDesktopConnectionStatus) -> ::windows_core::Result<()> {
         let this = self;
@@ -201,22 +128,21 @@ impl ::windows_core::RuntimeType for RemoteDesktopConnectionInfo {
 }
 unsafe impl ::windows_core::Interface for RemoteDesktopConnectionInfo {
     type Vtable = IRemoteDesktopConnectionInfo_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for RemoteDesktopConnectionInfo {
-    const IID: ::windows_core::GUID = <IRemoteDesktopConnectionInfo as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IRemoteDesktopConnectionInfo as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for RemoteDesktopConnectionInfo {
     const NAME: &'static str = "Windows.System.RemoteDesktop.Provider.RemoteDesktopConnectionInfo";
 }
-::windows_core::imp::interface_hierarchy!(RemoteDesktopConnectionInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteDesktopConnectionInfo {}
 unsafe impl ::core::marker::Sync for RemoteDesktopConnectionInfo {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RemoteDesktopConnectionRemoteInfo(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(RemoteDesktopConnectionRemoteInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(RemoteDesktopConnectionRemoteInfo, super::super::super::Foundation::IClosable);
 impl RemoteDesktopConnectionRemoteInfo {
     pub fn Close(&self) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IClosable>(self)?;
+        let this = &::windows_core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn ReportSwitched(&self) -> ::windows_core::Result<()> {
@@ -277,20 +203,17 @@ impl ::windows_core::RuntimeType for RemoteDesktopConnectionRemoteInfo {
 }
 unsafe impl ::windows_core::Interface for RemoteDesktopConnectionRemoteInfo {
     type Vtable = IRemoteDesktopConnectionRemoteInfo_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for RemoteDesktopConnectionRemoteInfo {
-    const IID: ::windows_core::GUID = <IRemoteDesktopConnectionRemoteInfo as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IRemoteDesktopConnectionRemoteInfo as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for RemoteDesktopConnectionRemoteInfo {
     const NAME: &'static str = "Windows.System.RemoteDesktop.Provider.RemoteDesktopConnectionRemoteInfo";
 }
-::windows_core::imp::interface_hierarchy!(RemoteDesktopConnectionRemoteInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<super::super::super::Foundation::IClosable> for RemoteDesktopConnectionRemoteInfo {}
 unsafe impl ::core::marker::Send for RemoteDesktopConnectionRemoteInfo {}
 unsafe impl ::core::marker::Sync for RemoteDesktopConnectionRemoteInfo {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RemoteDesktopInfo(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(RemoteDesktopInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl RemoteDesktopInfo {
     pub fn DisplayName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -323,14 +246,11 @@ impl ::windows_core::RuntimeType for RemoteDesktopInfo {
 }
 unsafe impl ::windows_core::Interface for RemoteDesktopInfo {
     type Vtable = IRemoteDesktopInfo_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for RemoteDesktopInfo {
-    const IID: ::windows_core::GUID = <IRemoteDesktopInfo as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IRemoteDesktopInfo as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for RemoteDesktopInfo {
     const NAME: &'static str = "Windows.System.RemoteDesktop.Provider.RemoteDesktopInfo";
 }
-::windows_core::imp::interface_hierarchy!(RemoteDesktopInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteDesktopInfo {}
 unsafe impl ::core::marker::Sync for RemoteDesktopInfo {}
 pub struct RemoteDesktopRegistrar;

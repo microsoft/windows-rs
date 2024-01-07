@@ -1,13 +1,4 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPrintTicketCapabilities(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPrintTicketCapabilities {
-    type Vtable = IPrintTicketCapabilities_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPrintTicketCapabilities {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8c45508b_bbdc_4256_a142_2fd615ecb416);
-}
+::windows_core::imp::com_interface!(IPrintTicketCapabilities, IPrintTicketCapabilities_Vtbl, 0x8c45508b_bbdc_4256_a142_2fd615ecb416);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintTicketCapabilities_Vtbl {
@@ -36,16 +27,7 @@ pub struct IPrintTicketCapabilities_Vtbl {
     pub GetFeature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::HSTRING>, xmlnamespace: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetParameterDefinition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::HSTRING>, xmlnamespace: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPrintTicketFeature(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPrintTicketFeature {
-    type Vtable = IPrintTicketFeature_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPrintTicketFeature {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe7607d6a_59f5_4103_8858_b97710963d39);
-}
+::windows_core::imp::com_interface!(IPrintTicketFeature, IPrintTicketFeature_Vtbl, 0xe7607d6a_59f5_4103_8858_b97710963d39);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintTicketFeature_Vtbl {
@@ -66,16 +48,7 @@ pub struct IPrintTicketFeature_Vtbl {
     pub SetSelectedOption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub SelectionType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PrintTicketFeatureSelectionType) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPrintTicketOption(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPrintTicketOption {
-    type Vtable = IPrintTicketOption_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPrintTicketOption {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb086cf90_b367_4e4b_bd48_9c78a0bb31ce);
-}
+::windows_core::imp::com_interface!(IPrintTicketOption, IPrintTicketOption_Vtbl, 0xb086cf90_b367_4e4b_bd48_9c78a0bb31ce);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintTicketOption_Vtbl {
@@ -98,16 +71,7 @@ pub struct IPrintTicketOption_Vtbl {
     pub GetPropertyValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::HSTRING>, xmlnamespace: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetScoredPropertyValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::HSTRING>, xmlnamespace: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPrintTicketParameterDefinition(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPrintTicketParameterDefinition {
-    type Vtable = IPrintTicketParameterDefinition_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPrintTicketParameterDefinition {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd6bab4e4_2962_4c01_b7f3_9a9294eb8335);
-}
+::windows_core::imp::com_interface!(IPrintTicketParameterDefinition, IPrintTicketParameterDefinition_Vtbl, 0xd6bab4e4_2962_4c01_b7f3_9a9294eb8335);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintTicketParameterDefinition_Vtbl {
@@ -123,16 +87,7 @@ pub struct IPrintTicketParameterDefinition_Vtbl {
     pub RangeMin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
     pub RangeMax: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPrintTicketParameterInitializer(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPrintTicketParameterInitializer {
-    type Vtable = IPrintTicketParameterInitializer_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPrintTicketParameterInitializer {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5e3335bb_a0a5_48b1_9d5c_07116ddc597a);
-}
+::windows_core::imp::com_interface!(IPrintTicketParameterInitializer, IPrintTicketParameterInitializer_Vtbl, 0x5e3335bb_a0a5_48b1_9d5c_07116ddc597a);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintTicketParameterInitializer_Vtbl {
@@ -146,16 +101,7 @@ pub struct IPrintTicketParameterInitializer_Vtbl {
     pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPrintTicketValue(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPrintTicketValue {
-    type Vtable = IPrintTicketValue_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPrintTicketValue {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x66b30a32_244d_4e22_a98b_bb3cf1f2dd91);
-}
+::windows_core::imp::com_interface!(IPrintTicketValue, IPrintTicketValue_Vtbl, 0x66b30a32_244d_4e22_a98b_bb3cf1f2dd91);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintTicketValue_Vtbl {
@@ -164,16 +110,7 @@ pub struct IPrintTicketValue_Vtbl {
     pub GetValueAsInteger: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
     pub GetValueAsString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWorkflowPrintTicket(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWorkflowPrintTicket {
-    type Vtable = IWorkflowPrintTicket_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWorkflowPrintTicket {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x41d52285_35e8_448e_a8c5_e4b6a2cf826c);
-}
+::windows_core::imp::com_interface!(IWorkflowPrintTicket, IWorkflowPrintTicket_Vtbl, 0x41d52285_35e8_448e_a8c5_e4b6a2cf826c);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWorkflowPrintTicket_Vtbl {
@@ -208,16 +145,7 @@ pub struct IWorkflowPrintTicket_Vtbl {
     pub SetParameterInitializerAsString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::HSTRING>, xmlnamespace: ::std::mem::MaybeUninit<::windows_core::HSTRING>, stringvalue: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub MergeAndValidateTicket: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deltashematicket: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWorkflowPrintTicketValidationResult(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IWorkflowPrintTicketValidationResult {
-    type Vtable = IWorkflowPrintTicketValidationResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWorkflowPrintTicketValidationResult {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0ad1f392_da7b_4a36_bf36_6a99a62e2059);
-}
+::windows_core::imp::com_interface!(IWorkflowPrintTicketValidationResult, IWorkflowPrintTicketValidationResult_Vtbl, 0x0ad1f392_da7b_4a36_bf36_6a99a62e2059);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWorkflowPrintTicketValidationResult_Vtbl {
@@ -228,6 +156,7 @@ pub struct IWorkflowPrintTicketValidationResult_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PrintTicketCapabilities(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(PrintTicketCapabilities, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl PrintTicketCapabilities {
     pub fn Name(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -377,19 +306,17 @@ impl ::windows_core::RuntimeType for PrintTicketCapabilities {
 }
 unsafe impl ::windows_core::Interface for PrintTicketCapabilities {
     type Vtable = IPrintTicketCapabilities_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for PrintTicketCapabilities {
-    const IID: ::windows_core::GUID = <IPrintTicketCapabilities as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPrintTicketCapabilities as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for PrintTicketCapabilities {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.PrintTicketCapabilities";
 }
-::windows_core::imp::interface_hierarchy!(PrintTicketCapabilities, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PrintTicketCapabilities {}
 unsafe impl ::core::marker::Sync for PrintTicketCapabilities {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PrintTicketFeature(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(PrintTicketFeature, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl PrintTicketFeature {
     pub fn Name(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -464,19 +391,17 @@ impl ::windows_core::RuntimeType for PrintTicketFeature {
 }
 unsafe impl ::windows_core::Interface for PrintTicketFeature {
     type Vtable = IPrintTicketFeature_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for PrintTicketFeature {
-    const IID: ::windows_core::GUID = <IPrintTicketFeature as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPrintTicketFeature as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for PrintTicketFeature {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.PrintTicketFeature";
 }
-::windows_core::imp::interface_hierarchy!(PrintTicketFeature, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PrintTicketFeature {}
 unsafe impl ::core::marker::Sync for PrintTicketFeature {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PrintTicketOption(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(PrintTicketOption, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl PrintTicketOption {
     pub fn Name(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -546,19 +471,17 @@ impl ::windows_core::RuntimeType for PrintTicketOption {
 }
 unsafe impl ::windows_core::Interface for PrintTicketOption {
     type Vtable = IPrintTicketOption_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for PrintTicketOption {
-    const IID: ::windows_core::GUID = <IPrintTicketOption as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPrintTicketOption as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for PrintTicketOption {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.PrintTicketOption";
 }
-::windows_core::imp::interface_hierarchy!(PrintTicketOption, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PrintTicketOption {}
 unsafe impl ::core::marker::Sync for PrintTicketOption {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PrintTicketParameterDefinition(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(PrintTicketParameterDefinition, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl PrintTicketParameterDefinition {
     pub fn Name(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -617,19 +540,17 @@ impl ::windows_core::RuntimeType for PrintTicketParameterDefinition {
 }
 unsafe impl ::windows_core::Interface for PrintTicketParameterDefinition {
     type Vtable = IPrintTicketParameterDefinition_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for PrintTicketParameterDefinition {
-    const IID: ::windows_core::GUID = <IPrintTicketParameterDefinition as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPrintTicketParameterDefinition as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for PrintTicketParameterDefinition {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.PrintTicketParameterDefinition";
 }
-::windows_core::imp::interface_hierarchy!(PrintTicketParameterDefinition, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PrintTicketParameterDefinition {}
 unsafe impl ::core::marker::Sync for PrintTicketParameterDefinition {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PrintTicketParameterInitializer(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(PrintTicketParameterInitializer, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl PrintTicketParameterInitializer {
     pub fn Name(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -674,19 +595,17 @@ impl ::windows_core::RuntimeType for PrintTicketParameterInitializer {
 }
 unsafe impl ::windows_core::Interface for PrintTicketParameterInitializer {
     type Vtable = IPrintTicketParameterInitializer_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for PrintTicketParameterInitializer {
-    const IID: ::windows_core::GUID = <IPrintTicketParameterInitializer as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPrintTicketParameterInitializer as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for PrintTicketParameterInitializer {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.PrintTicketParameterInitializer";
 }
-::windows_core::imp::interface_hierarchy!(PrintTicketParameterInitializer, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PrintTicketParameterInitializer {}
 unsafe impl ::core::marker::Sync for PrintTicketParameterInitializer {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PrintTicketValue(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(PrintTicketValue, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl PrintTicketValue {
     pub fn Type(&self) -> ::windows_core::Result<PrintTicketValueType> {
         let this = self;
@@ -715,19 +634,17 @@ impl ::windows_core::RuntimeType for PrintTicketValue {
 }
 unsafe impl ::windows_core::Interface for PrintTicketValue {
     type Vtable = IPrintTicketValue_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for PrintTicketValue {
-    const IID: ::windows_core::GUID = <IPrintTicketValue as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPrintTicketValue as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for PrintTicketValue {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.PrintTicketValue";
 }
-::windows_core::imp::interface_hierarchy!(PrintTicketValue, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PrintTicketValue {}
 unsafe impl ::core::marker::Sync for PrintTicketValue {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WorkflowPrintTicket(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(WorkflowPrintTicket, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl WorkflowPrintTicket {
     pub fn Name(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -922,19 +839,17 @@ impl ::windows_core::RuntimeType for WorkflowPrintTicket {
 }
 unsafe impl ::windows_core::Interface for WorkflowPrintTicket {
     type Vtable = IWorkflowPrintTicket_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for WorkflowPrintTicket {
-    const IID: ::windows_core::GUID = <IWorkflowPrintTicket as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IWorkflowPrintTicket as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for WorkflowPrintTicket {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.WorkflowPrintTicket";
 }
-::windows_core::imp::interface_hierarchy!(WorkflowPrintTicket, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for WorkflowPrintTicket {}
 unsafe impl ::core::marker::Sync for WorkflowPrintTicket {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WorkflowPrintTicketValidationResult(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(WorkflowPrintTicketValidationResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl WorkflowPrintTicketValidationResult {
     pub fn Validated(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -956,14 +871,11 @@ impl ::windows_core::RuntimeType for WorkflowPrintTicketValidationResult {
 }
 unsafe impl ::windows_core::Interface for WorkflowPrintTicketValidationResult {
     type Vtable = IWorkflowPrintTicketValidationResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for WorkflowPrintTicketValidationResult {
-    const IID: ::windows_core::GUID = <IWorkflowPrintTicketValidationResult as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IWorkflowPrintTicketValidationResult as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for WorkflowPrintTicketValidationResult {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.WorkflowPrintTicketValidationResult";
 }
-::windows_core::imp::interface_hierarchy!(WorkflowPrintTicketValidationResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for WorkflowPrintTicketValidationResult {}
 unsafe impl ::core::marker::Sync for WorkflowPrintTicketValidationResult {}
 #[repr(transparent)]

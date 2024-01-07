@@ -1,13 +1,4 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IHolographicKeyboard(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IHolographicKeyboard {
-    type Vtable = IHolographicKeyboard_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IHolographicKeyboard {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x07dd0893_aa21_5e6f_a91b_11b2b3fd7be3);
-}
+::windows_core::imp::com_interface!(IHolographicKeyboard, IHolographicKeyboard_Vtbl, 0x07dd0893_aa21_5e6f_a91b_11b2b3fd7be3);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicKeyboard_Vtbl {
@@ -22,16 +13,7 @@ pub struct IHolographicKeyboard_Vtbl {
     SetPlacementOverrideWithMaxSize: usize,
     pub ResetPlacementOverride: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IHolographicKeyboardStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IHolographicKeyboardStatics {
-    type Vtable = IHolographicKeyboardStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IHolographicKeyboardStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb676c624_63d7_58cf_b06b_08baa032a23f);
-}
+::windows_core::imp::com_interface!(IHolographicKeyboardStatics, IHolographicKeyboardStatics_Vtbl, 0xb676c624_63d7_58cf_b06b_08baa032a23f);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicKeyboardStatics_Vtbl {
@@ -41,6 +23,7 @@ pub struct IHolographicKeyboardStatics_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HolographicKeyboard(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(HolographicKeyboard, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl HolographicKeyboard {
     #[doc = "Required features: `\"Foundation_Numerics\"`, `\"Perception_Spatial\"`"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
@@ -81,13 +64,10 @@ impl ::windows_core::RuntimeType for HolographicKeyboard {
 }
 unsafe impl ::windows_core::Interface for HolographicKeyboard {
     type Vtable = IHolographicKeyboard_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for HolographicKeyboard {
-    const IID: ::windows_core::GUID = <IHolographicKeyboard as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IHolographicKeyboard as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for HolographicKeyboard {
     const NAME: &'static str = "Windows.ApplicationModel.Holographic.HolographicKeyboard";
 }
-::windows_core::imp::interface_hierarchy!(HolographicKeyboard, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for HolographicKeyboard {}
 unsafe impl ::core::marker::Sync for HolographicKeyboard {}

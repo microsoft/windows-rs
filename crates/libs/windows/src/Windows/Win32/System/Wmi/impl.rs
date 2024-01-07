@@ -49,7 +49,7 @@ impl IEnumWbemClassObject_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumWbemClassObject as ::windows_core::ComInterface>::IID
+        iid == &<IEnumWbemClassObject as ::windows_core::Interface>::IID
     }
 }
 pub trait IMofCompiler_Impl: Sized {
@@ -83,7 +83,7 @@ impl IMofCompiler_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMofCompiler as ::windows_core::ComInterface>::IID
+        iid == &<IMofCompiler as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -500,7 +500,7 @@ impl ISWbemDateTime_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISWbemDateTime as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ISWbemDateTime as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -543,7 +543,7 @@ impl ISWbemEventSource_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISWbemEventSource as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ISWbemEventSource as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -557,7 +557,7 @@ impl ISWbemLastError_Vtbl {
         Self { base__: ISWbemObject_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISWbemLastError as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID || iid == &<ISWbemObject as ::windows_core::ComInterface>::IID
+        iid == &<ISWbemLastError as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ISWbemObject as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -600,7 +600,7 @@ impl ISWbemLocator_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISWbemLocator as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ISWbemLocator as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -682,7 +682,7 @@ impl ISWbemMethod_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISWbemMethod as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ISWbemMethod as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -738,7 +738,7 @@ impl ISWbemMethodSet_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISWbemMethodSet as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ISWbemMethodSet as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -788,7 +788,7 @@ impl ISWbemNamedValue_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISWbemNamedValue as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ISWbemNamedValue as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -884,7 +884,7 @@ impl ISWbemNamedValueSet_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISWbemNamedValueSet as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ISWbemNamedValueSet as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -1219,7 +1219,7 @@ impl ISWbemObject_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISWbemObject as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ISWbemObject as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -1276,7 +1276,7 @@ impl ISWbemObjectEx_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISWbemObjectEx as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID || iid == &<ISWbemObject as ::windows_core::ComInterface>::IID
+        iid == &<ISWbemObjectEx as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ISWbemObject as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -1532,7 +1532,7 @@ impl ISWbemObjectPath_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISWbemObjectPath as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ISWbemObjectPath as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -1614,7 +1614,7 @@ impl ISWbemObjectSet_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISWbemObjectSet as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ISWbemObjectSet as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -1690,7 +1690,7 @@ impl ISWbemPrivilege_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISWbemPrivilege as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ISWbemPrivilege as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -1786,7 +1786,7 @@ impl ISWbemPrivilegeSet_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISWbemPrivilegeSet as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ISWbemPrivilegeSet as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -1901,7 +1901,7 @@ impl ISWbemProperty_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISWbemProperty as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ISWbemProperty as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -1977,7 +1977,7 @@ impl ISWbemPropertySet_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISWbemPropertySet as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ISWbemPropertySet as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -2113,7 +2113,7 @@ impl ISWbemQualifier_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISWbemQualifier as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ISWbemQualifier as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -2189,7 +2189,7 @@ impl ISWbemQualifierSet_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISWbemQualifierSet as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ISWbemQualifierSet as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -2278,7 +2278,7 @@ impl ISWbemRefreshableItem_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISWbemRefreshableItem as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ISWbemRefreshableItem as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -2401,7 +2401,7 @@ impl ISWbemRefresher_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISWbemRefresher as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ISWbemRefresher as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -2471,7 +2471,7 @@ impl ISWbemSecurity_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISWbemSecurity as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ISWbemSecurity as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -2719,7 +2719,7 @@ impl ISWbemServices_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISWbemServices as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ISWbemServices as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -2752,7 +2752,7 @@ impl ISWbemServicesEx_Vtbl {
         Self { base__: ISWbemServices_Vtbl::new::<Identity, Impl, OFFSET>(), Put: Put::<Identity, Impl, OFFSET>, PutAsync: PutAsync::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISWbemServicesEx as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID || iid == &<ISWbemServices as ::windows_core::ComInterface>::IID
+        iid == &<ISWbemServicesEx as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ISWbemServices as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -2773,7 +2773,7 @@ impl ISWbemSink_Vtbl {
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), Cancel: Cancel::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISWbemSink as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ISWbemSink as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -2787,7 +2787,7 @@ impl ISWbemSinkEvents_Vtbl {
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISWbemSinkEvents as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<ISWbemSinkEvents as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 pub trait IUnsecuredApartment_Impl: Sized {
@@ -2810,7 +2810,7 @@ impl IUnsecuredApartment_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateObjectStub: CreateObjectStub::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUnsecuredApartment as ::windows_core::ComInterface>::IID
+        iid == &<IUnsecuredApartment as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -2866,7 +2866,7 @@ impl IWMIExtension_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMIExtension as ::windows_core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<IWMIExtension as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
 pub trait IWbemAddressResolution_Impl: Sized {
@@ -2883,7 +2883,7 @@ impl IWbemAddressResolution_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Resolve: Resolve::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWbemAddressResolution as ::windows_core::ComInterface>::IID
+        iid == &<IWbemAddressResolution as ::windows_core::Interface>::IID
     }
 }
 pub trait IWbemBackupRestore_Impl: Sized {
@@ -2910,7 +2910,7 @@ impl IWbemBackupRestore_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWbemBackupRestore as ::windows_core::ComInterface>::IID
+        iid == &<IWbemBackupRestore as ::windows_core::Interface>::IID
     }
 }
 pub trait IWbemBackupRestoreEx_Impl: Sized + IWbemBackupRestore_Impl {
@@ -2937,7 +2937,7 @@ impl IWbemBackupRestoreEx_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWbemBackupRestoreEx as ::windows_core::ComInterface>::IID || iid == &<IWbemBackupRestore as ::windows_core::ComInterface>::IID
+        iid == &<IWbemBackupRestoreEx as ::windows_core::Interface>::IID || iid == &<IWbemBackupRestore as ::windows_core::Interface>::IID
     }
 }
 pub trait IWbemCallResult_Impl: Sized {
@@ -3002,7 +3002,7 @@ impl IWbemCallResult_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWbemCallResult as ::windows_core::ComInterface>::IID
+        iid == &<IWbemCallResult as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -3247,7 +3247,7 @@ impl IWbemClassObject_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWbemClassObject as ::windows_core::ComInterface>::IID
+        iid == &<IWbemClassObject as ::windows_core::Interface>::IID
     }
 }
 pub trait IWbemClientConnectionTransport_Impl: Sized {
@@ -3295,7 +3295,7 @@ impl IWbemClientConnectionTransport_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWbemClientConnectionTransport as ::windows_core::ComInterface>::IID
+        iid == &<IWbemClientConnectionTransport as ::windows_core::Interface>::IID
     }
 }
 pub trait IWbemClientTransport_Impl: Sized {
@@ -3318,7 +3318,7 @@ impl IWbemClientTransport_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ConnectServer: ConnectServer::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWbemClientTransport as ::windows_core::ComInterface>::IID
+        iid == &<IWbemClientTransport as ::windows_core::Interface>::IID
     }
 }
 pub trait IWbemConfigureRefresher_Impl: Sized {
@@ -3366,7 +3366,7 @@ impl IWbemConfigureRefresher_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWbemConfigureRefresher as ::windows_core::ComInterface>::IID
+        iid == &<IWbemConfigureRefresher as ::windows_core::Interface>::IID
     }
 }
 pub trait IWbemConnectorLogin_Impl: Sized {
@@ -3383,7 +3383,7 @@ impl IWbemConnectorLogin_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ConnectorLogin: ConnectorLogin::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWbemConnectorLogin as ::windows_core::ComInterface>::IID
+        iid == &<IWbemConnectorLogin as ::windows_core::Interface>::IID
     }
 }
 pub trait IWbemConstructClassObject_Impl: Sized {
@@ -3424,7 +3424,7 @@ impl IWbemConstructClassObject_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWbemConstructClassObject as ::windows_core::ComInterface>::IID
+        iid == &<IWbemConstructClassObject as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -3522,7 +3522,7 @@ impl IWbemContext_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWbemContext as ::windows_core::ComInterface>::IID
+        iid == &<IWbemContext as ::windows_core::Interface>::IID
     }
 }
 pub trait IWbemDecoupledBasicEventProvider_Impl: Sized + IWbemDecoupledRegistrar_Impl {
@@ -3561,7 +3561,7 @@ impl IWbemDecoupledBasicEventProvider_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWbemDecoupledBasicEventProvider as ::windows_core::ComInterface>::IID || iid == &<IWbemDecoupledRegistrar as ::windows_core::ComInterface>::IID
+        iid == &<IWbemDecoupledBasicEventProvider as ::windows_core::Interface>::IID || iid == &<IWbemDecoupledRegistrar as ::windows_core::Interface>::IID
     }
 }
 pub trait IWbemDecoupledRegistrar_Impl: Sized {
@@ -3588,7 +3588,7 @@ impl IWbemDecoupledRegistrar_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWbemDecoupledRegistrar as ::windows_core::ComInterface>::IID
+        iid == &<IWbemDecoupledRegistrar as ::windows_core::Interface>::IID
     }
 }
 pub trait IWbemEventConsumerProvider_Impl: Sized {
@@ -3611,7 +3611,7 @@ impl IWbemEventConsumerProvider_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), FindConsumer: FindConsumer::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWbemEventConsumerProvider as ::windows_core::ComInterface>::IID
+        iid == &<IWbemEventConsumerProvider as ::windows_core::Interface>::IID
     }
 }
 pub trait IWbemEventProvider_Impl: Sized {
@@ -3628,7 +3628,7 @@ impl IWbemEventProvider_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ProvideEvents: ProvideEvents::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWbemEventProvider as ::windows_core::ComInterface>::IID
+        iid == &<IWbemEventProvider as ::windows_core::Interface>::IID
     }
 }
 pub trait IWbemEventProviderQuerySink_Impl: Sized {
@@ -3655,7 +3655,7 @@ impl IWbemEventProviderQuerySink_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWbemEventProviderQuerySink as ::windows_core::ComInterface>::IID
+        iid == &<IWbemEventProviderQuerySink as ::windows_core::Interface>::IID
     }
 }
 pub trait IWbemEventProviderSecurity_Impl: Sized {
@@ -3672,7 +3672,7 @@ impl IWbemEventProviderSecurity_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), AccessCheck: AccessCheck::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWbemEventProviderSecurity as ::windows_core::ComInterface>::IID
+        iid == &<IWbemEventProviderSecurity as ::windows_core::Interface>::IID
     }
 }
 pub trait IWbemEventSink_Impl: Sized + IWbemObjectSink_Impl {
@@ -3719,7 +3719,7 @@ impl IWbemEventSink_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWbemEventSink as ::windows_core::ComInterface>::IID || iid == &<IWbemObjectSink as ::windows_core::ComInterface>::IID
+        iid == &<IWbemEventSink as ::windows_core::Interface>::IID || iid == &<IWbemObjectSink as ::windows_core::Interface>::IID
     }
 }
 pub trait IWbemHiPerfEnum_Impl: Sized {
@@ -3760,7 +3760,7 @@ impl IWbemHiPerfEnum_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWbemHiPerfEnum as ::windows_core::ComInterface>::IID
+        iid == &<IWbemHiPerfEnum as ::windows_core::Interface>::IID
     }
 }
 pub trait IWbemHiPerfProvider_Impl: Sized {
@@ -3827,7 +3827,7 @@ impl IWbemHiPerfProvider_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWbemHiPerfProvider as ::windows_core::ComInterface>::IID
+        iid == &<IWbemHiPerfProvider as ::windows_core::Interface>::IID
     }
 }
 pub trait IWbemLevel1Login_Impl: Sized {
@@ -3892,7 +3892,7 @@ impl IWbemLevel1Login_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWbemLevel1Login as ::windows_core::ComInterface>::IID
+        iid == &<IWbemLevel1Login as ::windows_core::Interface>::IID
     }
 }
 pub trait IWbemLocator_Impl: Sized {
@@ -3915,7 +3915,7 @@ impl IWbemLocator_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ConnectServer: ConnectServer::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWbemLocator as ::windows_core::ComInterface>::IID
+        iid == &<IWbemLocator as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -4014,7 +4014,7 @@ impl IWbemObjectAccess_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWbemObjectAccess as ::windows_core::ComInterface>::IID || iid == &<IWbemClassObject as ::windows_core::ComInterface>::IID
+        iid == &<IWbemObjectAccess as ::windows_core::Interface>::IID || iid == &<IWbemClassObject as ::windows_core::Interface>::IID
     }
 }
 pub trait IWbemObjectSink_Impl: Sized {
@@ -4041,7 +4041,7 @@ impl IWbemObjectSink_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWbemObjectSink as ::windows_core::ComInterface>::IID
+        iid == &<IWbemObjectSink as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -4105,7 +4105,7 @@ impl IWbemObjectSinkEx_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWbemObjectSinkEx as ::windows_core::ComInterface>::IID || iid == &<IWbemObjectSink as ::windows_core::ComInterface>::IID
+        iid == &<IWbemObjectSinkEx as ::windows_core::Interface>::IID || iid == &<IWbemObjectSink as ::windows_core::Interface>::IID
     }
 }
 pub trait IWbemObjectTextSrc_Impl: Sized {
@@ -4144,7 +4144,7 @@ impl IWbemObjectTextSrc_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWbemObjectTextSrc as ::windows_core::ComInterface>::IID
+        iid == &<IWbemObjectTextSrc as ::windows_core::Interface>::IID
     }
 }
 pub trait IWbemPath_Impl: Sized {
@@ -4363,7 +4363,7 @@ impl IWbemPath_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWbemPath as ::windows_core::ComInterface>::IID
+        iid == &<IWbemPath as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -4462,7 +4462,7 @@ impl IWbemPathKeyList_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWbemPathKeyList as ::windows_core::ComInterface>::IID
+        iid == &<IWbemPathKeyList as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -4499,7 +4499,7 @@ impl IWbemPropertyProvider_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWbemPropertyProvider as ::windows_core::ComInterface>::IID
+        iid == &<IWbemPropertyProvider as ::windows_core::Interface>::IID
     }
 }
 pub trait IWbemProviderIdentity_Impl: Sized {
@@ -4516,7 +4516,7 @@ impl IWbemProviderIdentity_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetRegistrationObject: SetRegistrationObject::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWbemProviderIdentity as ::windows_core::ComInterface>::IID
+        iid == &<IWbemProviderIdentity as ::windows_core::Interface>::IID
     }
 }
 pub trait IWbemProviderInit_Impl: Sized {
@@ -4533,7 +4533,7 @@ impl IWbemProviderInit_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWbemProviderInit as ::windows_core::ComInterface>::IID
+        iid == &<IWbemProviderInit as ::windows_core::Interface>::IID
     }
 }
 pub trait IWbemProviderInitSink_Impl: Sized {
@@ -4550,7 +4550,7 @@ impl IWbemProviderInitSink_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetStatus: SetStatus::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWbemProviderInitSink as ::windows_core::ComInterface>::IID
+        iid == &<IWbemProviderInitSink as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
@@ -4622,7 +4622,7 @@ impl IWbemQualifierSet_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWbemQualifierSet as ::windows_core::ComInterface>::IID
+        iid == &<IWbemQualifierSet as ::windows_core::Interface>::IID
     }
 }
 pub trait IWbemQuery_Impl: Sized {
@@ -4684,7 +4684,7 @@ impl IWbemQuery_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWbemQuery as ::windows_core::ComInterface>::IID
+        iid == &<IWbemQuery as ::windows_core::Interface>::IID
     }
 }
 pub trait IWbemRefresher_Impl: Sized {
@@ -4701,7 +4701,7 @@ impl IWbemRefresher_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Refresh: Refresh::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWbemRefresher as ::windows_core::ComInterface>::IID
+        iid == &<IWbemRefresher as ::windows_core::Interface>::IID
     }
 }
 pub trait IWbemServices_Impl: Sized {
@@ -4905,7 +4905,7 @@ impl IWbemServices_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWbemServices as ::windows_core::ComInterface>::IID
+        iid == &<IWbemServices as ::windows_core::Interface>::IID
     }
 }
 pub trait IWbemShutdown_Impl: Sized {
@@ -4922,7 +4922,7 @@ impl IWbemShutdown_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Shutdown: Shutdown::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWbemShutdown as ::windows_core::ComInterface>::IID
+        iid == &<IWbemShutdown as ::windows_core::Interface>::IID
     }
 }
 pub trait IWbemStatusCodeText_Impl: Sized {
@@ -4961,7 +4961,7 @@ impl IWbemStatusCodeText_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWbemStatusCodeText as ::windows_core::ComInterface>::IID
+        iid == &<IWbemStatusCodeText as ::windows_core::Interface>::IID
     }
 }
 pub trait IWbemTransport_Impl: Sized {
@@ -4978,7 +4978,7 @@ impl IWbemTransport_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWbemTransport as ::windows_core::ComInterface>::IID
+        iid == &<IWbemTransport as ::windows_core::Interface>::IID
     }
 }
 pub trait IWbemUnboundObjectSink_Impl: Sized {
@@ -4995,7 +4995,7 @@ impl IWbemUnboundObjectSink_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), IndicateToConsumer: IndicateToConsumer::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWbemUnboundObjectSink as ::windows_core::ComInterface>::IID
+        iid == &<IWbemUnboundObjectSink as ::windows_core::Interface>::IID
     }
 }
 pub trait IWbemUnsecuredApartment_Impl: Sized + IUnsecuredApartment_Impl {
@@ -5018,6 +5018,6 @@ impl IWbemUnsecuredApartment_Vtbl {
         Self { base__: IUnsecuredApartment_Vtbl::new::<Identity, Impl, OFFSET>(), CreateSinkStub: CreateSinkStub::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWbemUnsecuredApartment as ::windows_core::ComInterface>::IID || iid == &<IUnsecuredApartment as ::windows_core::ComInterface>::IID
+        iid == &<IWbemUnsecuredApartment as ::windows_core::Interface>::IID || iid == &<IUnsecuredApartment as ::windows_core::Interface>::IID
     }
 }

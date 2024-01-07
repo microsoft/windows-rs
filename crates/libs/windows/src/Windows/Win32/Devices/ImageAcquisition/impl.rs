@@ -55,7 +55,7 @@ impl IEnumWIA_DEV_CAPS_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumWIA_DEV_CAPS as ::windows_core::ComInterface>::IID
+        iid == &<IEnumWIA_DEV_CAPS as ::windows_core::Interface>::IID
     }
 }
 pub trait IEnumWIA_DEV_INFO_Impl: Sized {
@@ -115,7 +115,7 @@ impl IEnumWIA_DEV_INFO_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumWIA_DEV_INFO as ::windows_core::ComInterface>::IID
+        iid == &<IEnumWIA_DEV_INFO as ::windows_core::Interface>::IID
     }
 }
 pub trait IEnumWIA_FORMAT_INFO_Impl: Sized {
@@ -175,7 +175,7 @@ impl IEnumWIA_FORMAT_INFO_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumWIA_FORMAT_INFO as ::windows_core::ComInterface>::IID
+        iid == &<IEnumWIA_FORMAT_INFO as ::windows_core::Interface>::IID
     }
 }
 pub trait IEnumWiaItem_Impl: Sized {
@@ -235,7 +235,7 @@ impl IEnumWiaItem_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumWiaItem as ::windows_core::ComInterface>::IID
+        iid == &<IEnumWiaItem as ::windows_core::Interface>::IID
     }
 }
 pub trait IEnumWiaItem2_Impl: Sized {
@@ -295,7 +295,7 @@ impl IEnumWiaItem2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumWiaItem2 as ::windows_core::ComInterface>::IID
+        iid == &<IEnumWiaItem2 as ::windows_core::Interface>::IID
     }
 }
 pub trait IWiaAppErrorHandler_Impl: Sized {
@@ -328,7 +328,7 @@ impl IWiaAppErrorHandler_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWiaAppErrorHandler as ::windows_core::ComInterface>::IID
+        iid == &<IWiaAppErrorHandler as ::windows_core::Interface>::IID
     }
 }
 pub trait IWiaDataCallback_Impl: Sized {
@@ -345,7 +345,7 @@ impl IWiaDataCallback_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), BandedDataCallback: BandedDataCallback::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWiaDataCallback as ::windows_core::ComInterface>::IID
+        iid == &<IWiaDataCallback as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`"]
@@ -403,7 +403,7 @@ impl IWiaDataTransfer_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWiaDataTransfer as ::windows_core::ComInterface>::IID
+        iid == &<IWiaDataTransfer as ::windows_core::Interface>::IID
     }
 }
 pub trait IWiaDevMgr_Impl: Sized {
@@ -497,7 +497,7 @@ impl IWiaDevMgr_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWiaDevMgr as ::windows_core::ComInterface>::IID
+        iid == &<IWiaDevMgr as ::windows_core::Interface>::IID
     }
 }
 pub trait IWiaDevMgr2_Impl: Sized {
@@ -584,7 +584,7 @@ impl IWiaDevMgr2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWiaDevMgr2 as ::windows_core::ComInterface>::IID
+        iid == &<IWiaDevMgr2 as ::windows_core::Interface>::IID
     }
 }
 pub trait IWiaDrvItem_Impl: Sized {
@@ -748,7 +748,7 @@ impl IWiaDrvItem_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWiaDrvItem as ::windows_core::ComInterface>::IID
+        iid == &<IWiaDrvItem as ::windows_core::Interface>::IID
     }
 }
 pub trait IWiaErrorHandler_Impl: Sized {
@@ -781,7 +781,7 @@ impl IWiaErrorHandler_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWiaErrorHandler as ::windows_core::ComInterface>::IID
+        iid == &<IWiaErrorHandler as ::windows_core::Interface>::IID
     }
 }
 pub trait IWiaEventCallback_Impl: Sized {
@@ -798,7 +798,7 @@ impl IWiaEventCallback_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ImageEventCallback: ImageEventCallback::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWiaEventCallback as ::windows_core::ComInterface>::IID
+        iid == &<IWiaEventCallback as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -843,7 +843,7 @@ impl IWiaImageFilter_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWiaImageFilter as ::windows_core::ComInterface>::IID
+        iid == &<IWiaImageFilter as ::windows_core::Interface>::IID
     }
 }
 pub trait IWiaItem_Impl: Sized {
@@ -1021,7 +1021,7 @@ impl IWiaItem_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWiaItem as ::windows_core::ComInterface>::IID
+        iid == &<IWiaItem as ::windows_core::Interface>::IID
     }
 }
 pub trait IWiaItem2_Impl: Sized {
@@ -1206,7 +1206,7 @@ impl IWiaItem2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWiaItem2 as ::windows_core::ComInterface>::IID
+        iid == &<IWiaItem2 as ::windows_core::Interface>::IID
     }
 }
 pub trait IWiaItemExtras_Impl: Sized {
@@ -1246,7 +1246,7 @@ impl IWiaItemExtras_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWiaItemExtras as ::windows_core::ComInterface>::IID
+        iid == &<IWiaItemExtras as ::windows_core::Interface>::IID
     }
 }
 pub trait IWiaLog_Impl: Sized {
@@ -1280,7 +1280,7 @@ impl IWiaLog_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWiaLog as ::windows_core::ComInterface>::IID
+        iid == &<IWiaLog as ::windows_core::Interface>::IID
     }
 }
 pub trait IWiaLogEx_Impl: Sized {
@@ -1328,7 +1328,7 @@ impl IWiaLogEx_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWiaLogEx as ::windows_core::ComInterface>::IID
+        iid == &<IWiaLogEx as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
@@ -1523,7 +1523,7 @@ impl IWiaMiniDrv_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWiaMiniDrv as ::windows_core::ComInterface>::IID
+        iid == &<IWiaMiniDrv as ::windows_core::Interface>::IID
     }
 }
 pub trait IWiaMiniDrvCallBack_Impl: Sized {
@@ -1540,7 +1540,7 @@ impl IWiaMiniDrvCallBack_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), MiniDrvCallback: MiniDrvCallback::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWiaMiniDrvCallBack as ::windows_core::ComInterface>::IID
+        iid == &<IWiaMiniDrvCallBack as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1577,7 +1577,7 @@ impl IWiaMiniDrvTransferCallback_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWiaMiniDrvTransferCallback as ::windows_core::ComInterface>::IID
+        iid == &<IWiaMiniDrvTransferCallback as ::windows_core::Interface>::IID
     }
 }
 pub trait IWiaNotifyDevMgr_Impl: Sized {
@@ -1594,7 +1594,7 @@ impl IWiaNotifyDevMgr_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), NewDeviceArrival: NewDeviceArrival::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWiaNotifyDevMgr as ::windows_core::ComInterface>::IID
+        iid == &<IWiaNotifyDevMgr as ::windows_core::Interface>::IID
     }
 }
 pub trait IWiaPreview_Impl: Sized {
@@ -1635,7 +1635,7 @@ impl IWiaPreview_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWiaPreview as ::windows_core::ComInterface>::IID
+        iid == &<IWiaPreview as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
@@ -1776,7 +1776,7 @@ impl IWiaPropertyStorage_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWiaPropertyStorage as ::windows_core::ComInterface>::IID
+        iid == &<IWiaPropertyStorage as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1797,7 +1797,7 @@ impl IWiaSegmentationFilter_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), DetectRegions: DetectRegions::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWiaSegmentationFilter as ::windows_core::ComInterface>::IID
+        iid == &<IWiaSegmentationFilter as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1848,7 +1848,7 @@ impl IWiaTransfer_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWiaTransfer as ::windows_core::ComInterface>::IID
+        iid == &<IWiaTransfer as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1885,7 +1885,7 @@ impl IWiaTransferCallback_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWiaTransferCallback as ::windows_core::ComInterface>::IID
+        iid == &<IWiaTransferCallback as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
@@ -1923,7 +1923,7 @@ impl IWiaUIExtension_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWiaUIExtension as ::windows_core::ComInterface>::IID
+        iid == &<IWiaUIExtension as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
@@ -1954,7 +1954,7 @@ impl IWiaUIExtension2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWiaUIExtension2 as ::windows_core::ComInterface>::IID
+        iid == &<IWiaUIExtension2 as ::windows_core::Interface>::IID
     }
 }
 pub trait IWiaVideo_Impl: Sized {
@@ -2082,6 +2082,6 @@ impl IWiaVideo_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWiaVideo as ::windows_core::ComInterface>::IID
+        iid == &<IWiaVideo as ::windows_core::Interface>::IID
     }
 }

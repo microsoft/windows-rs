@@ -18,7 +18,7 @@ impl IComprehensiveSpellCheckProvider_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ComprehensiveCheck: ComprehensiveCheck::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IComprehensiveSpellCheckProvider as ::windows_core::ComInterface>::IID
+        iid == &<IComprehensiveSpellCheckProvider as ::windows_core::Interface>::IID
     }
 }
 pub trait IEnumCodePage_Impl: Sized {
@@ -59,7 +59,7 @@ impl IEnumCodePage_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumCodePage as ::windows_core::ComInterface>::IID
+        iid == &<IEnumCodePage as ::windows_core::Interface>::IID
     }
 }
 pub trait IEnumRfc1766_Impl: Sized {
@@ -100,7 +100,7 @@ impl IEnumRfc1766_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumRfc1766 as ::windows_core::ComInterface>::IID
+        iid == &<IEnumRfc1766 as ::windows_core::Interface>::IID
     }
 }
 pub trait IEnumScript_Impl: Sized {
@@ -141,7 +141,7 @@ impl IEnumScript_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumScript as ::windows_core::ComInterface>::IID
+        iid == &<IEnumScript as ::windows_core::Interface>::IID
     }
 }
 pub trait IEnumSpellingError_Impl: Sized {
@@ -158,7 +158,7 @@ impl IEnumSpellingError_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Next: Next::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumSpellingError as ::windows_core::ComInterface>::IID
+        iid == &<IEnumSpellingError as ::windows_core::Interface>::IID
     }
 }
 pub trait IMLangCodePages_Impl: Sized {
@@ -217,7 +217,7 @@ impl IMLangCodePages_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMLangCodePages as ::windows_core::ComInterface>::IID
+        iid == &<IMLangCodePages as ::windows_core::Interface>::IID
     }
 }
 pub trait IMLangConvertCharset_Impl: Sized {
@@ -297,7 +297,7 @@ impl IMLangConvertCharset_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMLangConvertCharset as ::windows_core::ComInterface>::IID
+        iid == &<IMLangConvertCharset as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
@@ -342,7 +342,7 @@ impl IMLangFontLink_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMLangFontLink as ::windows_core::ComInterface>::IID || iid == &<IMLangCodePages as ::windows_core::ComInterface>::IID
+        iid == &<IMLangFontLink as ::windows_core::Interface>::IID || iid == &<IMLangCodePages as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
@@ -414,7 +414,7 @@ impl IMLangFontLink2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMLangFontLink2 as ::windows_core::ComInterface>::IID || iid == &<IMLangCodePages as ::windows_core::ComInterface>::IID
+        iid == &<IMLangFontLink2 as ::windows_core::Interface>::IID || iid == &<IMLangCodePages as ::windows_core::Interface>::IID
     }
 }
 pub trait IMLangLineBreakConsole_Impl: Sized {
@@ -448,7 +448,7 @@ impl IMLangLineBreakConsole_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMLangLineBreakConsole as ::windows_core::ComInterface>::IID
+        iid == &<IMLangLineBreakConsole as ::windows_core::Interface>::IID
     }
 }
 pub trait IMLangString_Impl: Sized {
@@ -489,7 +489,7 @@ impl IMLangString_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMLangString as ::windows_core::ComInterface>::IID
+        iid == &<IMLangString as ::windows_core::Interface>::IID
     }
 }
 pub trait IMLangStringAStr_Impl: Sized + IMLangString_Impl {
@@ -558,7 +558,7 @@ impl IMLangStringAStr_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMLangStringAStr as ::windows_core::ComInterface>::IID || iid == &<IMLangString as ::windows_core::ComInterface>::IID
+        iid == &<IMLangStringAStr as ::windows_core::Interface>::IID || iid == &<IMLangString as ::windows_core::Interface>::IID
     }
 }
 pub trait IMLangStringBufA_Impl: Sized {
@@ -606,7 +606,7 @@ impl IMLangStringBufA_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMLangStringBufA as ::windows_core::ComInterface>::IID
+        iid == &<IMLangStringBufA as ::windows_core::Interface>::IID
     }
 }
 pub trait IMLangStringBufW_Impl: Sized {
@@ -654,7 +654,7 @@ impl IMLangStringBufW_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMLangStringBufW as ::windows_core::ComInterface>::IID
+        iid == &<IMLangStringBufW as ::windows_core::Interface>::IID
     }
 }
 pub trait IMLangStringWStr_Impl: Sized + IMLangString_Impl {
@@ -723,7 +723,7 @@ impl IMLangStringWStr_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMLangStringWStr as ::windows_core::ComInterface>::IID || iid == &<IMLangString as ::windows_core::ComInterface>::IID
+        iid == &<IMLangStringWStr as ::windows_core::Interface>::IID || iid == &<IMLangString as ::windows_core::Interface>::IID
     }
 }
 pub trait IMultiLanguage_Impl: Sized {
@@ -877,7 +877,7 @@ impl IMultiLanguage_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMultiLanguage as ::windows_core::ComInterface>::IID
+        iid == &<IMultiLanguage as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1131,7 +1131,7 @@ impl IMultiLanguage2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMultiLanguage2 as ::windows_core::ComInterface>::IID
+        iid == &<IMultiLanguage2 as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1162,7 +1162,7 @@ impl IMultiLanguage3_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMultiLanguage3 as ::windows_core::ComInterface>::IID || iid == &<IMultiLanguage2 as ::windows_core::ComInterface>::IID
+        iid == &<IMultiLanguage3 as ::windows_core::Interface>::IID || iid == &<IMultiLanguage2 as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1231,7 +1231,7 @@ impl IOptionDescription_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IOptionDescription as ::windows_core::ComInterface>::IID
+        iid == &<IOptionDescription as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1366,7 +1366,7 @@ impl ISpellCheckProvider_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISpellCheckProvider as ::windows_core::ComInterface>::IID
+        iid == &<ISpellCheckProvider as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1422,7 +1422,7 @@ impl ISpellCheckProviderFactory_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISpellCheckProviderFactory as ::windows_core::ComInterface>::IID
+        iid == &<ISpellCheckProviderFactory as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1597,7 +1597,7 @@ impl ISpellChecker_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISpellChecker as ::windows_core::ComInterface>::IID
+        iid == &<ISpellChecker as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1618,7 +1618,7 @@ impl ISpellChecker2_Vtbl {
         Self { base__: ISpellChecker_Vtbl::new::<Identity, Impl, OFFSET>(), Remove: Remove::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISpellChecker2 as ::windows_core::ComInterface>::IID || iid == &<ISpellChecker as ::windows_core::ComInterface>::IID
+        iid == &<ISpellChecker2 as ::windows_core::Interface>::IID || iid == &<ISpellChecker as ::windows_core::Interface>::IID
     }
 }
 pub trait ISpellCheckerChangedEventHandler_Impl: Sized {
@@ -1635,7 +1635,7 @@ impl ISpellCheckerChangedEventHandler_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Invoke: Invoke::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISpellCheckerChangedEventHandler as ::windows_core::ComInterface>::IID
+        iid == &<ISpellCheckerChangedEventHandler as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -1691,7 +1691,7 @@ impl ISpellCheckerFactory_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISpellCheckerFactory as ::windows_core::ComInterface>::IID
+        iid == &<ISpellCheckerFactory as ::windows_core::Interface>::IID
     }
 }
 pub trait ISpellingError_Impl: Sized {
@@ -1756,7 +1756,7 @@ impl ISpellingError_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISpellingError as ::windows_core::ComInterface>::IID
+        iid == &<ISpellingError as ::windows_core::Interface>::IID
     }
 }
 pub trait IUserDictionariesRegistrar_Impl: Sized {
@@ -1783,6 +1783,6 @@ impl IUserDictionariesRegistrar_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUserDictionariesRegistrar as ::windows_core::ComInterface>::IID
+        iid == &<IUserDictionariesRegistrar as ::windows_core::Interface>::IID
     }
 }

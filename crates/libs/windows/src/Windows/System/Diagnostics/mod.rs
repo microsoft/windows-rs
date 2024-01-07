@@ -7,16 +7,7 @@ pub mod Telemetry;
 #[cfg(feature = "System_Diagnostics_TraceReporting")]
 #[doc = "Required features: `\"System_Diagnostics_TraceReporting\"`"]
 pub mod TraceReporting;
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDiagnosticActionResult(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDiagnosticActionResult {
-    type Vtable = IDiagnosticActionResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDiagnosticActionResult {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc265a296_e73b_4097_b28f_3442f03dd831);
-}
+::windows_core::imp::com_interface!(IDiagnosticActionResult, IDiagnosticActionResult_Vtbl, 0xc265a296_e73b_4097_b28f_3442f03dd831);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiagnosticActionResult_Vtbl {
@@ -27,16 +18,7 @@ pub struct IDiagnosticActionResult_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     Results: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDiagnosticInvoker(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDiagnosticInvoker {
-    type Vtable = IDiagnosticInvoker_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDiagnosticInvoker {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x187b270a_02e3_4f86_84fc_fdd892b5940f);
-}
+::windows_core::imp::com_interface!(IDiagnosticInvoker, IDiagnosticInvoker_Vtbl, 0x187b270a_02e3_4f86_84fc_fdd892b5940f);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiagnosticInvoker_Vtbl {
@@ -46,32 +28,14 @@ pub struct IDiagnosticInvoker_Vtbl {
     #[cfg(not(feature = "Data_Json"))]
     RunDiagnosticActionAsync: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDiagnosticInvoker2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDiagnosticInvoker2 {
-    type Vtable = IDiagnosticInvoker2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDiagnosticInvoker2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe3bf945c_155a_4b52_a8ec_070c44f95000);
-}
+::windows_core::imp::com_interface!(IDiagnosticInvoker2, IDiagnosticInvoker2_Vtbl, 0xe3bf945c_155a_4b52_a8ec_070c44f95000);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiagnosticInvoker2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub RunDiagnosticActionFromStringAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDiagnosticInvokerStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDiagnosticInvokerStatics {
-    type Vtable = IDiagnosticInvokerStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDiagnosticInvokerStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5cfad8de_f15c_4554_a813_c113c3881b09);
-}
+::windows_core::imp::com_interface!(IDiagnosticInvokerStatics, IDiagnosticInvokerStatics_Vtbl, 0x5cfad8de_f15c_4554_a813_c113c3881b09);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiagnosticInvokerStatics_Vtbl {
@@ -80,32 +44,14 @@ pub struct IDiagnosticInvokerStatics_Vtbl {
     pub GetForUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub IsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IProcessCpuUsage(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IProcessCpuUsage {
-    type Vtable = IProcessCpuUsage_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IProcessCpuUsage {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0bbb2472_c8bf_423a_a810_b559ae4354e2);
-}
+::windows_core::imp::com_interface!(IProcessCpuUsage, IProcessCpuUsage_Vtbl, 0x0bbb2472_c8bf_423a_a810_b559ae4354e2);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProcessCpuUsage_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetReport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IProcessCpuUsageReport(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IProcessCpuUsageReport {
-    type Vtable = IProcessCpuUsageReport_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IProcessCpuUsageReport {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8a6d9cac_3987_4e2f_a119_6b5fa214f1b4);
-}
+::windows_core::imp::com_interface!(IProcessCpuUsageReport, IProcessCpuUsageReport_Vtbl, 0x8a6d9cac_3987_4e2f_a119_6b5fa214f1b4);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProcessCpuUsageReport_Vtbl {
@@ -113,16 +59,7 @@ pub struct IProcessCpuUsageReport_Vtbl {
     pub KernelTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
     pub UserTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IProcessDiagnosticInfo(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IProcessDiagnosticInfo {
-    type Vtable = IProcessDiagnosticInfo_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IProcessDiagnosticInfo {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe830b04b_300e_4ee6_a0ab_5b5f5231b434);
-}
+::windows_core::imp::com_interface!(IProcessDiagnosticInfo, IProcessDiagnosticInfo_Vtbl, 0xe830b04b_300e_4ee6_a0ab_5b5f5231b434);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProcessDiagnosticInfo_Vtbl {
@@ -135,16 +72,7 @@ pub struct IProcessDiagnosticInfo_Vtbl {
     pub MemoryUsage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub CpuUsage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IProcessDiagnosticInfo2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IProcessDiagnosticInfo2 {
-    type Vtable = IProcessDiagnosticInfo2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IProcessDiagnosticInfo2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9558cb1a_3d0b_49ec_ab70_4f7a112805de);
-}
+::windows_core::imp::com_interface!(IProcessDiagnosticInfo2, IProcessDiagnosticInfo2_Vtbl, 0x9558cb1a_3d0b_49ec_ab70_4f7a112805de);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProcessDiagnosticInfo2_Vtbl {
@@ -155,16 +83,7 @@ pub struct IProcessDiagnosticInfo2_Vtbl {
     GetAppDiagnosticInfos: usize,
     pub IsPackaged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IProcessDiagnosticInfoStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IProcessDiagnosticInfoStatics {
-    type Vtable = IProcessDiagnosticInfoStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IProcessDiagnosticInfoStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2f41b260_b49f_428c_aa0e_84744f49ca95);
-}
+::windows_core::imp::com_interface!(IProcessDiagnosticInfoStatics, IProcessDiagnosticInfoStatics_Vtbl, 0x2f41b260_b49f_428c_aa0e_84744f49ca95);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProcessDiagnosticInfoStatics_Vtbl {
@@ -175,48 +94,21 @@ pub struct IProcessDiagnosticInfoStatics_Vtbl {
     GetForProcesses: usize,
     pub GetForCurrentProcess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IProcessDiagnosticInfoStatics2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IProcessDiagnosticInfoStatics2 {
-    type Vtable = IProcessDiagnosticInfoStatics2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IProcessDiagnosticInfoStatics2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4a869897_9899_4a44_a29b_091663be09b6);
-}
+::windows_core::imp::com_interface!(IProcessDiagnosticInfoStatics2, IProcessDiagnosticInfoStatics2_Vtbl, 0x4a869897_9899_4a44_a29b_091663be09b6);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProcessDiagnosticInfoStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub TryGetForProcessId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, processid: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IProcessDiskUsage(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IProcessDiskUsage {
-    type Vtable = IProcessDiskUsage_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IProcessDiskUsage {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5ad78bfd_7e51_4e53_bfaa_5a6ee1aabbf8);
-}
+::windows_core::imp::com_interface!(IProcessDiskUsage, IProcessDiskUsage_Vtbl, 0x5ad78bfd_7e51_4e53_bfaa_5a6ee1aabbf8);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProcessDiskUsage_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetReport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IProcessDiskUsageReport(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IProcessDiskUsageReport {
-    type Vtable = IProcessDiskUsageReport_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IProcessDiskUsageReport {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x401627fd_535d_4c1f_81b8_da54e1be635e);
-}
+::windows_core::imp::com_interface!(IProcessDiskUsageReport, IProcessDiskUsageReport_Vtbl, 0x401627fd_535d_4c1f_81b8_da54e1be635e);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProcessDiskUsageReport_Vtbl {
@@ -228,32 +120,14 @@ pub struct IProcessDiskUsageReport_Vtbl {
     pub BytesWrittenCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i64) -> ::windows_core::HRESULT,
     pub OtherBytesCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i64) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IProcessMemoryUsage(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IProcessMemoryUsage {
-    type Vtable = IProcessMemoryUsage_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IProcessMemoryUsage {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf50b229b_827c_42b7_b07c_0e32627e6b3e);
-}
+::windows_core::imp::com_interface!(IProcessMemoryUsage, IProcessMemoryUsage_Vtbl, 0xf50b229b_827c_42b7_b07c_0e32627e6b3e);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProcessMemoryUsage_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetReport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IProcessMemoryUsageReport(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IProcessMemoryUsageReport {
-    type Vtable = IProcessMemoryUsageReport_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IProcessMemoryUsageReport {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc2c77cba_1951_4685_8532_7e749ecf8eeb);
-}
+::windows_core::imp::com_interface!(IProcessMemoryUsageReport, IProcessMemoryUsageReport_Vtbl, 0xc2c77cba_1951_4685_8532_7e749ecf8eeb);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProcessMemoryUsageReport_Vtbl {
@@ -271,32 +145,14 @@ pub struct IProcessMemoryUsageReport_Vtbl {
     pub VirtualMemorySizeInBytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows_core::HRESULT,
     pub WorkingSetSizeInBytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISystemCpuUsage(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISystemCpuUsage {
-    type Vtable = ISystemCpuUsage_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISystemCpuUsage {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6037b3ac_02d6_4234_8362_7fe3adc81f5f);
-}
+::windows_core::imp::com_interface!(ISystemCpuUsage, ISystemCpuUsage_Vtbl, 0x6037b3ac_02d6_4234_8362_7fe3adc81f5f);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemCpuUsage_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetReport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISystemCpuUsageReport(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISystemCpuUsageReport {
-    type Vtable = ISystemCpuUsageReport_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISystemCpuUsageReport {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2c26d0b2_9483_4f62_ab57_82b29d9719b8);
-}
+::windows_core::imp::com_interface!(ISystemCpuUsageReport, ISystemCpuUsageReport_Vtbl, 0x2c26d0b2_9483_4f62_ab57_82b29d9719b8);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemCpuUsageReport_Vtbl {
@@ -305,16 +161,7 @@ pub struct ISystemCpuUsageReport_Vtbl {
     pub UserTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
     pub IdleTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISystemDiagnosticInfo(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISystemDiagnosticInfo {
-    type Vtable = ISystemDiagnosticInfo_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISystemDiagnosticInfo {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa290fe05_dff3_407f_9a1b_0b2b317ca800);
-}
+::windows_core::imp::com_interface!(ISystemDiagnosticInfo, ISystemDiagnosticInfo_Vtbl, 0xa290fe05_dff3_407f_9a1b_0b2b317ca800);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemDiagnosticInfo_Vtbl {
@@ -322,32 +169,14 @@ pub struct ISystemDiagnosticInfo_Vtbl {
     pub MemoryUsage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub CpuUsage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISystemDiagnosticInfoStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISystemDiagnosticInfoStatics {
-    type Vtable = ISystemDiagnosticInfoStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISystemDiagnosticInfoStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd404ac21_fc7d_45f0_9a3f_39203aed9f7e);
-}
+::windows_core::imp::com_interface!(ISystemDiagnosticInfoStatics, ISystemDiagnosticInfoStatics_Vtbl, 0xd404ac21_fc7d_45f0_9a3f_39203aed9f7e);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemDiagnosticInfoStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetForCurrentSystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISystemDiagnosticInfoStatics2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISystemDiagnosticInfoStatics2 {
-    type Vtable = ISystemDiagnosticInfoStatics2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISystemDiagnosticInfoStatics2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x79ded189_6af9_4da9_a422_15f73255b3eb);
-}
+::windows_core::imp::com_interface!(ISystemDiagnosticInfoStatics2, ISystemDiagnosticInfoStatics2_Vtbl, 0x79ded189_6af9_4da9_a422_15f73255b3eb);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemDiagnosticInfoStatics2_Vtbl {
@@ -355,32 +184,14 @@ pub struct ISystemDiagnosticInfoStatics2_Vtbl {
     pub IsArchitectureSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: super::ProcessorArchitecture, result__: *mut bool) -> ::windows_core::HRESULT,
     pub PreferredArchitecture: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::ProcessorArchitecture) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISystemMemoryUsage(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISystemMemoryUsage {
-    type Vtable = ISystemMemoryUsage_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISystemMemoryUsage {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x17ffc595_1702_49cf_aa27_2f0a32591404);
-}
+::windows_core::imp::com_interface!(ISystemMemoryUsage, ISystemMemoryUsage_Vtbl, 0x17ffc595_1702_49cf_aa27_2f0a32591404);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemMemoryUsage_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetReport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISystemMemoryUsageReport(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISystemMemoryUsageReport {
-    type Vtable = ISystemMemoryUsageReport_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISystemMemoryUsageReport {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x38663c87_2a9f_403a_bd19_2cf3e8169500);
-}
+::windows_core::imp::com_interface!(ISystemMemoryUsageReport, ISystemMemoryUsageReport_Vtbl, 0x38663c87_2a9f_403a_bd19_2cf3e8169500);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemMemoryUsageReport_Vtbl {
@@ -392,6 +203,7 @@ pub struct ISystemMemoryUsageReport_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DiagnosticActionResult(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(DiagnosticActionResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl DiagnosticActionResult {
     pub fn ExtendedError(&self) -> ::windows_core::Result<::windows_core::HRESULT> {
         let this = self;
@@ -415,19 +227,17 @@ impl ::windows_core::RuntimeType for DiagnosticActionResult {
 }
 unsafe impl ::windows_core::Interface for DiagnosticActionResult {
     type Vtable = IDiagnosticActionResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for DiagnosticActionResult {
-    const IID: ::windows_core::GUID = <IDiagnosticActionResult as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IDiagnosticActionResult as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for DiagnosticActionResult {
     const NAME: &'static str = "Windows.System.Diagnostics.DiagnosticActionResult";
 }
-::windows_core::imp::interface_hierarchy!(DiagnosticActionResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for DiagnosticActionResult {}
 unsafe impl ::core::marker::Sync for DiagnosticActionResult {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DiagnosticInvoker(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(DiagnosticInvoker, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl DiagnosticInvoker {
     #[doc = "Required features: `\"Data_Json\"`"]
     #[cfg(feature = "Data_Json")]
@@ -442,7 +252,7 @@ impl DiagnosticInvoker {
         }
     }
     pub fn RunDiagnosticActionFromStringAsync(&self, context: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>> {
-        let this = &::windows_core::ComInterface::cast::<IDiagnosticInvoker2>(self)?;
+        let this = &::windows_core::Interface::cast::<IDiagnosticInvoker2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RunDiagnosticActionFromStringAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(context), &mut result__).from_abi(result__)
@@ -480,19 +290,17 @@ impl ::windows_core::RuntimeType for DiagnosticInvoker {
 }
 unsafe impl ::windows_core::Interface for DiagnosticInvoker {
     type Vtable = IDiagnosticInvoker_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for DiagnosticInvoker {
-    const IID: ::windows_core::GUID = <IDiagnosticInvoker as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IDiagnosticInvoker as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for DiagnosticInvoker {
     const NAME: &'static str = "Windows.System.Diagnostics.DiagnosticInvoker";
 }
-::windows_core::imp::interface_hierarchy!(DiagnosticInvoker, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for DiagnosticInvoker {}
 unsafe impl ::core::marker::Sync for DiagnosticInvoker {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ProcessCpuUsage(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(ProcessCpuUsage, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ProcessCpuUsage {
     pub fn GetReport(&self) -> ::windows_core::Result<ProcessCpuUsageReport> {
         let this = self;
@@ -507,19 +315,17 @@ impl ::windows_core::RuntimeType for ProcessCpuUsage {
 }
 unsafe impl ::windows_core::Interface for ProcessCpuUsage {
     type Vtable = IProcessCpuUsage_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ProcessCpuUsage {
-    const IID: ::windows_core::GUID = <IProcessCpuUsage as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IProcessCpuUsage as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for ProcessCpuUsage {
     const NAME: &'static str = "Windows.System.Diagnostics.ProcessCpuUsage";
 }
-::windows_core::imp::interface_hierarchy!(ProcessCpuUsage, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for ProcessCpuUsage {}
 unsafe impl ::core::marker::Sync for ProcessCpuUsage {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ProcessCpuUsageReport(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(ProcessCpuUsageReport, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ProcessCpuUsageReport {
     pub fn KernelTime(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -541,19 +347,17 @@ impl ::windows_core::RuntimeType for ProcessCpuUsageReport {
 }
 unsafe impl ::windows_core::Interface for ProcessCpuUsageReport {
     type Vtable = IProcessCpuUsageReport_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ProcessCpuUsageReport {
-    const IID: ::windows_core::GUID = <IProcessCpuUsageReport as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IProcessCpuUsageReport as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for ProcessCpuUsageReport {
     const NAME: &'static str = "Windows.System.Diagnostics.ProcessCpuUsageReport";
 }
-::windows_core::imp::interface_hierarchy!(ProcessCpuUsageReport, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for ProcessCpuUsageReport {}
 unsafe impl ::core::marker::Sync for ProcessCpuUsageReport {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ProcessDiagnosticInfo(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(ProcessDiagnosticInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ProcessDiagnosticInfo {
     pub fn ProcessId(&self) -> ::windows_core::Result<u32> {
         let this = self;
@@ -607,14 +411,14 @@ impl ProcessDiagnosticInfo {
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAppDiagnosticInfos(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<super::AppDiagnosticInfo>> {
-        let this = &::windows_core::ComInterface::cast::<IProcessDiagnosticInfo2>(self)?;
+        let this = &::windows_core::Interface::cast::<IProcessDiagnosticInfo2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetAppDiagnosticInfos)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsPackaged(&self) -> ::windows_core::Result<bool> {
-        let this = &::windows_core::ComInterface::cast::<IProcessDiagnosticInfo2>(self)?;
+        let this = &::windows_core::Interface::cast::<IProcessDiagnosticInfo2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsPackaged)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -656,19 +460,17 @@ impl ::windows_core::RuntimeType for ProcessDiagnosticInfo {
 }
 unsafe impl ::windows_core::Interface for ProcessDiagnosticInfo {
     type Vtable = IProcessDiagnosticInfo_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ProcessDiagnosticInfo {
-    const IID: ::windows_core::GUID = <IProcessDiagnosticInfo as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IProcessDiagnosticInfo as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for ProcessDiagnosticInfo {
     const NAME: &'static str = "Windows.System.Diagnostics.ProcessDiagnosticInfo";
 }
-::windows_core::imp::interface_hierarchy!(ProcessDiagnosticInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for ProcessDiagnosticInfo {}
 unsafe impl ::core::marker::Sync for ProcessDiagnosticInfo {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ProcessDiskUsage(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(ProcessDiskUsage, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ProcessDiskUsage {
     pub fn GetReport(&self) -> ::windows_core::Result<ProcessDiskUsageReport> {
         let this = self;
@@ -683,19 +485,17 @@ impl ::windows_core::RuntimeType for ProcessDiskUsage {
 }
 unsafe impl ::windows_core::Interface for ProcessDiskUsage {
     type Vtable = IProcessDiskUsage_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ProcessDiskUsage {
-    const IID: ::windows_core::GUID = <IProcessDiskUsage as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IProcessDiskUsage as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for ProcessDiskUsage {
     const NAME: &'static str = "Windows.System.Diagnostics.ProcessDiskUsage";
 }
-::windows_core::imp::interface_hierarchy!(ProcessDiskUsage, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for ProcessDiskUsage {}
 unsafe impl ::core::marker::Sync for ProcessDiskUsage {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ProcessDiskUsageReport(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(ProcessDiskUsageReport, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ProcessDiskUsageReport {
     pub fn ReadOperationCount(&self) -> ::windows_core::Result<i64> {
         let this = self;
@@ -745,19 +545,17 @@ impl ::windows_core::RuntimeType for ProcessDiskUsageReport {
 }
 unsafe impl ::windows_core::Interface for ProcessDiskUsageReport {
     type Vtable = IProcessDiskUsageReport_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ProcessDiskUsageReport {
-    const IID: ::windows_core::GUID = <IProcessDiskUsageReport as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IProcessDiskUsageReport as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for ProcessDiskUsageReport {
     const NAME: &'static str = "Windows.System.Diagnostics.ProcessDiskUsageReport";
 }
-::windows_core::imp::interface_hierarchy!(ProcessDiskUsageReport, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for ProcessDiskUsageReport {}
 unsafe impl ::core::marker::Sync for ProcessDiskUsageReport {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ProcessMemoryUsage(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(ProcessMemoryUsage, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ProcessMemoryUsage {
     pub fn GetReport(&self) -> ::windows_core::Result<ProcessMemoryUsageReport> {
         let this = self;
@@ -772,19 +570,17 @@ impl ::windows_core::RuntimeType for ProcessMemoryUsage {
 }
 unsafe impl ::windows_core::Interface for ProcessMemoryUsage {
     type Vtable = IProcessMemoryUsage_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ProcessMemoryUsage {
-    const IID: ::windows_core::GUID = <IProcessMemoryUsage as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IProcessMemoryUsage as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for ProcessMemoryUsage {
     const NAME: &'static str = "Windows.System.Diagnostics.ProcessMemoryUsage";
 }
-::windows_core::imp::interface_hierarchy!(ProcessMemoryUsage, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for ProcessMemoryUsage {}
 unsafe impl ::core::marker::Sync for ProcessMemoryUsage {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ProcessMemoryUsageReport(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(ProcessMemoryUsageReport, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ProcessMemoryUsageReport {
     pub fn NonPagedPoolSizeInBytes(&self) -> ::windows_core::Result<u64> {
         let this = self;
@@ -876,19 +672,17 @@ impl ::windows_core::RuntimeType for ProcessMemoryUsageReport {
 }
 unsafe impl ::windows_core::Interface for ProcessMemoryUsageReport {
     type Vtable = IProcessMemoryUsageReport_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ProcessMemoryUsageReport {
-    const IID: ::windows_core::GUID = <IProcessMemoryUsageReport as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IProcessMemoryUsageReport as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for ProcessMemoryUsageReport {
     const NAME: &'static str = "Windows.System.Diagnostics.ProcessMemoryUsageReport";
 }
-::windows_core::imp::interface_hierarchy!(ProcessMemoryUsageReport, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for ProcessMemoryUsageReport {}
 unsafe impl ::core::marker::Sync for ProcessMemoryUsageReport {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SystemCpuUsage(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(SystemCpuUsage, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl SystemCpuUsage {
     pub fn GetReport(&self) -> ::windows_core::Result<SystemCpuUsageReport> {
         let this = self;
@@ -903,19 +697,17 @@ impl ::windows_core::RuntimeType for SystemCpuUsage {
 }
 unsafe impl ::windows_core::Interface for SystemCpuUsage {
     type Vtable = ISystemCpuUsage_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for SystemCpuUsage {
-    const IID: ::windows_core::GUID = <ISystemCpuUsage as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ISystemCpuUsage as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for SystemCpuUsage {
     const NAME: &'static str = "Windows.System.Diagnostics.SystemCpuUsage";
 }
-::windows_core::imp::interface_hierarchy!(SystemCpuUsage, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SystemCpuUsage {}
 unsafe impl ::core::marker::Sync for SystemCpuUsage {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SystemCpuUsageReport(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(SystemCpuUsageReport, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl SystemCpuUsageReport {
     pub fn KernelTime(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -944,19 +736,17 @@ impl ::windows_core::RuntimeType for SystemCpuUsageReport {
 }
 unsafe impl ::windows_core::Interface for SystemCpuUsageReport {
     type Vtable = ISystemCpuUsageReport_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for SystemCpuUsageReport {
-    const IID: ::windows_core::GUID = <ISystemCpuUsageReport as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ISystemCpuUsageReport as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for SystemCpuUsageReport {
     const NAME: &'static str = "Windows.System.Diagnostics.SystemCpuUsageReport";
 }
-::windows_core::imp::interface_hierarchy!(SystemCpuUsageReport, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SystemCpuUsageReport {}
 unsafe impl ::core::marker::Sync for SystemCpuUsageReport {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SystemDiagnosticInfo(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(SystemDiagnosticInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl SystemDiagnosticInfo {
     pub fn MemoryUsage(&self) -> ::windows_core::Result<SystemMemoryUsage> {
         let this = self;
@@ -1006,19 +796,17 @@ impl ::windows_core::RuntimeType for SystemDiagnosticInfo {
 }
 unsafe impl ::windows_core::Interface for SystemDiagnosticInfo {
     type Vtable = ISystemDiagnosticInfo_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for SystemDiagnosticInfo {
-    const IID: ::windows_core::GUID = <ISystemDiagnosticInfo as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ISystemDiagnosticInfo as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for SystemDiagnosticInfo {
     const NAME: &'static str = "Windows.System.Diagnostics.SystemDiagnosticInfo";
 }
-::windows_core::imp::interface_hierarchy!(SystemDiagnosticInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SystemDiagnosticInfo {}
 unsafe impl ::core::marker::Sync for SystemDiagnosticInfo {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SystemMemoryUsage(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(SystemMemoryUsage, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl SystemMemoryUsage {
     pub fn GetReport(&self) -> ::windows_core::Result<SystemMemoryUsageReport> {
         let this = self;
@@ -1033,19 +821,17 @@ impl ::windows_core::RuntimeType for SystemMemoryUsage {
 }
 unsafe impl ::windows_core::Interface for SystemMemoryUsage {
     type Vtable = ISystemMemoryUsage_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for SystemMemoryUsage {
-    const IID: ::windows_core::GUID = <ISystemMemoryUsage as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ISystemMemoryUsage as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for SystemMemoryUsage {
     const NAME: &'static str = "Windows.System.Diagnostics.SystemMemoryUsage";
 }
-::windows_core::imp::interface_hierarchy!(SystemMemoryUsage, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SystemMemoryUsage {}
 unsafe impl ::core::marker::Sync for SystemMemoryUsage {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SystemMemoryUsageReport(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(SystemMemoryUsageReport, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl SystemMemoryUsageReport {
     pub fn TotalPhysicalSizeInBytes(&self) -> ::windows_core::Result<u64> {
         let this = self;
@@ -1074,14 +860,11 @@ impl ::windows_core::RuntimeType for SystemMemoryUsageReport {
 }
 unsafe impl ::windows_core::Interface for SystemMemoryUsageReport {
     type Vtable = ISystemMemoryUsageReport_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for SystemMemoryUsageReport {
-    const IID: ::windows_core::GUID = <ISystemMemoryUsageReport as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ISystemMemoryUsageReport as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for SystemMemoryUsageReport {
     const NAME: &'static str = "Windows.System.Diagnostics.SystemMemoryUsageReport";
 }
-::windows_core::imp::interface_hierarchy!(SystemMemoryUsageReport, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SystemMemoryUsageReport {}
 unsafe impl ::core::marker::Sync for SystemMemoryUsageReport {}
 #[repr(transparent)]

@@ -1,13 +1,4 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPlaylist(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPlaylist {
-    type Vtable = IPlaylist_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPlaylist {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x803736f5_cf44_4d97_83b3_7a089e9ab663);
-}
+::windows_core::imp::com_interface!(IPlaylist, IPlaylist_Vtbl, 0x803736f5_cf44_4d97_83b3_7a089e9ab663);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlaylist_Vtbl {
@@ -26,16 +17,7 @@ pub struct IPlaylist_Vtbl {
     #[cfg(not(feature = "Storage"))]
     SaveAsWithFormatAsync: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPlaylistStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPlaylistStatics {
-    type Vtable = IPlaylistStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPlaylistStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc5c331cd_81f9_4ff3_95b9_70b6ff046b68);
-}
+::windows_core::imp::com_interface!(IPlaylistStatics, IPlaylistStatics_Vtbl, 0xc5c331cd_81f9_4ff3_95b9_70b6ff046b68);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlaylistStatics_Vtbl {
@@ -48,6 +30,7 @@ pub struct IPlaylistStatics_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Playlist(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(Playlist, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl Playlist {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -76,35 +59,35 @@ impl Playlist {
     #[cfg(feature = "Storage")]
     pub fn SaveAsAsync<P0>(&self, savelocation: P0, desiredname: &::windows_core::HSTRING, option: super::super::Storage::NameCollisionOption) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::StorageFile>>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Storage::IStorageFolder>,
+        P0: ::windows_core::IntoParam<super::super::Storage::IStorageFolder>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SaveAsAsync)(::windows_core::Interface::as_raw(this), savelocation.try_into_param()?.abi(), ::core::mem::transmute_copy(desiredname), option, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SaveAsAsync)(::windows_core::Interface::as_raw(this), savelocation.into_param().abi(), ::core::mem::transmute_copy(desiredname), option, &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"Storage\"`"]
     #[cfg(feature = "Storage")]
     pub fn SaveAsWithFormatAsync<P0>(&self, savelocation: P0, desiredname: &::windows_core::HSTRING, option: super::super::Storage::NameCollisionOption, playlistformat: PlaylistFormat) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::StorageFile>>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Storage::IStorageFolder>,
+        P0: ::windows_core::IntoParam<super::super::Storage::IStorageFolder>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SaveAsWithFormatAsync)(::windows_core::Interface::as_raw(this), savelocation.try_into_param()?.abi(), ::core::mem::transmute_copy(desiredname), option, playlistformat, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SaveAsWithFormatAsync)(::windows_core::Interface::as_raw(this), savelocation.into_param().abi(), ::core::mem::transmute_copy(desiredname), option, playlistformat, &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"Storage\"`"]
     #[cfg(feature = "Storage")]
     pub fn LoadAsync<P0>(file: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<Playlist>>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Storage::IStorageFile>,
+        P0: ::windows_core::IntoParam<super::super::Storage::IStorageFile>,
     {
         Self::IPlaylistStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).LoadAsync)(::windows_core::Interface::as_raw(this), file.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).LoadAsync)(::windows_core::Interface::as_raw(this), file.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -118,14 +101,11 @@ impl ::windows_core::RuntimeType for Playlist {
 }
 unsafe impl ::windows_core::Interface for Playlist {
     type Vtable = IPlaylist_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for Playlist {
-    const IID: ::windows_core::GUID = <IPlaylist as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPlaylist as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for Playlist {
     const NAME: &'static str = "Windows.Media.Playlists.Playlist";
 }
-::windows_core::imp::interface_hierarchy!(Playlist, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct PlaylistFormat(pub i32);

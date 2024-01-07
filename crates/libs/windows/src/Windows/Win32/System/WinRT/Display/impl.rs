@@ -38,7 +38,7 @@ impl IDisplayDeviceInterop_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDisplayDeviceInterop as ::windows_core::ComInterface>::IID
+        iid == &<IDisplayDeviceInterop as ::windows_core::Interface>::IID
     }
 }
 pub trait IDisplayPathInterop_Impl: Sized {
@@ -77,6 +77,6 @@ impl IDisplayPathInterop_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDisplayPathInterop as ::windows_core::ComInterface>::IID
+        iid == &<IDisplayPathInterop as ::windows_core::Interface>::IID
     }
 }

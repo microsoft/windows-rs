@@ -9,9 +9,8 @@ where
     let mut result__ = ::std::mem::zeroed();
     PdfCreateRenderer(pdevice.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPdfRendererNative(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IPdfRendererNative, IPdfRendererNative_Vtbl, 0x7d9dcd91_d277_4947_8527_07a0daeda94a);
+::windows_core::imp::interface_hierarchy!(IPdfRendererNative, ::windows_core::IUnknown);
 impl IPdfRendererNative {
     #[doc = "Required features: `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_Dxgi\"`"]
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi"))]
@@ -31,13 +30,6 @@ impl IPdfRendererNative {
     {
         (::windows_core::Interface::vtable(self).RenderPageToDeviceContext)(::windows_core::Interface::as_raw(self), pdfpage.into_param().abi(), pd2ddevicecontext.into_param().abi(), ::core::mem::transmute(prenderparams.unwrap_or(::std::ptr::null()))).ok()
     }
-}
-::windows_core::imp::interface_hierarchy!(IPdfRendererNative, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPdfRendererNative {
-    type Vtable = IPdfRendererNative_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPdfRendererNative {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7d9dcd91_d277_4947_8527_07a0daeda94a);
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -1,6 +1,5 @@
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IActivatedEventArgs, IActivatedEventArgs_Vtbl, 0xcf651713_cd08_4fd8_b697_a281b6544e2e);
+::windows_core::imp::interface_hierarchy!(IActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl IActivatedEventArgs {
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
         let this = self;
@@ -24,15 +23,8 @@ impl IActivatedEventArgs {
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IActivatedEventArgs {
-    type Vtable = IActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IActivatedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcf651713_cd08_4fd8_b697_a281b6544e2e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -42,9 +34,9 @@ pub struct IActivatedEventArgs_Vtbl {
     pub PreviousExecutionState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ApplicationExecutionState) -> ::windows_core::HRESULT,
     pub SplashScreen: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IActivatedEventArgsWithUser(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IActivatedEventArgsWithUser, IActivatedEventArgsWithUser_Vtbl, 0x1cf09b9e_9962_4936_80ff_afc8e8ae5c8c);
+::windows_core::imp::interface_hierarchy!(IActivatedEventArgsWithUser, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(IActivatedEventArgsWithUser, IActivatedEventArgs);
 impl IActivatedEventArgsWithUser {
     #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
@@ -56,37 +48,29 @@ impl IActivatedEventArgsWithUser {
         }
     }
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IActivatedEventArgsWithUser, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for IActivatedEventArgsWithUser {}
 impl ::windows_core::RuntimeType for IActivatedEventArgsWithUser {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IActivatedEventArgsWithUser {
-    type Vtable = IActivatedEventArgsWithUser_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IActivatedEventArgsWithUser {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1cf09b9e_9962_4936_80ff_afc8e8ae5c8c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -97,9 +81,9 @@ pub struct IActivatedEventArgsWithUser_Vtbl {
     #[cfg(not(feature = "System"))]
     User: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IApplicationViewActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IApplicationViewActivatedEventArgs, IApplicationViewActivatedEventArgs_Vtbl, 0x930cef4b_b829_40fc_88f4_8513e8a64738);
+::windows_core::imp::interface_hierarchy!(IApplicationViewActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(IApplicationViewActivatedEventArgs, IActivatedEventArgs);
 impl IApplicationViewActivatedEventArgs {
     pub fn CurrentlyShownApplicationViewId(&self) -> ::windows_core::Result<i32> {
         let this = self;
@@ -109,37 +93,29 @@ impl IApplicationViewActivatedEventArgs {
         }
     }
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IApplicationViewActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for IApplicationViewActivatedEventArgs {}
 impl ::windows_core::RuntimeType for IApplicationViewActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IApplicationViewActivatedEventArgs {
-    type Vtable = IApplicationViewActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IApplicationViewActivatedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x930cef4b_b829_40fc_88f4_8513e8a64738);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -147,9 +123,9 @@ pub struct IApplicationViewActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CurrentlyShownApplicationViewId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAppointmentsProviderActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IAppointmentsProviderActivatedEventArgs, IAppointmentsProviderActivatedEventArgs_Vtbl, 0x3364c405_933c_4e7d_a034_500fb8dcd9f3);
+::windows_core::imp::interface_hierarchy!(IAppointmentsProviderActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(IAppointmentsProviderActivatedEventArgs, IActivatedEventArgs);
 impl IAppointmentsProviderActivatedEventArgs {
     pub fn Verb(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -159,37 +135,29 @@ impl IAppointmentsProviderActivatedEventArgs {
         }
     }
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IAppointmentsProviderActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for IAppointmentsProviderActivatedEventArgs {}
 impl ::windows_core::RuntimeType for IAppointmentsProviderActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IAppointmentsProviderActivatedEventArgs {
-    type Vtable = IAppointmentsProviderActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAppointmentsProviderActivatedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3364c405_933c_4e7d_a034_500fb8dcd9f3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -197,9 +165,9 @@ pub struct IAppointmentsProviderActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Verb: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAppointmentsProviderAddAppointmentActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IAppointmentsProviderAddAppointmentActivatedEventArgs, IAppointmentsProviderAddAppointmentActivatedEventArgs_Vtbl, 0xa2861367_cee5_4e4d_9ed7_41c34ec18b02);
+::windows_core::imp::interface_hierarchy!(IAppointmentsProviderAddAppointmentActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(IAppointmentsProviderAddAppointmentActivatedEventArgs, IActivatedEventArgs, IAppointmentsProviderActivatedEventArgs);
 impl IAppointmentsProviderAddAppointmentActivatedEventArgs {
     #[doc = "Required features: `\"ApplicationModel_Appointments_AppointmentsProvider\"`"]
     #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
@@ -211,45 +179,36 @@ impl IAppointmentsProviderAddAppointmentActivatedEventArgs {
         }
     }
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Verb(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Verb)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IAppointmentsProviderAddAppointmentActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for IAppointmentsProviderAddAppointmentActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IAppointmentsProviderActivatedEventArgs> for IAppointmentsProviderAddAppointmentActivatedEventArgs {}
 impl ::windows_core::RuntimeType for IAppointmentsProviderAddAppointmentActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IAppointmentsProviderAddAppointmentActivatedEventArgs {
-    type Vtable = IAppointmentsProviderAddAppointmentActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAppointmentsProviderAddAppointmentActivatedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa2861367_cee5_4e4d_9ed7_41c34ec18b02);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -260,9 +219,9 @@ pub struct IAppointmentsProviderAddAppointmentActivatedEventArgs_Vtbl {
     #[cfg(not(feature = "ApplicationModel_Appointments_AppointmentsProvider"))]
     AddAppointmentOperation: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAppointmentsProviderRemoveAppointmentActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IAppointmentsProviderRemoveAppointmentActivatedEventArgs, IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Vtbl, 0x751f3ab8_0b8e_451c_9f15_966e699bac25);
+::windows_core::imp::interface_hierarchy!(IAppointmentsProviderRemoveAppointmentActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(IAppointmentsProviderRemoveAppointmentActivatedEventArgs, IActivatedEventArgs, IAppointmentsProviderActivatedEventArgs);
 impl IAppointmentsProviderRemoveAppointmentActivatedEventArgs {
     #[doc = "Required features: `\"ApplicationModel_Appointments_AppointmentsProvider\"`"]
     #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
@@ -274,45 +233,36 @@ impl IAppointmentsProviderRemoveAppointmentActivatedEventArgs {
         }
     }
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Verb(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Verb)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IAppointmentsProviderRemoveAppointmentActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for IAppointmentsProviderRemoveAppointmentActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IAppointmentsProviderActivatedEventArgs> for IAppointmentsProviderRemoveAppointmentActivatedEventArgs {}
 impl ::windows_core::RuntimeType for IAppointmentsProviderRemoveAppointmentActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IAppointmentsProviderRemoveAppointmentActivatedEventArgs {
-    type Vtable = IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAppointmentsProviderRemoveAppointmentActivatedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x751f3ab8_0b8e_451c_9f15_966e699bac25);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -323,9 +273,9 @@ pub struct IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Vtbl {
     #[cfg(not(feature = "ApplicationModel_Appointments_AppointmentsProvider"))]
     RemoveAppointmentOperation: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAppointmentsProviderReplaceAppointmentActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IAppointmentsProviderReplaceAppointmentActivatedEventArgs, IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Vtbl, 0x1551b7d4_a981_4067_8a62_0524e4ade121);
+::windows_core::imp::interface_hierarchy!(IAppointmentsProviderReplaceAppointmentActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(IAppointmentsProviderReplaceAppointmentActivatedEventArgs, IActivatedEventArgs, IAppointmentsProviderActivatedEventArgs);
 impl IAppointmentsProviderReplaceAppointmentActivatedEventArgs {
     #[doc = "Required features: `\"ApplicationModel_Appointments_AppointmentsProvider\"`"]
     #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
@@ -337,45 +287,36 @@ impl IAppointmentsProviderReplaceAppointmentActivatedEventArgs {
         }
     }
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Verb(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Verb)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IAppointmentsProviderReplaceAppointmentActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for IAppointmentsProviderReplaceAppointmentActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IAppointmentsProviderActivatedEventArgs> for IAppointmentsProviderReplaceAppointmentActivatedEventArgs {}
 impl ::windows_core::RuntimeType for IAppointmentsProviderReplaceAppointmentActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IAppointmentsProviderReplaceAppointmentActivatedEventArgs {
-    type Vtable = IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAppointmentsProviderReplaceAppointmentActivatedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1551b7d4_a981_4067_8a62_0524e4ade121);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -386,9 +327,9 @@ pub struct IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Vtbl {
     #[cfg(not(feature = "ApplicationModel_Appointments_AppointmentsProvider"))]
     ReplaceAppointmentOperation: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs, IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Vtbl, 0x3958f065_9841_4ca5_999b_885198b9ef2a);
+::windows_core::imp::interface_hierarchy!(IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs, IActivatedEventArgs, IAppointmentsProviderActivatedEventArgs);
 impl IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     pub fn InstanceStartDate(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
@@ -412,45 +353,36 @@ impl IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
         }
     }
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Verb(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Verb)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IAppointmentsProviderActivatedEventArgs> for IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {}
 impl ::windows_core::RuntimeType for IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
-    type Vtable = IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3958f065_9841_4ca5_999b_885198b9ef2a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -460,9 +392,9 @@ pub struct IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Vtbl {
     pub LocalId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub RoamingId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAppointmentsProviderShowTimeFrameActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IAppointmentsProviderShowTimeFrameActivatedEventArgs, IAppointmentsProviderShowTimeFrameActivatedEventArgs_Vtbl, 0x9baeaba6_0e0b_49aa_babc_12b1dc774986);
+::windows_core::imp::interface_hierarchy!(IAppointmentsProviderShowTimeFrameActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(IAppointmentsProviderShowTimeFrameActivatedEventArgs, IActivatedEventArgs, IAppointmentsProviderActivatedEventArgs);
 impl IAppointmentsProviderShowTimeFrameActivatedEventArgs {
     pub fn TimeToShow(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -479,45 +411,36 @@ impl IAppointmentsProviderShowTimeFrameActivatedEventArgs {
         }
     }
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Verb(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Verb)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IAppointmentsProviderShowTimeFrameActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for IAppointmentsProviderShowTimeFrameActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IAppointmentsProviderActivatedEventArgs> for IAppointmentsProviderShowTimeFrameActivatedEventArgs {}
 impl ::windows_core::RuntimeType for IAppointmentsProviderShowTimeFrameActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IAppointmentsProviderShowTimeFrameActivatedEventArgs {
-    type Vtable = IAppointmentsProviderShowTimeFrameActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAppointmentsProviderShowTimeFrameActivatedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9baeaba6_0e0b_49aa_babc_12b1dc774986);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -526,9 +449,8 @@ pub struct IAppointmentsProviderShowTimeFrameActivatedEventArgs_Vtbl {
     pub TimeToShow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
     pub Duration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IBackgroundActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IBackgroundActivatedEventArgs, IBackgroundActivatedEventArgs_Vtbl, 0xab14bee0_e760_440e_a91c_44796de3a92d);
+::windows_core::imp::interface_hierarchy!(IBackgroundActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl IBackgroundActivatedEventArgs {
     #[doc = "Required features: `\"ApplicationModel_Background\"`"]
     #[cfg(feature = "ApplicationModel_Background")]
@@ -540,15 +462,8 @@ impl IBackgroundActivatedEventArgs {
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IBackgroundActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IBackgroundActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IBackgroundActivatedEventArgs {
-    type Vtable = IBackgroundActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IBackgroundActivatedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xab14bee0_e760_440e_a91c_44796de3a92d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -559,9 +474,9 @@ pub struct IBackgroundActivatedEventArgs_Vtbl {
     #[cfg(not(feature = "ApplicationModel_Background"))]
     TaskInstance: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IBarcodeScannerPreviewActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IBarcodeScannerPreviewActivatedEventArgs, IBarcodeScannerPreviewActivatedEventArgs_Vtbl, 0x6772797c_99bf_4349_af22_e4123560371c);
+::windows_core::imp::interface_hierarchy!(IBarcodeScannerPreviewActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(IBarcodeScannerPreviewActivatedEventArgs, IActivatedEventArgs);
 impl IBarcodeScannerPreviewActivatedEventArgs {
     pub fn ConnectionId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -571,37 +486,29 @@ impl IBarcodeScannerPreviewActivatedEventArgs {
         }
     }
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IBarcodeScannerPreviewActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for IBarcodeScannerPreviewActivatedEventArgs {}
 impl ::windows_core::RuntimeType for IBarcodeScannerPreviewActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IBarcodeScannerPreviewActivatedEventArgs {
-    type Vtable = IBarcodeScannerPreviewActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IBarcodeScannerPreviewActivatedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6772797c_99bf_4349_af22_e4123560371c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -609,9 +516,9 @@ pub struct IBarcodeScannerPreviewActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ConnectionId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ICachedFileUpdaterActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(ICachedFileUpdaterActivatedEventArgs, ICachedFileUpdaterActivatedEventArgs_Vtbl, 0xd06eb1c7_3805_4ecb_b757_6cf15e26fef3);
+::windows_core::imp::interface_hierarchy!(ICachedFileUpdaterActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(ICachedFileUpdaterActivatedEventArgs, IActivatedEventArgs);
 impl ICachedFileUpdaterActivatedEventArgs {
     #[doc = "Required features: `\"Storage_Provider\"`"]
     #[cfg(feature = "Storage_Provider")]
@@ -623,37 +530,29 @@ impl ICachedFileUpdaterActivatedEventArgs {
         }
     }
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(ICachedFileUpdaterActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for ICachedFileUpdaterActivatedEventArgs {}
 impl ::windows_core::RuntimeType for ICachedFileUpdaterActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for ICachedFileUpdaterActivatedEventArgs {
-    type Vtable = ICachedFileUpdaterActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ICachedFileUpdaterActivatedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd06eb1c7_3805_4ecb_b757_6cf15e26fef3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -664,9 +563,9 @@ pub struct ICachedFileUpdaterActivatedEventArgs_Vtbl {
     #[cfg(not(feature = "Storage_Provider"))]
     CachedFileUpdaterUI: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ICameraSettingsActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(ICameraSettingsActivatedEventArgs, ICameraSettingsActivatedEventArgs_Vtbl, 0xfb67a508_2dad_490a_9170_dca036eb114b);
+::windows_core::imp::interface_hierarchy!(ICameraSettingsActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(ICameraSettingsActivatedEventArgs, IActivatedEventArgs);
 impl ICameraSettingsActivatedEventArgs {
     pub fn VideoDeviceController(&self) -> ::windows_core::Result<::windows_core::IInspectable> {
         let this = self;
@@ -683,37 +582,29 @@ impl ICameraSettingsActivatedEventArgs {
         }
     }
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(ICameraSettingsActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for ICameraSettingsActivatedEventArgs {}
 impl ::windows_core::RuntimeType for ICameraSettingsActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for ICameraSettingsActivatedEventArgs {
-    type Vtable = ICameraSettingsActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ICameraSettingsActivatedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfb67a508_2dad_490a_9170_dca036eb114b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -722,9 +613,9 @@ pub struct ICameraSettingsActivatedEventArgs_Vtbl {
     pub VideoDeviceController: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub VideoDeviceExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ICommandLineActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(ICommandLineActivatedEventArgs, ICommandLineActivatedEventArgs_Vtbl, 0x4506472c_006a_48eb_8afb_d07ab25e3366);
+::windows_core::imp::interface_hierarchy!(ICommandLineActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(ICommandLineActivatedEventArgs, IActivatedEventArgs);
 impl ICommandLineActivatedEventArgs {
     pub fn Operation(&self) -> ::windows_core::Result<CommandLineActivationOperation> {
         let this = self;
@@ -734,37 +625,29 @@ impl ICommandLineActivatedEventArgs {
         }
     }
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(ICommandLineActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for ICommandLineActivatedEventArgs {}
 impl ::windows_core::RuntimeType for ICommandLineActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for ICommandLineActivatedEventArgs {
-    type Vtable = ICommandLineActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ICommandLineActivatedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4506472c_006a_48eb_8afb_d07ab25e3366);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -772,16 +655,7 @@ pub struct ICommandLineActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Operation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ICommandLineActivationOperation(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ICommandLineActivationOperation {
-    type Vtable = ICommandLineActivationOperation_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ICommandLineActivationOperation {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x994b2841_c59e_4f69_bcfd_b61ed4e622eb);
-}
+::windows_core::imp::com_interface!(ICommandLineActivationOperation, ICommandLineActivationOperation_Vtbl, 0x994b2841_c59e_4f69_bcfd_b61ed4e622eb);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICommandLineActivationOperation_Vtbl {
@@ -792,9 +666,9 @@ pub struct ICommandLineActivationOperation_Vtbl {
     pub ExitCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IContactActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IContactActivatedEventArgs, IContactActivatedEventArgs_Vtbl, 0xd627a1c4_c025_4c41_9def_f1eafad075e7);
+::windows_core::imp::interface_hierarchy!(IContactActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(IContactActivatedEventArgs, IActivatedEventArgs);
 impl IContactActivatedEventArgs {
     pub fn Verb(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -804,37 +678,29 @@ impl IContactActivatedEventArgs {
         }
     }
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IContactActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for IContactActivatedEventArgs {}
 impl ::windows_core::RuntimeType for IContactActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IContactActivatedEventArgs {
-    type Vtable = IContactActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IContactActivatedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd627a1c4_c025_4c41_9def_f1eafad075e7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -842,9 +708,9 @@ pub struct IContactActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Verb: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IContactCallActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IContactCallActivatedEventArgs, IContactCallActivatedEventArgs_Vtbl, 0xc2df14c7_30eb_41c6_b3bc_5b1694f9dab3);
+::windows_core::imp::interface_hierarchy!(IContactCallActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(IContactCallActivatedEventArgs, IActivatedEventArgs, IContactActivatedEventArgs);
 impl IContactCallActivatedEventArgs {
     pub fn ServiceId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -870,45 +736,36 @@ impl IContactCallActivatedEventArgs {
         }
     }
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Verb(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<IContactActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IContactActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Verb)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IContactCallActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for IContactCallActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IContactActivatedEventArgs> for IContactCallActivatedEventArgs {}
 impl ::windows_core::RuntimeType for IContactCallActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IContactCallActivatedEventArgs {
-    type Vtable = IContactCallActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IContactCallActivatedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc2df14c7_30eb_41c6_b3bc_5b1694f9dab3);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -921,9 +778,9 @@ pub struct IContactCallActivatedEventArgs_Vtbl {
     #[cfg(not(feature = "ApplicationModel_Contacts"))]
     Contact: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IContactMapActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IContactMapActivatedEventArgs, IContactMapActivatedEventArgs_Vtbl, 0xb32bf870_eee7_4ad2_aaf1_a87effcf00a4);
+::windows_core::imp::interface_hierarchy!(IContactMapActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(IContactMapActivatedEventArgs, IActivatedEventArgs, IContactActivatedEventArgs);
 impl IContactMapActivatedEventArgs {
     #[doc = "Required features: `\"ApplicationModel_Contacts\"`"]
     #[cfg(feature = "ApplicationModel_Contacts")]
@@ -944,45 +801,36 @@ impl IContactMapActivatedEventArgs {
         }
     }
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Verb(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<IContactActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IContactActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Verb)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IContactMapActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for IContactMapActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IContactActivatedEventArgs> for IContactMapActivatedEventArgs {}
 impl ::windows_core::RuntimeType for IContactMapActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IContactMapActivatedEventArgs {
-    type Vtable = IContactMapActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IContactMapActivatedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb32bf870_eee7_4ad2_aaf1_a87effcf00a4);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -997,9 +845,9 @@ pub struct IContactMapActivatedEventArgs_Vtbl {
     #[cfg(not(feature = "ApplicationModel_Contacts"))]
     Contact: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IContactMessageActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IContactMessageActivatedEventArgs, IContactMessageActivatedEventArgs_Vtbl, 0xde598db2_0e03_43b0_bf56_bcc40b3162df);
+::windows_core::imp::interface_hierarchy!(IContactMessageActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(IContactMessageActivatedEventArgs, IActivatedEventArgs, IContactActivatedEventArgs);
 impl IContactMessageActivatedEventArgs {
     pub fn ServiceId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -1025,45 +873,36 @@ impl IContactMessageActivatedEventArgs {
         }
     }
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Verb(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<IContactActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IContactActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Verb)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IContactMessageActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for IContactMessageActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IContactActivatedEventArgs> for IContactMessageActivatedEventArgs {}
 impl ::windows_core::RuntimeType for IContactMessageActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IContactMessageActivatedEventArgs {
-    type Vtable = IContactMessageActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IContactMessageActivatedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xde598db2_0e03_43b0_bf56_bcc40b3162df);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1076,9 +915,8 @@ pub struct IContactMessageActivatedEventArgs_Vtbl {
     #[cfg(not(feature = "ApplicationModel_Contacts"))]
     Contact: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IContactPanelActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IContactPanelActivatedEventArgs, IContactPanelActivatedEventArgs_Vtbl, 0x52bb63e4_d3d4_4b63_8051_4af2082cab80);
+::windows_core::imp::interface_hierarchy!(IContactPanelActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl IContactPanelActivatedEventArgs {
     #[doc = "Required features: `\"ApplicationModel_Contacts\"`"]
     #[cfg(feature = "ApplicationModel_Contacts")]
@@ -1099,15 +937,8 @@ impl IContactPanelActivatedEventArgs {
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IContactPanelActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IContactPanelActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IContactPanelActivatedEventArgs {
-    type Vtable = IContactPanelActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IContactPanelActivatedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x52bb63e4_d3d4_4b63_8051_4af2082cab80);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1122,9 +953,9 @@ pub struct IContactPanelActivatedEventArgs_Vtbl {
     #[cfg(not(feature = "ApplicationModel_Contacts"))]
     Contact: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IContactPickerActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IContactPickerActivatedEventArgs, IContactPickerActivatedEventArgs_Vtbl, 0xce57aae7_6449_45a7_971f_d113be7a8936);
+::windows_core::imp::interface_hierarchy!(IContactPickerActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(IContactPickerActivatedEventArgs, IActivatedEventArgs);
 impl IContactPickerActivatedEventArgs {
     #[doc = "Required features: `\"ApplicationModel_Contacts_Provider\"`"]
     #[cfg(feature = "ApplicationModel_Contacts_Provider")]
@@ -1136,37 +967,29 @@ impl IContactPickerActivatedEventArgs {
         }
     }
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IContactPickerActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for IContactPickerActivatedEventArgs {}
 impl ::windows_core::RuntimeType for IContactPickerActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IContactPickerActivatedEventArgs {
-    type Vtable = IContactPickerActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IContactPickerActivatedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xce57aae7_6449_45a7_971f_d113be7a8936);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1177,9 +1000,9 @@ pub struct IContactPickerActivatedEventArgs_Vtbl {
     #[cfg(not(feature = "ApplicationModel_Contacts_Provider"))]
     ContactPickerUI: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IContactPostActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IContactPostActivatedEventArgs, IContactPostActivatedEventArgs_Vtbl, 0xb35a3c67_f1e7_4655_ad6e_4857588f552f);
+::windows_core::imp::interface_hierarchy!(IContactPostActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(IContactPostActivatedEventArgs, IActivatedEventArgs, IContactActivatedEventArgs);
 impl IContactPostActivatedEventArgs {
     pub fn ServiceId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -1205,45 +1028,36 @@ impl IContactPostActivatedEventArgs {
         }
     }
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Verb(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<IContactActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IContactActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Verb)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IContactPostActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for IContactPostActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IContactActivatedEventArgs> for IContactPostActivatedEventArgs {}
 impl ::windows_core::RuntimeType for IContactPostActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IContactPostActivatedEventArgs {
-    type Vtable = IContactPostActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IContactPostActivatedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb35a3c67_f1e7_4655_ad6e_4857588f552f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1256,9 +1070,9 @@ pub struct IContactPostActivatedEventArgs_Vtbl {
     #[cfg(not(feature = "ApplicationModel_Contacts"))]
     Contact: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IContactVideoCallActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IContactVideoCallActivatedEventArgs, IContactVideoCallActivatedEventArgs_Vtbl, 0x61079db8_e3e7_4b4f_858d_5c63a96ef684);
+::windows_core::imp::interface_hierarchy!(IContactVideoCallActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(IContactVideoCallActivatedEventArgs, IActivatedEventArgs, IContactActivatedEventArgs);
 impl IContactVideoCallActivatedEventArgs {
     pub fn ServiceId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -1284,45 +1098,36 @@ impl IContactVideoCallActivatedEventArgs {
         }
     }
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Verb(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<IContactActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IContactActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Verb)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IContactVideoCallActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for IContactVideoCallActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IContactActivatedEventArgs> for IContactVideoCallActivatedEventArgs {}
 impl ::windows_core::RuntimeType for IContactVideoCallActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IContactVideoCallActivatedEventArgs {
-    type Vtable = IContactVideoCallActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IContactVideoCallActivatedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x61079db8_e3e7_4b4f_858d_5c63a96ef684);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1335,9 +1140,9 @@ pub struct IContactVideoCallActivatedEventArgs_Vtbl {
     #[cfg(not(feature = "ApplicationModel_Contacts"))]
     Contact: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IContactsProviderActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IContactsProviderActivatedEventArgs, IContactsProviderActivatedEventArgs_Vtbl, 0x4580dca8_5750_4916_aa52_c0829521eb94);
+::windows_core::imp::interface_hierarchy!(IContactsProviderActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(IContactsProviderActivatedEventArgs, IActivatedEventArgs);
 impl IContactsProviderActivatedEventArgs {
     pub fn Verb(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -1347,37 +1152,29 @@ impl IContactsProviderActivatedEventArgs {
         }
     }
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IContactsProviderActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for IContactsProviderActivatedEventArgs {}
 impl ::windows_core::RuntimeType for IContactsProviderActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IContactsProviderActivatedEventArgs {
-    type Vtable = IContactsProviderActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IContactsProviderActivatedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4580dca8_5750_4916_aa52_c0829521eb94);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1385,9 +1182,9 @@ pub struct IContactsProviderActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Verb: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IContinuationActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IContinuationActivatedEventArgs, IContinuationActivatedEventArgs_Vtbl, 0xe58106b5_155f_4a94_a742_c7e08f4e188c);
+::windows_core::imp::interface_hierarchy!(IContinuationActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(IContinuationActivatedEventArgs, IActivatedEventArgs);
 impl IContinuationActivatedEventArgs {
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
@@ -1399,37 +1196,29 @@ impl IContinuationActivatedEventArgs {
         }
     }
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IContinuationActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for IContinuationActivatedEventArgs {}
 impl ::windows_core::RuntimeType for IContinuationActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IContinuationActivatedEventArgs {
-    type Vtable = IContinuationActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IContinuationActivatedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe58106b5_155f_4a94_a742_c7e08f4e188c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1440,9 +1229,9 @@ pub struct IContinuationActivatedEventArgs_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     ContinuationData: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDeviceActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDeviceActivatedEventArgs, IDeviceActivatedEventArgs_Vtbl, 0xcd50b9a9_ce10_44d2_8234_c355a073ef33);
+::windows_core::imp::interface_hierarchy!(IDeviceActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(IDeviceActivatedEventArgs, IActivatedEventArgs);
 impl IDeviceActivatedEventArgs {
     pub fn DeviceInformationId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -1459,37 +1248,29 @@ impl IDeviceActivatedEventArgs {
         }
     }
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IDeviceActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for IDeviceActivatedEventArgs {}
 impl ::windows_core::RuntimeType for IDeviceActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IDeviceActivatedEventArgs {
-    type Vtable = IDeviceActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDeviceActivatedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcd50b9a9_ce10_44d2_8234_c355a073ef33);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1498,9 +1279,9 @@ pub struct IDeviceActivatedEventArgs_Vtbl {
     pub DeviceInformationId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub Verb: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDevicePairingActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDevicePairingActivatedEventArgs, IDevicePairingActivatedEventArgs_Vtbl, 0xeba0d1e4_ecc6_4148_94ed_f4b37ec05b3e);
+::windows_core::imp::interface_hierarchy!(IDevicePairingActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(IDevicePairingActivatedEventArgs, IActivatedEventArgs);
 impl IDevicePairingActivatedEventArgs {
     #[doc = "Required features: `\"Devices_Enumeration\"`"]
     #[cfg(feature = "Devices_Enumeration")]
@@ -1512,37 +1293,29 @@ impl IDevicePairingActivatedEventArgs {
         }
     }
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IDevicePairingActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for IDevicePairingActivatedEventArgs {}
 impl ::windows_core::RuntimeType for IDevicePairingActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IDevicePairingActivatedEventArgs {
-    type Vtable = IDevicePairingActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDevicePairingActivatedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeba0d1e4_ecc6_4148_94ed_f4b37ec05b3e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1553,9 +1326,9 @@ pub struct IDevicePairingActivatedEventArgs_Vtbl {
     #[cfg(not(feature = "Devices_Enumeration"))]
     DeviceInformation: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDialReceiverActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDialReceiverActivatedEventArgs, IDialReceiverActivatedEventArgs_Vtbl, 0xfb777ed7_85ee_456e_a44d_85d730e70aed);
+::windows_core::imp::interface_hierarchy!(IDialReceiverActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(IDialReceiverActivatedEventArgs, IActivatedEventArgs, ILaunchActivatedEventArgs);
 impl IDialReceiverActivatedEventArgs {
     pub fn AppName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -1565,52 +1338,43 @@ impl IDialReceiverActivatedEventArgs {
         }
     }
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Arguments(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<ILaunchActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<ILaunchActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Arguments)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TileId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<ILaunchActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<ILaunchActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TileId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IDialReceiverActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for IDialReceiverActivatedEventArgs {}
-impl ::windows_core::CanTryInto<ILaunchActivatedEventArgs> for IDialReceiverActivatedEventArgs {}
 impl ::windows_core::RuntimeType for IDialReceiverActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IDialReceiverActivatedEventArgs {
-    type Vtable = IDialReceiverActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDialReceiverActivatedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfb777ed7_85ee_456e_a44d_85d730e70aed);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1618,9 +1382,9 @@ pub struct IDialReceiverActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AppName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IFileActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IFileActivatedEventArgs, IFileActivatedEventArgs_Vtbl, 0xbb2afc33_93b1_42ed_8b26_236dd9c78496);
+::windows_core::imp::interface_hierarchy!(IFileActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(IFileActivatedEventArgs, IActivatedEventArgs);
 impl IFileActivatedEventArgs {
     #[doc = "Required features: `\"Foundation_Collections\"`, `\"Storage\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
@@ -1639,37 +1403,29 @@ impl IFileActivatedEventArgs {
         }
     }
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IFileActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for IFileActivatedEventArgs {}
 impl ::windows_core::RuntimeType for IFileActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IFileActivatedEventArgs {
-    type Vtable = IFileActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IFileActivatedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbb2afc33_93b1_42ed_8b26_236dd9c78496);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1681,9 +1437,9 @@ pub struct IFileActivatedEventArgs_Vtbl {
     Files: usize,
     pub Verb: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IFileActivatedEventArgsWithCallerPackageFamilyName(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IFileActivatedEventArgsWithCallerPackageFamilyName, IFileActivatedEventArgsWithCallerPackageFamilyName_Vtbl, 0x2d60f06b_d25f_4d25_8653_e1c5e1108309);
+::windows_core::imp::interface_hierarchy!(IFileActivatedEventArgsWithCallerPackageFamilyName, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(IFileActivatedEventArgsWithCallerPackageFamilyName, IActivatedEventArgs);
 impl IFileActivatedEventArgsWithCallerPackageFamilyName {
     pub fn CallerPackageFamilyName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -1693,37 +1449,29 @@ impl IFileActivatedEventArgsWithCallerPackageFamilyName {
         }
     }
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IFileActivatedEventArgsWithCallerPackageFamilyName, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for IFileActivatedEventArgsWithCallerPackageFamilyName {}
 impl ::windows_core::RuntimeType for IFileActivatedEventArgsWithCallerPackageFamilyName {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IFileActivatedEventArgsWithCallerPackageFamilyName {
-    type Vtable = IFileActivatedEventArgsWithCallerPackageFamilyName_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IFileActivatedEventArgsWithCallerPackageFamilyName {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2d60f06b_d25f_4d25_8653_e1c5e1108309);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1731,9 +1479,9 @@ pub struct IFileActivatedEventArgsWithCallerPackageFamilyName_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CallerPackageFamilyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IFileActivatedEventArgsWithNeighboringFiles(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IFileActivatedEventArgsWithNeighboringFiles, IFileActivatedEventArgsWithNeighboringFiles_Vtbl, 0x433ba1a4_e1e2_48fd_b7fc_b5d6eee65033);
+::windows_core::imp::interface_hierarchy!(IFileActivatedEventArgsWithNeighboringFiles, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(IFileActivatedEventArgsWithNeighboringFiles, IActivatedEventArgs, IFileActivatedEventArgs);
 impl IFileActivatedEventArgsWithNeighboringFiles {
     #[doc = "Required features: `\"Storage_Search\"`"]
     #[cfg(feature = "Storage_Search")]
@@ -1745,21 +1493,21 @@ impl IFileActivatedEventArgsWithNeighboringFiles {
         }
     }
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -1768,31 +1516,22 @@ impl IFileActivatedEventArgsWithNeighboringFiles {
     #[doc = "Required features: `\"Foundation_Collections\"`, `\"Storage\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
     pub fn Files(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Storage::IStorageItem>> {
-        let this = &::windows_core::ComInterface::cast::<IFileActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IFileActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Files)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Verb(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<IFileActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IFileActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Verb)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IFileActivatedEventArgsWithNeighboringFiles, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for IFileActivatedEventArgsWithNeighboringFiles {}
-impl ::windows_core::CanTryInto<IFileActivatedEventArgs> for IFileActivatedEventArgsWithNeighboringFiles {}
 impl ::windows_core::RuntimeType for IFileActivatedEventArgsWithNeighboringFiles {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IFileActivatedEventArgsWithNeighboringFiles {
-    type Vtable = IFileActivatedEventArgsWithNeighboringFiles_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IFileActivatedEventArgsWithNeighboringFiles {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x433ba1a4_e1e2_48fd_b7fc_b5d6eee65033);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1803,9 +1542,9 @@ pub struct IFileActivatedEventArgsWithNeighboringFiles_Vtbl {
     #[cfg(not(feature = "Storage_Search"))]
     NeighboringFilesQuery: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IFileOpenPickerActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IFileOpenPickerActivatedEventArgs, IFileOpenPickerActivatedEventArgs_Vtbl, 0x72827082_5525_4bf2_bc09_1f5095d4964d);
+::windows_core::imp::interface_hierarchy!(IFileOpenPickerActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(IFileOpenPickerActivatedEventArgs, IActivatedEventArgs);
 impl IFileOpenPickerActivatedEventArgs {
     #[doc = "Required features: `\"Storage_Pickers_Provider\"`"]
     #[cfg(feature = "Storage_Pickers_Provider")]
@@ -1817,37 +1556,29 @@ impl IFileOpenPickerActivatedEventArgs {
         }
     }
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IFileOpenPickerActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for IFileOpenPickerActivatedEventArgs {}
 impl ::windows_core::RuntimeType for IFileOpenPickerActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IFileOpenPickerActivatedEventArgs {
-    type Vtable = IFileOpenPickerActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IFileOpenPickerActivatedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x72827082_5525_4bf2_bc09_1f5095d4964d);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1858,9 +1589,8 @@ pub struct IFileOpenPickerActivatedEventArgs_Vtbl {
     #[cfg(not(feature = "Storage_Pickers_Provider"))]
     FileOpenPickerUI: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IFileOpenPickerActivatedEventArgs2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IFileOpenPickerActivatedEventArgs2, IFileOpenPickerActivatedEventArgs2_Vtbl, 0x5e731f66_8d1f_45fb_af1d_73205c8fc7a1);
+::windows_core::imp::interface_hierarchy!(IFileOpenPickerActivatedEventArgs2, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl IFileOpenPickerActivatedEventArgs2 {
     pub fn CallerPackageFamilyName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -1870,15 +1600,8 @@ impl IFileOpenPickerActivatedEventArgs2 {
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IFileOpenPickerActivatedEventArgs2, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IFileOpenPickerActivatedEventArgs2 {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IFileOpenPickerActivatedEventArgs2 {
-    type Vtable = IFileOpenPickerActivatedEventArgs2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IFileOpenPickerActivatedEventArgs2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5e731f66_8d1f_45fb_af1d_73205c8fc7a1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1886,11 +1609,17 @@ pub struct IFileOpenPickerActivatedEventArgs2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CallerPackageFamilyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IFileOpenPickerContinuationEventArgs(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"deprecated\"`"]
+    IFileOpenPickerContinuationEventArgs,
+    IFileOpenPickerContinuationEventArgs_Vtbl,
+    0xf0fa3f3a_d4e8_4ad3_9c34_2308f32fcec9
+);
+#[cfg(feature = "deprecated")]
+::windows_core::imp::interface_hierarchy!(IFileOpenPickerContinuationEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+#[cfg(feature = "deprecated")]
+::windows_core::imp::required_hierarchy!(IFileOpenPickerContinuationEventArgs, IActivatedEventArgs, IContinuationActivatedEventArgs);
 #[cfg(feature = "deprecated")]
 impl IFileOpenPickerContinuationEventArgs {
     #[doc = "Required features: `\"Foundation_Collections\"`, `\"Storage\"`, `\"deprecated\"`"]
@@ -1903,21 +1632,21 @@ impl IFileOpenPickerContinuationEventArgs {
         }
     }
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -1926,7 +1655,7 @@ impl IFileOpenPickerContinuationEventArgs {
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ContinuationData(&self) -> ::windows_core::Result<super::super::Foundation::Collections::ValueSet> {
-        let this = &::windows_core::ComInterface::cast::<IContinuationActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IContinuationActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ContinuationData)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -1934,22 +1663,8 @@ impl IFileOpenPickerContinuationEventArgs {
     }
 }
 #[cfg(feature = "deprecated")]
-::windows_core::imp::interface_hierarchy!(IFileOpenPickerContinuationEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for IFileOpenPickerContinuationEventArgs {}
-#[cfg(feature = "deprecated")]
-impl ::windows_core::CanTryInto<IContinuationActivatedEventArgs> for IFileOpenPickerContinuationEventArgs {}
-#[cfg(feature = "deprecated")]
 impl ::windows_core::RuntimeType for IFileOpenPickerContinuationEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows_core::Interface for IFileOpenPickerContinuationEventArgs {
-    type Vtable = IFileOpenPickerContinuationEventArgs_Vtbl;
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows_core::ComInterface for IFileOpenPickerContinuationEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf0fa3f3a_d4e8_4ad3_9c34_2308f32fcec9);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -1961,9 +1676,9 @@ pub struct IFileOpenPickerContinuationEventArgs_Vtbl {
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage", feature = "deprecated")))]
     Files: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IFileSavePickerActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IFileSavePickerActivatedEventArgs, IFileSavePickerActivatedEventArgs_Vtbl, 0x81c19cf1_74e6_4387_82eb_bb8fd64b4346);
+::windows_core::imp::interface_hierarchy!(IFileSavePickerActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(IFileSavePickerActivatedEventArgs, IActivatedEventArgs);
 impl IFileSavePickerActivatedEventArgs {
     #[doc = "Required features: `\"Storage_Pickers_Provider\"`"]
     #[cfg(feature = "Storage_Pickers_Provider")]
@@ -1975,37 +1690,29 @@ impl IFileSavePickerActivatedEventArgs {
         }
     }
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IFileSavePickerActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for IFileSavePickerActivatedEventArgs {}
 impl ::windows_core::RuntimeType for IFileSavePickerActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IFileSavePickerActivatedEventArgs {
-    type Vtable = IFileSavePickerActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IFileSavePickerActivatedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x81c19cf1_74e6_4387_82eb_bb8fd64b4346);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2016,9 +1723,8 @@ pub struct IFileSavePickerActivatedEventArgs_Vtbl {
     #[cfg(not(feature = "Storage_Pickers_Provider"))]
     FileSavePickerUI: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IFileSavePickerActivatedEventArgs2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IFileSavePickerActivatedEventArgs2, IFileSavePickerActivatedEventArgs2_Vtbl, 0x6b73fe13_2cf2_4d48_8cbc_af67d23f1ce7);
+::windows_core::imp::interface_hierarchy!(IFileSavePickerActivatedEventArgs2, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl IFileSavePickerActivatedEventArgs2 {
     pub fn CallerPackageFamilyName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -2035,15 +1741,8 @@ impl IFileSavePickerActivatedEventArgs2 {
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IFileSavePickerActivatedEventArgs2, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for IFileSavePickerActivatedEventArgs2 {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IFileSavePickerActivatedEventArgs2 {
-    type Vtable = IFileSavePickerActivatedEventArgs2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IFileSavePickerActivatedEventArgs2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6b73fe13_2cf2_4d48_8cbc_af67d23f1ce7);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2052,11 +1751,17 @@ pub struct IFileSavePickerActivatedEventArgs2_Vtbl {
     pub CallerPackageFamilyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub EnterpriseId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IFileSavePickerContinuationEventArgs(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"deprecated\"`"]
+    IFileSavePickerContinuationEventArgs,
+    IFileSavePickerContinuationEventArgs_Vtbl,
+    0x2c846fe1_3bad_4f33_8c8b_e46fae824b4b
+);
+#[cfg(feature = "deprecated")]
+::windows_core::imp::interface_hierarchy!(IFileSavePickerContinuationEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+#[cfg(feature = "deprecated")]
+::windows_core::imp::required_hierarchy!(IFileSavePickerContinuationEventArgs, IActivatedEventArgs, IContinuationActivatedEventArgs);
 #[cfg(feature = "deprecated")]
 impl IFileSavePickerContinuationEventArgs {
     #[doc = "Required features: `\"Storage\"`, `\"deprecated\"`"]
@@ -2069,21 +1774,21 @@ impl IFileSavePickerContinuationEventArgs {
         }
     }
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -2092,7 +1797,7 @@ impl IFileSavePickerContinuationEventArgs {
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ContinuationData(&self) -> ::windows_core::Result<super::super::Foundation::Collections::ValueSet> {
-        let this = &::windows_core::ComInterface::cast::<IContinuationActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IContinuationActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ContinuationData)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -2100,22 +1805,8 @@ impl IFileSavePickerContinuationEventArgs {
     }
 }
 #[cfg(feature = "deprecated")]
-::windows_core::imp::interface_hierarchy!(IFileSavePickerContinuationEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for IFileSavePickerContinuationEventArgs {}
-#[cfg(feature = "deprecated")]
-impl ::windows_core::CanTryInto<IContinuationActivatedEventArgs> for IFileSavePickerContinuationEventArgs {}
-#[cfg(feature = "deprecated")]
 impl ::windows_core::RuntimeType for IFileSavePickerContinuationEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows_core::Interface for IFileSavePickerContinuationEventArgs {
-    type Vtable = IFileSavePickerContinuationEventArgs_Vtbl;
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows_core::ComInterface for IFileSavePickerContinuationEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2c846fe1_3bad_4f33_8c8b_e46fae824b4b);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -2127,11 +1818,17 @@ pub struct IFileSavePickerContinuationEventArgs_Vtbl {
     #[cfg(not(all(feature = "Storage", feature = "deprecated")))]
     File: usize,
 }
-#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IFolderPickerContinuationEventArgs(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"deprecated\"`"]
+    IFolderPickerContinuationEventArgs,
+    IFolderPickerContinuationEventArgs_Vtbl,
+    0x51882366_9f4b_498f_beb0_42684f6e1c29
+);
+#[cfg(feature = "deprecated")]
+::windows_core::imp::interface_hierarchy!(IFolderPickerContinuationEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+#[cfg(feature = "deprecated")]
+::windows_core::imp::required_hierarchy!(IFolderPickerContinuationEventArgs, IActivatedEventArgs, IContinuationActivatedEventArgs);
 #[cfg(feature = "deprecated")]
 impl IFolderPickerContinuationEventArgs {
     #[doc = "Required features: `\"Storage\"`, `\"deprecated\"`"]
@@ -2144,21 +1841,21 @@ impl IFolderPickerContinuationEventArgs {
         }
     }
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -2167,7 +1864,7 @@ impl IFolderPickerContinuationEventArgs {
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ContinuationData(&self) -> ::windows_core::Result<super::super::Foundation::Collections::ValueSet> {
-        let this = &::windows_core::ComInterface::cast::<IContinuationActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IContinuationActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ContinuationData)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -2175,22 +1872,8 @@ impl IFolderPickerContinuationEventArgs {
     }
 }
 #[cfg(feature = "deprecated")]
-::windows_core::imp::interface_hierarchy!(IFolderPickerContinuationEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for IFolderPickerContinuationEventArgs {}
-#[cfg(feature = "deprecated")]
-impl ::windows_core::CanTryInto<IContinuationActivatedEventArgs> for IFolderPickerContinuationEventArgs {}
-#[cfg(feature = "deprecated")]
 impl ::windows_core::RuntimeType for IFolderPickerContinuationEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows_core::Interface for IFolderPickerContinuationEventArgs {
-    type Vtable = IFolderPickerContinuationEventArgs_Vtbl;
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows_core::ComInterface for IFolderPickerContinuationEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x51882366_9f4b_498f_beb0_42684f6e1c29);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -2202,9 +1885,9 @@ pub struct IFolderPickerContinuationEventArgs_Vtbl {
     #[cfg(not(all(feature = "Storage", feature = "deprecated")))]
     Folder: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ILaunchActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(ILaunchActivatedEventArgs, ILaunchActivatedEventArgs_Vtbl, 0xfbc93e26_a14a_4b4f_82b0_33bed920af52);
+::windows_core::imp::interface_hierarchy!(ILaunchActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(ILaunchActivatedEventArgs, IActivatedEventArgs);
 impl ILaunchActivatedEventArgs {
     pub fn Arguments(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -2221,37 +1904,29 @@ impl ILaunchActivatedEventArgs {
         }
     }
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(ILaunchActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for ILaunchActivatedEventArgs {}
 impl ::windows_core::RuntimeType for ILaunchActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for ILaunchActivatedEventArgs {
-    type Vtable = ILaunchActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ILaunchActivatedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfbc93e26_a14a_4b4f_82b0_33bed920af52);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2260,9 +1935,9 @@ pub struct ILaunchActivatedEventArgs_Vtbl {
     pub Arguments: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub TileId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ILaunchActivatedEventArgs2(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(ILaunchActivatedEventArgs2, ILaunchActivatedEventArgs2_Vtbl, 0x0fd37ebc_9dc9_46b5_9ace_bd95d4565345);
+::windows_core::imp::interface_hierarchy!(ILaunchActivatedEventArgs2, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(ILaunchActivatedEventArgs2, IActivatedEventArgs, ILaunchActivatedEventArgs);
 impl ILaunchActivatedEventArgs2 {
     pub fn TileActivatedInfo(&self) -> ::windows_core::Result<TileActivatedInfo> {
         let this = self;
@@ -2272,52 +1947,43 @@ impl ILaunchActivatedEventArgs2 {
         }
     }
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Arguments(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<ILaunchActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<ILaunchActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Arguments)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TileId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<ILaunchActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<ILaunchActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TileId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(ILaunchActivatedEventArgs2, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for ILaunchActivatedEventArgs2 {}
-impl ::windows_core::CanTryInto<ILaunchActivatedEventArgs> for ILaunchActivatedEventArgs2 {}
 impl ::windows_core::RuntimeType for ILaunchActivatedEventArgs2 {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for ILaunchActivatedEventArgs2 {
-    type Vtable = ILaunchActivatedEventArgs2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ILaunchActivatedEventArgs2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0fd37ebc_9dc9_46b5_9ace_bd95d4565345);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2325,9 +1991,9 @@ pub struct ILaunchActivatedEventArgs2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub TileActivatedInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ILockScreenActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(ILockScreenActivatedEventArgs, ILockScreenActivatedEventArgs_Vtbl, 0x3ca77966_6108_4a41_8220_ee7d133c8532);
+::windows_core::imp::interface_hierarchy!(ILockScreenActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(ILockScreenActivatedEventArgs, IActivatedEventArgs);
 impl ILockScreenActivatedEventArgs {
     pub fn Info(&self) -> ::windows_core::Result<::windows_core::IInspectable> {
         let this = self;
@@ -2337,37 +2003,29 @@ impl ILockScreenActivatedEventArgs {
         }
     }
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(ILockScreenActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for ILockScreenActivatedEventArgs {}
 impl ::windows_core::RuntimeType for ILockScreenActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for ILockScreenActivatedEventArgs {
-    type Vtable = ILockScreenActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ILockScreenActivatedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3ca77966_6108_4a41_8220_ee7d133c8532);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2375,9 +2033,9 @@ pub struct ILockScreenActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Info: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ILockScreenCallActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(ILockScreenCallActivatedEventArgs, ILockScreenCallActivatedEventArgs_Vtbl, 0x06f37fbe_b5f2_448b_b13e_e328ac1c516a);
+::windows_core::imp::interface_hierarchy!(ILockScreenCallActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(ILockScreenCallActivatedEventArgs, IActivatedEventArgs, ILaunchActivatedEventArgs);
 impl ILockScreenCallActivatedEventArgs {
     #[doc = "Required features: `\"ApplicationModel_Calls\"`"]
     #[cfg(feature = "ApplicationModel_Calls")]
@@ -2389,52 +2047,43 @@ impl ILockScreenCallActivatedEventArgs {
         }
     }
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Arguments(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<ILaunchActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<ILaunchActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Arguments)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TileId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<ILaunchActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<ILaunchActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TileId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(ILockScreenCallActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for ILockScreenCallActivatedEventArgs {}
-impl ::windows_core::CanTryInto<ILaunchActivatedEventArgs> for ILockScreenCallActivatedEventArgs {}
 impl ::windows_core::RuntimeType for ILockScreenCallActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for ILockScreenCallActivatedEventArgs {
-    type Vtable = ILockScreenCallActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ILockScreenCallActivatedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x06f37fbe_b5f2_448b_b13e_e328ac1c516a);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2445,9 +2094,9 @@ pub struct ILockScreenCallActivatedEventArgs_Vtbl {
     #[cfg(not(feature = "ApplicationModel_Calls"))]
     CallUI: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPhoneCallActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IPhoneCallActivatedEventArgs, IPhoneCallActivatedEventArgs_Vtbl, 0x54615221_a3c1_4ced_b62f_8c60523619ad);
+::windows_core::imp::interface_hierarchy!(IPhoneCallActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(IPhoneCallActivatedEventArgs, IActivatedEventArgs);
 impl IPhoneCallActivatedEventArgs {
     pub fn LineId(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let this = self;
@@ -2457,37 +2106,29 @@ impl IPhoneCallActivatedEventArgs {
         }
     }
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IPhoneCallActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for IPhoneCallActivatedEventArgs {}
 impl ::windows_core::RuntimeType for IPhoneCallActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IPhoneCallActivatedEventArgs {
-    type Vtable = IPhoneCallActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPhoneCallActivatedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x54615221_a3c1_4ced_b62f_8c60523619ad);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2495,9 +2136,9 @@ pub struct IPhoneCallActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub LineId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPickerReturnedActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IPickerReturnedActivatedEventArgs, IPickerReturnedActivatedEventArgs_Vtbl, 0x360defb9_a9d3_4984_a4ed_9ec734604921);
+::windows_core::imp::interface_hierarchy!(IPickerReturnedActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(IPickerReturnedActivatedEventArgs, IActivatedEventArgs);
 impl IPickerReturnedActivatedEventArgs {
     pub fn PickerOperationId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -2507,37 +2148,29 @@ impl IPickerReturnedActivatedEventArgs {
         }
     }
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IPickerReturnedActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for IPickerReturnedActivatedEventArgs {}
 impl ::windows_core::RuntimeType for IPickerReturnedActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IPickerReturnedActivatedEventArgs {
-    type Vtable = IPickerReturnedActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPickerReturnedActivatedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x360defb9_a9d3_4984_a4ed_9ec734604921);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2545,9 +2178,9 @@ pub struct IPickerReturnedActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PickerOperationId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPrelaunchActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IPrelaunchActivatedEventArgs, IPrelaunchActivatedEventArgs_Vtbl, 0x0c44717b_19f7_48d6_b046_cf22826eaa74);
+::windows_core::imp::interface_hierarchy!(IPrelaunchActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(IPrelaunchActivatedEventArgs, IActivatedEventArgs);
 impl IPrelaunchActivatedEventArgs {
     pub fn PrelaunchActivated(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -2557,37 +2190,29 @@ impl IPrelaunchActivatedEventArgs {
         }
     }
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IPrelaunchActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for IPrelaunchActivatedEventArgs {}
 impl ::windows_core::RuntimeType for IPrelaunchActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IPrelaunchActivatedEventArgs {
-    type Vtable = IPrelaunchActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPrelaunchActivatedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c44717b_19f7_48d6_b046_cf22826eaa74);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2595,9 +2220,9 @@ pub struct IPrelaunchActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub PrelaunchActivated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPrint3DWorkflowActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IPrint3DWorkflowActivatedEventArgs, IPrint3DWorkflowActivatedEventArgs_Vtbl, 0x3f57e78b_f2ac_4619_8302_ef855e1c9b90);
+::windows_core::imp::interface_hierarchy!(IPrint3DWorkflowActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(IPrint3DWorkflowActivatedEventArgs, IActivatedEventArgs);
 impl IPrint3DWorkflowActivatedEventArgs {
     #[doc = "Required features: `\"Devices_Printers_Extensions\"`"]
     #[cfg(feature = "Devices_Printers_Extensions")]
@@ -2609,37 +2234,29 @@ impl IPrint3DWorkflowActivatedEventArgs {
         }
     }
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IPrint3DWorkflowActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for IPrint3DWorkflowActivatedEventArgs {}
 impl ::windows_core::RuntimeType for IPrint3DWorkflowActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IPrint3DWorkflowActivatedEventArgs {
-    type Vtable = IPrint3DWorkflowActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPrint3DWorkflowActivatedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3f57e78b_f2ac_4619_8302_ef855e1c9b90);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2650,9 +2267,9 @@ pub struct IPrint3DWorkflowActivatedEventArgs_Vtbl {
     #[cfg(not(feature = "Devices_Printers_Extensions"))]
     Workflow: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPrintTaskSettingsActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IPrintTaskSettingsActivatedEventArgs, IPrintTaskSettingsActivatedEventArgs_Vtbl, 0xee30a0c9_ce56_4865_ba8e_8954ac271107);
+::windows_core::imp::interface_hierarchy!(IPrintTaskSettingsActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(IPrintTaskSettingsActivatedEventArgs, IActivatedEventArgs);
 impl IPrintTaskSettingsActivatedEventArgs {
     #[doc = "Required features: `\"Devices_Printers_Extensions\"`"]
     #[cfg(feature = "Devices_Printers_Extensions")]
@@ -2664,37 +2281,29 @@ impl IPrintTaskSettingsActivatedEventArgs {
         }
     }
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IPrintTaskSettingsActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for IPrintTaskSettingsActivatedEventArgs {}
 impl ::windows_core::RuntimeType for IPrintTaskSettingsActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IPrintTaskSettingsActivatedEventArgs {
-    type Vtable = IPrintTaskSettingsActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPrintTaskSettingsActivatedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xee30a0c9_ce56_4865_ba8e_8954ac271107);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2705,9 +2314,9 @@ pub struct IPrintTaskSettingsActivatedEventArgs_Vtbl {
     #[cfg(not(feature = "Devices_Printers_Extensions"))]
     Configuration: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IProtocolActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IProtocolActivatedEventArgs, IProtocolActivatedEventArgs_Vtbl, 0x6095f4dd_b7c0_46ab_81fe_d90f36d00d24);
+::windows_core::imp::interface_hierarchy!(IProtocolActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(IProtocolActivatedEventArgs, IActivatedEventArgs);
 impl IProtocolActivatedEventArgs {
     pub fn Uri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -2717,37 +2326,29 @@ impl IProtocolActivatedEventArgs {
         }
     }
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IProtocolActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for IProtocolActivatedEventArgs {}
 impl ::windows_core::RuntimeType for IProtocolActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IProtocolActivatedEventArgs {
-    type Vtable = IProtocolActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IProtocolActivatedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6095f4dd_b7c0_46ab_81fe_d90f36d00d24);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2755,9 +2356,9 @@ pub struct IProtocolActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Uri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData, IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Vtbl, 0xd84a0c12_5c8f_438c_83cb_c28fcc0b2fdb);
+::windows_core::imp::interface_hierarchy!(IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData, IActivatedEventArgs);
 impl IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {
     pub fn CallerPackageFamilyName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -2776,37 +2377,29 @@ impl IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {
         }
     }
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {}
 impl ::windows_core::RuntimeType for IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {
-    type Vtable = IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd84a0c12_5c8f_438c_83cb_c28fcc0b2fdb);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2818,9 +2411,9 @@ pub struct IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     Data: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IProtocolForResultsActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IProtocolForResultsActivatedEventArgs, IProtocolForResultsActivatedEventArgs_Vtbl, 0xe75132c2_7ae7_4517_80ac_dbe8d7cc5b9c);
+::windows_core::imp::interface_hierarchy!(IProtocolForResultsActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(IProtocolForResultsActivatedEventArgs, IActivatedEventArgs);
 impl IProtocolForResultsActivatedEventArgs {
     #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
@@ -2832,37 +2425,29 @@ impl IProtocolForResultsActivatedEventArgs {
         }
     }
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IProtocolForResultsActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for IProtocolForResultsActivatedEventArgs {}
 impl ::windows_core::RuntimeType for IProtocolForResultsActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IProtocolForResultsActivatedEventArgs {
-    type Vtable = IProtocolForResultsActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IProtocolForResultsActivatedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe75132c2_7ae7_4517_80ac_dbe8d7cc5b9c);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2873,9 +2458,9 @@ pub struct IProtocolForResultsActivatedEventArgs_Vtbl {
     #[cfg(not(feature = "System"))]
     ProtocolForResultsOperation: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRestrictedLaunchActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IRestrictedLaunchActivatedEventArgs, IRestrictedLaunchActivatedEventArgs_Vtbl, 0xe0b7ac81_bfc3_4344_a5da_19fd5a27baae);
+::windows_core::imp::interface_hierarchy!(IRestrictedLaunchActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(IRestrictedLaunchActivatedEventArgs, IActivatedEventArgs);
 impl IRestrictedLaunchActivatedEventArgs {
     pub fn SharedContext(&self) -> ::windows_core::Result<::windows_core::IInspectable> {
         let this = self;
@@ -2885,37 +2470,29 @@ impl IRestrictedLaunchActivatedEventArgs {
         }
     }
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IRestrictedLaunchActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for IRestrictedLaunchActivatedEventArgs {}
 impl ::windows_core::RuntimeType for IRestrictedLaunchActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IRestrictedLaunchActivatedEventArgs {
-    type Vtable = IRestrictedLaunchActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRestrictedLaunchActivatedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe0b7ac81_bfc3_4344_a5da_19fd5a27baae);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2923,9 +2500,9 @@ pub struct IRestrictedLaunchActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SharedContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISearchActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(ISearchActivatedEventArgs, ISearchActivatedEventArgs_Vtbl, 0x8cb36951_58c8_43e3_94bc_41d33f8b630e);
+::windows_core::imp::interface_hierarchy!(ISearchActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(ISearchActivatedEventArgs, IActivatedEventArgs);
 impl ISearchActivatedEventArgs {
     pub fn QueryText(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -2942,37 +2519,29 @@ impl ISearchActivatedEventArgs {
         }
     }
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(ISearchActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for ISearchActivatedEventArgs {}
 impl ::windows_core::RuntimeType for ISearchActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for ISearchActivatedEventArgs {
-    type Vtable = ISearchActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISearchActivatedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8cb36951_58c8_43e3_94bc_41d33f8b630e);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2981,9 +2550,8 @@ pub struct ISearchActivatedEventArgs_Vtbl {
     pub QueryText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub Language: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISearchActivatedEventArgsWithLinguisticDetails(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(ISearchActivatedEventArgsWithLinguisticDetails, ISearchActivatedEventArgsWithLinguisticDetails_Vtbl, 0xc09f33da_08ab_4931_9b7c_451025f21f81);
+::windows_core::imp::interface_hierarchy!(ISearchActivatedEventArgsWithLinguisticDetails, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ISearchActivatedEventArgsWithLinguisticDetails {
     #[doc = "Required features: `\"ApplicationModel_Search\"`"]
     #[cfg(feature = "ApplicationModel_Search")]
@@ -2995,15 +2563,8 @@ impl ISearchActivatedEventArgsWithLinguisticDetails {
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(ISearchActivatedEventArgsWithLinguisticDetails, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::RuntimeType for ISearchActivatedEventArgsWithLinguisticDetails {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for ISearchActivatedEventArgsWithLinguisticDetails {
-    type Vtable = ISearchActivatedEventArgsWithLinguisticDetails_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISearchActivatedEventArgsWithLinguisticDetails {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc09f33da_08ab_4931_9b7c_451025f21f81);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3014,9 +2575,9 @@ pub struct ISearchActivatedEventArgsWithLinguisticDetails_Vtbl {
     #[cfg(not(feature = "ApplicationModel_Search"))]
     LinguisticDetails: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IShareTargetActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IShareTargetActivatedEventArgs, IShareTargetActivatedEventArgs_Vtbl, 0x4bdaf9c8_cdb2_4acb_bfc3_6648563378ec);
+::windows_core::imp::interface_hierarchy!(IShareTargetActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(IShareTargetActivatedEventArgs, IActivatedEventArgs);
 impl IShareTargetActivatedEventArgs {
     #[doc = "Required features: `\"ApplicationModel_DataTransfer_ShareTarget\"`"]
     #[cfg(feature = "ApplicationModel_DataTransfer_ShareTarget")]
@@ -3028,37 +2589,29 @@ impl IShareTargetActivatedEventArgs {
         }
     }
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IShareTargetActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for IShareTargetActivatedEventArgs {}
 impl ::windows_core::RuntimeType for IShareTargetActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IShareTargetActivatedEventArgs {
-    type Vtable = IShareTargetActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IShareTargetActivatedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4bdaf9c8_cdb2_4acb_bfc3_6648563378ec);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3069,16 +2622,7 @@ pub struct IShareTargetActivatedEventArgs_Vtbl {
     #[cfg(not(feature = "ApplicationModel_DataTransfer_ShareTarget"))]
     ShareOperation: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISplashScreen(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISplashScreen {
-    type Vtable = ISplashScreen_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISplashScreen {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xca4d975c_d4d6_43f0_97c0_0833c6391c24);
-}
+::windows_core::imp::com_interface!(ISplashScreen, ISplashScreen_Vtbl, 0xca4d975c_d4d6_43f0_97c0_0833c6391c24);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISplashScreen_Vtbl {
@@ -3087,9 +2631,9 @@ pub struct ISplashScreen_Vtbl {
     pub Dismissed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     pub RemoveDismissed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IStartupTaskActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IStartupTaskActivatedEventArgs, IStartupTaskActivatedEventArgs_Vtbl, 0x03b11a58_5276_4d91_8621_54611864d5fa);
+::windows_core::imp::interface_hierarchy!(IStartupTaskActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(IStartupTaskActivatedEventArgs, IActivatedEventArgs);
 impl IStartupTaskActivatedEventArgs {
     pub fn TaskId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -3099,37 +2643,29 @@ impl IStartupTaskActivatedEventArgs {
         }
     }
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IStartupTaskActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for IStartupTaskActivatedEventArgs {}
 impl ::windows_core::RuntimeType for IStartupTaskActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IStartupTaskActivatedEventArgs {
-    type Vtable = IStartupTaskActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IStartupTaskActivatedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x03b11a58_5276_4d91_8621_54611864d5fa);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3137,16 +2673,7 @@ pub struct IStartupTaskActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub TaskId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ITileActivatedInfo(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ITileActivatedInfo {
-    type Vtable = ITileActivatedInfo_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ITileActivatedInfo {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x80e4a3b1_3980_4f17_b738_89194e0b8f65);
-}
+::windows_core::imp::com_interface!(ITileActivatedInfo, ITileActivatedInfo_Vtbl, 0x80e4a3b1_3980_4f17_b738_89194e0b8f65);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITileActivatedInfo_Vtbl {
@@ -3156,9 +2683,9 @@ pub struct ITileActivatedInfo_Vtbl {
     #[cfg(not(all(feature = "Foundation_Collections", feature = "UI_Notifications")))]
     RecentlyShownNotifications: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IToastNotificationActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IToastNotificationActivatedEventArgs, IToastNotificationActivatedEventArgs_Vtbl, 0x92a86f82_5290_431d_be85_c4aaeeb8685f);
+::windows_core::imp::interface_hierarchy!(IToastNotificationActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(IToastNotificationActivatedEventArgs, IActivatedEventArgs);
 impl IToastNotificationActivatedEventArgs {
     pub fn Argument(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -3177,37 +2704,29 @@ impl IToastNotificationActivatedEventArgs {
         }
     }
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IToastNotificationActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for IToastNotificationActivatedEventArgs {}
 impl ::windows_core::RuntimeType for IToastNotificationActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IToastNotificationActivatedEventArgs {
-    type Vtable = IToastNotificationActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IToastNotificationActivatedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x92a86f82_5290_431d_be85_c4aaeeb8685f);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3219,9 +2738,9 @@ pub struct IToastNotificationActivatedEventArgs_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     UserInput: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IUserDataAccountProviderActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IUserDataAccountProviderActivatedEventArgs, IUserDataAccountProviderActivatedEventArgs_Vtbl, 0x1bc9f723_8ef1_4a51_a63a_fe711eeab607);
+::windows_core::imp::interface_hierarchy!(IUserDataAccountProviderActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(IUserDataAccountProviderActivatedEventArgs, IActivatedEventArgs);
 impl IUserDataAccountProviderActivatedEventArgs {
     #[doc = "Required features: `\"ApplicationModel_UserDataAccounts_Provider\"`"]
     #[cfg(feature = "ApplicationModel_UserDataAccounts_Provider")]
@@ -3233,37 +2752,29 @@ impl IUserDataAccountProviderActivatedEventArgs {
         }
     }
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IUserDataAccountProviderActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for IUserDataAccountProviderActivatedEventArgs {}
 impl ::windows_core::RuntimeType for IUserDataAccountProviderActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IUserDataAccountProviderActivatedEventArgs {
-    type Vtable = IUserDataAccountProviderActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IUserDataAccountProviderActivatedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1bc9f723_8ef1_4a51_a63a_fe711eeab607);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3274,9 +2785,9 @@ pub struct IUserDataAccountProviderActivatedEventArgs_Vtbl {
     #[cfg(not(feature = "ApplicationModel_UserDataAccounts_Provider"))]
     Operation: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IViewSwitcherProvider(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IViewSwitcherProvider, IViewSwitcherProvider_Vtbl, 0x33f288a6_5c2c_4d27_bac7_7536088f1219);
+::windows_core::imp::interface_hierarchy!(IViewSwitcherProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(IViewSwitcherProvider, IActivatedEventArgs);
 impl IViewSwitcherProvider {
     #[doc = "Required features: `\"UI_ViewManagement\"`"]
     #[cfg(feature = "UI_ViewManagement")]
@@ -3288,37 +2799,29 @@ impl IViewSwitcherProvider {
         }
     }
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IViewSwitcherProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for IViewSwitcherProvider {}
 impl ::windows_core::RuntimeType for IViewSwitcherProvider {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IViewSwitcherProvider {
-    type Vtable = IViewSwitcherProvider_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IViewSwitcherProvider {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x33f288a6_5c2c_4d27_bac7_7536088f1219);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3329,9 +2832,9 @@ pub struct IViewSwitcherProvider_Vtbl {
     #[cfg(not(feature = "UI_ViewManagement"))]
     ViewSwitcher: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IVoiceCommandActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IVoiceCommandActivatedEventArgs, IVoiceCommandActivatedEventArgs_Vtbl, 0xab92dcfd_8d43_4de6_9775_20704b581b00);
+::windows_core::imp::interface_hierarchy!(IVoiceCommandActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(IVoiceCommandActivatedEventArgs, IActivatedEventArgs);
 impl IVoiceCommandActivatedEventArgs {
     #[doc = "Required features: `\"Media_SpeechRecognition\"`"]
     #[cfg(feature = "Media_SpeechRecognition")]
@@ -3343,37 +2846,29 @@ impl IVoiceCommandActivatedEventArgs {
         }
     }
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IVoiceCommandActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for IVoiceCommandActivatedEventArgs {}
 impl ::windows_core::RuntimeType for IVoiceCommandActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IVoiceCommandActivatedEventArgs {
-    type Vtable = IVoiceCommandActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IVoiceCommandActivatedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xab92dcfd_8d43_4de6_9775_20704b581b00);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3384,11 +2879,17 @@ pub struct IVoiceCommandActivatedEventArgs_Vtbl {
     #[cfg(not(feature = "Media_SpeechRecognition"))]
     Result: usize,
 }
-#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWalletActionActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"deprecated\"`"]
+    IWalletActionActivatedEventArgs,
+    IWalletActionActivatedEventArgs_Vtbl,
+    0xfcfc027b_1a1a_4d22_923f_ae6f45fa52d9
+);
+#[cfg(feature = "deprecated")]
+::windows_core::imp::interface_hierarchy!(IWalletActionActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+#[cfg(feature = "deprecated")]
+::windows_core::imp::required_hierarchy!(IWalletActionActivatedEventArgs, IActivatedEventArgs);
 #[cfg(feature = "deprecated")]
 impl IWalletActionActivatedEventArgs {
     #[doc = "Required features: `\"deprecated\"`"]
@@ -3419,21 +2920,21 @@ impl IWalletActionActivatedEventArgs {
         }
     }
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -3441,20 +2942,8 @@ impl IWalletActionActivatedEventArgs {
     }
 }
 #[cfg(feature = "deprecated")]
-::windows_core::imp::interface_hierarchy!(IWalletActionActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for IWalletActionActivatedEventArgs {}
-#[cfg(feature = "deprecated")]
 impl ::windows_core::RuntimeType for IWalletActionActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows_core::Interface for IWalletActionActivatedEventArgs {
-    type Vtable = IWalletActionActivatedEventArgs_Vtbl;
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows_core::ComInterface for IWalletActionActivatedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfcfc027b_1a1a_4d22_923f_ae6f45fa52d9);
 }
 #[cfg(feature = "deprecated")]
 #[repr(C)]
@@ -3474,9 +2963,9 @@ pub struct IWalletActionActivatedEventArgs_Vtbl {
     #[cfg(not(feature = "deprecated"))]
     ActionId: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWebAccountProviderActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWebAccountProviderActivatedEventArgs, IWebAccountProviderActivatedEventArgs_Vtbl, 0x72b71774_98ea_4ccf_9752_46d9051004f1);
+::windows_core::imp::interface_hierarchy!(IWebAccountProviderActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(IWebAccountProviderActivatedEventArgs, IActivatedEventArgs);
 impl IWebAccountProviderActivatedEventArgs {
     #[doc = "Required features: `\"Security_Authentication_Web_Provider\"`"]
     #[cfg(feature = "Security_Authentication_Web_Provider")]
@@ -3488,37 +2977,29 @@ impl IWebAccountProviderActivatedEventArgs {
         }
     }
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IWebAccountProviderActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for IWebAccountProviderActivatedEventArgs {}
 impl ::windows_core::RuntimeType for IWebAccountProviderActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IWebAccountProviderActivatedEventArgs {
-    type Vtable = IWebAccountProviderActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWebAccountProviderActivatedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x72b71774_98ea_4ccf_9752_46d9051004f1);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3529,9 +3010,9 @@ pub struct IWebAccountProviderActivatedEventArgs_Vtbl {
     #[cfg(not(feature = "Security_Authentication_Web_Provider"))]
     Operation: usize,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IWebAuthenticationBrokerContinuationEventArgs(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IWebAuthenticationBrokerContinuationEventArgs, IWebAuthenticationBrokerContinuationEventArgs_Vtbl, 0x75dda3d4_7714_453d_b7ff_b95e3a1709da);
+::windows_core::imp::interface_hierarchy!(IWebAuthenticationBrokerContinuationEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(IWebAuthenticationBrokerContinuationEventArgs, IActivatedEventArgs, IContinuationActivatedEventArgs);
 impl IWebAuthenticationBrokerContinuationEventArgs {
     #[doc = "Required features: `\"Security_Authentication_Web\"`"]
     #[cfg(feature = "Security_Authentication_Web")]
@@ -3543,21 +3024,21 @@ impl IWebAuthenticationBrokerContinuationEventArgs {
         }
     }
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -3566,24 +3047,15 @@ impl IWebAuthenticationBrokerContinuationEventArgs {
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ContinuationData(&self) -> ::windows_core::Result<super::super::Foundation::Collections::ValueSet> {
-        let this = &::windows_core::ComInterface::cast::<IContinuationActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IContinuationActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ContinuationData)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
-::windows_core::imp::interface_hierarchy!(IWebAuthenticationBrokerContinuationEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for IWebAuthenticationBrokerContinuationEventArgs {}
-impl ::windows_core::CanTryInto<IContinuationActivatedEventArgs> for IWebAuthenticationBrokerContinuationEventArgs {}
 impl ::windows_core::RuntimeType for IWebAuthenticationBrokerContinuationEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-unsafe impl ::windows_core::Interface for IWebAuthenticationBrokerContinuationEventArgs {
-    type Vtable = IWebAuthenticationBrokerContinuationEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IWebAuthenticationBrokerContinuationEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x75dda3d4_7714_453d_b7ff_b95e3a1709da);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3597,23 +3069,25 @@ pub struct IWebAuthenticationBrokerContinuationEventArgs_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppointmentsProviderAddAppointmentActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(AppointmentsProviderAddAppointmentActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(AppointmentsProviderAddAppointmentActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IAppointmentsProviderActivatedEventArgs, IAppointmentsProviderAddAppointmentActivatedEventArgs);
 impl AppointmentsProviderAddAppointmentActivatedEventArgs {
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -3622,14 +3096,14 @@ impl AppointmentsProviderAddAppointmentActivatedEventArgs {
     #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Verb(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Verb)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -3650,40 +3124,35 @@ impl ::windows_core::RuntimeType for AppointmentsProviderAddAppointmentActivated
 }
 unsafe impl ::windows_core::Interface for AppointmentsProviderAddAppointmentActivatedEventArgs {
     type Vtable = IAppointmentsProviderAddAppointmentActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for AppointmentsProviderAddAppointmentActivatedEventArgs {
-    const IID: ::windows_core::GUID = <IAppointmentsProviderAddAppointmentActivatedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IAppointmentsProviderAddAppointmentActivatedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for AppointmentsProviderAddAppointmentActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.AppointmentsProviderAddAppointmentActivatedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(AppointmentsProviderAddAppointmentActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for AppointmentsProviderAddAppointmentActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IActivatedEventArgsWithUser> for AppointmentsProviderAddAppointmentActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IAppointmentsProviderActivatedEventArgs> for AppointmentsProviderAddAppointmentActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IAppointmentsProviderAddAppointmentActivatedEventArgs> for AppointmentsProviderAddAppointmentActivatedEventArgs {}
 unsafe impl ::core::marker::Send for AppointmentsProviderAddAppointmentActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for AppointmentsProviderAddAppointmentActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppointmentsProviderRemoveAppointmentActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(AppointmentsProviderRemoveAppointmentActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(AppointmentsProviderRemoveAppointmentActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IAppointmentsProviderActivatedEventArgs, IAppointmentsProviderRemoveAppointmentActivatedEventArgs);
 impl AppointmentsProviderRemoveAppointmentActivatedEventArgs {
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -3692,14 +3161,14 @@ impl AppointmentsProviderRemoveAppointmentActivatedEventArgs {
     #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Verb(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Verb)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -3720,40 +3189,35 @@ impl ::windows_core::RuntimeType for AppointmentsProviderRemoveAppointmentActiva
 }
 unsafe impl ::windows_core::Interface for AppointmentsProviderRemoveAppointmentActivatedEventArgs {
     type Vtable = IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for AppointmentsProviderRemoveAppointmentActivatedEventArgs {
-    const IID: ::windows_core::GUID = <IAppointmentsProviderRemoveAppointmentActivatedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IAppointmentsProviderRemoveAppointmentActivatedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for AppointmentsProviderRemoveAppointmentActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.AppointmentsProviderRemoveAppointmentActivatedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(AppointmentsProviderRemoveAppointmentActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for AppointmentsProviderRemoveAppointmentActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IActivatedEventArgsWithUser> for AppointmentsProviderRemoveAppointmentActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IAppointmentsProviderActivatedEventArgs> for AppointmentsProviderRemoveAppointmentActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IAppointmentsProviderRemoveAppointmentActivatedEventArgs> for AppointmentsProviderRemoveAppointmentActivatedEventArgs {}
 unsafe impl ::core::marker::Send for AppointmentsProviderRemoveAppointmentActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for AppointmentsProviderRemoveAppointmentActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppointmentsProviderReplaceAppointmentActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(AppointmentsProviderReplaceAppointmentActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(AppointmentsProviderReplaceAppointmentActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IAppointmentsProviderActivatedEventArgs, IAppointmentsProviderReplaceAppointmentActivatedEventArgs);
 impl AppointmentsProviderReplaceAppointmentActivatedEventArgs {
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -3762,14 +3226,14 @@ impl AppointmentsProviderReplaceAppointmentActivatedEventArgs {
     #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Verb(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Verb)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -3790,40 +3254,35 @@ impl ::windows_core::RuntimeType for AppointmentsProviderReplaceAppointmentActiv
 }
 unsafe impl ::windows_core::Interface for AppointmentsProviderReplaceAppointmentActivatedEventArgs {
     type Vtable = IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for AppointmentsProviderReplaceAppointmentActivatedEventArgs {
-    const IID: ::windows_core::GUID = <IAppointmentsProviderReplaceAppointmentActivatedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IAppointmentsProviderReplaceAppointmentActivatedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for AppointmentsProviderReplaceAppointmentActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.AppointmentsProviderReplaceAppointmentActivatedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(AppointmentsProviderReplaceAppointmentActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for AppointmentsProviderReplaceAppointmentActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IActivatedEventArgsWithUser> for AppointmentsProviderReplaceAppointmentActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IAppointmentsProviderActivatedEventArgs> for AppointmentsProviderReplaceAppointmentActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IAppointmentsProviderReplaceAppointmentActivatedEventArgs> for AppointmentsProviderReplaceAppointmentActivatedEventArgs {}
 unsafe impl ::core::marker::Send for AppointmentsProviderReplaceAppointmentActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for AppointmentsProviderReplaceAppointmentActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppointmentsProviderShowAppointmentDetailsActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(AppointmentsProviderShowAppointmentDetailsActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(AppointmentsProviderShowAppointmentDetailsActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IAppointmentsProviderActivatedEventArgs, IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs);
 impl AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -3832,14 +3291,14 @@ impl AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Verb(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Verb)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -3872,40 +3331,35 @@ impl ::windows_core::RuntimeType for AppointmentsProviderShowAppointmentDetailsA
 }
 unsafe impl ::windows_core::Interface for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     type Vtable = IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
-    const IID: ::windows_core::GUID = <IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.AppointmentsProviderShowAppointmentDetailsActivatedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(AppointmentsProviderShowAppointmentDetailsActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IActivatedEventArgsWithUser> for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IAppointmentsProviderActivatedEventArgs> for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {}
 unsafe impl ::core::marker::Send for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppointmentsProviderShowTimeFrameActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(AppointmentsProviderShowTimeFrameActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(AppointmentsProviderShowTimeFrameActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IAppointmentsProviderActivatedEventArgs, IAppointmentsProviderShowTimeFrameActivatedEventArgs);
 impl AppointmentsProviderShowTimeFrameActivatedEventArgs {
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -3914,14 +3368,14 @@ impl AppointmentsProviderShowTimeFrameActivatedEventArgs {
     #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Verb(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Verb)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -3947,23 +3401,18 @@ impl ::windows_core::RuntimeType for AppointmentsProviderShowTimeFrameActivatedE
 }
 unsafe impl ::windows_core::Interface for AppointmentsProviderShowTimeFrameActivatedEventArgs {
     type Vtable = IAppointmentsProviderShowTimeFrameActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for AppointmentsProviderShowTimeFrameActivatedEventArgs {
-    const IID: ::windows_core::GUID = <IAppointmentsProviderShowTimeFrameActivatedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IAppointmentsProviderShowTimeFrameActivatedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for AppointmentsProviderShowTimeFrameActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.AppointmentsProviderShowTimeFrameActivatedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(AppointmentsProviderShowTimeFrameActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for AppointmentsProviderShowTimeFrameActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IActivatedEventArgsWithUser> for AppointmentsProviderShowTimeFrameActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IAppointmentsProviderActivatedEventArgs> for AppointmentsProviderShowTimeFrameActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IAppointmentsProviderShowTimeFrameActivatedEventArgs> for AppointmentsProviderShowTimeFrameActivatedEventArgs {}
 unsafe impl ::core::marker::Send for AppointmentsProviderShowTimeFrameActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for AppointmentsProviderShowTimeFrameActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct BackgroundActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(BackgroundActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(BackgroundActivatedEventArgs, IBackgroundActivatedEventArgs);
 impl BackgroundActivatedEventArgs {
     #[doc = "Required features: `\"ApplicationModel_Background\"`"]
     #[cfg(feature = "ApplicationModel_Background")]
@@ -3980,37 +3429,35 @@ impl ::windows_core::RuntimeType for BackgroundActivatedEventArgs {
 }
 unsafe impl ::windows_core::Interface for BackgroundActivatedEventArgs {
     type Vtable = IBackgroundActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for BackgroundActivatedEventArgs {
-    const IID: ::windows_core::GUID = <IBackgroundActivatedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IBackgroundActivatedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for BackgroundActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.BackgroundActivatedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(BackgroundActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IBackgroundActivatedEventArgs> for BackgroundActivatedEventArgs {}
 unsafe impl ::core::marker::Send for BackgroundActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for BackgroundActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct BarcodeScannerPreviewActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(BarcodeScannerPreviewActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(BarcodeScannerPreviewActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IBarcodeScannerPreviewActivatedEventArgs);
 impl BarcodeScannerPreviewActivatedEventArgs {
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -4019,7 +3466,7 @@ impl BarcodeScannerPreviewActivatedEventArgs {
     #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -4038,39 +3485,35 @@ impl ::windows_core::RuntimeType for BarcodeScannerPreviewActivatedEventArgs {
 }
 unsafe impl ::windows_core::Interface for BarcodeScannerPreviewActivatedEventArgs {
     type Vtable = IBarcodeScannerPreviewActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for BarcodeScannerPreviewActivatedEventArgs {
-    const IID: ::windows_core::GUID = <IBarcodeScannerPreviewActivatedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IBarcodeScannerPreviewActivatedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for BarcodeScannerPreviewActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.BarcodeScannerPreviewActivatedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(BarcodeScannerPreviewActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for BarcodeScannerPreviewActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IActivatedEventArgsWithUser> for BarcodeScannerPreviewActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IBarcodeScannerPreviewActivatedEventArgs> for BarcodeScannerPreviewActivatedEventArgs {}
 unsafe impl ::core::marker::Send for BarcodeScannerPreviewActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for BarcodeScannerPreviewActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CachedFileUpdaterActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(CachedFileUpdaterActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(CachedFileUpdaterActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, ICachedFileUpdaterActivatedEventArgs);
 impl CachedFileUpdaterActivatedEventArgs {
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -4079,7 +3522,7 @@ impl CachedFileUpdaterActivatedEventArgs {
     #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -4100,39 +3543,35 @@ impl ::windows_core::RuntimeType for CachedFileUpdaterActivatedEventArgs {
 }
 unsafe impl ::windows_core::Interface for CachedFileUpdaterActivatedEventArgs {
     type Vtable = ICachedFileUpdaterActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for CachedFileUpdaterActivatedEventArgs {
-    const IID: ::windows_core::GUID = <ICachedFileUpdaterActivatedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ICachedFileUpdaterActivatedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for CachedFileUpdaterActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.CachedFileUpdaterActivatedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(CachedFileUpdaterActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for CachedFileUpdaterActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IActivatedEventArgsWithUser> for CachedFileUpdaterActivatedEventArgs {}
-impl ::windows_core::CanTryInto<ICachedFileUpdaterActivatedEventArgs> for CachedFileUpdaterActivatedEventArgs {}
 unsafe impl ::core::marker::Send for CachedFileUpdaterActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for CachedFileUpdaterActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CameraSettingsActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(CameraSettingsActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(CameraSettingsActivatedEventArgs, IActivatedEventArgs, ICameraSettingsActivatedEventArgs);
 impl CameraSettingsActivatedEventArgs {
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -4158,38 +3597,35 @@ impl ::windows_core::RuntimeType for CameraSettingsActivatedEventArgs {
 }
 unsafe impl ::windows_core::Interface for CameraSettingsActivatedEventArgs {
     type Vtable = ICameraSettingsActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for CameraSettingsActivatedEventArgs {
-    const IID: ::windows_core::GUID = <ICameraSettingsActivatedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ICameraSettingsActivatedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for CameraSettingsActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.CameraSettingsActivatedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(CameraSettingsActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for CameraSettingsActivatedEventArgs {}
-impl ::windows_core::CanTryInto<ICameraSettingsActivatedEventArgs> for CameraSettingsActivatedEventArgs {}
 unsafe impl ::core::marker::Send for CameraSettingsActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for CameraSettingsActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CommandLineActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(CommandLineActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(CommandLineActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, ICommandLineActivatedEventArgs);
 impl CommandLineActivatedEventArgs {
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -4198,7 +3634,7 @@ impl CommandLineActivatedEventArgs {
     #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -4217,22 +3653,17 @@ impl ::windows_core::RuntimeType for CommandLineActivatedEventArgs {
 }
 unsafe impl ::windows_core::Interface for CommandLineActivatedEventArgs {
     type Vtable = ICommandLineActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for CommandLineActivatedEventArgs {
-    const IID: ::windows_core::GUID = <ICommandLineActivatedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ICommandLineActivatedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for CommandLineActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.CommandLineActivatedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(CommandLineActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for CommandLineActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IActivatedEventArgsWithUser> for CommandLineActivatedEventArgs {}
-impl ::windows_core::CanTryInto<ICommandLineActivatedEventArgs> for CommandLineActivatedEventArgs {}
 unsafe impl ::core::marker::Send for CommandLineActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for CommandLineActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CommandLineActivationOperation(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(CommandLineActivationOperation, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl CommandLineActivationOperation {
     pub fn Arguments(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -4272,43 +3703,42 @@ impl ::windows_core::RuntimeType for CommandLineActivationOperation {
 }
 unsafe impl ::windows_core::Interface for CommandLineActivationOperation {
     type Vtable = ICommandLineActivationOperation_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for CommandLineActivationOperation {
-    const IID: ::windows_core::GUID = <ICommandLineActivationOperation as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ICommandLineActivationOperation as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for CommandLineActivationOperation {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.CommandLineActivationOperation";
 }
-::windows_core::imp::interface_hierarchy!(CommandLineActivationOperation, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for CommandLineActivationOperation {}
 unsafe impl ::core::marker::Sync for CommandLineActivationOperation {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ContactCallActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(ContactCallActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(ContactCallActivatedEventArgs, IActivatedEventArgs, IContactActivatedEventArgs, IContactCallActivatedEventArgs);
 impl ContactCallActivatedEventArgs {
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Verb(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<IContactActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IContactActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Verb)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -4343,46 +3773,42 @@ impl ::windows_core::RuntimeType for ContactCallActivatedEventArgs {
 }
 unsafe impl ::windows_core::Interface for ContactCallActivatedEventArgs {
     type Vtable = IContactCallActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ContactCallActivatedEventArgs {
-    const IID: ::windows_core::GUID = <IContactCallActivatedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IContactCallActivatedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for ContactCallActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactCallActivatedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(ContactCallActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for ContactCallActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IContactActivatedEventArgs> for ContactCallActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IContactCallActivatedEventArgs> for ContactCallActivatedEventArgs {}
 unsafe impl ::core::marker::Send for ContactCallActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for ContactCallActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ContactMapActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(ContactMapActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(ContactMapActivatedEventArgs, IActivatedEventArgs, IContactActivatedEventArgs, IContactMapActivatedEventArgs);
 impl ContactMapActivatedEventArgs {
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Verb(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<IContactActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IContactActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Verb)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -4412,46 +3838,42 @@ impl ::windows_core::RuntimeType for ContactMapActivatedEventArgs {
 }
 unsafe impl ::windows_core::Interface for ContactMapActivatedEventArgs {
     type Vtable = IContactMapActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ContactMapActivatedEventArgs {
-    const IID: ::windows_core::GUID = <IContactMapActivatedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IContactMapActivatedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for ContactMapActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactMapActivatedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(ContactMapActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for ContactMapActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IContactActivatedEventArgs> for ContactMapActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IContactMapActivatedEventArgs> for ContactMapActivatedEventArgs {}
 unsafe impl ::core::marker::Send for ContactMapActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for ContactMapActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ContactMessageActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(ContactMessageActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(ContactMessageActivatedEventArgs, IActivatedEventArgs, IContactActivatedEventArgs, IContactMessageActivatedEventArgs);
 impl ContactMessageActivatedEventArgs {
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Verb(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<IContactActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IContactActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Verb)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -4486,39 +3908,35 @@ impl ::windows_core::RuntimeType for ContactMessageActivatedEventArgs {
 }
 unsafe impl ::windows_core::Interface for ContactMessageActivatedEventArgs {
     type Vtable = IContactMessageActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ContactMessageActivatedEventArgs {
-    const IID: ::windows_core::GUID = <IContactMessageActivatedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IContactMessageActivatedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for ContactMessageActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactMessageActivatedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(ContactMessageActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for ContactMessageActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IContactActivatedEventArgs> for ContactMessageActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IContactMessageActivatedEventArgs> for ContactMessageActivatedEventArgs {}
 unsafe impl ::core::marker::Send for ContactMessageActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for ContactMessageActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ContactPanelActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(ContactPanelActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(ContactPanelActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IContactPanelActivatedEventArgs);
 impl ContactPanelActivatedEventArgs {
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -4527,7 +3945,7 @@ impl ContactPanelActivatedEventArgs {
     #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -4557,39 +3975,35 @@ impl ::windows_core::RuntimeType for ContactPanelActivatedEventArgs {
 }
 unsafe impl ::windows_core::Interface for ContactPanelActivatedEventArgs {
     type Vtable = IContactPanelActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ContactPanelActivatedEventArgs {
-    const IID: ::windows_core::GUID = <IContactPanelActivatedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IContactPanelActivatedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for ContactPanelActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactPanelActivatedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(ContactPanelActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for ContactPanelActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IActivatedEventArgsWithUser> for ContactPanelActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IContactPanelActivatedEventArgs> for ContactPanelActivatedEventArgs {}
 unsafe impl ::core::marker::Send for ContactPanelActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for ContactPanelActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ContactPickerActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(ContactPickerActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(ContactPickerActivatedEventArgs, IActivatedEventArgs, IContactPickerActivatedEventArgs);
 impl ContactPickerActivatedEventArgs {
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -4610,45 +4024,42 @@ impl ::windows_core::RuntimeType for ContactPickerActivatedEventArgs {
 }
 unsafe impl ::windows_core::Interface for ContactPickerActivatedEventArgs {
     type Vtable = IContactPickerActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ContactPickerActivatedEventArgs {
-    const IID: ::windows_core::GUID = <IContactPickerActivatedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IContactPickerActivatedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for ContactPickerActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactPickerActivatedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(ContactPickerActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for ContactPickerActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IContactPickerActivatedEventArgs> for ContactPickerActivatedEventArgs {}
 unsafe impl ::core::marker::Send for ContactPickerActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for ContactPickerActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ContactPostActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(ContactPostActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(ContactPostActivatedEventArgs, IActivatedEventArgs, IContactActivatedEventArgs, IContactPostActivatedEventArgs);
 impl ContactPostActivatedEventArgs {
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Verb(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<IContactActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IContactActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Verb)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -4683,46 +4094,42 @@ impl ::windows_core::RuntimeType for ContactPostActivatedEventArgs {
 }
 unsafe impl ::windows_core::Interface for ContactPostActivatedEventArgs {
     type Vtable = IContactPostActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ContactPostActivatedEventArgs {
-    const IID: ::windows_core::GUID = <IContactPostActivatedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IContactPostActivatedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for ContactPostActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactPostActivatedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(ContactPostActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for ContactPostActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IContactActivatedEventArgs> for ContactPostActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IContactPostActivatedEventArgs> for ContactPostActivatedEventArgs {}
 unsafe impl ::core::marker::Send for ContactPostActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for ContactPostActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ContactVideoCallActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(ContactVideoCallActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(ContactVideoCallActivatedEventArgs, IActivatedEventArgs, IContactActivatedEventArgs, IContactVideoCallActivatedEventArgs);
 impl ContactVideoCallActivatedEventArgs {
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Verb(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<IContactActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IContactActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Verb)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -4757,39 +4164,35 @@ impl ::windows_core::RuntimeType for ContactVideoCallActivatedEventArgs {
 }
 unsafe impl ::windows_core::Interface for ContactVideoCallActivatedEventArgs {
     type Vtable = IContactVideoCallActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ContactVideoCallActivatedEventArgs {
-    const IID: ::windows_core::GUID = <IContactVideoCallActivatedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IContactVideoCallActivatedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for ContactVideoCallActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactVideoCallActivatedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(ContactVideoCallActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for ContactVideoCallActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IContactActivatedEventArgs> for ContactVideoCallActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IContactVideoCallActivatedEventArgs> for ContactVideoCallActivatedEventArgs {}
 unsafe impl ::core::marker::Send for ContactVideoCallActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for ContactVideoCallActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DeviceActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(DeviceActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(DeviceActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IApplicationViewActivatedEventArgs, IDeviceActivatedEventArgs, IViewSwitcherProvider);
 impl DeviceActivatedEventArgs {
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -4798,14 +4201,14 @@ impl DeviceActivatedEventArgs {
     #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CurrentlyShownApplicationViewId(&self) -> ::windows_core::Result<i32> {
-        let this = &::windows_core::ComInterface::cast::<IApplicationViewActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CurrentlyShownApplicationViewId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -4828,7 +4231,7 @@ impl DeviceActivatedEventArgs {
     #[doc = "Required features: `\"UI_ViewManagement\"`"]
     #[cfg(feature = "UI_ViewManagement")]
     pub fn ViewSwitcher(&self) -> ::windows_core::Result<super::super::UI::ViewManagement::ActivationViewSwitcher> {
-        let this = &::windows_core::ComInterface::cast::<IViewSwitcherProvider>(self)?;
+        let this = &::windows_core::Interface::cast::<IViewSwitcherProvider>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ViewSwitcher)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -4840,41 +4243,35 @@ impl ::windows_core::RuntimeType for DeviceActivatedEventArgs {
 }
 unsafe impl ::windows_core::Interface for DeviceActivatedEventArgs {
     type Vtable = IDeviceActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for DeviceActivatedEventArgs {
-    const IID: ::windows_core::GUID = <IDeviceActivatedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IDeviceActivatedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for DeviceActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.DeviceActivatedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(DeviceActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for DeviceActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IActivatedEventArgsWithUser> for DeviceActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IApplicationViewActivatedEventArgs> for DeviceActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IDeviceActivatedEventArgs> for DeviceActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IViewSwitcherProvider> for DeviceActivatedEventArgs {}
 unsafe impl ::core::marker::Send for DeviceActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for DeviceActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DevicePairingActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(DevicePairingActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(DevicePairingActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IDevicePairingActivatedEventArgs);
 impl DevicePairingActivatedEventArgs {
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -4883,7 +4280,7 @@ impl DevicePairingActivatedEventArgs {
     #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -4904,39 +4301,35 @@ impl ::windows_core::RuntimeType for DevicePairingActivatedEventArgs {
 }
 unsafe impl ::windows_core::Interface for DevicePairingActivatedEventArgs {
     type Vtable = IDevicePairingActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for DevicePairingActivatedEventArgs {
-    const IID: ::windows_core::GUID = <IDevicePairingActivatedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IDevicePairingActivatedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for DevicePairingActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.DevicePairingActivatedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(DevicePairingActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for DevicePairingActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IActivatedEventArgsWithUser> for DevicePairingActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IDevicePairingActivatedEventArgs> for DevicePairingActivatedEventArgs {}
 unsafe impl ::core::marker::Send for DevicePairingActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for DevicePairingActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DialReceiverActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(DialReceiverActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(DialReceiverActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IApplicationViewActivatedEventArgs, IDialReceiverActivatedEventArgs, ILaunchActivatedEventArgs, IViewSwitcherProvider);
 impl DialReceiverActivatedEventArgs {
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -4945,14 +4338,14 @@ impl DialReceiverActivatedEventArgs {
     #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CurrentlyShownApplicationViewId(&self) -> ::windows_core::Result<i32> {
-        let this = &::windows_core::ComInterface::cast::<IApplicationViewActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CurrentlyShownApplicationViewId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -4966,14 +4359,14 @@ impl DialReceiverActivatedEventArgs {
         }
     }
     pub fn Arguments(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<ILaunchActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<ILaunchActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Arguments)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TileId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<ILaunchActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<ILaunchActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TileId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -4982,7 +4375,7 @@ impl DialReceiverActivatedEventArgs {
     #[doc = "Required features: `\"UI_ViewManagement\"`"]
     #[cfg(feature = "UI_ViewManagement")]
     pub fn ViewSwitcher(&self) -> ::windows_core::Result<super::super::UI::ViewManagement::ActivationViewSwitcher> {
-        let this = &::windows_core::ComInterface::cast::<IViewSwitcherProvider>(self)?;
+        let this = &::windows_core::Interface::cast::<IViewSwitcherProvider>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ViewSwitcher)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -4994,42 +4387,35 @@ impl ::windows_core::RuntimeType for DialReceiverActivatedEventArgs {
 }
 unsafe impl ::windows_core::Interface for DialReceiverActivatedEventArgs {
     type Vtable = IDialReceiverActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for DialReceiverActivatedEventArgs {
-    const IID: ::windows_core::GUID = <IDialReceiverActivatedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IDialReceiverActivatedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for DialReceiverActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.DialReceiverActivatedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(DialReceiverActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for DialReceiverActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IActivatedEventArgsWithUser> for DialReceiverActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IApplicationViewActivatedEventArgs> for DialReceiverActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IDialReceiverActivatedEventArgs> for DialReceiverActivatedEventArgs {}
-impl ::windows_core::CanTryInto<ILaunchActivatedEventArgs> for DialReceiverActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IViewSwitcherProvider> for DialReceiverActivatedEventArgs {}
 unsafe impl ::core::marker::Send for DialReceiverActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for DialReceiverActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct FileActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(FileActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(FileActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IApplicationViewActivatedEventArgs, IFileActivatedEventArgs, IFileActivatedEventArgsWithCallerPackageFamilyName, IFileActivatedEventArgsWithNeighboringFiles, IViewSwitcherProvider);
 impl FileActivatedEventArgs {
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -5038,14 +4424,14 @@ impl FileActivatedEventArgs {
     #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CurrentlyShownApplicationViewId(&self) -> ::windows_core::Result<i32> {
-        let this = &::windows_core::ComInterface::cast::<IApplicationViewActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CurrentlyShownApplicationViewId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -5068,7 +4454,7 @@ impl FileActivatedEventArgs {
         }
     }
     pub fn CallerPackageFamilyName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<IFileActivatedEventArgsWithCallerPackageFamilyName>(self)?;
+        let this = &::windows_core::Interface::cast::<IFileActivatedEventArgsWithCallerPackageFamilyName>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CallerPackageFamilyName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -5077,7 +4463,7 @@ impl FileActivatedEventArgs {
     #[doc = "Required features: `\"Storage_Search\"`"]
     #[cfg(feature = "Storage_Search")]
     pub fn NeighboringFilesQuery(&self) -> ::windows_core::Result<super::super::Storage::Search::StorageFileQueryResult> {
-        let this = &::windows_core::ComInterface::cast::<IFileActivatedEventArgsWithNeighboringFiles>(self)?;
+        let this = &::windows_core::Interface::cast::<IFileActivatedEventArgsWithNeighboringFiles>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).NeighboringFilesQuery)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -5086,7 +4472,7 @@ impl FileActivatedEventArgs {
     #[doc = "Required features: `\"UI_ViewManagement\"`"]
     #[cfg(feature = "UI_ViewManagement")]
     pub fn ViewSwitcher(&self) -> ::windows_core::Result<super::super::UI::ViewManagement::ActivationViewSwitcher> {
-        let this = &::windows_core::ComInterface::cast::<IViewSwitcherProvider>(self)?;
+        let this = &::windows_core::Interface::cast::<IViewSwitcherProvider>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ViewSwitcher)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -5098,43 +4484,35 @@ impl ::windows_core::RuntimeType for FileActivatedEventArgs {
 }
 unsafe impl ::windows_core::Interface for FileActivatedEventArgs {
     type Vtable = IFileActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for FileActivatedEventArgs {
-    const IID: ::windows_core::GUID = <IFileActivatedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IFileActivatedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for FileActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.FileActivatedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(FileActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for FileActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IActivatedEventArgsWithUser> for FileActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IApplicationViewActivatedEventArgs> for FileActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IFileActivatedEventArgs> for FileActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IFileActivatedEventArgsWithCallerPackageFamilyName> for FileActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IFileActivatedEventArgsWithNeighboringFiles> for FileActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IViewSwitcherProvider> for FileActivatedEventArgs {}
 unsafe impl ::core::marker::Send for FileActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for FileActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct FileOpenPickerActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(FileOpenPickerActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(FileOpenPickerActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IFileOpenPickerActivatedEventArgs, IFileOpenPickerActivatedEventArgs2);
 impl FileOpenPickerActivatedEventArgs {
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -5143,7 +4521,7 @@ impl FileOpenPickerActivatedEventArgs {
     #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -5159,7 +4537,7 @@ impl FileOpenPickerActivatedEventArgs {
         }
     }
     pub fn CallerPackageFamilyName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<IFileOpenPickerActivatedEventArgs2>(self)?;
+        let this = &::windows_core::Interface::cast::<IFileOpenPickerActivatedEventArgs2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CallerPackageFamilyName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -5171,18 +4549,11 @@ impl ::windows_core::RuntimeType for FileOpenPickerActivatedEventArgs {
 }
 unsafe impl ::windows_core::Interface for FileOpenPickerActivatedEventArgs {
     type Vtable = IFileOpenPickerActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for FileOpenPickerActivatedEventArgs {
-    const IID: ::windows_core::GUID = <IFileOpenPickerActivatedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IFileOpenPickerActivatedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for FileOpenPickerActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.FileOpenPickerActivatedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(FileOpenPickerActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for FileOpenPickerActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IActivatedEventArgsWithUser> for FileOpenPickerActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IFileOpenPickerActivatedEventArgs> for FileOpenPickerActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IFileOpenPickerActivatedEventArgs2> for FileOpenPickerActivatedEventArgs {}
 unsafe impl ::core::marker::Send for FileOpenPickerActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for FileOpenPickerActivatedEventArgs {}
 #[doc = "Required features: `\"deprecated\"`"]
@@ -5191,23 +4562,27 @@ unsafe impl ::core::marker::Sync for FileOpenPickerActivatedEventArgs {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct FileOpenPickerContinuationEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
+::windows_core::imp::interface_hierarchy!(FileOpenPickerContinuationEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+#[cfg(feature = "deprecated")]
+::windows_core::imp::required_hierarchy!(FileOpenPickerContinuationEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IContinuationActivatedEventArgs, IFileOpenPickerContinuationEventArgs);
+#[cfg(feature = "deprecated")]
 impl FileOpenPickerContinuationEventArgs {
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -5216,7 +4591,7 @@ impl FileOpenPickerContinuationEventArgs {
     #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -5225,7 +4600,7 @@ impl FileOpenPickerContinuationEventArgs {
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ContinuationData(&self) -> ::windows_core::Result<super::super::Foundation::Collections::ValueSet> {
-        let this = &::windows_core::ComInterface::cast::<IContinuationActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IContinuationActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ContinuationData)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -5248,25 +4623,12 @@ impl ::windows_core::RuntimeType for FileOpenPickerContinuationEventArgs {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows_core::Interface for FileOpenPickerContinuationEventArgs {
     type Vtable = IFileOpenPickerContinuationEventArgs_Vtbl;
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows_core::ComInterface for FileOpenPickerContinuationEventArgs {
-    const IID: ::windows_core::GUID = <IFileOpenPickerContinuationEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IFileOpenPickerContinuationEventArgs as ::windows_core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows_core::RuntimeName for FileOpenPickerContinuationEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.FileOpenPickerContinuationEventArgs";
 }
-#[cfg(feature = "deprecated")]
-::windows_core::imp::interface_hierarchy!(FileOpenPickerContinuationEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for FileOpenPickerContinuationEventArgs {}
-#[cfg(feature = "deprecated")]
-impl ::windows_core::CanTryInto<IActivatedEventArgsWithUser> for FileOpenPickerContinuationEventArgs {}
-#[cfg(feature = "deprecated")]
-impl ::windows_core::CanTryInto<IContinuationActivatedEventArgs> for FileOpenPickerContinuationEventArgs {}
-#[cfg(feature = "deprecated")]
-impl ::windows_core::CanTryInto<IFileOpenPickerContinuationEventArgs> for FileOpenPickerContinuationEventArgs {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for FileOpenPickerContinuationEventArgs {}
 #[cfg(feature = "deprecated")]
@@ -5274,23 +4636,25 @@ unsafe impl ::core::marker::Sync for FileOpenPickerContinuationEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct FileSavePickerActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(FileSavePickerActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(FileSavePickerActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IFileSavePickerActivatedEventArgs, IFileSavePickerActivatedEventArgs2);
 impl FileSavePickerActivatedEventArgs {
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -5299,7 +4663,7 @@ impl FileSavePickerActivatedEventArgs {
     #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -5315,14 +4679,14 @@ impl FileSavePickerActivatedEventArgs {
         }
     }
     pub fn CallerPackageFamilyName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<IFileSavePickerActivatedEventArgs2>(self)?;
+        let this = &::windows_core::Interface::cast::<IFileSavePickerActivatedEventArgs2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CallerPackageFamilyName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn EnterpriseId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<IFileSavePickerActivatedEventArgs2>(self)?;
+        let this = &::windows_core::Interface::cast::<IFileSavePickerActivatedEventArgs2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).EnterpriseId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -5334,18 +4698,11 @@ impl ::windows_core::RuntimeType for FileSavePickerActivatedEventArgs {
 }
 unsafe impl ::windows_core::Interface for FileSavePickerActivatedEventArgs {
     type Vtable = IFileSavePickerActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for FileSavePickerActivatedEventArgs {
-    const IID: ::windows_core::GUID = <IFileSavePickerActivatedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IFileSavePickerActivatedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for FileSavePickerActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.FileSavePickerActivatedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(FileSavePickerActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for FileSavePickerActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IActivatedEventArgsWithUser> for FileSavePickerActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IFileSavePickerActivatedEventArgs> for FileSavePickerActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IFileSavePickerActivatedEventArgs2> for FileSavePickerActivatedEventArgs {}
 unsafe impl ::core::marker::Send for FileSavePickerActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for FileSavePickerActivatedEventArgs {}
 #[doc = "Required features: `\"deprecated\"`"]
@@ -5354,23 +4711,27 @@ unsafe impl ::core::marker::Sync for FileSavePickerActivatedEventArgs {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct FileSavePickerContinuationEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
+::windows_core::imp::interface_hierarchy!(FileSavePickerContinuationEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+#[cfg(feature = "deprecated")]
+::windows_core::imp::required_hierarchy!(FileSavePickerContinuationEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IContinuationActivatedEventArgs, IFileSavePickerContinuationEventArgs);
+#[cfg(feature = "deprecated")]
 impl FileSavePickerContinuationEventArgs {
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -5379,7 +4740,7 @@ impl FileSavePickerContinuationEventArgs {
     #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -5388,7 +4749,7 @@ impl FileSavePickerContinuationEventArgs {
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ContinuationData(&self) -> ::windows_core::Result<super::super::Foundation::Collections::ValueSet> {
-        let this = &::windows_core::ComInterface::cast::<IContinuationActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IContinuationActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ContinuationData)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -5411,25 +4772,12 @@ impl ::windows_core::RuntimeType for FileSavePickerContinuationEventArgs {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows_core::Interface for FileSavePickerContinuationEventArgs {
     type Vtable = IFileSavePickerContinuationEventArgs_Vtbl;
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows_core::ComInterface for FileSavePickerContinuationEventArgs {
-    const IID: ::windows_core::GUID = <IFileSavePickerContinuationEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IFileSavePickerContinuationEventArgs as ::windows_core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows_core::RuntimeName for FileSavePickerContinuationEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.FileSavePickerContinuationEventArgs";
 }
-#[cfg(feature = "deprecated")]
-::windows_core::imp::interface_hierarchy!(FileSavePickerContinuationEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for FileSavePickerContinuationEventArgs {}
-#[cfg(feature = "deprecated")]
-impl ::windows_core::CanTryInto<IActivatedEventArgsWithUser> for FileSavePickerContinuationEventArgs {}
-#[cfg(feature = "deprecated")]
-impl ::windows_core::CanTryInto<IContinuationActivatedEventArgs> for FileSavePickerContinuationEventArgs {}
-#[cfg(feature = "deprecated")]
-impl ::windows_core::CanTryInto<IFileSavePickerContinuationEventArgs> for FileSavePickerContinuationEventArgs {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for FileSavePickerContinuationEventArgs {}
 #[cfg(feature = "deprecated")]
@@ -5440,23 +4788,27 @@ unsafe impl ::core::marker::Sync for FileSavePickerContinuationEventArgs {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct FolderPickerContinuationEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
+::windows_core::imp::interface_hierarchy!(FolderPickerContinuationEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+#[cfg(feature = "deprecated")]
+::windows_core::imp::required_hierarchy!(FolderPickerContinuationEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IContinuationActivatedEventArgs, IFolderPickerContinuationEventArgs);
+#[cfg(feature = "deprecated")]
 impl FolderPickerContinuationEventArgs {
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -5465,7 +4817,7 @@ impl FolderPickerContinuationEventArgs {
     #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -5474,7 +4826,7 @@ impl FolderPickerContinuationEventArgs {
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ContinuationData(&self) -> ::windows_core::Result<super::super::Foundation::Collections::ValueSet> {
-        let this = &::windows_core::ComInterface::cast::<IContinuationActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IContinuationActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ContinuationData)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -5497,25 +4849,12 @@ impl ::windows_core::RuntimeType for FolderPickerContinuationEventArgs {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows_core::Interface for FolderPickerContinuationEventArgs {
     type Vtable = IFolderPickerContinuationEventArgs_Vtbl;
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows_core::ComInterface for FolderPickerContinuationEventArgs {
-    const IID: ::windows_core::GUID = <IFolderPickerContinuationEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IFolderPickerContinuationEventArgs as ::windows_core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows_core::RuntimeName for FolderPickerContinuationEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.FolderPickerContinuationEventArgs";
 }
-#[cfg(feature = "deprecated")]
-::windows_core::imp::interface_hierarchy!(FolderPickerContinuationEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for FolderPickerContinuationEventArgs {}
-#[cfg(feature = "deprecated")]
-impl ::windows_core::CanTryInto<IActivatedEventArgsWithUser> for FolderPickerContinuationEventArgs {}
-#[cfg(feature = "deprecated")]
-impl ::windows_core::CanTryInto<IContinuationActivatedEventArgs> for FolderPickerContinuationEventArgs {}
-#[cfg(feature = "deprecated")]
-impl ::windows_core::CanTryInto<IFolderPickerContinuationEventArgs> for FolderPickerContinuationEventArgs {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for FolderPickerContinuationEventArgs {}
 #[cfg(feature = "deprecated")]
@@ -5523,23 +4862,25 @@ unsafe impl ::core::marker::Sync for FolderPickerContinuationEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LaunchActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(LaunchActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(LaunchActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IApplicationViewActivatedEventArgs, ILaunchActivatedEventArgs, ILaunchActivatedEventArgs2, IPrelaunchActivatedEventArgs, IViewSwitcherProvider);
 impl LaunchActivatedEventArgs {
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -5548,14 +4889,14 @@ impl LaunchActivatedEventArgs {
     #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CurrentlyShownApplicationViewId(&self) -> ::windows_core::Result<i32> {
-        let this = &::windows_core::ComInterface::cast::<IApplicationViewActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CurrentlyShownApplicationViewId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -5576,14 +4917,14 @@ impl LaunchActivatedEventArgs {
         }
     }
     pub fn TileActivatedInfo(&self) -> ::windows_core::Result<TileActivatedInfo> {
-        let this = &::windows_core::ComInterface::cast::<ILaunchActivatedEventArgs2>(self)?;
+        let this = &::windows_core::Interface::cast::<ILaunchActivatedEventArgs2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TileActivatedInfo)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PrelaunchActivated(&self) -> ::windows_core::Result<bool> {
-        let this = &::windows_core::ComInterface::cast::<IPrelaunchActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IPrelaunchActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PrelaunchActivated)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -5592,7 +4933,7 @@ impl LaunchActivatedEventArgs {
     #[doc = "Required features: `\"UI_ViewManagement\"`"]
     #[cfg(feature = "UI_ViewManagement")]
     pub fn ViewSwitcher(&self) -> ::windows_core::Result<super::super::UI::ViewManagement::ActivationViewSwitcher> {
-        let this = &::windows_core::ComInterface::cast::<IViewSwitcherProvider>(self)?;
+        let this = &::windows_core::Interface::cast::<IViewSwitcherProvider>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ViewSwitcher)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -5604,43 +4945,35 @@ impl ::windows_core::RuntimeType for LaunchActivatedEventArgs {
 }
 unsafe impl ::windows_core::Interface for LaunchActivatedEventArgs {
     type Vtable = ILaunchActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for LaunchActivatedEventArgs {
-    const IID: ::windows_core::GUID = <ILaunchActivatedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ILaunchActivatedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for LaunchActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.LaunchActivatedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(LaunchActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for LaunchActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IActivatedEventArgsWithUser> for LaunchActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IApplicationViewActivatedEventArgs> for LaunchActivatedEventArgs {}
-impl ::windows_core::CanTryInto<ILaunchActivatedEventArgs> for LaunchActivatedEventArgs {}
-impl ::windows_core::CanTryInto<ILaunchActivatedEventArgs2> for LaunchActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IPrelaunchActivatedEventArgs> for LaunchActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IViewSwitcherProvider> for LaunchActivatedEventArgs {}
 unsafe impl ::core::marker::Send for LaunchActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for LaunchActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LockScreenActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(LockScreenActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(LockScreenActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, ILockScreenActivatedEventArgs);
 impl LockScreenActivatedEventArgs {
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -5649,7 +4982,7 @@ impl LockScreenActivatedEventArgs {
     #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -5668,60 +5001,56 @@ impl ::windows_core::RuntimeType for LockScreenActivatedEventArgs {
 }
 unsafe impl ::windows_core::Interface for LockScreenActivatedEventArgs {
     type Vtable = ILockScreenActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for LockScreenActivatedEventArgs {
-    const IID: ::windows_core::GUID = <ILockScreenActivatedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ILockScreenActivatedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for LockScreenActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.LockScreenActivatedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(LockScreenActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for LockScreenActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IActivatedEventArgsWithUser> for LockScreenActivatedEventArgs {}
-impl ::windows_core::CanTryInto<ILockScreenActivatedEventArgs> for LockScreenActivatedEventArgs {}
 unsafe impl ::core::marker::Send for LockScreenActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for LockScreenActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LockScreenCallActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(LockScreenCallActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(LockScreenCallActivatedEventArgs, IActivatedEventArgs, IApplicationViewActivatedEventArgs, ILaunchActivatedEventArgs, ILockScreenCallActivatedEventArgs, IViewSwitcherProvider);
 impl LockScreenCallActivatedEventArgs {
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CurrentlyShownApplicationViewId(&self) -> ::windows_core::Result<i32> {
-        let this = &::windows_core::ComInterface::cast::<IApplicationViewActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CurrentlyShownApplicationViewId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Arguments(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<ILaunchActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<ILaunchActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Arguments)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TileId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<ILaunchActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<ILaunchActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TileId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -5739,7 +5068,7 @@ impl LockScreenCallActivatedEventArgs {
     #[doc = "Required features: `\"UI_ViewManagement\"`"]
     #[cfg(feature = "UI_ViewManagement")]
     pub fn ViewSwitcher(&self) -> ::windows_core::Result<super::super::UI::ViewManagement::ActivationViewSwitcher> {
-        let this = &::windows_core::ComInterface::cast::<IViewSwitcherProvider>(self)?;
+        let this = &::windows_core::Interface::cast::<IViewSwitcherProvider>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ViewSwitcher)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -5751,24 +5080,18 @@ impl ::windows_core::RuntimeType for LockScreenCallActivatedEventArgs {
 }
 unsafe impl ::windows_core::Interface for LockScreenCallActivatedEventArgs {
     type Vtable = ILockScreenCallActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for LockScreenCallActivatedEventArgs {
-    const IID: ::windows_core::GUID = <ILockScreenCallActivatedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ILockScreenCallActivatedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for LockScreenCallActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.LockScreenCallActivatedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(LockScreenCallActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for LockScreenCallActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IApplicationViewActivatedEventArgs> for LockScreenCallActivatedEventArgs {}
-impl ::windows_core::CanTryInto<ILaunchActivatedEventArgs> for LockScreenCallActivatedEventArgs {}
-impl ::windows_core::CanTryInto<ILockScreenCallActivatedEventArgs> for LockScreenCallActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IViewSwitcherProvider> for LockScreenCallActivatedEventArgs {}
 unsafe impl ::core::marker::Send for LockScreenCallActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for LockScreenCallActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LockScreenComponentActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(LockScreenComponentActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(LockScreenComponentActivatedEventArgs, IActivatedEventArgs);
 impl LockScreenComponentActivatedEventArgs {
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
         let this = self;
@@ -5797,37 +5120,35 @@ impl ::windows_core::RuntimeType for LockScreenComponentActivatedEventArgs {
 }
 unsafe impl ::windows_core::Interface for LockScreenComponentActivatedEventArgs {
     type Vtable = IActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for LockScreenComponentActivatedEventArgs {
-    const IID: ::windows_core::GUID = <IActivatedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IActivatedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for LockScreenComponentActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.LockScreenComponentActivatedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(LockScreenComponentActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for LockScreenComponentActivatedEventArgs {}
 unsafe impl ::core::marker::Send for LockScreenComponentActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for LockScreenComponentActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PhoneCallActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(PhoneCallActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(PhoneCallActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IPhoneCallActivatedEventArgs);
 impl PhoneCallActivatedEventArgs {
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -5836,7 +5157,7 @@ impl PhoneCallActivatedEventArgs {
     #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -5855,39 +5176,35 @@ impl ::windows_core::RuntimeType for PhoneCallActivatedEventArgs {
 }
 unsafe impl ::windows_core::Interface for PhoneCallActivatedEventArgs {
     type Vtable = IPhoneCallActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for PhoneCallActivatedEventArgs {
-    const IID: ::windows_core::GUID = <IPhoneCallActivatedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPhoneCallActivatedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for PhoneCallActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.PhoneCallActivatedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(PhoneCallActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for PhoneCallActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IActivatedEventArgsWithUser> for PhoneCallActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IPhoneCallActivatedEventArgs> for PhoneCallActivatedEventArgs {}
 unsafe impl ::core::marker::Send for PhoneCallActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for PhoneCallActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PickerReturnedActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(PickerReturnedActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(PickerReturnedActivatedEventArgs, IActivatedEventArgs, IPickerReturnedActivatedEventArgs);
 impl PickerReturnedActivatedEventArgs {
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -5906,38 +5223,35 @@ impl ::windows_core::RuntimeType for PickerReturnedActivatedEventArgs {
 }
 unsafe impl ::windows_core::Interface for PickerReturnedActivatedEventArgs {
     type Vtable = IPickerReturnedActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for PickerReturnedActivatedEventArgs {
-    const IID: ::windows_core::GUID = <IPickerReturnedActivatedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPickerReturnedActivatedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for PickerReturnedActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.PickerReturnedActivatedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(PickerReturnedActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for PickerReturnedActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IPickerReturnedActivatedEventArgs> for PickerReturnedActivatedEventArgs {}
 unsafe impl ::core::marker::Send for PickerReturnedActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for PickerReturnedActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Print3DWorkflowActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(Print3DWorkflowActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(Print3DWorkflowActivatedEventArgs, IActivatedEventArgs, IPrint3DWorkflowActivatedEventArgs);
 impl Print3DWorkflowActivatedEventArgs {
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -5958,38 +5272,35 @@ impl ::windows_core::RuntimeType for Print3DWorkflowActivatedEventArgs {
 }
 unsafe impl ::windows_core::Interface for Print3DWorkflowActivatedEventArgs {
     type Vtable = IPrint3DWorkflowActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for Print3DWorkflowActivatedEventArgs {
-    const IID: ::windows_core::GUID = <IPrint3DWorkflowActivatedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPrint3DWorkflowActivatedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for Print3DWorkflowActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.Print3DWorkflowActivatedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(Print3DWorkflowActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for Print3DWorkflowActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IPrint3DWorkflowActivatedEventArgs> for Print3DWorkflowActivatedEventArgs {}
 unsafe impl ::core::marker::Send for Print3DWorkflowActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for Print3DWorkflowActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PrintTaskSettingsActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(PrintTaskSettingsActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(PrintTaskSettingsActivatedEventArgs, IActivatedEventArgs, IPrintTaskSettingsActivatedEventArgs);
 impl PrintTaskSettingsActivatedEventArgs {
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -6010,38 +5321,35 @@ impl ::windows_core::RuntimeType for PrintTaskSettingsActivatedEventArgs {
 }
 unsafe impl ::windows_core::Interface for PrintTaskSettingsActivatedEventArgs {
     type Vtable = IPrintTaskSettingsActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for PrintTaskSettingsActivatedEventArgs {
-    const IID: ::windows_core::GUID = <IPrintTaskSettingsActivatedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPrintTaskSettingsActivatedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for PrintTaskSettingsActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.PrintTaskSettingsActivatedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(PrintTaskSettingsActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for PrintTaskSettingsActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IPrintTaskSettingsActivatedEventArgs> for PrintTaskSettingsActivatedEventArgs {}
 unsafe impl ::core::marker::Send for PrintTaskSettingsActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for PrintTaskSettingsActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ProtocolActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(ProtocolActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(ProtocolActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IApplicationViewActivatedEventArgs, IProtocolActivatedEventArgs, IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData, IViewSwitcherProvider);
 impl ProtocolActivatedEventArgs {
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -6050,14 +5358,14 @@ impl ProtocolActivatedEventArgs {
     #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CurrentlyShownApplicationViewId(&self) -> ::windows_core::Result<i32> {
-        let this = &::windows_core::ComInterface::cast::<IApplicationViewActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CurrentlyShownApplicationViewId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -6071,7 +5379,7 @@ impl ProtocolActivatedEventArgs {
         }
     }
     pub fn CallerPackageFamilyName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData>(self)?;
+        let this = &::windows_core::Interface::cast::<IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CallerPackageFamilyName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -6080,7 +5388,7 @@ impl ProtocolActivatedEventArgs {
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Data(&self) -> ::windows_core::Result<super::super::Foundation::Collections::ValueSet> {
-        let this = &::windows_core::ComInterface::cast::<IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData>(self)?;
+        let this = &::windows_core::Interface::cast::<IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Data)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -6089,7 +5397,7 @@ impl ProtocolActivatedEventArgs {
     #[doc = "Required features: `\"UI_ViewManagement\"`"]
     #[cfg(feature = "UI_ViewManagement")]
     pub fn ViewSwitcher(&self) -> ::windows_core::Result<super::super::UI::ViewManagement::ActivationViewSwitcher> {
-        let this = &::windows_core::ComInterface::cast::<IViewSwitcherProvider>(self)?;
+        let this = &::windows_core::Interface::cast::<IViewSwitcherProvider>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ViewSwitcher)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -6101,42 +5409,35 @@ impl ::windows_core::RuntimeType for ProtocolActivatedEventArgs {
 }
 unsafe impl ::windows_core::Interface for ProtocolActivatedEventArgs {
     type Vtable = IProtocolActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ProtocolActivatedEventArgs {
-    const IID: ::windows_core::GUID = <IProtocolActivatedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IProtocolActivatedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for ProtocolActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ProtocolActivatedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(ProtocolActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for ProtocolActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IActivatedEventArgsWithUser> for ProtocolActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IApplicationViewActivatedEventArgs> for ProtocolActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IProtocolActivatedEventArgs> for ProtocolActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData> for ProtocolActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IViewSwitcherProvider> for ProtocolActivatedEventArgs {}
 unsafe impl ::core::marker::Send for ProtocolActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for ProtocolActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ProtocolForResultsActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(ProtocolForResultsActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(ProtocolForResultsActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IApplicationViewActivatedEventArgs, IProtocolActivatedEventArgs, IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData, IProtocolForResultsActivatedEventArgs, IViewSwitcherProvider);
 impl ProtocolForResultsActivatedEventArgs {
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -6145,28 +5446,28 @@ impl ProtocolForResultsActivatedEventArgs {
     #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CurrentlyShownApplicationViewId(&self) -> ::windows_core::Result<i32> {
-        let this = &::windows_core::ComInterface::cast::<IApplicationViewActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CurrentlyShownApplicationViewId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Uri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
-        let this = &::windows_core::ComInterface::cast::<IProtocolActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IProtocolActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Uri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CallerPackageFamilyName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData>(self)?;
+        let this = &::windows_core::Interface::cast::<IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CallerPackageFamilyName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -6175,7 +5476,7 @@ impl ProtocolForResultsActivatedEventArgs {
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Data(&self) -> ::windows_core::Result<super::super::Foundation::Collections::ValueSet> {
-        let this = &::windows_core::ComInterface::cast::<IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData>(self)?;
+        let this = &::windows_core::Interface::cast::<IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Data)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -6193,7 +5494,7 @@ impl ProtocolForResultsActivatedEventArgs {
     #[doc = "Required features: `\"UI_ViewManagement\"`"]
     #[cfg(feature = "UI_ViewManagement")]
     pub fn ViewSwitcher(&self) -> ::windows_core::Result<super::super::UI::ViewManagement::ActivationViewSwitcher> {
-        let this = &::windows_core::ComInterface::cast::<IViewSwitcherProvider>(self)?;
+        let this = &::windows_core::Interface::cast::<IViewSwitcherProvider>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ViewSwitcher)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -6205,43 +5506,35 @@ impl ::windows_core::RuntimeType for ProtocolForResultsActivatedEventArgs {
 }
 unsafe impl ::windows_core::Interface for ProtocolForResultsActivatedEventArgs {
     type Vtable = IProtocolForResultsActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ProtocolForResultsActivatedEventArgs {
-    const IID: ::windows_core::GUID = <IProtocolForResultsActivatedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IProtocolForResultsActivatedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for ProtocolForResultsActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ProtocolForResultsActivatedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(ProtocolForResultsActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for ProtocolForResultsActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IActivatedEventArgsWithUser> for ProtocolForResultsActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IApplicationViewActivatedEventArgs> for ProtocolForResultsActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IProtocolActivatedEventArgs> for ProtocolForResultsActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData> for ProtocolForResultsActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IProtocolForResultsActivatedEventArgs> for ProtocolForResultsActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IViewSwitcherProvider> for ProtocolForResultsActivatedEventArgs {}
 unsafe impl ::core::marker::Send for ProtocolForResultsActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for ProtocolForResultsActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RestrictedLaunchActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(RestrictedLaunchActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(RestrictedLaunchActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IRestrictedLaunchActivatedEventArgs);
 impl RestrictedLaunchActivatedEventArgs {
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -6250,7 +5543,7 @@ impl RestrictedLaunchActivatedEventArgs {
     #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -6269,39 +5562,35 @@ impl ::windows_core::RuntimeType for RestrictedLaunchActivatedEventArgs {
 }
 unsafe impl ::windows_core::Interface for RestrictedLaunchActivatedEventArgs {
     type Vtable = IRestrictedLaunchActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for RestrictedLaunchActivatedEventArgs {
-    const IID: ::windows_core::GUID = <IRestrictedLaunchActivatedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IRestrictedLaunchActivatedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for RestrictedLaunchActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.RestrictedLaunchActivatedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(RestrictedLaunchActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for RestrictedLaunchActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IActivatedEventArgsWithUser> for RestrictedLaunchActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IRestrictedLaunchActivatedEventArgs> for RestrictedLaunchActivatedEventArgs {}
 unsafe impl ::core::marker::Send for RestrictedLaunchActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for RestrictedLaunchActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SearchActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(SearchActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(SearchActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IApplicationViewActivatedEventArgs, ISearchActivatedEventArgs, ISearchActivatedEventArgsWithLinguisticDetails, IViewSwitcherProvider);
 impl SearchActivatedEventArgs {
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -6310,14 +5599,14 @@ impl SearchActivatedEventArgs {
     #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CurrentlyShownApplicationViewId(&self) -> ::windows_core::Result<i32> {
-        let this = &::windows_core::ComInterface::cast::<IApplicationViewActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CurrentlyShownApplicationViewId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -6340,7 +5629,7 @@ impl SearchActivatedEventArgs {
     #[doc = "Required features: `\"ApplicationModel_Search\"`"]
     #[cfg(feature = "ApplicationModel_Search")]
     pub fn LinguisticDetails(&self) -> ::windows_core::Result<super::Search::SearchPaneQueryLinguisticDetails> {
-        let this = &::windows_core::ComInterface::cast::<ISearchActivatedEventArgsWithLinguisticDetails>(self)?;
+        let this = &::windows_core::Interface::cast::<ISearchActivatedEventArgsWithLinguisticDetails>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).LinguisticDetails)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -6349,7 +5638,7 @@ impl SearchActivatedEventArgs {
     #[doc = "Required features: `\"UI_ViewManagement\"`"]
     #[cfg(feature = "UI_ViewManagement")]
     pub fn ViewSwitcher(&self) -> ::windows_core::Result<super::super::UI::ViewManagement::ActivationViewSwitcher> {
-        let this = &::windows_core::ComInterface::cast::<IViewSwitcherProvider>(self)?;
+        let this = &::windows_core::Interface::cast::<IViewSwitcherProvider>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ViewSwitcher)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -6361,42 +5650,35 @@ impl ::windows_core::RuntimeType for SearchActivatedEventArgs {
 }
 unsafe impl ::windows_core::Interface for SearchActivatedEventArgs {
     type Vtable = ISearchActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for SearchActivatedEventArgs {
-    const IID: ::windows_core::GUID = <ISearchActivatedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ISearchActivatedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for SearchActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.SearchActivatedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(SearchActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for SearchActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IActivatedEventArgsWithUser> for SearchActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IApplicationViewActivatedEventArgs> for SearchActivatedEventArgs {}
-impl ::windows_core::CanTryInto<ISearchActivatedEventArgs> for SearchActivatedEventArgs {}
-impl ::windows_core::CanTryInto<ISearchActivatedEventArgsWithLinguisticDetails> for SearchActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IViewSwitcherProvider> for SearchActivatedEventArgs {}
 unsafe impl ::core::marker::Send for SearchActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for SearchActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ShareTargetActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(ShareTargetActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(ShareTargetActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IShareTargetActivatedEventArgs);
 impl ShareTargetActivatedEventArgs {
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -6405,7 +5687,7 @@ impl ShareTargetActivatedEventArgs {
     #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -6426,22 +5708,17 @@ impl ::windows_core::RuntimeType for ShareTargetActivatedEventArgs {
 }
 unsafe impl ::windows_core::Interface for ShareTargetActivatedEventArgs {
     type Vtable = IShareTargetActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ShareTargetActivatedEventArgs {
-    const IID: ::windows_core::GUID = <IShareTargetActivatedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IShareTargetActivatedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for ShareTargetActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ShareTargetActivatedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(ShareTargetActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for ShareTargetActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IActivatedEventArgsWithUser> for ShareTargetActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IShareTargetActivatedEventArgs> for ShareTargetActivatedEventArgs {}
 unsafe impl ::core::marker::Send for ShareTargetActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for ShareTargetActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SplashScreen(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(SplashScreen, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl SplashScreen {
     pub fn ImageLocation(&self) -> ::windows_core::Result<super::super::Foundation::Rect> {
         let this = self;
@@ -6470,34 +5747,33 @@ impl ::windows_core::RuntimeType for SplashScreen {
 }
 unsafe impl ::windows_core::Interface for SplashScreen {
     type Vtable = ISplashScreen_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for SplashScreen {
-    const IID: ::windows_core::GUID = <ISplashScreen as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ISplashScreen as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for SplashScreen {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.SplashScreen";
 }
-::windows_core::imp::interface_hierarchy!(SplashScreen, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StartupTaskActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(StartupTaskActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(StartupTaskActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IStartupTaskActivatedEventArgs);
 impl StartupTaskActivatedEventArgs {
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -6506,7 +5782,7 @@ impl StartupTaskActivatedEventArgs {
     #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -6525,22 +5801,17 @@ impl ::windows_core::RuntimeType for StartupTaskActivatedEventArgs {
 }
 unsafe impl ::windows_core::Interface for StartupTaskActivatedEventArgs {
     type Vtable = IStartupTaskActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for StartupTaskActivatedEventArgs {
-    const IID: ::windows_core::GUID = <IStartupTaskActivatedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IStartupTaskActivatedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for StartupTaskActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.StartupTaskActivatedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(StartupTaskActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for StartupTaskActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IActivatedEventArgsWithUser> for StartupTaskActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IStartupTaskActivatedEventArgs> for StartupTaskActivatedEventArgs {}
 unsafe impl ::core::marker::Send for StartupTaskActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for StartupTaskActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TileActivatedInfo(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(TileActivatedInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl TileActivatedInfo {
     #[doc = "Required features: `\"Foundation_Collections\"`, `\"UI_Notifications\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "UI_Notifications"))]
@@ -6557,36 +5828,35 @@ impl ::windows_core::RuntimeType for TileActivatedInfo {
 }
 unsafe impl ::windows_core::Interface for TileActivatedInfo {
     type Vtable = ITileActivatedInfo_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for TileActivatedInfo {
-    const IID: ::windows_core::GUID = <ITileActivatedInfo as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ITileActivatedInfo as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for TileActivatedInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.TileActivatedInfo";
 }
-::windows_core::imp::interface_hierarchy!(TileActivatedInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for TileActivatedInfo {}
 unsafe impl ::core::marker::Sync for TileActivatedInfo {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ToastNotificationActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(ToastNotificationActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(ToastNotificationActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IApplicationViewActivatedEventArgs, IToastNotificationActivatedEventArgs);
 impl ToastNotificationActivatedEventArgs {
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -6595,14 +5865,14 @@ impl ToastNotificationActivatedEventArgs {
     #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CurrentlyShownApplicationViewId(&self) -> ::windows_core::Result<i32> {
-        let this = &::windows_core::ComInterface::cast::<IApplicationViewActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CurrentlyShownApplicationViewId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -6630,40 +5900,35 @@ impl ::windows_core::RuntimeType for ToastNotificationActivatedEventArgs {
 }
 unsafe impl ::windows_core::Interface for ToastNotificationActivatedEventArgs {
     type Vtable = IToastNotificationActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ToastNotificationActivatedEventArgs {
-    const IID: ::windows_core::GUID = <IToastNotificationActivatedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IToastNotificationActivatedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for ToastNotificationActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ToastNotificationActivatedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(ToastNotificationActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for ToastNotificationActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IActivatedEventArgsWithUser> for ToastNotificationActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IApplicationViewActivatedEventArgs> for ToastNotificationActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IToastNotificationActivatedEventArgs> for ToastNotificationActivatedEventArgs {}
 unsafe impl ::core::marker::Send for ToastNotificationActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for ToastNotificationActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UserDataAccountProviderActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(UserDataAccountProviderActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(UserDataAccountProviderActivatedEventArgs, IActivatedEventArgs, IUserDataAccountProviderActivatedEventArgs);
 impl UserDataAccountProviderActivatedEventArgs {
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -6684,38 +5949,35 @@ impl ::windows_core::RuntimeType for UserDataAccountProviderActivatedEventArgs {
 }
 unsafe impl ::windows_core::Interface for UserDataAccountProviderActivatedEventArgs {
     type Vtable = IUserDataAccountProviderActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for UserDataAccountProviderActivatedEventArgs {
-    const IID: ::windows_core::GUID = <IUserDataAccountProviderActivatedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IUserDataAccountProviderActivatedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for UserDataAccountProviderActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.UserDataAccountProviderActivatedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(UserDataAccountProviderActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for UserDataAccountProviderActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IUserDataAccountProviderActivatedEventArgs> for UserDataAccountProviderActivatedEventArgs {}
 unsafe impl ::core::marker::Send for UserDataAccountProviderActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for UserDataAccountProviderActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VoiceCommandActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(VoiceCommandActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(VoiceCommandActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IVoiceCommandActivatedEventArgs);
 impl VoiceCommandActivatedEventArgs {
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -6724,7 +5986,7 @@ impl VoiceCommandActivatedEventArgs {
     #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -6745,17 +6007,11 @@ impl ::windows_core::RuntimeType for VoiceCommandActivatedEventArgs {
 }
 unsafe impl ::windows_core::Interface for VoiceCommandActivatedEventArgs {
     type Vtable = IVoiceCommandActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for VoiceCommandActivatedEventArgs {
-    const IID: ::windows_core::GUID = <IVoiceCommandActivatedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IVoiceCommandActivatedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for VoiceCommandActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.VoiceCommandActivatedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(VoiceCommandActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for VoiceCommandActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IActivatedEventArgsWithUser> for VoiceCommandActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IVoiceCommandActivatedEventArgs> for VoiceCommandActivatedEventArgs {}
 unsafe impl ::core::marker::Send for VoiceCommandActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for VoiceCommandActivatedEventArgs {}
 #[doc = "Required features: `\"deprecated\"`"]
@@ -6764,23 +6020,27 @@ unsafe impl ::core::marker::Sync for VoiceCommandActivatedEventArgs {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WalletActionActivatedEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
+::windows_core::imp::interface_hierarchy!(WalletActionActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+#[cfg(feature = "deprecated")]
+::windows_core::imp::required_hierarchy!(WalletActionActivatedEventArgs, IActivatedEventArgs, IWalletActionActivatedEventArgs);
+#[cfg(feature = "deprecated")]
 impl WalletActionActivatedEventArgs {
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -6821,21 +6081,12 @@ impl ::windows_core::RuntimeType for WalletActionActivatedEventArgs {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows_core::Interface for WalletActionActivatedEventArgs {
     type Vtable = IWalletActionActivatedEventArgs_Vtbl;
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows_core::ComInterface for WalletActionActivatedEventArgs {
-    const IID: ::windows_core::GUID = <IWalletActionActivatedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IWalletActionActivatedEventArgs as ::windows_core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows_core::RuntimeName for WalletActionActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.WalletActionActivatedEventArgs";
 }
-#[cfg(feature = "deprecated")]
-::windows_core::imp::interface_hierarchy!(WalletActionActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for WalletActionActivatedEventArgs {}
-#[cfg(feature = "deprecated")]
-impl ::windows_core::CanTryInto<IWalletActionActivatedEventArgs> for WalletActionActivatedEventArgs {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for WalletActionActivatedEventArgs {}
 #[cfg(feature = "deprecated")]
@@ -6843,23 +6094,25 @@ unsafe impl ::core::marker::Sync for WalletActionActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebAccountProviderActivatedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(WebAccountProviderActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(WebAccountProviderActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IWebAccountProviderActivatedEventArgs);
 impl WebAccountProviderActivatedEventArgs {
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -6868,7 +6121,7 @@ impl WebAccountProviderActivatedEventArgs {
     #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgsWithUser>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -6889,39 +6142,35 @@ impl ::windows_core::RuntimeType for WebAccountProviderActivatedEventArgs {
 }
 unsafe impl ::windows_core::Interface for WebAccountProviderActivatedEventArgs {
     type Vtable = IWebAccountProviderActivatedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for WebAccountProviderActivatedEventArgs {
-    const IID: ::windows_core::GUID = <IWebAccountProviderActivatedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IWebAccountProviderActivatedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for WebAccountProviderActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.WebAccountProviderActivatedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(WebAccountProviderActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for WebAccountProviderActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IActivatedEventArgsWithUser> for WebAccountProviderActivatedEventArgs {}
-impl ::windows_core::CanTryInto<IWebAccountProviderActivatedEventArgs> for WebAccountProviderActivatedEventArgs {}
 unsafe impl ::core::marker::Send for WebAccountProviderActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for WebAccountProviderActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebAuthenticationBrokerContinuationEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(WebAuthenticationBrokerContinuationEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
+::windows_core::imp::required_hierarchy!(WebAuthenticationBrokerContinuationEventArgs, IActivatedEventArgs, IContinuationActivatedEventArgs, IWebAuthenticationBrokerContinuationEventArgs);
 impl WebAuthenticationBrokerContinuationEventArgs {
     pub fn Kind(&self) -> ::windows_core::Result<ActivationKind> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<ApplicationExecutionState> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SplashScreen(&self) -> ::windows_core::Result<SplashScreen> {
-        let this = &::windows_core::ComInterface::cast::<IActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -6930,7 +6179,7 @@ impl WebAuthenticationBrokerContinuationEventArgs {
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ContinuationData(&self) -> ::windows_core::Result<super::super::Foundation::Collections::ValueSet> {
-        let this = &::windows_core::ComInterface::cast::<IContinuationActivatedEventArgs>(self)?;
+        let this = &::windows_core::Interface::cast::<IContinuationActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ContinuationData)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -6951,17 +6200,11 @@ impl ::windows_core::RuntimeType for WebAuthenticationBrokerContinuationEventArg
 }
 unsafe impl ::windows_core::Interface for WebAuthenticationBrokerContinuationEventArgs {
     type Vtable = IWebAuthenticationBrokerContinuationEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for WebAuthenticationBrokerContinuationEventArgs {
-    const IID: ::windows_core::GUID = <IWebAuthenticationBrokerContinuationEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IWebAuthenticationBrokerContinuationEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for WebAuthenticationBrokerContinuationEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.WebAuthenticationBrokerContinuationEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(WebAuthenticationBrokerContinuationEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::windows_core::CanTryInto<IActivatedEventArgs> for WebAuthenticationBrokerContinuationEventArgs {}
-impl ::windows_core::CanTryInto<IContinuationActivatedEventArgs> for WebAuthenticationBrokerContinuationEventArgs {}
-impl ::windows_core::CanTryInto<IWebAuthenticationBrokerContinuationEventArgs> for WebAuthenticationBrokerContinuationEventArgs {}
 unsafe impl ::core::marker::Send for WebAuthenticationBrokerContinuationEventArgs {}
 unsafe impl ::core::marker::Sync for WebAuthenticationBrokerContinuationEventArgs {}
 #[repr(transparent)]

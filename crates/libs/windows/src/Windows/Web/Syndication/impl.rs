@@ -137,7 +137,7 @@ impl ISyndicationClient_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISyndicationClient as ::windows_core::ComInterface>::IID
+        iid == &<ISyndicationClient as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Data_Xml_Dom\"`, `\"Foundation_Collections\"`"]
@@ -303,7 +303,7 @@ impl ISyndicationNode_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISyndicationNode as ::windows_core::ComInterface>::IID
+        iid == &<ISyndicationNode as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Data_Xml_Dom\"`, `\"Foundation_Collections\"`"]
@@ -385,6 +385,6 @@ impl ISyndicationText_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISyndicationText as ::windows_core::ComInterface>::IID
+        iid == &<ISyndicationText as ::windows_core::Interface>::IID
     }
 }

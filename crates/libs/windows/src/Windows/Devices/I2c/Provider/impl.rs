@@ -24,7 +24,7 @@ impl II2cControllerProvider_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<II2cControllerProvider as ::windows_core::ComInterface>::IID
+        iid == &<II2cControllerProvider as ::windows_core::Interface>::IID
     }
 }
 pub trait II2cDeviceProvider_Impl: Sized + super::super::super::Foundation::IClosable_Impl {
@@ -113,7 +113,7 @@ impl II2cDeviceProvider_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<II2cDeviceProvider as ::windows_core::ComInterface>::IID
+        iid == &<II2cDeviceProvider as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Foundation_Collections\"`"]
@@ -146,6 +146,6 @@ impl II2cProvider_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<II2cProvider as ::windows_core::ComInterface>::IID
+        iid == &<II2cProvider as ::windows_core::Interface>::IID
     }
 }

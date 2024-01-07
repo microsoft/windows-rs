@@ -22,7 +22,7 @@ impl IRtwqAsyncCallback_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRtwqAsyncCallback as ::windows_core::ComInterface>::IID
+        iid == &<IRtwqAsyncCallback as ::windows_core::Interface>::IID
     }
 }
 pub trait IRtwqAsyncResult_Impl: Sized {
@@ -82,7 +82,7 @@ impl IRtwqAsyncResult_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRtwqAsyncResult as ::windows_core::ComInterface>::IID
+        iid == &<IRtwqAsyncResult as ::windows_core::Interface>::IID
     }
 }
 pub trait IRtwqPlatformEvents_Impl: Sized {
@@ -116,7 +116,7 @@ impl IRtwqPlatformEvents_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRtwqPlatformEvents as ::windows_core::ComInterface>::IID
+        iid == &<IRtwqPlatformEvents as ::windows_core::Interface>::IID
     }
 }
 pub trait RTWQASYNCRESULT_Impl: Sized + IRtwqAsyncResult_Impl {}
@@ -126,6 +126,6 @@ impl RTWQASYNCRESULT_Vtbl {
         Self { base__: IRtwqAsyncResult_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<RTWQASYNCRESULT as ::windows_core::ComInterface>::IID || iid == &<IRtwqAsyncResult as ::windows_core::ComInterface>::IID
+        iid == &<RTWQASYNCRESULT as ::windows_core::Interface>::IID || iid == &<IRtwqAsyncResult as ::windows_core::Interface>::IID
     }
 }

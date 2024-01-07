@@ -1,13 +1,4 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IContactPickerUI(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IContactPickerUI {
-    type Vtable = IContactPickerUI_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IContactPickerUI {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe2cc1366_cf66_43c4_a96a_a5a112db4746);
-}
+::windows_core::imp::com_interface!(IContactPickerUI, IContactPickerUI_Vtbl, 0xe2cc1366_cf66_43c4_a96a_a5a112db4746);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactPickerUI_Vtbl {
@@ -26,16 +17,7 @@ pub struct IContactPickerUI_Vtbl {
     pub ContactRemoved: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     pub RemoveContactRemoved: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IContactPickerUI2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IContactPickerUI2 {
-    type Vtable = IContactPickerUI2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IContactPickerUI2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6e449e28_7b25_4999_9b0b_875400a1e8c8);
-}
+::windows_core::imp::com_interface!(IContactPickerUI2, IContactPickerUI2_Vtbl, 0x6e449e28_7b25_4999_9b0b_875400a1e8c8);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactPickerUI2_Vtbl {
@@ -46,16 +28,7 @@ pub struct IContactPickerUI2_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     DesiredFieldsWithContactFieldType: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IContactRemovedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IContactRemovedEventArgs {
-    type Vtable = IContactRemovedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IContactRemovedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6f354338_3302_4d13_ad8d_adcc0ff9e47c);
-}
+::windows_core::imp::com_interface!(IContactRemovedEventArgs, IContactRemovedEventArgs_Vtbl, 0x6f354338_3302_4d13_ad8d_adcc0ff9e47c);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IContactRemovedEventArgs_Vtbl {
@@ -65,6 +38,7 @@ pub struct IContactRemovedEventArgs_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ContactPickerUI(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(ContactPickerUI, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ContactPickerUI {
     #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
@@ -123,7 +97,7 @@ impl ContactPickerUI {
     where
         P0: ::windows_core::IntoParam<super::Contact>,
     {
-        let this = &::windows_core::ComInterface::cast::<IContactPickerUI2>(self)?;
+        let this = &::windows_core::Interface::cast::<IContactPickerUI2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AddContact)(::windows_core::Interface::as_raw(this), contact.into_param().abi(), &mut result__).from_abi(result__)
@@ -132,7 +106,7 @@ impl ContactPickerUI {
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn DesiredFieldsWithContactFieldType(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVector<super::ContactFieldType>> {
-        let this = &::windows_core::ComInterface::cast::<IContactPickerUI2>(self)?;
+        let this = &::windows_core::Interface::cast::<IContactPickerUI2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DesiredFieldsWithContactFieldType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -144,17 +118,15 @@ impl ::windows_core::RuntimeType for ContactPickerUI {
 }
 unsafe impl ::windows_core::Interface for ContactPickerUI {
     type Vtable = IContactPickerUI_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ContactPickerUI {
-    const IID: ::windows_core::GUID = <IContactPickerUI as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IContactPickerUI as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for ContactPickerUI {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.Provider.ContactPickerUI";
 }
-::windows_core::imp::interface_hierarchy!(ContactPickerUI, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ContactRemovedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(ContactRemovedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ContactRemovedEventArgs {
     pub fn Id(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -169,14 +141,11 @@ impl ::windows_core::RuntimeType for ContactRemovedEventArgs {
 }
 unsafe impl ::windows_core::Interface for ContactRemovedEventArgs {
     type Vtable = IContactRemovedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ContactRemovedEventArgs {
-    const IID: ::windows_core::GUID = <IContactRemovedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IContactRemovedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for ContactRemovedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.Provider.ContactRemovedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(ContactRemovedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct AddContactResult(pub i32);

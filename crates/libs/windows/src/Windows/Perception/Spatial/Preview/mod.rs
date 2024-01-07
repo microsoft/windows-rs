@@ -1,13 +1,4 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISpatialGraphInteropFrameOfReferencePreview(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISpatialGraphInteropFrameOfReferencePreview {
-    type Vtable = ISpatialGraphInteropFrameOfReferencePreview_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISpatialGraphInteropFrameOfReferencePreview {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa8271b23_735f_5729_a98e_e64ed189abc5);
-}
+::windows_core::imp::com_interface!(ISpatialGraphInteropFrameOfReferencePreview, ISpatialGraphInteropFrameOfReferencePreview_Vtbl, 0xa8271b23_735f_5729_a98e_e64ed189abc5);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialGraphInteropFrameOfReferencePreview_Vtbl {
@@ -19,16 +10,7 @@ pub struct ISpatialGraphInteropFrameOfReferencePreview_Vtbl {
     #[cfg(not(feature = "Foundation_Numerics"))]
     CoordinateSystemToNodeTransform: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISpatialGraphInteropPreviewStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISpatialGraphInteropPreviewStatics {
-    type Vtable = ISpatialGraphInteropPreviewStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISpatialGraphInteropPreviewStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc042644c_20d8_4ed0_aef7_6805b8e53f55);
-}
+::windows_core::imp::com_interface!(ISpatialGraphInteropPreviewStatics, ISpatialGraphInteropPreviewStatics_Vtbl, 0xc042644c_20d8_4ed0_aef7_6805b8e53f55);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialGraphInteropPreviewStatics_Vtbl {
@@ -44,16 +26,7 @@ pub struct ISpatialGraphInteropPreviewStatics_Vtbl {
     CreateCoordinateSystemForNodeWithPositionAndOrientation: usize,
     pub CreateLocatorForNode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nodeid: ::windows_core::GUID, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISpatialGraphInteropPreviewStatics2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISpatialGraphInteropPreviewStatics2 {
-    type Vtable = ISpatialGraphInteropPreviewStatics2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISpatialGraphInteropPreviewStatics2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2490b15f_6cbd_4b1e_b765_31e462a32df2);
-}
+::windows_core::imp::com_interface!(ISpatialGraphInteropPreviewStatics2, ISpatialGraphInteropPreviewStatics2_Vtbl, 0x2490b15f_6cbd_4b1e_b765_31e462a32df2);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialGraphInteropPreviewStatics2_Vtbl {
@@ -71,6 +44,7 @@ pub struct ISpatialGraphInteropPreviewStatics2_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SpatialGraphInteropFrameOfReferencePreview(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(SpatialGraphInteropFrameOfReferencePreview, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl SpatialGraphInteropFrameOfReferencePreview {
     pub fn CoordinateSystem(&self) -> ::windows_core::Result<super::SpatialCoordinateSystem> {
         let this = self;
@@ -101,14 +75,11 @@ impl ::windows_core::RuntimeType for SpatialGraphInteropFrameOfReferencePreview 
 }
 unsafe impl ::windows_core::Interface for SpatialGraphInteropFrameOfReferencePreview {
     type Vtable = ISpatialGraphInteropFrameOfReferencePreview_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for SpatialGraphInteropFrameOfReferencePreview {
-    const IID: ::windows_core::GUID = <ISpatialGraphInteropFrameOfReferencePreview as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ISpatialGraphInteropFrameOfReferencePreview as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for SpatialGraphInteropFrameOfReferencePreview {
     const NAME: &'static str = "Windows.Perception.Spatial.Preview.SpatialGraphInteropFrameOfReferencePreview";
 }
-::windows_core::imp::interface_hierarchy!(SpatialGraphInteropFrameOfReferencePreview, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialGraphInteropFrameOfReferencePreview {}
 unsafe impl ::core::marker::Sync for SpatialGraphInteropFrameOfReferencePreview {}
 pub struct SpatialGraphInteropPreview;

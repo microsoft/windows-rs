@@ -1580,9 +1580,8 @@ pub unsafe fn VerifySignature(phcontext: *const super::super::Credentials::SecHa
     let mut result__ = ::std::mem::zeroed();
     VerifySignature(phcontext, pmessage, messageseqno, &mut result__).from_abi(result__)
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ICcgDomainAuthCredentials(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(ICcgDomainAuthCredentials, ICcgDomainAuthCredentials_Vtbl, 0x6ecda518_2010_4437_8bc3_46e752b7b172);
+::windows_core::imp::interface_hierarchy!(ICcgDomainAuthCredentials, ::windows_core::IUnknown);
 impl ICcgDomainAuthCredentials {
     pub unsafe fn GetPasswordCredentials<P0>(&self, plugininput: P0, domainname: *mut ::windows_core::PWSTR, username: *mut ::windows_core::PWSTR, password: *mut ::windows_core::PWSTR) -> ::windows_core::Result<()>
     where
@@ -1590,13 +1589,6 @@ impl ICcgDomainAuthCredentials {
     {
         (::windows_core::Interface::vtable(self).GetPasswordCredentials)(::windows_core::Interface::as_raw(self), plugininput.into_param().abi(), domainname, username, password).ok()
     }
-}
-::windows_core::imp::interface_hierarchy!(ICcgDomainAuthCredentials, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ICcgDomainAuthCredentials {
-    type Vtable = ICcgDomainAuthCredentials_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ICcgDomainAuthCredentials {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6ecda518_2010_4437_8bc3_46e752b7b172);
 }
 #[repr(C)]
 #[doc(hidden)]

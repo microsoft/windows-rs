@@ -1,13 +1,4 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPrint3DManager(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPrint3DManager {
-    type Vtable = IPrint3DManager_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPrint3DManager {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4d2fcb0a_7366_4971_8bd5_17c4e3e8c6c0);
-}
+::windows_core::imp::com_interface!(IPrint3DManager, IPrint3DManager_Vtbl, 0x4d2fcb0a_7366_4971_8bd5_17c4e3e8c6c0);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrint3DManager_Vtbl {
@@ -15,16 +6,7 @@ pub struct IPrint3DManager_Vtbl {
     pub TaskRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventhandler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     pub RemoveTaskRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPrint3DManagerStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPrint3DManagerStatics {
-    type Vtable = IPrint3DManagerStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPrint3DManagerStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0ef1cafe_a9ad_4c08_a917_1d1f863eabcb);
-}
+::windows_core::imp::com_interface!(IPrint3DManagerStatics, IPrint3DManagerStatics_Vtbl, 0x0ef1cafe_a9ad_4c08_a917_1d1f863eabcb);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrint3DManagerStatics_Vtbl {
@@ -32,16 +14,7 @@ pub struct IPrint3DManagerStatics_Vtbl {
     pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub ShowPrintUIAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPrint3DTask(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPrint3DTask {
-    type Vtable = IPrint3DTask_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPrint3DTask {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8ce3d080_2118_4c28_80de_f426d70191ae);
-}
+::windows_core::imp::com_interface!(IPrint3DTask, IPrint3DTask_Vtbl, 0x8ce3d080_2118_4c28_80de_f426d70191ae);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrint3DTask_Vtbl {
@@ -54,16 +27,7 @@ pub struct IPrint3DTask_Vtbl {
     pub SourceChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventhandler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     pub RemoveSourceChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPrint3DTaskCompletedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPrint3DTaskCompletedEventArgs {
-    type Vtable = IPrint3DTaskCompletedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPrint3DTaskCompletedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcc1914af_2614_4f1d_accc_d6fc4fda5455);
-}
+::windows_core::imp::com_interface!(IPrint3DTaskCompletedEventArgs, IPrint3DTaskCompletedEventArgs_Vtbl, 0xcc1914af_2614_4f1d_accc_d6fc4fda5455);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrint3DTaskCompletedEventArgs_Vtbl {
@@ -71,80 +35,35 @@ pub struct IPrint3DTaskCompletedEventArgs_Vtbl {
     pub Completion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut Print3DTaskCompletion) -> ::windows_core::HRESULT,
     pub ExtendedStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut Print3DTaskDetail) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPrint3DTaskRequest(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPrint3DTaskRequest {
-    type Vtable = IPrint3DTaskRequest_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPrint3DTaskRequest {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2595c46f_2245_4c5a_8731_0d604dc6bc3c);
-}
+::windows_core::imp::com_interface!(IPrint3DTaskRequest, IPrint3DTaskRequest_Vtbl, 0x2595c46f_2245_4c5a_8731_0d604dc6bc3c);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrint3DTaskRequest_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateTask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, title: ::std::mem::MaybeUninit<::windows_core::HSTRING>, printerid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, handler: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPrint3DTaskRequestedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPrint3DTaskRequestedEventArgs {
-    type Vtable = IPrint3DTaskRequestedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPrint3DTaskRequestedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x150cb77f_18c5_40d7_9f40_fab3096e05a9);
-}
+::windows_core::imp::com_interface!(IPrint3DTaskRequestedEventArgs, IPrint3DTaskRequestedEventArgs_Vtbl, 0x150cb77f_18c5_40d7_9f40_fab3096e05a9);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrint3DTaskRequestedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPrint3DTaskSourceChangedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPrint3DTaskSourceChangedEventArgs {
-    type Vtable = IPrint3DTaskSourceChangedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPrint3DTaskSourceChangedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5bcd34af_24e9_4c10_8d07_14c346ba3fcf);
-}
+::windows_core::imp::com_interface!(IPrint3DTaskSourceChangedEventArgs, IPrint3DTaskSourceChangedEventArgs_Vtbl, 0x5bcd34af_24e9_4c10_8d07_14c346ba3fcf);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrint3DTaskSourceChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Source: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPrint3DTaskSourceRequestedArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPrint3DTaskSourceRequestedArgs {
-    type Vtable = IPrint3DTaskSourceRequestedArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPrint3DTaskSourceRequestedArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc77c9aba_24af_424d_a3bf_92250c355602);
-}
+::windows_core::imp::com_interface!(IPrint3DTaskSourceRequestedArgs, IPrint3DTaskSourceRequestedArgs_Vtbl, 0xc77c9aba_24af_424d_a3bf_92250c355602);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrint3DTaskSourceRequestedArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub SetSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, source: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPrinting3D3MFPackage(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPrinting3D3MFPackage {
-    type Vtable = IPrinting3D3MFPackage_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPrinting3D3MFPackage {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf64dd5c8_2ab7_45a9_a1b7_267e948d5b18);
-}
+::windows_core::imp::com_interface!(IPrinting3D3MFPackage, IPrinting3D3MFPackage_Vtbl, 0xf64dd5c8_2ab7_45a9_a1b7_267e948d5b18);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3D3MFPackage_Vtbl {
@@ -181,16 +100,7 @@ pub struct IPrinting3D3MFPackage_Vtbl {
     LoadModelFromPackageAsync: usize,
     pub SaveModelToPackageAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPrinting3D3MFPackage2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPrinting3D3MFPackage2 {
-    type Vtable = IPrinting3D3MFPackage2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPrinting3D3MFPackage2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x965c7ac4_93cb_4430_92b8_789cd454f883);
-}
+::windows_core::imp::com_interface!(IPrinting3D3MFPackage2, IPrinting3D3MFPackage2_Vtbl, 0x965c7ac4_93cb_4430_92b8_789cd454f883);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3D3MFPackage2_Vtbl {
@@ -198,16 +108,7 @@ pub struct IPrinting3D3MFPackage2_Vtbl {
     pub Compression: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut Printing3DPackageCompression) -> ::windows_core::HRESULT,
     pub SetCompression: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: Printing3DPackageCompression) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPrinting3D3MFPackageStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPrinting3D3MFPackageStatics {
-    type Vtable = IPrinting3D3MFPackageStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPrinting3D3MFPackageStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7058d9af_7a9a_4787_b817_f6f459214823);
-}
+::windows_core::imp::com_interface!(IPrinting3D3MFPackageStatics, IPrinting3D3MFPackageStatics_Vtbl, 0x7058d9af_7a9a_4787_b817_f6f459214823);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3D3MFPackageStatics_Vtbl {
@@ -217,16 +118,7 @@ pub struct IPrinting3D3MFPackageStatics_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     LoadAsync: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPrinting3DBaseMaterial(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPrinting3DBaseMaterial {
-    type Vtable = IPrinting3DBaseMaterial_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPrinting3DBaseMaterial {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd0f0e743_c50c_4bcb_9d04_fc16adcea2c9);
-}
+::windows_core::imp::com_interface!(IPrinting3DBaseMaterial, IPrinting3DBaseMaterial_Vtbl, 0xd0f0e743_c50c_4bcb_9d04_fc16adcea2c9);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DBaseMaterial_Vtbl {
@@ -236,16 +128,7 @@ pub struct IPrinting3DBaseMaterial_Vtbl {
     pub Color: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub SetColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPrinting3DBaseMaterialGroup(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPrinting3DBaseMaterialGroup {
-    type Vtable = IPrinting3DBaseMaterialGroup_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPrinting3DBaseMaterialGroup {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x94f070b8_2515_4a8d_a1f0_d0fc13d06021);
-}
+::windows_core::imp::com_interface!(IPrinting3DBaseMaterialGroup, IPrinting3DBaseMaterialGroup_Vtbl, 0x94f070b8_2515_4a8d_a1f0_d0fc13d06021);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DBaseMaterialGroup_Vtbl {
@@ -256,32 +139,14 @@ pub struct IPrinting3DBaseMaterialGroup_Vtbl {
     Bases: usize,
     pub MaterialGroupId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPrinting3DBaseMaterialGroupFactory(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPrinting3DBaseMaterialGroupFactory {
-    type Vtable = IPrinting3DBaseMaterialGroupFactory_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPrinting3DBaseMaterialGroupFactory {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5c1546dc_8697_4193_976b_84bb4116e5bf);
-}
+::windows_core::imp::com_interface!(IPrinting3DBaseMaterialGroupFactory, IPrinting3DBaseMaterialGroupFactory_Vtbl, 0x5c1546dc_8697_4193_976b_84bb4116e5bf);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DBaseMaterialGroupFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, materialgroupid: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPrinting3DBaseMaterialStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPrinting3DBaseMaterialStatics {
-    type Vtable = IPrinting3DBaseMaterialStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPrinting3DBaseMaterialStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x815a47bc_374a_476d_be92_3ecfd1cb9776);
-}
+::windows_core::imp::com_interface!(IPrinting3DBaseMaterialStatics, IPrinting3DBaseMaterialStatics_Vtbl, 0x815a47bc_374a_476d_be92_3ecfd1cb9776);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DBaseMaterialStatics_Vtbl {
@@ -289,16 +154,7 @@ pub struct IPrinting3DBaseMaterialStatics_Vtbl {
     pub Abs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub Pla: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPrinting3DColorMaterial(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPrinting3DColorMaterial {
-    type Vtable = IPrinting3DColorMaterial_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPrinting3DColorMaterial {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe1899928_7ce7_4285_a35d_f145c9510c7b);
-}
+::windows_core::imp::com_interface!(IPrinting3DColorMaterial, IPrinting3DColorMaterial_Vtbl, 0xe1899928_7ce7_4285_a35d_f145c9510c7b);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DColorMaterial_Vtbl {
@@ -306,16 +162,7 @@ pub struct IPrinting3DColorMaterial_Vtbl {
     pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
     pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPrinting3DColorMaterial2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPrinting3DColorMaterial2 {
-    type Vtable = IPrinting3DColorMaterial2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPrinting3DColorMaterial2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfab0e852_0aef_44e9_9ddd_36eeea5acd44);
-}
+::windows_core::imp::com_interface!(IPrinting3DColorMaterial2, IPrinting3DColorMaterial2_Vtbl, 0xfab0e852_0aef_44e9_9ddd_36eeea5acd44);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DColorMaterial2_Vtbl {
@@ -329,16 +176,7 @@ pub struct IPrinting3DColorMaterial2_Vtbl {
     #[cfg(not(feature = "UI"))]
     SetColor: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPrinting3DColorMaterialGroup(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPrinting3DColorMaterialGroup {
-    type Vtable = IPrinting3DColorMaterialGroup_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPrinting3DColorMaterialGroup {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x001a6bd0_aadf_4226_afe9_f369a0b45004);
-}
+::windows_core::imp::com_interface!(IPrinting3DColorMaterialGroup, IPrinting3DColorMaterialGroup_Vtbl, 0x001a6bd0_aadf_4226_afe9_f369a0b45004);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DColorMaterialGroup_Vtbl {
@@ -349,32 +187,14 @@ pub struct IPrinting3DColorMaterialGroup_Vtbl {
     Colors: usize,
     pub MaterialGroupId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPrinting3DColorMaterialGroupFactory(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPrinting3DColorMaterialGroupFactory {
-    type Vtable = IPrinting3DColorMaterialGroupFactory_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPrinting3DColorMaterialGroupFactory {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x71d38d6d_b1ea_4a5b_bc54_19c65f3df044);
-}
+::windows_core::imp::com_interface!(IPrinting3DColorMaterialGroupFactory, IPrinting3DColorMaterialGroupFactory_Vtbl, 0x71d38d6d_b1ea_4a5b_bc54_19c65f3df044);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DColorMaterialGroupFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, materialgroupid: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPrinting3DComponent(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPrinting3DComponent {
-    type Vtable = IPrinting3DComponent_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPrinting3DComponent {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7e287845_bf7f_4cdb_a27f_30a01437fede);
-}
+::windows_core::imp::com_interface!(IPrinting3DComponent, IPrinting3DComponent_Vtbl, 0x7e287845_bf7f_4cdb_a27f_30a01437fede);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DComponent_Vtbl {
@@ -394,16 +214,7 @@ pub struct IPrinting3DComponent_Vtbl {
     pub PartNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub SetPartNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPrinting3DComponentWithMatrix(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPrinting3DComponentWithMatrix {
-    type Vtable = IPrinting3DComponentWithMatrix_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPrinting3DComponentWithMatrix {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3279f335_0ef0_456b_9a21_49bebe8b51c2);
-}
+::windows_core::imp::com_interface!(IPrinting3DComponentWithMatrix, IPrinting3DComponentWithMatrix_Vtbl, 0x3279f335_0ef0_456b_9a21_49bebe8b51c2);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DComponentWithMatrix_Vtbl {
@@ -419,16 +230,7 @@ pub struct IPrinting3DComponentWithMatrix_Vtbl {
     #[cfg(not(feature = "Foundation_Numerics"))]
     SetMatrix: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPrinting3DCompositeMaterial(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPrinting3DCompositeMaterial {
-    type Vtable = IPrinting3DCompositeMaterial_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPrinting3DCompositeMaterial {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x462238dd_562e_4f6c_882d_f4d841fd63c7);
-}
+::windows_core::imp::com_interface!(IPrinting3DCompositeMaterial, IPrinting3DCompositeMaterial_Vtbl, 0x462238dd_562e_4f6c_882d_f4d841fd63c7);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DCompositeMaterial_Vtbl {
@@ -438,16 +240,7 @@ pub struct IPrinting3DCompositeMaterial_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     Values: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPrinting3DCompositeMaterialGroup(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPrinting3DCompositeMaterialGroup {
-    type Vtable = IPrinting3DCompositeMaterialGroup_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPrinting3DCompositeMaterialGroup {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8d946a5b_40f1_496d_a5fb_340a5a678e30);
-}
+::windows_core::imp::com_interface!(IPrinting3DCompositeMaterialGroup, IPrinting3DCompositeMaterialGroup_Vtbl, 0x8d946a5b_40f1_496d_a5fb_340a5a678e30);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DCompositeMaterialGroup_Vtbl {
@@ -462,16 +255,7 @@ pub struct IPrinting3DCompositeMaterialGroup_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     MaterialIndices: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPrinting3DCompositeMaterialGroup2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPrinting3DCompositeMaterialGroup2 {
-    type Vtable = IPrinting3DCompositeMaterialGroup2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPrinting3DCompositeMaterialGroup2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x06e86d62_7d3b_41e1_944c_bafde4555483);
-}
+::windows_core::imp::com_interface!(IPrinting3DCompositeMaterialGroup2, IPrinting3DCompositeMaterialGroup2_Vtbl, 0x06e86d62_7d3b_41e1_944c_bafde4555483);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DCompositeMaterialGroup2_Vtbl {
@@ -479,32 +263,14 @@ pub struct IPrinting3DCompositeMaterialGroup2_Vtbl {
     pub BaseMaterialGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub SetBaseMaterialGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPrinting3DCompositeMaterialGroupFactory(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPrinting3DCompositeMaterialGroupFactory {
-    type Vtable = IPrinting3DCompositeMaterialGroupFactory_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPrinting3DCompositeMaterialGroupFactory {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd08ecd13_92ff_43aa_a627_8d43c22c817e);
-}
+::windows_core::imp::com_interface!(IPrinting3DCompositeMaterialGroupFactory, IPrinting3DCompositeMaterialGroupFactory_Vtbl, 0xd08ecd13_92ff_43aa_a627_8d43c22c817e);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DCompositeMaterialGroupFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, materialgroupid: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPrinting3DFaceReductionOptions(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPrinting3DFaceReductionOptions {
-    type Vtable = IPrinting3DFaceReductionOptions_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPrinting3DFaceReductionOptions {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbbfed397_2d74_46f7_be85_99a67bbb6629);
-}
+::windows_core::imp::com_interface!(IPrinting3DFaceReductionOptions, IPrinting3DFaceReductionOptions_Vtbl, 0xbbfed397_2d74_46f7_be85_99a67bbb6629);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DFaceReductionOptions_Vtbl {
@@ -516,16 +282,7 @@ pub struct IPrinting3DFaceReductionOptions_Vtbl {
     pub MaxEdgeLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows_core::HRESULT,
     pub SetMaxEdgeLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPrinting3DMaterial(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPrinting3DMaterial {
-    type Vtable = IPrinting3DMaterial_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPrinting3DMaterial {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x378db256_ed62_4952_b85b_03567d7c465e);
-}
+::windows_core::imp::com_interface!(IPrinting3DMaterial, IPrinting3DMaterial_Vtbl, 0x378db256_ed62_4952_b85b_03567d7c465e);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DMaterial_Vtbl {
@@ -551,16 +308,7 @@ pub struct IPrinting3DMaterial_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     MultiplePropertyGroups: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPrinting3DMesh(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPrinting3DMesh {
-    type Vtable = IPrinting3DMesh_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPrinting3DMesh {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x192e90dc_0228_2e01_bc20_c5290cbf32c4);
-}
+::windows_core::imp::com_interface!(IPrinting3DMesh, IPrinting3DMesh_Vtbl, 0x192e90dc_0228_2e01_bc20_c5290cbf32c4);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DMesh_Vtbl {
@@ -607,16 +355,7 @@ pub struct IPrinting3DMesh_Vtbl {
     BufferSet: usize,
     pub VerifyAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: Printing3DMeshVerificationMode, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPrinting3DMeshVerificationResult(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPrinting3DMeshVerificationResult {
-    type Vtable = IPrinting3DMeshVerificationResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPrinting3DMeshVerificationResult {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x195671ba_e93a_4e8a_a46f_dea8e852197e);
-}
+::windows_core::imp::com_interface!(IPrinting3DMeshVerificationResult, IPrinting3DMeshVerificationResult_Vtbl, 0x195671ba_e93a_4e8a_a46f_dea8e852197e);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DMeshVerificationResult_Vtbl {
@@ -631,16 +370,7 @@ pub struct IPrinting3DMeshVerificationResult_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     ReversedNormalTriangles: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPrinting3DModel(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPrinting3DModel {
-    type Vtable = IPrinting3DModel_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPrinting3DModel {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2d012ef0_52fb_919a_77b0_4b1a3b80324f);
-}
+::windows_core::imp::com_interface!(IPrinting3DModel, IPrinting3DModel_Vtbl, 0x2d012ef0_52fb_919a_77b0_4b1a3b80324f);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DModel_Vtbl {
@@ -676,16 +406,7 @@ pub struct IPrinting3DModel_Vtbl {
     pub RepairAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPrinting3DModel2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPrinting3DModel2 {
-    type Vtable = IPrinting3DModel2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPrinting3DModel2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc92069c7_c841_47f3_a84e_a149fd08b657);
-}
+::windows_core::imp::com_interface!(IPrinting3DModel2, IPrinting3DModel2_Vtbl, 0xc92069c7_c841_47f3_a84e_a149fd08b657);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DModel2_Vtbl {
@@ -697,16 +418,7 @@ pub struct IPrinting3DModel2_Vtbl {
     pub TryReduceFacesWithOptionsAndTimeAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, printing3dfacereductionoptions: *mut ::core::ffi::c_void, maxwait: super::super::Foundation::TimeSpan, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub RepairWithProgressAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPrinting3DModelTexture(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPrinting3DModelTexture {
-    type Vtable = IPrinting3DModelTexture_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPrinting3DModelTexture {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5dafcf01_b59d_483c_97bb_a4d546d1c75c);
-}
+::windows_core::imp::com_interface!(IPrinting3DModelTexture, IPrinting3DModelTexture_Vtbl, 0x5dafcf01_b59d_483c_97bb_a4d546d1c75c);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DModelTexture_Vtbl {
@@ -718,16 +430,7 @@ pub struct IPrinting3DModelTexture_Vtbl {
     pub TileStyleV: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut Printing3DTextureEdgeBehavior) -> ::windows_core::HRESULT,
     pub SetTileStyleV: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: Printing3DTextureEdgeBehavior) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPrinting3DMultiplePropertyMaterial(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPrinting3DMultiplePropertyMaterial {
-    type Vtable = IPrinting3DMultiplePropertyMaterial_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPrinting3DMultiplePropertyMaterial {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x25a6254b_c6e9_484d_a214_a25e5776ba62);
-}
+::windows_core::imp::com_interface!(IPrinting3DMultiplePropertyMaterial, IPrinting3DMultiplePropertyMaterial_Vtbl, 0x25a6254b_c6e9_484d_a214_a25e5776ba62);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DMultiplePropertyMaterial_Vtbl {
@@ -737,16 +440,7 @@ pub struct IPrinting3DMultiplePropertyMaterial_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     MaterialIndices: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPrinting3DMultiplePropertyMaterialGroup(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPrinting3DMultiplePropertyMaterialGroup {
-    type Vtable = IPrinting3DMultiplePropertyMaterialGroup_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPrinting3DMultiplePropertyMaterialGroup {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf0950519_aeb9_4515_a39b_a088fbbb277c);
-}
+::windows_core::imp::com_interface!(IPrinting3DMultiplePropertyMaterialGroup, IPrinting3DMultiplePropertyMaterialGroup_Vtbl, 0xf0950519_aeb9_4515_a39b_a088fbbb277c);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DMultiplePropertyMaterialGroup_Vtbl {
@@ -761,32 +455,14 @@ pub struct IPrinting3DMultiplePropertyMaterialGroup_Vtbl {
     MaterialGroupIndices: usize,
     pub MaterialGroupId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPrinting3DMultiplePropertyMaterialGroupFactory(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPrinting3DMultiplePropertyMaterialGroupFactory {
-    type Vtable = IPrinting3DMultiplePropertyMaterialGroupFactory_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPrinting3DMultiplePropertyMaterialGroupFactory {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x323e196e_d4c6_451e_a814_4d78a210fe53);
-}
+::windows_core::imp::com_interface!(IPrinting3DMultiplePropertyMaterialGroupFactory, IPrinting3DMultiplePropertyMaterialGroupFactory_Vtbl, 0x323e196e_d4c6_451e_a814_4d78a210fe53);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DMultiplePropertyMaterialGroupFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, materialgroupid: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPrinting3DTexture2CoordMaterial(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPrinting3DTexture2CoordMaterial {
-    type Vtable = IPrinting3DTexture2CoordMaterial_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPrinting3DTexture2CoordMaterial {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8d844bfb_07e9_4986_9833_8dd3d48c6859);
-}
+::windows_core::imp::com_interface!(IPrinting3DTexture2CoordMaterial, IPrinting3DTexture2CoordMaterial_Vtbl, 0x8d844bfb_07e9_4986_9833_8dd3d48c6859);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DTexture2CoordMaterial_Vtbl {
@@ -798,16 +474,7 @@ pub struct IPrinting3DTexture2CoordMaterial_Vtbl {
     pub V: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows_core::HRESULT,
     pub SetV: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPrinting3DTexture2CoordMaterialGroup(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPrinting3DTexture2CoordMaterialGroup {
-    type Vtable = IPrinting3DTexture2CoordMaterialGroup_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPrinting3DTexture2CoordMaterialGroup {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x627d7ca7_6d90_4fb9_9fc4_9feff3dfa892);
-}
+::windows_core::imp::com_interface!(IPrinting3DTexture2CoordMaterialGroup, IPrinting3DTexture2CoordMaterialGroup_Vtbl, 0x627d7ca7_6d90_4fb9_9fc4_9feff3dfa892);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DTexture2CoordMaterialGroup_Vtbl {
@@ -818,16 +485,7 @@ pub struct IPrinting3DTexture2CoordMaterialGroup_Vtbl {
     Texture2Coords: usize,
     pub MaterialGroupId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPrinting3DTexture2CoordMaterialGroup2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPrinting3DTexture2CoordMaterialGroup2 {
-    type Vtable = IPrinting3DTexture2CoordMaterialGroup2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPrinting3DTexture2CoordMaterialGroup2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x69fbdbba_b12e_429b_8386_df5284f6e80f);
-}
+::windows_core::imp::com_interface!(IPrinting3DTexture2CoordMaterialGroup2, IPrinting3DTexture2CoordMaterialGroup2_Vtbl, 0x69fbdbba_b12e_429b_8386_df5284f6e80f);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DTexture2CoordMaterialGroup2_Vtbl {
@@ -835,32 +493,14 @@ pub struct IPrinting3DTexture2CoordMaterialGroup2_Vtbl {
     pub Texture: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub SetTexture: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPrinting3DTexture2CoordMaterialGroupFactory(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPrinting3DTexture2CoordMaterialGroupFactory {
-    type Vtable = IPrinting3DTexture2CoordMaterialGroupFactory_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPrinting3DTexture2CoordMaterialGroupFactory {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcbb049b0_468a_4c6f_b2a2_8eb8ba8dea48);
-}
+::windows_core::imp::com_interface!(IPrinting3DTexture2CoordMaterialGroupFactory, IPrinting3DTexture2CoordMaterialGroupFactory_Vtbl, 0xcbb049b0_468a_4c6f_b2a2_8eb8ba8dea48);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DTexture2CoordMaterialGroupFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, materialgroupid: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPrinting3DTextureResource(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPrinting3DTextureResource {
-    type Vtable = IPrinting3DTextureResource_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPrinting3DTextureResource {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa70df32d_6ab1_44ae_bc45_a27382c0d38c);
-}
+::windows_core::imp::com_interface!(IPrinting3DTextureResource, IPrinting3DTextureResource_Vtbl, 0xa70df32d_6ab1_44ae_bc45_a27382c0d38c);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrinting3DTextureResource_Vtbl {
@@ -879,6 +519,7 @@ pub struct IPrinting3DTextureResource_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Print3DManager(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(Print3DManager, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl Print3DManager {
     pub fn TaskRequested<P0>(&self, eventhandler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -917,19 +558,17 @@ impl ::windows_core::RuntimeType for Print3DManager {
 }
 unsafe impl ::windows_core::Interface for Print3DManager {
     type Vtable = IPrint3DManager_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for Print3DManager {
-    const IID: ::windows_core::GUID = <IPrint3DManager as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPrint3DManager as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for Print3DManager {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Print3DManager";
 }
-::windows_core::imp::interface_hierarchy!(Print3DManager, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Print3DManager {}
 unsafe impl ::core::marker::Sync for Print3DManager {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Print3DTask(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(Print3DTask, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl Print3DTask {
     pub fn Source(&self) -> ::windows_core::Result<Printing3D3MFPackage> {
         let this = self;
@@ -986,19 +625,17 @@ impl ::windows_core::RuntimeType for Print3DTask {
 }
 unsafe impl ::windows_core::Interface for Print3DTask {
     type Vtable = IPrint3DTask_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for Print3DTask {
-    const IID: ::windows_core::GUID = <IPrint3DTask as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPrint3DTask as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for Print3DTask {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Print3DTask";
 }
-::windows_core::imp::interface_hierarchy!(Print3DTask, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Print3DTask {}
 unsafe impl ::core::marker::Sync for Print3DTask {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Print3DTaskCompletedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(Print3DTaskCompletedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl Print3DTaskCompletedEventArgs {
     pub fn Completion(&self) -> ::windows_core::Result<Print3DTaskCompletion> {
         let this = self;
@@ -1020,19 +657,17 @@ impl ::windows_core::RuntimeType for Print3DTaskCompletedEventArgs {
 }
 unsafe impl ::windows_core::Interface for Print3DTaskCompletedEventArgs {
     type Vtable = IPrint3DTaskCompletedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for Print3DTaskCompletedEventArgs {
-    const IID: ::windows_core::GUID = <IPrint3DTaskCompletedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPrint3DTaskCompletedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for Print3DTaskCompletedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Print3DTaskCompletedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(Print3DTaskCompletedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Print3DTaskCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for Print3DTaskCompletedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Print3DTaskRequest(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(Print3DTaskRequest, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl Print3DTaskRequest {
     pub fn CreateTask<P0>(&self, title: &::windows_core::HSTRING, printerid: &::windows_core::HSTRING, handler: P0) -> ::windows_core::Result<Print3DTask>
     where
@@ -1050,19 +685,17 @@ impl ::windows_core::RuntimeType for Print3DTaskRequest {
 }
 unsafe impl ::windows_core::Interface for Print3DTaskRequest {
     type Vtable = IPrint3DTaskRequest_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for Print3DTaskRequest {
-    const IID: ::windows_core::GUID = <IPrint3DTaskRequest as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPrint3DTaskRequest as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for Print3DTaskRequest {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Print3DTaskRequest";
 }
-::windows_core::imp::interface_hierarchy!(Print3DTaskRequest, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Print3DTaskRequest {}
 unsafe impl ::core::marker::Sync for Print3DTaskRequest {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Print3DTaskRequestedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(Print3DTaskRequestedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl Print3DTaskRequestedEventArgs {
     pub fn Request(&self) -> ::windows_core::Result<Print3DTaskRequest> {
         let this = self;
@@ -1077,19 +710,17 @@ impl ::windows_core::RuntimeType for Print3DTaskRequestedEventArgs {
 }
 unsafe impl ::windows_core::Interface for Print3DTaskRequestedEventArgs {
     type Vtable = IPrint3DTaskRequestedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for Print3DTaskRequestedEventArgs {
-    const IID: ::windows_core::GUID = <IPrint3DTaskRequestedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPrint3DTaskRequestedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for Print3DTaskRequestedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Print3DTaskRequestedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(Print3DTaskRequestedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Print3DTaskRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for Print3DTaskRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Print3DTaskSourceChangedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(Print3DTaskSourceChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl Print3DTaskSourceChangedEventArgs {
     pub fn Source(&self) -> ::windows_core::Result<Printing3D3MFPackage> {
         let this = self;
@@ -1104,19 +735,17 @@ impl ::windows_core::RuntimeType for Print3DTaskSourceChangedEventArgs {
 }
 unsafe impl ::windows_core::Interface for Print3DTaskSourceChangedEventArgs {
     type Vtable = IPrint3DTaskSourceChangedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for Print3DTaskSourceChangedEventArgs {
-    const IID: ::windows_core::GUID = <IPrint3DTaskSourceChangedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPrint3DTaskSourceChangedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for Print3DTaskSourceChangedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Print3DTaskSourceChangedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(Print3DTaskSourceChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Print3DTaskSourceChangedEventArgs {}
 unsafe impl ::core::marker::Sync for Print3DTaskSourceChangedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Print3DTaskSourceRequestedArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(Print3DTaskSourceRequestedArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl Print3DTaskSourceRequestedArgs {
     pub fn SetSource<P0>(&self, source: P0) -> ::windows_core::Result<()>
     where
@@ -1131,19 +760,17 @@ impl ::windows_core::RuntimeType for Print3DTaskSourceRequestedArgs {
 }
 unsafe impl ::windows_core::Interface for Print3DTaskSourceRequestedArgs {
     type Vtable = IPrint3DTaskSourceRequestedArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for Print3DTaskSourceRequestedArgs {
-    const IID: ::windows_core::GUID = <IPrint3DTaskSourceRequestedArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPrint3DTaskSourceRequestedArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for Print3DTaskSourceRequestedArgs {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Print3DTaskSourceRequestedArgs";
 }
-::windows_core::imp::interface_hierarchy!(Print3DTaskSourceRequestedArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Print3DTaskSourceRequestedArgs {}
 unsafe impl ::core::marker::Sync for Print3DTaskSourceRequestedArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Printing3D3MFPackage(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(Printing3D3MFPackage, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl Printing3D3MFPackage {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1174,10 +801,10 @@ impl Printing3D3MFPackage {
     #[cfg(feature = "Storage_Streams")]
     pub fn SetPrintTicket<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IRandomAccessStream>,
+        P0: ::windows_core::IntoParam<super::super::Storage::Streams::IRandomAccessStream>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetPrintTicket)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetPrintTicket)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
@@ -1192,10 +819,10 @@ impl Printing3D3MFPackage {
     #[cfg(feature = "Storage_Streams")]
     pub fn SetModelPart<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IRandomAccessStream>,
+        P0: ::windows_core::IntoParam<super::super::Storage::Streams::IRandomAccessStream>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetModelPart)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetModelPart)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn Thumbnail(&self) -> ::windows_core::Result<Printing3DTextureResource> {
         let this = self;
@@ -1224,12 +851,12 @@ impl Printing3D3MFPackage {
     #[cfg(feature = "Storage_Streams")]
     pub fn LoadModelFromPackageAsync<P0>(&self, value: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<Printing3DModel>>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IRandomAccessStream>,
+        P0: ::windows_core::IntoParam<super::super::Storage::Streams::IRandomAccessStream>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).LoadModelFromPackageAsync)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).LoadModelFromPackageAsync)(::windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn SaveModelToPackageAsync<P0>(&self, value: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
@@ -1243,25 +870,25 @@ impl Printing3D3MFPackage {
         }
     }
     pub fn Compression(&self) -> ::windows_core::Result<Printing3DPackageCompression> {
-        let this = &::windows_core::ComInterface::cast::<IPrinting3D3MFPackage2>(self)?;
+        let this = &::windows_core::Interface::cast::<IPrinting3D3MFPackage2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Compression)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetCompression(&self, value: Printing3DPackageCompression) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<IPrinting3D3MFPackage2>(self)?;
+        let this = &::windows_core::Interface::cast::<IPrinting3D3MFPackage2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetCompression)(::windows_core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn LoadAsync<P0>(value: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<Printing3D3MFPackage>>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IRandomAccessStream>,
+        P0: ::windows_core::IntoParam<super::super::Storage::Streams::IRandomAccessStream>,
     {
         Self::IPrinting3D3MFPackageStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).LoadAsync)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).LoadAsync)(::windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -1275,19 +902,17 @@ impl ::windows_core::RuntimeType for Printing3D3MFPackage {
 }
 unsafe impl ::windows_core::Interface for Printing3D3MFPackage {
     type Vtable = IPrinting3D3MFPackage_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for Printing3D3MFPackage {
-    const IID: ::windows_core::GUID = <IPrinting3D3MFPackage as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPrinting3D3MFPackage as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for Printing3D3MFPackage {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3D3MFPackage";
 }
-::windows_core::imp::interface_hierarchy!(Printing3D3MFPackage, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3D3MFPackage {}
 unsafe impl ::core::marker::Sync for Printing3D3MFPackage {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Printing3DBaseMaterial(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(Printing3DBaseMaterial, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl Printing3DBaseMaterial {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1344,19 +969,17 @@ impl ::windows_core::RuntimeType for Printing3DBaseMaterial {
 }
 unsafe impl ::windows_core::Interface for Printing3DBaseMaterial {
     type Vtable = IPrinting3DBaseMaterial_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for Printing3DBaseMaterial {
-    const IID: ::windows_core::GUID = <IPrinting3DBaseMaterial as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPrinting3DBaseMaterial as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for Printing3DBaseMaterial {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DBaseMaterial";
 }
-::windows_core::imp::interface_hierarchy!(Printing3DBaseMaterial, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DBaseMaterial {}
 unsafe impl ::core::marker::Sync for Printing3DBaseMaterial {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Printing3DBaseMaterialGroup(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(Printing3DBaseMaterialGroup, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl Printing3DBaseMaterialGroup {
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
@@ -1391,19 +1014,17 @@ impl ::windows_core::RuntimeType for Printing3DBaseMaterialGroup {
 }
 unsafe impl ::windows_core::Interface for Printing3DBaseMaterialGroup {
     type Vtable = IPrinting3DBaseMaterialGroup_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for Printing3DBaseMaterialGroup {
-    const IID: ::windows_core::GUID = <IPrinting3DBaseMaterialGroup as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPrinting3DBaseMaterialGroup as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for Printing3DBaseMaterialGroup {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DBaseMaterialGroup";
 }
-::windows_core::imp::interface_hierarchy!(Printing3DBaseMaterialGroup, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DBaseMaterialGroup {}
 unsafe impl ::core::marker::Sync for Printing3DBaseMaterialGroup {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Printing3DColorMaterial(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(Printing3DColorMaterial, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl Printing3DColorMaterial {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1426,7 +1047,7 @@ impl Printing3DColorMaterial {
     #[doc = "Required features: `\"UI\"`"]
     #[cfg(feature = "UI")]
     pub fn Color(&self) -> ::windows_core::Result<super::super::UI::Color> {
-        let this = &::windows_core::ComInterface::cast::<IPrinting3DColorMaterial2>(self)?;
+        let this = &::windows_core::Interface::cast::<IPrinting3DColorMaterial2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Color)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -1435,7 +1056,7 @@ impl Printing3DColorMaterial {
     #[doc = "Required features: `\"UI\"`"]
     #[cfg(feature = "UI")]
     pub fn SetColor(&self, value: super::super::UI::Color) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<IPrinting3DColorMaterial2>(self)?;
+        let this = &::windows_core::Interface::cast::<IPrinting3DColorMaterial2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetColor)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
@@ -1444,19 +1065,17 @@ impl ::windows_core::RuntimeType for Printing3DColorMaterial {
 }
 unsafe impl ::windows_core::Interface for Printing3DColorMaterial {
     type Vtable = IPrinting3DColorMaterial_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for Printing3DColorMaterial {
-    const IID: ::windows_core::GUID = <IPrinting3DColorMaterial as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPrinting3DColorMaterial as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for Printing3DColorMaterial {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DColorMaterial";
 }
-::windows_core::imp::interface_hierarchy!(Printing3DColorMaterial, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DColorMaterial {}
 unsafe impl ::core::marker::Sync for Printing3DColorMaterial {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Printing3DColorMaterialGroup(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(Printing3DColorMaterialGroup, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl Printing3DColorMaterialGroup {
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
@@ -1491,19 +1110,17 @@ impl ::windows_core::RuntimeType for Printing3DColorMaterialGroup {
 }
 unsafe impl ::windows_core::Interface for Printing3DColorMaterialGroup {
     type Vtable = IPrinting3DColorMaterialGroup_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for Printing3DColorMaterialGroup {
-    const IID: ::windows_core::GUID = <IPrinting3DColorMaterialGroup as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPrinting3DColorMaterialGroup as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for Printing3DColorMaterialGroup {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DColorMaterialGroup";
 }
-::windows_core::imp::interface_hierarchy!(Printing3DColorMaterialGroup, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DColorMaterialGroup {}
 unsafe impl ::core::marker::Sync for Printing3DColorMaterialGroup {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Printing3DComponent(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(Printing3DComponent, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl Printing3DComponent {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1588,19 +1205,17 @@ impl ::windows_core::RuntimeType for Printing3DComponent {
 }
 unsafe impl ::windows_core::Interface for Printing3DComponent {
     type Vtable = IPrinting3DComponent_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for Printing3DComponent {
-    const IID: ::windows_core::GUID = <IPrinting3DComponent as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPrinting3DComponent as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for Printing3DComponent {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DComponent";
 }
-::windows_core::imp::interface_hierarchy!(Printing3DComponent, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DComponent {}
 unsafe impl ::core::marker::Sync for Printing3DComponent {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Printing3DComponentWithMatrix(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(Printing3DComponentWithMatrix, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl Printing3DComponentWithMatrix {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1644,19 +1259,17 @@ impl ::windows_core::RuntimeType for Printing3DComponentWithMatrix {
 }
 unsafe impl ::windows_core::Interface for Printing3DComponentWithMatrix {
     type Vtable = IPrinting3DComponentWithMatrix_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for Printing3DComponentWithMatrix {
-    const IID: ::windows_core::GUID = <IPrinting3DComponentWithMatrix as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPrinting3DComponentWithMatrix as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for Printing3DComponentWithMatrix {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DComponentWithMatrix";
 }
-::windows_core::imp::interface_hierarchy!(Printing3DComponentWithMatrix, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DComponentWithMatrix {}
 unsafe impl ::core::marker::Sync for Printing3DComponentWithMatrix {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Printing3DCompositeMaterial(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(Printing3DCompositeMaterial, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl Printing3DCompositeMaterial {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1680,19 +1293,17 @@ impl ::windows_core::RuntimeType for Printing3DCompositeMaterial {
 }
 unsafe impl ::windows_core::Interface for Printing3DCompositeMaterial {
     type Vtable = IPrinting3DCompositeMaterial_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for Printing3DCompositeMaterial {
-    const IID: ::windows_core::GUID = <IPrinting3DCompositeMaterial as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPrinting3DCompositeMaterial as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for Printing3DCompositeMaterial {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DCompositeMaterial";
 }
-::windows_core::imp::interface_hierarchy!(Printing3DCompositeMaterial, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DCompositeMaterial {}
 unsafe impl ::core::marker::Sync for Printing3DCompositeMaterial {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Printing3DCompositeMaterialGroup(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(Printing3DCompositeMaterialGroup, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl Printing3DCompositeMaterialGroup {
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
@@ -1720,7 +1331,7 @@ impl Printing3DCompositeMaterialGroup {
         }
     }
     pub fn BaseMaterialGroup(&self) -> ::windows_core::Result<Printing3DBaseMaterialGroup> {
-        let this = &::windows_core::ComInterface::cast::<IPrinting3DCompositeMaterialGroup2>(self)?;
+        let this = &::windows_core::Interface::cast::<IPrinting3DCompositeMaterialGroup2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).BaseMaterialGroup)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -1730,7 +1341,7 @@ impl Printing3DCompositeMaterialGroup {
     where
         P0: ::windows_core::IntoParam<Printing3DBaseMaterialGroup>,
     {
-        let this = &::windows_core::ComInterface::cast::<IPrinting3DCompositeMaterialGroup2>(self)?;
+        let this = &::windows_core::Interface::cast::<IPrinting3DCompositeMaterialGroup2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetBaseMaterialGroup)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn Create(materialgroupid: u32) -> ::windows_core::Result<Printing3DCompositeMaterialGroup> {
@@ -1750,19 +1361,17 @@ impl ::windows_core::RuntimeType for Printing3DCompositeMaterialGroup {
 }
 unsafe impl ::windows_core::Interface for Printing3DCompositeMaterialGroup {
     type Vtable = IPrinting3DCompositeMaterialGroup_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for Printing3DCompositeMaterialGroup {
-    const IID: ::windows_core::GUID = <IPrinting3DCompositeMaterialGroup as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPrinting3DCompositeMaterialGroup as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for Printing3DCompositeMaterialGroup {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DCompositeMaterialGroup";
 }
-::windows_core::imp::interface_hierarchy!(Printing3DCompositeMaterialGroup, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DCompositeMaterialGroup {}
 unsafe impl ::core::marker::Sync for Printing3DCompositeMaterialGroup {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Printing3DFaceReductionOptions(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(Printing3DFaceReductionOptions, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl Printing3DFaceReductionOptions {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1810,19 +1419,17 @@ impl ::windows_core::RuntimeType for Printing3DFaceReductionOptions {
 }
 unsafe impl ::windows_core::Interface for Printing3DFaceReductionOptions {
     type Vtable = IPrinting3DFaceReductionOptions_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for Printing3DFaceReductionOptions {
-    const IID: ::windows_core::GUID = <IPrinting3DFaceReductionOptions as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPrinting3DFaceReductionOptions as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for Printing3DFaceReductionOptions {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DFaceReductionOptions";
 }
-::windows_core::imp::interface_hierarchy!(Printing3DFaceReductionOptions, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DFaceReductionOptions {}
 unsafe impl ::core::marker::Sync for Printing3DFaceReductionOptions {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Printing3DMaterial(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(Printing3DMaterial, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl Printing3DMaterial {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1882,19 +1489,17 @@ impl ::windows_core::RuntimeType for Printing3DMaterial {
 }
 unsafe impl ::windows_core::Interface for Printing3DMaterial {
     type Vtable = IPrinting3DMaterial_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for Printing3DMaterial {
-    const IID: ::windows_core::GUID = <IPrinting3DMaterial as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPrinting3DMaterial as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for Printing3DMaterial {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DMaterial";
 }
-::windows_core::imp::interface_hierarchy!(Printing3DMaterial, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DMaterial {}
 unsafe impl ::core::marker::Sync for Printing3DMaterial {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Printing3DMesh(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(Printing3DMesh, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl Printing3DMesh {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -2052,19 +1657,17 @@ impl ::windows_core::RuntimeType for Printing3DMesh {
 }
 unsafe impl ::windows_core::Interface for Printing3DMesh {
     type Vtable = IPrinting3DMesh_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for Printing3DMesh {
-    const IID: ::windows_core::GUID = <IPrinting3DMesh as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPrinting3DMesh as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for Printing3DMesh {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DMesh";
 }
-::windows_core::imp::interface_hierarchy!(Printing3DMesh, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DMesh {}
 unsafe impl ::core::marker::Sync for Printing3DMesh {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Printing3DMeshVerificationResult(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(Printing3DMeshVerificationResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl Printing3DMeshVerificationResult {
     pub fn IsValid(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -2097,19 +1700,17 @@ impl ::windows_core::RuntimeType for Printing3DMeshVerificationResult {
 }
 unsafe impl ::windows_core::Interface for Printing3DMeshVerificationResult {
     type Vtable = IPrinting3DMeshVerificationResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for Printing3DMeshVerificationResult {
-    const IID: ::windows_core::GUID = <IPrinting3DMeshVerificationResult as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPrinting3DMeshVerificationResult as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for Printing3DMeshVerificationResult {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DMeshVerificationResult";
 }
-::windows_core::imp::interface_hierarchy!(Printing3DMeshVerificationResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DMeshVerificationResult {}
 unsafe impl ::core::marker::Sync for Printing3DMeshVerificationResult {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Printing3DModel(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(Printing3DModel, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl Printing3DModel {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -2228,21 +1829,21 @@ impl Printing3DModel {
         }
     }
     pub fn TryPartialRepairAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
-        let this = &::windows_core::ComInterface::cast::<IPrinting3DModel2>(self)?;
+        let this = &::windows_core::Interface::cast::<IPrinting3DModel2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TryPartialRepairAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TryPartialRepairWithTimeAsync(&self, maxwaittime: super::super::Foundation::TimeSpan) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
-        let this = &::windows_core::ComInterface::cast::<IPrinting3DModel2>(self)?;
+        let this = &::windows_core::Interface::cast::<IPrinting3DModel2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TryPartialRepairWithTimeAsync)(::windows_core::Interface::as_raw(this), maxwaittime, &mut result__).from_abi(result__)
         }
     }
     pub fn TryReduceFacesAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<bool, f64>> {
-        let this = &::windows_core::ComInterface::cast::<IPrinting3DModel2>(self)?;
+        let this = &::windows_core::Interface::cast::<IPrinting3DModel2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TryReduceFacesAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -2252,7 +1853,7 @@ impl Printing3DModel {
     where
         P0: ::windows_core::IntoParam<Printing3DFaceReductionOptions>,
     {
-        let this = &::windows_core::ComInterface::cast::<IPrinting3DModel2>(self)?;
+        let this = &::windows_core::Interface::cast::<IPrinting3DModel2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TryReduceFacesWithOptionsAsync)(::windows_core::Interface::as_raw(this), printing3dfacereductionoptions.into_param().abi(), &mut result__).from_abi(result__)
@@ -2262,14 +1863,14 @@ impl Printing3DModel {
     where
         P0: ::windows_core::IntoParam<Printing3DFaceReductionOptions>,
     {
-        let this = &::windows_core::ComInterface::cast::<IPrinting3DModel2>(self)?;
+        let this = &::windows_core::Interface::cast::<IPrinting3DModel2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TryReduceFacesWithOptionsAndTimeAsync)(::windows_core::Interface::as_raw(this), printing3dfacereductionoptions.into_param().abi(), maxwait, &mut result__).from_abi(result__)
         }
     }
     pub fn RepairWithProgressAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<bool, f64>> {
-        let this = &::windows_core::ComInterface::cast::<IPrinting3DModel2>(self)?;
+        let this = &::windows_core::Interface::cast::<IPrinting3DModel2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RepairWithProgressAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -2281,19 +1882,17 @@ impl ::windows_core::RuntimeType for Printing3DModel {
 }
 unsafe impl ::windows_core::Interface for Printing3DModel {
     type Vtable = IPrinting3DModel_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for Printing3DModel {
-    const IID: ::windows_core::GUID = <IPrinting3DModel as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPrinting3DModel as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for Printing3DModel {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DModel";
 }
-::windows_core::imp::interface_hierarchy!(Printing3DModel, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DModel {}
 unsafe impl ::core::marker::Sync for Printing3DModel {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Printing3DModelTexture(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(Printing3DModelTexture, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl Printing3DModelTexture {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -2344,19 +1943,17 @@ impl ::windows_core::RuntimeType for Printing3DModelTexture {
 }
 unsafe impl ::windows_core::Interface for Printing3DModelTexture {
     type Vtable = IPrinting3DModelTexture_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for Printing3DModelTexture {
-    const IID: ::windows_core::GUID = <IPrinting3DModelTexture as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPrinting3DModelTexture as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for Printing3DModelTexture {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DModelTexture";
 }
-::windows_core::imp::interface_hierarchy!(Printing3DModelTexture, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DModelTexture {}
 unsafe impl ::core::marker::Sync for Printing3DModelTexture {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Printing3DMultiplePropertyMaterial(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(Printing3DMultiplePropertyMaterial, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl Printing3DMultiplePropertyMaterial {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -2380,19 +1977,17 @@ impl ::windows_core::RuntimeType for Printing3DMultiplePropertyMaterial {
 }
 unsafe impl ::windows_core::Interface for Printing3DMultiplePropertyMaterial {
     type Vtable = IPrinting3DMultiplePropertyMaterial_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for Printing3DMultiplePropertyMaterial {
-    const IID: ::windows_core::GUID = <IPrinting3DMultiplePropertyMaterial as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPrinting3DMultiplePropertyMaterial as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for Printing3DMultiplePropertyMaterial {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DMultiplePropertyMaterial";
 }
-::windows_core::imp::interface_hierarchy!(Printing3DMultiplePropertyMaterial, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DMultiplePropertyMaterial {}
 unsafe impl ::core::marker::Sync for Printing3DMultiplePropertyMaterial {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Printing3DMultiplePropertyMaterialGroup(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(Printing3DMultiplePropertyMaterialGroup, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl Printing3DMultiplePropertyMaterialGroup {
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
@@ -2436,19 +2031,17 @@ impl ::windows_core::RuntimeType for Printing3DMultiplePropertyMaterialGroup {
 }
 unsafe impl ::windows_core::Interface for Printing3DMultiplePropertyMaterialGroup {
     type Vtable = IPrinting3DMultiplePropertyMaterialGroup_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for Printing3DMultiplePropertyMaterialGroup {
-    const IID: ::windows_core::GUID = <IPrinting3DMultiplePropertyMaterialGroup as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPrinting3DMultiplePropertyMaterialGroup as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for Printing3DMultiplePropertyMaterialGroup {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DMultiplePropertyMaterialGroup";
 }
-::windows_core::imp::interface_hierarchy!(Printing3DMultiplePropertyMaterialGroup, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DMultiplePropertyMaterialGroup {}
 unsafe impl ::core::marker::Sync for Printing3DMultiplePropertyMaterialGroup {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Printing3DTexture2CoordMaterial(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(Printing3DTexture2CoordMaterial, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl Printing3DTexture2CoordMaterial {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -2499,19 +2092,17 @@ impl ::windows_core::RuntimeType for Printing3DTexture2CoordMaterial {
 }
 unsafe impl ::windows_core::Interface for Printing3DTexture2CoordMaterial {
     type Vtable = IPrinting3DTexture2CoordMaterial_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for Printing3DTexture2CoordMaterial {
-    const IID: ::windows_core::GUID = <IPrinting3DTexture2CoordMaterial as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPrinting3DTexture2CoordMaterial as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for Printing3DTexture2CoordMaterial {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DTexture2CoordMaterial";
 }
-::windows_core::imp::interface_hierarchy!(Printing3DTexture2CoordMaterial, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DTexture2CoordMaterial {}
 unsafe impl ::core::marker::Sync for Printing3DTexture2CoordMaterial {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Printing3DTexture2CoordMaterialGroup(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(Printing3DTexture2CoordMaterialGroup, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl Printing3DTexture2CoordMaterialGroup {
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
@@ -2530,7 +2121,7 @@ impl Printing3DTexture2CoordMaterialGroup {
         }
     }
     pub fn Texture(&self) -> ::windows_core::Result<Printing3DModelTexture> {
-        let this = &::windows_core::ComInterface::cast::<IPrinting3DTexture2CoordMaterialGroup2>(self)?;
+        let this = &::windows_core::Interface::cast::<IPrinting3DTexture2CoordMaterialGroup2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Texture)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -2540,7 +2131,7 @@ impl Printing3DTexture2CoordMaterialGroup {
     where
         P0: ::windows_core::IntoParam<Printing3DModelTexture>,
     {
-        let this = &::windows_core::ComInterface::cast::<IPrinting3DTexture2CoordMaterialGroup2>(self)?;
+        let this = &::windows_core::Interface::cast::<IPrinting3DTexture2CoordMaterialGroup2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetTexture)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn Create(materialgroupid: u32) -> ::windows_core::Result<Printing3DTexture2CoordMaterialGroup> {
@@ -2560,19 +2151,17 @@ impl ::windows_core::RuntimeType for Printing3DTexture2CoordMaterialGroup {
 }
 unsafe impl ::windows_core::Interface for Printing3DTexture2CoordMaterialGroup {
     type Vtable = IPrinting3DTexture2CoordMaterialGroup_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for Printing3DTexture2CoordMaterialGroup {
-    const IID: ::windows_core::GUID = <IPrinting3DTexture2CoordMaterialGroup as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPrinting3DTexture2CoordMaterialGroup as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for Printing3DTexture2CoordMaterialGroup {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DTexture2CoordMaterialGroup";
 }
-::windows_core::imp::interface_hierarchy!(Printing3DTexture2CoordMaterialGroup, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DTexture2CoordMaterialGroup {}
 unsafe impl ::core::marker::Sync for Printing3DTexture2CoordMaterialGroup {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Printing3DTextureResource(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(Printing3DTextureResource, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl Printing3DTextureResource {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -2594,10 +2183,10 @@ impl Printing3DTextureResource {
     #[cfg(feature = "Storage_Streams")]
     pub fn SetTextureData<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IRandomAccessStreamWithContentType>,
+        P0: ::windows_core::IntoParam<super::super::Storage::Streams::IRandomAccessStreamWithContentType>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetTextureData)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetTextureData)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn Name(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -2616,14 +2205,11 @@ impl ::windows_core::RuntimeType for Printing3DTextureResource {
 }
 unsafe impl ::windows_core::Interface for Printing3DTextureResource {
     type Vtable = IPrinting3DTextureResource_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for Printing3DTextureResource {
-    const IID: ::windows_core::GUID = <IPrinting3DTextureResource as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IPrinting3DTextureResource as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for Printing3DTextureResource {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DTextureResource";
 }
-::windows_core::imp::interface_hierarchy!(Printing3DTextureResource, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DTextureResource {}
 unsafe impl ::core::marker::Sync for Printing3DTextureResource {}
 #[repr(transparent)]
@@ -2824,9 +2410,7 @@ impl ::core::default::Default for Printing3DBufferDescription {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct Print3DTaskSourceRequestedHandler(pub ::windows_core::IUnknown);
+::windows_core::imp::com_interface!(Print3DTaskSourceRequestedHandler, Print3DTaskSourceRequestedHandler_Vtbl, 0xe9175e70_c917_46de_bb51_d9a94db3711f);
 impl Print3DTaskSourceRequestedHandler {
     pub fn new<F: FnMut(::core::option::Option<&Print3DTaskSourceRequestedArgs>) -> ::windows_core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
         let com = Print3DTaskSourceRequestedHandlerBox::<F> { vtable: &Print3DTaskSourceRequestedHandlerBox::<F>::VTABLE, count: ::windows_core::imp::RefCount::new(1), invoke };
@@ -2856,7 +2440,7 @@ impl<F: FnMut(::core::option::Option<&Print3DTaskSourceRequestedArgs>) -> ::wind
         if iid.is_null() || interface.is_null() {
             return ::windows_core::HRESULT(-2147467261);
         }
-        *interface = if *iid == <Print3DTaskSourceRequestedHandler as ::windows_core::ComInterface>::IID || *iid == <::windows_core::IUnknown as ::windows_core::ComInterface>::IID || *iid == <::windows_core::imp::IAgileObject as ::windows_core::ComInterface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        *interface = if *iid == <Print3DTaskSourceRequestedHandler as ::windows_core::Interface>::IID || *iid == <::windows_core::IUnknown as ::windows_core::Interface>::IID || *iid == <::windows_core::imp::IAgileObject as ::windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows_core::HRESULT(-2147467262)
         } else {
@@ -2880,12 +2464,6 @@ impl<F: FnMut(::core::option::Option<&Print3DTaskSourceRequestedArgs>) -> ::wind
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         ((*this).invoke)(::windows_core::from_raw_borrowed(&args)).into()
     }
-}
-unsafe impl ::windows_core::Interface for Print3DTaskSourceRequestedHandler {
-    type Vtable = Print3DTaskSourceRequestedHandler_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for Print3DTaskSourceRequestedHandler {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe9175e70_c917_46de_bb51_d9a94db3711f);
 }
 impl ::windows_core::RuntimeType for Print3DTaskSourceRequestedHandler {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();

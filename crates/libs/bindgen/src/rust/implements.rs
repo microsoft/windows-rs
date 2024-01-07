@@ -29,7 +29,7 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
         }
     }
 
-    let mut matches = quote! { iid == &<#type_ident as ::windows_core::ComInterface>::IID };
+    let mut matches = quote! { iid == &<#type_ident as ::windows_core::Interface>::IID };
 
     if let Some(metadata::Type::TypeDef(def, _)) = vtables.last() {
         requires.combine(&gen_required_trait(writer, *def, &[]))
@@ -40,7 +40,7 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
             let name = writer.type_def_name(*def, generics);
 
             matches.combine(&quote! {
-                || iid == &<#name as ::windows_core::ComInterface>::IID
+                || iid == &<#name as ::windows_core::Interface>::IID
             })
         }
     }

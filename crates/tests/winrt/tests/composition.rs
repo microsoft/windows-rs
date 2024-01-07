@@ -1,5 +1,5 @@
 use windows::{
-    core::{ComInterface, HSTRING},
+    core::{Interface, HSTRING},
     System::DispatcherQueueController,
     Win32::System::WinRT::{
         CreateDispatcherQueueController, DispatcherQueueOptions, DQTAT_COM_NONE,
@@ -62,7 +62,7 @@ fn class_hierarchy_conversion() -> windows::core::Result<()> {
 
 #[test]
 fn composition() -> windows::core::Result<()> {
-    use windows::core::ComInterface;
+    use windows::core::Interface;
     use windows::Foundation::Numerics::Vector3;
     use windows::UI::Composition::{CompositionColorBrush, Compositor};
     use windows::UI::{Color, Colors};

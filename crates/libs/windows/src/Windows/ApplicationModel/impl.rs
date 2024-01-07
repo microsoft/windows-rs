@@ -24,7 +24,7 @@ impl IEnteredBackgroundEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnteredBackgroundEventArgs as ::windows_core::ComInterface>::IID
+        iid == &<IEnteredBackgroundEventArgs as ::windows_core::Interface>::IID
     }
 }
 pub trait ILeavingBackgroundEventArgs_Impl: Sized {
@@ -53,7 +53,7 @@ impl ILeavingBackgroundEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ILeavingBackgroundEventArgs as ::windows_core::ComInterface>::IID
+        iid == &<ILeavingBackgroundEventArgs as ::windows_core::Interface>::IID
     }
 }
 pub trait IPackageCatalogStatics2_Impl: Sized {
@@ -82,7 +82,7 @@ impl IPackageCatalogStatics2_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPackageCatalogStatics2 as ::windows_core::ComInterface>::IID
+        iid == &<IPackageCatalogStatics2 as ::windows_core::Interface>::IID
     }
 }
 pub trait ISuspendingDeferral_Impl: Sized {
@@ -101,7 +101,7 @@ impl ISuspendingDeferral_Vtbl {
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, ISuspendingDeferral, OFFSET>(), Complete: Complete::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISuspendingDeferral as ::windows_core::ComInterface>::IID
+        iid == &<ISuspendingDeferral as ::windows_core::Interface>::IID
     }
 }
 pub trait ISuspendingEventArgs_Impl: Sized {
@@ -130,7 +130,7 @@ impl ISuspendingEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISuspendingEventArgs as ::windows_core::ComInterface>::IID
+        iid == &<ISuspendingEventArgs as ::windows_core::Interface>::IID
     }
 }
 pub trait ISuspendingOperation_Impl: Sized {
@@ -172,6 +172,6 @@ impl ISuspendingOperation_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISuspendingOperation as ::windows_core::ComInterface>::IID
+        iid == &<ISuspendingOperation as ::windows_core::Interface>::IID
     }
 }

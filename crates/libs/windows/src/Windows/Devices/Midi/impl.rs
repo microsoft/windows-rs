@@ -54,7 +54,7 @@ impl IMidiMessage_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMidiMessage as ::windows_core::ComInterface>::IID
+        iid == &<IMidiMessage as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Storage_Streams\"`"]
@@ -101,6 +101,6 @@ impl IMidiOutPort_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMidiOutPort as ::windows_core::ComInterface>::IID
+        iid == &<IMidiOutPort as ::windows_core::Interface>::IID
     }
 }

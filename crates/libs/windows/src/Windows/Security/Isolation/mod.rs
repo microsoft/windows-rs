@@ -1,13 +1,4 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IIsolatedWindowsEnvironment(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IIsolatedWindowsEnvironment {
-    type Vtable = IIsolatedWindowsEnvironment_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IIsolatedWindowsEnvironment {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x41d24597_c328_4467_b37f_4dfc6f60b6bc);
-}
+::windows_core::imp::com_interface!(IIsolatedWindowsEnvironment, IIsolatedWindowsEnvironment_Vtbl, 0x41d24597_c328_4467_b37f_4dfc6f60b6bc);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironment_Vtbl {
@@ -27,16 +18,7 @@ pub struct IIsolatedWindowsEnvironment_Vtbl {
     RegisterMessageReceiver: usize,
     pub UnregisterMessageReceiver: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, receiverid: ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IIsolatedWindowsEnvironment2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IIsolatedWindowsEnvironment2 {
-    type Vtable = IIsolatedWindowsEnvironment2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IIsolatedWindowsEnvironment2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2d365f39_88bd_4ab4_93cf_7e2bcef337c0);
-}
+::windows_core::imp::com_interface!(IIsolatedWindowsEnvironment2, IIsolatedWindowsEnvironment2_Vtbl, 0x2d365f39_88bd_4ab4_93cf_7e2bcef337c0);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironment2_Vtbl {
@@ -50,16 +32,7 @@ pub struct IIsolatedWindowsEnvironment2_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     PostMessageToReceiverWithTelemetryAsync: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IIsolatedWindowsEnvironment3(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IIsolatedWindowsEnvironment3 {
-    type Vtable = IIsolatedWindowsEnvironment3_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IIsolatedWindowsEnvironment3 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcb7fc7d2_d06e_4c26_8ada_dacdaaad03f5);
-}
+::windows_core::imp::com_interface!(IIsolatedWindowsEnvironment3, IIsolatedWindowsEnvironment3_Vtbl, 0xcb7fc7d2_d06e_4c26_8ada_dacdaaad03f5);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironment3_Vtbl {
@@ -68,32 +41,14 @@ pub struct IIsolatedWindowsEnvironment3_Vtbl {
     pub ShareFileAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filepath: ::std::mem::MaybeUninit<::windows_core::HSTRING>, options: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub ShareFileWithTelemetryAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filepath: ::std::mem::MaybeUninit<::windows_core::HSTRING>, options: *mut ::core::ffi::c_void, telemetryparameters: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IIsolatedWindowsEnvironment4(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IIsolatedWindowsEnvironment4 {
-    type Vtable = IIsolatedWindowsEnvironment4_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IIsolatedWindowsEnvironment4 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x11e3701a_dd9e_4f1b_812c_4020f307f93c);
-}
+::windows_core::imp::com_interface!(IIsolatedWindowsEnvironment4, IIsolatedWindowsEnvironment4_Vtbl, 0x11e3701a_dd9e_4f1b_812c_4020f307f93c);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironment4_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ChangePriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, priority: IsolatedWindowsEnvironmentCreationPriority) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IIsolatedWindowsEnvironmentCreateResult(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IIsolatedWindowsEnvironmentCreateResult {
-    type Vtable = IIsolatedWindowsEnvironmentCreateResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IIsolatedWindowsEnvironmentCreateResult {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xef9a5e58_dcd7_45c2_9c85_ab642a715e8e);
-}
+::windows_core::imp::com_interface!(IIsolatedWindowsEnvironmentCreateResult, IIsolatedWindowsEnvironmentCreateResult_Vtbl, 0xef9a5e58_dcd7_45c2_9c85_ab642a715e8e);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentCreateResult_Vtbl {
@@ -102,32 +57,14 @@ pub struct IIsolatedWindowsEnvironmentCreateResult_Vtbl {
     pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
     pub Environment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IIsolatedWindowsEnvironmentCreateResult2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IIsolatedWindowsEnvironmentCreateResult2 {
-    type Vtable = IIsolatedWindowsEnvironmentCreateResult2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IIsolatedWindowsEnvironmentCreateResult2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa547dbc7_61d4_4fb8_ab5c_edefa3d388ad);
-}
+::windows_core::imp::com_interface!(IIsolatedWindowsEnvironmentCreateResult2, IIsolatedWindowsEnvironmentCreateResult2_Vtbl, 0xa547dbc7_61d4_4fb8_ab5c_edefa3d388ad);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentCreateResult2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ChangeCreationPriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, priority: IsolatedWindowsEnvironmentCreationPriority) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IIsolatedWindowsEnvironmentFactory(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IIsolatedWindowsEnvironmentFactory {
-    type Vtable = IIsolatedWindowsEnvironmentFactory_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IIsolatedWindowsEnvironmentFactory {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1aca93e7_e804_454d_8466_f9897c20b0f6);
-}
+::windows_core::imp::com_interface!(IIsolatedWindowsEnvironmentFactory, IIsolatedWindowsEnvironmentFactory_Vtbl, 0x1aca93e7_e804_454d_8466_f9897c20b0f6);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentFactory_Vtbl {
@@ -140,16 +77,7 @@ pub struct IIsolatedWindowsEnvironmentFactory_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     FindByOwnerId: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IIsolatedWindowsEnvironmentFile(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IIsolatedWindowsEnvironmentFile {
-    type Vtable = IIsolatedWindowsEnvironmentFile_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IIsolatedWindowsEnvironmentFile {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4d5ae1ef_029f_4101_8c35_fe91bf9cd5f0);
-}
+::windows_core::imp::com_interface!(IIsolatedWindowsEnvironmentFile, IIsolatedWindowsEnvironmentFile_Vtbl, 0x4d5ae1ef_029f_4101_8c35_fe91bf9cd5f0);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentFile_Vtbl {
@@ -158,16 +86,7 @@ pub struct IIsolatedWindowsEnvironmentFile_Vtbl {
     pub HostPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IIsolatedWindowsEnvironmentFile2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IIsolatedWindowsEnvironmentFile2 {
-    type Vtable = IIsolatedWindowsEnvironmentFile2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IIsolatedWindowsEnvironmentFile2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4eeb8dec_ad5d_4b0a_b754_f36c3d46d684);
-}
+::windows_core::imp::com_interface!(IIsolatedWindowsEnvironmentFile2, IIsolatedWindowsEnvironmentFile2_Vtbl, 0x4eeb8dec_ad5d_4b0a_b754_f36c3d46d684);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentFile2_Vtbl {
@@ -175,16 +94,7 @@ pub struct IIsolatedWindowsEnvironmentFile2_Vtbl {
     pub GuestPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub IsReadOnly: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IIsolatedWindowsEnvironmentHostStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IIsolatedWindowsEnvironmentHostStatics {
-    type Vtable = IIsolatedWindowsEnvironmentHostStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IIsolatedWindowsEnvironmentHostStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2c0e22c7_05a0_517a_b81c_6ee8790c381f);
-}
+::windows_core::imp::com_interface!(IIsolatedWindowsEnvironmentHostStatics, IIsolatedWindowsEnvironmentHostStatics_Vtbl, 0x2c0e22c7_05a0_517a_b81c_6ee8790c381f);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentHostStatics_Vtbl {
@@ -195,16 +105,7 @@ pub struct IIsolatedWindowsEnvironmentHostStatics_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     HostErrors: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IIsolatedWindowsEnvironmentLaunchFileResult(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IIsolatedWindowsEnvironmentLaunchFileResult {
-    type Vtable = IIsolatedWindowsEnvironmentLaunchFileResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IIsolatedWindowsEnvironmentLaunchFileResult {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x685d4176_f6e0_4569_b1aa_215c0ff5b257);
-}
+::windows_core::imp::com_interface!(IIsolatedWindowsEnvironmentLaunchFileResult, IIsolatedWindowsEnvironmentLaunchFileResult_Vtbl, 0x685d4176_f6e0_4569_b1aa_215c0ff5b257);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentLaunchFileResult_Vtbl {
@@ -213,16 +114,7 @@ pub struct IIsolatedWindowsEnvironmentLaunchFileResult_Vtbl {
     pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
     pub File: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IIsolatedWindowsEnvironmentOptions(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IIsolatedWindowsEnvironmentOptions {
-    type Vtable = IIsolatedWindowsEnvironmentOptions_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IIsolatedWindowsEnvironmentOptions {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb71d98f7_61f0_4008_b207_0bf9eb2d76f2);
-}
+::windows_core::imp::com_interface!(IIsolatedWindowsEnvironmentOptions, IIsolatedWindowsEnvironmentOptions_Vtbl, 0xb71d98f7_61f0_4008_b207_0bf9eb2d76f2);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentOptions_Vtbl {
@@ -245,16 +137,7 @@ pub struct IIsolatedWindowsEnvironmentOptions_Vtbl {
     pub AllowCameraAndMicrophoneAccess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub SetAllowCameraAndMicrophoneAccess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IIsolatedWindowsEnvironmentOptions2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IIsolatedWindowsEnvironmentOptions2 {
-    type Vtable = IIsolatedWindowsEnvironmentOptions2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IIsolatedWindowsEnvironmentOptions2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x10d7cc31_8b8f_4b9d_b22c_617103b55b08);
-}
+::windows_core::imp::com_interface!(IIsolatedWindowsEnvironmentOptions2, IIsolatedWindowsEnvironmentOptions2_Vtbl, 0x10d7cc31_8b8f_4b9d_b22c_617103b55b08);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentOptions2_Vtbl {
@@ -262,16 +145,7 @@ pub struct IIsolatedWindowsEnvironmentOptions2_Vtbl {
     pub WindowAnnotationOverride: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub SetWindowAnnotationOverride: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IIsolatedWindowsEnvironmentOptions3(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IIsolatedWindowsEnvironmentOptions3 {
-    type Vtable = IIsolatedWindowsEnvironmentOptions3_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IIsolatedWindowsEnvironmentOptions3 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x98d5aa23_161f_4cd9_8a9c_269b30122b0d);
-}
+::windows_core::imp::com_interface!(IIsolatedWindowsEnvironmentOptions3, IIsolatedWindowsEnvironmentOptions3_Vtbl, 0x98d5aa23_161f_4cd9_8a9c_269b30122b0d);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentOptions3_Vtbl {
@@ -283,16 +157,7 @@ pub struct IIsolatedWindowsEnvironmentOptions3_Vtbl {
     pub CreationPriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut IsolatedWindowsEnvironmentCreationPriority) -> ::windows_core::HRESULT,
     pub SetCreationPriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: IsolatedWindowsEnvironmentCreationPriority) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IIsolatedWindowsEnvironmentOwnerRegistrationData(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IIsolatedWindowsEnvironmentOwnerRegistrationData {
-    type Vtable = IIsolatedWindowsEnvironmentOwnerRegistrationData_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IIsolatedWindowsEnvironmentOwnerRegistrationData {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf888ec22_e8cf_56c0_b1df_90af4ad80e84);
-}
+::windows_core::imp::com_interface!(IIsolatedWindowsEnvironmentOwnerRegistrationData, IIsolatedWindowsEnvironmentOwnerRegistrationData_Vtbl, 0xf888ec22_e8cf_56c0_b1df_90af4ad80e84);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentOwnerRegistrationData_Vtbl {
@@ -314,16 +179,7 @@ pub struct IIsolatedWindowsEnvironmentOwnerRegistrationData_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     ActivationFileExtensions: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IIsolatedWindowsEnvironmentOwnerRegistrationResult(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IIsolatedWindowsEnvironmentOwnerRegistrationResult {
-    type Vtable = IIsolatedWindowsEnvironmentOwnerRegistrationResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IIsolatedWindowsEnvironmentOwnerRegistrationResult {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6dab9451_6169_55df_8f51_790e99d7277d);
-}
+::windows_core::imp::com_interface!(IIsolatedWindowsEnvironmentOwnerRegistrationResult, IIsolatedWindowsEnvironmentOwnerRegistrationResult_Vtbl, 0x6dab9451_6169_55df_8f51_790e99d7277d);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentOwnerRegistrationResult_Vtbl {
@@ -331,16 +187,7 @@ pub struct IIsolatedWindowsEnvironmentOwnerRegistrationResult_Vtbl {
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut IsolatedWindowsEnvironmentOwnerRegistrationStatus) -> ::windows_core::HRESULT,
     pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IIsolatedWindowsEnvironmentOwnerRegistrationStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IIsolatedWindowsEnvironmentOwnerRegistrationStatics {
-    type Vtable = IIsolatedWindowsEnvironmentOwnerRegistrationStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IIsolatedWindowsEnvironmentOwnerRegistrationStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x10951754_204b_5ec9_9de3_df792d074a61);
-}
+::windows_core::imp::com_interface!(IIsolatedWindowsEnvironmentOwnerRegistrationStatics, IIsolatedWindowsEnvironmentOwnerRegistrationStatics_Vtbl, 0x10951754_204b_5ec9_9de3_df792d074a61);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentOwnerRegistrationStatics_Vtbl {
@@ -348,16 +195,7 @@ pub struct IIsolatedWindowsEnvironmentOwnerRegistrationStatics_Vtbl {
     pub Register: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ownername: ::std::mem::MaybeUninit<::windows_core::HSTRING>, ownerregistrationdata: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Unregister: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ownername: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IIsolatedWindowsEnvironmentPostMessageResult(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IIsolatedWindowsEnvironmentPostMessageResult {
-    type Vtable = IIsolatedWindowsEnvironmentPostMessageResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IIsolatedWindowsEnvironmentPostMessageResult {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0dfa28fa_2ef0_4d8f_b341_3171b2df93b1);
-}
+::windows_core::imp::com_interface!(IIsolatedWindowsEnvironmentPostMessageResult, IIsolatedWindowsEnvironmentPostMessageResult_Vtbl, 0x0dfa28fa_2ef0_4d8f_b341_3171b2df93b1);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentPostMessageResult_Vtbl {
@@ -365,16 +203,7 @@ pub struct IIsolatedWindowsEnvironmentPostMessageResult_Vtbl {
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut IsolatedWindowsEnvironmentPostMessageStatus) -> ::windows_core::HRESULT,
     pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IIsolatedWindowsEnvironmentProcess(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IIsolatedWindowsEnvironmentProcess {
-    type Vtable = IIsolatedWindowsEnvironmentProcess_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IIsolatedWindowsEnvironmentProcess {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa858c3ef_8172_4f10_af93_cbe60af88d09);
-}
+::windows_core::imp::com_interface!(IIsolatedWindowsEnvironmentProcess, IIsolatedWindowsEnvironmentProcess_Vtbl, 0xa858c3ef_8172_4f10_af93_cbe60af88d09);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentProcess_Vtbl {
@@ -385,16 +214,7 @@ pub struct IIsolatedWindowsEnvironmentProcess_Vtbl {
     pub WaitForExitWithTimeout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, timeoutmilliseconds: u32) -> ::windows_core::HRESULT,
     pub WaitForExitAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IIsolatedWindowsEnvironmentShareFileRequestOptions(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IIsolatedWindowsEnvironmentShareFileRequestOptions {
-    type Vtable = IIsolatedWindowsEnvironmentShareFileRequestOptions_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IIsolatedWindowsEnvironmentShareFileRequestOptions {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc9190ed8_0fd0_4946_bb88_117a60737b61);
-}
+::windows_core::imp::com_interface!(IIsolatedWindowsEnvironmentShareFileRequestOptions, IIsolatedWindowsEnvironmentShareFileRequestOptions_Vtbl, 0xc9190ed8_0fd0_4946_bb88_117a60737b61);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentShareFileRequestOptions_Vtbl {
@@ -402,16 +222,7 @@ pub struct IIsolatedWindowsEnvironmentShareFileRequestOptions_Vtbl {
     pub AllowWrite: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub SetAllowWrite: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IIsolatedWindowsEnvironmentShareFileResult(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IIsolatedWindowsEnvironmentShareFileResult {
-    type Vtable = IIsolatedWindowsEnvironmentShareFileResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IIsolatedWindowsEnvironmentShareFileResult {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaec7caa7_9ac6_4bf5_8b91_5c1adf0d7d00);
-}
+::windows_core::imp::com_interface!(IIsolatedWindowsEnvironmentShareFileResult, IIsolatedWindowsEnvironmentShareFileResult_Vtbl, 0xaec7caa7_9ac6_4bf5_8b91_5c1adf0d7d00);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentShareFileResult_Vtbl {
@@ -420,16 +231,7 @@ pub struct IIsolatedWindowsEnvironmentShareFileResult_Vtbl {
     pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
     pub File: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IIsolatedWindowsEnvironmentShareFolderRequestOptions(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IIsolatedWindowsEnvironmentShareFolderRequestOptions {
-    type Vtable = IIsolatedWindowsEnvironmentShareFolderRequestOptions_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IIsolatedWindowsEnvironmentShareFolderRequestOptions {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc405eb7d_7053_4f6a_9b87_746846ed19b2);
-}
+::windows_core::imp::com_interface!(IIsolatedWindowsEnvironmentShareFolderRequestOptions, IIsolatedWindowsEnvironmentShareFolderRequestOptions_Vtbl, 0xc405eb7d_7053_4f6a_9b87_746846ed19b2);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentShareFolderRequestOptions_Vtbl {
@@ -437,16 +239,7 @@ pub struct IIsolatedWindowsEnvironmentShareFolderRequestOptions_Vtbl {
     pub AllowWrite: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub SetAllowWrite: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IIsolatedWindowsEnvironmentShareFolderResult(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IIsolatedWindowsEnvironmentShareFolderResult {
-    type Vtable = IIsolatedWindowsEnvironmentShareFolderResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IIsolatedWindowsEnvironmentShareFolderResult {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x556ba72e_ca9d_4211_b143_1cedc86eb2fe);
-}
+::windows_core::imp::com_interface!(IIsolatedWindowsEnvironmentShareFolderResult, IIsolatedWindowsEnvironmentShareFolderResult_Vtbl, 0x556ba72e_ca9d_4211_b143_1cedc86eb2fe);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentShareFolderResult_Vtbl {
@@ -454,16 +247,7 @@ pub struct IIsolatedWindowsEnvironmentShareFolderResult_Vtbl {
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut IsolatedWindowsEnvironmentShareFolderStatus) -> ::windows_core::HRESULT,
     pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IIsolatedWindowsEnvironmentStartProcessResult(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IIsolatedWindowsEnvironmentStartProcessResult {
-    type Vtable = IIsolatedWindowsEnvironmentStartProcessResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IIsolatedWindowsEnvironmentStartProcessResult {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8fa1dc2f_57da_4bb5_9c06_fa072d2032e2);
-}
+::windows_core::imp::com_interface!(IIsolatedWindowsEnvironmentStartProcessResult, IIsolatedWindowsEnvironmentStartProcessResult_Vtbl, 0x8fa1dc2f_57da_4bb5_9c06_fa072d2032e2);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentStartProcessResult_Vtbl {
@@ -472,16 +256,7 @@ pub struct IIsolatedWindowsEnvironmentStartProcessResult_Vtbl {
     pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
     pub Process: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IIsolatedWindowsEnvironmentTelemetryParameters(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IIsolatedWindowsEnvironmentTelemetryParameters {
-    type Vtable = IIsolatedWindowsEnvironmentTelemetryParameters_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IIsolatedWindowsEnvironmentTelemetryParameters {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xebdb3cab_7a3a_4524_a0f4_f96e284d33cd);
-}
+::windows_core::imp::com_interface!(IIsolatedWindowsEnvironmentTelemetryParameters, IIsolatedWindowsEnvironmentTelemetryParameters_Vtbl, 0xebdb3cab_7a3a_4524_a0f4_f96e284d33cd);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentTelemetryParameters_Vtbl {
@@ -489,16 +264,7 @@ pub struct IIsolatedWindowsEnvironmentTelemetryParameters_Vtbl {
     pub CorrelationId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
     pub SetCorrelationId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IIsolatedWindowsEnvironmentUserInfo(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IIsolatedWindowsEnvironmentUserInfo {
-    type Vtable = IIsolatedWindowsEnvironmentUserInfo_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IIsolatedWindowsEnvironmentUserInfo {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8a9c75ae_69ba_4001_96fc_19a02703b340);
-}
+::windows_core::imp::com_interface!(IIsolatedWindowsEnvironmentUserInfo, IIsolatedWindowsEnvironmentUserInfo_Vtbl, 0x8a9c75ae_69ba_4001_96fc_19a02703b340);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentUserInfo_Vtbl {
@@ -507,32 +273,14 @@ pub struct IIsolatedWindowsEnvironmentUserInfo_Vtbl {
     pub EnvironmentUserName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub TryWaitForSignInAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IIsolatedWindowsEnvironmentUserInfo2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IIsolatedWindowsEnvironmentUserInfo2 {
-    type Vtable = IIsolatedWindowsEnvironmentUserInfo2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IIsolatedWindowsEnvironmentUserInfo2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb0bdd5dd_91d7_481e_94f2_2a5a6bdf9383);
-}
+::windows_core::imp::com_interface!(IIsolatedWindowsEnvironmentUserInfo2, IIsolatedWindowsEnvironmentUserInfo2_Vtbl, 0xb0bdd5dd_91d7_481e_94f2_2a5a6bdf9383);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentUserInfo2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub TryWaitForSignInWithProgressAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IIsolatedWindowsHostMessengerStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IIsolatedWindowsHostMessengerStatics {
-    type Vtable = IIsolatedWindowsHostMessengerStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IIsolatedWindowsHostMessengerStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x06e444bb_53c0_4889_8fa3_53592e37cf21);
-}
+::windows_core::imp::com_interface!(IIsolatedWindowsHostMessengerStatics, IIsolatedWindowsHostMessengerStatics_Vtbl, 0x06e444bb_53c0_4889_8fa3_53592e37cf21);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsHostMessengerStatics_Vtbl {
@@ -543,16 +291,7 @@ pub struct IIsolatedWindowsHostMessengerStatics_Vtbl {
     PostMessageToReceiver: usize,
     pub GetFileId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filepath: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IIsolatedWindowsHostMessengerStatics2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IIsolatedWindowsHostMessengerStatics2 {
-    type Vtable = IIsolatedWindowsHostMessengerStatics2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IIsolatedWindowsHostMessengerStatics2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x55ef9ebc_0444_42ad_832d_1b89c089d1ca);
-}
+::windows_core::imp::com_interface!(IIsolatedWindowsHostMessengerStatics2, IIsolatedWindowsHostMessengerStatics2_Vtbl, 0x55ef9ebc_0444_42ad_832d_1b89c089d1ca);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsHostMessengerStatics2_Vtbl {
@@ -566,6 +305,7 @@ pub struct IIsolatedWindowsHostMessengerStatics2_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IsolatedWindowsEnvironment(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironment, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl IsolatedWindowsEnvironment {
     pub fn Id(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -663,29 +403,29 @@ impl IsolatedWindowsEnvironment {
     #[cfg(feature = "Foundation_Collections")]
     pub fn PostMessageToReceiverAsync<P0>(&self, receiverid: ::windows_core::GUID, message: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentPostMessageResult>>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<::windows_core::IInspectable>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::Collections::IIterable<::windows_core::IInspectable>>,
     {
-        let this = &::windows_core::ComInterface::cast::<IIsolatedWindowsEnvironment2>(self)?;
+        let this = &::windows_core::Interface::cast::<IIsolatedWindowsEnvironment2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).PostMessageToReceiverAsync)(::windows_core::Interface::as_raw(this), receiverid, message.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).PostMessageToReceiverAsync)(::windows_core::Interface::as_raw(this), receiverid, message.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn PostMessageToReceiverWithTelemetryAsync<P0, P1>(&self, receiverid: ::windows_core::GUID, message: P0, telemetryparameters: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentPostMessageResult>>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<::windows_core::IInspectable>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::Collections::IIterable<::windows_core::IInspectable>>,
         P1: ::windows_core::IntoParam<IsolatedWindowsEnvironmentTelemetryParameters>,
     {
-        let this = &::windows_core::ComInterface::cast::<IIsolatedWindowsEnvironment2>(self)?;
+        let this = &::windows_core::Interface::cast::<IIsolatedWindowsEnvironment2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).PostMessageToReceiverWithTelemetryAsync)(::windows_core::Interface::as_raw(this), receiverid, message.try_into_param()?.abi(), telemetryparameters.into_param().abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).PostMessageToReceiverWithTelemetryAsync)(::windows_core::Interface::as_raw(this), receiverid, message.into_param().abi(), telemetryparameters.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn GetUserInfo(&self) -> ::windows_core::Result<IsolatedWindowsEnvironmentUserInfo> {
-        let this = &::windows_core::ComInterface::cast::<IIsolatedWindowsEnvironment3>(self)?;
+        let this = &::windows_core::Interface::cast::<IIsolatedWindowsEnvironment3>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetUserInfo)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -695,7 +435,7 @@ impl IsolatedWindowsEnvironment {
     where
         P0: ::windows_core::IntoParam<IsolatedWindowsEnvironmentShareFileRequestOptions>,
     {
-        let this = &::windows_core::ComInterface::cast::<IIsolatedWindowsEnvironment3>(self)?;
+        let this = &::windows_core::Interface::cast::<IIsolatedWindowsEnvironment3>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ShareFileAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(filepath), options.into_param().abi(), &mut result__).from_abi(result__)
@@ -706,14 +446,14 @@ impl IsolatedWindowsEnvironment {
         P0: ::windows_core::IntoParam<IsolatedWindowsEnvironmentShareFileRequestOptions>,
         P1: ::windows_core::IntoParam<IsolatedWindowsEnvironmentTelemetryParameters>,
     {
-        let this = &::windows_core::ComInterface::cast::<IIsolatedWindowsEnvironment3>(self)?;
+        let this = &::windows_core::Interface::cast::<IIsolatedWindowsEnvironment3>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ShareFileWithTelemetryAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(filepath), options.into_param().abi(), telemetryparameters.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn ChangePriority(&self, priority: IsolatedWindowsEnvironmentCreationPriority) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<IIsolatedWindowsEnvironment4>(self)?;
+        let this = &::windows_core::Interface::cast::<IIsolatedWindowsEnvironment4>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).ChangePriority)(::windows_core::Interface::as_raw(this), priority).ok() }
     }
     pub fn CreateAsync<P0>(options: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<IsolatedWindowsEnvironmentCreateResult, IsolatedWindowsEnvironmentCreateProgress>>
@@ -760,19 +500,17 @@ impl ::windows_core::RuntimeType for IsolatedWindowsEnvironment {
 }
 unsafe impl ::windows_core::Interface for IsolatedWindowsEnvironment {
     type Vtable = IIsolatedWindowsEnvironment_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IsolatedWindowsEnvironment {
-    const IID: ::windows_core::GUID = <IIsolatedWindowsEnvironment as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IIsolatedWindowsEnvironment as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for IsolatedWindowsEnvironment {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironment";
 }
-::windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironment, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironment {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironment {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IsolatedWindowsEnvironmentCreateResult(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentCreateResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl IsolatedWindowsEnvironmentCreateResult {
     pub fn Status(&self) -> ::windows_core::Result<IsolatedWindowsEnvironmentCreateStatus> {
         let this = self;
@@ -796,7 +534,7 @@ impl IsolatedWindowsEnvironmentCreateResult {
         }
     }
     pub fn ChangeCreationPriority(&self, priority: IsolatedWindowsEnvironmentCreationPriority) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<IIsolatedWindowsEnvironmentCreateResult2>(self)?;
+        let this = &::windows_core::Interface::cast::<IIsolatedWindowsEnvironmentCreateResult2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).ChangeCreationPriority)(::windows_core::Interface::as_raw(this), priority).ok() }
     }
 }
@@ -805,19 +543,17 @@ impl ::windows_core::RuntimeType for IsolatedWindowsEnvironmentCreateResult {
 }
 unsafe impl ::windows_core::Interface for IsolatedWindowsEnvironmentCreateResult {
     type Vtable = IIsolatedWindowsEnvironmentCreateResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IsolatedWindowsEnvironmentCreateResult {
-    const IID: ::windows_core::GUID = <IIsolatedWindowsEnvironmentCreateResult as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IIsolatedWindowsEnvironmentCreateResult as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for IsolatedWindowsEnvironmentCreateResult {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentCreateResult";
 }
-::windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentCreateResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentCreateResult {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentCreateResult {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IsolatedWindowsEnvironmentFile(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentFile, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl IsolatedWindowsEnvironmentFile {
     pub fn Id(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let this = self;
@@ -838,14 +574,14 @@ impl IsolatedWindowsEnvironmentFile {
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn GuestPath(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<IIsolatedWindowsEnvironmentFile2>(self)?;
+        let this = &::windows_core::Interface::cast::<IIsolatedWindowsEnvironmentFile2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GuestPath)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsReadOnly(&self) -> ::windows_core::Result<bool> {
-        let this = &::windows_core::ComInterface::cast::<IIsolatedWindowsEnvironmentFile2>(self)?;
+        let this = &::windows_core::Interface::cast::<IIsolatedWindowsEnvironmentFile2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsReadOnly)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -857,14 +593,11 @@ impl ::windows_core::RuntimeType for IsolatedWindowsEnvironmentFile {
 }
 unsafe impl ::windows_core::Interface for IsolatedWindowsEnvironmentFile {
     type Vtable = IIsolatedWindowsEnvironmentFile_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IsolatedWindowsEnvironmentFile {
-    const IID: ::windows_core::GUID = <IIsolatedWindowsEnvironmentFile as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IIsolatedWindowsEnvironmentFile as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for IsolatedWindowsEnvironmentFile {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentFile";
 }
-::windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentFile, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentFile {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentFile {}
 pub struct IsolatedWindowsEnvironmentHost;
@@ -895,6 +628,7 @@ impl ::windows_core::RuntimeName for IsolatedWindowsEnvironmentHost {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IsolatedWindowsEnvironmentLaunchFileResult(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentLaunchFileResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl IsolatedWindowsEnvironmentLaunchFileResult {
     pub fn Status(&self) -> ::windows_core::Result<IsolatedWindowsEnvironmentLaunchFileStatus> {
         let this = self;
@@ -923,19 +657,17 @@ impl ::windows_core::RuntimeType for IsolatedWindowsEnvironmentLaunchFileResult 
 }
 unsafe impl ::windows_core::Interface for IsolatedWindowsEnvironmentLaunchFileResult {
     type Vtable = IIsolatedWindowsEnvironmentLaunchFileResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IsolatedWindowsEnvironmentLaunchFileResult {
-    const IID: ::windows_core::GUID = <IIsolatedWindowsEnvironmentLaunchFileResult as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IIsolatedWindowsEnvironmentLaunchFileResult as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for IsolatedWindowsEnvironmentLaunchFileResult {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentLaunchFileResult";
 }
-::windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentLaunchFileResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentLaunchFileResult {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentLaunchFileResult {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IsolatedWindowsEnvironmentOptions(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentOptions, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl IsolatedWindowsEnvironmentOptions {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1040,47 +772,47 @@ impl IsolatedWindowsEnvironmentOptions {
         unsafe { (::windows_core::Interface::vtable(this).SetAllowCameraAndMicrophoneAccess)(::windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn WindowAnnotationOverride(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
-        let this = &::windows_core::ComInterface::cast::<IIsolatedWindowsEnvironmentOptions2>(self)?;
+        let this = &::windows_core::Interface::cast::<IIsolatedWindowsEnvironmentOptions2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).WindowAnnotationOverride)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetWindowAnnotationOverride(&self, value: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<IIsolatedWindowsEnvironmentOptions2>(self)?;
+        let this = &::windows_core::Interface::cast::<IIsolatedWindowsEnvironmentOptions2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetWindowAnnotationOverride)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
     pub fn AllowedClipboardFormatsToEnvironment(&self) -> ::windows_core::Result<IsolatedWindowsEnvironmentAllowedClipboardFormats> {
-        let this = &::windows_core::ComInterface::cast::<IIsolatedWindowsEnvironmentOptions3>(self)?;
+        let this = &::windows_core::Interface::cast::<IIsolatedWindowsEnvironmentOptions3>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AllowedClipboardFormatsToEnvironment)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetAllowedClipboardFormatsToEnvironment(&self, value: IsolatedWindowsEnvironmentAllowedClipboardFormats) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<IIsolatedWindowsEnvironmentOptions3>(self)?;
+        let this = &::windows_core::Interface::cast::<IIsolatedWindowsEnvironmentOptions3>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetAllowedClipboardFormatsToEnvironment)(::windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn AllowedClipboardFormatsToHost(&self) -> ::windows_core::Result<IsolatedWindowsEnvironmentAllowedClipboardFormats> {
-        let this = &::windows_core::ComInterface::cast::<IIsolatedWindowsEnvironmentOptions3>(self)?;
+        let this = &::windows_core::Interface::cast::<IIsolatedWindowsEnvironmentOptions3>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AllowedClipboardFormatsToHost)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetAllowedClipboardFormatsToHost(&self, value: IsolatedWindowsEnvironmentAllowedClipboardFormats) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<IIsolatedWindowsEnvironmentOptions3>(self)?;
+        let this = &::windows_core::Interface::cast::<IIsolatedWindowsEnvironmentOptions3>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetAllowedClipboardFormatsToHost)(::windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn CreationPriority(&self) -> ::windows_core::Result<IsolatedWindowsEnvironmentCreationPriority> {
-        let this = &::windows_core::ComInterface::cast::<IIsolatedWindowsEnvironmentOptions3>(self)?;
+        let this = &::windows_core::Interface::cast::<IIsolatedWindowsEnvironmentOptions3>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreationPriority)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetCreationPriority(&self, value: IsolatedWindowsEnvironmentCreationPriority) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<IIsolatedWindowsEnvironmentOptions3>(self)?;
+        let this = &::windows_core::Interface::cast::<IIsolatedWindowsEnvironmentOptions3>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetCreationPriority)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
@@ -1089,14 +821,11 @@ impl ::windows_core::RuntimeType for IsolatedWindowsEnvironmentOptions {
 }
 unsafe impl ::windows_core::Interface for IsolatedWindowsEnvironmentOptions {
     type Vtable = IIsolatedWindowsEnvironmentOptions_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IsolatedWindowsEnvironmentOptions {
-    const IID: ::windows_core::GUID = <IIsolatedWindowsEnvironmentOptions as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IIsolatedWindowsEnvironmentOptions as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for IsolatedWindowsEnvironmentOptions {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentOptions";
 }
-::windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentOptions, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentOptions {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentOptions {}
 pub struct IsolatedWindowsEnvironmentOwnerRegistration;
@@ -1125,6 +854,7 @@ impl ::windows_core::RuntimeName for IsolatedWindowsEnvironmentOwnerRegistration
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IsolatedWindowsEnvironmentOwnerRegistrationData(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentOwnerRegistrationData, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl IsolatedWindowsEnvironmentOwnerRegistrationData {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1175,19 +905,17 @@ impl ::windows_core::RuntimeType for IsolatedWindowsEnvironmentOwnerRegistration
 }
 unsafe impl ::windows_core::Interface for IsolatedWindowsEnvironmentOwnerRegistrationData {
     type Vtable = IIsolatedWindowsEnvironmentOwnerRegistrationData_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IsolatedWindowsEnvironmentOwnerRegistrationData {
-    const IID: ::windows_core::GUID = <IIsolatedWindowsEnvironmentOwnerRegistrationData as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IIsolatedWindowsEnvironmentOwnerRegistrationData as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for IsolatedWindowsEnvironmentOwnerRegistrationData {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentOwnerRegistrationData";
 }
-::windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentOwnerRegistrationData, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentOwnerRegistrationData {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentOwnerRegistrationData {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IsolatedWindowsEnvironmentOwnerRegistrationResult(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentOwnerRegistrationResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl IsolatedWindowsEnvironmentOwnerRegistrationResult {
     pub fn Status(&self) -> ::windows_core::Result<IsolatedWindowsEnvironmentOwnerRegistrationStatus> {
         let this = self;
@@ -1209,19 +937,17 @@ impl ::windows_core::RuntimeType for IsolatedWindowsEnvironmentOwnerRegistration
 }
 unsafe impl ::windows_core::Interface for IsolatedWindowsEnvironmentOwnerRegistrationResult {
     type Vtable = IIsolatedWindowsEnvironmentOwnerRegistrationResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IsolatedWindowsEnvironmentOwnerRegistrationResult {
-    const IID: ::windows_core::GUID = <IIsolatedWindowsEnvironmentOwnerRegistrationResult as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IIsolatedWindowsEnvironmentOwnerRegistrationResult as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for IsolatedWindowsEnvironmentOwnerRegistrationResult {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentOwnerRegistrationResult";
 }
-::windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentOwnerRegistrationResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentOwnerRegistrationResult {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentOwnerRegistrationResult {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IsolatedWindowsEnvironmentPostMessageResult(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentPostMessageResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl IsolatedWindowsEnvironmentPostMessageResult {
     pub fn Status(&self) -> ::windows_core::Result<IsolatedWindowsEnvironmentPostMessageStatus> {
         let this = self;
@@ -1243,19 +969,17 @@ impl ::windows_core::RuntimeType for IsolatedWindowsEnvironmentPostMessageResult
 }
 unsafe impl ::windows_core::Interface for IsolatedWindowsEnvironmentPostMessageResult {
     type Vtable = IIsolatedWindowsEnvironmentPostMessageResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IsolatedWindowsEnvironmentPostMessageResult {
-    const IID: ::windows_core::GUID = <IIsolatedWindowsEnvironmentPostMessageResult as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IIsolatedWindowsEnvironmentPostMessageResult as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for IsolatedWindowsEnvironmentPostMessageResult {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentPostMessageResult";
 }
-::windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentPostMessageResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentPostMessageResult {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentPostMessageResult {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IsolatedWindowsEnvironmentProcess(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentProcess, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl IsolatedWindowsEnvironmentProcess {
     pub fn State(&self) -> ::windows_core::Result<IsolatedWindowsEnvironmentProcessState> {
         let this = self;
@@ -1292,19 +1016,17 @@ impl ::windows_core::RuntimeType for IsolatedWindowsEnvironmentProcess {
 }
 unsafe impl ::windows_core::Interface for IsolatedWindowsEnvironmentProcess {
     type Vtable = IIsolatedWindowsEnvironmentProcess_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IsolatedWindowsEnvironmentProcess {
-    const IID: ::windows_core::GUID = <IIsolatedWindowsEnvironmentProcess as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IIsolatedWindowsEnvironmentProcess as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for IsolatedWindowsEnvironmentProcess {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentProcess";
 }
-::windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentProcess, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentProcess {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentProcess {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IsolatedWindowsEnvironmentShareFileRequestOptions(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentShareFileRequestOptions, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl IsolatedWindowsEnvironmentShareFileRequestOptions {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1330,19 +1052,17 @@ impl ::windows_core::RuntimeType for IsolatedWindowsEnvironmentShareFileRequestO
 }
 unsafe impl ::windows_core::Interface for IsolatedWindowsEnvironmentShareFileRequestOptions {
     type Vtable = IIsolatedWindowsEnvironmentShareFileRequestOptions_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IsolatedWindowsEnvironmentShareFileRequestOptions {
-    const IID: ::windows_core::GUID = <IIsolatedWindowsEnvironmentShareFileRequestOptions as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IIsolatedWindowsEnvironmentShareFileRequestOptions as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for IsolatedWindowsEnvironmentShareFileRequestOptions {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFileRequestOptions";
 }
-::windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentShareFileRequestOptions, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentShareFileRequestOptions {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentShareFileRequestOptions {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IsolatedWindowsEnvironmentShareFileResult(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentShareFileResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl IsolatedWindowsEnvironmentShareFileResult {
     pub fn Status(&self) -> ::windows_core::Result<IsolatedWindowsEnvironmentShareFileStatus> {
         let this = self;
@@ -1371,19 +1091,17 @@ impl ::windows_core::RuntimeType for IsolatedWindowsEnvironmentShareFileResult {
 }
 unsafe impl ::windows_core::Interface for IsolatedWindowsEnvironmentShareFileResult {
     type Vtable = IIsolatedWindowsEnvironmentShareFileResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IsolatedWindowsEnvironmentShareFileResult {
-    const IID: ::windows_core::GUID = <IIsolatedWindowsEnvironmentShareFileResult as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IIsolatedWindowsEnvironmentShareFileResult as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for IsolatedWindowsEnvironmentShareFileResult {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFileResult";
 }
-::windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentShareFileResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentShareFileResult {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentShareFileResult {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IsolatedWindowsEnvironmentShareFolderRequestOptions(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentShareFolderRequestOptions, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl IsolatedWindowsEnvironmentShareFolderRequestOptions {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1409,19 +1127,17 @@ impl ::windows_core::RuntimeType for IsolatedWindowsEnvironmentShareFolderReques
 }
 unsafe impl ::windows_core::Interface for IsolatedWindowsEnvironmentShareFolderRequestOptions {
     type Vtable = IIsolatedWindowsEnvironmentShareFolderRequestOptions_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IsolatedWindowsEnvironmentShareFolderRequestOptions {
-    const IID: ::windows_core::GUID = <IIsolatedWindowsEnvironmentShareFolderRequestOptions as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IIsolatedWindowsEnvironmentShareFolderRequestOptions as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for IsolatedWindowsEnvironmentShareFolderRequestOptions {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFolderRequestOptions";
 }
-::windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentShareFolderRequestOptions, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentShareFolderRequestOptions {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentShareFolderRequestOptions {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IsolatedWindowsEnvironmentShareFolderResult(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentShareFolderResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl IsolatedWindowsEnvironmentShareFolderResult {
     pub fn Status(&self) -> ::windows_core::Result<IsolatedWindowsEnvironmentShareFolderStatus> {
         let this = self;
@@ -1443,19 +1159,17 @@ impl ::windows_core::RuntimeType for IsolatedWindowsEnvironmentShareFolderResult
 }
 unsafe impl ::windows_core::Interface for IsolatedWindowsEnvironmentShareFolderResult {
     type Vtable = IIsolatedWindowsEnvironmentShareFolderResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IsolatedWindowsEnvironmentShareFolderResult {
-    const IID: ::windows_core::GUID = <IIsolatedWindowsEnvironmentShareFolderResult as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IIsolatedWindowsEnvironmentShareFolderResult as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for IsolatedWindowsEnvironmentShareFolderResult {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFolderResult";
 }
-::windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentShareFolderResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentShareFolderResult {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentShareFolderResult {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IsolatedWindowsEnvironmentStartProcessResult(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentStartProcessResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl IsolatedWindowsEnvironmentStartProcessResult {
     pub fn Status(&self) -> ::windows_core::Result<IsolatedWindowsEnvironmentStartProcessStatus> {
         let this = self;
@@ -1484,19 +1198,17 @@ impl ::windows_core::RuntimeType for IsolatedWindowsEnvironmentStartProcessResul
 }
 unsafe impl ::windows_core::Interface for IsolatedWindowsEnvironmentStartProcessResult {
     type Vtable = IIsolatedWindowsEnvironmentStartProcessResult_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IsolatedWindowsEnvironmentStartProcessResult {
-    const IID: ::windows_core::GUID = <IIsolatedWindowsEnvironmentStartProcessResult as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IIsolatedWindowsEnvironmentStartProcessResult as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for IsolatedWindowsEnvironmentStartProcessResult {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentStartProcessResult";
 }
-::windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentStartProcessResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentStartProcessResult {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentStartProcessResult {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IsolatedWindowsEnvironmentTelemetryParameters(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentTelemetryParameters, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl IsolatedWindowsEnvironmentTelemetryParameters {
     pub fn new() -> ::windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1522,19 +1234,17 @@ impl ::windows_core::RuntimeType for IsolatedWindowsEnvironmentTelemetryParamete
 }
 unsafe impl ::windows_core::Interface for IsolatedWindowsEnvironmentTelemetryParameters {
     type Vtable = IIsolatedWindowsEnvironmentTelemetryParameters_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IsolatedWindowsEnvironmentTelemetryParameters {
-    const IID: ::windows_core::GUID = <IIsolatedWindowsEnvironmentTelemetryParameters as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IIsolatedWindowsEnvironmentTelemetryParameters as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for IsolatedWindowsEnvironmentTelemetryParameters {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentTelemetryParameters";
 }
-::windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentTelemetryParameters, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentTelemetryParameters {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentTelemetryParameters {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IsolatedWindowsEnvironmentUserInfo(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentUserInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl IsolatedWindowsEnvironmentUserInfo {
     pub fn EnvironmentUserSid(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -1558,7 +1268,7 @@ impl IsolatedWindowsEnvironmentUserInfo {
         }
     }
     pub fn TryWaitForSignInWithProgressAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<bool, IsolatedWindowsEnvironmentSignInProgress>> {
-        let this = &::windows_core::ComInterface::cast::<IIsolatedWindowsEnvironmentUserInfo2>(self)?;
+        let this = &::windows_core::Interface::cast::<IIsolatedWindowsEnvironmentUserInfo2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TryWaitForSignInWithProgressAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -1570,14 +1280,11 @@ impl ::windows_core::RuntimeType for IsolatedWindowsEnvironmentUserInfo {
 }
 unsafe impl ::windows_core::Interface for IsolatedWindowsEnvironmentUserInfo {
     type Vtable = IIsolatedWindowsEnvironmentUserInfo_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IsolatedWindowsEnvironmentUserInfo {
-    const IID: ::windows_core::GUID = <IIsolatedWindowsEnvironmentUserInfo as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IIsolatedWindowsEnvironmentUserInfo as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for IsolatedWindowsEnvironmentUserInfo {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentUserInfo";
 }
-::windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentUserInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentUserInfo {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentUserInfo {}
 pub struct IsolatedWindowsHostMessenger;
@@ -1586,9 +1293,9 @@ impl IsolatedWindowsHostMessenger {
     #[cfg(feature = "Foundation_Collections")]
     pub fn PostMessageToReceiver<P0>(receiverid: ::windows_core::GUID, message: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IVectorView<::windows_core::IInspectable>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::Collections::IVectorView<::windows_core::IInspectable>>,
     {
-        Self::IIsolatedWindowsHostMessengerStatics(|this| unsafe { (::windows_core::Interface::vtable(this).PostMessageToReceiver)(::windows_core::Interface::as_raw(this), receiverid, message.try_into_param()?.abi()).ok() })
+        Self::IIsolatedWindowsHostMessengerStatics(|this| unsafe { (::windows_core::Interface::vtable(this).PostMessageToReceiver)(::windows_core::Interface::as_raw(this), receiverid, message.into_param().abi()).ok() })
     }
     pub fn GetFileId(filepath: &::windows_core::HSTRING) -> ::windows_core::Result<::windows_core::GUID> {
         Self::IIsolatedWindowsHostMessengerStatics(|this| unsafe {
@@ -2079,11 +1786,13 @@ impl ::core::default::Default for IsolatedWindowsEnvironmentCreateProgress {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "Required features: `\"Foundation_Collections\"`"]
 #[cfg(feature = "Foundation_Collections")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct HostMessageReceivedCallback(pub ::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
+    HostMessageReceivedCallback,
+    HostMessageReceivedCallback_Vtbl,
+    0xfaf26ffa_8ce1_4cc1_b278_322d31a5e4a3
+);
 #[cfg(feature = "Foundation_Collections")]
 impl HostMessageReceivedCallback {
     pub fn new<F: FnMut(&::windows_core::GUID, ::core::option::Option<&super::super::Foundation::Collections::IVectorView<::windows_core::IInspectable>>) -> ::windows_core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
@@ -2094,10 +1803,10 @@ impl HostMessageReceivedCallback {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Invoke<P0>(&self, receiverid: ::windows_core::GUID, message: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IVectorView<::windows_core::IInspectable>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::Collections::IVectorView<::windows_core::IInspectable>>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).Invoke)(::windows_core::Interface::as_raw(this), receiverid, message.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).Invoke)(::windows_core::Interface::as_raw(this), receiverid, message.into_param().abi()).ok() }
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -2118,7 +1827,7 @@ impl<F: FnMut(&::windows_core::GUID, ::core::option::Option<&super::super::Found
         if iid.is_null() || interface.is_null() {
             return ::windows_core::HRESULT(-2147467261);
         }
-        *interface = if *iid == <HostMessageReceivedCallback as ::windows_core::ComInterface>::IID || *iid == <::windows_core::IUnknown as ::windows_core::ComInterface>::IID || *iid == <::windows_core::imp::IAgileObject as ::windows_core::ComInterface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        *interface = if *iid == <HostMessageReceivedCallback as ::windows_core::Interface>::IID || *iid == <::windows_core::IUnknown as ::windows_core::Interface>::IID || *iid == <::windows_core::imp::IAgileObject as ::windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows_core::HRESULT(-2147467262)
         } else {
@@ -2144,14 +1853,6 @@ impl<F: FnMut(&::windows_core::GUID, ::core::option::Option<&super::super::Found
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-unsafe impl ::windows_core::Interface for HostMessageReceivedCallback {
-    type Vtable = HostMessageReceivedCallback_Vtbl;
-}
-#[cfg(feature = "Foundation_Collections")]
-unsafe impl ::windows_core::ComInterface for HostMessageReceivedCallback {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfaf26ffa_8ce1_4cc1_b278_322d31a5e4a3);
-}
-#[cfg(feature = "Foundation_Collections")]
 impl ::windows_core::RuntimeType for HostMessageReceivedCallback {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -2165,11 +1866,13 @@ pub struct HostMessageReceivedCallback_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     Invoke: usize,
 }
-#[doc = "Required features: `\"Foundation_Collections\"`"]
 #[cfg(feature = "Foundation_Collections")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct MessageReceivedCallback(pub ::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
+    MessageReceivedCallback,
+    MessageReceivedCallback_Vtbl,
+    0xf5b4c8ff_1d9d_4995_9fea_4d15257c0757
+);
 #[cfg(feature = "Foundation_Collections")]
 impl MessageReceivedCallback {
     pub fn new<F: FnMut(&::windows_core::GUID, ::core::option::Option<&super::super::Foundation::Collections::IVectorView<::windows_core::IInspectable>>) -> ::windows_core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
@@ -2180,10 +1883,10 @@ impl MessageReceivedCallback {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Invoke<P0>(&self, receiverid: ::windows_core::GUID, message: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IVectorView<::windows_core::IInspectable>>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::Collections::IVectorView<::windows_core::IInspectable>>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).Invoke)(::windows_core::Interface::as_raw(this), receiverid, message.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).Invoke)(::windows_core::Interface::as_raw(this), receiverid, message.into_param().abi()).ok() }
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -2204,7 +1907,7 @@ impl<F: FnMut(&::windows_core::GUID, ::core::option::Option<&super::super::Found
         if iid.is_null() || interface.is_null() {
             return ::windows_core::HRESULT(-2147467261);
         }
-        *interface = if *iid == <MessageReceivedCallback as ::windows_core::ComInterface>::IID || *iid == <::windows_core::IUnknown as ::windows_core::ComInterface>::IID || *iid == <::windows_core::imp::IAgileObject as ::windows_core::ComInterface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        *interface = if *iid == <MessageReceivedCallback as ::windows_core::Interface>::IID || *iid == <::windows_core::IUnknown as ::windows_core::Interface>::IID || *iid == <::windows_core::imp::IAgileObject as ::windows_core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows_core::HRESULT(-2147467262)
         } else {
@@ -2228,14 +1931,6 @@ impl<F: FnMut(&::windows_core::GUID, ::core::option::Option<&super::super::Found
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         ((*this).invoke)(::core::mem::transmute(&receiverid), ::windows_core::from_raw_borrowed(&message)).into()
     }
-}
-#[cfg(feature = "Foundation_Collections")]
-unsafe impl ::windows_core::Interface for MessageReceivedCallback {
-    type Vtable = MessageReceivedCallback_Vtbl;
-}
-#[cfg(feature = "Foundation_Collections")]
-unsafe impl ::windows_core::ComInterface for MessageReceivedCallback {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf5b4c8ff_1d9d_4995_9fea_4d15257c0757);
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows_core::RuntimeType for MessageReceivedCallback {

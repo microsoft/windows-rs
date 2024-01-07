@@ -2,8 +2,8 @@ use windows::{core::*, Foundation::Collections::*, Foundation::*};
 
 #[test]
 fn test() -> Result<()> {
-    let stringable: IInspectable = Uri::CreateUri(h!("https://kennykerr.ca"))?.can_clone_into();
-    let non_stringable: IInspectable = PropertySet::new()?.can_clone_into();
+    let stringable: IInspectable = Uri::CreateUri(h!("https://kennykerr.ca"))?.cast()?;
+    let non_stringable: IInspectable = PropertySet::new()?.cast()?;
 
     assert_eq!(format!("{:?}", stringable), "\"https://kennykerr.ca/\"");
     assert_eq!(

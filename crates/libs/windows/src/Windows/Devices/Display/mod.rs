@@ -1,16 +1,7 @@
 #[cfg(feature = "Devices_Display_Core")]
 #[doc = "Required features: `\"Devices_Display_Core\"`"]
 pub mod Core;
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDisplayMonitor(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDisplayMonitor {
-    type Vtable = IDisplayMonitor_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDisplayMonitor {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1f6b15d4_1d01_4c51_87e2_6f954a772b59);
-}
+::windows_core::imp::com_interface!(IDisplayMonitor, IDisplayMonitor_Vtbl, 0x1f6b15d4_1d01_4c51_87e2_6f954a772b59);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayMonitor_Vtbl {
@@ -42,32 +33,14 @@ pub struct IDisplayMonitor_Vtbl {
     pub MaxAverageFullFrameLuminanceInNits: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows_core::HRESULT,
     pub GetDescriptor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, descriptorkind: DisplayMonitorDescriptorKind, result_size__: *mut u32, result__: *mut *mut u8) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDisplayMonitor2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDisplayMonitor2 {
-    type Vtable = IDisplayMonitor2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDisplayMonitor2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x023018e6_cb23_5830_96df_a7bf6e602577);
-}
+::windows_core::imp::com_interface!(IDisplayMonitor2, IDisplayMonitor2_Vtbl, 0x023018e6_cb23_5830_96df_a7bf6e602577);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayMonitor2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsDolbyVisionSupportedInHdrMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDisplayMonitorStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDisplayMonitorStatics {
-    type Vtable = IDisplayMonitorStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDisplayMonitorStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6eae698f_a228_4c05_821d_b695d667de8e);
-}
+::windows_core::imp::com_interface!(IDisplayMonitorStatics, IDisplayMonitorStatics_Vtbl, 0x6eae698f_a228_4c05_821d_b695d667de8e);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayMonitorStatics_Vtbl {
@@ -79,6 +52,7 @@ pub struct IDisplayMonitorStatics_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DisplayMonitor(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(DisplayMonitor, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl DisplayMonitor {
     pub fn DeviceId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -225,7 +199,7 @@ impl DisplayMonitor {
         }
     }
     pub fn IsDolbyVisionSupportedInHdrMode(&self) -> ::windows_core::Result<bool> {
-        let this = &::windows_core::ComInterface::cast::<IDisplayMonitor2>(self)?;
+        let this = &::windows_core::Interface::cast::<IDisplayMonitor2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsDolbyVisionSupportedInHdrMode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
@@ -260,14 +234,11 @@ impl ::windows_core::RuntimeType for DisplayMonitor {
 }
 unsafe impl ::windows_core::Interface for DisplayMonitor {
     type Vtable = IDisplayMonitor_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for DisplayMonitor {
-    const IID: ::windows_core::GUID = <IDisplayMonitor as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IDisplayMonitor as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for DisplayMonitor {
     const NAME: &'static str = "Windows.Devices.Display.DisplayMonitor";
 }
-::windows_core::imp::interface_hierarchy!(DisplayMonitor, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for DisplayMonitor {}
 unsafe impl ::core::marker::Sync for DisplayMonitor {}
 #[repr(transparent)]

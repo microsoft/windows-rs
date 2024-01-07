@@ -83,6 +83,6 @@ impl IGameListEntry_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IGameListEntry as ::windows_core::ComInterface>::IID
+        iid == &<IGameListEntry as ::windows_core::Interface>::IID
     }
 }

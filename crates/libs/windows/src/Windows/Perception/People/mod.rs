@@ -1,13 +1,4 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IEyesPose(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IEyesPose {
-    type Vtable = IEyesPose_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IEyesPose {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x682a9b23_8a1e_5b86_a060_906ffacb62a4);
-}
+::windows_core::imp::com_interface!(IEyesPose, IEyesPose_Vtbl, 0x682a9b23_8a1e_5b86_a060_906ffacb62a4);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEyesPose_Vtbl {
@@ -19,16 +10,7 @@ pub struct IEyesPose_Vtbl {
     Gaze: usize,
     pub UpdateTimestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IEyesPoseStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IEyesPoseStatics {
-    type Vtable = IEyesPoseStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IEyesPoseStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1cff7413_b21f_54c0_80c1_e60d994ca58c);
-}
+::windows_core::imp::com_interface!(IEyesPoseStatics, IEyesPoseStatics_Vtbl, 0x1cff7413_b21f_54c0_80c1_e60d994ca58c);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEyesPoseStatics_Vtbl {
@@ -39,16 +21,7 @@ pub struct IEyesPoseStatics_Vtbl {
     #[cfg(not(feature = "UI_Input"))]
     RequestAccessAsync: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IHandMeshObserver(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IHandMeshObserver {
-    type Vtable = IHandMeshObserver_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IHandMeshObserver {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x85ae30cb_6fc3_55c4_a7b4_29e33896ca69);
-}
+::windows_core::imp::com_interface!(IHandMeshObserver, IHandMeshObserver_Vtbl, 0x85ae30cb_6fc3_55c4_a7b4_29e33896ca69);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHandMeshObserver_Vtbl {
@@ -65,16 +38,7 @@ pub struct IHandMeshObserver_Vtbl {
     pub NeutralPoseVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
     pub ModelId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IHandMeshVertexState(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IHandMeshVertexState {
-    type Vtable = IHandMeshVertexState_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IHandMeshVertexState {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x046c5fef_1d8b_55de_ab2c_1cd424886d8f);
-}
+::windows_core::imp::com_interface!(IHandMeshVertexState, IHandMeshVertexState_Vtbl, 0x046c5fef_1d8b_55de_ab2c_1cd424886d8f);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHandMeshVertexState_Vtbl {
@@ -89,16 +53,7 @@ pub struct IHandMeshVertexState_Vtbl {
     GetVertices: usize,
     pub UpdateTimestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IHandPose(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IHandPose {
-    type Vtable = IHandPose_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IHandPose {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4d98e79a_bb08_5d09_91de_df0dd3fae46c);
-}
+::windows_core::imp::com_interface!(IHandPose, IHandPose_Vtbl, 0x4d98e79a_bb08_5d09_91de_df0dd3fae46c);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHandPose_Vtbl {
@@ -120,16 +75,7 @@ pub struct IHandPose_Vtbl {
     #[cfg(not(feature = "Foundation_Numerics"))]
     GetRelativeJoints: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IHeadPose(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IHeadPose {
-    type Vtable = IHeadPose_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IHeadPose {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7f5ac5a5_49db_379f_9429_32a2faf34fa6);
-}
+::windows_core::imp::com_interface!(IHeadPose, IHeadPose_Vtbl, 0x7f5ac5a5_49db_379f_9429_32a2faf34fa6);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHeadPose_Vtbl {
@@ -150,6 +96,7 @@ pub struct IHeadPose_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EyesPose(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(EyesPose, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl EyesPose {
     pub fn IsCalibrationValid(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -199,19 +146,17 @@ impl ::windows_core::RuntimeType for EyesPose {
 }
 unsafe impl ::windows_core::Interface for EyesPose {
     type Vtable = IEyesPose_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for EyesPose {
-    const IID: ::windows_core::GUID = <IEyesPose as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IEyesPose as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for EyesPose {
     const NAME: &'static str = "Windows.Perception.People.EyesPose";
 }
-::windows_core::imp::interface_hierarchy!(EyesPose, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for EyesPose {}
 unsafe impl ::core::marker::Sync for EyesPose {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HandMeshObserver(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(HandMeshObserver, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl HandMeshObserver {
     #[doc = "Required features: `\"UI_Input_Spatial\"`"]
     #[cfg(feature = "UI_Input_Spatial")]
@@ -277,19 +222,17 @@ impl ::windows_core::RuntimeType for HandMeshObserver {
 }
 unsafe impl ::windows_core::Interface for HandMeshObserver {
     type Vtable = IHandMeshObserver_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for HandMeshObserver {
-    const IID: ::windows_core::GUID = <IHandMeshObserver as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IHandMeshObserver as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for HandMeshObserver {
     const NAME: &'static str = "Windows.Perception.People.HandMeshObserver";
 }
-::windows_core::imp::interface_hierarchy!(HandMeshObserver, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for HandMeshObserver {}
 unsafe impl ::core::marker::Sync for HandMeshObserver {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HandMeshVertexState(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(HandMeshVertexState, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl HandMeshVertexState {
     #[doc = "Required features: `\"Perception_Spatial\"`"]
     #[cfg(feature = "Perception_Spatial")]
@@ -319,19 +262,17 @@ impl ::windows_core::RuntimeType for HandMeshVertexState {
 }
 unsafe impl ::windows_core::Interface for HandMeshVertexState {
     type Vtable = IHandMeshVertexState_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for HandMeshVertexState {
-    const IID: ::windows_core::GUID = <IHandMeshVertexState as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IHandMeshVertexState as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for HandMeshVertexState {
     const NAME: &'static str = "Windows.Perception.People.HandMeshVertexState";
 }
-::windows_core::imp::interface_hierarchy!(HandMeshVertexState, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for HandMeshVertexState {}
 unsafe impl ::core::marker::Sync for HandMeshVertexState {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HandPose(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(HandPose, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl HandPose {
     #[doc = "Required features: `\"Foundation_Numerics\"`, `\"Perception_Spatial\"`"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
@@ -378,19 +319,17 @@ impl ::windows_core::RuntimeType for HandPose {
 }
 unsafe impl ::windows_core::Interface for HandPose {
     type Vtable = IHandPose_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for HandPose {
-    const IID: ::windows_core::GUID = <IHandPose as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IHandPose as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for HandPose {
     const NAME: &'static str = "Windows.Perception.People.HandPose";
 }
-::windows_core::imp::interface_hierarchy!(HandPose, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for HandPose {}
 unsafe impl ::core::marker::Sync for HandPose {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HeadPose(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(HeadPose, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl HeadPose {
     #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
@@ -425,14 +364,11 @@ impl ::windows_core::RuntimeType for HeadPose {
 }
 unsafe impl ::windows_core::Interface for HeadPose {
     type Vtable = IHeadPose_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for HeadPose {
-    const IID: ::windows_core::GUID = <IHeadPose as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IHeadPose as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for HeadPose {
     const NAME: &'static str = "Windows.Perception.People.HeadPose";
 }
-::windows_core::imp::interface_hierarchy!(HeadPose, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for HeadPose {}
 unsafe impl ::core::marker::Sync for HeadPose {}
 #[repr(transparent)]

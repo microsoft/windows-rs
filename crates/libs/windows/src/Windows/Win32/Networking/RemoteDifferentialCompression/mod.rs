@@ -1,6 +1,5 @@
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IFindSimilarResults(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IFindSimilarResults, IFindSimilarResults_Vtbl, 0x96236a81_9dbc_11da_9e3f_0011114ae311);
+::windows_core::imp::interface_hierarchy!(IFindSimilarResults, ::windows_core::IUnknown);
 impl IFindSimilarResults {
     pub unsafe fn GetSize(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -10,13 +9,6 @@ impl IFindSimilarResults {
         (::windows_core::Interface::vtable(self).GetNextFileId)(::windows_core::Interface::as_raw(self), numtraitsmatched, similarityfileid).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IFindSimilarResults, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IFindSimilarResults {
-    type Vtable = IFindSimilarResults_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IFindSimilarResults {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96236a81_9dbc_11da_9e3f_0011114ae311);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFindSimilarResults_Vtbl {
@@ -24,9 +16,8 @@ pub struct IFindSimilarResults_Vtbl {
     pub GetSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, size: *mut u32) -> ::windows_core::HRESULT,
     pub GetNextFileId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numtraitsmatched: *mut u32, similarityfileid: *mut SimilarityFileId) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRdcComparator(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IRdcComparator, IRdcComparator_Vtbl, 0x96236a77_9dbc_11da_9e3f_0011114ae311);
+::windows_core::imp::interface_hierarchy!(IRdcComparator, ::windows_core::IUnknown);
 impl IRdcComparator {
     pub unsafe fn Process<P0>(&self, endofinput: P0, endofoutput: *mut super::super::Foundation::BOOL, inputbuffer: *mut RdcBufferPointer, outputbuffer: *mut RdcNeedPointer, rdc_errorcode: *mut RDC_ErrorCode) -> ::windows_core::Result<()>
     where
@@ -35,22 +26,14 @@ impl IRdcComparator {
         (::windows_core::Interface::vtable(self).Process)(::windows_core::Interface::as_raw(self), endofinput.into_param().abi(), endofoutput, inputbuffer, outputbuffer, rdc_errorcode).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IRdcComparator, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IRdcComparator {
-    type Vtable = IRdcComparator_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRdcComparator {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96236a77_9dbc_11da_9e3f_0011114ae311);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRdcComparator_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Process: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, endofinput: super::super::Foundation::BOOL, endofoutput: *mut super::super::Foundation::BOOL, inputbuffer: *mut RdcBufferPointer, outputbuffer: *mut RdcNeedPointer, rdc_errorcode: *mut RDC_ErrorCode) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRdcFileReader(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IRdcFileReader, IRdcFileReader_Vtbl, 0x96236a74_9dbc_11da_9e3f_0011114ae311);
+::windows_core::imp::interface_hierarchy!(IRdcFileReader, ::windows_core::IUnknown);
 impl IRdcFileReader {
     pub unsafe fn GetFileSize(&self) -> ::windows_core::Result<u64> {
         let mut result__ = ::std::mem::zeroed();
@@ -64,13 +47,6 @@ impl IRdcFileReader {
         (::windows_core::Interface::vtable(self).GetFilePosition)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IRdcFileReader, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IRdcFileReader {
-    type Vtable = IRdcFileReader_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRdcFileReader {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96236a74_9dbc_11da_9e3f_0011114ae311);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRdcFileReader_Vtbl {
@@ -79,9 +55,8 @@ pub struct IRdcFileReader_Vtbl {
     pub Read: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offsetfilestart: u64, bytestoread: u32, bytesactuallyread: *mut u32, buffer: *mut u8, eof: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
     pub GetFilePosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offsetfromstart: *mut u64) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRdcFileWriter(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IRdcFileWriter, IRdcFileWriter_Vtbl, 0x96236a75_9dbc_11da_9e3f_0011114ae311);
+::windows_core::imp::interface_hierarchy!(IRdcFileWriter, ::windows_core::IUnknown, IRdcFileReader);
 impl IRdcFileWriter {
     pub unsafe fn GetFileSize(&self) -> ::windows_core::Result<u64> {
         let mut result__ = ::std::mem::zeroed();
@@ -105,13 +80,6 @@ impl IRdcFileWriter {
         (::windows_core::Interface::vtable(self).DeleteOnClose)(::windows_core::Interface::as_raw(self)).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IRdcFileWriter, ::windows_core::IUnknown, IRdcFileReader);
-unsafe impl ::windows_core::Interface for IRdcFileWriter {
-    type Vtable = IRdcFileWriter_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRdcFileWriter {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96236a75_9dbc_11da_9e3f_0011114ae311);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRdcFileWriter_Vtbl {
@@ -120,9 +88,8 @@ pub struct IRdcFileWriter_Vtbl {
     pub Truncate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub DeleteOnClose: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRdcGenerator(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IRdcGenerator, IRdcGenerator_Vtbl, 0x96236a73_9dbc_11da_9e3f_0011114ae311);
+::windows_core::imp::interface_hierarchy!(IRdcGenerator, ::windows_core::IUnknown);
 impl IRdcGenerator {
     pub unsafe fn GetGeneratorParameters(&self, level: u32) -> ::windows_core::Result<IRdcGeneratorParameters> {
         let mut result__ = ::std::mem::zeroed();
@@ -135,13 +102,6 @@ impl IRdcGenerator {
         (::windows_core::Interface::vtable(self).Process)(::windows_core::Interface::as_raw(self), endofinput.into_param().abi(), endofoutput, inputbuffer, outputbuffers.len().try_into().unwrap(), ::core::mem::transmute(outputbuffers.as_ptr()), rdc_errorcode).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IRdcGenerator, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IRdcGenerator {
-    type Vtable = IRdcGenerator_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRdcGenerator {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96236a73_9dbc_11da_9e3f_0011114ae311);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRdcGenerator_Vtbl {
@@ -149,9 +109,8 @@ pub struct IRdcGenerator_Vtbl {
     pub GetGeneratorParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, level: u32, igeneratorparameters: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Process: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, endofinput: super::super::Foundation::BOOL, endofoutput: *mut super::super::Foundation::BOOL, inputbuffer: *mut RdcBufferPointer, depth: u32, outputbuffers: *mut *mut RdcBufferPointer, rdc_errorcode: *mut RDC_ErrorCode) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRdcGeneratorFilterMaxParameters(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IRdcGeneratorFilterMaxParameters, IRdcGeneratorFilterMaxParameters_Vtbl, 0x96236a72_9dbc_11da_9e3f_0011114ae311);
+::windows_core::imp::interface_hierarchy!(IRdcGeneratorFilterMaxParameters, ::windows_core::IUnknown);
 impl IRdcGeneratorFilterMaxParameters {
     pub unsafe fn GetHorizonSize(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -168,13 +127,6 @@ impl IRdcGeneratorFilterMaxParameters {
         (::windows_core::Interface::vtable(self).SetHashWindowSize)(::windows_core::Interface::as_raw(self), hashwindowsize).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IRdcGeneratorFilterMaxParameters, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IRdcGeneratorFilterMaxParameters {
-    type Vtable = IRdcGeneratorFilterMaxParameters_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRdcGeneratorFilterMaxParameters {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96236a72_9dbc_11da_9e3f_0011114ae311);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRdcGeneratorFilterMaxParameters_Vtbl {
@@ -184,9 +136,8 @@ pub struct IRdcGeneratorFilterMaxParameters_Vtbl {
     pub GetHashWindowSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hashwindowsize: *mut u32) -> ::windows_core::HRESULT,
     pub SetHashWindowSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hashwindowsize: u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRdcGeneratorParameters(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IRdcGeneratorParameters, IRdcGeneratorParameters_Vtbl, 0x96236a71_9dbc_11da_9e3f_0011114ae311);
+::windows_core::imp::interface_hierarchy!(IRdcGeneratorParameters, ::windows_core::IUnknown);
 impl IRdcGeneratorParameters {
     pub unsafe fn GetGeneratorParametersType(&self) -> ::windows_core::Result<GeneratorParametersType> {
         let mut result__ = ::std::mem::zeroed();
@@ -203,13 +154,6 @@ impl IRdcGeneratorParameters {
         (::windows_core::Interface::vtable(self).Serialize)(::windows_core::Interface::as_raw(self), size, parametersblob, byteswritten).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IRdcGeneratorParameters, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IRdcGeneratorParameters {
-    type Vtable = IRdcGeneratorParameters_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRdcGeneratorParameters {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96236a71_9dbc_11da_9e3f_0011114ae311);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRdcGeneratorParameters_Vtbl {
@@ -219,9 +163,8 @@ pub struct IRdcGeneratorParameters_Vtbl {
     pub GetSerializeSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, size: *mut u32) -> ::windows_core::HRESULT,
     pub Serialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, size: u32, parametersblob: *mut u8, byteswritten: *mut u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRdcLibrary(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IRdcLibrary, IRdcLibrary_Vtbl, 0x96236a78_9dbc_11da_9e3f_0011114ae311);
+::windows_core::imp::interface_hierarchy!(IRdcLibrary, ::windows_core::IUnknown);
 impl IRdcLibrary {
     pub unsafe fn ComputeDefaultRecursionDepth(&self, filesize: u64) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -257,13 +200,6 @@ impl IRdcLibrary {
         (::windows_core::Interface::vtable(self).GetRDCVersion)(::windows_core::Interface::as_raw(self), currentversion, minimumcompatibleappversion).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IRdcLibrary, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IRdcLibrary {
-    type Vtable = IRdcLibrary_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRdcLibrary {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96236a78_9dbc_11da_9e3f_0011114ae311);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRdcLibrary_Vtbl {
@@ -276,9 +212,8 @@ pub struct IRdcLibrary_Vtbl {
     pub CreateSignatureReader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ifilereader: *mut ::core::ffi::c_void, isignaturereader: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetRDCVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, currentversion: *mut u32, minimumcompatibleappversion: *mut u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRdcSignatureReader(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IRdcSignatureReader, IRdcSignatureReader_Vtbl, 0x96236a76_9dbc_11da_9e3f_0011114ae311);
+::windows_core::imp::interface_hierarchy!(IRdcSignatureReader, ::windows_core::IUnknown);
 impl IRdcSignatureReader {
     pub unsafe fn ReadHeader(&self) -> ::windows_core::Result<RDC_ErrorCode> {
         let mut result__ = ::std::mem::zeroed();
@@ -288,13 +223,6 @@ impl IRdcSignatureReader {
         (::windows_core::Interface::vtable(self).ReadSignatures)(::windows_core::Interface::as_raw(self), rdcsignaturepointer, endofoutput).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IRdcSignatureReader, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IRdcSignatureReader {
-    type Vtable = IRdcSignatureReader_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRdcSignatureReader {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96236a76_9dbc_11da_9e3f_0011114ae311);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRdcSignatureReader_Vtbl {
@@ -302,9 +230,8 @@ pub struct IRdcSignatureReader_Vtbl {
     pub ReadHeader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rdc_errorcode: *mut RDC_ErrorCode) -> ::windows_core::HRESULT,
     pub ReadSignatures: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rdcsignaturepointer: *mut RdcSignaturePointer, endofoutput: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRdcSimilarityGenerator(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IRdcSimilarityGenerator, IRdcSimilarityGenerator_Vtbl, 0x96236a80_9dbc_11da_9e3f_0011114ae311);
+::windows_core::imp::interface_hierarchy!(IRdcSimilarityGenerator, ::windows_core::IUnknown);
 impl IRdcSimilarityGenerator {
     pub unsafe fn EnableSimilarity(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).EnableSimilarity)(::windows_core::Interface::as_raw(self)).ok()
@@ -314,13 +241,6 @@ impl IRdcSimilarityGenerator {
         (::windows_core::Interface::vtable(self).Results)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(IRdcSimilarityGenerator, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IRdcSimilarityGenerator {
-    type Vtable = IRdcSimilarityGenerator_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRdcSimilarityGenerator {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96236a80_9dbc_11da_9e3f_0011114ae311);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRdcSimilarityGenerator_Vtbl {
@@ -328,9 +248,8 @@ pub struct IRdcSimilarityGenerator_Vtbl {
     pub EnableSimilarity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Results: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, similaritydata: *mut SimilarityData) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISimilarity(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(ISimilarity, ISimilarity_Vtbl, 0x96236a83_9dbc_11da_9e3f_0011114ae311);
+::windows_core::imp::interface_hierarchy!(ISimilarity, ::windows_core::IUnknown);
 impl ISimilarity {
     pub unsafe fn CreateTable<P0, P1>(&self, path: P0, truncate: P1, securitydescriptor: *const u8, recordsize: u32) -> ::windows_core::Result<RdcCreatedTables>
     where
@@ -374,13 +293,6 @@ impl ISimilarity {
         (::windows_core::Interface::vtable(self).GetRecordCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(ISimilarity, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISimilarity {
-    type Vtable = ISimilarity_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISimilarity {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96236a83_9dbc_11da_9e3f_0011114ae311);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISimilarity_Vtbl {
@@ -393,9 +305,8 @@ pub struct ISimilarity_Vtbl {
     pub CopyAndSwap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newsimilaritytables: *mut ::core::ffi::c_void, reportprogress: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetRecordCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, recordcount: *mut u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISimilarityFileIdTable(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(ISimilarityFileIdTable, ISimilarityFileIdTable_Vtbl, 0x96236a7f_9dbc_11da_9e3f_0011114ae311);
+::windows_core::imp::interface_hierarchy!(ISimilarityFileIdTable, ::windows_core::IUnknown);
 impl ISimilarityFileIdTable {
     pub unsafe fn CreateTable<P0, P1>(&self, path: P0, truncate: P1, securitydescriptor: *const u8, recordsize: u32) -> ::windows_core::Result<RdcCreatedTables>
     where
@@ -434,13 +345,6 @@ impl ISimilarityFileIdTable {
         (::windows_core::Interface::vtable(self).GetRecordCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(ISimilarityFileIdTable, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISimilarityFileIdTable {
-    type Vtable = ISimilarityFileIdTable_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISimilarityFileIdTable {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96236a7f_9dbc_11da_9e3f_0011114ae311);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISimilarityFileIdTable_Vtbl {
@@ -453,20 +357,12 @@ pub struct ISimilarityFileIdTable_Vtbl {
     pub Invalidate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, similarityfileindex: u32) -> ::windows_core::HRESULT,
     pub GetRecordCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, recordcount: *mut u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISimilarityReportProgress(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(ISimilarityReportProgress, ISimilarityReportProgress_Vtbl, 0x96236a7a_9dbc_11da_9e3f_0011114ae311);
+::windows_core::imp::interface_hierarchy!(ISimilarityReportProgress, ::windows_core::IUnknown);
 impl ISimilarityReportProgress {
     pub unsafe fn ReportProgress(&self, percentcompleted: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ReportProgress)(::windows_core::Interface::as_raw(self), percentcompleted).ok()
     }
-}
-::windows_core::imp::interface_hierarchy!(ISimilarityReportProgress, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISimilarityReportProgress {
-    type Vtable = ISimilarityReportProgress_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISimilarityReportProgress {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96236a7a_9dbc_11da_9e3f_0011114ae311);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -474,20 +370,12 @@ pub struct ISimilarityReportProgress_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub ReportProgress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, percentcompleted: u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISimilarityTableDumpState(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(ISimilarityTableDumpState, ISimilarityTableDumpState_Vtbl, 0x96236a7b_9dbc_11da_9e3f_0011114ae311);
+::windows_core::imp::interface_hierarchy!(ISimilarityTableDumpState, ::windows_core::IUnknown);
 impl ISimilarityTableDumpState {
     pub unsafe fn GetNextData(&self, resultssize: u32, resultsused: *mut u32, eof: *mut super::super::Foundation::BOOL, results: *mut SimilarityDumpData) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetNextData)(::windows_core::Interface::as_raw(self), resultssize, resultsused, eof, results).ok()
     }
-}
-::windows_core::imp::interface_hierarchy!(ISimilarityTableDumpState, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISimilarityTableDumpState {
-    type Vtable = ISimilarityTableDumpState_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISimilarityTableDumpState {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96236a7b_9dbc_11da_9e3f_0011114ae311);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -495,9 +383,8 @@ pub struct ISimilarityTableDumpState_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetNextData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resultssize: u32, resultsused: *mut u32, eof: *mut super::super::Foundation::BOOL, results: *mut SimilarityDumpData) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISimilarityTraitsMappedView(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(ISimilarityTraitsMappedView, ISimilarityTraitsMappedView_Vtbl, 0x96236a7c_9dbc_11da_9e3f_0011114ae311);
+::windows_core::imp::interface_hierarchy!(ISimilarityTraitsMappedView, ::windows_core::IUnknown);
 impl ISimilarityTraitsMappedView {
     pub unsafe fn Flush(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Flush)(::windows_core::Interface::as_raw(self)).ok()
@@ -516,13 +403,6 @@ impl ISimilarityTraitsMappedView {
         (::windows_core::Interface::vtable(self).GetView)(::windows_core::Interface::as_raw(self), mappedpagebegin, mappedpageend)
     }
 }
-::windows_core::imp::interface_hierarchy!(ISimilarityTraitsMappedView, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISimilarityTraitsMappedView {
-    type Vtable = ISimilarityTraitsMappedView_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISimilarityTraitsMappedView {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96236a7c_9dbc_11da_9e3f_0011114ae311);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISimilarityTraitsMappedView_Vtbl {
@@ -532,9 +412,8 @@ pub struct ISimilarityTraitsMappedView_Vtbl {
     pub Get: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u64, dirty: super::super::Foundation::BOOL, numelements: u32, viewinfo: *mut SimilarityMappedViewInfo) -> ::windows_core::HRESULT,
     pub GetView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mappedpagebegin: *mut *mut u8, mappedpageend: *mut *mut u8),
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISimilarityTraitsMapping(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(ISimilarityTraitsMapping, ISimilarityTraitsMapping_Vtbl, 0x96236a7d_9dbc_11da_9e3f_0011114ae311);
+::windows_core::imp::interface_hierarchy!(ISimilarityTraitsMapping, ::windows_core::IUnknown);
 impl ISimilarityTraitsMapping {
     pub unsafe fn CloseMapping(&self) {
         (::windows_core::Interface::vtable(self).CloseMapping)(::windows_core::Interface::as_raw(self))
@@ -564,13 +443,6 @@ impl ISimilarityTraitsMapping {
         (::windows_core::Interface::vtable(self).CreateView)(::windows_core::Interface::as_raw(self), minimummappedpages, accessmode, &mut result__).from_abi(result__)
     }
 }
-::windows_core::imp::interface_hierarchy!(ISimilarityTraitsMapping, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISimilarityTraitsMapping {
-    type Vtable = ISimilarityTraitsMapping_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISimilarityTraitsMapping {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96236a7d_9dbc_11da_9e3f_0011114ae311);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISimilarityTraitsMapping_Vtbl {
@@ -583,9 +455,8 @@ pub struct ISimilarityTraitsMapping_Vtbl {
     pub GetPageSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pagesize: *mut u32),
     pub CreateView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, minimummappedpages: u32, accessmode: RdcMappingAccessMode, mappedview: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISimilarityTraitsTable(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(ISimilarityTraitsTable, ISimilarityTraitsTable_Vtbl, 0x96236a7e_9dbc_11da_9e3f_0011114ae311);
+::windows_core::imp::interface_hierarchy!(ISimilarityTraitsTable, ::windows_core::IUnknown);
 impl ISimilarityTraitsTable {
     pub unsafe fn CreateTable<P0, P1>(&self, path: P0, truncate: P1, securitydescriptor: *const u8) -> ::windows_core::Result<RdcCreatedTables>
     where
@@ -623,13 +494,6 @@ impl ISimilarityTraitsTable {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetLastIndex)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-}
-::windows_core::imp::interface_hierarchy!(ISimilarityTraitsTable, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISimilarityTraitsTable {
-    type Vtable = ISimilarityTraitsTable_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISimilarityTraitsTable {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96236a7e_9dbc_11da_9e3f_0011114ae311);
 }
 #[repr(C)]
 #[doc(hidden)]

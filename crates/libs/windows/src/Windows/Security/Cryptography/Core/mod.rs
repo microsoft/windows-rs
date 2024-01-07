@@ -1,13 +1,4 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAsymmetricAlgorithmNamesStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAsymmetricAlgorithmNamesStatics {
-    type Vtable = IAsymmetricAlgorithmNamesStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAsymmetricAlgorithmNamesStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcaf6fce4_67c0_46aa_84f9_752e77449f9b);
-}
+::windows_core::imp::com_interface!(IAsymmetricAlgorithmNamesStatics, IAsymmetricAlgorithmNamesStatics_Vtbl, 0xcaf6fce4_67c0_46aa_84f9_752e77449f9b);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAsymmetricAlgorithmNamesStatics_Vtbl {
@@ -31,16 +22,7 @@ pub struct IAsymmetricAlgorithmNamesStatics_Vtbl {
     pub RsaSignPssSha384: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub RsaSignPssSha512: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAsymmetricAlgorithmNamesStatics2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAsymmetricAlgorithmNamesStatics2 {
-    type Vtable = IAsymmetricAlgorithmNamesStatics2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAsymmetricAlgorithmNamesStatics2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf141c0d6_4bff_4f23_ba66_6045b137d5df);
-}
+::windows_core::imp::com_interface!(IAsymmetricAlgorithmNamesStatics2, IAsymmetricAlgorithmNamesStatics2_Vtbl, 0xf141c0d6_4bff_4f23_ba66_6045b137d5df);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAsymmetricAlgorithmNamesStatics2_Vtbl {
@@ -49,16 +31,7 @@ pub struct IAsymmetricAlgorithmNamesStatics2_Vtbl {
     pub EcdsaSha384: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub EcdsaSha512: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAsymmetricKeyAlgorithmProvider(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAsymmetricKeyAlgorithmProvider {
-    type Vtable = IAsymmetricKeyAlgorithmProvider_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAsymmetricKeyAlgorithmProvider {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe8d2ff37_6259_4e88_b7e0_94191fde699e);
-}
+::windows_core::imp::com_interface!(IAsymmetricKeyAlgorithmProvider, IAsymmetricKeyAlgorithmProvider_Vtbl, 0xe8d2ff37_6259_4e88_b7e0_94191fde699e);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAsymmetricKeyAlgorithmProvider_Vtbl {
@@ -82,16 +55,7 @@ pub struct IAsymmetricKeyAlgorithmProvider_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     ImportPublicKeyWithBlobType: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAsymmetricKeyAlgorithmProvider2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAsymmetricKeyAlgorithmProvider2 {
-    type Vtable = IAsymmetricKeyAlgorithmProvider2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAsymmetricKeyAlgorithmProvider2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4e322a7e_7c4d_4997_ac4f_1b848b36306e);
-}
+::windows_core::imp::com_interface!(IAsymmetricKeyAlgorithmProvider2, IAsymmetricKeyAlgorithmProvider2_Vtbl, 0x4e322a7e_7c4d_4997_ac4f_1b848b36306e);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAsymmetricKeyAlgorithmProvider2_Vtbl {
@@ -99,32 +63,14 @@ pub struct IAsymmetricKeyAlgorithmProvider2_Vtbl {
     pub CreateKeyPairWithCurveName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, curvename: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub CreateKeyPairWithCurveParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parameters_array_size: u32, parameters: *const u8, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IAsymmetricKeyAlgorithmProviderStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IAsymmetricKeyAlgorithmProviderStatics {
-    type Vtable = IAsymmetricKeyAlgorithmProviderStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IAsymmetricKeyAlgorithmProviderStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x425bde18_a7f3_47a6_a8d2_c48d6033a65c);
-}
+::windows_core::imp::com_interface!(IAsymmetricKeyAlgorithmProviderStatics, IAsymmetricKeyAlgorithmProviderStatics_Vtbl, 0x425bde18_a7f3_47a6_a8d2_c48d6033a65c);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAsymmetricKeyAlgorithmProviderStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub OpenAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, algorithm: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ICryptographicEngineStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ICryptographicEngineStatics {
-    type Vtable = ICryptographicEngineStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ICryptographicEngineStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9fea0639_6ff7_4c85_a095_95eb31715eb9);
-}
+::windows_core::imp::com_interface!(ICryptographicEngineStatics, ICryptographicEngineStatics_Vtbl, 0x9fea0639_6ff7_4c85_a095_95eb31715eb9);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICryptographicEngineStatics_Vtbl {
@@ -158,16 +104,7 @@ pub struct ICryptographicEngineStatics_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     DeriveKeyMaterial: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ICryptographicEngineStatics2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ICryptographicEngineStatics2 {
-    type Vtable = ICryptographicEngineStatics2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ICryptographicEngineStatics2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x675948fe_df9f_4191_92c7_6ce6f58420e0);
-}
+::windows_core::imp::com_interface!(ICryptographicEngineStatics2, ICryptographicEngineStatics2_Vtbl, 0x675948fe_df9f_4191_92c7_6ce6f58420e0);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICryptographicEngineStatics2_Vtbl {
@@ -193,16 +130,7 @@ pub struct ICryptographicEngineStatics2_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     SignHashedDataAsync: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ICryptographicKey(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ICryptographicKey {
-    type Vtable = ICryptographicKey_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ICryptographicKey {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xed2a3b70_8e7b_4009_8401_ffd1a62eeb27);
-}
+::windows_core::imp::com_interface!(ICryptographicKey, ICryptographicKey_Vtbl, 0xed2a3b70_8e7b_4009_8401_ffd1a62eeb27);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICryptographicKey_Vtbl {
@@ -225,16 +153,7 @@ pub struct ICryptographicKey_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     ExportPublicKeyWithBlobType: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IEccCurveNamesStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IEccCurveNamesStatics {
-    type Vtable = IEccCurveNamesStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IEccCurveNamesStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb3ff930c_aeeb_409e_b7d4_9b95295aaecf);
-}
+::windows_core::imp::com_interface!(IEccCurveNamesStatics, IEccCurveNamesStatics_Vtbl, 0xb3ff930c_aeeb_409e_b7d4_9b95295aaecf);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEccCurveNamesStatics_Vtbl {
@@ -289,16 +208,7 @@ pub struct IEccCurveNamesStatics_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     AllEccCurveNames: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IEncryptedAndAuthenticatedData(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IEncryptedAndAuthenticatedData {
-    type Vtable = IEncryptedAndAuthenticatedData_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IEncryptedAndAuthenticatedData {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6fa42fe7_1ecb_4b00_bea5_60b83f862f17);
-}
+::windows_core::imp::com_interface!(IEncryptedAndAuthenticatedData, IEncryptedAndAuthenticatedData_Vtbl, 0x6fa42fe7_1ecb_4b00_bea5_60b83f862f17);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEncryptedAndAuthenticatedData_Vtbl {
@@ -312,16 +222,7 @@ pub struct IEncryptedAndAuthenticatedData_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     AuthenticationTag: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IHashAlgorithmNamesStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IHashAlgorithmNamesStatics {
-    type Vtable = IHashAlgorithmNamesStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IHashAlgorithmNamesStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6b5e0516_de96_4f0a_8d57_dcc9dae36c76);
-}
+::windows_core::imp::com_interface!(IHashAlgorithmNamesStatics, IHashAlgorithmNamesStatics_Vtbl, 0x6b5e0516_de96_4f0a_8d57_dcc9dae36c76);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHashAlgorithmNamesStatics_Vtbl {
@@ -332,16 +233,7 @@ pub struct IHashAlgorithmNamesStatics_Vtbl {
     pub Sha384: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub Sha512: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IHashAlgorithmProvider(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IHashAlgorithmProvider {
-    type Vtable = IHashAlgorithmProvider_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IHashAlgorithmProvider {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbe9b3080_b2c3_422b_bce1_ec90efb5d7b5);
-}
+::windows_core::imp::com_interface!(IHashAlgorithmProvider, IHashAlgorithmProvider_Vtbl, 0xbe9b3080_b2c3_422b_bce1_ec90efb5d7b5);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHashAlgorithmProvider_Vtbl {
@@ -354,32 +246,14 @@ pub struct IHashAlgorithmProvider_Vtbl {
     HashData: usize,
     pub CreateHash: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IHashAlgorithmProviderStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IHashAlgorithmProviderStatics {
-    type Vtable = IHashAlgorithmProviderStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IHashAlgorithmProviderStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9fac9741_5cc4_4336_ae38_6212b75a915a);
-}
+::windows_core::imp::com_interface!(IHashAlgorithmProviderStatics, IHashAlgorithmProviderStatics_Vtbl, 0x9fac9741_5cc4_4336_ae38_6212b75a915a);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHashAlgorithmProviderStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub OpenAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, algorithm: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IHashComputation(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IHashComputation {
-    type Vtable = IHashComputation_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IHashComputation {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5904d1b6_ad31_4603_a3a4_b1bda98e2562);
-}
+::windows_core::imp::com_interface!(IHashComputation, IHashComputation_Vtbl, 0x5904d1b6_ad31_4603_a3a4_b1bda98e2562);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHashComputation_Vtbl {
@@ -393,16 +267,7 @@ pub struct IHashComputation_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     GetValueAndReset: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IKeyDerivationAlgorithmNamesStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IKeyDerivationAlgorithmNamesStatics {
-    type Vtable = IKeyDerivationAlgorithmNamesStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IKeyDerivationAlgorithmNamesStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7b6e363e_94d2_4739_a57b_022e0c3a402a);
-}
+::windows_core::imp::com_interface!(IKeyDerivationAlgorithmNamesStatics, IKeyDerivationAlgorithmNamesStatics_Vtbl, 0x7b6e363e_94d2_4739_a57b_022e0c3a402a);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKeyDerivationAlgorithmNamesStatics_Vtbl {
@@ -423,16 +288,7 @@ pub struct IKeyDerivationAlgorithmNamesStatics_Vtbl {
     pub Sp80056aConcatSha384: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub Sp80056aConcatSha512: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IKeyDerivationAlgorithmNamesStatics2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IKeyDerivationAlgorithmNamesStatics2 {
-    type Vtable = IKeyDerivationAlgorithmNamesStatics2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IKeyDerivationAlgorithmNamesStatics2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x57953fab_6044_466f_97f4_337b7808384d);
-}
+::windows_core::imp::com_interface!(IKeyDerivationAlgorithmNamesStatics2, IKeyDerivationAlgorithmNamesStatics2_Vtbl, 0x57953fab_6044_466f_97f4_337b7808384d);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKeyDerivationAlgorithmNamesStatics2_Vtbl {
@@ -443,16 +299,7 @@ pub struct IKeyDerivationAlgorithmNamesStatics2_Vtbl {
     pub CapiKdfSha384: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub CapiKdfSha512: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IKeyDerivationAlgorithmProvider(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IKeyDerivationAlgorithmProvider {
-    type Vtable = IKeyDerivationAlgorithmProvider_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IKeyDerivationAlgorithmProvider {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe1fba83b_4671_43b7_9158_763aaa98b6bf);
-}
+::windows_core::imp::com_interface!(IKeyDerivationAlgorithmProvider, IKeyDerivationAlgorithmProvider_Vtbl, 0xe1fba83b_4671_43b7_9158_763aaa98b6bf);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKeyDerivationAlgorithmProvider_Vtbl {
@@ -463,32 +310,14 @@ pub struct IKeyDerivationAlgorithmProvider_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     CreateKey: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IKeyDerivationAlgorithmProviderStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IKeyDerivationAlgorithmProviderStatics {
-    type Vtable = IKeyDerivationAlgorithmProviderStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IKeyDerivationAlgorithmProviderStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0a22097a_0a1c_443b_9418_b9498aeb1603);
-}
+::windows_core::imp::com_interface!(IKeyDerivationAlgorithmProviderStatics, IKeyDerivationAlgorithmProviderStatics_Vtbl, 0x0a22097a_0a1c_443b_9418_b9498aeb1603);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKeyDerivationAlgorithmProviderStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub OpenAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, algorithm: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IKeyDerivationParameters(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IKeyDerivationParameters {
-    type Vtable = IKeyDerivationParameters_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IKeyDerivationParameters {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7bf05967_047b_4a8c_964a_469ffd5522e2);
-}
+::windows_core::imp::com_interface!(IKeyDerivationParameters, IKeyDerivationParameters_Vtbl, 0x7bf05967_047b_4a8c_964a_469ffd5522e2);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKeyDerivationParameters_Vtbl {
@@ -503,16 +332,7 @@ pub struct IKeyDerivationParameters_Vtbl {
     SetKdfGenericBinary: usize,
     pub IterationCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IKeyDerivationParameters2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IKeyDerivationParameters2 {
-    type Vtable = IKeyDerivationParameters2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IKeyDerivationParameters2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcd4166d1_417e_4f4c_b666_c0d879f3f8e0);
-}
+::windows_core::imp::com_interface!(IKeyDerivationParameters2, IKeyDerivationParameters2_Vtbl, 0xcd4166d1_417e_4f4c_b666_c0d879f3f8e0);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKeyDerivationParameters2_Vtbl {
@@ -520,16 +340,7 @@ pub struct IKeyDerivationParameters2_Vtbl {
     pub Capi1KdfTargetAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut Capi1KdfTargetAlgorithm) -> ::windows_core::HRESULT,
     pub SetCapi1KdfTargetAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: Capi1KdfTargetAlgorithm) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IKeyDerivationParametersStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IKeyDerivationParametersStatics {
-    type Vtable = IKeyDerivationParametersStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IKeyDerivationParametersStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xea961fbe_f37f_4146_9dfe_a456f1735f4b);
-}
+::windows_core::imp::com_interface!(IKeyDerivationParametersStatics, IKeyDerivationParametersStatics_Vtbl, 0xea961fbe_f37f_4146_9dfe_a456f1735f4b);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKeyDerivationParametersStatics_Vtbl {
@@ -547,32 +358,14 @@ pub struct IKeyDerivationParametersStatics_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     BuildForSP80056a: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IKeyDerivationParametersStatics2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IKeyDerivationParametersStatics2 {
-    type Vtable = IKeyDerivationParametersStatics2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IKeyDerivationParametersStatics2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa5783dd5_58e3_4efb_b283_a1653126e1be);
-}
+::windows_core::imp::com_interface!(IKeyDerivationParametersStatics2, IKeyDerivationParametersStatics2_Vtbl, 0xa5783dd5_58e3_4efb_b283_a1653126e1be);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKeyDerivationParametersStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub BuildForCapi1Kdf: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, capi1kdftargetalgorithm: Capi1KdfTargetAlgorithm, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMacAlgorithmNamesStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IMacAlgorithmNamesStatics {
-    type Vtable = IMacAlgorithmNamesStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IMacAlgorithmNamesStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x41412678_fb1e_43a4_895e_a9026e4390a3);
-}
+::windows_core::imp::com_interface!(IMacAlgorithmNamesStatics, IMacAlgorithmNamesStatics_Vtbl, 0x41412678_fb1e_43a4_895e_a9026e4390a3);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMacAlgorithmNamesStatics_Vtbl {
@@ -584,16 +377,7 @@ pub struct IMacAlgorithmNamesStatics_Vtbl {
     pub HmacSha512: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub AesCmac: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMacAlgorithmProvider(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IMacAlgorithmProvider {
-    type Vtable = IMacAlgorithmProvider_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IMacAlgorithmProvider {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4a3fc5c3_1cbd_41ce_a092_aa0bc5d2d2f5);
-}
+::windows_core::imp::com_interface!(IMacAlgorithmProvider, IMacAlgorithmProvider_Vtbl, 0x4a3fc5c3_1cbd_41ce_a092_aa0bc5d2d2f5);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMacAlgorithmProvider_Vtbl {
@@ -605,16 +389,7 @@ pub struct IMacAlgorithmProvider_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     CreateKey: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMacAlgorithmProvider2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IMacAlgorithmProvider2 {
-    type Vtable = IMacAlgorithmProvider2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IMacAlgorithmProvider2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6da32a15_d931_42ed_8e7e_c301caee119c);
-}
+::windows_core::imp::com_interface!(IMacAlgorithmProvider2, IMacAlgorithmProvider2_Vtbl, 0x6da32a15_d931_42ed_8e7e_c301caee119c);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMacAlgorithmProvider2_Vtbl {
@@ -624,32 +399,14 @@ pub struct IMacAlgorithmProvider2_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     CreateHash: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IMacAlgorithmProviderStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IMacAlgorithmProviderStatics {
-    type Vtable = IMacAlgorithmProviderStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IMacAlgorithmProviderStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc9bdc147_cc77_4df0_9e4e_b921e080644c);
-}
+::windows_core::imp::com_interface!(IMacAlgorithmProviderStatics, IMacAlgorithmProviderStatics_Vtbl, 0xc9bdc147_cc77_4df0_9e4e_b921e080644c);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMacAlgorithmProviderStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub OpenAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, algorithm: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IPersistedKeyProviderStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IPersistedKeyProviderStatics {
-    type Vtable = IPersistedKeyProviderStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IPersistedKeyProviderStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x77274814_d9d4_4cf5_b668_e0457df30894);
-}
+::windows_core::imp::com_interface!(IPersistedKeyProviderStatics, IPersistedKeyProviderStatics_Vtbl, 0x77274814_d9d4_4cf5_b668_e0457df30894);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPersistedKeyProviderStatics_Vtbl {
@@ -663,16 +420,7 @@ pub struct IPersistedKeyProviderStatics_Vtbl {
     #[cfg(not(feature = "Security_Cryptography_Certificates"))]
     OpenPublicKeyFromCertificate: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISymmetricAlgorithmNamesStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISymmetricAlgorithmNamesStatics {
-    type Vtable = ISymmetricAlgorithmNamesStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISymmetricAlgorithmNamesStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6870727b_c996_4eae_84d7_79b2aeb73b9c);
-}
+::windows_core::imp::com_interface!(ISymmetricAlgorithmNamesStatics, ISymmetricAlgorithmNamesStatics_Vtbl, 0x6870727b_c996_4eae_84d7_79b2aeb73b9c);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISymmetricAlgorithmNamesStatics_Vtbl {
@@ -697,16 +445,7 @@ pub struct ISymmetricAlgorithmNamesStatics_Vtbl {
     pub Rc2EcbPkcs7: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub Rc4: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISymmetricKeyAlgorithmProvider(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISymmetricKeyAlgorithmProvider {
-    type Vtable = ISymmetricKeyAlgorithmProvider_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISymmetricKeyAlgorithmProvider {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3d7e4a33_3bd0_4902_8ac8_470d50d21376);
-}
+::windows_core::imp::com_interface!(ISymmetricKeyAlgorithmProvider, ISymmetricKeyAlgorithmProvider_Vtbl, 0x3d7e4a33_3bd0_4902_8ac8_470d50d21376);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISymmetricKeyAlgorithmProvider_Vtbl {
@@ -718,16 +457,7 @@ pub struct ISymmetricKeyAlgorithmProvider_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     CreateSymmetricKey: usize,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISymmetricKeyAlgorithmProviderStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISymmetricKeyAlgorithmProviderStatics {
-    type Vtable = ISymmetricKeyAlgorithmProviderStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISymmetricKeyAlgorithmProviderStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8d3b2326_1f37_491f_b60e_f5431b26b483);
-}
+::windows_core::imp::com_interface!(ISymmetricKeyAlgorithmProviderStatics, ISymmetricKeyAlgorithmProviderStatics_Vtbl, 0x8d3b2326_1f37_491f_b60e_f5431b26b483);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISymmetricKeyAlgorithmProviderStatics_Vtbl {
@@ -879,6 +609,7 @@ impl ::windows_core::RuntimeName for AsymmetricAlgorithmNames {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AsymmetricKeyAlgorithmProvider(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(AsymmetricKeyAlgorithmProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl AsymmetricKeyAlgorithmProvider {
     pub fn AlgorithmName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -898,59 +629,59 @@ impl AsymmetricKeyAlgorithmProvider {
     #[cfg(feature = "Storage_Streams")]
     pub fn ImportDefaultPrivateKeyBlob<P0>(&self, keyblob: P0) -> ::windows_core::Result<CryptographicKey>
     where
-        P0: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P0: ::windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ImportDefaultPrivateKeyBlob)(::windows_core::Interface::as_raw(this), keyblob.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ImportDefaultPrivateKeyBlob)(::windows_core::Interface::as_raw(this), keyblob.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn ImportKeyPairWithBlobType<P0>(&self, keyblob: P0, blobtype: CryptographicPrivateKeyBlobType) -> ::windows_core::Result<CryptographicKey>
     where
-        P0: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P0: ::windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ImportKeyPairWithBlobType)(::windows_core::Interface::as_raw(this), keyblob.try_into_param()?.abi(), blobtype, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ImportKeyPairWithBlobType)(::windows_core::Interface::as_raw(this), keyblob.into_param().abi(), blobtype, &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn ImportDefaultPublicKeyBlob<P0>(&self, keyblob: P0) -> ::windows_core::Result<CryptographicKey>
     where
-        P0: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P0: ::windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ImportDefaultPublicKeyBlob)(::windows_core::Interface::as_raw(this), keyblob.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ImportDefaultPublicKeyBlob)(::windows_core::Interface::as_raw(this), keyblob.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn ImportPublicKeyWithBlobType<P0>(&self, keyblob: P0, blobtype: CryptographicPublicKeyBlobType) -> ::windows_core::Result<CryptographicKey>
     where
-        P0: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P0: ::windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ImportPublicKeyWithBlobType)(::windows_core::Interface::as_raw(this), keyblob.try_into_param()?.abi(), blobtype, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ImportPublicKeyWithBlobType)(::windows_core::Interface::as_raw(this), keyblob.into_param().abi(), blobtype, &mut result__).from_abi(result__)
         }
     }
     pub fn CreateKeyPairWithCurveName(&self, curvename: &::windows_core::HSTRING) -> ::windows_core::Result<CryptographicKey> {
-        let this = &::windows_core::ComInterface::cast::<IAsymmetricKeyAlgorithmProvider2>(self)?;
+        let this = &::windows_core::Interface::cast::<IAsymmetricKeyAlgorithmProvider2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateKeyPairWithCurveName)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(curvename), &mut result__).from_abi(result__)
         }
     }
     pub fn CreateKeyPairWithCurveParameters(&self, parameters: &[u8]) -> ::windows_core::Result<CryptographicKey> {
-        let this = &::windows_core::ComInterface::cast::<IAsymmetricKeyAlgorithmProvider2>(self)?;
+        let this = &::windows_core::Interface::cast::<IAsymmetricKeyAlgorithmProvider2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateKeyPairWithCurveParameters)(::windows_core::Interface::as_raw(this), parameters.len().try_into().unwrap(), parameters.as_ptr(), &mut result__).from_abi(result__)
@@ -973,14 +704,11 @@ impl ::windows_core::RuntimeType for AsymmetricKeyAlgorithmProvider {
 }
 unsafe impl ::windows_core::Interface for AsymmetricKeyAlgorithmProvider {
     type Vtable = IAsymmetricKeyAlgorithmProvider_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for AsymmetricKeyAlgorithmProvider {
-    const IID: ::windows_core::GUID = <IAsymmetricKeyAlgorithmProvider as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IAsymmetricKeyAlgorithmProvider as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for AsymmetricKeyAlgorithmProvider {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.AsymmetricKeyAlgorithmProvider";
 }
-::windows_core::imp::interface_hierarchy!(AsymmetricKeyAlgorithmProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AsymmetricKeyAlgorithmProvider {}
 unsafe impl ::core::marker::Sync for AsymmetricKeyAlgorithmProvider {}
 pub struct CryptographicEngine;
@@ -990,12 +718,12 @@ impl CryptographicEngine {
     pub fn Encrypt<P0, P1, P2>(key: P0, data: P1, iv: P2) -> ::windows_core::Result<super::super::super::Storage::Streams::IBuffer>
     where
         P0: ::windows_core::IntoParam<CryptographicKey>,
-        P1: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
-        P2: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P1: ::windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P2: ::windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
     {
         Self::ICryptographicEngineStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Encrypt)(::windows_core::Interface::as_raw(this), key.into_param().abi(), data.try_into_param()?.abi(), iv.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Encrypt)(::windows_core::Interface::as_raw(this), key.into_param().abi(), data.into_param().abi(), iv.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
@@ -1003,12 +731,12 @@ impl CryptographicEngine {
     pub fn Decrypt<P0, P1, P2>(key: P0, data: P1, iv: P2) -> ::windows_core::Result<super::super::super::Storage::Streams::IBuffer>
     where
         P0: ::windows_core::IntoParam<CryptographicKey>,
-        P1: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
-        P2: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P1: ::windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P2: ::windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
     {
         Self::ICryptographicEngineStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Decrypt)(::windows_core::Interface::as_raw(this), key.into_param().abi(), data.try_into_param()?.abi(), iv.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Decrypt)(::windows_core::Interface::as_raw(this), key.into_param().abi(), data.into_param().abi(), iv.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
@@ -1016,13 +744,13 @@ impl CryptographicEngine {
     pub fn EncryptAndAuthenticate<P0, P1, P2, P3>(key: P0, data: P1, nonce: P2, authenticateddata: P3) -> ::windows_core::Result<EncryptedAndAuthenticatedData>
     where
         P0: ::windows_core::IntoParam<CryptographicKey>,
-        P1: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
-        P2: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
-        P3: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P1: ::windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P2: ::windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P3: ::windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
     {
         Self::ICryptographicEngineStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).EncryptAndAuthenticate)(::windows_core::Interface::as_raw(this), key.into_param().abi(), data.try_into_param()?.abi(), nonce.try_into_param()?.abi(), authenticateddata.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).EncryptAndAuthenticate)(::windows_core::Interface::as_raw(this), key.into_param().abi(), data.into_param().abi(), nonce.into_param().abi(), authenticateddata.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
@@ -1030,14 +758,14 @@ impl CryptographicEngine {
     pub fn DecryptAndAuthenticate<P0, P1, P2, P3, P4>(key: P0, data: P1, nonce: P2, authenticationtag: P3, authenticateddata: P4) -> ::windows_core::Result<super::super::super::Storage::Streams::IBuffer>
     where
         P0: ::windows_core::IntoParam<CryptographicKey>,
-        P1: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
-        P2: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
-        P3: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
-        P4: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P1: ::windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P2: ::windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P3: ::windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P4: ::windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
     {
         Self::ICryptographicEngineStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).DecryptAndAuthenticate)(::windows_core::Interface::as_raw(this), key.into_param().abi(), data.try_into_param()?.abi(), nonce.try_into_param()?.abi(), authenticationtag.try_into_param()?.abi(), authenticateddata.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).DecryptAndAuthenticate)(::windows_core::Interface::as_raw(this), key.into_param().abi(), data.into_param().abi(), nonce.into_param().abi(), authenticationtag.into_param().abi(), authenticateddata.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
@@ -1045,11 +773,11 @@ impl CryptographicEngine {
     pub fn Sign<P0, P1>(key: P0, data: P1) -> ::windows_core::Result<super::super::super::Storage::Streams::IBuffer>
     where
         P0: ::windows_core::IntoParam<CryptographicKey>,
-        P1: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P1: ::windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
     {
         Self::ICryptographicEngineStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Sign)(::windows_core::Interface::as_raw(this), key.into_param().abi(), data.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Sign)(::windows_core::Interface::as_raw(this), key.into_param().abi(), data.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
@@ -1057,12 +785,12 @@ impl CryptographicEngine {
     pub fn VerifySignature<P0, P1, P2>(key: P0, data: P1, signature: P2) -> ::windows_core::Result<bool>
     where
         P0: ::windows_core::IntoParam<CryptographicKey>,
-        P1: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
-        P2: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P1: ::windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P2: ::windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
     {
         Self::ICryptographicEngineStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).VerifySignature)(::windows_core::Interface::as_raw(this), key.into_param().abi(), data.try_into_param()?.abi(), signature.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).VerifySignature)(::windows_core::Interface::as_raw(this), key.into_param().abi(), data.into_param().abi(), signature.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
@@ -1082,11 +810,11 @@ impl CryptographicEngine {
     pub fn SignHashedData<P0, P1>(key: P0, data: P1) -> ::windows_core::Result<super::super::super::Storage::Streams::IBuffer>
     where
         P0: ::windows_core::IntoParam<CryptographicKey>,
-        P1: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P1: ::windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
     {
         Self::ICryptographicEngineStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SignHashedData)(::windows_core::Interface::as_raw(this), key.into_param().abi(), data.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SignHashedData)(::windows_core::Interface::as_raw(this), key.into_param().abi(), data.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
@@ -1094,12 +822,12 @@ impl CryptographicEngine {
     pub fn VerifySignatureWithHashInput<P0, P1, P2>(key: P0, data: P1, signature: P2) -> ::windows_core::Result<bool>
     where
         P0: ::windows_core::IntoParam<CryptographicKey>,
-        P1: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
-        P2: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P1: ::windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P2: ::windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
     {
         Self::ICryptographicEngineStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).VerifySignatureWithHashInput)(::windows_core::Interface::as_raw(this), key.into_param().abi(), data.try_into_param()?.abi(), signature.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).VerifySignatureWithHashInput)(::windows_core::Interface::as_raw(this), key.into_param().abi(), data.into_param().abi(), signature.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
@@ -1107,12 +835,12 @@ impl CryptographicEngine {
     pub fn DecryptAsync<P0, P1, P2>(key: P0, data: P1, iv: P2) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>
     where
         P0: ::windows_core::IntoParam<CryptographicKey>,
-        P1: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
-        P2: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P1: ::windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P2: ::windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
     {
         Self::ICryptographicEngineStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).DecryptAsync)(::windows_core::Interface::as_raw(this), key.into_param().abi(), data.try_into_param()?.abi(), iv.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).DecryptAsync)(::windows_core::Interface::as_raw(this), key.into_param().abi(), data.into_param().abi(), iv.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
@@ -1120,11 +848,11 @@ impl CryptographicEngine {
     pub fn SignAsync<P0, P1>(key: P0, data: P1) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>
     where
         P0: ::windows_core::IntoParam<CryptographicKey>,
-        P1: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P1: ::windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
     {
         Self::ICryptographicEngineStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SignAsync)(::windows_core::Interface::as_raw(this), key.into_param().abi(), data.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SignAsync)(::windows_core::Interface::as_raw(this), key.into_param().abi(), data.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
@@ -1132,11 +860,11 @@ impl CryptographicEngine {
     pub fn SignHashedDataAsync<P0, P1>(key: P0, data: P1) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>
     where
         P0: ::windows_core::IntoParam<CryptographicKey>,
-        P1: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P1: ::windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
     {
         Self::ICryptographicEngineStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SignHashedDataAsync)(::windows_core::Interface::as_raw(this), key.into_param().abi(), data.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SignHashedDataAsync)(::windows_core::Interface::as_raw(this), key.into_param().abi(), data.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -1156,15 +884,16 @@ impl ::windows_core::RuntimeName for CryptographicEngine {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CryptographicHash(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(CryptographicHash, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl CryptographicHash {
     #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Append<P0>(&self, data: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P0: ::windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).Append)(::windows_core::Interface::as_raw(this), data.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).Append)(::windows_core::Interface::as_raw(this), data.into_param().abi()).ok() }
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
@@ -1181,19 +910,17 @@ impl ::windows_core::RuntimeType for CryptographicHash {
 }
 unsafe impl ::windows_core::Interface for CryptographicHash {
     type Vtable = IHashComputation_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for CryptographicHash {
-    const IID: ::windows_core::GUID = <IHashComputation as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IHashComputation as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for CryptographicHash {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.CryptographicHash";
 }
-::windows_core::imp::interface_hierarchy!(CryptographicHash, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for CryptographicHash {}
 unsafe impl ::core::marker::Sync for CryptographicHash {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CryptographicKey(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(CryptographicKey, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl CryptographicKey {
     pub fn KeySize(&self) -> ::windows_core::Result<u32> {
         let this = self;
@@ -1244,14 +971,11 @@ impl ::windows_core::RuntimeType for CryptographicKey {
 }
 unsafe impl ::windows_core::Interface for CryptographicKey {
     type Vtable = ICryptographicKey_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for CryptographicKey {
-    const IID: ::windows_core::GUID = <ICryptographicKey as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ICryptographicKey as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for CryptographicKey {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.CryptographicKey";
 }
-::windows_core::imp::interface_hierarchy!(CryptographicKey, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for CryptographicKey {}
 unsafe impl ::core::marker::Sync for CryptographicKey {}
 pub struct EccCurveNames;
@@ -1546,6 +1270,7 @@ impl ::windows_core::RuntimeName for EccCurveNames {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EncryptedAndAuthenticatedData(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(EncryptedAndAuthenticatedData, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl EncryptedAndAuthenticatedData {
     #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
@@ -1571,14 +1296,11 @@ impl ::windows_core::RuntimeType for EncryptedAndAuthenticatedData {
 }
 unsafe impl ::windows_core::Interface for EncryptedAndAuthenticatedData {
     type Vtable = IEncryptedAndAuthenticatedData_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for EncryptedAndAuthenticatedData {
-    const IID: ::windows_core::GUID = <IEncryptedAndAuthenticatedData as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IEncryptedAndAuthenticatedData as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for EncryptedAndAuthenticatedData {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.EncryptedAndAuthenticatedData";
 }
-::windows_core::imp::interface_hierarchy!(EncryptedAndAuthenticatedData, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for EncryptedAndAuthenticatedData {}
 unsafe impl ::core::marker::Sync for EncryptedAndAuthenticatedData {}
 pub struct HashAlgorithmNames;
@@ -1625,6 +1347,7 @@ impl ::windows_core::RuntimeName for HashAlgorithmNames {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HashAlgorithmProvider(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(HashAlgorithmProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl HashAlgorithmProvider {
     pub fn AlgorithmName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -1644,12 +1367,12 @@ impl HashAlgorithmProvider {
     #[cfg(feature = "Storage_Streams")]
     pub fn HashData<P0>(&self, data: P0) -> ::windows_core::Result<super::super::super::Storage::Streams::IBuffer>
     where
-        P0: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P0: ::windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).HashData)(::windows_core::Interface::as_raw(this), data.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).HashData)(::windows_core::Interface::as_raw(this), data.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn CreateHash(&self) -> ::windows_core::Result<CryptographicHash> {
@@ -1676,14 +1399,11 @@ impl ::windows_core::RuntimeType for HashAlgorithmProvider {
 }
 unsafe impl ::windows_core::Interface for HashAlgorithmProvider {
     type Vtable = IHashAlgorithmProvider_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for HashAlgorithmProvider {
-    const IID: ::windows_core::GUID = <IHashAlgorithmProvider as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IHashAlgorithmProvider as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for HashAlgorithmProvider {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.HashAlgorithmProvider";
 }
-::windows_core::imp::interface_hierarchy!(HashAlgorithmProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for HashAlgorithmProvider {}
 unsafe impl ::core::marker::Sync for HashAlgorithmProvider {}
 pub struct KeyDerivationAlgorithmNames;
@@ -1825,6 +1545,7 @@ impl ::windows_core::RuntimeName for KeyDerivationAlgorithmNames {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct KeyDerivationAlgorithmProvider(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(KeyDerivationAlgorithmProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl KeyDerivationAlgorithmProvider {
     pub fn AlgorithmName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -1837,12 +1558,12 @@ impl KeyDerivationAlgorithmProvider {
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateKey<P0>(&self, keymaterial: P0) -> ::windows_core::Result<CryptographicKey>
     where
-        P0: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P0: ::windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateKey)(::windows_core::Interface::as_raw(this), keymaterial.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateKey)(::windows_core::Interface::as_raw(this), keymaterial.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn OpenAlgorithm(algorithm: &::windows_core::HSTRING) -> ::windows_core::Result<KeyDerivationAlgorithmProvider> {
@@ -1862,19 +1583,17 @@ impl ::windows_core::RuntimeType for KeyDerivationAlgorithmProvider {
 }
 unsafe impl ::windows_core::Interface for KeyDerivationAlgorithmProvider {
     type Vtable = IKeyDerivationAlgorithmProvider_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for KeyDerivationAlgorithmProvider {
-    const IID: ::windows_core::GUID = <IKeyDerivationAlgorithmProvider as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IKeyDerivationAlgorithmProvider as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for KeyDerivationAlgorithmProvider {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.KeyDerivationAlgorithmProvider";
 }
-::windows_core::imp::interface_hierarchy!(KeyDerivationAlgorithmProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for KeyDerivationAlgorithmProvider {}
 unsafe impl ::core::marker::Sync for KeyDerivationAlgorithmProvider {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct KeyDerivationParameters(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(KeyDerivationParameters, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl KeyDerivationParameters {
     #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
@@ -1889,10 +1608,10 @@ impl KeyDerivationParameters {
     #[cfg(feature = "Storage_Streams")]
     pub fn SetKdfGenericBinary<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P0: ::windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetKdfGenericBinary)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetKdfGenericBinary)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn IterationCount(&self) -> ::windows_core::Result<u32> {
         let this = self;
@@ -1902,52 +1621,52 @@ impl KeyDerivationParameters {
         }
     }
     pub fn Capi1KdfTargetAlgorithm(&self) -> ::windows_core::Result<Capi1KdfTargetAlgorithm> {
-        let this = &::windows_core::ComInterface::cast::<IKeyDerivationParameters2>(self)?;
+        let this = &::windows_core::Interface::cast::<IKeyDerivationParameters2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Capi1KdfTargetAlgorithm)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetCapi1KdfTargetAlgorithm(&self, value: Capi1KdfTargetAlgorithm) -> ::windows_core::Result<()> {
-        let this = &::windows_core::ComInterface::cast::<IKeyDerivationParameters2>(self)?;
+        let this = &::windows_core::Interface::cast::<IKeyDerivationParameters2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetCapi1KdfTargetAlgorithm)(::windows_core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn BuildForPbkdf2<P0>(pbkdf2salt: P0, iterationcount: u32) -> ::windows_core::Result<KeyDerivationParameters>
     where
-        P0: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P0: ::windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
     {
         Self::IKeyDerivationParametersStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).BuildForPbkdf2)(::windows_core::Interface::as_raw(this), pbkdf2salt.try_into_param()?.abi(), iterationcount, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).BuildForPbkdf2)(::windows_core::Interface::as_raw(this), pbkdf2salt.into_param().abi(), iterationcount, &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn BuildForSP800108<P0, P1>(label: P0, context: P1) -> ::windows_core::Result<KeyDerivationParameters>
     where
-        P0: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
-        P1: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P0: ::windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P1: ::windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
     {
         Self::IKeyDerivationParametersStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).BuildForSP800108)(::windows_core::Interface::as_raw(this), label.try_into_param()?.abi(), context.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).BuildForSP800108)(::windows_core::Interface::as_raw(this), label.into_param().abi(), context.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn BuildForSP80056a<P0, P1, P2, P3, P4>(algorithmid: P0, partyuinfo: P1, partyvinfo: P2, supppubinfo: P3, suppprivinfo: P4) -> ::windows_core::Result<KeyDerivationParameters>
     where
-        P0: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
-        P1: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
-        P2: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
-        P3: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
-        P4: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P0: ::windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P1: ::windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P2: ::windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P3: ::windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P4: ::windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
     {
         Self::IKeyDerivationParametersStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).BuildForSP80056a)(::windows_core::Interface::as_raw(this), algorithmid.try_into_param()?.abi(), partyuinfo.try_into_param()?.abi(), partyvinfo.try_into_param()?.abi(), supppubinfo.try_into_param()?.abi(), suppprivinfo.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).BuildForSP80056a)(::windows_core::Interface::as_raw(this), algorithmid.into_param().abi(), partyuinfo.into_param().abi(), partyvinfo.into_param().abi(), supppubinfo.into_param().abi(), suppprivinfo.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn BuildForCapi1Kdf(capi1kdftargetalgorithm: Capi1KdfTargetAlgorithm) -> ::windows_core::Result<KeyDerivationParameters> {
@@ -1972,14 +1691,11 @@ impl ::windows_core::RuntimeType for KeyDerivationParameters {
 }
 unsafe impl ::windows_core::Interface for KeyDerivationParameters {
     type Vtable = IKeyDerivationParameters_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for KeyDerivationParameters {
-    const IID: ::windows_core::GUID = <IKeyDerivationParameters as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IKeyDerivationParameters as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for KeyDerivationParameters {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.KeyDerivationParameters";
 }
-::windows_core::imp::interface_hierarchy!(KeyDerivationParameters, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for KeyDerivationParameters {}
 unsafe impl ::core::marker::Sync for KeyDerivationParameters {}
 pub struct MacAlgorithmNames;
@@ -2032,6 +1748,7 @@ impl ::windows_core::RuntimeName for MacAlgorithmNames {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MacAlgorithmProvider(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(MacAlgorithmProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl MacAlgorithmProvider {
     pub fn AlgorithmName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -2051,24 +1768,24 @@ impl MacAlgorithmProvider {
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateKey<P0>(&self, keymaterial: P0) -> ::windows_core::Result<CryptographicKey>
     where
-        P0: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P0: ::windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateKey)(::windows_core::Interface::as_raw(this), keymaterial.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateKey)(::windows_core::Interface::as_raw(this), keymaterial.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateHash<P0>(&self, keymaterial: P0) -> ::windows_core::Result<CryptographicHash>
     where
-        P0: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P0: ::windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
     {
-        let this = &::windows_core::ComInterface::cast::<IMacAlgorithmProvider2>(self)?;
+        let this = &::windows_core::Interface::cast::<IMacAlgorithmProvider2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateHash)(::windows_core::Interface::as_raw(this), keymaterial.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateHash)(::windows_core::Interface::as_raw(this), keymaterial.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn OpenAlgorithm(algorithm: &::windows_core::HSTRING) -> ::windows_core::Result<MacAlgorithmProvider> {
@@ -2088,14 +1805,11 @@ impl ::windows_core::RuntimeType for MacAlgorithmProvider {
 }
 unsafe impl ::windows_core::Interface for MacAlgorithmProvider {
     type Vtable = IMacAlgorithmProvider_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for MacAlgorithmProvider {
-    const IID: ::windows_core::GUID = <IMacAlgorithmProvider as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IMacAlgorithmProvider as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for MacAlgorithmProvider {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.MacAlgorithmProvider";
 }
-::windows_core::imp::interface_hierarchy!(MacAlgorithmProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for MacAlgorithmProvider {}
 unsafe impl ::core::marker::Sync for MacAlgorithmProvider {}
 pub struct PersistedKeyProvider;
@@ -2259,6 +1973,7 @@ impl ::windows_core::RuntimeName for SymmetricAlgorithmNames {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SymmetricKeyAlgorithmProvider(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(SymmetricKeyAlgorithmProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl SymmetricKeyAlgorithmProvider {
     pub fn AlgorithmName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -2278,12 +1993,12 @@ impl SymmetricKeyAlgorithmProvider {
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateSymmetricKey<P0>(&self, keymaterial: P0) -> ::windows_core::Result<CryptographicKey>
     where
-        P0: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P0: ::windows_core::IntoParam<super::super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateSymmetricKey)(::windows_core::Interface::as_raw(this), keymaterial.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateSymmetricKey)(::windows_core::Interface::as_raw(this), keymaterial.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn OpenAlgorithm(algorithm: &::windows_core::HSTRING) -> ::windows_core::Result<SymmetricKeyAlgorithmProvider> {
@@ -2303,14 +2018,11 @@ impl ::windows_core::RuntimeType for SymmetricKeyAlgorithmProvider {
 }
 unsafe impl ::windows_core::Interface for SymmetricKeyAlgorithmProvider {
     type Vtable = ISymmetricKeyAlgorithmProvider_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for SymmetricKeyAlgorithmProvider {
-    const IID: ::windows_core::GUID = <ISymmetricKeyAlgorithmProvider as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ISymmetricKeyAlgorithmProvider as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for SymmetricKeyAlgorithmProvider {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.SymmetricKeyAlgorithmProvider";
 }
-::windows_core::imp::interface_hierarchy!(SymmetricKeyAlgorithmProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SymmetricKeyAlgorithmProvider {}
 unsafe impl ::core::marker::Sync for SymmetricKeyAlgorithmProvider {}
 #[repr(transparent)]

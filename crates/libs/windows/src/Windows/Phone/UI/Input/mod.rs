@@ -1,13 +1,4 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IBackPressedEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IBackPressedEventArgs {
-    type Vtable = IBackPressedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IBackPressedEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf6f555ff_64ec_42a2_b93b_2fbc0c36a121);
-}
+::windows_core::imp::com_interface!(IBackPressedEventArgs, IBackPressedEventArgs_Vtbl, 0xf6f555ff_64ec_42a2_b93b_2fbc0c36a121);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackPressedEventArgs_Vtbl {
@@ -15,31 +6,13 @@ pub struct IBackPressedEventArgs_Vtbl {
     pub Handled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub SetHandled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ICameraEventArgs(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ICameraEventArgs {
-    type Vtable = ICameraEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ICameraEventArgs {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb4063bda_201f_473d_bc69_e9e4ac57c9d0);
-}
+::windows_core::imp::com_interface!(ICameraEventArgs, ICameraEventArgs_Vtbl, 0xb4063bda_201f_473d_bc69_e9e4ac57c9d0);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICameraEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IHardwareButtonsStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IHardwareButtonsStatics {
-    type Vtable = IHardwareButtonsStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IHardwareButtonsStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x594b8780_da66_4fd8_a776_7506bd0cbfa7);
-}
+::windows_core::imp::com_interface!(IHardwareButtonsStatics, IHardwareButtonsStatics_Vtbl, 0x594b8780_da66_4fd8_a776_7506bd0cbfa7);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHardwareButtonsStatics_Vtbl {
@@ -47,16 +20,7 @@ pub struct IHardwareButtonsStatics_Vtbl {
     pub BackPressed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     pub RemoveBackPressed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IHardwareButtonsStatics2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IHardwareButtonsStatics2 {
-    type Vtable = IHardwareButtonsStatics2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IHardwareButtonsStatics2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x39c6c274_993f_40dd_854c_831a8934b92e);
-}
+::windows_core::imp::com_interface!(IHardwareButtonsStatics2, IHardwareButtonsStatics2_Vtbl, 0x39c6c274_993f_40dd_854c_831a8934b92e);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHardwareButtonsStatics2_Vtbl {
@@ -71,6 +35,7 @@ pub struct IHardwareButtonsStatics2_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct BackPressedEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(BackPressedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl BackPressedEventArgs {
     pub fn Handled(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -89,33 +54,28 @@ impl ::windows_core::RuntimeType for BackPressedEventArgs {
 }
 unsafe impl ::windows_core::Interface for BackPressedEventArgs {
     type Vtable = IBackPressedEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for BackPressedEventArgs {
-    const IID: ::windows_core::GUID = <IBackPressedEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IBackPressedEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for BackPressedEventArgs {
     const NAME: &'static str = "Windows.Phone.UI.Input.BackPressedEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(BackPressedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for BackPressedEventArgs {}
 unsafe impl ::core::marker::Sync for BackPressedEventArgs {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CameraEventArgs(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(CameraEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl CameraEventArgs {}
 impl ::windows_core::RuntimeType for CameraEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for CameraEventArgs {
     type Vtable = ICameraEventArgs_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for CameraEventArgs {
-    const IID: ::windows_core::GUID = <ICameraEventArgs as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <ICameraEventArgs as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for CameraEventArgs {
     const NAME: &'static str = "Windows.Phone.UI.Input.CameraEventArgs";
 }
-::windows_core::imp::interface_hierarchy!(CameraEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for CameraEventArgs {}
 unsafe impl ::core::marker::Sync for CameraEventArgs {}
 pub struct HardwareButtons;

@@ -82,6 +82,6 @@ impl IChannelCredentials_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IChannelCredentials as ::windows_core::ComInterface>::IID || iid == &<super::IDispatch as ::windows_core::ComInterface>::IID
+        iid == &<IChannelCredentials as ::windows_core::Interface>::IID || iid == &<super::IDispatch as ::windows_core::Interface>::IID
     }
 }

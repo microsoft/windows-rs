@@ -15,7 +15,7 @@ impl IWindowsDevicesAllJoynBusAttachmentFactoryInterop_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWindowsDevicesAllJoynBusAttachmentFactoryInterop as ::windows_core::ComInterface>::IID
+        iid == &<IWindowsDevicesAllJoynBusAttachmentFactoryInterop as ::windows_core::Interface>::IID
     }
 }
 pub trait IWindowsDevicesAllJoynBusAttachmentInterop_Impl: Sized {
@@ -41,7 +41,7 @@ impl IWindowsDevicesAllJoynBusAttachmentInterop_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWindowsDevicesAllJoynBusAttachmentInterop as ::windows_core::ComInterface>::IID
+        iid == &<IWindowsDevicesAllJoynBusAttachmentInterop as ::windows_core::Interface>::IID
     }
 }
 pub trait IWindowsDevicesAllJoynBusObjectFactoryInterop_Impl: Sized {
@@ -61,7 +61,7 @@ impl IWindowsDevicesAllJoynBusObjectFactoryInterop_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWindowsDevicesAllJoynBusObjectFactoryInterop as ::windows_core::ComInterface>::IID
+        iid == &<IWindowsDevicesAllJoynBusObjectFactoryInterop as ::windows_core::Interface>::IID
     }
 }
 pub trait IWindowsDevicesAllJoynBusObjectInterop_Impl: Sized {
@@ -101,6 +101,6 @@ impl IWindowsDevicesAllJoynBusObjectInterop_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWindowsDevicesAllJoynBusObjectInterop as ::windows_core::ComInterface>::IID
+        iid == &<IWindowsDevicesAllJoynBusObjectInterop as ::windows_core::Interface>::IID
     }
 }

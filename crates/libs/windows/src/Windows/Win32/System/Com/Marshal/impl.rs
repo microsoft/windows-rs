@@ -62,7 +62,7 @@ impl IMarshal_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMarshal as ::windows_core::ComInterface>::IID
+        iid == &<IMarshal as ::windows_core::Interface>::IID
     }
 }
 pub trait IMarshal2_Impl: Sized + IMarshal_Impl {}
@@ -72,7 +72,7 @@ impl IMarshal2_Vtbl {
         Self { base__: IMarshal_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMarshal2 as ::windows_core::ComInterface>::IID || iid == &<IMarshal as ::windows_core::ComInterface>::IID
+        iid == &<IMarshal2 as ::windows_core::Interface>::IID || iid == &<IMarshal as ::windows_core::Interface>::IID
     }
 }
 pub trait IMarshalingStream_Impl: Sized + super::IStream_Impl {
@@ -98,6 +98,6 @@ impl IMarshalingStream_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMarshalingStream as ::windows_core::ComInterface>::IID || iid == &<super::ISequentialStream as ::windows_core::ComInterface>::IID || iid == &<super::IStream as ::windows_core::ComInterface>::IID
+        iid == &<IMarshalingStream as ::windows_core::Interface>::IID || iid == &<super::ISequentialStream as ::windows_core::Interface>::IID || iid == &<super::IStream as ::windows_core::Interface>::IID
     }
 }

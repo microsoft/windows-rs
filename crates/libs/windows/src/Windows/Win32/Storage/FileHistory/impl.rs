@@ -136,7 +136,7 @@ impl IFhConfigMgr_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IFhConfigMgr as ::windows_core::ComInterface>::IID
+        iid == &<IFhConfigMgr as ::windows_core::Interface>::IID
     }
 }
 pub trait IFhReassociation_Impl: Sized {
@@ -190,7 +190,7 @@ impl IFhReassociation_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IFhReassociation as ::windows_core::ComInterface>::IID
+        iid == &<IFhReassociation as ::windows_core::Interface>::IID
     }
 }
 pub trait IFhScopeIterator_Impl: Sized {
@@ -223,7 +223,7 @@ impl IFhScopeIterator_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IFhScopeIterator as ::windows_core::ComInterface>::IID
+        iid == &<IFhScopeIterator as ::windows_core::Interface>::IID
     }
 }
 pub trait IFhTarget_Impl: Sized {
@@ -262,6 +262,6 @@ impl IFhTarget_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IFhTarget as ::windows_core::ComInterface>::IID
+        iid == &<IFhTarget as ::windows_core::Interface>::IID
     }
 }

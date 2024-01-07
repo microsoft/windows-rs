@@ -47,7 +47,7 @@ impl IDMLBindingTable_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDMLBindingTable as ::windows_core::ComInterface>::IID || iid == &<IDMLObject as ::windows_core::ComInterface>::IID || iid == &<IDMLDeviceChild as ::windows_core::ComInterface>::IID
+        iid == &<IDMLBindingTable as ::windows_core::Interface>::IID || iid == &<IDMLObject as ::windows_core::Interface>::IID || iid == &<IDMLDeviceChild as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
@@ -68,7 +68,7 @@ impl IDMLCommandRecorder_Vtbl {
         Self { base__: IDMLDeviceChild_Vtbl::new::<Identity, Impl, OFFSET>(), RecordDispatch: RecordDispatch::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDMLCommandRecorder as ::windows_core::ComInterface>::IID || iid == &<IDMLObject as ::windows_core::ComInterface>::IID || iid == &<IDMLDeviceChild as ::windows_core::ComInterface>::IID
+        iid == &<IDMLCommandRecorder as ::windows_core::Interface>::IID || iid == &<IDMLObject as ::windows_core::Interface>::IID || iid == &<IDMLDeviceChild as ::windows_core::Interface>::IID
     }
 }
 pub trait IDMLCompiledOperator_Impl: Sized + IDMLDispatchable_Impl {}
@@ -78,7 +78,7 @@ impl IDMLCompiledOperator_Vtbl {
         Self { base__: IDMLDispatchable_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDMLCompiledOperator as ::windows_core::ComInterface>::IID || iid == &<IDMLObject as ::windows_core::ComInterface>::IID || iid == &<IDMLDeviceChild as ::windows_core::ComInterface>::IID || iid == &<IDMLPageable as ::windows_core::ComInterface>::IID || iid == &<IDMLDispatchable as ::windows_core::ComInterface>::IID
+        iid == &<IDMLCompiledOperator as ::windows_core::Interface>::IID || iid == &<IDMLObject as ::windows_core::Interface>::IID || iid == &<IDMLDeviceChild as ::windows_core::Interface>::IID || iid == &<IDMLPageable as ::windows_core::Interface>::IID || iid == &<IDMLDispatchable as ::windows_core::Interface>::IID
     }
 }
 pub trait IDMLDebugDevice_Impl: Sized {
@@ -95,7 +95,7 @@ impl IDMLDebugDevice_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetMuteDebugOutput: SetMuteDebugOutput::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDMLDebugDevice as ::windows_core::ComInterface>::IID
+        iid == &<IDMLDebugDevice as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
@@ -182,7 +182,7 @@ impl IDMLDevice_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDMLDevice as ::windows_core::ComInterface>::IID || iid == &<IDMLObject as ::windows_core::ComInterface>::IID
+        iid == &<IDMLDevice as ::windows_core::Interface>::IID || iid == &<IDMLObject as ::windows_core::Interface>::IID
     }
 }
 #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
@@ -203,7 +203,7 @@ impl IDMLDevice1_Vtbl {
         Self { base__: IDMLDevice_Vtbl::new::<Identity, Impl, OFFSET>(), CompileGraph: CompileGraph::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDMLDevice1 as ::windows_core::ComInterface>::IID || iid == &<IDMLObject as ::windows_core::ComInterface>::IID || iid == &<IDMLDevice as ::windows_core::ComInterface>::IID
+        iid == &<IDMLDevice1 as ::windows_core::Interface>::IID || iid == &<IDMLObject as ::windows_core::Interface>::IID || iid == &<IDMLDevice as ::windows_core::Interface>::IID
     }
 }
 pub trait IDMLDeviceChild_Impl: Sized + IDMLObject_Impl {
@@ -220,7 +220,7 @@ impl IDMLDeviceChild_Vtbl {
         Self { base__: IDMLObject_Vtbl::new::<Identity, Impl, OFFSET>(), GetDevice: GetDevice::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDMLDeviceChild as ::windows_core::ComInterface>::IID || iid == &<IDMLObject as ::windows_core::ComInterface>::IID
+        iid == &<IDMLDeviceChild as ::windows_core::Interface>::IID || iid == &<IDMLObject as ::windows_core::Interface>::IID
     }
 }
 pub trait IDMLDispatchable_Impl: Sized + IDMLPageable_Impl {
@@ -237,7 +237,7 @@ impl IDMLDispatchable_Vtbl {
         Self { base__: IDMLPageable_Vtbl::new::<Identity, Impl, OFFSET>(), GetBindingProperties: GetBindingProperties::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDMLDispatchable as ::windows_core::ComInterface>::IID || iid == &<IDMLObject as ::windows_core::ComInterface>::IID || iid == &<IDMLDeviceChild as ::windows_core::ComInterface>::IID || iid == &<IDMLPageable as ::windows_core::ComInterface>::IID
+        iid == &<IDMLDispatchable as ::windows_core::Interface>::IID || iid == &<IDMLObject as ::windows_core::Interface>::IID || iid == &<IDMLDeviceChild as ::windows_core::Interface>::IID || iid == &<IDMLPageable as ::windows_core::Interface>::IID
     }
 }
 pub trait IDMLObject_Impl: Sized {
@@ -278,7 +278,7 @@ impl IDMLObject_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDMLObject as ::windows_core::ComInterface>::IID
+        iid == &<IDMLObject as ::windows_core::Interface>::IID
     }
 }
 pub trait IDMLOperator_Impl: Sized + IDMLDeviceChild_Impl {}
@@ -288,7 +288,7 @@ impl IDMLOperator_Vtbl {
         Self { base__: IDMLDeviceChild_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDMLOperator as ::windows_core::ComInterface>::IID || iid == &<IDMLObject as ::windows_core::ComInterface>::IID || iid == &<IDMLDeviceChild as ::windows_core::ComInterface>::IID
+        iid == &<IDMLOperator as ::windows_core::Interface>::IID || iid == &<IDMLObject as ::windows_core::Interface>::IID || iid == &<IDMLDeviceChild as ::windows_core::Interface>::IID
     }
 }
 pub trait IDMLOperatorInitializer_Impl: Sized + IDMLDispatchable_Impl {
@@ -305,7 +305,7 @@ impl IDMLOperatorInitializer_Vtbl {
         Self { base__: IDMLDispatchable_Vtbl::new::<Identity, Impl, OFFSET>(), Reset: Reset::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDMLOperatorInitializer as ::windows_core::ComInterface>::IID || iid == &<IDMLObject as ::windows_core::ComInterface>::IID || iid == &<IDMLDeviceChild as ::windows_core::ComInterface>::IID || iid == &<IDMLPageable as ::windows_core::ComInterface>::IID || iid == &<IDMLDispatchable as ::windows_core::ComInterface>::IID
+        iid == &<IDMLOperatorInitializer as ::windows_core::Interface>::IID || iid == &<IDMLObject as ::windows_core::Interface>::IID || iid == &<IDMLDeviceChild as ::windows_core::Interface>::IID || iid == &<IDMLPageable as ::windows_core::Interface>::IID || iid == &<IDMLDispatchable as ::windows_core::Interface>::IID
     }
 }
 pub trait IDMLPageable_Impl: Sized + IDMLDeviceChild_Impl {}
@@ -315,6 +315,6 @@ impl IDMLPageable_Vtbl {
         Self { base__: IDMLDeviceChild_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDMLPageable as ::windows_core::ComInterface>::IID || iid == &<IDMLObject as ::windows_core::ComInterface>::IID || iid == &<IDMLDeviceChild as ::windows_core::ComInterface>::IID
+        iid == &<IDMLPageable as ::windows_core::Interface>::IID || iid == &<IDMLObject as ::windows_core::Interface>::IID || iid == &<IDMLDeviceChild as ::windows_core::Interface>::IID
     }
 }

@@ -105,6 +105,6 @@ impl IJsonValue_Vtbl {
         }
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IJsonValue as ::windows_core::ComInterface>::IID
+        iid == &<IJsonValue as ::windows_core::Interface>::IID
     }
 }

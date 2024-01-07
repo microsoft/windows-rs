@@ -1,13 +1,4 @@
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRadio(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IRadio {
-    type Vtable = IRadio_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRadio {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x252118df_b33e_416a_875f_1cf38ae2d83e);
-}
+::windows_core::imp::com_interface!(IRadio, IRadio_Vtbl, 0x252118df_b33e_416a_875f_1cf38ae2d83e);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadio_Vtbl {
@@ -19,16 +10,7 @@ pub struct IRadio_Vtbl {
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub Kind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut RadioKind) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IRadioStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IRadioStatics {
-    type Vtable = IRadioStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IRadioStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5fb6a12e_67cb_46ae_aae9_65919f86eff4);
-}
+::windows_core::imp::com_interface!(IRadioStatics, IRadioStatics_Vtbl, 0x5fb6a12e_67cb_46ae_aae9_65919f86eff4);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRadioStatics_Vtbl {
@@ -44,6 +26,7 @@ pub struct IRadioStatics_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Radio(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(Radio, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl Radio {
     pub fn SetStateAsync(&self, value: RadioState) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<RadioAccessStatus>> {
         let this = self;
@@ -124,14 +107,11 @@ impl ::windows_core::RuntimeType for Radio {
 }
 unsafe impl ::windows_core::Interface for Radio {
     type Vtable = IRadio_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for Radio {
-    const IID: ::windows_core::GUID = <IRadio as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IRadio as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for Radio {
     const NAME: &'static str = "Windows.Devices.Radios.Radio";
 }
-::windows_core::imp::interface_hierarchy!(Radio, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Radio {}
 unsafe impl ::core::marker::Sync for Radio {}
 #[repr(transparent)]

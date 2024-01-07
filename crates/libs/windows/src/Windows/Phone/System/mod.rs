@@ -7,32 +7,14 @@ pub mod Profile;
 #[cfg(feature = "Phone_System_UserProfile")]
 #[doc = "Required features: `\"Phone_System_UserProfile\"`"]
 pub mod UserProfile;
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISystemProtectionStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISystemProtectionStatics {
-    type Vtable = ISystemProtectionStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISystemProtectionStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x49c36560_97e1_4d99_8bfb_befeaa6ace6d);
-}
+::windows_core::imp::com_interface!(ISystemProtectionStatics, ISystemProtectionStatics_Vtbl, 0x49c36560_97e1_4d99_8bfb_befeaa6ace6d);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemProtectionStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ScreenLocked: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct ISystemProtectionUnlockStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for ISystemProtectionUnlockStatics {
-    type Vtable = ISystemProtectionUnlockStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ISystemProtectionUnlockStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0692fa3f_8f11_4c4b_aa0d_87d7af7b1779);
-}
+::windows_core::imp::com_interface!(ISystemProtectionUnlockStatics, ISystemProtectionUnlockStatics_Vtbl, 0x0692fa3f_8f11_4c4b_aa0d_87d7af7b1779);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemProtectionUnlockStatics_Vtbl {

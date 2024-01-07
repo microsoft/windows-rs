@@ -40,78 +40,33 @@ pub mod WebUI;
 #[cfg(feature = "UI_WindowManagement")]
 #[doc = "Required features: `\"UI_WindowManagement\"`"]
 pub mod WindowManagement;
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IColorHelper(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IColorHelper {
-    type Vtable = IColorHelper_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IColorHelper {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x193cfbe7_65c7_4540_ad08_6283ba76879a);
-}
+::windows_core::imp::com_interface!(IColorHelper, IColorHelper_Vtbl, 0x193cfbe7_65c7_4540_ad08_6283ba76879a);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IColorHelper_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IColorHelperStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IColorHelperStatics {
-    type Vtable = IColorHelperStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IColorHelperStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8504dbea_fb6a_4144_a6c2_33499c9284f5);
-}
+::windows_core::imp::com_interface!(IColorHelperStatics, IColorHelperStatics_Vtbl, 0x8504dbea_fb6a_4144_a6c2_33499c9284f5);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IColorHelperStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub FromArgb: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, a: u8, r: u8, g: u8, b: u8, result__: *mut Color) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IColorHelperStatics2(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IColorHelperStatics2 {
-    type Vtable = IColorHelperStatics2_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IColorHelperStatics2 {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x24d9af02_6eb0_4b94_855c_fcf0818d9a16);
-}
+::windows_core::imp::com_interface!(IColorHelperStatics2, IColorHelperStatics2_Vtbl, 0x24d9af02_6eb0_4b94_855c_fcf0818d9a16);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IColorHelperStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ToDisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, color: Color, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IColors(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IColors {
-    type Vtable = IColors_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IColors {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9b8c9326_4ca6_4ce5_8994_9eff65cabdcc);
-}
+::windows_core::imp::com_interface!(IColors, IColors_Vtbl, 0x9b8c9326_4ca6_4ce5_8994_9eff65cabdcc);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IColors_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IColorsStatics(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IColorsStatics {
-    type Vtable = IColorsStatics_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IColorsStatics {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcff52e04_cca6_4614_a17e_754910c84a99);
-}
+::windows_core::imp::com_interface!(IColorsStatics, IColorsStatics_Vtbl, 0xcff52e04_cca6_4614_a17e_754910c84a99);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IColorsStatics_Vtbl {
@@ -258,32 +213,14 @@ pub struct IColorsStatics_Vtbl {
     pub Yellow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows_core::HRESULT,
     pub YellowGreen: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut Color) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IUIContentRoot(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IUIContentRoot {
-    type Vtable = IUIContentRoot_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IUIContentRoot {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1dfcbac6_b36b_5cb9_9bc5_2b7a0eddc378);
-}
+::windows_core::imp::com_interface!(IUIContentRoot, IUIContentRoot_Vtbl, 0x1dfcbac6_b36b_5cb9_9bc5_2b7a0eddc378);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIContentRoot_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub UIContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IUIContext(::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IUIContext {
-    type Vtable = IUIContext_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IUIContext {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbb5cfacd_5bd8_59d0_a59e_1c17a4d6d243);
-}
+::windows_core::imp::com_interface!(IUIContext, IUIContext_Vtbl, 0xbb5cfacd_5bd8_59d0_a59e_1c17a4d6d243);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIContext_Vtbl {
@@ -292,6 +229,7 @@ pub struct IUIContext_Vtbl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ColorHelper(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(ColorHelper, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ColorHelper {
     pub fn FromArgb(a: u8, r: u8, g: u8, b: u8) -> ::windows_core::Result<Color> {
         Self::IColorHelperStatics(|this| unsafe {
@@ -321,19 +259,17 @@ impl ::windows_core::RuntimeType for ColorHelper {
 }
 unsafe impl ::windows_core::Interface for ColorHelper {
     type Vtable = IColorHelper_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for ColorHelper {
-    const IID: ::windows_core::GUID = <IColorHelper as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IColorHelper as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for ColorHelper {
     const NAME: &'static str = "Windows.UI.ColorHelper";
 }
-::windows_core::imp::interface_hierarchy!(ColorHelper, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for ColorHelper {}
 unsafe impl ::core::marker::Sync for ColorHelper {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Colors(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(Colors, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl Colors {
     pub fn AliceBlue() -> ::windows_core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
@@ -1192,19 +1128,17 @@ impl ::windows_core::RuntimeType for Colors {
 }
 unsafe impl ::windows_core::Interface for Colors {
     type Vtable = IColors_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for Colors {
-    const IID: ::windows_core::GUID = <IColors as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IColors as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for Colors {
     const NAME: &'static str = "Windows.UI.Colors";
 }
-::windows_core::imp::interface_hierarchy!(Colors, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Colors {}
 unsafe impl ::core::marker::Sync for Colors {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UIContentRoot(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(UIContentRoot, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl UIContentRoot {
     pub fn UIContext(&self) -> ::windows_core::Result<UIContext> {
         let this = self;
@@ -1219,33 +1153,28 @@ impl ::windows_core::RuntimeType for UIContentRoot {
 }
 unsafe impl ::windows_core::Interface for UIContentRoot {
     type Vtable = IUIContentRoot_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for UIContentRoot {
-    const IID: ::windows_core::GUID = <IUIContentRoot as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IUIContentRoot as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for UIContentRoot {
     const NAME: &'static str = "Windows.UI.UIContentRoot";
 }
-::windows_core::imp::interface_hierarchy!(UIContentRoot, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for UIContentRoot {}
 unsafe impl ::core::marker::Sync for UIContentRoot {}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UIContext(::windows_core::IUnknown);
+::windows_core::imp::interface_hierarchy!(UIContext, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl UIContext {}
 impl ::windows_core::RuntimeType for UIContext {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::for_class::<Self>();
 }
 unsafe impl ::windows_core::Interface for UIContext {
     type Vtable = IUIContext_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for UIContext {
-    const IID: ::windows_core::GUID = <IUIContext as ::windows_core::ComInterface>::IID;
+    const IID: ::windows_core::GUID = <IUIContext as ::windows_core::Interface>::IID;
 }
 impl ::windows_core::RuntimeName for UIContext {
     const NAME: &'static str = "Windows.UI.UIContext";
 }
-::windows_core::imp::interface_hierarchy!(UIContext, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for UIContext {}
 unsafe impl ::core::marker::Sync for UIContext {}
 #[repr(C)]

@@ -3392,11 +3392,15 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn WriteTapemark(hdevice : super::super::Foundation:: HANDLE, dwtapemarktype : TAPEMARK_TYPE, dwtapemarkcount : u32, bimmediate : super::super::Foundation:: BOOL) -> u32);
     WriteTapemark(hdevice.into_param().abi(), dwtapemarktype, dwtapemarkcount, bimmediate.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDiskQuotaControl(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    IDiskQuotaControl,
+    IDiskQuotaControl_Vtbl,
+    0x7988b572_ec89_11cf_9c00_00aa00a14f56
+);
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IDiskQuotaControl, ::windows_core::IUnknown, super::super::System::Com::IConnectionPointContainer);
 #[cfg(feature = "Win32_System_Com")]
 impl IDiskQuotaControl {
     #[doc = "Required features: `\"Win32_System_Com\"`"]
@@ -3509,16 +3513,6 @@ impl IDiskQuotaControl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::interface_hierarchy!(IDiskQuotaControl, ::windows_core::IUnknown, super::super::System::Com::IConnectionPointContainer);
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::Interface for IDiskQuotaControl {
-    type Vtable = IDiskQuotaControl_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows_core::ComInterface for IDiskQuotaControl {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7988b572_ec89_11cf_9c00_00aa00a14f56);
-}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiskQuotaControl_Vtbl {
@@ -3545,9 +3539,8 @@ pub struct IDiskQuotaControl_Vtbl {
     pub GiveUserNameResolutionPriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puser: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub ShutdownNameResolution: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDiskQuotaEvents(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDiskQuotaEvents, IDiskQuotaEvents_Vtbl, 0x7988b579_ec89_11cf_9c00_00aa00a14f56);
+::windows_core::imp::interface_hierarchy!(IDiskQuotaEvents, ::windows_core::IUnknown);
 impl IDiskQuotaEvents {
     pub unsafe fn OnUserNameChanged<P0>(&self, puser: P0) -> ::windows_core::Result<()>
     where
@@ -3556,22 +3549,14 @@ impl IDiskQuotaEvents {
         (::windows_core::Interface::vtable(self).OnUserNameChanged)(::windows_core::Interface::as_raw(self), puser.into_param().abi()).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDiskQuotaEvents, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDiskQuotaEvents {
-    type Vtable = IDiskQuotaEvents_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDiskQuotaEvents {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7988b579_ec89_11cf_9c00_00aa00a14f56);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiskQuotaEvents_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub OnUserNameChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puser: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDiskQuotaUser(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDiskQuotaUser, IDiskQuotaUser_Vtbl, 0x7988b574_ec89_11cf_9c00_00aa00a14f56);
+::windows_core::imp::interface_hierarchy!(IDiskQuotaUser, ::windows_core::IUnknown);
 impl IDiskQuotaUser {
     pub unsafe fn GetID(&self, pulid: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetID)(::windows_core::Interface::as_raw(self), pulid).ok()
@@ -3639,13 +3624,6 @@ impl IDiskQuotaUser {
         (::windows_core::Interface::vtable(self).GetAccountStatus)(::windows_core::Interface::as_raw(self), pdwstatus).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDiskQuotaUser, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDiskQuotaUser {
-    type Vtable = IDiskQuotaUser_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDiskQuotaUser {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7988b574_ec89_11cf_9c00_00aa00a14f56);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiskQuotaUser_Vtbl {
@@ -3666,9 +3644,8 @@ pub struct IDiskQuotaUser_Vtbl {
     pub Invalidate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetAccountStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwstatus: *mut u32) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDiskQuotaUserBatch(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDiskQuotaUserBatch, IDiskQuotaUserBatch_Vtbl, 0x7988b576_ec89_11cf_9c00_00aa00a14f56);
+::windows_core::imp::interface_hierarchy!(IDiskQuotaUserBatch, ::windows_core::IUnknown);
 impl IDiskQuotaUserBatch {
     pub unsafe fn Add<P0>(&self, puser: P0) -> ::windows_core::Result<()>
     where
@@ -3689,13 +3666,6 @@ impl IDiskQuotaUserBatch {
         (::windows_core::Interface::vtable(self).FlushToDisk)(::windows_core::Interface::as_raw(self)).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDiskQuotaUserBatch, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDiskQuotaUserBatch {
-    type Vtable = IDiskQuotaUserBatch_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDiskQuotaUserBatch {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7988b576_ec89_11cf_9c00_00aa00a14f56);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiskQuotaUserBatch_Vtbl {
@@ -3705,9 +3675,8 @@ pub struct IDiskQuotaUserBatch_Vtbl {
     pub RemoveAll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub FlushToDisk: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IEnumDiskQuotaUsers(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IEnumDiskQuotaUsers, IEnumDiskQuotaUsers_Vtbl, 0x7988b577_ec89_11cf_9c00_00aa00a14f56);
+::windows_core::imp::interface_hierarchy!(IEnumDiskQuotaUsers, ::windows_core::IUnknown);
 impl IEnumDiskQuotaUsers {
     pub unsafe fn Next(&self, cusers: u32, rgusers: *mut ::core::option::Option<IDiskQuotaUser>, pcusersfetched: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), cusers, ::core::mem::transmute(rgusers), pcusersfetched).ok()
@@ -3722,13 +3691,6 @@ impl IEnumDiskQuotaUsers {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-}
-::windows_core::imp::interface_hierarchy!(IEnumDiskQuotaUsers, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IEnumDiskQuotaUsers {
-    type Vtable = IEnumDiskQuotaUsers_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IEnumDiskQuotaUsers {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7988b577_ec89_11cf_9c00_00aa00a14f56);
 }
 #[repr(C)]
 #[doc(hidden)]

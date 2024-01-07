@@ -870,9 +870,8 @@ pub unsafe fn WcsTranslateColors(hcolortransform: isize, ncolors: u32, ninputcha
     ::windows_targets::link!("mscms.dll" "system" fn WcsTranslateColors(hcolortransform : isize, ncolors : u32, ninputchannels : u32, cdtinput : COLORDATATYPE, cbinput : u32, pinputdata : *const ::core::ffi::c_void, noutputchannels : u32, cdtoutput : COLORDATATYPE, cboutput : u32, poutputdata : *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     WcsTranslateColors(hcolortransform, ncolors, ninputchannels, cdtinput, cbinput, pinputdata, noutputchannels, cdtoutput, cboutput, poutputdata)
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IDeviceModelPlugIn(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IDeviceModelPlugIn, IDeviceModelPlugIn_Vtbl, 0x1cd63475_07c4_46fe_a903_d655316d11fd);
+::windows_core::imp::interface_hierarchy!(IDeviceModelPlugIn, ::windows_core::IUnknown);
 impl IDeviceModelPlugIn {
     pub unsafe fn Initialize<P0>(&self, bstrxml: P0, cnummodels: u32, imodelposition: u32) -> ::windows_core::Result<()>
     where
@@ -918,13 +917,6 @@ impl IDeviceModelPlugIn {
         (::windows_core::Interface::vtable(self).GetNeutralAxis)(::windows_core::Interface::as_raw(self), pxyzcolors.len().try_into().unwrap(), ::core::mem::transmute(pxyzcolors.as_ptr())).ok()
     }
 }
-::windows_core::imp::interface_hierarchy!(IDeviceModelPlugIn, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IDeviceModelPlugIn {
-    type Vtable = IDeviceModelPlugIn_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IDeviceModelPlugIn {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1cd63475_07c4_46fe_a903_d655316d11fd);
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceModelPlugIn_Vtbl {
@@ -941,9 +933,8 @@ pub struct IDeviceModelPlugIn_Vtbl {
     pub GetNeutralAxisSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pccolors: *mut u32) -> ::windows_core::HRESULT,
     pub GetNeutralAxis: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ccolors: u32, pxyzcolors: *mut XYZColorF) -> ::windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
-pub struct IGamutMapModelPlugIn(::windows_core::IUnknown);
+::windows_core::imp::com_interface!(IGamutMapModelPlugIn, IGamutMapModelPlugIn_Vtbl, 0x2dd80115_ad1e_41f6_a219_a4f4b583d1f9);
+::windows_core::imp::interface_hierarchy!(IGamutMapModelPlugIn, ::windows_core::IUnknown);
 impl IGamutMapModelPlugIn {
     pub unsafe fn Initialize<P0, P1, P2>(&self, bstrxml: P0, psrcplugin: P1, pdestplugin: P2, psrcgbd: *const GamutBoundaryDescription, pdestgbd: *const GamutBoundaryDescription) -> ::windows_core::Result<()>
     where
@@ -956,13 +947,6 @@ impl IGamutMapModelPlugIn {
     pub unsafe fn SourceToDestinationAppearanceColors(&self, ccolors: u32, pinputcolors: *const JChColorF, poutputcolors: *mut JChColorF) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SourceToDestinationAppearanceColors)(::windows_core::Interface::as_raw(self), ccolors, pinputcolors, poutputcolors).ok()
     }
-}
-::windows_core::imp::interface_hierarchy!(IGamutMapModelPlugIn, ::windows_core::IUnknown);
-unsafe impl ::windows_core::Interface for IGamutMapModelPlugIn {
-    type Vtable = IGamutMapModelPlugIn_Vtbl;
-}
-unsafe impl ::windows_core::ComInterface for IGamutMapModelPlugIn {
-    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2dd80115_ad1e_41f6_a219_a4f4b583d1f9);
 }
 #[repr(C)]
 #[doc(hidden)]
