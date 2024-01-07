@@ -221,8 +221,12 @@ pub fn method_def_signature(namespace: &str, row: MethodDef, generics: &[Type]) 
                 let mut ty = reader.type_from_blob(&mut blob, None, generics);
 
                 if let Some(name) = param_or_enum(param) {
+                    let is_mutptr = ty.is_pointer();
                     let def = reader.get_type_def(namespace, &name).next().expect("Enum not found");
                     ty = Type::PrimitiveOrEnum(Box::new(ty), Box::new(Type::TypeDef(def, Vec::new())));
+                    if is_mutptr {
+                        ty = Type::MutPtr(Box::new(ty), 1)
+                    }
                 }
 
                 if param_is_const || !is_output {
