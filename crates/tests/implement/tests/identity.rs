@@ -73,7 +73,7 @@ fn identity() -> Result<()> {
             assert_eq!(c.GetRuntimeClassName()?, "Windows.Foundation.IStringable");
 
             let d: IClosable = a.cast()?;
-            let e: &IInspectable = std::mem::transmute(&d);
+            let e: &IInspectable = (&d).into();
             assert_eq!(e.GetRuntimeClassName()?, "Windows.Foundation.IClosable");
 
             let f: IInspectable = e.cast()?;

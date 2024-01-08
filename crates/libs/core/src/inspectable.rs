@@ -8,6 +8,8 @@ use super::*;
 #[derive(Clone, PartialEq, Eq)]
 pub struct IInspectable(pub IUnknown);
 
+interface_hierarchy!(IInspectable, IUnknown);
+
 impl IInspectable {
     /// Returns the canonical type name for the underlying object.
     pub fn GetRuntimeClassName(&self) -> Result<HSTRING> {
@@ -41,8 +43,6 @@ unsafe impl Interface for IInspectable {
     type Vtable = IInspectable_Vtbl;
     const IID: GUID = GUID::from_u128(0xaf86e2e0_b12d_4c6a_9c5a_d7aa65101e90);
 }
-
-impl CanInto<IUnknown> for IInspectable {}
 
 impl RuntimeType for IInspectable {
     const SIGNATURE: crate::imp::ConstBuffer = crate::imp::ConstBuffer::from_slice(b"cinterface(IInspectable)");
