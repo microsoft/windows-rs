@@ -100,8 +100,8 @@ jobs:
           cargo test -p test_enums &&
           cargo test -p test_error &&
           cargo test -p test_event &&
-          cargo clean &&
           cargo test -p test_extensions &&
+          cargo clean &&
           cargo test -p test_handles &&
           cargo test -p test_helpers &&
           cargo test -p test_implement &&
@@ -129,6 +129,7 @@ jobs:
           cargo test -p test_sys &&
           cargo test -p test_targets &&
           cargo test -p test_unions &&
+          cargo test -p test_variant &&
           cargo test -p test_wdk &&
           cargo test -p test_weak &&
           cargo test -p test_weak_ref &&

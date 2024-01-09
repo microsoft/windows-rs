@@ -1,0 +1,8 @@
+[package]
+name = "test_variant"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[dependencies.windows-core]
+path = "../../libs/core"

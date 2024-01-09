@@ -145,11 +145,9 @@ fn type_collect_standalone(ty: &metadata::Type, set: &mut std::collections::BTre
         return;
     }
 
-    let metadata::Type::TypeDef(def, generics) = &ty else {
+    let metadata::Type::TypeDef(def, generics) = ty.to_underlying_type() else {
         return;
     };
-
-    let def = *def;
 
     // Ensure that we collect all the typedefs of the same name. We need to
     // do this in the case where the user specifies a top level item that
@@ -167,7 +165,7 @@ fn type_collect_standalone(ty: &metadata::Type, set: &mut std::collections::BTre
         }
     }
 
-    for generic in generics {
+    for generic in &generics {
         type_collect_standalone(generic, set);
     }
     for field in def.fields() {
@@ -184,7 +182,7 @@ fn type_collect_standalone(ty: &metadata::Type, set: &mut std::collections::BTre
         if method.name() == ".ctor" {
             continue;
         }
-        let signature = metadata::method_def_signature(def.namespace(), method, generics);
+        let signature = metadata::method_def_signature(def.namespace(), method, &generics);
         type_collect_standalone(&signature.return_type, set);
         signature.params.iter().for_each(|param| type_collect_standalone(&param.ty, set));
     }
@@ -204,7 +202,7 @@ fn type_collect_standalone_nested(td: metadata::TypeDef, set: &mut std::collecti
 
         for field in nested.fields() {
             let ty = field.ty(Some(nested));
-            if let metadata::Type::TypeDef(def, _) = &ty {
+            if let metadata::Type::TypeDef(def, _) = ty.to_underlying_type() {
                 // Skip the fields that actually refer to the anonymous nested
                 // type, otherwise it will get added to the typeset and emitted
                 if def.namespace().is_empty() {
