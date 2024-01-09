@@ -1443,12 +1443,12 @@ impl ::core::clone::Clone for JET_BKINFO_0 {
 }
 #[repr(C)]
 pub struct JET_BKLOGTIME {
-    pub bSeconds: u8,
-    pub bMinutes: u8,
-    pub bHours: u8,
-    pub bDay: u8,
-    pub bMonth: u8,
-    pub bYear: u8,
+    pub bSeconds: i8,
+    pub bMinutes: i8,
+    pub bHours: i8,
+    pub bDay: i8,
+    pub bMonth: i8,
+    pub bYear: i8,
     pub Anonymous1: JET_BKLOGTIME_0,
     pub Anonymous2: JET_BKLOGTIME_1,
 }
@@ -1460,7 +1460,7 @@ impl ::core::clone::Clone for JET_BKLOGTIME {
 }
 #[repr(C)]
 pub union JET_BKLOGTIME_0 {
-    pub bFiller1: u8,
+    pub bFiller1: i8,
     pub Anonymous: JET_BKLOGTIME_0_0,
 }
 impl ::core::marker::Copy for JET_BKLOGTIME_0 {}
@@ -1481,7 +1481,7 @@ impl ::core::clone::Clone for JET_BKLOGTIME_0_0 {
 }
 #[repr(C)]
 pub union JET_BKLOGTIME_1 {
-    pub bFiller2: u8,
+    pub bFiller2: i8,
     pub Anonymous: JET_BKLOGTIME_1_0,
 }
 impl ::core::marker::Copy for JET_BKLOGTIME_1 {}
@@ -1511,8 +1511,8 @@ pub struct JET_COLUMNBASE_A {
     pub wFiller: u16,
     pub cbMax: u32,
     pub grbit: u32,
-    pub szBaseTableName: [u8; 256],
-    pub szBaseColumnName: [u8; 256],
+    pub szBaseTableName: [i8; 256],
+    pub szBaseColumnName: [i8; 256],
 }
 impl ::core::marker::Copy for JET_COLUMNBASE_A {}
 impl ::core::clone::Clone for JET_COLUMNBASE_A {
@@ -2433,7 +2433,7 @@ pub struct JET_LOGINFO_A {
     pub cbSize: u32,
     pub ulGenLow: u32,
     pub ulGenHigh: u32,
-    pub szBaseName: [u8; 4],
+    pub szBaseName: [i8; 4],
 }
 impl ::core::marker::Copy for JET_LOGINFO_A {}
 impl ::core::clone::Clone for JET_LOGINFO_A {
@@ -2456,12 +2456,12 @@ impl ::core::clone::Clone for JET_LOGINFO_W {
 }
 #[repr(C)]
 pub struct JET_LOGTIME {
-    pub bSeconds: u8,
-    pub bMinutes: u8,
-    pub bHours: u8,
-    pub bDay: u8,
-    pub bMonth: u8,
-    pub bYear: u8,
+    pub bSeconds: i8,
+    pub bMinutes: i8,
+    pub bHours: i8,
+    pub bDay: i8,
+    pub bMonth: i8,
+    pub bYear: i8,
     pub Anonymous1: JET_LOGTIME_0,
     pub Anonymous2: JET_LOGTIME_1,
 }
@@ -2473,7 +2473,7 @@ impl ::core::clone::Clone for JET_LOGTIME {
 }
 #[repr(C)]
 pub union JET_LOGTIME_0 {
-    pub bFiller1: u8,
+    pub bFiller1: i8,
     pub Anonymous: JET_LOGTIME_0_0,
 }
 impl ::core::marker::Copy for JET_LOGTIME_0 {}
@@ -2494,7 +2494,7 @@ impl ::core::clone::Clone for JET_LOGTIME_0_0 {
 }
 #[repr(C)]
 pub union JET_LOGTIME_1 {
-    pub bFiller2: u8,
+    pub bFiller2: i8,
     pub Anonymous: JET_LOGTIME_1_0,
 }
 impl ::core::marker::Copy for JET_LOGTIME_1 {}
@@ -2947,7 +2947,7 @@ impl ::core::clone::Clone for JET_SETSYSPARAM_W {
 pub struct JET_SIGNATURE {
     pub ulRandom: u32,
     pub logtimeCreate: JET_LOGTIME,
-    pub szComputerName: [u8; 16],
+    pub szComputerName: [i8; 16],
 }
 impl ::core::marker::Copy for JET_SIGNATURE {}
 impl ::core::clone::Clone for JET_SIGNATURE {

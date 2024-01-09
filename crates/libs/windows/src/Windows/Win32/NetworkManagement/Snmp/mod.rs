@@ -1049,10 +1049,10 @@ impl ::core::default::Default for smiVALUE_0 {
 }
 #[repr(C)]
 pub struct smiVENDORINFO {
-    pub vendorName: [u8; 64],
-    pub vendorContact: [u8; 64],
-    pub vendorVersionId: [u8; 32],
-    pub vendorVersionDate: [u8; 32],
+    pub vendorName: [i8; 64],
+    pub vendorContact: [i8; 64],
+    pub vendorVersionId: [i8; 32],
+    pub vendorVersionDate: [i8; 32],
     pub vendorEnterprise: u32,
 }
 impl ::core::marker::Copy for smiVENDORINFO {}

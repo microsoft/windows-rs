@@ -262,8 +262,8 @@ pub struct MODULEENTRY32 {
     pub modBaseAddr: *mut u8,
     pub modBaseSize: u32,
     pub hModule: super::super::super::Foundation::HMODULE,
-    pub szModule: [u8; 256],
-    pub szExePath: [u8; 260],
+    pub szModule: [i8; 256],
+    pub szExePath: [i8; 260],
 }
 impl ::core::marker::Copy for MODULEENTRY32 {}
 impl ::core::clone::Clone for MODULEENTRY32 {
@@ -339,7 +339,7 @@ pub struct PROCESSENTRY32 {
     pub th32ParentProcessID: u32,
     pub pcPriClassBase: i32,
     pub dwFlags: u32,
-    pub szExeFile: [u8; 260],
+    pub szExeFile: [i8; 260],
 }
 impl ::core::marker::Copy for PROCESSENTRY32 {}
 impl ::core::clone::Clone for PROCESSENTRY32 {

@@ -4353,7 +4353,7 @@ impl ::core::default::Default for DEVICEDUMP_PRIVATE_SUBSECTION {
 pub struct DEVICEDUMP_PUBLIC_SUBSECTION {
     pub dwFlags: u32,
     pub GPLogTable: [GP_LOG_PAGE_DESCRIPTOR; 16],
-    pub szDescription: [u8; 16],
+    pub szDescription: [i8; 16],
     pub bData: [u8; 1],
 }
 impl ::core::marker::Copy for DEVICEDUMP_PUBLIC_SUBSECTION {}
@@ -8362,7 +8362,7 @@ impl ::core::default::Default for FILE_STORAGE_TIER_REGION {
 }
 #[repr(C)]
 pub struct FILE_SYSTEM_RECOGNITION_INFORMATION {
-    pub FileSystem: [u8; 9],
+    pub FileSystem: [i8; 9],
 }
 impl ::core::marker::Copy for FILE_SYSTEM_RECOGNITION_INFORMATION {}
 impl ::core::clone::Clone for FILE_SYSTEM_RECOGNITION_INFORMATION {
@@ -12698,7 +12698,7 @@ pub struct SCM_PD_DEVICE_INFO {
     pub ManufacturingYear: u8,
     pub SerialNumber4Byte: u32,
     pub SerialNumberLengthInChars: u32,
-    pub SerialNumber: [u8; 1],
+    pub SerialNumber: [i8; 1],
 }
 impl ::core::marker::Copy for SCM_PD_DEVICE_INFO {}
 impl ::core::clone::Clone for SCM_PD_DEVICE_INFO {

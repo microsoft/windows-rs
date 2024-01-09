@@ -10618,10 +10618,10 @@ impl ::core::default::Default for NVME_SANITIZE_STATUS_LOG {
 }
 #[repr(C)]
 pub struct NVME_SCSI_NAME_STRING {
-    pub PCIVendorID: [u8; 4],
-    pub ModelNumber: [u8; 40],
-    pub NamespaceID: [u8; 4],
-    pub SerialNumber: [u8; 20],
+    pub PCIVendorID: [i8; 4],
+    pub ModelNumber: [i8; 40],
+    pub NamespaceID: [i8; 4],
+    pub SerialNumber: [i8; 20],
 }
 impl ::core::marker::Copy for NVME_SCSI_NAME_STRING {}
 impl ::core::clone::Clone for NVME_SCSI_NAME_STRING {

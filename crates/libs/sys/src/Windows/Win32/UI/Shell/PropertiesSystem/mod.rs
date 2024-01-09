@@ -373,16 +373,16 @@ impl ::core::clone::Clone for PROPERTYKEY {
 pub struct PROPPRG {
     pub flPrg: u16,
     pub flPrgInit: u16,
-    pub achTitle: [u8; 30],
-    pub achCmdLine: [u8; 128],
-    pub achWorkDir: [u8; 64],
+    pub achTitle: [i8; 30],
+    pub achCmdLine: [i8; 128],
+    pub achWorkDir: [i8; 64],
     pub wHotKey: u16,
-    pub achIconFile: [u8; 80],
+    pub achIconFile: [i8; 80],
     pub wIconIndex: u16,
     pub dwEnhModeFlags: u32,
     pub dwRealModeFlags: u32,
-    pub achOtherFile: [u8; 80],
-    pub achPIFFile: [u8; 260],
+    pub achOtherFile: [i8; 80],
+    pub achPIFFile: [i8; 260],
 }
 impl ::core::marker::Copy for PROPPRG {}
 impl ::core::clone::Clone for PROPPRG {

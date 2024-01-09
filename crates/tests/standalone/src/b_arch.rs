@@ -20,8 +20,8 @@ pub struct WSADATA {
     pub iMaxSockets: u16,
     pub iMaxUdpDg: u16,
     pub lpVendorInfo: PSTR,
-    pub szDescription: [u8; 257],
-    pub szSystemStatus: [u8; 129],
+    pub szDescription: [i8; 257],
+    pub szSystemStatus: [i8; 129],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for WSADATA {}
@@ -36,8 +36,8 @@ impl ::core::clone::Clone for WSADATA {
 pub struct WSADATA {
     pub wVersion: u16,
     pub wHighVersion: u16,
-    pub szDescription: [u8; 257],
-    pub szSystemStatus: [u8; 129],
+    pub szDescription: [i8; 257],
+    pub szSystemStatus: [i8; 129],
     pub iMaxSockets: u16,
     pub iMaxUdpDg: u16,
     pub lpVendorInfo: PSTR,

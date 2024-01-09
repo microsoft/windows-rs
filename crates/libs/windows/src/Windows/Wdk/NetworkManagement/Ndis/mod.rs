@@ -7690,7 +7690,7 @@ pub struct NDIS_WMI_ENUM_ADAPTER {
     pub IfIndex: u32,
     pub NetLuid: super::super::super::Win32::NetworkManagement::Ndis::NET_LUID_LH,
     pub DeviceNameLength: u16,
-    pub DeviceName: [u8; 1],
+    pub DeviceName: [i8; 1],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::marker::Copy for NDIS_WMI_ENUM_ADAPTER {}

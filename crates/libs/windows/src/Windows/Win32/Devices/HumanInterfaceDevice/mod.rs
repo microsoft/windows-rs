@@ -4575,7 +4575,7 @@ pub struct DIACTIONFORMATA {
     pub hInstString: super::super::Foundation::HINSTANCE,
     pub ftTimeStamp: super::super::Foundation::FILETIME,
     pub dwCRC: u32,
-    pub tszActionMap: [u8; 260],
+    pub tszActionMap: [i8; 260],
 }
 impl ::core::marker::Copy for DIACTIONFORMATA {}
 impl ::core::clone::Clone for DIACTIONFORMATA {
@@ -5040,7 +5040,7 @@ impl ::core::default::Default for DIDEVCAPS_DX3 {
 }
 #[repr(C)]
 pub struct DIDEVICEIMAGEINFOA {
-    pub tszImagePath: [u8; 260],
+    pub tszImagePath: [i8; 260],
     pub dwFlags: u32,
     pub dwViewID: u32,
     pub rcOverlay: super::super::Foundation::RECT,
@@ -5192,8 +5192,8 @@ pub struct DIDEVICEINSTANCEA {
     pub guidInstance: ::windows_core::GUID,
     pub guidProduct: ::windows_core::GUID,
     pub dwDevType: u32,
-    pub tszInstanceName: [u8; 260],
-    pub tszProductName: [u8; 260],
+    pub tszInstanceName: [i8; 260],
+    pub tszProductName: [i8; 260],
     pub guidFFDriver: ::windows_core::GUID,
     pub wUsagePage: u16,
     pub wUsage: u16,
@@ -5266,8 +5266,8 @@ pub struct DIDEVICEINSTANCE_DX3A {
     pub guidInstance: ::windows_core::GUID,
     pub guidProduct: ::windows_core::GUID,
     pub dwDevType: u32,
-    pub tszInstanceName: [u8; 260],
-    pub tszProductName: [u8; 260],
+    pub tszInstanceName: [i8; 260],
+    pub tszProductName: [i8; 260],
 }
 impl ::core::marker::Copy for DIDEVICEINSTANCE_DX3A {}
 impl ::core::clone::Clone for DIDEVICEINSTANCE_DX3A {
@@ -5400,7 +5400,7 @@ pub struct DIDEVICEOBJECTINSTANCEA {
     pub dwOfs: u32,
     pub dwType: u32,
     pub dwFlags: u32,
-    pub tszName: [u8; 260],
+    pub tszName: [i8; 260],
     pub dwFFMaxForce: u32,
     pub dwFFForceResolution: u32,
     pub wCollectionNumber: u16,
@@ -5518,7 +5518,7 @@ pub struct DIDEVICEOBJECTINSTANCE_DX3A {
     pub dwOfs: u32,
     pub dwType: u32,
     pub dwFlags: u32,
-    pub tszName: [u8; 260],
+    pub tszName: [i8; 260],
 }
 impl ::core::marker::Copy for DIDEVICEOBJECTINSTANCE_DX3A {}
 impl ::core::clone::Clone for DIDEVICEOBJECTINSTANCE_DX3A {
@@ -5739,7 +5739,7 @@ pub struct DIEFFECTINFOA {
     pub dwEffType: u32,
     pub dwStaticParams: u32,
     pub dwDynamicParams: u32,
-    pub tszName: [u8; 260],
+    pub tszName: [i8; 260],
 }
 impl ::core::marker::Copy for DIEFFECTINFOA {}
 impl ::core::clone::Clone for DIEFFECTINFOA {
@@ -5988,7 +5988,7 @@ pub struct DIFILEEFFECT {
     pub dwSize: u32,
     pub GuidEffect: ::windows_core::GUID,
     pub lpDiEffect: *mut DIEFFECT,
-    pub szFriendlyName: [u8; 260],
+    pub szFriendlyName: [i8; 260],
 }
 impl ::core::marker::Copy for DIFILEEFFECT {}
 impl ::core::clone::Clone for DIFILEEFFECT {

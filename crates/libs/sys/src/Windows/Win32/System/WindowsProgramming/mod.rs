@@ -1049,7 +1049,7 @@ pub struct CABINFOA {
     pub pszCab: ::windows_sys::core::PSTR,
     pub pszInf: ::windows_sys::core::PSTR,
     pub pszSection: ::windows_sys::core::PSTR,
-    pub szSrcPath: [u8; 260],
+    pub szSrcPath: [i8; 260],
     pub dwFlags: u32,
 }
 impl ::core::marker::Copy for CABINFOA {}
@@ -1306,8 +1306,8 @@ pub type HWINWATCH = isize;
 #[repr(C)]
 pub struct HW_PROFILE_INFOA {
     pub dwDockInfo: u32,
-    pub szHwProfileGuid: [u8; 39],
-    pub szHwProfileName: [u8; 80],
+    pub szHwProfileGuid: [i8; 39],
+    pub szHwProfileName: [i8; 80],
 }
 impl ::core::marker::Copy for HW_PROFILE_INFOA {}
 impl ::core::clone::Clone for HW_PROFILE_INFOA {
@@ -1535,12 +1535,12 @@ impl ::core::clone::Clone for LDR_DATA_TABLE_ENTRY_0 {
 }
 #[repr(C)]
 pub struct PERUSERSECTIONA {
-    pub szGUID: [u8; 59],
-    pub szDispName: [u8; 128],
-    pub szLocale: [u8; 10],
-    pub szStub: [u8; 1040],
-    pub szVersion: [u8; 32],
-    pub szCompID: [u8; 128],
+    pub szGUID: [i8; 59],
+    pub szDispName: [i8; 128],
+    pub szLocale: [i8; 10],
+    pub szStub: [i8; 1040],
+    pub szVersion: [i8; 32],
+    pub szCompID: [i8; 128],
     pub dwIsInstalled: u32,
     pub bRollback: super::super::Foundation::BOOL,
 }

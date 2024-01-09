@@ -7476,11 +7476,11 @@ impl ::core::default::Default for DIBSECTION {
 #[repr(C)]
 pub struct DISPLAY_DEVICEA {
     pub cb: u32,
-    pub DeviceName: [u8; 32],
-    pub DeviceString: [u8; 128],
+    pub DeviceName: [i8; 32],
+    pub DeviceString: [i8; 128],
     pub StateFlags: u32,
-    pub DeviceID: [u8; 128],
-    pub DeviceKey: [u8; 128],
+    pub DeviceID: [i8; 128],
+    pub DeviceKey: [i8; 128],
 }
 impl ::core::marker::Copy for DISPLAY_DEVICEA {}
 impl ::core::clone::Clone for DISPLAY_DEVICEA {
@@ -11102,7 +11102,7 @@ pub struct LOGFONTA {
     pub lfClipPrecision: FONT_CLIP_PRECISION,
     pub lfQuality: FONT_QUALITY,
     pub lfPitchAndFamily: u8,
-    pub lfFaceName: [u8; 32],
+    pub lfFaceName: [i8; 32],
 }
 impl ::core::marker::Copy for LOGFONTA {}
 impl ::core::clone::Clone for LOGFONTA {
@@ -11385,7 +11385,7 @@ impl ::core::default::Default for MONITORINFO {
 #[repr(C)]
 pub struct MONITORINFOEXA {
     pub monitorInfo: MONITORINFO,
-    pub szDevice: [u8; 32],
+    pub szDevice: [i8; 32],
 }
 impl ::core::marker::Copy for MONITORINFOEXA {}
 impl ::core::clone::Clone for MONITORINFOEXA {
@@ -12224,7 +12224,7 @@ impl ::core::default::Default for RGBTRIPLE {
 #[repr(C)]
 pub struct RGNDATA {
     pub rdh: RGNDATAHEADER,
-    pub Buffer: [u8; 1],
+    pub Buffer: [i8; 1],
 }
 impl ::core::marker::Copy for RGNDATA {}
 impl ::core::clone::Clone for RGNDATA {

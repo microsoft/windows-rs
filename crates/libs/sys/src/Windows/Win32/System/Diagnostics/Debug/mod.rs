@@ -2819,7 +2819,7 @@ pub struct DUMP_HEADER32 {
     pub BugCheckParameter2: u32,
     pub BugCheckParameter3: u32,
     pub BugCheckParameter4: u32,
-    pub VersionUser: [u8; 32],
+    pub VersionUser: [i8; 32],
     pub PaeEnabled: u8,
     pub KdSecondaryVersion: u8,
     pub Spare3: [u8; 2],
@@ -2827,7 +2827,7 @@ pub struct DUMP_HEADER32 {
     pub Anonymous: DUMP_HEADER32_0,
     pub ContextRecord: [u8; 1200],
     pub Exception: EXCEPTION_RECORD32,
-    pub Comment: [u8; 128],
+    pub Comment: [i8; 128],
     pub Attributes: DUMP_FILE_ATTRIBUTES,
     pub BootId: u32,
     pub _reserved0: [u8; 1760],
@@ -2877,7 +2877,7 @@ pub struct DUMP_HEADER64 {
     pub BugCheckParameter2: u64,
     pub BugCheckParameter3: u64,
     pub BugCheckParameter4: u64,
-    pub VersionUser: [u8; 32],
+    pub VersionUser: [i8; 32],
     pub KdDebuggerDataBlock: u64,
     pub Anonymous: DUMP_HEADER64_0,
     pub ContextRecord: [u8; 3000],
@@ -2885,7 +2885,7 @@ pub struct DUMP_HEADER64 {
     pub DumpType: u32,
     pub RequiredDumpSpace: i64,
     pub SystemTime: i64,
-    pub Comment: [u8; 128],
+    pub Comment: [i8; 128],
     pub SystemUpTime: i64,
     pub MiniDumpFields: u32,
     pub SecondaryDataState: u32,
@@ -3109,7 +3109,7 @@ pub struct IMAGEHLP_DEFERRED_SYMBOL_LOAD {
     pub BaseOfImage: u32,
     pub CheckSum: u32,
     pub TimeDateStamp: u32,
-    pub FileName: [u8; 260],
+    pub FileName: [i8; 260],
     pub Reparse: super::super::super::Foundation::BOOLEAN,
     pub hFile: super::super::super::Foundation::HANDLE,
 }
@@ -3127,7 +3127,7 @@ pub struct IMAGEHLP_DEFERRED_SYMBOL_LOAD64 {
     pub BaseOfImage: u64,
     pub CheckSum: u32,
     pub TimeDateStamp: u32,
-    pub FileName: [u8; 260],
+    pub FileName: [i8; 260],
     pub Reparse: super::super::super::Foundation::BOOLEAN,
     pub hFile: super::super::super::Foundation::HANDLE,
     pub Flags: u32,
@@ -3295,9 +3295,9 @@ pub struct IMAGEHLP_MODULE {
     pub CheckSum: u32,
     pub NumSyms: u32,
     pub SymType: SYM_TYPE,
-    pub ModuleName: [u8; 32],
-    pub ImageName: [u8; 256],
-    pub LoadedImageName: [u8; 256],
+    pub ModuleName: [i8; 32],
+    pub ImageName: [i8; 256],
+    pub LoadedImageName: [i8; 256],
 }
 #[cfg(target_arch = "x86")]
 impl ::core::marker::Copy for IMAGEHLP_MODULE {}
@@ -3316,12 +3316,12 @@ pub struct IMAGEHLP_MODULE64 {
     pub CheckSum: u32,
     pub NumSyms: u32,
     pub SymType: SYM_TYPE,
-    pub ModuleName: [u8; 32],
-    pub ImageName: [u8; 256],
-    pub LoadedImageName: [u8; 256],
-    pub LoadedPdbName: [u8; 256],
+    pub ModuleName: [i8; 32],
+    pub ImageName: [i8; 256],
+    pub LoadedImageName: [i8; 256],
+    pub LoadedPdbName: [i8; 256],
     pub CVSig: u32,
-    pub CVData: [u8; 780],
+    pub CVData: [i8; 780],
     pub PdbSig: u32,
     pub PdbSig70: ::windows_sys::core::GUID,
     pub PdbAge: u32,
@@ -3446,7 +3446,7 @@ pub struct IMAGEHLP_SYMBOL {
     pub Size: u32,
     pub Flags: u32,
     pub MaxNameLength: u32,
-    pub Name: [u8; 1],
+    pub Name: [i8; 1],
 }
 #[cfg(target_arch = "x86")]
 impl ::core::marker::Copy for IMAGEHLP_SYMBOL {}
@@ -3463,7 +3463,7 @@ pub struct IMAGEHLP_SYMBOL64 {
     pub Size: u32,
     pub Flags: u32,
     pub MaxNameLength: u32,
-    pub Name: [u8; 1],
+    pub Name: [i8; 1],
 }
 impl ::core::marker::Copy for IMAGEHLP_SYMBOL64 {}
 impl ::core::clone::Clone for IMAGEHLP_SYMBOL64 {
@@ -3474,7 +3474,7 @@ impl ::core::clone::Clone for IMAGEHLP_SYMBOL64 {
 #[repr(C)]
 pub struct IMAGEHLP_SYMBOL64_PACKAGE {
     pub sym: IMAGEHLP_SYMBOL64,
-    pub name: [u8; 2001],
+    pub name: [i8; 2001],
 }
 impl ::core::marker::Copy for IMAGEHLP_SYMBOL64_PACKAGE {}
 impl ::core::clone::Clone for IMAGEHLP_SYMBOL64_PACKAGE {
@@ -3544,7 +3544,7 @@ impl ::core::clone::Clone for IMAGEHLP_SYMBOLW_PACKAGE {
 #[cfg(target_arch = "x86")]
 pub struct IMAGEHLP_SYMBOL_PACKAGE {
     pub sym: IMAGEHLP_SYMBOL,
-    pub name: [u8; 2001],
+    pub name: [i8; 2001],
 }
 #[cfg(target_arch = "x86")]
 impl ::core::marker::Copy for IMAGEHLP_SYMBOL_PACKAGE {}
@@ -3558,7 +3558,7 @@ impl ::core::clone::Clone for IMAGEHLP_SYMBOL_PACKAGE {
 pub struct IMAGEHLP_SYMBOL_SRC {
     pub sizeofstruct: u32,
     pub r#type: u32,
-    pub file: [u8; 260],
+    pub file: [i8; 260],
 }
 impl ::core::marker::Copy for IMAGEHLP_SYMBOL_SRC {}
 impl ::core::clone::Clone for IMAGEHLP_SYMBOL_SRC {
@@ -6005,8 +6005,8 @@ pub struct SRCCODEINFO {
     pub SizeOfStruct: u32,
     pub Key: *mut ::core::ffi::c_void,
     pub ModBase: u64,
-    pub Obj: [u8; 261],
-    pub FileName: [u8; 261],
+    pub Obj: [i8; 261],
+    pub FileName: [i8; 261],
     pub LineNumber: u32,
     pub Address: u64,
 }
@@ -6113,7 +6113,7 @@ pub struct SYMBOL_INFO {
     pub Tag: u32,
     pub NameLen: u32,
     pub MaxNameLen: u32,
-    pub Name: [u8; 1],
+    pub Name: [i8; 1],
 }
 impl ::core::marker::Copy for SYMBOL_INFO {}
 impl ::core::clone::Clone for SYMBOL_INFO {
@@ -6148,7 +6148,7 @@ impl ::core::clone::Clone for SYMBOL_INFOW {
 #[repr(C)]
 pub struct SYMBOL_INFO_PACKAGE {
     pub si: SYMBOL_INFO,
-    pub name: [u8; 2001],
+    pub name: [i8; 2001],
 }
 impl ::core::marker::Copy for SYMBOL_INFO_PACKAGE {}
 impl ::core::clone::Clone for SYMBOL_INFO_PACKAGE {
@@ -6182,12 +6182,12 @@ impl ::core::clone::Clone for SYMSRV_EXTENDED_OUTPUT_DATA {
 #[repr(C)]
 pub struct SYMSRV_INDEX_INFO {
     pub sizeofstruct: u32,
-    pub file: [u8; 261],
+    pub file: [i8; 261],
     pub stripped: super::super::super::Foundation::BOOL,
     pub timestamp: u32,
     pub size: u32,
-    pub dbgfile: [u8; 261],
-    pub pdbfile: [u8; 261],
+    pub dbgfile: [i8; 261],
+    pub pdbfile: [i8; 261],
     pub guid: ::windows_sys::core::GUID,
     pub sig: u32,
     pub age: u32,

@@ -4865,7 +4865,7 @@ impl ::core::default::Default for CENTRAL_ACCESS_POLICY_ENTRY {
 }
 #[repr(C)]
 pub struct CLEAR_BLOCK {
-    pub data: [u8; 8],
+    pub data: [i8; 8],
 }
 impl ::core::marker::Copy for CLEAR_BLOCK {}
 impl ::core::clone::Clone for CLEAR_BLOCK {

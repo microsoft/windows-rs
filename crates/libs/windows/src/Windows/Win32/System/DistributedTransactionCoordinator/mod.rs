@@ -2455,7 +2455,7 @@ pub struct XID {
     pub formatID: i32,
     pub gtrid_length: i32,
     pub bqual_length: i32,
-    pub data: [u8; 128],
+    pub data: [i8; 128],
 }
 impl ::core::marker::Copy for XID {}
 impl ::core::clone::Clone for XID {
@@ -2484,7 +2484,7 @@ impl ::core::default::Default for XID {
 }
 #[repr(C)]
 pub struct xa_switch_t {
-    pub name: [u8; 32],
+    pub name: [i8; 32],
     pub flags: i32,
     pub version: i32,
     pub xa_open_entry: isize,

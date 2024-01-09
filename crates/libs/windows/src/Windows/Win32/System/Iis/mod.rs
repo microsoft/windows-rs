@@ -2167,7 +2167,7 @@ pub struct EXTENSION_CONTROL_BLOCK {
     pub dwVersion: u32,
     pub ConnID: HCONN,
     pub dwHttpStatusCode: u32,
-    pub lpszLogData: [u8; 80],
+    pub lpszLogData: [i8; 80],
     pub lpszMethod: ::windows_core::PSTR,
     pub lpszQueryString: ::windows_core::PSTR,
     pub lpszPathInfo: ::windows_core::PSTR,
@@ -2628,7 +2628,7 @@ impl ::core::default::Default for HSE_UNICODE_URL_MAPEX_INFO {
 }
 #[repr(C)]
 pub struct HSE_URL_MAPEX_INFO {
-    pub lpszPath: [u8; 260],
+    pub lpszPath: [i8; 260],
     pub dwFlags: u32,
     pub cchMatchingPath: u32,
     pub cchMatchingURL: u32,
@@ -2695,7 +2695,7 @@ impl ::core::default::Default for HSE_VECTOR_ELEMENT {
 #[repr(C)]
 pub struct HSE_VERSION_INFO {
     pub dwExtensionVersion: u32,
-    pub lpszExtensionDesc: [u8; 256],
+    pub lpszExtensionDesc: [i8; 256],
 }
 impl ::core::marker::Copy for HSE_VERSION_INFO {}
 impl ::core::clone::Clone for HSE_VERSION_INFO {
@@ -3057,7 +3057,7 @@ impl ::core::default::Default for HTTP_FILTER_URL_MAP_EX {
 pub struct HTTP_FILTER_VERSION {
     pub dwServerFilterVersion: u32,
     pub dwFilterVersion: u32,
-    pub lpszFilterDesc: [u8; 257],
+    pub lpszFilterDesc: [i8; 257],
     pub dwFlags: u32,
 }
 impl ::core::marker::Copy for HTTP_FILTER_VERSION {}

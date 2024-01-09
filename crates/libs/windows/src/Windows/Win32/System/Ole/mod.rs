@@ -1396,8 +1396,8 @@ where
     VarBoolFromDisp(pdispin.into_param().abi(), lcid, &mut result__).from_abi(result__)
 }
 #[inline]
-pub unsafe fn VarBoolFromI1(cin: u8) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-    ::windows_targets::link!("oleaut32.dll" "system" fn VarBoolFromI1(cin : u8, pboolout : *mut super::super::Foundation:: VARIANT_BOOL) -> ::windows_core::HRESULT);
+pub unsafe fn VarBoolFromI1(cin: i8) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    ::windows_targets::link!("oleaut32.dll" "system" fn VarBoolFromI1(cin : i8, pboolout : *mut super::super::Foundation:: VARIANT_BOOL) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
     VarBoolFromI1(cin, &mut result__).from_abi(result__)
 }
@@ -1524,8 +1524,8 @@ where
     VarBstrFromDisp(pdispin.into_param().abi(), lcid, dwflags, &mut result__).from_abi(result__)
 }
 #[inline]
-pub unsafe fn VarBstrFromI1(cin: u8, lcid: u32, dwflags: u32) -> ::windows_core::Result<::windows_core::BSTR> {
-    ::windows_targets::link!("oleaut32.dll" "system" fn VarBstrFromI1(cin : u8, lcid : u32, dwflags : u32, pbstrout : *mut ::std::mem::MaybeUninit <::windows_core::BSTR >) -> ::windows_core::HRESULT);
+pub unsafe fn VarBstrFromI1(cin: i8, lcid: u32, dwflags: u32) -> ::windows_core::Result<::windows_core::BSTR> {
+    ::windows_targets::link!("oleaut32.dll" "system" fn VarBstrFromI1(cin : i8, lcid : u32, dwflags : u32, pbstrout : *mut ::std::mem::MaybeUninit <::windows_core::BSTR >) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
     VarBstrFromI1(cin, lcid, dwflags, &mut result__).from_abi(result__)
 }
@@ -1677,8 +1677,8 @@ where
 #[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn VarCyFromI1(cin: u8) -> ::windows_core::Result<super::Com::CY> {
-    ::windows_targets::link!("oleaut32.dll" "system" fn VarCyFromI1(cin : u8, pcyout : *mut super::Com:: CY) -> ::windows_core::HRESULT);
+pub unsafe fn VarCyFromI1(cin: i8) -> ::windows_core::Result<super::Com::CY> {
+    ::windows_targets::link!("oleaut32.dll" "system" fn VarCyFromI1(cin : i8, pcyout : *mut super::Com:: CY) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
     VarCyFromI1(cin, &mut result__).from_abi(result__)
 }
@@ -1856,8 +1856,8 @@ where
     VarDateFromDisp(pdispin.into_param().abi(), lcid, &mut result__).from_abi(result__)
 }
 #[inline]
-pub unsafe fn VarDateFromI1(cin: u8) -> ::windows_core::Result<f64> {
-    ::windows_targets::link!("oleaut32.dll" "system" fn VarDateFromI1(cin : u8, pdateout : *mut f64) -> ::windows_core::HRESULT);
+pub unsafe fn VarDateFromI1(cin: i8) -> ::windows_core::Result<f64> {
+    ::windows_targets::link!("oleaut32.dll" "system" fn VarDateFromI1(cin : i8, pdateout : *mut f64) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
     VarDateFromI1(cin, &mut result__).from_abi(result__)
 }
@@ -2005,8 +2005,8 @@ where
     VarDecFromDisp(pdispin.into_param().abi(), lcid, &mut result__).from_abi(result__)
 }
 #[inline]
-pub unsafe fn VarDecFromI1(cin: u8) -> ::windows_core::Result<super::super::Foundation::DECIMAL> {
-    ::windows_targets::link!("oleaut32.dll" "system" fn VarDecFromI1(cin : u8, pdecout : *mut super::super::Foundation:: DECIMAL) -> ::windows_core::HRESULT);
+pub unsafe fn VarDecFromI1(cin: i8) -> ::windows_core::Result<super::super::Foundation::DECIMAL> {
+    ::windows_targets::link!("oleaut32.dll" "system" fn VarDecFromI1(cin : i8, pdecout : *mut super::super::Foundation:: DECIMAL) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
     VarDecFromI1(cin, &mut result__).from_abi(result__)
 }
@@ -2308,8 +2308,8 @@ where
     VarI2FromDisp(pdispin.into_param().abi(), lcid, &mut result__).from_abi(result__)
 }
 #[inline]
-pub unsafe fn VarI2FromI1(cin: u8) -> ::windows_core::Result<i16> {
-    ::windows_targets::link!("oleaut32.dll" "system" fn VarI2FromI1(cin : u8, psout : *mut i16) -> ::windows_core::HRESULT);
+pub unsafe fn VarI2FromI1(cin: i8) -> ::windows_core::Result<i16> {
+    ::windows_targets::link!("oleaut32.dll" "system" fn VarI2FromI1(cin : i8, psout : *mut i16) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
     VarI2FromI1(cin, &mut result__).from_abi(result__)
 }
@@ -2411,8 +2411,8 @@ where
     VarI4FromDisp(pdispin.into_param().abi(), lcid, &mut result__).from_abi(result__)
 }
 #[inline]
-pub unsafe fn VarI4FromI1(cin: u8) -> ::windows_core::Result<i32> {
-    ::windows_targets::link!("oleaut32.dll" "system" fn VarI4FromI1(cin : u8, plout : *mut i32) -> ::windows_core::HRESULT);
+pub unsafe fn VarI4FromI1(cin: i8) -> ::windows_core::Result<i32> {
+    ::windows_targets::link!("oleaut32.dll" "system" fn VarI4FromI1(cin : i8, plout : *mut i32) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
     VarI4FromI1(cin, &mut result__).from_abi(result__)
 }
@@ -2514,8 +2514,8 @@ where
     VarI8FromDisp(pdispin.into_param().abi(), lcid, &mut result__).from_abi(result__)
 }
 #[inline]
-pub unsafe fn VarI8FromI1(cin: u8) -> ::windows_core::Result<i64> {
-    ::windows_targets::link!("oleaut32.dll" "system" fn VarI8FromI1(cin : u8, pi64out : *mut i64) -> ::windows_core::HRESULT);
+pub unsafe fn VarI8FromI1(cin: i8) -> ::windows_core::Result<i64> {
+    ::windows_targets::link!("oleaut32.dll" "system" fn VarI8FromI1(cin : i8, pi64out : *mut i64) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
     VarI8FromI1(cin, &mut result__).from_abi(result__)
 }
@@ -2709,8 +2709,8 @@ where
     VarR4FromDisp(pdispin.into_param().abi(), lcid, &mut result__).from_abi(result__)
 }
 #[inline]
-pub unsafe fn VarR4FromI1(cin: u8) -> ::windows_core::Result<f32> {
-    ::windows_targets::link!("oleaut32.dll" "system" fn VarR4FromI1(cin : u8, pfltout : *mut f32) -> ::windows_core::HRESULT);
+pub unsafe fn VarR4FromI1(cin: i8) -> ::windows_core::Result<f32> {
+    ::windows_targets::link!("oleaut32.dll" "system" fn VarR4FromI1(cin : i8, pfltout : *mut f32) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
     VarR4FromI1(cin, &mut result__).from_abi(result__)
 }
@@ -2811,8 +2811,8 @@ where
     VarR8FromDisp(pdispin.into_param().abi(), lcid, &mut result__).from_abi(result__)
 }
 #[inline]
-pub unsafe fn VarR8FromI1(cin: u8, pdblout: *mut f64) -> ::windows_core::Result<()> {
-    ::windows_targets::link!("oleaut32.dll" "system" fn VarR8FromI1(cin : u8, pdblout : *mut f64) -> ::windows_core::HRESULT);
+pub unsafe fn VarR8FromI1(cin: i8, pdblout: *mut f64) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("oleaut32.dll" "system" fn VarR8FromI1(cin : i8, pdblout : *mut f64) -> ::windows_core::HRESULT);
     VarR8FromI1(cin, pdblout).ok()
 }
 #[inline]
@@ -2949,8 +2949,8 @@ where
     VarUI1FromDisp(pdispin.into_param().abi(), lcid, &mut result__).from_abi(result__)
 }
 #[inline]
-pub unsafe fn VarUI1FromI1(cin: u8) -> ::windows_core::Result<u8> {
-    ::windows_targets::link!("oleaut32.dll" "system" fn VarUI1FromI1(cin : u8, pbout : *mut u8) -> ::windows_core::HRESULT);
+pub unsafe fn VarUI1FromI1(cin: i8) -> ::windows_core::Result<u8> {
+    ::windows_targets::link!("oleaut32.dll" "system" fn VarUI1FromI1(cin : i8, pbout : *mut u8) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
     VarUI1FromI1(cin, &mut result__).from_abi(result__)
 }
@@ -3052,8 +3052,8 @@ where
     VarUI2FromDisp(pdispin.into_param().abi(), lcid, &mut result__).from_abi(result__)
 }
 #[inline]
-pub unsafe fn VarUI2FromI1(cin: u8) -> ::windows_core::Result<u16> {
-    ::windows_targets::link!("oleaut32.dll" "system" fn VarUI2FromI1(cin : u8, puiout : *mut u16) -> ::windows_core::HRESULT);
+pub unsafe fn VarUI2FromI1(cin: i8) -> ::windows_core::Result<u16> {
+    ::windows_targets::link!("oleaut32.dll" "system" fn VarUI2FromI1(cin : i8, puiout : *mut u16) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
     VarUI2FromI1(cin, &mut result__).from_abi(result__)
 }
@@ -3154,8 +3154,8 @@ where
     VarUI4FromDisp(pdispin.into_param().abi(), lcid, &mut result__).from_abi(result__)
 }
 #[inline]
-pub unsafe fn VarUI4FromI1(cin: u8) -> ::windows_core::Result<u32> {
-    ::windows_targets::link!("oleaut32.dll" "system" fn VarUI4FromI1(cin : u8, pulout : *mut u32) -> ::windows_core::HRESULT);
+pub unsafe fn VarUI4FromI1(cin: i8) -> ::windows_core::Result<u32> {
+    ::windows_targets::link!("oleaut32.dll" "system" fn VarUI4FromI1(cin : i8, pulout : *mut u32) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
     VarUI4FromI1(cin, &mut result__).from_abi(result__)
 }
@@ -3257,8 +3257,8 @@ where
     VarUI8FromDisp(pdispin.into_param().abi(), lcid, &mut result__).from_abi(result__)
 }
 #[inline]
-pub unsafe fn VarUI8FromI1(cin: u8) -> ::windows_core::Result<u64> {
-    ::windows_targets::link!("oleaut32.dll" "system" fn VarUI8FromI1(cin : u8, pi64out : *mut u64) -> ::windows_core::HRESULT);
+pub unsafe fn VarUI8FromI1(cin: i8) -> ::windows_core::Result<u64> {
+    ::windows_targets::link!("oleaut32.dll" "system" fn VarUI8FromI1(cin : i8, pi64out : *mut u64) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
     VarUI8FromI1(cin, &mut result__).from_abi(result__)
 }
@@ -11162,7 +11162,7 @@ pub struct OLEUICHANGEICONA {
     pub hResource: super::super::Foundation::HRSRC,
     pub hMetaPict: super::super::Foundation::HGLOBAL,
     pub clsid: ::windows_core::GUID,
-    pub szIconExe: [u8; 260],
+    pub szIconExe: [i8; 260],
     pub cchIconExe: i32,
 }
 impl ::core::marker::Copy for OLEUICHANGEICONA {}
@@ -13229,7 +13229,7 @@ pub union _wireVARIANT_0 {
     pub ppdispVal: *mut ::core::option::Option<super::Com::IDispatch>,
     pub pparray: *mut *mut *mut _wireSAFEARRAY,
     pub pvarVal: *mut *mut _wireVARIANT,
-    pub cVal: u8,
+    pub cVal: i8,
     pub uiVal: u16,
     pub ulVal: u32,
     pub ullVal: u64,

@@ -23042,7 +23042,7 @@ impl ::core::default::Default for DvbParentalRatingDescriptor {
 }
 #[repr(C)]
 pub struct DvbParentalRatingParam {
-    pub szCountryCode: [u8; 4],
+    pub szCountryCode: [i8; 4],
     pub bRating: u8,
 }
 impl ::core::marker::Copy for DvbParentalRatingParam {}
@@ -23155,7 +23155,7 @@ impl ::core::default::Default for KSM_BDA_CAS_CAPTURETOKEN {
 pub struct KSM_BDA_CAS_CLOSEMMIDIALOG {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
     pub ulDialogRequest: u32,
-    pub cLanguage: [u8; 12],
+    pub cLanguage: [i8; 12],
     pub ulDialogNumber: u32,
     pub ulReason: u32,
 }
@@ -23183,7 +23183,7 @@ impl ::core::default::Default for KSM_BDA_CAS_CLOSEMMIDIALOG {
 pub struct KSM_BDA_CAS_ENTITLEMENTTOKEN {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
     pub ulDialogRequest: u32,
-    pub cLanguage: [u8; 12],
+    pub cLanguage: [i8; 12],
     pub ulRequestType: u32,
     pub ulEntitlementTokenLen: u32,
     pub argbEntitlementToken: [u8; 1],
@@ -23212,7 +23212,7 @@ impl ::core::default::Default for KSM_BDA_CAS_ENTITLEMENTTOKEN {
 pub struct KSM_BDA_CAS_OPENBROADCASTMMI {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
     pub ulDialogRequest: u32,
-    pub cLanguage: [u8; 12],
+    pub cLanguage: [i8; 12],
     pub ulEventId: u32,
 }
 #[cfg(feature = "Win32_Media_KernelStreaming")]
@@ -23368,7 +23368,7 @@ impl ::core::default::Default for KSM_BDA_GDDS_TUNEXMLFROMIDX {
 pub struct KSM_BDA_GPNV_GETVALUE {
     pub Method: super::super::KernelStreaming::KSIDENTIFIER,
     pub ulNameLength: u32,
-    pub cLanguage: [u8; 12],
+    pub cLanguage: [i8; 12],
     pub argbData: [u8; 1],
 }
 #[cfg(feature = "Win32_Media_KernelStreaming")]
@@ -23420,7 +23420,7 @@ impl ::core::default::Default for KSM_BDA_GPNV_NAMEINDEX {
 pub struct KSM_BDA_GPNV_SETVALUE {
     pub Method: super::super::KernelStreaming::KSIDENTIFIER,
     pub ulDialogRequest: u32,
-    pub cLanguage: [u8; 12],
+    pub cLanguage: [i8; 12],
     pub ulNameLength: u32,
     pub ulValueLength: u32,
     pub argbName: [u8; 1],
@@ -23782,7 +23782,7 @@ impl ::core::default::Default for KSM_BDA_WMDRMTUNER_GETPIDPROTECTION {
 pub struct KSM_BDA_WMDRMTUNER_PURCHASEENTITLEMENT {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
     pub ulDialogRequest: u32,
-    pub cLanguage: [u8; 12],
+    pub cLanguage: [i8; 12],
     pub ulPurchaseTokenLength: u32,
     pub argbDataBuffer: [u8; 1],
 }

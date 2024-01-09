@@ -4779,11 +4779,11 @@ pub struct ACMDRIVERDETAILSA {
     pub cFormatTags: u32,
     pub cFilterTags: u32,
     pub hicon: super::super::UI::WindowsAndMessaging::HICON,
-    pub szShortName: [u8; 32],
-    pub szLongName: [u8; 128],
-    pub szCopyright: [u8; 80],
-    pub szLicensing: [u8; 128],
-    pub szFeatures: [u8; 512],
+    pub szShortName: [i8; 32],
+    pub szLongName: [i8; 128],
+    pub szCopyright: [i8; 80],
+    pub szLicensing: [i8; 128],
+    pub szFeatures: [i8; 512],
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::marker::Copy for ACMDRIVERDETAILSA {}
@@ -5011,8 +5011,8 @@ pub struct ACMFILTERCHOOSEA {
     pub pwfltr: *mut WAVEFILTER,
     pub cbwfltr: u32,
     pub pszTitle: ::windows_core::PCSTR,
-    pub szFilterTag: [u8; 48],
-    pub szFilter: [u8; 128],
+    pub szFilterTag: [i8; 48],
+    pub szFilter: [i8; 128],
     pub pszName: ::windows_core::PSTR,
     pub cchName: u32,
     pub fdwEnum: u32,
@@ -5077,7 +5077,7 @@ pub struct ACMFILTERDETAILSA {
     pub fdwSupport: u32,
     pub pwfltr: *mut WAVEFILTER,
     pub cbwfltr: u32,
-    pub szFilter: [u8; 128],
+    pub szFilter: [i8; 128],
 }
 impl ::core::marker::Copy for ACMFILTERDETAILSA {}
 impl ::core::clone::Clone for ACMFILTERDETAILSA {
@@ -5125,7 +5125,7 @@ pub struct ACMFILTERTAGDETAILSA {
     pub cbFilterSize: u32,
     pub fdwSupport: u32,
     pub cStandardFilters: u32,
-    pub szFilterTag: [u8; 48],
+    pub szFilterTag: [i8; 48],
 }
 impl ::core::marker::Copy for ACMFILTERTAGDETAILSA {}
 impl ::core::clone::Clone for ACMFILTERTAGDETAILSA {
@@ -5173,8 +5173,8 @@ pub struct ACMFORMATCHOOSEA {
     pub pwfx: *mut WAVEFORMATEX,
     pub cbwfx: u32,
     pub pszTitle: ::windows_core::PCSTR,
-    pub szFormatTag: [u8; 48],
-    pub szFormat: [u8; 128],
+    pub szFormatTag: [i8; 48],
+    pub szFormat: [i8; 128],
     pub pszName: ::windows_core::PSTR,
     pub cchName: u32,
     pub fdwEnum: u32,
@@ -5239,7 +5239,7 @@ pub struct ACMFORMATDETAILSA {
     pub fdwSupport: u32,
     pub pwfx: *mut WAVEFORMATEX,
     pub cbwfx: u32,
-    pub szFormat: [u8; 128],
+    pub szFormat: [i8; 128],
 }
 impl ::core::marker::Copy for ACMFORMATDETAILSA {}
 impl ::core::clone::Clone for ACMFORMATDETAILSA {
@@ -5263,7 +5263,7 @@ pub struct ACMFORMATTAGDETAILSA {
     pub cbFormatSize: u32,
     pub fdwSupport: u32,
     pub cStandardFormats: u32,
-    pub szFormatTag: [u8; 48],
+    pub szFormatTag: [i8; 48],
 }
 impl ::core::marker::Copy for ACMFORMATTAGDETAILSA {}
 impl ::core::clone::Clone for ACMFORMATTAGDETAILSA {
@@ -5543,7 +5543,7 @@ pub struct AUXCAPS2A {
     pub wMid: u16,
     pub wPid: u16,
     pub vDriverVersion: u32,
-    pub szPname: [u8; 32],
+    pub szPname: [i8; 32],
     pub wTechnology: u16,
     pub wReserved1: u16,
     pub dwSupport: u32,
@@ -5597,7 +5597,7 @@ pub struct AUXCAPSA {
     pub wMid: u16,
     pub wPid: u16,
     pub vDriverVersion: u32,
-    pub szPname: [u8; 32],
+    pub szPname: [i8; 32],
     pub wTechnology: u16,
     pub wReserved1: u16,
     pub dwSupport: u32,
@@ -6186,7 +6186,7 @@ pub struct MIDIINCAPS2A {
     pub wMid: u16,
     pub wPid: u16,
     pub vDriverVersion: u32,
-    pub szPname: [u8; 32],
+    pub szPname: [i8; 32],
     pub dwSupport: u32,
     pub ManufacturerGuid: ::windows_core::GUID,
     pub ProductGuid: ::windows_core::GUID,
@@ -6236,7 +6236,7 @@ pub struct MIDIINCAPSA {
     pub wMid: u16,
     pub wPid: u16,
     pub vDriverVersion: u32,
-    pub szPname: [u8; 32],
+    pub szPname: [i8; 32],
     pub dwSupport: u32,
 }
 impl ::core::marker::Copy for MIDIINCAPSA {}
@@ -6280,7 +6280,7 @@ pub struct MIDIOUTCAPS2A {
     pub wMid: u16,
     pub wPid: u16,
     pub vDriverVersion: u32,
-    pub szPname: [u8; 32],
+    pub szPname: [i8; 32],
     pub wTechnology: u16,
     pub wVoices: u16,
     pub wNotes: u16,
@@ -6338,7 +6338,7 @@ pub struct MIDIOUTCAPSA {
     pub wMid: u16,
     pub wPid: u16,
     pub vDriverVersion: u32,
-    pub szPname: [u8; 32],
+    pub szPname: [i8; 32],
     pub wTechnology: u16,
     pub wVoices: u16,
     pub wNotes: u16,
@@ -6448,7 +6448,7 @@ pub struct MIXERCAPS2A {
     pub wMid: u16,
     pub wPid: u16,
     pub vDriverVersion: u32,
-    pub szPname: [u8; 32],
+    pub szPname: [i8; 32],
     pub fdwSupport: u32,
     pub cDestinations: u32,
     pub ManufacturerGuid: ::windows_core::GUID,
@@ -6500,7 +6500,7 @@ pub struct MIXERCAPSA {
     pub wMid: u16,
     pub wPid: u16,
     pub vDriverVersion: u32,
-    pub szPname: [u8; 32],
+    pub szPname: [i8; 32],
     pub fdwSupport: u32,
     pub cDestinations: u32,
 }
@@ -6548,8 +6548,8 @@ pub struct MIXERCONTROLA {
     pub dwControlType: u32,
     pub fdwControl: u32,
     pub cMultipleItems: u32,
-    pub szShortName: [u8; 16],
-    pub szName: [u8; 64],
+    pub szShortName: [i8; 16],
+    pub szName: [i8; 64],
     pub Bounds: MIXERCONTROLA_0,
     pub Metrics: MIXERCONTROLA_1,
 }
@@ -6709,7 +6709,7 @@ impl ::core::default::Default for MIXERCONTROLDETAILS_BOOLEAN {
 pub struct MIXERCONTROLDETAILS_LISTTEXTA {
     pub dwParam1: u32,
     pub dwParam2: u32,
-    pub szName: [u8; 64],
+    pub szName: [i8; 64],
 }
 impl ::core::marker::Copy for MIXERCONTROLDETAILS_LISTTEXTA {}
 impl ::core::clone::Clone for MIXERCONTROLDETAILS_LISTTEXTA {
@@ -6897,8 +6897,8 @@ pub struct MIXERLINEA {
     pub cChannels: u32,
     pub cConnections: u32,
     pub cControls: u32,
-    pub szShortName: [u8; 16],
-    pub szName: [u8; 64],
+    pub szShortName: [i8; 16],
+    pub szName: [i8; 64],
     pub Target: MIXERLINEA_0,
 }
 impl ::core::marker::Copy for MIXERLINEA {}
@@ -6922,7 +6922,7 @@ pub struct MIXERLINEA_0 {
     pub wMid: u16,
     pub wPid: u16,
     pub vDriverVersion: u32,
-    pub szPname: [u8; 32],
+    pub szPname: [i8; 32],
 }
 impl ::core::marker::Copy for MIXERLINEA_0 {}
 impl ::core::clone::Clone for MIXERLINEA_0 {
@@ -7539,7 +7539,7 @@ pub struct WAVEINCAPS2A {
     pub wMid: u16,
     pub wPid: u16,
     pub vDriverVersion: u32,
-    pub szPname: [u8; 32],
+    pub szPname: [i8; 32],
     pub dwFormats: u32,
     pub wChannels: u16,
     pub wReserved1: u16,
@@ -7593,7 +7593,7 @@ pub struct WAVEINCAPSA {
     pub wMid: u16,
     pub wPid: u16,
     pub vDriverVersion: u32,
-    pub szPname: [u8; 32],
+    pub szPname: [i8; 32],
     pub dwFormats: u32,
     pub wChannels: u16,
     pub wReserved1: u16,
@@ -7641,7 +7641,7 @@ pub struct WAVEOUTCAPS2A {
     pub wMid: u16,
     pub wPid: u16,
     pub vDriverVersion: u32,
-    pub szPname: [u8; 32],
+    pub szPname: [i8; 32],
     pub dwFormats: u32,
     pub wChannels: u16,
     pub wReserved1: u16,
@@ -7697,7 +7697,7 @@ pub struct WAVEOUTCAPSA {
     pub wMid: u16,
     pub wPid: u16,
     pub vDriverVersion: u32,
-    pub szPname: [u8; 32],
+    pub szPname: [i8; 32],
     pub dwFormats: u32,
     pub wChannels: u16,
     pub wReserved1: u16,

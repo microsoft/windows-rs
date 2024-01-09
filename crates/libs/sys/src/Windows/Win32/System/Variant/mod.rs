@@ -321,7 +321,7 @@ pub union VARIANT_0_0_0 {
     pub pparray: *mut *mut super::Com::SAFEARRAY,
     pub pvarVal: *mut VARIANT,
     pub byref: *mut ::core::ffi::c_void,
-    pub cVal: u8,
+    pub cVal: i8,
     pub uiVal: u16,
     pub ulVal: u32,
     pub ullVal: u64,

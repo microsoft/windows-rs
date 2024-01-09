@@ -1732,13 +1732,13 @@ where
     InternalGetWindowText(hwnd.into_param().abi(), ::core::mem::transmute(pstring.as_ptr()), pstring.len().try_into().unwrap())
 }
 #[inline]
-pub unsafe fn IsCharAlphaA(ch: u8) -> ::windows_core::Result<()> {
-    ::windows_targets::link!("user32.dll" "system" fn IsCharAlphaA(ch : u8) -> super::super::Foundation:: BOOL);
+pub unsafe fn IsCharAlphaA(ch: i8) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("user32.dll" "system" fn IsCharAlphaA(ch : i8) -> super::super::Foundation:: BOOL);
     IsCharAlphaA(ch).ok()
 }
 #[inline]
-pub unsafe fn IsCharAlphaNumericA(ch: u8) -> ::windows_core::Result<()> {
-    ::windows_targets::link!("user32.dll" "system" fn IsCharAlphaNumericA(ch : u8) -> super::super::Foundation:: BOOL);
+pub unsafe fn IsCharAlphaNumericA(ch: i8) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("user32.dll" "system" fn IsCharAlphaNumericA(ch : i8) -> super::super::Foundation:: BOOL);
     IsCharAlphaNumericA(ch).ok()
 }
 #[inline]
@@ -1752,13 +1752,13 @@ pub unsafe fn IsCharAlphaW(ch: u16) -> ::windows_core::Result<()> {
     IsCharAlphaW(ch).ok()
 }
 #[inline]
-pub unsafe fn IsCharLowerA(ch: u8) -> ::windows_core::Result<()> {
-    ::windows_targets::link!("user32.dll" "system" fn IsCharLowerA(ch : u8) -> super::super::Foundation:: BOOL);
+pub unsafe fn IsCharLowerA(ch: i8) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("user32.dll" "system" fn IsCharLowerA(ch : i8) -> super::super::Foundation:: BOOL);
     IsCharLowerA(ch).ok()
 }
 #[inline]
-pub unsafe fn IsCharUpperA(ch: u8) -> ::windows_core::Result<()> {
-    ::windows_targets::link!("user32.dll" "system" fn IsCharUpperA(ch : u8) -> super::super::Foundation:: BOOL);
+pub unsafe fn IsCharUpperA(ch: i8) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("user32.dll" "system" fn IsCharUpperA(ch : i8) -> super::super::Foundation:: BOOL);
     IsCharUpperA(ch).ok()
 }
 #[inline]
@@ -8169,7 +8169,7 @@ pub struct DEV_BROADCAST_DEVICEINTERFACE_A {
     pub dbcc_devicetype: u32,
     pub dbcc_reserved: u32,
     pub dbcc_classguid: ::windows_core::GUID,
-    pub dbcc_name: [u8; 1],
+    pub dbcc_name: [i8; 1],
 }
 impl ::core::marker::Copy for DEV_BROADCAST_DEVICEINTERFACE_A {}
 impl ::core::clone::Clone for DEV_BROADCAST_DEVICEINTERFACE_A {
@@ -8471,7 +8471,7 @@ pub struct DEV_BROADCAST_PORT_A {
     pub dbcp_size: u32,
     pub dbcp_devicetype: u32,
     pub dbcp_reserved: u32,
-    pub dbcp_name: [u8; 1],
+    pub dbcp_name: [i8; 1],
 }
 impl ::core::marker::Copy for DEV_BROADCAST_PORT_A {}
 impl ::core::clone::Clone for DEV_BROADCAST_PORT_A {
@@ -9117,8 +9117,8 @@ pub struct ICONINFOEXA {
     pub hbmMask: super::super::Graphics::Gdi::HBITMAP,
     pub hbmColor: super::super::Graphics::Gdi::HBITMAP,
     pub wResID: u16,
-    pub szModName: [u8; 260],
-    pub szResName: [u8; 260],
+    pub szModName: [i8; 260],
+    pub szResName: [i8; 260],
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::marker::Copy for ICONINFOEXA {}
@@ -11112,7 +11112,7 @@ impl ::core::default::Default for _DEV_BROADCAST_HEADER {
 #[repr(C)]
 pub struct _DEV_BROADCAST_USERDEFINED {
     pub dbud_dbh: DEV_BROADCAST_HDR,
-    pub dbud_szName: [u8; 1],
+    pub dbud_szName: [i8; 1],
 }
 impl ::core::marker::Copy for _DEV_BROADCAST_USERDEFINED {}
 impl ::core::clone::Clone for _DEV_BROADCAST_USERDEFINED {

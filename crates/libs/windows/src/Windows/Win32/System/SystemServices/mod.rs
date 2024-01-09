@@ -4989,7 +4989,7 @@ impl ::core::default::Default for IMAGE_HOT_PATCH_INFO {
 #[repr(C)]
 pub struct IMAGE_IMPORT_BY_NAME {
     pub Hint: u16,
-    pub Name: [u8; 1],
+    pub Name: [i8; 1],
 }
 impl ::core::marker::Copy for IMAGE_IMPORT_BY_NAME {}
 impl ::core::clone::Clone for IMAGE_IMPORT_BY_NAME {
@@ -5134,8 +5134,8 @@ impl ::core::default::Default for IMAGE_LINENUMBER_0 {
 #[repr(C, packed(2))]
 pub struct IMAGE_OS2_HEADER {
     pub ne_magic: u16,
-    pub ne_ver: u8,
-    pub ne_rev: u8,
+    pub ne_ver: i8,
+    pub ne_rev: i8,
     pub ne_enttab: u16,
     pub ne_cbenttab: u16,
     pub ne_crc: i32,
@@ -5501,7 +5501,7 @@ impl ::core::default::Default for IMAGE_RESOURCE_DIRECTORY_ENTRY_1_0 {
 #[repr(C)]
 pub struct IMAGE_RESOURCE_DIRECTORY_STRING {
     pub Length: u16,
-    pub NameString: [u8; 1],
+    pub NameString: [i8; 1],
 }
 impl ::core::marker::Copy for IMAGE_RESOURCE_DIRECTORY_STRING {}
 impl ::core::clone::Clone for IMAGE_RESOURCE_DIRECTORY_STRING {

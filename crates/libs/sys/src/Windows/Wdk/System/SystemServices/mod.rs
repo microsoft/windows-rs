@@ -1575,7 +1575,7 @@
 ::windows_targets::link!("ntdll.dll" "system" fn RtlUnicodeToUTF8N(utf8stringdestination : ::windows_sys::core::PSTR, utf8stringmaxbytecount : u32, utf8stringactualbytecount : *mut u32, unicodestringsource : *const u16, unicodestringbytecount : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
 ::windows_targets::link!("ntdll.dll" "system" fn RtlUpcaseUnicodeChar(sourcecharacter : u16) -> u16);
 ::windows_targets::link!("ntdll.dll" "system" fn RtlUpcaseUnicodeString(destinationstring : *mut super::super::super::Win32::Foundation:: UNICODE_STRING, sourcestring : *const super::super::super::Win32::Foundation:: UNICODE_STRING, allocatedestinationstring : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
-::windows_targets::link!("ntdll.dll" "system" fn RtlUpperChar(character : u8) -> u8);
+::windows_targets::link!("ntdll.dll" "system" fn RtlUpperChar(character : i8) -> i8);
 #[cfg(feature = "Win32_System_Kernel")]
 ::windows_targets::link!("ntdll.dll" "system" #[doc = "Required features: `\"Win32_System_Kernel\"`"] fn RtlUpperString(destinationstring : *mut super::super::super::Win32::System::Kernel:: STRING, sourcestring : *const super::super::super::Win32::System::Kernel:: STRING));
 #[cfg(feature = "Win32_Security")]
@@ -5269,7 +5269,7 @@ impl ::core::clone::Clone for CM_EISA_SLOT_INFORMATION {
 pub struct CM_FLOPPY_DEVICE_DATA {
     pub Version: u16,
     pub Revision: u16,
-    pub Size: [u8; 8],
+    pub Size: [i8; 8],
     pub MaxDensity: u32,
     pub MountDensity: u32,
     pub StepRateHeadUnloadTime: u8,
@@ -14885,7 +14885,7 @@ pub struct RTL_BALANCED_LINKS {
     pub Parent: *mut RTL_BALANCED_LINKS,
     pub LeftChild: *mut RTL_BALANCED_LINKS,
     pub RightChild: *mut RTL_BALANCED_LINKS,
-    pub Balance: u8,
+    pub Balance: i8,
     pub Reserved: [u8; 3],
 }
 impl ::core::marker::Copy for RTL_BALANCED_LINKS {}
@@ -15156,7 +15156,7 @@ pub struct SOC_SUBSYSTEM_FAILURE_DETAILS {
     pub FirmwareVersion: u64,
     pub HardwareVersion: u64,
     pub UnifiedFailureRegionSize: u32,
-    pub UnifiedFailureRegion: [u8; 1],
+    pub UnifiedFailureRegion: [i8; 1],
 }
 impl ::core::marker::Copy for SOC_SUBSYSTEM_FAILURE_DETAILS {}
 impl ::core::clone::Clone for SOC_SUBSYSTEM_FAILURE_DETAILS {
@@ -15582,8 +15582,8 @@ impl ::core::clone::Clone for WHEA128A {
 #[repr(C)]
 pub struct WHEAP_ACPI_TIMEOUT_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
-    pub TableType: [u8; 32],
-    pub TableRequest: [u8; 32],
+    pub TableType: [i8; 32],
+    pub TableRequest: [i8; 32],
 }
 impl ::core::marker::Copy for WHEAP_ACPI_TIMEOUT_EVENT {}
 impl ::core::clone::Clone for WHEAP_ACPI_TIMEOUT_EVENT {
@@ -15692,7 +15692,7 @@ impl ::core::clone::Clone for WHEAP_CMCI_RESTART_EVENT {
 #[repr(C, packed(1))]
 pub struct WHEAP_CREATE_GENERIC_RECORD_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
-    pub Error: [u8; 32],
+    pub Error: [i8; 32],
     pub EntryCount: u32,
     pub Status: super::super::super::Win32::Foundation::NTSTATUS,
 }
@@ -15720,7 +15720,7 @@ impl ::core::clone::Clone for WHEAP_DEFERRED_EVENT {
 #[repr(C)]
 pub struct WHEAP_DEVICE_DRV_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
-    pub Function: [u8; 32],
+    pub Function: [i8; 32],
 }
 impl ::core::marker::Copy for WHEAP_DEVICE_DRV_EVENT {}
 impl ::core::clone::Clone for WHEAP_DEVICE_DRV_EVENT {
@@ -15814,7 +15814,7 @@ impl ::core::clone::Clone for WHEAP_ERR_SRC_ARRAY_INVALID_EVENT {
 pub struct WHEAP_ERR_SRC_INVALID_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub ErrDescriptor: super::super::super::Win32::System::Diagnostics::Debug::WHEA_ERROR_SOURCE_DESCRIPTOR,
-    pub Error: [u8; 32],
+    pub Error: [i8; 32],
 }
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl ::core::marker::Copy for WHEAP_ERR_SRC_INVALID_EVENT {}
@@ -15841,7 +15841,7 @@ impl ::core::clone::Clone for WHEAP_FOUND_ERROR_IN_BANK_EVENT {
 #[repr(C, packed(1))]
 pub struct WHEAP_GENERIC_ERR_MEM_MAP_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
-    pub MapReason: [u8; 32],
+    pub MapReason: [i8; 32],
     pub PhysicalAddress: u64,
     pub Length: u64,
 }
@@ -16002,7 +16002,7 @@ impl ::core::clone::Clone for WHEAP_PLUGIN_PFA_EVENT {
 #[repr(C, packed(1))]
 pub struct WHEAP_PROCESS_EINJ_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
-    pub Error: [u8; 32],
+    pub Error: [i8; 32],
     pub InjectionActionTableValid: super::super::super::Win32::Foundation::BOOLEAN,
     pub BeginInjectionInstructionCount: u32,
     pub GetTriggerErrorActionTableInstructionCount: u32,
@@ -16024,8 +16024,8 @@ impl ::core::clone::Clone for WHEAP_PROCESS_EINJ_EVENT {
 #[repr(C, packed(1))]
 pub struct WHEAP_PROCESS_HEST_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
-    pub Error: [u8; 32],
-    pub EntryType: [u8; 32],
+    pub Error: [i8; 32],
+    pub EntryType: [i8; 32],
     pub EntryIndex: u32,
     pub HestValid: super::super::super::Win32::Foundation::BOOLEAN,
     pub CmcCount: u32,

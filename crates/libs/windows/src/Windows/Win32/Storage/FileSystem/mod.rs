@@ -10349,9 +10349,9 @@ impl ::core::default::Default for NTMS_ASYNC_IO {
 pub struct NTMS_CHANGERINFORMATIONA {
     pub Number: u32,
     pub ChangerType: ::windows_core::GUID,
-    pub szSerialNumber: [u8; 32],
-    pub szRevision: [u8; 32],
-    pub szDeviceName: [u8; 64],
+    pub szSerialNumber: [i8; 32],
+    pub szRevision: [i8; 32],
+    pub szDeviceName: [i8; 64],
     pub ScsiPort: u16,
     pub ScsiBus: u16,
     pub ScsiTarget: u16,
@@ -10423,8 +10423,8 @@ impl ::core::default::Default for NTMS_CHANGERINFORMATIONW {
 }
 #[repr(C)]
 pub struct NTMS_CHANGERTYPEINFORMATIONA {
-    pub szVendor: [u8; 128],
-    pub szProduct: [u8; 128],
+    pub szVendor: [i8; 128],
+    pub szProduct: [i8; 128],
     pub DeviceType: u32,
 }
 impl ::core::marker::Copy for NTMS_CHANGERTYPEINFORMATIONA {}
@@ -10521,9 +10521,9 @@ pub struct NTMS_DRIVEINFORMATIONA {
     pub Number: u32,
     pub State: u32,
     pub DriveType: ::windows_core::GUID,
-    pub szDeviceName: [u8; 64],
-    pub szSerialNumber: [u8; 32],
-    pub szRevision: [u8; 32],
+    pub szDeviceName: [i8; 64],
+    pub szSerialNumber: [i8; 32],
+    pub szRevision: [i8; 32],
     pub ScsiPort: u16,
     pub ScsiBus: u16,
     pub ScsiTarget: u16,
@@ -10640,8 +10640,8 @@ impl ::core::default::Default for NTMS_DRIVEINFORMATIONW {
 }
 #[repr(C)]
 pub struct NTMS_DRIVETYPEINFORMATIONA {
-    pub szVendor: [u8; 128],
-    pub szProduct: [u8; 128],
+    pub szVendor: [i8; 128],
+    pub szProduct: [i8; 128],
     pub NumberOfHeads: u32,
     pub DeviceType: FILE_DEVICE_TYPE,
 }
@@ -10836,9 +10836,9 @@ pub struct NTMS_I1_LIBREQUESTINFORMATIONA {
     pub SlotId: ::windows_core::GUID,
     pub TimeQueued: super::super::Foundation::SYSTEMTIME,
     pub TimeCompleted: super::super::Foundation::SYSTEMTIME,
-    pub szApplication: [u8; 64],
-    pub szUser: [u8; 64],
-    pub szComputer: [u8; 64],
+    pub szApplication: [i8; 64],
+    pub szUser: [i8; 64],
+    pub szComputer: [i8; 64],
 }
 impl ::core::marker::Copy for NTMS_I1_LIBREQUESTINFORMATIONA {}
 impl ::core::clone::Clone for NTMS_I1_LIBREQUESTINFORMATIONA {
@@ -10943,8 +10943,8 @@ pub struct NTMS_I1_OBJECTINFORMATIONA {
     pub ObjectGuid: ::windows_core::GUID,
     pub Enabled: super::super::Foundation::BOOL,
     pub dwOperationalState: u32,
-    pub szName: [u8; 64],
-    pub szDescription: [u8; 127],
+    pub szName: [i8; 64],
+    pub szDescription: [i8; 127],
     pub Info: NTMS_I1_OBJECTINFORMATIONA_0,
 }
 impl ::core::marker::Copy for NTMS_I1_OBJECTINFORMATIONA {}
@@ -11057,14 +11057,14 @@ pub struct NTMS_I1_OPREQUESTINFORMATIONA {
     pub Request: u32,
     pub Submitted: super::super::Foundation::SYSTEMTIME,
     pub State: u32,
-    pub szMessage: [u8; 127],
+    pub szMessage: [i8; 127],
     pub Arg1Type: u32,
     pub Arg1: ::windows_core::GUID,
     pub Arg2Type: u32,
     pub Arg2: ::windows_core::GUID,
-    pub szApplication: [u8; 64],
-    pub szUser: [u8; 64],
-    pub szComputer: [u8; 64],
+    pub szApplication: [i8; 64],
+    pub szUser: [i8; 64],
+    pub szComputer: [i8; 64],
 }
 impl ::core::marker::Copy for NTMS_I1_OPREQUESTINFORMATIONA {}
 impl ::core::clone::Clone for NTMS_I1_OPREQUESTINFORMATIONA {
@@ -11138,8 +11138,8 @@ pub struct NTMS_I1_PARTITIONINFORMATIONA {
     pub Side: u16,
     pub dwOmidLabelIdLength: u32,
     pub OmidLabelId: [u8; 255],
-    pub szOmidLabelType: [u8; 64],
-    pub szOmidLabelInfo: [u8; 256],
+    pub szOmidLabelType: [i8; 64],
+    pub szOmidLabelInfo: [i8; 256],
     pub dwMountCount: u32,
     pub dwAllocateCount: u32,
 }
@@ -11214,9 +11214,9 @@ pub struct NTMS_I1_PMIDINFORMATIONA {
     pub LocationType: u32,
     pub MediaType: ::windows_core::GUID,
     pub HomeSlot: ::windows_core::GUID,
-    pub szBarCode: [u8; 64],
+    pub szBarCode: [i8; 64],
     pub BarCodeState: u32,
-    pub szSequenceNumber: [u8; 32],
+    pub szSequenceNumber: [i8; 32],
     pub MediaState: u32,
     pub dwNumberOfPartitions: u32,
 }
@@ -11482,9 +11482,9 @@ pub struct NTMS_LIBREQUESTINFORMATIONA {
     pub SlotId: ::windows_core::GUID,
     pub TimeQueued: super::super::Foundation::SYSTEMTIME,
     pub TimeCompleted: super::super::Foundation::SYSTEMTIME,
-    pub szApplication: [u8; 64],
-    pub szUser: [u8; 64],
-    pub szComputer: [u8; 64],
+    pub szApplication: [i8; 64],
+    pub szUser: [i8; 64],
+    pub szComputer: [i8; 64],
     pub dwErrorCode: u32,
     pub WorkItemId: ::windows_core::GUID,
     pub dwPriority: u32,
@@ -11770,8 +11770,8 @@ pub struct NTMS_OBJECTINFORMATIONA {
     pub ObjectGuid: ::windows_core::GUID,
     pub Enabled: super::super::Foundation::BOOL,
     pub dwOperationalState: u32,
-    pub szName: [u8; 64],
-    pub szDescription: [u8; 127],
+    pub szName: [i8; 64],
+    pub szDescription: [i8; 127],
     pub Info: NTMS_OBJECTINFORMATIONA_0,
 }
 impl ::core::marker::Copy for NTMS_OBJECTINFORMATIONA {}
@@ -11886,14 +11886,14 @@ pub struct NTMS_OPREQUESTINFORMATIONA {
     pub Request: u32,
     pub Submitted: super::super::Foundation::SYSTEMTIME,
     pub State: u32,
-    pub szMessage: [u8; 256],
+    pub szMessage: [i8; 256],
     pub Arg1Type: u32,
     pub Arg1: ::windows_core::GUID,
     pub Arg2Type: u32,
     pub Arg2: ::windows_core::GUID,
-    pub szApplication: [u8; 64],
-    pub szUser: [u8; 64],
-    pub szComputer: [u8; 64],
+    pub szApplication: [i8; 64],
+    pub szUser: [i8; 64],
+    pub szComputer: [i8; 64],
 }
 impl ::core::marker::Copy for NTMS_OPREQUESTINFORMATIONA {}
 impl ::core::clone::Clone for NTMS_OPREQUESTINFORMATIONA {
@@ -11967,8 +11967,8 @@ pub struct NTMS_PARTITIONINFORMATIONA {
     pub Side: u16,
     pub dwOmidLabelIdLength: u32,
     pub OmidLabelId: [u8; 255],
-    pub szOmidLabelType: [u8; 64],
-    pub szOmidLabelInfo: [u8; 256],
+    pub szOmidLabelType: [i8; 64],
+    pub szOmidLabelInfo: [i8; 256],
     pub dwMountCount: u32,
     pub dwAllocateCount: u32,
     pub Capacity: i64,
@@ -12069,9 +12069,9 @@ pub struct NTMS_PMIDINFORMATIONA {
     pub LocationType: u32,
     pub MediaType: ::windows_core::GUID,
     pub HomeSlot: ::windows_core::GUID,
-    pub szBarCode: [u8; 64],
+    pub szBarCode: [i8; 64],
     pub BarCodeState: u32,
-    pub szSequenceNumber: [u8; 32],
+    pub szSequenceNumber: [i8; 32],
     pub MediaState: u32,
     pub dwNumberOfPartitions: u32,
     pub dwMediaTypeCode: u32,
@@ -12213,7 +12213,7 @@ pub struct OFSTRUCT {
     pub nErrCode: u16,
     pub Reserved1: u16,
     pub Reserved2: u16,
-    pub szPathName: [u8; 128],
+    pub szPathName: [i8; 128],
 }
 impl ::core::marker::Copy for OFSTRUCT {}
 impl ::core::clone::Clone for OFSTRUCT {
@@ -14289,8 +14289,8 @@ pub struct WIN32_FIND_DATAA {
     pub nFileSizeLow: u32,
     pub dwReserved0: u32,
     pub dwReserved1: u32,
-    pub cFileName: [u8; 260],
-    pub cAlternateFileName: [u8; 14],
+    pub cFileName: [i8; 260],
+    pub cAlternateFileName: [i8; 14],
 }
 impl ::core::marker::Copy for WIN32_FIND_DATAA {}
 impl ::core::clone::Clone for WIN32_FIND_DATAA {

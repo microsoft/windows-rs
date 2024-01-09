@@ -832,8 +832,8 @@ pub mod Minifilters;
 ::windows_targets::link!("ntdll.dll" "system" #[doc = "Required features: `\"Win32_System_Kernel\"`"] fn RtlPrefixString(string1 : *const super::super::super::Win32::System::Kernel:: STRING, string2 : *const super::super::super::Win32::System::Kernel:: STRING, caseinsensitive : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: BOOLEAN);
 ::windows_targets::link!("ntdll.dll" "system" fn RtlQueryPackageIdentity(tokenobject : *const ::core::ffi::c_void, packagefullname : ::windows_sys::core::PWSTR, packagesize : *mut usize, appid : ::windows_sys::core::PWSTR, appidsize : *mut usize, packaged : *mut super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
 ::windows_targets::link!("ntdll.dll" "system" fn RtlQueryPackageIdentityEx(tokenobject : *const ::core::ffi::c_void, packagefullname : ::windows_sys::core::PWSTR, packagesize : *mut usize, appid : ::windows_sys::core::PWSTR, appidsize : *mut usize, dynamicid : *mut ::windows_sys::core::GUID, flags : *mut u64) -> super::super::super::Win32::Foundation:: NTSTATUS);
-::windows_targets::link!("ntdll.dll" "system" fn RtlQueryProcessPlaceholderCompatibilityMode() -> u8);
-::windows_targets::link!("ntdll.dll" "system" fn RtlQueryThreadPlaceholderCompatibilityMode() -> u8);
+::windows_targets::link!("ntdll.dll" "system" fn RtlQueryProcessPlaceholderCompatibilityMode() -> i8);
+::windows_targets::link!("ntdll.dll" "system" fn RtlQueryThreadPlaceholderCompatibilityMode() -> i8);
 ::windows_targets::link!("ntdll.dll" "system" fn RtlRandom(seed : *mut u32) -> u32);
 ::windows_targets::link!("ntdll.dll" "system" fn RtlRandomEx(seed : *mut u32) -> u32);
 #[cfg(feature = "Wdk_Foundation")]
@@ -849,8 +849,8 @@ pub mod Minifilters;
 ::windows_targets::link!("ntdll.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn RtlSetGroupSecurityDescriptor(securitydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, group : super::super::super::Win32::Foundation:: PSID, groupdefaulted : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
 #[cfg(feature = "Win32_Security")]
 ::windows_targets::link!("ntdll.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn RtlSetOwnerSecurityDescriptor(securitydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, owner : super::super::super::Win32::Foundation:: PSID, ownerdefaulted : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
-::windows_targets::link!("ntdll.dll" "system" fn RtlSetProcessPlaceholderCompatibilityMode(mode : u8) -> u8);
-::windows_targets::link!("ntdll.dll" "system" fn RtlSetThreadPlaceholderCompatibilityMode(mode : u8) -> u8);
+::windows_targets::link!("ntdll.dll" "system" fn RtlSetProcessPlaceholderCompatibilityMode(mode : i8) -> i8);
+::windows_targets::link!("ntdll.dll" "system" fn RtlSetThreadPlaceholderCompatibilityMode(mode : i8) -> i8);
 ::windows_targets::link!("ntdll.dll" "system" fn RtlSubAuthorityCountSid(sid : super::super::super::Win32::Foundation:: PSID) -> *mut u8);
 ::windows_targets::link!("ntdll.dll" "system" fn RtlSubAuthoritySid(sid : super::super::super::Win32::Foundation:: PSID, subauthority : u32) -> *mut u32);
 ::windows_targets::link!("ntdll.dll" "system" fn RtlTimeToSecondsSince1980(time : *const i64, elapsedseconds : *mut u32) -> super::super::super::Win32::Foundation:: BOOLEAN);
@@ -2599,7 +2599,7 @@ pub struct FILE_FULL_EA_INFORMATION {
     pub Flags: u8,
     pub EaNameLength: u8,
     pub EaValueLength: u16,
-    pub EaName: [u8; 1],
+    pub EaName: [i8; 1],
 }
 impl ::core::marker::Copy for FILE_FULL_EA_INFORMATION {}
 impl ::core::clone::Clone for FILE_FULL_EA_INFORMATION {
@@ -2611,7 +2611,7 @@ impl ::core::clone::Clone for FILE_FULL_EA_INFORMATION {
 pub struct FILE_GET_EA_INFORMATION {
     pub NextEntryOffset: u32,
     pub EaNameLength: u8,
-    pub EaName: [u8; 1],
+    pub EaName: [i8; 1],
 }
 impl ::core::marker::Copy for FILE_GET_EA_INFORMATION {}
 impl ::core::clone::Clone for FILE_GET_EA_INFORMATION {
@@ -3189,7 +3189,7 @@ pub struct FILE_PIPE_PEEK_BUFFER {
     pub ReadDataAvailable: u32,
     pub NumberOfMessages: u32,
     pub MessageLength: u32,
-    pub Data: [u8; 1],
+    pub Data: [i8; 1],
 }
 impl ::core::marker::Copy for FILE_PIPE_PEEK_BUFFER {}
 impl ::core::clone::Clone for FILE_PIPE_PEEK_BUFFER {
@@ -3489,7 +3489,7 @@ impl ::core::clone::Clone for FILE_TIMESTAMPS {
 pub struct FILE_TRACKING_INFORMATION {
     pub DestinationFile: super::super::super::Win32::Foundation::HANDLE,
     pub ObjectInformationLength: u32,
-    pub ObjectInformation: [u8; 1],
+    pub ObjectInformation: [i8; 1],
 }
 impl ::core::marker::Copy for FILE_TRACKING_INFORMATION {}
 impl ::core::clone::Clone for FILE_TRACKING_INFORMATION {

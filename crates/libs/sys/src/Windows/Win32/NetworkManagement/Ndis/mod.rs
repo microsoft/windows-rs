@@ -3388,7 +3388,7 @@ pub struct NDIS_WMI_ENUM_ADAPTER {
     pub IfIndex: u32,
     pub NetLuid: NET_LUID_LH,
     pub DeviceNameLength: u16,
-    pub DeviceName: [u8; 1],
+    pub DeviceName: [i8; 1],
 }
 impl ::core::marker::Copy for NDIS_WMI_ENUM_ADAPTER {}
 impl ::core::clone::Clone for NDIS_WMI_ENUM_ADAPTER {

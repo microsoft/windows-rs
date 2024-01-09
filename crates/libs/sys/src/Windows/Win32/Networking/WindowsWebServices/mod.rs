@@ -2750,8 +2750,8 @@ impl ::core::clone::Clone for WS_INT64_DESCRIPTION {
 }
 #[repr(C)]
 pub struct WS_INT8_DESCRIPTION {
-    pub minValue: u8,
-    pub maxValue: u8,
+    pub minValue: i8,
+    pub maxValue: i8,
 }
 impl ::core::marker::Copy for WS_INT8_DESCRIPTION {}
 impl ::core::clone::Clone for WS_INT8_DESCRIPTION {

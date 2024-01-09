@@ -106,7 +106,7 @@ pub type UI_INFO_TYPE = i32;
 #[repr(C)]
 pub struct DIAG_SOCKADDR {
     pub family: u16,
-    pub data: [u8; 126],
+    pub data: [i8; 126],
 }
 impl ::core::marker::Copy for DIAG_SOCKADDR {}
 impl ::core::clone::Clone for DIAG_SOCKADDR {

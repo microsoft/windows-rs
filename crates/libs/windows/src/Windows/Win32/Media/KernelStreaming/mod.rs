@@ -8277,7 +8277,7 @@ pub struct KSGOP_USERDATA {
     pub sc: u32,
     pub reserved1: u32,
     pub cFields: u8,
-    pub l21Data: [u8; 3],
+    pub l21Data: [i8; 3],
 }
 impl ::core::marker::Copy for KSGOP_USERDATA {}
 impl ::core::clone::Clone for KSGOP_USERDATA {

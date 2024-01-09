@@ -6,7 +6,7 @@
 ::windows_targets::link!("wldap32.dll" "cdecl" fn ber_bvdup(pberval : *mut LDAP_BERVAL) -> *mut LDAP_BERVAL);
 ::windows_targets::link!("wldap32.dll" "cdecl" fn ber_bvecfree(pberval : *mut *mut LDAP_BERVAL));
 ::windows_targets::link!("wldap32.dll" "cdecl" fn ber_bvfree(bv : *mut LDAP_BERVAL));
-::windows_targets::link!("wldap32.dll" "cdecl" fn ber_first_element(pberelement : *mut BerElement, plen : *mut u32, ppopaque : *mut *mut u8) -> u32);
+::windows_targets::link!("wldap32.dll" "cdecl" fn ber_first_element(pberelement : *mut BerElement, plen : *mut u32, ppopaque : *mut *mut i8) -> u32);
 ::windows_targets::link!("wldap32.dll" "cdecl" fn ber_flatten(pberelement : *mut BerElement, pberval : *mut *mut LDAP_BERVAL) -> i32);
 ::windows_targets::link!("wldap32.dll" "cdecl" fn ber_free(pberelement : *mut BerElement, fbuf : i32));
 ::windows_targets::link!("wldap32.dll" "cdecl" fn ber_init(pberval : *mut LDAP_BERVAL) -> *mut BerElement);

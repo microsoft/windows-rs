@@ -3737,13 +3737,13 @@ pub unsafe fn RtlQueryPackageIdentityEx(tokenobject: *const ::core::ffi::c_void,
     RtlQueryPackageIdentityEx(tokenobject, ::core::mem::transmute(packagefullname), packagesize, ::core::mem::transmute(appid), ::core::mem::transmute(appidsize.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(dynamicid.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(flags.unwrap_or(::std::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn RtlQueryProcessPlaceholderCompatibilityMode() -> u8 {
-    ::windows_targets::link!("ntdll.dll" "system" fn RtlQueryProcessPlaceholderCompatibilityMode() -> u8);
+pub unsafe fn RtlQueryProcessPlaceholderCompatibilityMode() -> i8 {
+    ::windows_targets::link!("ntdll.dll" "system" fn RtlQueryProcessPlaceholderCompatibilityMode() -> i8);
     RtlQueryProcessPlaceholderCompatibilityMode()
 }
 #[inline]
-pub unsafe fn RtlQueryThreadPlaceholderCompatibilityMode() -> u8 {
-    ::windows_targets::link!("ntdll.dll" "system" fn RtlQueryThreadPlaceholderCompatibilityMode() -> u8);
+pub unsafe fn RtlQueryThreadPlaceholderCompatibilityMode() -> i8 {
+    ::windows_targets::link!("ntdll.dll" "system" fn RtlQueryThreadPlaceholderCompatibilityMode() -> i8);
     RtlQueryThreadPlaceholderCompatibilityMode()
 }
 #[inline]
@@ -3826,13 +3826,13 @@ where
     RtlSetOwnerSecurityDescriptor(securitydescriptor, owner.into_param().abi(), ownerdefaulted.into_param().abi())
 }
 #[inline]
-pub unsafe fn RtlSetProcessPlaceholderCompatibilityMode(mode: u8) -> u8 {
-    ::windows_targets::link!("ntdll.dll" "system" fn RtlSetProcessPlaceholderCompatibilityMode(mode : u8) -> u8);
+pub unsafe fn RtlSetProcessPlaceholderCompatibilityMode(mode: i8) -> i8 {
+    ::windows_targets::link!("ntdll.dll" "system" fn RtlSetProcessPlaceholderCompatibilityMode(mode : i8) -> i8);
     RtlSetProcessPlaceholderCompatibilityMode(mode)
 }
 #[inline]
-pub unsafe fn RtlSetThreadPlaceholderCompatibilityMode(mode: u8) -> u8 {
-    ::windows_targets::link!("ntdll.dll" "system" fn RtlSetThreadPlaceholderCompatibilityMode(mode : u8) -> u8);
+pub unsafe fn RtlSetThreadPlaceholderCompatibilityMode(mode: i8) -> i8 {
+    ::windows_targets::link!("ntdll.dll" "system" fn RtlSetThreadPlaceholderCompatibilityMode(mode : i8) -> i8);
     RtlSetThreadPlaceholderCompatibilityMode(mode)
 }
 #[inline]
@@ -7891,7 +7891,7 @@ pub struct FILE_FULL_EA_INFORMATION {
     pub Flags: u8,
     pub EaNameLength: u8,
     pub EaValueLength: u16,
-    pub EaName: [u8; 1],
+    pub EaName: [i8; 1],
 }
 impl ::core::marker::Copy for FILE_FULL_EA_INFORMATION {}
 impl ::core::clone::Clone for FILE_FULL_EA_INFORMATION {
@@ -7922,7 +7922,7 @@ impl ::core::default::Default for FILE_FULL_EA_INFORMATION {
 pub struct FILE_GET_EA_INFORMATION {
     pub NextEntryOffset: u32,
     pub EaNameLength: u8,
-    pub EaName: [u8; 1],
+    pub EaName: [i8; 1],
 }
 impl ::core::marker::Copy for FILE_GET_EA_INFORMATION {}
 impl ::core::clone::Clone for FILE_GET_EA_INFORMATION {
@@ -9322,7 +9322,7 @@ pub struct FILE_PIPE_PEEK_BUFFER {
     pub ReadDataAvailable: u32,
     pub NumberOfMessages: u32,
     pub MessageLength: u32,
-    pub Data: [u8; 1],
+    pub Data: [i8; 1],
 }
 impl ::core::marker::Copy for FILE_PIPE_PEEK_BUFFER {}
 impl ::core::clone::Clone for FILE_PIPE_PEEK_BUFFER {
@@ -10036,7 +10036,7 @@ impl ::core::default::Default for FILE_TIMESTAMPS {
 pub struct FILE_TRACKING_INFORMATION {
     pub DestinationFile: super::super::super::Win32::Foundation::HANDLE,
     pub ObjectInformationLength: u32,
-    pub ObjectInformation: [u8; 1],
+    pub ObjectInformation: [i8; 1],
 }
 impl ::core::marker::Copy for FILE_TRACKING_INFORMATION {}
 impl ::core::clone::Clone for FILE_TRACKING_INFORMATION {

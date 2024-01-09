@@ -2752,7 +2752,7 @@ impl ::core::default::Default for PROPVARIANT_0_0 {
 #[doc = "Required features: `\"Win32_System_Variant\"`"]
 #[cfg(feature = "Win32_System_Variant")]
 pub union PROPVARIANT_0_0_0 {
-    pub cVal: u8,
+    pub cVal: i8,
     pub bVal: u8,
     pub iVal: i16,
     pub uiVal: u16,

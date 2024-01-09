@@ -3059,7 +3059,7 @@ pub struct VAL {
     pub ppButtonNames: *mut *mut u16,
     pub pHandle: *mut super::super::Foundation::HANDLE,
     pub lReserved: i32,
-    pub szVal: [u8; 255],
+    pub szVal: [i8; 255],
 }
 impl ::core::marker::Copy for VAL {}
 impl ::core::clone::Clone for VAL {

@@ -9,7 +9,7 @@
 ::windows_targets::link!("kernel32.dll" "system" fn ExpungeConsoleCommandHistoryA(exename : ::windows_sys::core::PCSTR));
 ::windows_targets::link!("kernel32.dll" "system" fn ExpungeConsoleCommandHistoryW(exename : ::windows_sys::core::PCWSTR));
 ::windows_targets::link!("kernel32.dll" "system" fn FillConsoleOutputAttribute(hconsoleoutput : super::super::Foundation:: HANDLE, wattribute : u16, nlength : u32, dwwritecoord : COORD, lpnumberofattrswritten : *mut u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("kernel32.dll" "system" fn FillConsoleOutputCharacterA(hconsoleoutput : super::super::Foundation:: HANDLE, ccharacter : u8, nlength : u32, dwwritecoord : COORD, lpnumberofcharswritten : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" fn FillConsoleOutputCharacterA(hconsoleoutput : super::super::Foundation:: HANDLE, ccharacter : i8, nlength : u32, dwwritecoord : COORD, lpnumberofcharswritten : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn FillConsoleOutputCharacterW(hconsoleoutput : super::super::Foundation:: HANDLE, ccharacter : u16, nlength : u32, dwwritecoord : COORD, lpnumberofcharswritten : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn FlushConsoleInputBuffer(hconsoleinput : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn FreeConsole() -> super::super::Foundation:: BOOL);
@@ -193,7 +193,7 @@ impl ::core::clone::Clone for CHAR_INFO {
 #[repr(C)]
 pub union CHAR_INFO_0 {
     pub UnicodeChar: u16,
-    pub AsciiChar: u8,
+    pub AsciiChar: i8,
 }
 impl ::core::marker::Copy for CHAR_INFO_0 {}
 impl ::core::clone::Clone for CHAR_INFO_0 {
@@ -373,7 +373,7 @@ impl ::core::clone::Clone for KEY_EVENT_RECORD {
 #[repr(C)]
 pub union KEY_EVENT_RECORD_0 {
     pub UnicodeChar: u16,
-    pub AsciiChar: u8,
+    pub AsciiChar: i8,
 }
 impl ::core::marker::Copy for KEY_EVENT_RECORD_0 {}
 impl ::core::clone::Clone for KEY_EVENT_RECORD_0 {

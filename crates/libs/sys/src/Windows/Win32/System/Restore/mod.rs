@@ -38,7 +38,7 @@ pub struct RESTOREPOINTINFOA {
     pub dwEventType: RESTOREPOINTINFO_EVENT_TYPE,
     pub dwRestorePtType: RESTOREPOINTINFO_TYPE,
     pub llSequenceNumber: i64,
-    pub szDescription: [u8; 64],
+    pub szDescription: [i8; 64],
 }
 impl ::core::marker::Copy for RESTOREPOINTINFOA {}
 impl ::core::clone::Clone for RESTOREPOINTINFOA {

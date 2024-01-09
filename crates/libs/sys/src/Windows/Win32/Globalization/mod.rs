@@ -4490,7 +4490,7 @@ pub struct CPINFOEXA {
     pub LeadByte: [u8; 12],
     pub UnicodeDefaultChar: u16,
     pub CodePage: u32,
-    pub CodePageName: [u8; 260],
+    pub CodePageName: [i8; 260],
 }
 impl ::core::marker::Copy for CPINFOEXA {}
 impl ::core::clone::Clone for CPINFOEXA {

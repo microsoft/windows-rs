@@ -1198,7 +1198,7 @@ pub struct BTH_DEVICE_INFO {
     pub flags: u32,
     pub address: u64,
     pub classOfDevice: u32,
-    pub name: [u8; 248],
+    pub name: [i8; 248],
 }
 impl ::core::marker::Copy for BTH_DEVICE_INFO {}
 impl ::core::clone::Clone for BTH_DEVICE_INFO {
@@ -1572,7 +1572,7 @@ pub union SDP_ELEMENT_DATA_0 {
     pub int64: i64,
     pub int32: i32,
     pub int16: i16,
-    pub int8: u8,
+    pub int8: i8,
     pub uint128: SDP_ULARGE_INTEGER_16,
     pub uint64: u64,
     pub uint32: u32,

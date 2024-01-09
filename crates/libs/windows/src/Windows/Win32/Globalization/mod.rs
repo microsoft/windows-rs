@@ -7495,7 +7495,7 @@ impl IMLangStringBufA {
     pub unsafe fn GetStatus(&self, plflags: ::core::option::Option<*mut i32>, pcchbuf: ::core::option::Option<*mut i32>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetStatus)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(plflags.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcchbuf.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn LockBuf(&self, cchoffset: i32, cchmaxlock: i32, ppszbuf: *mut *mut u8, pcchbuf: ::core::option::Option<*mut i32>) -> ::windows_core::Result<()> {
+    pub unsafe fn LockBuf(&self, cchoffset: i32, cchmaxlock: i32, ppszbuf: *mut *mut i8, pcchbuf: ::core::option::Option<*mut i32>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).LockBuf)(::windows_core::Interface::as_raw(self), cchoffset, cchmaxlock, ppszbuf, ::core::mem::transmute(pcchbuf.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn UnlockBuf<P0>(&self, pszbuf: P0, cchoffset: i32, cchwrite: i32) -> ::windows_core::Result<()>
@@ -7516,7 +7516,7 @@ impl IMLangStringBufA {
 pub struct IMLangStringBufA_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plflags: *mut i32, pcchbuf: *mut i32) -> ::windows_core::HRESULT,
-    pub LockBuf: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cchoffset: i32, cchmaxlock: i32, ppszbuf: *mut *mut u8, pcchbuf: *mut i32) -> ::windows_core::HRESULT,
+    pub LockBuf: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cchoffset: i32, cchmaxlock: i32, ppszbuf: *mut *mut i8, pcchbuf: *mut i32) -> ::windows_core::HRESULT,
     pub UnlockBuf: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszbuf: ::windows_core::PCSTR, cchoffset: i32, cchwrite: i32) -> ::windows_core::HRESULT,
     pub Insert: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cchoffset: i32, cchmaxinsert: i32, pcchactual: *mut i32) -> ::windows_core::HRESULT,
     pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cchoffset: i32, cchdelete: i32) -> ::windows_core::HRESULT,
@@ -13588,7 +13588,7 @@ pub struct CPINFOEXA {
     pub LeadByte: [u8; 12],
     pub UnicodeDefaultChar: u16,
     pub CodePage: u32,
-    pub CodePageName: [u8; 260],
+    pub CodePageName: [i8; 260],
 }
 impl ::core::marker::Copy for CPINFOEXA {}
 impl ::core::clone::Clone for CPINFOEXA {

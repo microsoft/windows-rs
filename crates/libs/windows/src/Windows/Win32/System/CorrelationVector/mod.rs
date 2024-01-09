@@ -25,8 +25,8 @@ pub const RTL_CORRELATION_VECTOR_V2_LENGTH: u32 = 128u32;
 pub const RTL_CORRELATION_VECTOR_V2_PREFIX_LENGTH: u32 = 22u32;
 #[repr(C)]
 pub struct CORRELATION_VECTOR {
-    pub Version: u8,
-    pub Vector: [u8; 129],
+    pub Version: i8,
+    pub Vector: [i8; 129],
 }
 impl ::core::marker::Copy for CORRELATION_VECTOR {}
 impl ::core::clone::Clone for CORRELATION_VECTOR {

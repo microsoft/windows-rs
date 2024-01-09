@@ -4153,9 +4153,9 @@ impl ::core::fmt::Debug for D3DZBUFFERTYPE {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct D3DADAPTER_IDENTIFIER9 {
-    pub Driver: [u8; 512],
-    pub Description: [u8; 512],
-    pub DeviceName: [u8; 32],
+    pub Driver: [i8; 512],
+    pub Description: [i8; 512],
+    pub DeviceName: [i8; 32],
     pub DriverVersion: i64,
     pub VendorId: u32,
     pub DeviceId: u32,
@@ -4185,9 +4185,9 @@ impl ::core::default::Default for D3DADAPTER_IDENTIFIER9 {
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
 pub struct D3DADAPTER_IDENTIFIER9 {
-    pub Driver: [u8; 512],
-    pub Description: [u8; 512],
-    pub DeviceName: [u8; 32],
+    pub Driver: [i8; 512],
+    pub Description: [i8; 512],
+    pub DeviceName: [i8; 32],
     pub DriverVersion: i64,
     pub VendorId: u32,
     pub DeviceId: u32,

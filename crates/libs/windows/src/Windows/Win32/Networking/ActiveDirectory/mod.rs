@@ -11351,8 +11351,8 @@ pub struct DSBITEMA {
     pub dwMask: u32,
     pub dwState: u32,
     pub dwStateMask: u32,
-    pub szDisplayName: [u8; 64],
-    pub szIconLocation: [u8; 260],
+    pub szDisplayName: [i8; 64],
+    pub szIconLocation: [i8; 260],
     pub iIconResID: i32,
 }
 impl ::core::marker::Copy for DSBITEMA {}

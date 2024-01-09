@@ -2037,7 +2037,7 @@ pub struct LOGCOLORSPACEA {
     pub lcsGammaRed: u32,
     pub lcsGammaGreen: u32,
     pub lcsGammaBlue: u32,
-    pub lcsFilename: [u8; 260],
+    pub lcsFilename: [i8; 260],
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::marker::Copy for LOGCOLORSPACEA {}

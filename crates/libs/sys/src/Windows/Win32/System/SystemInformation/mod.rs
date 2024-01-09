@@ -602,7 +602,7 @@ pub struct OSVERSIONINFOA {
     pub dwMinorVersion: u32,
     pub dwBuildNumber: u32,
     pub dwPlatformId: u32,
-    pub szCSDVersion: [u8; 128],
+    pub szCSDVersion: [i8; 128],
 }
 impl ::core::marker::Copy for OSVERSIONINFOA {}
 impl ::core::clone::Clone for OSVERSIONINFOA {
@@ -617,7 +617,7 @@ pub struct OSVERSIONINFOEXA {
     pub dwMinorVersion: u32,
     pub dwBuildNumber: u32,
     pub dwPlatformId: u32,
-    pub szCSDVersion: [u8; 128],
+    pub szCSDVersion: [i8; 128],
     pub wServicePackMajor: u16,
     pub wServicePackMinor: u16,
     pub wSuiteMask: u16,

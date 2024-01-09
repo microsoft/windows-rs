@@ -5724,7 +5724,7 @@ impl ::core::default::Default for RASADPARAMS {
 pub struct RASAMBA {
     pub dwSize: u32,
     pub dwError: u32,
-    pub szNetBiosError: [u8; 17],
+    pub szNetBiosError: [i8; 17],
     pub bLana: u8,
 }
 impl ::core::marker::Copy for RASAMBA {}
@@ -5789,7 +5789,7 @@ pub struct RASAUTODIALENTRYA {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub dwDialingLocation: u32,
-    pub szEntry: [u8; 257],
+    pub szEntry: [i8; 257],
 }
 impl ::core::marker::Copy for RASAUTODIALENTRYA {}
 impl ::core::clone::Clone for RASAUTODIALENTRYA {
@@ -5886,10 +5886,10 @@ impl ::core::default::Default for RASCOMMSETTINGS {
 pub struct RASCONNA {
     pub dwSize: u32,
     pub hrasconn: HRASCONN,
-    pub szEntryName: [u8; 257],
-    pub szDeviceType: [u8; 17],
-    pub szDeviceName: [u8; 129],
-    pub szPhonebook: [u8; 260],
+    pub szEntryName: [i8; 257],
+    pub szDeviceType: [i8; 17],
+    pub szDeviceName: [i8; 129],
+    pub szPhonebook: [i8; 260],
     pub dwSubEntry: u32,
     pub guidEntry: ::windows_core::GUID,
     pub dwFlags: u32,
@@ -5919,10 +5919,10 @@ impl ::core::default::Default for RASCONNA {
 pub struct RASCONNA {
     pub dwSize: u32,
     pub hrasconn: HRASCONN,
-    pub szEntryName: [u8; 257],
-    pub szDeviceType: [u8; 17],
-    pub szDeviceName: [u8; 129],
-    pub szPhonebook: [u8; 260],
+    pub szEntryName: [i8; 257],
+    pub szDeviceType: [i8; 17],
+    pub szDeviceName: [i8; 129],
+    pub szPhonebook: [i8; 260],
     pub dwSubEntry: u32,
     pub guidEntry: ::windows_core::GUID,
     pub dwFlags: u32,
@@ -5954,9 +5954,9 @@ pub struct RASCONNSTATUSA {
     pub dwSize: u32,
     pub rasconnstate: RASCONNSTATE,
     pub dwError: u32,
-    pub szDeviceType: [u8; 17],
-    pub szDeviceName: [u8; 129],
-    pub szPhoneNumber: [u8; 129],
+    pub szDeviceType: [i8; 17],
+    pub szDeviceName: [i8; 129],
+    pub szPhoneNumber: [i8; 129],
     pub localEndPoint: RASTUNNELENDPOINT,
     pub remoteEndPoint: RASTUNNELENDPOINT,
     pub rasconnsubstate: RASCONNSUBSTATE,
@@ -6081,9 +6081,9 @@ impl ::core::default::Default for RASCONNW {
 pub struct RASCREDENTIALSA {
     pub dwSize: u32,
     pub dwMask: u32,
-    pub szUserName: [u8; 257],
-    pub szPassword: [u8; 257],
-    pub szDomain: [u8; 16],
+    pub szUserName: [i8; 257],
+    pub szPassword: [i8; 257],
+    pub szDomain: [i8; 16],
 }
 impl ::core::marker::Copy for RASCREDENTIALSA {}
 impl ::core::clone::Clone for RASCREDENTIALSA {
@@ -6198,8 +6198,8 @@ impl ::core::default::Default for RASCUSTOMSCRIPTEXTENSIONS {
 #[repr(C)]
 pub struct RASDEVINFOA {
     pub dwSize: u32,
-    pub szDeviceType: [u8; 17],
-    pub szDeviceName: [u8; 129],
+    pub szDeviceType: [i8; 17],
+    pub szDeviceName: [i8; 129],
 }
 impl ::core::marker::Copy for RASDEVINFOA {}
 impl ::core::clone::Clone for RASDEVINFOA {
@@ -6360,12 +6360,12 @@ impl ::core::default::Default for RASDIALEXTENSIONS {
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct RASDIALPARAMSA {
     pub dwSize: u32,
-    pub szEntryName: [u8; 257],
-    pub szPhoneNumber: [u8; 129],
-    pub szCallbackNumber: [u8; 129],
-    pub szUserName: [u8; 257],
-    pub szPassword: [u8; 257],
-    pub szDomain: [u8; 16],
+    pub szEntryName: [i8; 257],
+    pub szPhoneNumber: [i8; 129],
+    pub szCallbackNumber: [i8; 129],
+    pub szUserName: [i8; 257],
+    pub szPassword: [i8; 257],
+    pub szDomain: [i8; 16],
     pub dwSubEntry: u32,
     pub dwCallbackId: usize,
     pub dwIfIndex: u32,
@@ -6393,12 +6393,12 @@ impl ::core::default::Default for RASDIALPARAMSA {
 #[cfg(target_arch = "x86")]
 pub struct RASDIALPARAMSA {
     pub dwSize: u32,
-    pub szEntryName: [u8; 257],
-    pub szPhoneNumber: [u8; 129],
-    pub szCallbackNumber: [u8; 129],
-    pub szUserName: [u8; 257],
-    pub szPassword: [u8; 257],
-    pub szDomain: [u8; 16],
+    pub szEntryName: [i8; 257],
+    pub szPhoneNumber: [i8; 129],
+    pub szCallbackNumber: [i8; 129],
+    pub szUserName: [i8; 257],
+    pub szPassword: [i8; 257],
+    pub szDomain: [i8; 16],
     pub dwSubEntry: u32,
     pub dwCallbackId: usize,
     pub dwIfIndex: u32,
@@ -6509,7 +6509,7 @@ impl ::core::default::Default for RASEAPINFO {
 }
 #[repr(C)]
 pub struct RASEAPUSERIDENTITYA {
-    pub szUserName: [u8; 257],
+    pub szUserName: [i8; 257],
     pub dwSizeofEapInfo: u32,
     pub pbEapInfo: [u8; 1],
 }
@@ -6577,8 +6577,8 @@ pub struct RASENTRYA {
     pub dwfOptions: u32,
     pub dwCountryID: u32,
     pub dwCountryCode: u32,
-    pub szAreaCode: [u8; 11],
-    pub szLocalPhoneNumber: [u8; 129],
+    pub szAreaCode: [i8; 11],
+    pub szLocalPhoneNumber: [i8; 129],
     pub dwAlternateOffset: u32,
     pub ipaddr: RASIPADDR,
     pub ipaddrDns: RASIPADDR,
@@ -6588,15 +6588,15 @@ pub struct RASENTRYA {
     pub dwFrameSize: u32,
     pub dwfNetProtocols: u32,
     pub dwFramingProtocol: u32,
-    pub szScript: [u8; 260],
-    pub szAutodialDll: [u8; 260],
-    pub szAutodialFunc: [u8; 260],
-    pub szDeviceType: [u8; 17],
-    pub szDeviceName: [u8; 129],
-    pub szX25PadType: [u8; 33],
-    pub szX25Address: [u8; 201],
-    pub szX25Facilities: [u8; 201],
-    pub szX25UserData: [u8; 201],
+    pub szScript: [i8; 260],
+    pub szAutodialDll: [i8; 260],
+    pub szAutodialFunc: [i8; 260],
+    pub szDeviceType: [i8; 17],
+    pub szDeviceName: [i8; 129],
+    pub szX25PadType: [i8; 33],
+    pub szX25Address: [i8; 201],
+    pub szX25Facilities: [i8; 201],
+    pub szX25UserData: [i8; 201],
     pub dwChannels: u32,
     pub dwReserved1: u32,
     pub dwReserved2: u32,
@@ -6611,14 +6611,14 @@ pub struct RASENTRYA {
     pub dwEncryptionType: u32,
     pub dwCustomAuthKey: u32,
     pub guidId: ::windows_core::GUID,
-    pub szCustomDialDll: [u8; 260],
+    pub szCustomDialDll: [i8; 260],
     pub dwVpnStrategy: u32,
     pub dwfOptions2: u32,
     pub dwfOptions3: u32,
-    pub szDnsSuffix: [u8; 256],
+    pub szDnsSuffix: [i8; 256],
     pub dwTcpWindowSize: u32,
-    pub szPrerequisitePbk: [u8; 260],
-    pub szPrerequisiteEntry: [u8; 257],
+    pub szPrerequisitePbk: [i8; 260],
+    pub szPrerequisiteEntry: [i8; 257],
     pub dwRedialCount: u32,
     pub dwRedialPause: u32,
     pub ipv6addrDns: super::super::Networking::WinSock::IN6_ADDR,
@@ -6628,8 +6628,8 @@ pub struct RASENTRYA {
     pub ipv6addr: super::super::Networking::WinSock::IN6_ADDR,
     pub dwIPv6PrefixLength: u32,
     pub dwNetworkOutageTime: u32,
-    pub szIDi: [u8; 257],
-    pub szIDr: [u8; 257],
+    pub szIDi: [i8; 257],
+    pub szIDr: [i8; 257],
     pub fIsImsConfig: super::super::Foundation::BOOL,
     pub IdiType: IKEV2_ID_PAYLOAD_TYPE,
     pub IdrType: IKEV2_ID_PAYLOAD_TYPE,
@@ -6661,7 +6661,7 @@ pub struct RASENTRYDLGA {
     pub dwFlags: u32,
     pub xDlg: i32,
     pub yDlg: i32,
-    pub szEntry: [u8; 257],
+    pub szEntry: [i8; 257],
     pub dwError: u32,
     pub reserved: usize,
     pub reserved2: usize,
@@ -6692,7 +6692,7 @@ pub struct RASENTRYDLGA {
     pub dwFlags: u32,
     pub xDlg: i32,
     pub yDlg: i32,
-    pub szEntry: [u8; 257],
+    pub szEntry: [i8; 257],
     pub dwError: u32,
     pub reserved: usize,
     pub reserved2: usize,
@@ -6780,9 +6780,9 @@ impl ::core::default::Default for RASENTRYDLGW {
 #[repr(C)]
 pub struct RASENTRYNAMEA {
     pub dwSize: u32,
-    pub szEntryName: [u8; 257],
+    pub szEntryName: [i8; 257],
     pub dwFlags: u32,
-    pub szPhonebookPath: [u8; 261],
+    pub szPhonebookPath: [i8; 261],
 }
 impl ::core::marker::Copy for RASENTRYNAMEA {}
 impl ::core::clone::Clone for RASENTRYNAMEA {
@@ -7079,9 +7079,9 @@ pub struct RASNOUSERA {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub dwTimeoutMs: u32,
-    pub szUserName: [u8; 257],
-    pub szPassword: [u8; 257],
-    pub szDomain: [u8; 16],
+    pub szUserName: [i8; 257],
+    pub szPassword: [i8; 257],
+    pub szDomain: [i8; 16],
 }
 impl ::core::marker::Copy for RASNOUSERA {}
 impl ::core::clone::Clone for RASNOUSERA {
@@ -7308,8 +7308,8 @@ impl ::core::default::Default for RASPPPCCP {
 pub struct RASPPPIPA {
     pub dwSize: u32,
     pub dwError: u32,
-    pub szIpAddress: [u8; 16],
-    pub szServerIpAddress: [u8; 16],
+    pub szIpAddress: [i8; 16],
+    pub szServerIpAddress: [i8; 16],
     pub dwOptions: u32,
     pub dwServerOptions: u32,
 }
@@ -7410,7 +7410,7 @@ impl ::core::default::Default for RASPPPIPW {
 pub struct RASPPPIPXA {
     pub dwSize: u32,
     pub dwError: u32,
-    pub szIpxAddress: [u8; 22],
+    pub szIpxAddress: [i8; 22],
 }
 impl ::core::marker::Copy for RASPPPIPXA {}
 impl ::core::clone::Clone for RASPPPIPXA {
@@ -7451,7 +7451,7 @@ pub struct RASPPPLCPA {
     pub fMultilink: super::super::Foundation::BOOL,
     pub dwTerminateReason: u32,
     pub dwServerTerminateReason: u32,
-    pub szReplyMessage: [u8; 1024],
+    pub szReplyMessage: [i8; 1024],
     pub dwOptions: u32,
     pub dwServerOptions: u32,
 }
@@ -7560,8 +7560,8 @@ pub struct RASPPPNBFA {
     pub dwSize: u32,
     pub dwError: u32,
     pub dwNetBiosError: u32,
-    pub szNetBiosError: [u8; 17],
-    pub szWorkstationName: [u8; 17],
+    pub szNetBiosError: [i8; 17],
+    pub szWorkstationName: [i8; 17],
     pub bLana: u8,
 }
 impl ::core::marker::Copy for RASPPPNBFA {}
@@ -7673,9 +7673,9 @@ impl ::core::default::Default for RASPPP_PROJECTION_INFO {
 pub struct RASSUBENTRYA {
     pub dwSize: u32,
     pub dwfFlags: u32,
-    pub szDeviceType: [u8; 17],
-    pub szDeviceName: [u8; 129],
-    pub szLocalPhoneNumber: [u8; 129],
+    pub szDeviceType: [i8; 17],
+    pub szDeviceName: [i8; 129],
+    pub szLocalPhoneNumber: [i8; 129],
     pub dwAlternateOffset: u32,
 }
 impl ::core::marker::Copy for RASSUBENTRYA {}
@@ -8337,7 +8337,7 @@ impl ::core::default::Default for RAS_PROJECTION_INFO_0 {
 pub struct RAS_SECURITY_INFO {
     pub LastError: u32,
     pub BytesReceived: u32,
-    pub DeviceName: [u8; 129],
+    pub DeviceName: [i8; 129],
 }
 impl ::core::marker::Copy for RAS_SECURITY_INFO {}
 impl ::core::clone::Clone for RAS_SECURITY_INFO {
@@ -9152,8 +9152,8 @@ pub struct SECURITY_MESSAGE {
     pub dwMsgId: SECURITY_MESSAGE_MSG_ID,
     pub hPort: isize,
     pub dwError: u32,
-    pub UserName: [u8; 257],
-    pub Domain: [u8; 16],
+    pub UserName: [i8; 257],
+    pub Domain: [i8; 16],
 }
 impl ::core::marker::Copy for SECURITY_MESSAGE {}
 impl ::core::clone::Clone for SECURITY_MESSAGE {

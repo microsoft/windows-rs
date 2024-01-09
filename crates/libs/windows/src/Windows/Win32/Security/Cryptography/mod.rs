@@ -20970,7 +20970,7 @@ pub struct PROV_ENUMALGS {
     pub aiAlgid: ALG_ID,
     pub dwBitLen: u32,
     pub dwNameLen: u32,
-    pub szName: [u8; 20],
+    pub szName: [i8; 20],
 }
 impl ::core::marker::Copy for PROV_ENUMALGS {}
 impl ::core::clone::Clone for PROV_ENUMALGS {
@@ -21005,9 +21005,9 @@ pub struct PROV_ENUMALGS_EX {
     pub dwMaxLen: u32,
     pub dwProtocols: u32,
     pub dwNameLen: u32,
-    pub szName: [u8; 20],
+    pub szName: [i8; 20],
     pub dwLongNameLen: u32,
-    pub szLongName: [u8; 40],
+    pub szLongName: [i8; 40],
 }
 impl ::core::marker::Copy for PROV_ENUMALGS_EX {}
 impl ::core::clone::Clone for PROV_ENUMALGS_EX {
