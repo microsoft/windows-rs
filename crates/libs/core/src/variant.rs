@@ -31,7 +31,7 @@ impl Drop for PROPVARIANT {
 }
 
 impl VARIANT {
-    pub const fn new() -> Self {
+    pub fn new() -> Self {
         unsafe { std::mem::zeroed() }
     }
 
@@ -41,7 +41,7 @@ impl VARIANT {
 }
 
 impl PROPVARIANT {
-    pub const fn new() -> Self {
+    pub fn new() -> Self {
         unsafe { std::mem::zeroed() }
     }
 

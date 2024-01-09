@@ -1,11 +1,9 @@
 use windows_core::*;
 
-const EMPTY_VARIANT: VARIANT = VARIANT::new();
-const EMPTY_PROPVARIANT: PROPVARIANT = PROPVARIANT::new();
-
 #[test]
 fn test_variant() -> Result<()> {
-    assert!(EMPTY_VARIANT.is_empty());
+    let empty: VARIANT = VARIANT::new();
+    assert!(empty.is_empty());
 
     let v = VARIANT::default();
     assert!(v.is_empty());
@@ -57,7 +55,8 @@ fn test_variant() -> Result<()> {
 
 #[test]
 fn test_propvariant() -> Result<()> {
-    assert!(EMPTY_PROPVARIANT.is_empty());
+    let empty: PROPVARIANT = PROPVARIANT::new();
+    assert!(empty.is_empty());
 
     let v = PROPVARIANT::default();
     assert!(v.is_empty());
