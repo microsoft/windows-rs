@@ -2,7 +2,7 @@
 ::windows_targets::link!("advapi32.dll" "system" fn MSChapSrvChangePassword2(servername : ::windows_sys::core::PCWSTR, username : ::windows_sys::core::PCWSTR, newpasswordencryptedwitholdnt : *const SAMPR_ENCRYPTED_USER_PASSWORD, oldntowfpasswordencryptedwithnewnt : *const ENCRYPTED_LM_OWF_PASSWORD, lmpresent : super::super::Foundation:: BOOLEAN, newpasswordencryptedwitholdlm : *const SAMPR_ENCRYPTED_USER_PASSWORD, oldlmowfpasswordencryptedwithnewlmornt : *const ENCRYPTED_LM_OWF_PASSWORD) -> u32);
 #[repr(C)]
 pub struct CYPHER_BLOCK {
-    pub data: [u8; 8],
+    pub data: [i8; 8],
 }
 impl ::core::marker::Copy for CYPHER_BLOCK {}
 impl ::core::clone::Clone for CYPHER_BLOCK {

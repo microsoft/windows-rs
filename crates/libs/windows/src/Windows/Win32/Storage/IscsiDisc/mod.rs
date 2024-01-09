@@ -1854,12 +1854,12 @@ impl ::core::default::Default for ISCSI_CONNECTION_INFO_EX {
 #[doc = "Required features: `\"Win32_System_Ioctl\"`"]
 #[cfg(feature = "Win32_System_Ioctl")]
 pub struct ISCSI_DEVICE_ON_SESSIONA {
-    pub InitiatorName: [u8; 256],
-    pub TargetName: [u8; 224],
+    pub InitiatorName: [i8; 256],
+    pub TargetName: [i8; 224],
     pub ScsiAddress: SCSI_ADDRESS,
     pub DeviceInterfaceType: ::windows_core::GUID,
-    pub DeviceInterfaceName: [u8; 260],
-    pub LegacyName: [u8; 260],
+    pub DeviceInterfaceName: [i8; 260],
+    pub LegacyName: [i8; 260],
     pub StorageDeviceNumber: super::super::System::Ioctl::STORAGE_DEVICE_NUMBER,
     pub DeviceInstance: u32,
 }
@@ -2124,9 +2124,9 @@ impl ::core::default::Default for ISCSI_SESSION_INFO_EX {
 }
 #[repr(C)]
 pub struct ISCSI_TARGET_MAPPINGA {
-    pub InitiatorName: [u8; 256],
-    pub TargetName: [u8; 224],
-    pub OSDeviceName: [u8; 260],
+    pub InitiatorName: [i8; 256],
+    pub TargetName: [i8; 224],
+    pub OSDeviceName: [i8; 260],
     pub SessionId: ISCSI_UNIQUE_SESSION_ID,
     pub OSBusNumber: u32,
     pub OSTargetNumber: u32,
@@ -2196,8 +2196,8 @@ impl ::core::default::Default for ISCSI_TARGET_MAPPINGW {
 }
 #[repr(C)]
 pub struct ISCSI_TARGET_PORTALA {
-    pub SymbolicName: [u8; 256],
-    pub Address: [u8; 256],
+    pub SymbolicName: [i8; 256],
+    pub Address: [i8; 256],
     pub Socket: u16,
 }
 impl ::core::marker::Copy for ISCSI_TARGET_PORTALA {}
@@ -2318,10 +2318,10 @@ impl ::core::default::Default for ISCSI_TARGET_PORTAL_GROUPW {
 }
 #[repr(C)]
 pub struct ISCSI_TARGET_PORTAL_INFOA {
-    pub InitiatorName: [u8; 256],
+    pub InitiatorName: [i8; 256],
     pub InitiatorPortNumber: u32,
-    pub SymbolicName: [u8; 256],
-    pub Address: [u8; 256],
+    pub SymbolicName: [i8; 256],
+    pub Address: [i8; 256],
     pub Socket: u16,
 }
 impl ::core::marker::Copy for ISCSI_TARGET_PORTAL_INFOA {}
@@ -2384,10 +2384,10 @@ impl ::core::default::Default for ISCSI_TARGET_PORTAL_INFOW {
 }
 #[repr(C)]
 pub struct ISCSI_TARGET_PORTAL_INFO_EXA {
-    pub InitiatorName: [u8; 256],
+    pub InitiatorName: [i8; 256],
     pub InitiatorPortNumber: u32,
-    pub SymbolicName: [u8; 256],
-    pub Address: [u8; 256],
+    pub SymbolicName: [i8; 256],
+    pub Address: [i8; 256],
     pub Socket: u16,
     pub SecurityFlags: u64,
     pub LoginOptions: ISCSI_LOGIN_OPTIONS,
@@ -3135,9 +3135,9 @@ impl ::core::default::Default for NV_SEP_CACHE_PARAMETER_0_0 {
 }
 #[repr(C)]
 pub struct PERSISTENT_ISCSI_LOGIN_INFOA {
-    pub TargetName: [u8; 224],
+    pub TargetName: [i8; 224],
     pub IsInformationalSession: super::super::Foundation::BOOLEAN,
-    pub InitiatorInstance: [u8; 256],
+    pub InitiatorInstance: [i8; 256],
     pub InitiatorPortNumber: u32,
     pub TargetPortal: ISCSI_TARGET_PORTALA,
     pub SecurityFlags: u64,

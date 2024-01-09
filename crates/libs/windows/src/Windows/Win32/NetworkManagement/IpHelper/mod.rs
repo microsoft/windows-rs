@@ -2633,12 +2633,12 @@ impl ::core::default::Default for DNS_SETTINGS2 {
 }
 #[repr(C)]
 pub struct FIXED_INFO_W2KSP1 {
-    pub HostName: [u8; 132],
-    pub DomainName: [u8; 132],
+    pub HostName: [i8; 132],
+    pub DomainName: [i8; 132],
     pub CurrentDnsServer: *mut IP_ADDR_STRING,
     pub DnsServerList: IP_ADDR_STRING,
     pub NodeType: u32,
-    pub ScopeId: [u8; 260],
+    pub ScopeId: [i8; 260],
     pub EnableRouting: u32,
     pub EnableProxy: u32,
     pub EnableDns: u32,
@@ -3595,8 +3595,8 @@ impl ::core::default::Default for IP_ADAPTER_INDEX_MAP {
 pub struct IP_ADAPTER_INFO {
     pub Next: *mut IP_ADAPTER_INFO,
     pub ComboIndex: u32,
-    pub AdapterName: [u8; 260],
-    pub Description: [u8; 132],
+    pub AdapterName: [i8; 260],
+    pub Description: [i8; 132],
     pub AddressLength: u32,
     pub Address: [u8; 8],
     pub Index: u32,
@@ -4177,7 +4177,7 @@ impl ::core::default::Default for IP_ADDRESS_PREFIX {
 }
 #[repr(C)]
 pub struct IP_ADDRESS_STRING {
-    pub String: [u8; 16],
+    pub String: [i8; 16],
 }
 impl ::core::marker::Copy for IP_ADDRESS_STRING {}
 impl ::core::clone::Clone for IP_ADDRESS_STRING {

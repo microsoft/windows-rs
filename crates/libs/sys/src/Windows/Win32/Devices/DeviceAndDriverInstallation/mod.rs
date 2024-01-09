@@ -2595,7 +2595,7 @@ pub struct CONFLICT_DETAILS_A {
     pub CD_dnDevInst: u32,
     pub CD_rdResDes: usize,
     pub CD_ulFlags: CM_CDFLAGS,
-    pub CD_szDescription: [u8; 260],
+    pub CD_szDescription: [i8; 260],
 }
 impl ::core::marker::Copy for CONFLICT_DETAILS_A {}
 impl ::core::clone::Clone for CONFLICT_DETAILS_A {
@@ -2892,7 +2892,7 @@ pub struct FILE_IN_CABINET_INFO_A {
     pub DosDate: u16,
     pub DosTime: u16,
     pub DosAttribs: u16,
-    pub FullTargetName: [u8; 260],
+    pub FullTargetName: [i8; 260],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for FILE_IN_CABINET_INFO_A {}
@@ -2911,7 +2911,7 @@ pub struct FILE_IN_CABINET_INFO_A {
     pub DosDate: u16,
     pub DosTime: u16,
     pub DosAttribs: u16,
-    pub FullTargetName: [u8; 260],
+    pub FullTargetName: [i8; 260],
 }
 #[cfg(target_arch = "x86")]
 impl ::core::marker::Copy for FILE_IN_CABINET_INFO_A {}
@@ -2964,7 +2964,7 @@ pub type HDEVINFO = isize;
 #[repr(C, packed(1))]
 pub struct HWPROFILEINFO_A {
     pub HWPI_ulHWProfile: u32,
-    pub HWPI_szFriendlyName: [u8; 80],
+    pub HWPI_szFriendlyName: [i8; 80],
     pub HWPI_dwFlags: u32,
 }
 impl ::core::marker::Copy for HWPROFILEINFO_A {}
@@ -3534,7 +3534,7 @@ impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V3_0 {
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct SP_BACKUP_QUEUE_PARAMS_V1_A {
     pub cbSize: u32,
-    pub FullInfPath: [u8; 260],
+    pub FullInfPath: [i8; 260],
     pub FilenameOffset: i32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -3549,7 +3549,7 @@ impl ::core::clone::Clone for SP_BACKUP_QUEUE_PARAMS_V1_A {
 #[cfg(target_arch = "x86")]
 pub struct SP_BACKUP_QUEUE_PARAMS_V1_A {
     pub cbSize: u32,
-    pub FullInfPath: [u8; 260],
+    pub FullInfPath: [i8; 260],
     pub FilenameOffset: i32,
 }
 #[cfg(target_arch = "x86")]
@@ -3594,9 +3594,9 @@ impl ::core::clone::Clone for SP_BACKUP_QUEUE_PARAMS_V1_W {
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct SP_BACKUP_QUEUE_PARAMS_V2_A {
     pub cbSize: u32,
-    pub FullInfPath: [u8; 260],
+    pub FullInfPath: [i8; 260],
     pub FilenameOffset: i32,
-    pub ReinstallInstance: [u8; 260],
+    pub ReinstallInstance: [i8; 260],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for SP_BACKUP_QUEUE_PARAMS_V2_A {}
@@ -3610,9 +3610,9 @@ impl ::core::clone::Clone for SP_BACKUP_QUEUE_PARAMS_V2_A {
 #[cfg(target_arch = "x86")]
 pub struct SP_BACKUP_QUEUE_PARAMS_V2_A {
     pub cbSize: u32,
-    pub FullInfPath: [u8; 260],
+    pub FullInfPath: [i8; 260],
     pub FilenameOffset: i32,
-    pub ReinstallInstance: [u8; 260],
+    pub ReinstallInstance: [i8; 260],
 }
 #[cfg(target_arch = "x86")]
 impl ::core::marker::Copy for SP_BACKUP_QUEUE_PARAMS_V2_A {}
@@ -3786,7 +3786,7 @@ impl ::core::clone::Clone for SP_DEVICE_INTERFACE_DATA {
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct SP_DEVICE_INTERFACE_DETAIL_DATA_A {
     pub cbSize: u32,
-    pub DevicePath: [u8; 1],
+    pub DevicePath: [i8; 1],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for SP_DEVICE_INTERFACE_DETAIL_DATA_A {}
@@ -3800,7 +3800,7 @@ impl ::core::clone::Clone for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
 #[cfg(target_arch = "x86")]
 pub struct SP_DEVICE_INTERFACE_DETAIL_DATA_A {
     pub cbSize: u32,
-    pub DevicePath: [u8; 1],
+    pub DevicePath: [i8; 1],
 }
 #[cfg(target_arch = "x86")]
 impl ::core::marker::Copy for SP_DEVICE_INTERFACE_DETAIL_DATA_A {}
@@ -3876,7 +3876,7 @@ pub struct SP_DEVINFO_LIST_DETAIL_DATA_A {
     pub cbSize: u32,
     pub ClassGuid: ::windows_sys::core::GUID,
     pub RemoteMachineHandle: super::super::Foundation::HANDLE,
-    pub RemoteMachineName: [u8; 263],
+    pub RemoteMachineName: [i8; 263],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for SP_DEVINFO_LIST_DETAIL_DATA_A {}
@@ -3892,7 +3892,7 @@ pub struct SP_DEVINFO_LIST_DETAIL_DATA_A {
     pub cbSize: u32,
     pub ClassGuid: ::windows_sys::core::GUID,
     pub RemoteMachineHandle: super::super::Foundation::HANDLE,
-    pub RemoteMachineName: [u8; 263],
+    pub RemoteMachineName: [i8; 263],
 }
 #[cfg(target_arch = "x86")]
 impl ::core::marker::Copy for SP_DEVINFO_LIST_DETAIL_DATA_A {}
@@ -3946,7 +3946,7 @@ pub struct SP_DEVINSTALL_PARAMS_A {
     pub FileQueue: *mut ::core::ffi::c_void,
     pub ClassInstallReserved: usize,
     pub Reserved: u32,
-    pub DriverPath: [u8; 260],
+    pub DriverPath: [i8; 260],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for SP_DEVINSTALL_PARAMS_A {}
@@ -3968,7 +3968,7 @@ pub struct SP_DEVINSTALL_PARAMS_A {
     pub FileQueue: *mut ::core::ffi::c_void,
     pub ClassInstallReserved: usize,
     pub Reserved: u32,
-    pub DriverPath: [u8; 260],
+    pub DriverPath: [i8; 260],
 }
 #[cfg(target_arch = "x86")]
 impl ::core::marker::Copy for SP_DEVINSTALL_PARAMS_A {}
@@ -4028,9 +4028,9 @@ pub struct SP_DRVINFO_DATA_V1_A {
     pub cbSize: u32,
     pub DriverType: u32,
     pub Reserved: usize,
-    pub Description: [u8; 256],
-    pub MfgName: [u8; 256],
-    pub ProviderName: [u8; 256],
+    pub Description: [i8; 256],
+    pub MfgName: [i8; 256],
+    pub ProviderName: [i8; 256],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for SP_DRVINFO_DATA_V1_A {}
@@ -4046,9 +4046,9 @@ pub struct SP_DRVINFO_DATA_V1_A {
     pub cbSize: u32,
     pub DriverType: u32,
     pub Reserved: usize,
-    pub Description: [u8; 256],
-    pub MfgName: [u8; 256],
-    pub ProviderName: [u8; 256],
+    pub Description: [i8; 256],
+    pub MfgName: [i8; 256],
+    pub ProviderName: [i8; 256],
 }
 #[cfg(target_arch = "x86")]
 impl ::core::marker::Copy for SP_DRVINFO_DATA_V1_A {}
@@ -4100,9 +4100,9 @@ pub struct SP_DRVINFO_DATA_V2_A {
     pub cbSize: u32,
     pub DriverType: u32,
     pub Reserved: usize,
-    pub Description: [u8; 256],
-    pub MfgName: [u8; 256],
-    pub ProviderName: [u8; 256],
+    pub Description: [i8; 256],
+    pub MfgName: [i8; 256],
+    pub ProviderName: [i8; 256],
     pub DriverDate: super::super::Foundation::FILETIME,
     pub DriverVersion: u64,
 }
@@ -4120,9 +4120,9 @@ pub struct SP_DRVINFO_DATA_V2_A {
     pub cbSize: u32,
     pub DriverType: u32,
     pub Reserved: usize,
-    pub Description: [u8; 256],
-    pub MfgName: [u8; 256],
-    pub ProviderName: [u8; 256],
+    pub Description: [i8; 256],
+    pub MfgName: [i8; 256],
+    pub ProviderName: [i8; 256],
     pub DriverDate: super::super::Foundation::FILETIME,
     pub DriverVersion: u64,
 }
@@ -4182,10 +4182,10 @@ pub struct SP_DRVINFO_DETAIL_DATA_A {
     pub CompatIDsOffset: u32,
     pub CompatIDsLength: u32,
     pub Reserved: usize,
-    pub SectionName: [u8; 256],
-    pub InfFileName: [u8; 260],
-    pub DrvDescription: [u8; 256],
-    pub HardwareID: [u8; 1],
+    pub SectionName: [i8; 256],
+    pub InfFileName: [i8; 260],
+    pub DrvDescription: [i8; 256],
+    pub HardwareID: [i8; 1],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for SP_DRVINFO_DETAIL_DATA_A {}
@@ -4203,10 +4203,10 @@ pub struct SP_DRVINFO_DETAIL_DATA_A {
     pub CompatIDsOffset: u32,
     pub CompatIDsLength: u32,
     pub Reserved: usize,
-    pub SectionName: [u8; 256],
-    pub InfFileName: [u8; 260],
-    pub DrvDescription: [u8; 256],
-    pub HardwareID: [u8; 1],
+    pub SectionName: [i8; 256],
+    pub InfFileName: [i8; 260],
+    pub DrvDescription: [i8; 256],
+    pub HardwareID: [i8; 1],
 }
 #[cfg(target_arch = "x86")]
 impl ::core::marker::Copy for SP_DRVINFO_DETAIL_DATA_A {}
@@ -4452,9 +4452,9 @@ impl ::core::clone::Clone for SP_INF_INFORMATION {
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct SP_INF_SIGNER_INFO_V1_A {
     pub cbSize: u32,
-    pub CatalogFile: [u8; 260],
-    pub DigitalSigner: [u8; 260],
-    pub DigitalSignerVersion: [u8; 260],
+    pub CatalogFile: [i8; 260],
+    pub DigitalSigner: [i8; 260],
+    pub DigitalSignerVersion: [i8; 260],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for SP_INF_SIGNER_INFO_V1_A {}
@@ -4468,9 +4468,9 @@ impl ::core::clone::Clone for SP_INF_SIGNER_INFO_V1_A {
 #[cfg(target_arch = "x86")]
 pub struct SP_INF_SIGNER_INFO_V1_A {
     pub cbSize: u32,
-    pub CatalogFile: [u8; 260],
-    pub DigitalSigner: [u8; 260],
-    pub DigitalSignerVersion: [u8; 260],
+    pub CatalogFile: [i8; 260],
+    pub DigitalSigner: [i8; 260],
+    pub DigitalSignerVersion: [i8; 260],
 }
 #[cfg(target_arch = "x86")]
 impl ::core::marker::Copy for SP_INF_SIGNER_INFO_V1_A {}
@@ -4516,9 +4516,9 @@ impl ::core::clone::Clone for SP_INF_SIGNER_INFO_V1_W {
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct SP_INF_SIGNER_INFO_V2_A {
     pub cbSize: u32,
-    pub CatalogFile: [u8; 260],
-    pub DigitalSigner: [u8; 260],
-    pub DigitalSignerVersion: [u8; 260],
+    pub CatalogFile: [i8; 260],
+    pub DigitalSigner: [i8; 260],
+    pub DigitalSignerVersion: [i8; 260],
     pub SignerScore: u32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -4533,9 +4533,9 @@ impl ::core::clone::Clone for SP_INF_SIGNER_INFO_V2_A {
 #[cfg(target_arch = "x86")]
 pub struct SP_INF_SIGNER_INFO_V2_A {
     pub cbSize: u32,
-    pub CatalogFile: [u8; 260],
-    pub DigitalSigner: [u8; 260],
-    pub DigitalSignerVersion: [u8; 260],
+    pub CatalogFile: [i8; 260],
+    pub DigitalSigner: [i8; 260],
+    pub DigitalSignerVersion: [i8; 260],
     pub SignerScore: u32,
 }
 #[cfg(target_arch = "x86")]
@@ -4674,8 +4674,8 @@ impl ::core::clone::Clone for SP_NEWDEVICEWIZARD_DATA {
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct SP_ORIGINAL_FILE_INFO_A {
     pub cbSize: u32,
-    pub OriginalInfName: [u8; 260],
-    pub OriginalCatalogName: [u8; 260],
+    pub OriginalInfName: [i8; 260],
+    pub OriginalCatalogName: [i8; 260],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for SP_ORIGINAL_FILE_INFO_A {}
@@ -4689,8 +4689,8 @@ impl ::core::clone::Clone for SP_ORIGINAL_FILE_INFO_A {
 #[cfg(target_arch = "x86")]
 pub struct SP_ORIGINAL_FILE_INFO_A {
     pub cbSize: u32,
-    pub OriginalInfName: [u8; 260],
-    pub OriginalCatalogName: [u8; 260],
+    pub OriginalInfName: [i8; 260],
+    pub OriginalCatalogName: [i8; 260],
 }
 #[cfg(target_arch = "x86")]
 impl ::core::marker::Copy for SP_ORIGINAL_FILE_INFO_A {}
@@ -4733,7 +4733,7 @@ impl ::core::clone::Clone for SP_ORIGINAL_FILE_INFO_W {
 #[repr(C)]
 pub struct SP_POWERMESSAGEWAKE_PARAMS_A {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-    pub PowerMessageWake: [u8; 512],
+    pub PowerMessageWake: [i8; 512],
 }
 impl ::core::marker::Copy for SP_POWERMESSAGEWAKE_PARAMS_A {}
 impl ::core::clone::Clone for SP_POWERMESSAGEWAKE_PARAMS_A {
@@ -4930,10 +4930,10 @@ impl ::core::clone::Clone for SP_REMOVEDEVICE_PARAMS {
 #[repr(C)]
 pub struct SP_SELECTDEVICE_PARAMS_A {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-    pub Title: [u8; 60],
-    pub Instructions: [u8; 256],
-    pub ListLabel: [u8; 30],
-    pub SubTitle: [u8; 256],
+    pub Title: [i8; 60],
+    pub Instructions: [i8; 256],
+    pub ListLabel: [i8; 30],
+    pub SubTitle: [i8; 256],
     pub Reserved: [u8; 2],
 }
 impl ::core::marker::Copy for SP_SELECTDEVICE_PARAMS_A {}
@@ -4979,8 +4979,8 @@ impl ::core::clone::Clone for SP_SELECTDEVICE_PARAMS_W {
 #[repr(C)]
 pub struct SP_TROUBLESHOOTER_PARAMS_A {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-    pub ChmFile: [u8; 260],
-    pub HtmlTroubleShooter: [u8; 260],
+    pub ChmFile: [i8; 260],
+    pub HtmlTroubleShooter: [i8; 260],
 }
 impl ::core::marker::Copy for SP_TROUBLESHOOTER_PARAMS_A {}
 impl ::core::clone::Clone for SP_TROUBLESHOOTER_PARAMS_A {

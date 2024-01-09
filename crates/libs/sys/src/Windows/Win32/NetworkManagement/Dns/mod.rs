@@ -474,7 +474,7 @@ impl ::core::clone::Clone for DNS_AAAA_DATA {
 }
 #[repr(C)]
 pub struct DNS_ADDR {
-    pub MaxSa: [u8; 32],
+    pub MaxSa: [i8; 32],
     pub Data: DNS_ADDR_0,
 }
 impl ::core::marker::Copy for DNS_ADDR {}
@@ -727,7 +727,7 @@ impl ::core::clone::Clone for DNS_CUSTOM_SERVER_0 {
 }
 #[repr(C)]
 pub union DNS_CUSTOM_SERVER_1 {
-    pub MaxSa: [u8; 32],
+    pub MaxSa: [i8; 32],
 }
 impl ::core::marker::Copy for DNS_CUSTOM_SERVER_1 {}
 impl ::core::clone::Clone for DNS_CUSTOM_SERVER_1 {
@@ -823,7 +823,7 @@ impl ::core::clone::Clone for DNS_LOC_DATA {
 #[repr(C)]
 pub struct DNS_MESSAGE_BUFFER {
     pub MessageHead: DNS_HEADER,
-    pub MessageBody: [u8; 1],
+    pub MessageBody: [i8; 1],
 }
 impl ::core::marker::Copy for DNS_MESSAGE_BUFFER {}
 impl ::core::clone::Clone for DNS_MESSAGE_BUFFER {
@@ -1045,7 +1045,7 @@ impl ::core::clone::Clone for DNS_PTR_DATAW {
 }
 #[repr(C)]
 pub struct DNS_QUERY_CANCEL {
-    pub Reserved: [u8; 32],
+    pub Reserved: [i8; 32],
 }
 impl ::core::marker::Copy for DNS_QUERY_CANCEL {}
 impl ::core::clone::Clone for DNS_QUERY_CANCEL {

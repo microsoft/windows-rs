@@ -2935,7 +2935,7 @@ impl ::core::clone::Clone for ERROR_LOG {
 pub struct FLAT_STRING {
     pub MaximumLength: i16,
     pub Length: i16,
-    pub Buffer: [u8; 1],
+    pub Buffer: [i8; 1],
 }
 impl ::core::marker::Copy for FLAT_STRING {}
 impl ::core::clone::Clone for FLAT_STRING {

@@ -91,9 +91,9 @@ pub struct CCAB {
     pub iDisk: i32,
     pub fFailOnIncompressible: i32,
     pub setID: u16,
-    pub szDisk: [u8; 256],
-    pub szCab: [u8; 256],
-    pub szCabPath: [u8; 256],
+    pub szDisk: [i8; 256],
+    pub szCab: [i8; 256],
+    pub szCabPath: [i8; 256],
 }
 impl ::core::marker::Copy for CCAB {}
 impl ::core::clone::Clone for CCAB {
@@ -219,7 +219,7 @@ impl ::core::clone::Clone for FDINOTIFICATION {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct FDISPILLFILE {
-    pub ach: [u8; 2],
+    pub ach: [i8; 2],
     pub cbFile: i32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -233,7 +233,7 @@ impl ::core::clone::Clone for FDISPILLFILE {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 pub struct FDISPILLFILE {
-    pub ach: [u8; 2],
+    pub ach: [i8; 2],
     pub cbFile: i32,
 }
 #[cfg(target_arch = "x86")]

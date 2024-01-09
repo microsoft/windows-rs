@@ -53,9 +53,9 @@
 #[cfg(feature = "Win32_UI_TextServices")]
 ::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `\"Win32_UI_TextServices\"`"] fn UnloadKeyboardLayout(hkl : super::super::TextServices:: HKL) -> super::super::super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" fn UnregisterHotKey(hwnd : super::super::super::Foundation:: HWND, id : i32) -> super::super::super::Foundation:: BOOL);
-::windows_targets::link!("user32.dll" "system" fn VkKeyScanA(ch : u8) -> i16);
+::windows_targets::link!("user32.dll" "system" fn VkKeyScanA(ch : i8) -> i16);
 #[cfg(feature = "Win32_UI_TextServices")]
-::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `\"Win32_UI_TextServices\"`"] fn VkKeyScanExA(ch : u8, dwhkl : super::super::TextServices:: HKL) -> i16);
+::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `\"Win32_UI_TextServices\"`"] fn VkKeyScanExA(ch : i8, dwhkl : super::super::TextServices:: HKL) -> i16);
 #[cfg(feature = "Win32_UI_TextServices")]
 ::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `\"Win32_UI_TextServices\"`"] fn VkKeyScanExW(ch : u16, dwhkl : super::super::TextServices:: HKL) -> i16);
 ::windows_targets::link!("user32.dll" "system" fn VkKeyScanW(ch : u16) -> i16);

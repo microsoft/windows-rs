@@ -234,12 +234,12 @@
 ::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn InsertMenuItemW(hmenu : HMENU, item : u32, fbyposition : super::super::Foundation:: BOOL, lpmi : *const MENUITEMINFOW) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" fn InsertMenuW(hmenu : HMENU, uposition : u32, uflags : MENU_ITEM_FLAGS, uidnewitem : usize, lpnewitem : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" fn InternalGetWindowText(hwnd : super::super::Foundation:: HWND, pstring : ::windows_sys::core::PWSTR, cchmaxcount : i32) -> i32);
-::windows_targets::link!("user32.dll" "system" fn IsCharAlphaA(ch : u8) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("user32.dll" "system" fn IsCharAlphaNumericA(ch : u8) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("user32.dll" "system" fn IsCharAlphaA(ch : i8) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("user32.dll" "system" fn IsCharAlphaNumericA(ch : i8) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" fn IsCharAlphaNumericW(ch : u16) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" fn IsCharAlphaW(ch : u16) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("user32.dll" "system" fn IsCharLowerA(ch : u8) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("user32.dll" "system" fn IsCharUpperA(ch : u8) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("user32.dll" "system" fn IsCharLowerA(ch : i8) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("user32.dll" "system" fn IsCharUpperA(ch : i8) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" fn IsCharUpperW(ch : u16) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" fn IsChild(hwndparent : super::super::Foundation:: HWND, hwnd : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" fn IsDialogMessageA(hdlg : super::super::Foundation:: HWND, lpmsg : *const MSG) -> super::super::Foundation:: BOOL);
@@ -3068,7 +3068,7 @@ pub struct DEV_BROADCAST_DEVICEINTERFACE_A {
     pub dbcc_devicetype: u32,
     pub dbcc_reserved: u32,
     pub dbcc_classguid: ::windows_sys::core::GUID,
-    pub dbcc_name: [u8; 1],
+    pub dbcc_name: [i8; 1],
 }
 impl ::core::marker::Copy for DEV_BROADCAST_DEVICEINTERFACE_A {}
 impl ::core::clone::Clone for DEV_BROADCAST_DEVICEINTERFACE_A {
@@ -3199,7 +3199,7 @@ pub struct DEV_BROADCAST_PORT_A {
     pub dbcp_size: u32,
     pub dbcp_devicetype: u32,
     pub dbcp_reserved: u32,
-    pub dbcp_name: [u8; 1],
+    pub dbcp_name: [i8; 1],
 }
 impl ::core::marker::Copy for DEV_BROADCAST_PORT_A {}
 impl ::core::clone::Clone for DEV_BROADCAST_PORT_A {
@@ -3408,8 +3408,8 @@ pub struct ICONINFOEXA {
     pub hbmMask: super::super::Graphics::Gdi::HBITMAP,
     pub hbmColor: super::super::Graphics::Gdi::HBITMAP,
     pub wResID: u16,
-    pub szModName: [u8; 260],
-    pub szResName: [u8; 260],
+    pub szModName: [i8; 260],
+    pub szResName: [i8; 260],
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::marker::Copy for ICONINFOEXA {}
@@ -4295,7 +4295,7 @@ impl ::core::clone::Clone for _DEV_BROADCAST_HEADER {
 #[repr(C)]
 pub struct _DEV_BROADCAST_USERDEFINED {
     pub dbud_dbh: DEV_BROADCAST_HDR,
-    pub dbud_szName: [u8; 1],
+    pub dbud_szName: [i8; 1],
 }
 impl ::core::marker::Copy for _DEV_BROADCAST_USERDEFINED {}
 impl ::core::clone::Clone for _DEV_BROADCAST_USERDEFINED {

@@ -3590,8 +3590,8 @@ impl ::core::clone::Clone for TYPE1_FONT {
 }
 #[repr(C)]
 pub struct VGA_CHAR {
-    pub Char: u8,
-    pub Attributes: u8,
+    pub Char: i8,
+    pub Attributes: i8,
 }
 impl ::core::marker::Copy for VGA_CHAR {}
 impl ::core::clone::Clone for VGA_CHAR {

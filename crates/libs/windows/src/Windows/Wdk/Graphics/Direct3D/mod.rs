@@ -33778,7 +33778,7 @@ pub struct OUTPUTDUPL_CONTEXT_DEBUG_INFO {
     pub AccumulatedPresents: u32,
     pub LastPresentTime: i64,
     pub LastMouseTime: i64,
-    pub ProcessName: [u8; 16],
+    pub ProcessName: [i8; 16],
 }
 impl ::core::marker::Copy for OUTPUTDUPL_CONTEXT_DEBUG_INFO {}
 impl ::core::clone::Clone for OUTPUTDUPL_CONTEXT_DEBUG_INFO {

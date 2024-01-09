@@ -117,8 +117,8 @@ impl ::core::clone::Clone for GLOBALENTRY {
 }
 #[repr(C)]
 pub struct IMAGE_NOTE {
-    pub Module: [u8; 10],
-    pub FileName: [u8; 256],
+    pub Module: [i8; 10],
+    pub FileName: [i8; 256],
     pub hModule: u16,
     pub hTask: u16,
 }
@@ -131,10 +131,10 @@ impl ::core::clone::Clone for IMAGE_NOTE {
 #[repr(C, packed(4))]
 pub struct MODULEENTRY {
     pub dwSize: u32,
-    pub szModule: [u8; 10],
+    pub szModule: [i8; 10],
     pub hModule: super::super::Foundation::HANDLE,
     pub wcUsage: u16,
-    pub szExePath: [u8; 256],
+    pub szExePath: [i8; 256],
     pub wNext: u16,
 }
 impl ::core::marker::Copy for MODULEENTRY {}
@@ -148,8 +148,8 @@ pub struct SEGMENT_NOTE {
     pub Selector1: u16,
     pub Selector2: u16,
     pub Segment: u16,
-    pub Module: [u8; 10],
-    pub FileName: [u8; 256],
+    pub Module: [i8; 10],
+    pub FileName: [i8; 256],
     pub Type: u16,
     pub Length: u32,
 }
@@ -313,8 +313,8 @@ pub struct VDM_SEGINFO {
     pub SegNumber: u16,
     pub Length: u32,
     pub Type: u16,
-    pub ModuleName: [u8; 9],
-    pub FileName: [u8; 255],
+    pub ModuleName: [i8; 9],
+    pub FileName: [i8; 255],
 }
 impl ::core::marker::Copy for VDM_SEGINFO {}
 impl ::core::clone::Clone for VDM_SEGINFO {

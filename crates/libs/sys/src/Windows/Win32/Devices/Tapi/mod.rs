@@ -2022,9 +2022,9 @@ pub type TERMINAL_STATE = i32;
 pub type TERMINAL_TYPE = i32;
 #[repr(C)]
 pub struct ADDRALIAS {
-    pub rgchName: [u8; 41],
-    pub rgchEName: [u8; 11],
-    pub rgchSrvr: [u8; 12],
+    pub rgchName: [i8; 41],
+    pub rgchEName: [i8; 11],
+    pub rgchSrvr: [i8; 12],
     pub dibDetail: u32,
     pub r#type: u16,
 }
@@ -3387,10 +3387,10 @@ impl ::core::clone::Clone for LINEQUEUELIST {
 }
 #[repr(C)]
 pub struct LINEREQMAKECALL {
-    pub szDestAddress: [u8; 80],
-    pub szAppName: [u8; 40],
-    pub szCalledParty: [u8; 40],
-    pub szComment: [u8; 80],
+    pub szDestAddress: [i8; 80],
+    pub szAppName: [i8; 40],
+    pub szCalledParty: [i8; 40],
+    pub szComment: [i8; 80],
 }
 impl ::core::marker::Copy for LINEREQMAKECALL {}
 impl ::core::clone::Clone for LINEREQMAKECALL {
@@ -3415,14 +3415,14 @@ impl ::core::clone::Clone for LINEREQMAKECALLW {
 pub struct LINEREQMEDIACALL {
     pub hWnd: super::super::Foundation::HWND,
     pub wRequestID: super::super::Foundation::WPARAM,
-    pub szDeviceClass: [u8; 40],
+    pub szDeviceClass: [i8; 40],
     pub ucDeviceID: [u8; 40],
     pub dwSize: u32,
     pub dwSecure: u32,
-    pub szDestAddress: [u8; 80],
-    pub szAppName: [u8; 40],
-    pub szCalledParty: [u8; 40],
-    pub szComment: [u8; 80],
+    pub szDestAddress: [i8; 80],
+    pub szAppName: [i8; 40],
+    pub szCalledParty: [i8; 40],
+    pub szComment: [i8; 80],
 }
 impl ::core::marker::Copy for LINEREQMEDIACALL {}
 impl ::core::clone::Clone for LINEREQMEDIACALL {
@@ -3681,7 +3681,7 @@ impl ::core::clone::Clone for NSID {
 #[repr(C)]
 pub union NSID_0 {
     pub alias: ADDRALIAS,
-    pub rgchInterNet: [u8; 1],
+    pub rgchInterNet: [i8; 1],
 }
 impl ::core::marker::Copy for NSID_0 {}
 impl ::core::clone::Clone for NSID_0 {

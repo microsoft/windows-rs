@@ -302,18 +302,18 @@ where
     UnregisterHotKey(hwnd.into_param().abi(), id).ok()
 }
 #[inline]
-pub unsafe fn VkKeyScanA(ch: u8) -> i16 {
-    ::windows_targets::link!("user32.dll" "system" fn VkKeyScanA(ch : u8) -> i16);
+pub unsafe fn VkKeyScanA(ch: i8) -> i16 {
+    ::windows_targets::link!("user32.dll" "system" fn VkKeyScanA(ch : i8) -> i16);
     VkKeyScanA(ch)
 }
 #[doc = "Required features: `\"Win32_UI_TextServices\"`"]
 #[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
-pub unsafe fn VkKeyScanExA<P0>(ch: u8, dwhkl: P0) -> i16
+pub unsafe fn VkKeyScanExA<P0>(ch: i8, dwhkl: P0) -> i16
 where
     P0: ::windows_core::IntoParam<super::super::TextServices::HKL>,
 {
-    ::windows_targets::link!("user32.dll" "system" fn VkKeyScanExA(ch : u8, dwhkl : super::super::TextServices:: HKL) -> i16);
+    ::windows_targets::link!("user32.dll" "system" fn VkKeyScanExA(ch : i8, dwhkl : super::super::TextServices:: HKL) -> i16);
     VkKeyScanExA(ch, dwhkl.into_param().abi())
 }
 #[doc = "Required features: `\"Win32_UI_TextServices\"`"]

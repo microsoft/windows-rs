@@ -20846,8 +20846,8 @@ pub struct DBG_THREAD_ATTRIBUTES {
     pub BlockedOnTID: u64,
     pub CritSecAddress: u64,
     pub Timeout_msec: u32,
-    pub StringData: [u8; 100],
-    pub SymName: [u8; 100],
+    pub StringData: [i8; 100],
+    pub SymName: [i8; 100],
 }
 impl ::core::marker::Copy for DBG_THREAD_ATTRIBUTES {}
 impl ::core::clone::Clone for DBG_THREAD_ATTRIBUTES {
@@ -20886,11 +20886,11 @@ pub struct DEBUG_ANALYSIS_PROCESSOR_INFO {
     pub CurrentVoltage: u32,
     pub MaxClockSpeed: u32,
     pub ProcessorType: u32,
-    pub DeviceID: [u8; 32],
-    pub Manufacturer: [u8; 64],
-    pub Name: [u8; 64],
-    pub Version: [u8; 64],
-    pub Description: [u8; 64],
+    pub DeviceID: [i8; 32],
+    pub Manufacturer: [i8; 64],
+    pub Name: [i8; 64],
+    pub Version: [i8; 64],
+    pub Description: [i8; 64],
 }
 impl ::core::marker::Copy for DEBUG_ANALYSIS_PROCESSOR_INFO {}
 impl ::core::clone::Clone for DEBUG_ANALYSIS_PROCESSOR_INFO {
@@ -21153,8 +21153,8 @@ pub struct DEBUG_DECODE_ERROR {
     pub SizeOfStruct: u32,
     pub Code: u32,
     pub TreatAsStatus: super::super::super::super::Foundation::BOOL,
-    pub Source: [u8; 64],
-    pub Message: [u8; 260],
+    pub Source: [i8; 64],
+    pub Message: [i8; 260],
 }
 impl ::core::marker::Copy for DEBUG_DECODE_ERROR {}
 impl ::core::clone::Clone for DEBUG_DECODE_ERROR {
@@ -21921,9 +21921,9 @@ impl ::core::default::Default for DEBUG_PNP_TRIAGE_INFO {
 pub struct DEBUG_POOLTAG_DESCRIPTION {
     pub SizeOfStruct: u32,
     pub PoolTag: u32,
-    pub Description: [u8; 260],
-    pub Binary: [u8; 32],
-    pub Owner: [u8; 32],
+    pub Description: [i8; 260],
+    pub Binary: [i8; 32],
+    pub Owner: [i8; 32],
 }
 impl ::core::marker::Copy for DEBUG_POOLTAG_DESCRIPTION {}
 impl ::core::clone::Clone for DEBUG_POOLTAG_DESCRIPTION {
@@ -21961,7 +21961,7 @@ pub struct DEBUG_POOL_DATA {
     pub ProcessBilled: u64,
     pub Anonymous: DEBUG_POOL_DATA_0,
     pub Reserved2: [u64; 4],
-    pub PoolTagDescription: [u8; 64],
+    pub PoolTagDescription: [i8; 64],
 }
 impl ::core::marker::Copy for DEBUG_POOL_DATA {}
 impl ::core::clone::Clone for DEBUG_POOL_DATA {
@@ -22083,7 +22083,7 @@ pub struct DEBUG_PROCESSOR_IDENTIFICATION_AMD64 {
     pub Family: u32,
     pub Model: u32,
     pub Stepping: u32,
-    pub VendorString: [u8; 16],
+    pub VendorString: [i8; 16],
 }
 impl ::core::marker::Copy for DEBUG_PROCESSOR_IDENTIFICATION_AMD64 {}
 impl ::core::clone::Clone for DEBUG_PROCESSOR_IDENTIFICATION_AMD64 {
@@ -22114,7 +22114,7 @@ impl ::core::default::Default for DEBUG_PROCESSOR_IDENTIFICATION_AMD64 {
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_ARM {
     pub Model: u32,
     pub Revision: u32,
-    pub VendorString: [u8; 16],
+    pub VendorString: [i8; 16],
 }
 impl ::core::marker::Copy for DEBUG_PROCESSOR_IDENTIFICATION_ARM {}
 impl ::core::clone::Clone for DEBUG_PROCESSOR_IDENTIFICATION_ARM {
@@ -22145,7 +22145,7 @@ impl ::core::default::Default for DEBUG_PROCESSOR_IDENTIFICATION_ARM {
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_ARM64 {
     pub Model: u32,
     pub Revision: u32,
-    pub VendorString: [u8; 16],
+    pub VendorString: [i8; 16],
 }
 impl ::core::marker::Copy for DEBUG_PROCESSOR_IDENTIFICATION_ARM64 {}
 impl ::core::clone::Clone for DEBUG_PROCESSOR_IDENTIFICATION_ARM64 {
@@ -22178,7 +22178,7 @@ pub struct DEBUG_PROCESSOR_IDENTIFICATION_IA64 {
     pub Revision: u32,
     pub Family: u32,
     pub ArchRev: u32,
-    pub VendorString: [u8; 16],
+    pub VendorString: [i8; 16],
 }
 impl ::core::marker::Copy for DEBUG_PROCESSOR_IDENTIFICATION_IA64 {}
 impl ::core::clone::Clone for DEBUG_PROCESSOR_IDENTIFICATION_IA64 {
@@ -22210,7 +22210,7 @@ pub struct DEBUG_PROCESSOR_IDENTIFICATION_X86 {
     pub Family: u32,
     pub Model: u32,
     pub Stepping: u32,
-    pub VendorString: [u8; 16],
+    pub VendorString: [i8; 16],
 }
 impl ::core::marker::Copy for DEBUG_PROCESSOR_IDENTIFICATION_X86 {}
 impl ::core::clone::Clone for DEBUG_PROCESSOR_IDENTIFICATION_X86 {
@@ -22317,17 +22317,17 @@ pub struct DEBUG_SMBIOS_INFO {
     pub BiosMinorRelease: u8,
     pub FirmwareMajorRelease: u8,
     pub FirmwareMinorRelease: u8,
-    pub BaseBoardManufacturer: [u8; 64],
-    pub BaseBoardProduct: [u8; 64],
-    pub BaseBoardVersion: [u8; 64],
-    pub BiosReleaseDate: [u8; 64],
-    pub BiosVendor: [u8; 64],
-    pub BiosVersion: [u8; 64],
-    pub SystemFamily: [u8; 64],
-    pub SystemManufacturer: [u8; 64],
-    pub SystemProductName: [u8; 64],
-    pub SystemSKU: [u8; 64],
-    pub SystemVersion: [u8; 64],
+    pub BaseBoardManufacturer: [i8; 64],
+    pub BaseBoardProduct: [i8; 64],
+    pub BaseBoardVersion: [i8; 64],
+    pub BiosReleaseDate: [i8; 64],
+    pub BiosVendor: [i8; 64],
+    pub BiosVersion: [i8; 64],
+    pub SystemFamily: [i8; 64],
+    pub SystemManufacturer: [i8; 64],
+    pub SystemProductName: [i8; 64],
+    pub SystemSKU: [i8; 64],
+    pub SystemVersion: [i8; 64],
 }
 impl ::core::marker::Copy for DEBUG_SMBIOS_INFO {}
 impl ::core::clone::Clone for DEBUG_SMBIOS_INFO {
@@ -24708,7 +24708,7 @@ pub struct KDEXT_FILELOCK_OWNER {
     pub OwnerThread: u64,
     pub WaitIrp: u64,
     pub DeviceObject: u64,
-    pub BlockingDirver: [u8; 32],
+    pub BlockingDirver: [i8; 32],
 }
 impl ::core::marker::Copy for KDEXT_FILELOCK_OWNER {}
 impl ::core::clone::Clone for KDEXT_FILELOCK_OWNER {
@@ -24878,11 +24878,11 @@ pub struct OS_INFO {
     pub ServicePackBuild: u32,
     pub Architecture: u32,
     pub Lcid: u32,
-    pub Name: [u8; 64],
-    pub FullName: [u8; 256],
-    pub Language: [u8; 30],
-    pub BuildVersion: [u8; 64],
-    pub ServicePackString: [u8; 64],
+    pub Name: [i8; 64],
+    pub FullName: [i8; 256],
+    pub Language: [i8; 30],
+    pub BuildVersion: [i8; 64],
+    pub ServicePackString: [i8; 64],
 }
 impl ::core::marker::Copy for OS_INFO {}
 impl ::core::clone::Clone for OS_INFO {
@@ -24964,9 +24964,9 @@ pub struct OS_INFO_v1 {
     pub Suite: u32,
     pub s: OS_INFO_v1_1,
     pub SrvPackNumber: u32,
-    pub Language: [u8; 30],
-    pub OsString: [u8; 64],
-    pub ServicePackString: [u8; 64],
+    pub Language: [i8; 30],
+    pub OsString: [i8; 64],
+    pub ServicePackString: [i8; 64],
 }
 impl ::core::marker::Copy for OS_INFO_v1 {}
 impl ::core::clone::Clone for OS_INFO_v1 {
@@ -25732,7 +25732,7 @@ pub struct TARGET_DEBUG_INFO {
     pub CrashTime: u64,
     pub OsInfo: OS_INFO,
     pub Cpu: CPU_INFO,
-    pub DumpFile: [u8; 260],
+    pub DumpFile: [i8; 260],
 }
 impl ::core::marker::Copy for TARGET_DEBUG_INFO {}
 impl ::core::clone::Clone for TARGET_DEBUG_INFO {
@@ -25760,9 +25760,9 @@ pub struct TARGET_DEBUG_INFO_v1 {
     pub Mode: u64,
     pub OsInfo: OS_INFO_v1,
     pub Cpu: CPU_INFO_v1,
-    pub DumpFile: [u8; 260],
+    pub DumpFile: [i8; 260],
     pub FailureData: *mut ::core::ffi::c_void,
-    pub StackTr: [u8; 4096],
+    pub StackTr: [i8; 4096],
 }
 impl ::core::marker::Copy for TARGET_DEBUG_INFO_v1 {}
 impl ::core::clone::Clone for TARGET_DEBUG_INFO_v1 {
@@ -25788,7 +25788,7 @@ pub struct TARGET_DEBUG_INFO_v2 {
     pub CrashTime: u64,
     pub OsInfo: OS_INFO,
     pub Cpu: CPU_INFO_v2,
-    pub DumpFile: [u8; 260],
+    pub DumpFile: [i8; 260],
 }
 impl ::core::marker::Copy for TARGET_DEBUG_INFO_v2 {}
 impl ::core::clone::Clone for TARGET_DEBUG_INFO_v2 {
@@ -26219,14 +26219,14 @@ impl ::core::default::Default for WINDBG_OLD_EXTENSION_APIS {
 }
 #[repr(C)]
 pub struct XML_DRIVER_NODE_INFO {
-    pub FileName: [u8; 64],
+    pub FileName: [i8; 64],
     pub FileSize: u64,
     pub CreationDate: u64,
-    pub Version: [u8; 64],
-    pub Manufacturer: [u8; 260],
-    pub ProductName: [u8; 260],
-    pub Group: [u8; 260],
-    pub Altitude: [u8; 260],
+    pub Version: [i8; 64],
+    pub Manufacturer: [i8; 260],
+    pub ProductName: [i8; 260],
+    pub Group: [i8; 260],
+    pub Altitude: [i8; 260],
 }
 impl ::core::marker::Copy for XML_DRIVER_NODE_INFO {}
 impl ::core::clone::Clone for XML_DRIVER_NODE_INFO {

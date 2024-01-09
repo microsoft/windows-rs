@@ -1379,7 +1379,7 @@ pub struct IMEMENUITEMINFOA {
     pub hbmpChecked: super::super::super::Graphics::Gdi::HBITMAP,
     pub hbmpUnchecked: super::super::super::Graphics::Gdi::HBITMAP,
     pub dwItemData: u32,
-    pub szString: [u8; 80],
+    pub szString: [i8; 80],
     pub hbmpItem: super::super::super::Graphics::Gdi::HBITMAP,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -1416,9 +1416,9 @@ impl ::core::clone::Clone for IMEMENUITEMINFOW {
 pub struct IMESHF {
     pub cbShf: u16,
     pub verDic: u16,
-    pub szTitle: [u8; 48],
-    pub szDescription: [u8; 256],
-    pub szCopyright: [u8; 128],
+    pub szTitle: [i8; 48],
+    pub szDescription: [i8; 256],
+    pub szCopyright: [i8; 128],
 }
 impl ::core::marker::Copy for IMESHF {}
 impl ::core::clone::Clone for IMESHF {
@@ -1665,7 +1665,7 @@ impl ::core::clone::Clone for SOFTKBDDATA {
 #[repr(C)]
 pub struct STYLEBUFA {
     pub dwStyle: u32,
-    pub szDescription: [u8; 32],
+    pub szDescription: [i8; 32],
 }
 impl ::core::marker::Copy for STYLEBUFA {}
 impl ::core::clone::Clone for STYLEBUFA {

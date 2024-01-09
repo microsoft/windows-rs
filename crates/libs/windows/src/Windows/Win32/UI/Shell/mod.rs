@@ -1286,8 +1286,8 @@ where
     IntlStrEqWorkerW(fcasesens.into_param().abi(), lpstring1.into_param().abi(), lpstring2.into_param().abi(), nchar)
 }
 #[inline]
-pub unsafe fn IsCharSpaceA(wch: u8) -> super::super::Foundation::BOOL {
-    ::windows_targets::link!("shlwapi.dll" "system" fn IsCharSpaceA(wch : u8) -> super::super::Foundation:: BOOL);
+pub unsafe fn IsCharSpaceA(wch: i8) -> super::super::Foundation::BOOL {
+    ::windows_targets::link!("shlwapi.dll" "system" fn IsCharSpaceA(wch : i8) -> super::super::Foundation:: BOOL);
     IsCharSpaceA(wch)
 }
 #[inline]
@@ -4632,8 +4632,8 @@ where
     SHStrDupW(psz.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[inline]
-pub unsafe fn SHStripMneumonicA(pszmenu: ::windows_core::PSTR) -> u8 {
-    ::windows_targets::link!("shlwapi.dll" "system" fn SHStripMneumonicA(pszmenu : ::windows_core::PSTR) -> u8);
+pub unsafe fn SHStripMneumonicA(pszmenu: ::windows_core::PSTR) -> i8 {
+    ::windows_targets::link!("shlwapi.dll" "system" fn SHStripMneumonicA(pszmenu : ::windows_core::PSTR) -> i8);
     SHStripMneumonicA(::core::mem::transmute(pszmenu))
 }
 #[inline]
@@ -41989,7 +41989,7 @@ impl ::core::default::Default for DROPFILES {
 #[repr(C, packed(1))]
 pub struct EXP_DARWIN_LINK {
     pub dbh: DATABLOCK_HEADER,
-    pub szDarwinID: [u8; 260],
+    pub szDarwinID: [i8; 260],
     pub szwDarwinID: [u16; 260],
 }
 impl ::core::marker::Copy for EXP_DARWIN_LINK {}
@@ -42051,7 +42051,7 @@ impl ::core::default::Default for EXP_SPECIAL_FOLDER {
 pub struct EXP_SZ_LINK {
     pub cbSize: u32,
     pub dwSignature: u32,
-    pub szTarget: [u8; 260],
+    pub szTarget: [i8; 260],
     pub swzTarget: [u16; 260],
 }
 impl ::core::marker::Copy for EXP_SZ_LINK {}
@@ -42111,7 +42111,7 @@ pub struct FILEDESCRIPTORA {
     pub ftLastWriteTime: super::super::Foundation::FILETIME,
     pub nFileSizeHigh: u32,
     pub nFileSizeLow: u32,
-    pub cFileName: [u8; 260],
+    pub cFileName: [i8; 260],
 }
 impl ::core::marker::Copy for FILEDESCRIPTORA {}
 impl ::core::clone::Clone for FILEDESCRIPTORA {
@@ -42344,7 +42344,7 @@ pub struct HELPWININFOA {
     pub dx: i32,
     pub dy: i32,
     pub wMax: i32,
-    pub rgchMember: [u8; 2],
+    pub rgchMember: [i8; 2],
 }
 impl ::core::marker::Copy for HELPWININFOA {}
 impl ::core::clone::Clone for HELPWININFOA {
@@ -42616,8 +42616,8 @@ impl ::core::default::Default for KNOWNFOLDER_DEFINITION {
 #[repr(C)]
 pub struct MULTIKEYHELPA {
     pub mkSize: u32,
-    pub mkKeylist: u8,
-    pub szKeyphrase: [u8; 1],
+    pub mkKeylist: i8,
+    pub szKeyphrase: [i8; 1],
 }
 impl ::core::marker::Copy for MULTIKEYHELPA {}
 impl ::core::clone::Clone for MULTIKEYHELPA {
@@ -42724,9 +42724,9 @@ pub struct NEWCPLINFOA {
     pub dwHelpContext: u32,
     pub lData: isize,
     pub hIcon: super::WindowsAndMessaging::HICON,
-    pub szName: [u8; 32],
-    pub szInfo: [u8; 64],
-    pub szHelpFile: [u8; 128],
+    pub szName: [i8; 32],
+    pub szInfo: [i8; 64],
+    pub szHelpFile: [i8; 128],
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::marker::Copy for NEWCPLINFOA {}
@@ -42788,12 +42788,12 @@ pub struct NOTIFYICONDATAA {
     pub uFlags: NOTIFY_ICON_DATA_FLAGS,
     pub uCallbackMessage: u32,
     pub hIcon: super::WindowsAndMessaging::HICON,
-    pub szTip: [u8; 128],
+    pub szTip: [i8; 128],
     pub dwState: NOTIFY_ICON_STATE,
     pub dwStateMask: u32,
-    pub szInfo: [u8; 256],
+    pub szInfo: [i8; 256],
     pub Anonymous: NOTIFYICONDATAA_0,
-    pub szInfoTitle: [u8; 64],
+    pub szInfoTitle: [i8; 64],
     pub dwInfoFlags: NOTIFY_ICON_INFOTIP_FLAGS,
     pub guidItem: ::windows_core::GUID,
     pub hBalloonIcon: super::WindowsAndMessaging::HICON,
@@ -42861,12 +42861,12 @@ pub struct NOTIFYICONDATAA {
     pub uFlags: NOTIFY_ICON_DATA_FLAGS,
     pub uCallbackMessage: u32,
     pub hIcon: super::WindowsAndMessaging::HICON,
-    pub szTip: [u8; 128],
+    pub szTip: [i8; 128],
     pub dwState: NOTIFY_ICON_STATE,
     pub dwStateMask: u32,
-    pub szInfo: [u8; 256],
+    pub szInfo: [i8; 256],
     pub Anonymous: NOTIFYICONDATAA_0,
-    pub szInfoTitle: [u8; 64],
+    pub szInfoTitle: [i8; 64],
     pub dwInfoFlags: NOTIFY_ICON_INFOTIP_FLAGS,
     pub guidItem: ::windows_core::GUID,
     pub hBalloonIcon: super::WindowsAndMessaging::HICON,
@@ -44763,8 +44763,8 @@ pub struct SHFILEINFOA {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub iIcon: i32,
     pub dwAttributes: u32,
-    pub szDisplayName: [u8; 260],
-    pub szTypeName: [u8; 80],
+    pub szDisplayName: [i8; 260],
+    pub szTypeName: [i8; 80],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -44796,8 +44796,8 @@ pub struct SHFILEINFOA {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub iIcon: i32,
     pub dwAttributes: u32,
-    pub szDisplayName: [u8; 260],
-    pub szTypeName: [u8; 80],
+    pub szDisplayName: [i8; 260],
+    pub szTypeName: [i8; 80],
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]

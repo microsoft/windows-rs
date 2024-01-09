@@ -471,7 +471,7 @@ pub struct MONHSZSTRUCTA {
     pub dwTime: u32,
     pub hsz: HSZ,
     pub hTask: super::super::Foundation::HANDLE,
-    pub str: [u8; 1],
+    pub str: [i8; 1],
 }
 impl ::core::marker::Copy for MONHSZSTRUCTA {}
 impl ::core::clone::Clone for MONHSZSTRUCTA {

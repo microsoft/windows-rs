@@ -4178,12 +4178,12 @@ impl ::core::default::Default for GOPHER_ATTRIBUTE_TYPE_0 {
 }
 #[repr(C)]
 pub struct GOPHER_FIND_DATAA {
-    pub DisplayString: [u8; 129],
+    pub DisplayString: [i8; 129],
     pub GopherType: GOPHER_TYPE,
     pub SizeLow: u32,
     pub SizeHigh: u32,
     pub LastModificationTime: super::super::Foundation::FILETIME,
-    pub Locator: [u8; 654],
+    pub Locator: [i8; 654],
 }
 impl ::core::marker::Copy for GOPHER_FIND_DATAA {}
 impl ::core::clone::Clone for GOPHER_FIND_DATAA {
@@ -4987,7 +4987,7 @@ impl ::core::default::Default for INTERNET_CACHE_CONFIG_INFOA_0 {
 }
 #[repr(C)]
 pub struct INTERNET_CACHE_CONFIG_INFOA_0_0 {
-    pub CachePath: [u8; 260],
+    pub CachePath: [i8; 260],
     pub dwCacheSize: u32,
 }
 impl ::core::marker::Copy for INTERNET_CACHE_CONFIG_INFOA_0_0 {}
@@ -5093,7 +5093,7 @@ impl ::core::default::Default for INTERNET_CACHE_CONFIG_INFOW_0_0 {
 }
 #[repr(C)]
 pub struct INTERNET_CACHE_CONFIG_PATH_ENTRYA {
-    pub CachePath: [u8; 260],
+    pub CachePath: [i8; 260],
     pub dwCacheSize: u32,
 }
 impl ::core::marker::Copy for INTERNET_CACHE_CONFIG_PATH_ENTRYA {}
@@ -5329,7 +5329,7 @@ pub struct INTERNET_CACHE_GROUP_INFOA {
     pub dwDiskUsage: u32,
     pub dwDiskQuota: u32,
     pub dwOwnerStorage: [u32; 4],
-    pub szGroupName: [u8; 120],
+    pub szGroupName: [i8; 120],
 }
 impl ::core::marker::Copy for INTERNET_CACHE_GROUP_INFOA {}
 impl ::core::clone::Clone for INTERNET_CACHE_GROUP_INFOA {

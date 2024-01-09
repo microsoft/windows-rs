@@ -219,11 +219,11 @@ where
     SetupComm(hfile.into_param().abi(), dwinqueue, dwoutqueue).ok()
 }
 #[inline]
-pub unsafe fn TransmitCommChar<P0>(hfile: P0, cchar: u8) -> ::windows_core::Result<()>
+pub unsafe fn TransmitCommChar<P0>(hfile: P0, cchar: i8) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn TransmitCommChar(hfile : super::super::Foundation:: HANDLE, cchar : u8) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("kernel32.dll" "system" fn TransmitCommChar(hfile : super::super::Foundation:: HANDLE, cchar : i8) -> super::super::Foundation:: BOOL);
     TransmitCommChar(hfile.into_param().abi(), cchar).ok()
 }
 #[doc = "Required features: `\"Win32_System_IO\"`"]
@@ -995,11 +995,11 @@ pub struct DCB {
     pub ByteSize: u8,
     pub Parity: DCB_PARITY,
     pub StopBits: DCB_STOP_BITS,
-    pub XonChar: u8,
-    pub XoffChar: u8,
-    pub ErrorChar: u8,
-    pub EofChar: u8,
-    pub EvtChar: u8,
+    pub XonChar: i8,
+    pub XoffChar: i8,
+    pub ErrorChar: i8,
+    pub EofChar: i8,
+    pub EvtChar: i8,
     pub wReserved1: u16,
 }
 impl ::core::marker::Copy for DCB {}

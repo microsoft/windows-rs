@@ -79,11 +79,11 @@ where
     FillConsoleOutputAttribute(hconsoleoutput.into_param().abi(), wattribute, nlength, ::core::mem::transmute(dwwritecoord), lpnumberofattrswritten).ok()
 }
 #[inline]
-pub unsafe fn FillConsoleOutputCharacterA<P0>(hconsoleoutput: P0, ccharacter: u8, nlength: u32, dwwritecoord: COORD, lpnumberofcharswritten: *mut u32) -> ::windows_core::Result<()>
+pub unsafe fn FillConsoleOutputCharacterA<P0>(hconsoleoutput: P0, ccharacter: i8, nlength: u32, dwwritecoord: COORD, lpnumberofcharswritten: *mut u32) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn FillConsoleOutputCharacterA(hconsoleoutput : super::super::Foundation:: HANDLE, ccharacter : u8, nlength : u32, dwwritecoord : COORD, lpnumberofcharswritten : *mut u32) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("kernel32.dll" "system" fn FillConsoleOutputCharacterA(hconsoleoutput : super::super::Foundation:: HANDLE, ccharacter : i8, nlength : u32, dwwritecoord : COORD, lpnumberofcharswritten : *mut u32) -> super::super::Foundation:: BOOL);
     FillConsoleOutputCharacterA(hconsoleoutput.into_param().abi(), ccharacter, nlength, ::core::mem::transmute(dwwritecoord), lpnumberofcharswritten).ok()
 }
 #[inline]
@@ -895,7 +895,7 @@ impl ::core::default::Default for CHAR_INFO {
 #[repr(C)]
 pub union CHAR_INFO_0 {
     pub UnicodeChar: u16,
-    pub AsciiChar: u8,
+    pub AsciiChar: i8,
 }
 impl ::core::marker::Copy for CHAR_INFO_0 {}
 impl ::core::clone::Clone for CHAR_INFO_0 {
@@ -1323,7 +1323,7 @@ impl ::core::default::Default for KEY_EVENT_RECORD {
 #[repr(C)]
 pub union KEY_EVENT_RECORD_0 {
     pub UnicodeChar: u16,
-    pub AsciiChar: u8,
+    pub AsciiChar: i8,
 }
 impl ::core::marker::Copy for KEY_EVENT_RECORD_0 {}
 impl ::core::clone::Clone for KEY_EVENT_RECORD_0 {

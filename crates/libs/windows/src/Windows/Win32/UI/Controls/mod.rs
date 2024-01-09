@@ -11744,15 +11744,15 @@ impl ::core::default::Default for BUTTON_SPLITINFO {
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct CCINFOA {
-    pub szClass: [u8; 32],
+    pub szClass: [i8; 32],
     pub flOptions: u32,
-    pub szDesc: [u8; 32],
+    pub szDesc: [i8; 32],
     pub cxDefault: u32,
     pub cyDefault: u32,
     pub flStyleDefault: u32,
     pub flExtStyleDefault: u32,
     pub flCtrlTypeMask: u32,
-    pub szTextDefault: [u8; 256],
+    pub szTextDefault: [i8; 256],
     pub cStyleFlags: i32,
     pub aStyleFlags: *mut CCSTYLEFLAGA,
     pub lpfnStyle: LPFNCCSTYLEA,
@@ -11860,7 +11860,7 @@ impl ::core::default::Default for CCINFOW {
 pub struct CCSTYLEA {
     pub flStyle: u32,
     pub flExtStyle: u32,
-    pub szText: [u8; 256],
+    pub szText: [i8; 256],
     pub lgid: u16,
     pub wReserved1: u16,
 }
@@ -14150,7 +14150,7 @@ impl ::core::default::Default for NMBCHOTITEM {
 pub struct NMCBEDRAGBEGINA {
     pub hdr: NMHDR,
     pub iItemid: i32,
-    pub szText: [u8; 260],
+    pub szText: [i8; 260],
 }
 impl ::core::marker::Copy for NMCBEDRAGBEGINA {}
 impl ::core::clone::Clone for NMCBEDRAGBEGINA {
@@ -14213,7 +14213,7 @@ pub struct NMCBEENDEDITA {
     pub hdr: NMHDR,
     pub fChanged: super::super::Foundation::BOOL,
     pub iNewSelection: i32,
-    pub szText: [u8; 260],
+    pub szText: [i8; 260],
     pub iWhy: i32,
 }
 impl ::core::marker::Copy for NMCBEENDEDITA {}
@@ -14523,7 +14523,7 @@ pub struct NMDATETIMEFORMATA {
     pub pszFormat: ::windows_core::PCSTR,
     pub st: super::super::Foundation::SYSTEMTIME,
     pub pszDisplay: ::windows_core::PCSTR,
-    pub szDisplay: [u8; 64],
+    pub szDisplay: [i8; 64],
 }
 impl ::core::marker::Copy for NMDATETIMEFORMATA {}
 impl ::core::clone::Clone for NMDATETIMEFORMATA {
@@ -16582,7 +16582,7 @@ impl ::core::default::Default for NMTTCUSTOMDRAW {
 pub struct NMTTDISPINFOA {
     pub hdr: NMHDR,
     pub lpszText: ::windows_core::PSTR,
-    pub szText: [u8; 80],
+    pub szText: [i8; 80],
     pub hinst: super::super::Foundation::HINSTANCE,
     pub uFlags: TOOLTIP_FLAGS,
     pub lParam: super::super::Foundation::LPARAM,

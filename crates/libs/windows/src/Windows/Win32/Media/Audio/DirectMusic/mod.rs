@@ -2032,9 +2032,9 @@ impl ::core::default::Default for DMUS_WAVES_REVERB_PARAMS {
 #[repr(C)]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
     pub DeviceId: ::windows_core::GUID,
-    pub DescriptionA: [u8; 256],
+    pub DescriptionA: [i8; 256],
     pub DescriptionW: [u16; 256],
-    pub ModuleA: [u8; 260],
+    pub ModuleA: [i8; 260],
     pub ModuleW: [u16; 260],
     pub Type: DIRECTSOUNDDEVICE_TYPE,
     pub DataFlow: DIRECTSOUNDDEVICE_DATAFLOW,

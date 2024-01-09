@@ -4656,7 +4656,7 @@ impl ::core::default::Default for TOKEN_PRIVILEGES {
 }
 #[repr(C)]
 pub struct TOKEN_SOURCE {
-    pub SourceName: [u8; 8],
+    pub SourceName: [i8; 8],
     pub SourceIdentifier: super::Foundation::LUID,
 }
 impl ::core::marker::Copy for TOKEN_SOURCE {}

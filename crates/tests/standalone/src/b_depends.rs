@@ -56,7 +56,7 @@ pub type PSTR = *mut u8;
 #[repr(C)]
 pub struct SOCKADDR {
     pub sa_family: ADDRESS_FAMILY,
-    pub sa_data: [u8; 14],
+    pub sa_data: [i8; 14],
 }
 impl ::core::marker::Copy for SOCKADDR {}
 impl ::core::clone::Clone for SOCKADDR {

@@ -39,8 +39,8 @@ pub unsafe fn ber_bvfree(bv: *mut LDAP_BERVAL) {
     ber_bvfree(bv)
 }
 #[inline]
-pub unsafe fn ber_first_element(pberelement: *mut BerElement, plen: *mut u32, ppopaque: *mut *mut u8) -> u32 {
-    ::windows_targets::link!("wldap32.dll" "cdecl" fn ber_first_element(pberelement : *mut BerElement, plen : *mut u32, ppopaque : *mut *mut u8) -> u32);
+pub unsafe fn ber_first_element(pberelement: *mut BerElement, plen: *mut u32, ppopaque: *mut *mut i8) -> u32 {
+    ::windows_targets::link!("wldap32.dll" "cdecl" fn ber_first_element(pberelement : *mut BerElement, plen : *mut u32, ppopaque : *mut *mut i8) -> u32);
     ber_first_element(pberelement, plen, ppopaque)
 }
 #[inline]

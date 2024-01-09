@@ -4966,7 +4966,7 @@ pub struct AVIFILEINFOA {
     pub dwRate: u32,
     pub dwLength: u32,
     pub dwEditCount: u32,
-    pub szFileType: [u8; 64],
+    pub szFileType: [i8; 64],
 }
 impl ::core::marker::Copy for AVIFILEINFOA {}
 impl ::core::clone::Clone for AVIFILEINFOA {
@@ -5014,7 +5014,7 @@ pub struct AVISTREAMINFOA {
     pub rcFrame: super::super::Foundation::RECT,
     pub dwEditCount: u32,
     pub dwFormatChangeCount: u32,
-    pub szName: [u8; 64],
+    pub szName: [i8; 64],
 }
 impl ::core::marker::Copy for AVISTREAMINFOA {}
 impl ::core::clone::Clone for AVISTREAMINFOA {
@@ -5791,7 +5791,7 @@ impl ::core::clone::Clone for IMAADPCMWAVEFORMAT {
 pub struct JOYCAPS2A {
     pub wMid: u16,
     pub wPid: u16,
-    pub szPname: [u8; 32],
+    pub szPname: [i8; 32],
     pub wXmin: u32,
     pub wXmax: u32,
     pub wYmin: u32,
@@ -5811,8 +5811,8 @@ pub struct JOYCAPS2A {
     pub wMaxAxes: u32,
     pub wNumAxes: u32,
     pub wMaxButtons: u32,
-    pub szRegKey: [u8; 32],
-    pub szOEMVxD: [u8; 260],
+    pub szRegKey: [i8; 32],
+    pub szOEMVxD: [i8; 260],
     pub ManufacturerGuid: ::windows_sys::core::GUID,
     pub ProductGuid: ::windows_sys::core::GUID,
     pub NameGuid: ::windows_sys::core::GUID,
@@ -5863,7 +5863,7 @@ impl ::core::clone::Clone for JOYCAPS2W {
 pub struct JOYCAPSA {
     pub wMid: u16,
     pub wPid: u16,
-    pub szPname: [u8; 32],
+    pub szPname: [i8; 32],
     pub wXmin: u32,
     pub wXmax: u32,
     pub wYmin: u32,
@@ -5883,8 +5883,8 @@ pub struct JOYCAPSA {
     pub wMaxAxes: u32,
     pub wNumAxes: u32,
     pub wMaxButtons: u32,
-    pub szRegKey: [u8; 32],
-    pub szOEMVxD: [u8; 260],
+    pub szRegKey: [i8; 32],
+    pub szOEMVxD: [i8; 260],
 }
 impl ::core::marker::Copy for JOYCAPSA {}
 impl ::core::clone::Clone for JOYCAPSA {
@@ -7388,8 +7388,8 @@ impl ::core::clone::Clone for YAMAHA_ADPCMWAVEFORMAT {
 #[repr(C)]
 pub struct s_RIFFWAVE_inst {
     pub bUnshiftedNote: u8,
-    pub chFineTune: u8,
-    pub chGain: u8,
+    pub chFineTune: i8,
+    pub chGain: i8,
     pub bLowNote: u8,
     pub bHighNote: u8,
     pub bLowVelocity: u8,

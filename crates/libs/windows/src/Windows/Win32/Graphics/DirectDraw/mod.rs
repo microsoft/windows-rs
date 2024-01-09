@@ -2981,8 +2981,8 @@ impl ::core::default::Default for DBLNODE {
 }
 #[repr(C)]
 pub struct DD32BITDRIVERDATA {
-    pub szName: [u8; 260],
-    pub szEntryPoint: [u8; 64],
+    pub szName: [i8; 260],
+    pub szEntryPoint: [i8; 64],
     pub dwContext: u32,
 }
 impl ::core::marker::Copy for DD32BITDRIVERDATA {}
@@ -4170,8 +4170,8 @@ impl ::core::default::Default for DDCORECAPS {
 }
 #[repr(C)]
 pub struct DDDEVICEIDENTIFIER {
-    pub szDriver: [u8; 512],
-    pub szDescription: [u8; 512],
+    pub szDriver: [i8; 512],
+    pub szDescription: [i8; 512],
     pub liDriverVersion: i64,
     pub dwVendorId: u32,
     pub dwDeviceId: u32,
@@ -4206,8 +4206,8 @@ impl ::core::default::Default for DDDEVICEIDENTIFIER {
 }
 #[repr(C)]
 pub struct DDDEVICEIDENTIFIER2 {
-    pub szDriver: [u8; 512],
-    pub szDescription: [u8; 512],
+    pub szDriver: [i8; 512],
+    pub szDescription: [i8; 512],
     pub liDriverVersion: i64,
     pub dwVendorId: u32,
     pub dwDeviceId: u32,
@@ -8992,7 +8992,7 @@ pub struct DDRAWI_DIRECTDRAW_GBL {
     pub dwAliasedLockCnt: u32,
     pub dwReserved3: usize,
     pub hDD: usize,
-    pub cObsolete: [u8; 12],
+    pub cObsolete: [i8; 12],
     pub dwReserved1: u32,
     pub dwReserved2: u32,
     pub dbnOverlayRoot: DBLNODE,
@@ -9023,7 +9023,7 @@ pub struct DDRAWI_DIRECTDRAW_GBL {
     pub lpD3DExtendedCaps: usize,
     pub dwDOSBoxEvent: u32,
     pub rectDesktop: super::super::Foundation::RECT,
-    pub cDriverName: [u8; 32],
+    pub cDriverName: [i8; 32],
     pub lpD3DHALCallbacks3: usize,
     pub dwNumZPixelFormats: u32,
     pub lpZPixelFormats: *mut DDPIXELFORMAT,

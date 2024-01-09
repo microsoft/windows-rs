@@ -563,7 +563,7 @@ impl IMLangStringAStr_Vtbl {
 }
 pub trait IMLangStringBufA_Impl: Sized {
     fn GetStatus(&self, plflags: *mut i32, pcchbuf: *mut i32) -> ::windows_core::Result<()>;
-    fn LockBuf(&self, cchoffset: i32, cchmaxlock: i32, ppszbuf: *mut *mut u8, pcchbuf: *mut i32) -> ::windows_core::Result<()>;
+    fn LockBuf(&self, cchoffset: i32, cchmaxlock: i32, ppszbuf: *mut *mut i8, pcchbuf: *mut i32) -> ::windows_core::Result<()>;
     fn UnlockBuf(&self, pszbuf: &::windows_core::PCSTR, cchoffset: i32, cchwrite: i32) -> ::windows_core::Result<()>;
     fn Insert(&self, cchoffset: i32, cchmaxinsert: i32, pcchactual: *mut i32) -> ::windows_core::Result<()>;
     fn Delete(&self, cchoffset: i32, cchdelete: i32) -> ::windows_core::Result<()>;
@@ -576,7 +576,7 @@ impl IMLangStringBufA_Vtbl {
             let this = (*this).get_impl();
             this.GetStatus(::core::mem::transmute_copy(&plflags), ::core::mem::transmute_copy(&pcchbuf)).into()
         }
-        unsafe extern "system" fn LockBuf<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMLangStringBufA_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cchoffset: i32, cchmaxlock: i32, ppszbuf: *mut *mut u8, pcchbuf: *mut i32) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn LockBuf<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMLangStringBufA_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cchoffset: i32, cchmaxlock: i32, ppszbuf: *mut *mut i8, pcchbuf: *mut i32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.LockBuf(::core::mem::transmute_copy(&cchoffset), ::core::mem::transmute_copy(&cchmaxlock), ::core::mem::transmute_copy(&ppszbuf), ::core::mem::transmute_copy(&pcchbuf)).into()

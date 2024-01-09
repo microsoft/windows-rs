@@ -8370,7 +8370,7 @@ impl ::core::default::Default for NLA_BLOB {
 }
 #[repr(C)]
 pub union NLA_BLOB_0 {
-    pub rawData: [u8; 1],
+    pub rawData: [i8; 1],
     pub interfaceData: NLA_BLOB_0_2,
     pub locationData: NLA_BLOB_0_3,
     pub connectivity: NLA_BLOB_0_1,
@@ -8486,7 +8486,7 @@ impl ::core::default::Default for NLA_BLOB_0_1 {
 pub struct NLA_BLOB_0_2 {
     pub dwType: u32,
     pub dwSpeed: u32,
-    pub adapterName: [u8; 1],
+    pub adapterName: [i8; 1],
 }
 impl ::core::marker::Copy for NLA_BLOB_0_2 {}
 impl ::core::clone::Clone for NLA_BLOB_0_2 {
@@ -8515,7 +8515,7 @@ impl ::core::default::Default for NLA_BLOB_0_2 {
 }
 #[repr(C)]
 pub struct NLA_BLOB_0_3 {
-    pub information: [u8; 1],
+    pub information: [i8; 1],
 }
 impl ::core::marker::Copy for NLA_BLOB_0_3 {}
 impl ::core::clone::Clone for NLA_BLOB_0_3 {
@@ -10350,7 +10350,7 @@ impl ::core::default::Default for SNAP_HEADER {
 #[repr(C)]
 pub struct SOCKADDR {
     pub sa_family: ADDRESS_FAMILY,
-    pub sa_data: [u8; 14],
+    pub sa_data: [i8; 14],
 }
 impl ::core::marker::Copy for SOCKADDR {}
 impl ::core::clone::Clone for SOCKADDR {
@@ -10445,7 +10445,7 @@ pub struct SOCKADDR_IN {
     pub sin_family: ADDRESS_FAMILY,
     pub sin_port: u16,
     pub sin_addr: IN_ADDR,
-    pub sin_zero: [u8; 8],
+    pub sin_zero: [i8; 8],
 }
 impl ::core::marker::Copy for SOCKADDR_IN {}
 impl ::core::clone::Clone for SOCKADDR_IN {
@@ -10577,8 +10577,8 @@ impl ::core::default::Default for SOCKADDR_INET {
 #[repr(C)]
 pub struct SOCKADDR_IPX {
     pub sa_family: i16,
-    pub sa_netnum: [u8; 4],
-    pub sa_nodenum: [u8; 6],
+    pub sa_netnum: [i8; 4],
+    pub sa_nodenum: [i8; 6],
     pub sa_socket: u16,
 }
 impl ::core::marker::Copy for SOCKADDR_IPX {}
@@ -10610,7 +10610,7 @@ impl ::core::default::Default for SOCKADDR_IPX {
 pub struct SOCKADDR_IRDA {
     pub irdaAddressFamily: u16,
     pub irdaDeviceID: [u8; 4],
-    pub irdaServiceName: [u8; 25],
+    pub irdaServiceName: [i8; 25],
 }
 impl ::core::marker::Copy for SOCKADDR_IRDA {}
 impl ::core::clone::Clone for SOCKADDR_IRDA {
@@ -10641,7 +10641,7 @@ impl ::core::default::Default for SOCKADDR_IRDA {
 pub struct SOCKADDR_NB {
     pub snb_family: i16,
     pub snb_type: u16,
-    pub snb_name: [u8; 16],
+    pub snb_name: [i8; 16],
 }
 impl ::core::marker::Copy for SOCKADDR_NB {}
 impl ::core::clone::Clone for SOCKADDR_NB {
@@ -10671,9 +10671,9 @@ impl ::core::default::Default for SOCKADDR_NB {
 #[repr(C)]
 pub struct SOCKADDR_STORAGE {
     pub ss_family: ADDRESS_FAMILY,
-    pub __ss_pad1: [u8; 6],
+    pub __ss_pad1: [i8; 6],
     pub __ss_align: i64,
-    pub __ss_pad2: [u8; 112],
+    pub __ss_pad2: [i8; 112],
 }
 impl ::core::marker::Copy for SOCKADDR_STORAGE {}
 impl ::core::clone::Clone for SOCKADDR_STORAGE {
@@ -10703,9 +10703,9 @@ impl ::core::default::Default for SOCKADDR_STORAGE {
 #[repr(C)]
 pub struct SOCKADDR_STORAGE_XP {
     pub ss_family: i16,
-    pub __ss_pad1: [u8; 6],
+    pub __ss_pad1: [i8; 6],
     pub __ss_align: i64,
-    pub __ss_pad2: [u8; 112],
+    pub __ss_pad2: [i8; 112],
 }
 impl ::core::marker::Copy for SOCKADDR_STORAGE_XP {}
 impl ::core::clone::Clone for SOCKADDR_STORAGE_XP {
@@ -10768,7 +10768,7 @@ impl ::core::default::Default for SOCKADDR_TP {
 #[repr(C)]
 pub struct SOCKADDR_UN {
     pub sun_family: ADDRESS_FAMILY,
-    pub sun_path: [u8; 108],
+    pub sun_path: [i8; 108],
 }
 impl ::core::marker::Copy for SOCKADDR_UN {}
 impl ::core::clone::Clone for SOCKADDR_UN {
@@ -11971,7 +11971,7 @@ impl ::core::default::Default for WCE_DEVICELIST {
 #[repr(C)]
 pub struct WCE_IRDA_DEVICE_INFO {
     pub irdaDeviceID: [u8; 4],
-    pub irdaDeviceName: [u8; 22],
+    pub irdaDeviceName: [i8; 22],
     pub Reserved: [u8; 2],
 }
 impl ::core::marker::Copy for WCE_IRDA_DEVICE_INFO {}
@@ -12032,8 +12032,8 @@ impl ::core::default::Default for WINDOWS_DEVICELIST {
 #[repr(C)]
 pub struct WINDOWS_IAS_QUERY {
     pub irdaDeviceID: [u8; 4],
-    pub irdaClassName: [u8; 64],
-    pub irdaAttribName: [u8; 256],
+    pub irdaClassName: [i8; 64],
+    pub irdaAttribName: [i8; 256],
     pub irdaAttribType: u32,
     pub irdaAttribute: WINDOWS_IAS_QUERY_0,
 }
@@ -12134,8 +12134,8 @@ impl ::core::default::Default for WINDOWS_IAS_QUERY_0_1 {
 }
 #[repr(C)]
 pub struct WINDOWS_IAS_SET {
-    pub irdaClassName: [u8; 64],
-    pub irdaAttribName: [u8; 256],
+    pub irdaClassName: [i8; 64],
+    pub irdaAttribName: [i8; 256],
     pub irdaAttribType: u32,
     pub irdaAttribute: WINDOWS_IAS_SET_0,
 }
@@ -12237,7 +12237,7 @@ impl ::core::default::Default for WINDOWS_IAS_SET_0_1 {
 #[repr(C)]
 pub struct WINDOWS_IRDA_DEVICE_INFO {
     pub irdaDeviceID: [u8; 4],
-    pub irdaDeviceName: [u8; 22],
+    pub irdaDeviceName: [i8; 22],
     pub irdaDeviceHints1: u8,
     pub irdaDeviceHints2: u8,
     pub irdaCharSet: u8,
@@ -12506,8 +12506,8 @@ pub struct WSADATA {
     pub iMaxSockets: u16,
     pub iMaxUdpDg: u16,
     pub lpVendorInfo: ::windows_core::PSTR,
-    pub szDescription: [u8; 257],
-    pub szSystemStatus: [u8; 129],
+    pub szDescription: [i8; 257],
+    pub szSystemStatus: [i8; 129],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for WSADATA {}
@@ -12546,8 +12546,8 @@ impl ::core::default::Default for WSADATA {
 pub struct WSADATA {
     pub wVersion: u16,
     pub wHighVersion: u16,
-    pub szDescription: [u8; 257],
-    pub szSystemStatus: [u8; 129],
+    pub szDescription: [i8; 257],
+    pub szSystemStatus: [i8; 129],
     pub iMaxSockets: u16,
     pub iMaxUdpDg: u16,
     pub lpVendorInfo: ::windows_core::PSTR,
@@ -13007,7 +13007,7 @@ pub struct WSAPROTOCOL_INFOA {
     pub iSecurityScheme: i32,
     pub dwMessageSize: u32,
     pub dwProviderReserved: u32,
-    pub szProtocol: [u8; 256],
+    pub szProtocol: [i8; 256],
 }
 impl ::core::marker::Copy for WSAPROTOCOL_INFOA {}
 impl ::core::clone::Clone for WSAPROTOCOL_INFOA {

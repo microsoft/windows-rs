@@ -2365,7 +2365,7 @@ impl ::core::default::Default for GNSS_NI_RESPONSE {
 pub struct GNSS_NMEA_DATA {
     pub Size: u32,
     pub Version: u32,
-    pub NmeaSentences: [u8; 256],
+    pub NmeaSentences: [i8; 256],
 }
 impl ::core::marker::Copy for GNSS_NMEA_DATA {}
 impl ::core::clone::Clone for GNSS_NMEA_DATA {
@@ -2596,7 +2596,7 @@ pub struct GNSS_SUPL_CERT_CONFIG {
     pub Size: u32,
     pub Version: u32,
     pub CertAction: GNSS_SUPL_CERT_ACTION,
-    pub SuplCertName: [u8; 260],
+    pub SuplCertName: [i8; 260],
     pub CertSize: u32,
     pub Unused: [u8; 512],
     pub CertData: [u8; 1],
@@ -2630,8 +2630,8 @@ impl ::core::default::Default for GNSS_SUPL_CERT_CONFIG {
 pub struct GNSS_SUPL_HSLP_CONFIG {
     pub Size: u32,
     pub Version: u32,
-    pub SuplHslp: [u8; 260],
-    pub SuplHslpFromImsi: [u8; 260],
+    pub SuplHslp: [i8; 260],
+    pub SuplHslpFromImsi: [i8; 260],
     pub Reserved: u32,
     pub Unused: [u8; 512],
 }
@@ -2666,7 +2666,7 @@ pub struct GNSS_SUPL_NI_INFO {
     pub Version: u32,
     pub RequestorId: [u16; 260],
     pub ClientName: [u16; 260],
-    pub SuplNiUrl: [u8; 260],
+    pub SuplNiUrl: [i8; 260],
 }
 impl ::core::marker::Copy for GNSS_SUPL_NI_INFO {}
 impl ::core::clone::Clone for GNSS_SUPL_NI_INFO {
@@ -2758,8 +2758,8 @@ impl ::core::default::Default for GNSS_SUPL_VERSION_2 {
 pub struct GNSS_V2UPL_CONFIG {
     pub Size: u32,
     pub Version: u32,
-    pub MPC: [u8; 260],
-    pub PDE: [u8; 260],
+    pub MPC: [i8; 260],
+    pub PDE: [i8; 260],
     pub ApplicationTypeIndicator_MR: u8,
     pub Unused: [u8; 512],
 }

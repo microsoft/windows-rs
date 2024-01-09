@@ -678,7 +678,7 @@ impl ::core::clone::Clone for FAX_CONFIGURATIONW {
 pub struct FAX_CONTEXT_INFOA {
     pub SizeOfStruct: u32,
     pub hDC: super::super::Graphics::Gdi::HDC,
-    pub ServerName: [u8; 16],
+    pub ServerName: [i8; 16],
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::marker::Copy for FAX_CONTEXT_INFOA {}

@@ -813,7 +813,7 @@ impl ::core::clone::Clone for BITMAP_RENDERER_STATISTICS {
 }
 #[repr(C, packed(1))]
 pub struct CHANNEL_DEF {
-    pub name: [u8; 8],
+    pub name: [i8; 8],
     pub options: u32,
 }
 impl ::core::marker::Copy for CHANNEL_DEF {}
@@ -862,8 +862,8 @@ impl ::core::clone::Clone for CLIENT_DISPLAY {
 }
 #[repr(C)]
 pub struct PRODUCT_INFOA {
-    pub CompanyName: [u8; 256],
-    pub ProductID: [u8; 4],
+    pub CompanyName: [i8; 256],
+    pub ProductID: [i8; 4],
 }
 impl ::core::marker::Copy for PRODUCT_INFOA {}
 impl ::core::clone::Clone for PRODUCT_INFOA {
@@ -1272,25 +1272,25 @@ impl ::core::clone::Clone for WRDS_SETTINGS_1 {
 }
 #[repr(C)]
 pub struct WTSCLIENTA {
-    pub ClientName: [u8; 21],
-    pub Domain: [u8; 18],
-    pub UserName: [u8; 21],
-    pub WorkDirectory: [u8; 261],
-    pub InitialProgram: [u8; 261],
+    pub ClientName: [i8; 21],
+    pub Domain: [i8; 18],
+    pub UserName: [i8; 21],
+    pub WorkDirectory: [i8; 261],
+    pub InitialProgram: [i8; 261],
     pub EncryptionLevel: u8,
     pub ClientAddressFamily: u32,
     pub ClientAddress: [u16; 31],
     pub HRes: u16,
     pub VRes: u16,
     pub ColorDepth: u16,
-    pub ClientDirectory: [u8; 261],
+    pub ClientDirectory: [i8; 261],
     pub ClientBuildNumber: u32,
     pub ClientHardwareId: u32,
     pub ClientProductId: u16,
     pub OutBufCountHost: u16,
     pub OutBufCountClient: u16,
     pub OutBufLength: u16,
-    pub DeviceId: [u8; 261],
+    pub DeviceId: [i8; 261],
 }
 impl ::core::marker::Copy for WTSCLIENTA {}
 impl ::core::clone::Clone for WTSCLIENTA {
@@ -1334,11 +1334,11 @@ pub struct WTSCONFIGINFOA {
     pub fDisablePrinterRedirection: u32,
     pub fDisableDefaultMainClientPrinter: u32,
     pub ShadowSettings: u32,
-    pub LogonUserName: [u8; 21],
-    pub LogonDomain: [u8; 18],
-    pub WorkDirectory: [u8; 261],
-    pub InitialProgram: [u8; 261],
-    pub ApplicationName: [u8; 261],
+    pub LogonUserName: [i8; 21],
+    pub LogonDomain: [i8; 18],
+    pub WorkDirectory: [i8; 261],
+    pub InitialProgram: [i8; 261],
+    pub ApplicationName: [i8; 261],
 }
 impl ::core::marker::Copy for WTSCONFIGINFOA {}
 impl ::core::clone::Clone for WTSCONFIGINFOA {
@@ -1376,9 +1376,9 @@ pub struct WTSINFOA {
     pub OutgoingFrames: u32,
     pub IncomingCompressedBytes: u32,
     pub OutgoingCompressedBy: u32,
-    pub WinStationName: [u8; 32],
-    pub Domain: [u8; 17],
-    pub UserName: [u8; 21],
+    pub WinStationName: [i8; 32],
+    pub Domain: [i8; 17],
+    pub UserName: [i8; 21],
     pub ConnectTime: i64,
     pub DisconnectTime: i64,
     pub LastInputTime: i64,
@@ -1418,9 +1418,9 @@ pub struct WTSINFOEX_LEVEL1_A {
     pub SessionId: u32,
     pub SessionState: WTS_CONNECTSTATE_CLASS,
     pub SessionFlags: i32,
-    pub WinStationName: [u8; 33],
-    pub UserName: [u8; 21],
-    pub DomainName: [u8; 18],
+    pub WinStationName: [i8; 33],
+    pub UserName: [i8; 21],
+    pub DomainName: [i8; 18],
     pub LogonTime: i64,
     pub ConnectTime: i64,
     pub DisconnectTime: i64,
@@ -1538,11 +1538,11 @@ pub struct WTSLISTENERCONFIGA {
     pub SecurityLayer: u32,
     pub MinEncryptionLevel: u32,
     pub UserAuthentication: u32,
-    pub Comment: [u8; 61],
-    pub LogonUserName: [u8; 21],
-    pub LogonDomain: [u8; 18],
-    pub WorkDirectory: [u8; 261],
-    pub InitialProgram: [u8; 261],
+    pub Comment: [i8; 61],
+    pub LogonUserName: [i8; 21],
+    pub LogonDomain: [i8; 18],
+    pub WorkDirectory: [i8; 261],
+    pub InitialProgram: [i8; 261],
 }
 impl ::core::marker::Copy for WTSLISTENERCONFIGA {}
 impl ::core::clone::Clone for WTSLISTENERCONFIGA {
@@ -1675,11 +1675,11 @@ pub struct WTSUSERCONFIGA {
     pub ReconnectSettings: u32,
     pub ShadowingSettings: u32,
     pub TerminalServerRemoteHomeDir: u32,
-    pub InitialProgram: [u8; 261],
-    pub WorkDirectory: [u8; 261],
-    pub TerminalServerProfilePath: [u8; 261],
-    pub TerminalServerHomeDir: [u8; 261],
-    pub TerminalServerHomeDirDrive: [u8; 4],
+    pub InitialProgram: [i8; 261],
+    pub WorkDirectory: [i8; 261],
+    pub TerminalServerProfilePath: [i8; 261],
+    pub TerminalServerHomeDir: [i8; 261],
+    pub TerminalServerHomeDirDrive: [i8; 4],
 }
 impl ::core::marker::Copy for WTSUSERCONFIGA {}
 impl ::core::clone::Clone for WTSUSERCONFIGA {

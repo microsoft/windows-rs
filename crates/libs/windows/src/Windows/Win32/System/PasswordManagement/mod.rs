@@ -20,7 +20,7 @@ where
 }
 #[repr(C)]
 pub struct CYPHER_BLOCK {
-    pub data: [u8; 8],
+    pub data: [i8; 8],
 }
 impl ::core::marker::Copy for CYPHER_BLOCK {}
 impl ::core::clone::Clone for CYPHER_BLOCK {
