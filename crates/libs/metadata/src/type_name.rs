@@ -47,6 +47,9 @@ impl TypeName {
     pub const IRestrictedErrorInfo: Self = Self::from_const("Windows.Win32.System.WinRT", "IRestrictedErrorInfo");
     pub const IDispatch: Self = Self::from_const("Windows.Win32.System.Com", "IDispatch");
 
+    pub const VARIANT: Self = Self::from_const("Windows.Win32.System.Variant", "VARIANT");
+    pub const PROPVARIANT: Self = Self::from_const("Windows.Win32.System.Com.StructuredStorage", "PROPVARIANT");
+
     const fn from_const(namespace: &'static str, name: &'static str) -> Self {
         Self { namespace, name }
     }
