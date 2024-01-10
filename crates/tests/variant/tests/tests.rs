@@ -71,8 +71,14 @@ fn test_variant() -> Result<()> {
 
     let v = VARIANT::from(BSTR::from("hello"));
     assert_eq!(BSTR::try_from(&v)?, "hello");
-    assert_eq!(VARIANT::from(BSTR::from("hello")), VARIANT::from(BSTR::from("hello")));
-    assert_ne!(VARIANT::from(BSTR::from("hello")), VARIANT::from(BSTR::from("goodbye")));
+    assert_eq!(
+        VARIANT::from(BSTR::from("hello")),
+        VARIANT::from(BSTR::from("hello"))
+    );
+    assert_ne!(
+        VARIANT::from(BSTR::from("hello")),
+        VARIANT::from(BSTR::from("goodbye"))
+    );
 
     let v = VARIANT::from(3.5f64);
     assert_eq!(BSTR::try_from(&v)?, "3.5");
@@ -86,7 +92,6 @@ fn test_variant() -> Result<()> {
 
     Ok(())
 }
-
 
 #[test]
 fn test_propvariant() -> Result<()> {
@@ -139,12 +144,18 @@ fn test_propvariant() -> Result<()> {
 
     let v = PROPVARIANT::from(5294967295u64);
     assert_eq!(u64::try_from(&v)?, 5294967295u64);
-    assert_eq!(PROPVARIANT::from(5294967295u64), PROPVARIANT::from(5294967295u64));
+    assert_eq!(
+        PROPVARIANT::from(5294967295u64),
+        PROPVARIANT::from(5294967295u64)
+    );
     assert_ne!(PROPVARIANT::from(5294967295u64), PROPVARIANT::from(0u64));
 
     let v = PROPVARIANT::from(-5294967295i64);
     assert_eq!(i64::try_from(&v)?, -5294967295i64);
-    assert_eq!(PROPVARIANT::from(-5294967295i64), PROPVARIANT::from(-5294967295i64));
+    assert_eq!(
+        PROPVARIANT::from(-5294967295i64),
+        PROPVARIANT::from(-5294967295i64)
+    );
     assert_ne!(PROPVARIANT::from(-5294967295i64), PROPVARIANT::from(0i64));
 
     let v = PROPVARIANT::from(3.5f32);
@@ -159,8 +170,14 @@ fn test_propvariant() -> Result<()> {
 
     let v = PROPVARIANT::from(BSTR::from("hello"));
     assert_eq!(BSTR::try_from(&v)?, "hello");
-    assert_eq!(PROPVARIANT::from(BSTR::from("hello")), PROPVARIANT::from(BSTR::from("hello")));
-    assert_ne!(PROPVARIANT::from(BSTR::from("hello")), PROPVARIANT::from(BSTR::from("goodbye")));
+    assert_eq!(
+        PROPVARIANT::from(BSTR::from("hello")),
+        PROPVARIANT::from(BSTR::from("hello"))
+    );
+    assert_ne!(
+        PROPVARIANT::from(BSTR::from("hello")),
+        PROPVARIANT::from(BSTR::from("goodbye"))
+    );
 
     let v = PROPVARIANT::from(3.5f64);
     assert_eq!(BSTR::try_from(&v)?, "3.5");

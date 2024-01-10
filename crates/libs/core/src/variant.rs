@@ -20,7 +20,7 @@ impl Default for PROPVARIANT {
 
 impl Clone for VARIANT {
     fn clone(&self) -> Self {
-        unsafe { 
+        unsafe {
             let mut value = Self::new();
             imp::VariantCopy(&mut value.0, &self.0);
             value
@@ -30,7 +30,7 @@ impl Clone for VARIANT {
 
 impl Clone for PROPVARIANT {
     fn clone(&self) -> Self {
-        unsafe { 
+        unsafe {
             let mut value = Self::new();
             imp::PropVariantCopy(&mut value.0, &self.0);
             value

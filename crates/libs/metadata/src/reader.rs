@@ -141,11 +141,19 @@ impl Reader {
     }
 
     pub fn remap_types(&self) -> impl Iterator<Item = &(TypeName, TypeName)> + '_ {
-        if self.sys { [].iter() } else { REMAP_TYPES.iter() }
+        if self.sys {
+            [].iter()
+        } else {
+            REMAP_TYPES.iter()
+        }
     }
 
     pub fn core_types(&self) -> impl Iterator<Item = &(TypeName, Type)> + '_ {
-        if self.sys { SYS_CORE_TYPES.iter() } else { CORE_TYPES.iter() }
+        if self.sys {
+            SYS_CORE_TYPES.iter()
+        } else {
+            CORE_TYPES.iter()
+        }
     }
 
     pub fn type_from_ref(&self, code: TypeDefOrRef, enclosing: Option<TypeDef>, generics: &[Type]) -> Type {
