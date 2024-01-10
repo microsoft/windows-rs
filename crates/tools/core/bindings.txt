@@ -5,8 +5,8 @@
 
 --filter
     Windows.Win32.Foundation.CloseHandle
-    Windows.Win32.Foundation.ERROR_NO_UNICODE_TRANSLATION
     Windows.Win32.Foundation.E_INVALIDARG
+    Windows.Win32.Foundation.ERROR_NO_UNICODE_TRANSLATION
     Windows.Win32.Foundation.FreeLibrary
     Windows.Win32.Foundation.GetLastError
     Windows.Win32.Foundation.SysAllocStringLen
@@ -14,6 +14,21 @@
     Windows.Win32.Foundation.SysStringLen
     Windows.Win32.System.Com.CoTaskMemAlloc
     Windows.Win32.System.Com.CoTaskMemFree
+    Windows.Win32.System.Com.StructuredStorage.PROPVARIANT
+    Windows.Win32.System.Com.StructuredStorage.PropVariantClear
+    Windows.Win32.System.Com.StructuredStorage.PropVariantCompareEx
+    Windows.Win32.System.Com.StructuredStorage.PropVariantCopy
+    Windows.Win32.System.Com.StructuredStorage.PropVariantToBoolean
+    Windows.Win32.System.Com.StructuredStorage.PropVariantToBSTR
+    Windows.Win32.System.Com.StructuredStorage.PropVariantToDouble
+    Windows.Win32.System.Com.StructuredStorage.PropVariantToInt16
+    Windows.Win32.System.Com.StructuredStorage.PropVariantToInt32
+    Windows.Win32.System.Com.StructuredStorage.PropVariantToInt64
+    Windows.Win32.System.Com.StructuredStorage.PropVariantToUInt16
+    Windows.Win32.System.Com.StructuredStorage.PropVariantToUInt32
+    Windows.Win32.System.Com.StructuredStorage.PropVariantToUInt64
+    Windows.Win32.System.Com.StructuredStorage.PropVariantToVariant
+    Windows.Win32.System.Com.StructuredStorage.VariantToPropVariant
     Windows.Win32.System.Diagnostics.Debug.EncodePointer
     Windows.Win32.System.Diagnostics.Debug.FORMAT_MESSAGE_ALLOCATE_BUFFER
     Windows.Win32.System.Diagnostics.Debug.FORMAT_MESSAGE_FROM_SYSTEM
@@ -28,3 +43,27 @@
     Windows.Win32.System.Threading.CreateEventW
     Windows.Win32.System.Threading.SetEvent
     Windows.Win32.System.Threading.WaitForSingleObject
+    Windows.Win32.System.Variant.VARIANT
+    Windows.Win32.System.Variant.VariantClear
+    Windows.Win32.System.Variant.VariantCopy
+    Windows.Win32.System.Variant.VariantToBoolean
+    Windows.Win32.System.Variant.VariantToDouble
+    Windows.Win32.System.Variant.VariantToInt16
+    Windows.Win32.System.Variant.VariantToInt32
+    Windows.Win32.System.Variant.VariantToInt64
+    Windows.Win32.System.Variant.VariantToUInt16
+    Windows.Win32.System.Variant.VariantToUInt32
+    Windows.Win32.System.Variant.VariantToUInt64
+    Windows.Win32.System.Variant.VT_BOOL
+    Windows.Win32.System.Variant.VT_BSTR
+    Windows.Win32.System.Variant.VT_EMPTY
+    Windows.Win32.System.Variant.VT_I1
+    Windows.Win32.System.Variant.VT_I2
+    Windows.Win32.System.Variant.VT_I4
+    Windows.Win32.System.Variant.VT_I8
+    Windows.Win32.System.Variant.VT_R4
+    Windows.Win32.System.Variant.VT_R8
+    Windows.Win32.System.Variant.VT_UI1
+    Windows.Win32.System.Variant.VT_UI2
+    Windows.Win32.System.Variant.VT_UI4
+    Windows.Win32.System.Variant.VT_UI8

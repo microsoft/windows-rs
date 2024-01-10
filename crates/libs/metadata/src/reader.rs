@@ -139,7 +139,7 @@ impl Reader {
     }
 
     pub fn remap_types(&self) -> impl Iterator<Item = &(TypeName, TypeName)> + '_ {
-        if self.sys { REMAP_TYPES.iter() } else { [].iter() }
+        if self.sys { [].iter() } else { REMAP_TYPES.iter() }
     }
 
     pub fn core_types(&self) -> impl Iterator<Item = &(TypeName, Type)> + '_ {
