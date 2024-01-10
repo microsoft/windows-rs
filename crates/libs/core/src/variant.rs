@@ -97,7 +97,7 @@ impl PartialEq for VARIANT {
                 return false;
             };
 
-            this == other
+            this.eq(&other)
         }
     }
 }
